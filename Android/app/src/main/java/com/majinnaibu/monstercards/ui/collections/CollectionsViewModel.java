@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 public class CollectionsViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> mText;
 
     public CollectionsViewModel() {
         mText = new MutableLiveData<>();
