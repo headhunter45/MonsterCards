@@ -1,105 +1,37 @@
-plugins {
-    id 'com.android.application'
-    id 'androidx.navigation.safeargs'
-}
-
-Properties properties = new Properties()
-def propertiesFile = project.rootProject.file('local.properties')
-if (propertiesFile.exists()) {
-    properties.load(propertiesFile.newDataInputStream())
-}
-def appCenterLocalSecret = properties.getProperty('appCenter.localSecret')
-def appCenterEnvSecret = System.getenv('APPCENTER_SECRET')
-def appCenterSecret = appCenterLocalSecret != null ? appCenterLocalSecret : appCenterEnvSecret != null ? appCenterEnvSecret : ""
+apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.majinnaibu.monstercards"
         minSdkVersion 22
-        targetSdkVersion 31
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "APPCENTER_SECRET", "\"${appCenterSecret}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
-        }
     }
 
     buildTypes {
         release {
-            // Enables code shrinking, obfuscation, and optimization for only
-            // your project's release build type.
-            minifyEnabled true
-
-            // Enables resource shrinking, which is performed by the
-            // Android Gradle plugin.
-            shrinkResources true
-
-            // Includes the default ProGuard rules files that are packaged with
-            // the Android Gradle plugin. To learn more, go to the section about
-            // R8 configuration files.
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    buildFeatures {
-        viewBinding true
-    }
-    lintOptions {
-        checkDependencies true
     }
 }
 
 dependencies {
-    // Included libs
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
-    // Google
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation "androidx.navigation:navigation-fragment:2.3.5"
-    implementation "androidx.navigation:navigation-ui:2.3.5"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    // Testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-    // Room DB
-    implementation 'io.reactivex.rxjava3:rxjava:3.1.0'
-    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation "androidx.room:room-runtime:2.3.0"
-    annotationProcessor "androidx.room:room-compiler:2.3.0"
-    implementation "androidx.room:room-rxjava3:2.3.0"
-    //testImplementation "androidx.room:room-testing:2.3.0"
-
-    // AppCenter
-    debugImplementation 'com.microsoft.appcenter:appcenter-analytics:4.2.0'
-    debugImplementation 'com.microsoft.appcenter:appcenter-crashes:4.2.0'
-
-    // Flipper
-    debugImplementation 'com.facebook.flipper:flipper:0.102.0'
-    debugImplementation "com.facebook.soloader:soloader:0.10.1"
-    releaseImplementation 'com.facebook.flipper:flipper-noop:0.102.0'
-
-    // Other 3rd Party
-    implementation 'com.atlassian.commonmark:commonmark:0.17.0'
-    implementation 'com.google.code.gson:gson:2.8.7'
 }

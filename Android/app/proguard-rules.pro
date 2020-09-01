@@ -19,14 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
--keep enum com.majinnaibu.monstercards.data.enums.AbilityScore
--keep enum com.majinnaibu.monstercards.data.enums.ProficiencyType
--keep enum com.majinnaibu.monstercards.data.enums.AdvantageType
--keep enum com.majinnaibu.monstercards.data.enums.TraitType
--keep enum com.majinnaibu.monstercards.data.enums.StringType
--keepclassmembers,allowoptimization enum * {
-    <fields>;
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}

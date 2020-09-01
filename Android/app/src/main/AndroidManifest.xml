@@ -2,12 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.majinnaibu.monstercards">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
-        android:name=".MonsterCardsApplication"
         android:allowBackup="true"
-        android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -15,47 +11,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTask">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.EDIT" />
-                <action android:name="android.intent.action.PICK" />
-                <action android:name="android.intent.action.INSERT" />
-                <action android:name="android.intent.action.INSERT_OR_EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data
-                    android:mimeType="text/plain"
-                    android:scheme="content" />
-                <data
-                    android:mimeType="application/octet-stream"
-                    android:scheme="content" />
-                <data
-                    android:mimeType="text/plain"
-                    android:scheme="file" />
-            </intent-filter>
-
-            <nav-graph android:value="@navigation/mobile_navigation" />
         </activity>
-        <activity
-            android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -2,11 +2,10 @@
 buildscript {
     repositories {
         google()
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.1"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+        classpath "com.android.tools.build:gradle:4.0.1"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,15 +15,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        mavenCentral()
-        // maven { url "https://oss.jfrog.org/libs-snapshot" }
-        // maven { url 'http://repo1.maven.org/maven2' }
-    }
-    // Temporary workaround until room 2.4.0 is released https://issuetracker.google.com/issues/174695268?pli=1#comment10
-    configurations.configureEach {
-        resolutionStrategy {
-            force 'org.xerial:sqlite-jdbc:3.34.0'
-        }
+        jcenter()
     }
 }
 
