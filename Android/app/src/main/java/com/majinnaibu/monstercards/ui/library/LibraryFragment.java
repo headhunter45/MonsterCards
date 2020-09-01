@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
 
@@ -20,8 +20,7 @@ public class LibraryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        libraryViewModel =
-                ViewModelProviders.of(this).get(LibraryViewModel.class);
+        libraryViewModel = new ViewModelProvider(this).get(LibraryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_library, container, false);
         final TextView textView = root.findViewById(R.id.text_library);
         libraryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
