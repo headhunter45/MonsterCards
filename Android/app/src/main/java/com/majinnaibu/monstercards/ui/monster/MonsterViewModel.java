@@ -4,16 +4,25 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.majinnaibu.monstercards.models.Monster;
+
 public class MonsterViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
-
     public MonsterViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is monster fragment");
+        mMonster = null;
+        mName = new MutableLiveData<>();
+        mName.setValue("");
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    private MutableLiveData<String> mName;
+    public LiveData<String> getName() {
+        return mName;
+    }
+
+    private Monster mMonster;
+    public void setMonster(Monster monster) {
+        mMonster = monster;
+        mName.setValue(mMonster.getName());
     }
 }
