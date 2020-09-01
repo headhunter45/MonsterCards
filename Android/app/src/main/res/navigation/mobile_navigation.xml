@@ -3,23 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_dashboard">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.majinnaibu.monstercards.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_search"
+        android:name="com.majinnaibu.monstercards.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.majinnaibu.monstercards.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.majinnaibu.monstercards.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_collections"
+        android:name="com.majinnaibu.monstercards.ui.collections.CollectionsFragment"
+        android:label="@string/title_collections"
+        tools:layout="@layout/fragment_collections" >
+        <action
+            android:id="@+id/action_navigation_collections_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.majinnaibu.monstercards.ui.library.LibraryFragment"
+        android:label="@string/title_library"
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_navigation_library_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_monster"
+        android:name="com.majinnaibu.monstercards.ui.monster.MonsterFragment"
+        android:label="Monster"
+        tools:layout="@layout/fragment_monster" />
+
 </navigation>
