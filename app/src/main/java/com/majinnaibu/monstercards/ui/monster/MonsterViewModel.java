@@ -14,6 +14,9 @@ public class MonsterViewModel extends ViewModel {
         mName.setValue("");
         mMeta = new MutableLiveData<>();
         mMeta.setValue("");
+        mArmorClass = new MutableLiveData<>();
+        mArmorClass.setValue("");
+
     }
 
     private MutableLiveData<String> mName;
@@ -24,11 +27,16 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getMeta() {
         return mMeta;
     }
+    private MutableLiveData<String> mArmorClass;
+    public LiveData<String> getArmorClass() {
+        return mArmorClass;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
         mMonster = monster;
         mName.setValue(mMonster.getName());
         mMeta.setValue(mMonster.getMeta());
+        mArmorClass.setValue(mMonster.getArmorClass());
     }
 }
