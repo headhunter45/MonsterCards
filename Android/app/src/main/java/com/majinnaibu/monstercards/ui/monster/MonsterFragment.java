@@ -1,6 +1,7 @@
 package com.majinnaibu.monstercards.ui.monster;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,11 @@ public class MonsterFragment extends Fragment {
         monster.setType("fey");
         monster.setTag("");
         monster.setAlignment("neutral good");
+        // Armor & Armor Class
+        monster.setArmorName("none");
+        monster.setShieldBonus(0);
+        monster.setNaturalArmorBonus(7);
+        monster.setOtherArmorDescription("14");
         // END remove block
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
@@ -48,8 +54,16 @@ public class MonsterFragment extends Fragment {
         final TextView monsterMeta = root.findViewById(R.id.meta);
         monsterViewModel.getMeta().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                monsterMeta.setText(s);
+            public void onChanged(@Nullable String metaText) {
+                monsterMeta.setText(metaText);
+            }
+        });
+
+        final TextView monsterArmorClass = root.findViewById(R.id.armor_class);
+        monsterViewModel.getArmorClass().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String armorText) {
+                monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText));
             }
         });
 
