@@ -4,20 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".ui.search.SearchFragment"
+    tools:targetApi="o">
 
-    <TextView
-        android:id="@+id/text_search"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/action_search"
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_query"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/search_query"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:importantForAutofill="no"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/label_search_query"
+        app:layout_constraintEnd_toStartOf="@+id/button_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
