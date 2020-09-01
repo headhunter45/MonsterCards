@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MonsterCards</string>
-    <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_search">Search</string>
+    <string name="title_collections">Collections</string>
+    <string name="title_library">Library</string>
 </resources>
