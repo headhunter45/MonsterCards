@@ -4,6 +4,7 @@ import com.majinnaibu.monstercards.helpers.StringHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -14,6 +15,9 @@ public class Monster {
     public Monster() {
         mSavingThrows = new HashSet<>();
         mSkills = new HashSet<>();
+        mDamageTypes = new HashSet<>();
+        mConditionImmunities = new HashSet<>();
+        mLanguages = new HashSet<>();
     }
 
     private String mName;
@@ -617,6 +621,223 @@ public class Monster {
             isFirst = false;
         }
         return sb.toString();
+    }
+
+    private HashSet<DamageType> mDamageTypes;
+    public Set<DamageType> getDamageTypes() {
+        return mDamageTypes;
+    }
+    public void addDamageType(DamageType damageType) {
+        // TODO: make this remove the damage type with the same name if it exists first
+        mDamageTypes.add(damageType);
+    }
+    public void removeDamageType(DamageType damageType) {
+        mDamageTypes.remove(damageType);
+    }
+    public void clearDamageTypes() {
+        mDamageTypes.clear();
+    }
+
+    public String getDamageVulnerabilitiesDescription() {
+        ArrayList<String> vulnerabilities = new ArrayList<>();
+        for (DamageType damageType : mDamageTypes) {
+            if (damageType != null && "v".equals(damageType.getType()) && !StringHelper.isNullOrEmpty(damageType.getName())) {
+                vulnerabilities.add(damageType.getName());
+            }
+        }
+        Collections.sort(vulnerabilities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
+    }
+    public String getDamageResistancesDescription() {
+        ArrayList<String> vulnerabilities = new ArrayList<>();
+        for (DamageType damageType : mDamageTypes) {
+            if (damageType != null && "r".equals(damageType.getType()) && !StringHelper.isNullOrEmpty(damageType.getName())) {
+                vulnerabilities.add(damageType.getName());
+            }
+        }
+        Collections.sort(vulnerabilities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
+    }
+    public String getDamageImmunitiesDescription() {
+        ArrayList<String> vulnerabilities = new ArrayList<>();
+        for (DamageType damageType : mDamageTypes) {
+            if (damageType != null && "i".equals(damageType.getType()) && !StringHelper.isNullOrEmpty(damageType.getName())) {
+                vulnerabilities.add(damageType.getName());
+            }
+        }
+        Collections.sort(vulnerabilities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
+    }
+
+    private HashSet<String> mConditionImmunities;
+    public Set<String> getConditionImmunities() {
+        return mConditionImmunities;
+    }
+    public void addConditionImmunity(String condition) {
+        // TODO: filter out duplicates
+        mConditionImmunities.add(condition);
+    }
+    public void removeConditionImmunity(String condition) {
+        // TODO: make sure this works even though we're using strings
+        mConditionImmunities.remove(condition);
+    }
+    public void clearConditionImmunities() {
+        mConditionImmunities.clear();
+    }
+
+    public String getConditionImmunitiesDescription() {
+        ArrayList<String> immunities = new ArrayList<>(getConditionImmunities());
+        Collections.sort(immunities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", immunities);
+    }
+
+    private String mBlindsight;
+    public String getBlindsight() {
+        return mBlindsight;
+    }
+    public void setBlindsight(String value) {
+        mBlindsight = value;
+    }
+
+    private boolean mIsBlind;
+    public boolean getIsBlind() {
+        return mIsBlind;
+    }
+    public void setIsBlind(boolean value) {
+        mIsBlind = value;
+    }
+
+    private String mDarkvision;
+    public String getDarkvision() {
+        return mDarkvision;
+    }
+    public void setDarkvision(String value) {
+        mDarkvision = value;
+    }
+
+    private String mTremorsense;
+    public String getTremorsense() {
+        return mTremorsense;
+    }
+    public void setTremorsense(String value) {
+        mTremorsense = value;
+    }
+
+    private String mTruesight;
+    public String getTruesight() {
+        return mTruesight;
+    }
+    public void setTruesight(String value) {
+        mTruesight = value;
+    }
+
+    public String getSensesDescription() {
+        ArrayList<String> parts = new ArrayList<>();
+
+        String blindsight = getBlindsight();
+        if (!StringHelper.isNullOrEmpty(blindsight) && !"0".equals(blindsight)) {
+            parts.add(String.format(Locale.US, "blindsight %s ft.%s", blindsight, getIsBlind() ? " (blind beyond this radius)" : ""));
+        }
+        String darkvision = getDarkvision();
+        if (!StringHelper.isNullOrEmpty(darkvision) && !"0".equals(darkvision)) {
+            parts.add(String.format(Locale.US, "darkvision %s ft.", darkvision));
+        }
+        String tremorsense = getTremorsense();
+        if (!StringHelper.isNullOrEmpty(tremorsense) && !"0".equals(tremorsense)) {
+            parts.add(String.format(Locale.US, "tremorsense %s ft.", tremorsense));
+        }
+        String truesight = getTruesight();
+        if (!StringHelper.isNullOrEmpty(truesight) && !"0".equals(truesight)) {
+            parts.add(String.format(Locale.US, "truesight %s ft.", truesight));
+        }
+        parts.add(String.format(Locale.US, "passive Perception %d", 10 + getWisdomModifier()));
+
+        return StringHelper.join(", ", parts);
+    }
+
+    private HashSet<Language> mLanguages;
+    public Set<Language> getLanguages() {
+        return mLanguages;
+    }
+    public void addLanguage(Language value) {
+        mLanguages.add(value);
+    }
+    public void removeLanguage(Language value) {
+        mLanguages.remove(value);
+    }
+    public void clearLanguages() {
+        mLanguages.clear();
+    }
+
+    private int mTelepathy;
+    public int getTelepathy() {
+        return mTelepathy;
+    }
+    public void setTelepathy(int value) {
+        mTelepathy = value;
+    }
+
+    private String mUnderstandsBut;
+    public String getUnderstandsBut() {
+        return mUnderstandsBut;
+    }
+    public void setUnderstandsBut(String value) {
+        mUnderstandsBut = value;
+    }
+
+    public String getLanguagesDescription() {
+        ArrayList<String> spokenLanguages = new ArrayList<>();
+        ArrayList<String> understoodLanguages = new ArrayList<>();
+        for (Language language : mLanguages) {
+            if (language != null) {
+                if (language.getSpeaks()) {
+                    spokenLanguages.add(language.getName());
+                } else {
+                    understoodLanguages.add(language.getName());
+                }
+            }
+        }
+        Collections.sort(spokenLanguages);
+        Collections.sort(understoodLanguages);
+
+        String spokenLanguagesString = StringHelper.oxfordJoin(", ", ", and ", " and ", spokenLanguages);
+        String understoodLanguagesString = StringHelper.oxfordJoin(", ", ", and ", " and ", understoodLanguages);
+
+        String understandsBut = getUnderstandsBut();
+        boolean hasUnderstandsBut = understandsBut.length() > 0;
+        int telepathy = getTelepathy();
+        boolean hasTelepathy = telepathy > 0;
+        String telepathyString = String.format(Locale.US, ", telepathy %d ft.", telepathy);
+
+        if (spokenLanguages.size() > 0) {
+            if (understoodLanguages.size() > 0) {
+                return String.format(
+                        "%s, understands %s%s%s",
+                        spokenLanguagesString,
+                        understoodLanguagesString,
+                        hasUnderstandsBut ? " but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            } else {
+                return String.format(
+                        "%s%s%s",
+                        spokenLanguagesString,
+                        hasUnderstandsBut ? " but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            }
+        } else {
+            if (understoodLanguages.size() > 0) {
+                return String.format(
+                        "understands %s%s%s",
+                        understoodLanguagesString,
+                        hasUnderstandsBut ? " but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            } else {
+                return String.format(
+                        "%S%s",
+                        hasUnderstandsBut ? "none but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            }
+        }
     }
 
 }
