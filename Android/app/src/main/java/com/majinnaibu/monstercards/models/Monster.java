@@ -3,10 +3,18 @@ package com.majinnaibu.monstercards.models;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public class Monster {
+
+    public Monster() {
+        mSavingThrows = new HashSet<>();
+        mSkills = new HashSet<>();
+    }
 
     private String mName;
     public String getName() {
@@ -283,5 +291,332 @@ public class Monster {
     private static final int CHAIN_MAIL_ARMOR_CLASS = BASE_ARMOR_CLASS + 6;
     private static final int SPLINT_ARMOR_CLASS = BASE_ARMOR_CLASS + 7;
     private static final int PLATE_ARMOR_CLASS = BASE_ARMOR_CLASS + 8;
+
+    private int mHitDice;
+    public int getHitDice() {
+        return mHitDice;
+    }
+    public void setHitDice(int value) {
+        mHitDice = value;
+    }
+
+    private boolean mCustomHP;
+    public boolean getCustomHP() {
+        return mCustomHP;
+    }
+    public void setCustomHP(boolean value) {
+        mCustomHP = value;
+    }
+
+    private String mHPText;
+    public String getHPText() {
+        return mHPText;
+    }
+    public void setHPText(String value) {
+        mHPText = value;
+    }
+
+    public String getHitPoints() {
+        if (getCustomHP()) {
+            return getHPText();
+        } else {
+            int hitDice = getHitDice();
+            int dieSize = getHitDieForSize(getSize());
+            int conMod = getConstitutionModifier();
+            int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
+            return String.format(Locale.US, "%d (%dd%d %+d)", hpTotal, hitDice, dieSize, conMod * hitDice);
+        }
+    }
+
+    private static int getHitDieForSize(String size) {
+        if ("tiny".equals(size)) {
+            return 4;
+        } else if ("small".equals(size)) {
+            return 6;
+        } else if ("medium".equals(size)) {
+            return 8;
+        } else if ("large".equals(size)) {
+            return 10;
+        } else if ("huge".equals(size)) {
+            return 12;
+        } else if ("gargantuan".equals(size)) {
+            return 20;
+        } else {
+            return 8;
+        }
+    }
+
+    private String mSpeed;
+    public String getSpeed() {
+        return mSpeed;
+    }
+    public void setSpeed(String value) {
+        mSpeed = value;
+    }
+
+    private String mBurrowSpeed;
+    public String getBurrowSpeed() {
+        return mBurrowSpeed;
+    }
+    public void setBurrowSpeed(String value) {
+        mBurrowSpeed = value;
+    }
+
+    private String mClimbSpeed;
+    public String getClimbSpeed() {
+        return mClimbSpeed;
+    }
+    public void setClimbSpeed(String value) {
+        mClimbSpeed = value;
+    }
+
+    private String mFlySpeed;
+    public String getFlySpeed() {
+        return mFlySpeed;
+    }
+    public void setFlySpeed(String value) {
+        mFlySpeed = value;
+    }
+
+    private boolean mHover;
+    public boolean getHover() {
+        return mHover;
+    }
+    public void setHover(boolean value) {
+        mHover = value;
+    }
+
+    private String mSwimSpeed;
+    public String getSwimSpeed() {
+        return mSwimSpeed;
+    }
+    public void setSwimSpeed(String value) {
+        mSwimSpeed = value;
+    }
+
+    private boolean mCustomSpeed;
+    public boolean getCustomSpeed() {
+        return mCustomSpeed;
+    }
+    public void setCustomSpeed(boolean value) {
+        mCustomSpeed = value;
+    }
+
+    private String mSpeedDescription;
+    public String getSpeedDescription() {
+        return mSpeedDescription;
+    }
+    public void setSpeedDescription(String value) {
+        mSpeedDescription = value;
+    }
+
+    public String getSpeedText() {
+        if (getCustomSpeed()) {
+            return getSpeedDescription();
+        } else {
+            ArrayList<String> speedParts = new ArrayList<>();
+            speedParts.add(String.format("%s ft.", getSpeed()));
+            String burrowSpeed = getBurrowSpeed();
+            if (!StringHelper.isNullOrEmpty(burrowSpeed) && !"0".equals(burrowSpeed)) {
+                speedParts.add(String.format("burrow %s ft.", burrowSpeed));
+            }
+
+            String climbSpeed = getClimbSpeed();
+            if (!StringHelper.isNullOrEmpty(climbSpeed) && !"0".equals(climbSpeed)) {
+                speedParts.add(String.format("climb %s ft.", climbSpeed));
+            }
+
+            String flySpeed = getFlySpeed();
+            if (!StringHelper.isNullOrEmpty(flySpeed) && !"0".equals(flySpeed)) {
+                speedParts.add(String.format("fly %s ft.%s", flySpeed, getHover() ? " (hover)" : ""));
+            }
+
+            String swimSpeed = getSwimSpeed();
+            if (!StringHelper.isNullOrEmpty(swimSpeed) && !"0".equals(swimSpeed)) {
+                speedParts.add(String.format("swim %s ft.", swimSpeed));
+            }
+
+            return StringHelper.join(", ", speedParts);
+        }
+    }
+
+    public String getStrengthDescription() {
+        return String.format(Locale.US, "%d (%+d)", getStrengthScore(), getStrengthModifier());
+    }
+
+    public String getDexterityDescription() {
+        return String.format(Locale.US, "%d (%+d)", getDexterityScore(), getDexterityModifier());
+    }
+
+    public String getConstitutionDescription() {
+        return String.format(Locale.US, "%d (%+d)", getConstitutionScore(), getConstitutionModifier());
+    }
+
+    public String getIntelligenceDescription() {
+        return String.format(Locale.US, "%d (%+d)", getIntelligenceScore(), getIntelligenceModifier());
+    }
+
+    public String getWisdomDescription() {
+        return String.format(Locale.US, "%d (%+d)", getWisdomScore(), getWisdomModifier());
+    }
+
+    public String getCharismaDescription() {
+        return String.format(Locale.US, "%d (%+d)", getCharismaScore(), getCharismaModifier());
+    }
+
+    private HashSet<SavingThrow> mSavingThrows;
+    public Set<SavingThrow> getSavingThrows() {
+        return mSavingThrows;
+    }
+    public void addSavingThrow(SavingThrow savingThrow) {
+        mSavingThrows.add(savingThrow);
+    }
+    public void removeSavingThrow(SavingThrow savingThrow) {
+        mSavingThrows.remove(savingThrow);
+    }
+    public void clearSavingThrows() {
+        mSavingThrows.clear();
+    }
+
+    public String getSavingThrowsDescription() {
+        SavingThrow[] elements = new SavingThrow[mSavingThrows.size()];
+        elements = mSavingThrows.toArray(elements);
+        Arrays.sort(elements);
+        StringBuilder sb = new StringBuilder();
+        boolean isFirst = true;
+        for (SavingThrow st : elements) {
+            if (!isFirst) {
+                sb.append(", ");
+            }
+            String name = st.getName();
+
+            sb.append(String.format(Locale.US, "%s%s %+d", name.substring(0,1).toUpperCase(Locale.US), name.substring(1), getAbilityModifier(name) + getProficiencyBonus()));
+            isFirst = false;
+        }
+        return sb.toString();
+    }
+
+    public int getProficiencyBonus() {
+        String challengeRating = getChallengeRating();
+        if ("*".equals(challengeRating)) {
+            return getCustomProficiencyBonus();
+        } else if (
+            "0".equals(challengeRating) ||
+            "1/8".equals(challengeRating) ||
+            "1/4".equals(challengeRating) ||
+            "1/2".equals(challengeRating) ||
+            "1".equals(challengeRating) ||
+            "2".equals(challengeRating) ||
+            "3".equals(challengeRating) ||
+            "4".equals(challengeRating)
+        ) {
+            return 2;
+        } else if (
+            "5".equals(challengeRating) ||
+            "6".equals(challengeRating) ||
+            "7".equals(challengeRating) ||
+            "8".equals(challengeRating)
+        ) {
+            return 3;
+        } else if (
+            "9".equals(challengeRating) ||
+            "10".equals(challengeRating) ||
+            "11".equals(challengeRating) ||
+            "12".equals(challengeRating)
+        ) {
+            return 4;
+        } else if (
+            "13".equals(challengeRating) ||
+            "14".equals(challengeRating) ||
+            "15".equals(challengeRating) ||
+            "16".equals(challengeRating)
+        ) {
+            return 5;
+        } else if (
+            "17".equals(challengeRating) ||
+            "18".equals(challengeRating) ||
+            "19".equals(challengeRating) ||
+            "20".equals(challengeRating)
+        ) {
+            return 6;
+        } else if (
+            "21".equals(challengeRating) ||
+            "22".equals(challengeRating) ||
+            "23".equals(challengeRating) ||
+            "24".equals(challengeRating)
+        ) {
+            return 7;
+        } else if (
+            "25".equals(challengeRating) ||
+            "26".equals(challengeRating) ||
+            "27".equals(challengeRating) ||
+            "28".equals(challengeRating)
+        ) {
+            return 8;
+        } else if (
+            "29".equals(challengeRating) ||
+            "30".equals(challengeRating)
+        ) {
+            return 9;
+        } else {
+            return 0;
+        }
+    }
+
+    private String mChallengeRating;
+    public String getChallengeRating() {
+        return mChallengeRating;
+    }
+    public void setChallengeRating(String challengeRating) {
+        mChallengeRating = challengeRating;
+        // TODO: update proficiency bonus based on CR
+    }
+
+    private String mCustomChallengeRating;
+    public String getCustomChallengeRating() {
+        return mCustomChallengeRating;
+    }
+    public void setCustomChallengeRating(String challengeRating) {
+        mCustomChallengeRating = challengeRating;
+    }
+
+    private int mCustomProficiencyBonus;
+    public int getCustomProficiencyBonus() {
+        return mCustomProficiencyBonus;
+    }
+    public void setCustomProficiencyBonus(int proficiencyBonus) {
+        mCustomProficiencyBonus = proficiencyBonus;
+    }
+
+    private HashSet<Skill> mSkills;
+    public Set<Skill> getSkills() {
+        return mSkills;
+    }
+    public void addSkill(Skill skill) {
+        mSkills.add(skill);
+    }
+    public void removeSkill(Skill skill) {
+        mSkills.remove(skill);
+    }
+    public void clearSkill(Skill skill) {
+        mSkills.clear();
+    }
+
+    public String getSkillsDescription() {
+        Skill[] elements = new Skill[mSkills.size()];
+        elements = mSkills.toArray(elements);
+        Arrays.sort(elements);
+        StringBuilder sb = new StringBuilder();
+        boolean isFirst = true;
+        for (Skill skill : elements) {
+            if (!isFirst) {
+                sb.append(", ");
+            }
+            String name = skill.getName();
+            sb.append(skill.getText(this));
+            isFirst = false;
+        }
+        return sb.toString();
+    }
 
 }
