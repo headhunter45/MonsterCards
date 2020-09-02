@@ -23,6 +23,7 @@ import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Ability;
+import com.majinnaibu.monstercards.models.Action;
 import com.majinnaibu.monstercards.models.DamageType;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
@@ -117,7 +118,10 @@ public class MonsterFragment extends Fragment {
         monster.addAbility(new Ability("Spellcasting", "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n\n> Cantrips (at will): _light, sacred flame, thaumaturgy_\n> 1st level (3 slots): _bless, cure wounds, sanctuary_"));
         monster.addAbility(new Ability("Amphibious", "The dragon can breathe air and water."));
         monster.addAbility(new Ability("Legendary Resistance (3/Day)", "If the dragon fails a saving throw, it can choose to succeed instead."));
+        // Actions
+        monster.addAction(new Action("Club", "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ 2 (1d4) bludgeoning damage."));
         // END remove block
+
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
         monsterViewModel.setMonster(monster);
@@ -346,6 +350,32 @@ public class MonsterFragment extends Fragment {
                         layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
                         tvAbility.setLayoutParams(layoutParams);
                         monsterAbilities.addView(tvAbility);
+                    }
+                }
+            }
+        });
+
+        final LinearLayout monsterActions = root.findViewById(R.id.actions);
+        monsterViewModel.getActions().observe(getViewLifecycleOwner(), new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> actions) {
+                Context context = getContext();
+                DisplayMetrics displayMetrics = null;
+                if (context != null) {
+                    Resources resources = context.getResources();
+                    if (resources != null) {
+                        displayMetrics = resources.getDisplayMetrics();
+                    }
+                }
+                monsterActions.removeAllViews();
+                if (actions != null) {
+                    for (String action : actions) {
+                        TextView tvAction = new TextView(getContext());
+                        tvAction.setText(Html.fromHtml(CommonMarkHelper.toHtml(action)));
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        layoutParams.topMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
+                        tvAction.setLayoutParams(layoutParams);
+                        monsterActions.addView(tvAction);
                     }
                 }
             }
