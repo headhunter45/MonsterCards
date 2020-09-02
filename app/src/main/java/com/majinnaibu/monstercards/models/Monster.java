@@ -4,6 +4,7 @@ import com.majinnaibu.monstercards.helpers.StringHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -14,6 +15,7 @@ public class Monster {
     public Monster() {
         mSavingThrows = new HashSet<>();
         mSkills = new HashSet<>();
+        mDamageTypes = new HashSet<>();
     }
 
     private String mName;
@@ -617,6 +619,52 @@ public class Monster {
             isFirst = false;
         }
         return sb.toString();
+    }
+
+    private HashSet<DamageType> mDamageTypes;
+    public Set<DamageType> getDamageTypes() {
+        return mDamageTypes;
+    }
+    public void addDamageType(DamageType damageType) {
+        // TODO: make this remove the damage type with the same name if it exists first
+        mDamageTypes.add(damageType);
+    }
+    public void removeDamageType(DamageType damageType) {
+        mDamageTypes.remove(damageType);
+    }
+    public void clearDamageTypes() {
+        mDamageTypes.clear();
+    }
+
+    public String getDamageVulnerabilitiesDescription() {
+        ArrayList<String> vulnerabilities = new ArrayList<>();
+        for (DamageType damageType : mDamageTypes) {
+            if (damageType != null && "v".equals(damageType.getType()) && !StringHelper.isNullOrEmpty(damageType.getName())) {
+                vulnerabilities.add(damageType.getName());
+            }
+        }
+        Collections.sort(vulnerabilities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
+    }
+    public String getDamageResistancesDescription() {
+        ArrayList<String> vulnerabilities = new ArrayList<>();
+        for (DamageType damageType : mDamageTypes) {
+            if (damageType != null && "r".equals(damageType.getType()) && !StringHelper.isNullOrEmpty(damageType.getName())) {
+                vulnerabilities.add(damageType.getName());
+            }
+        }
+        Collections.sort(vulnerabilities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
+    }
+    public String getDamageImmunitiesDescription() {
+        ArrayList<String> vulnerabilities = new ArrayList<>();
+        for (DamageType damageType : mDamageTypes) {
+            if (damageType != null && "i".equals(damageType.getType()) && !StringHelper.isNullOrEmpty(damageType.getName())) {
+                vulnerabilities.add(damageType.getName());
+            }
+        }
+        Collections.sort(vulnerabilities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
     }
 
 }

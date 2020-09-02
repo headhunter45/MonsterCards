@@ -36,6 +36,12 @@ public class MonsterViewModel extends ViewModel {
         mSavingThrows.setValue("");
         mSkills = new MutableLiveData<>();
         mSkills.setValue("");
+        mDamageVulnerabilities = new MutableLiveData<>();
+        mDamageVulnerabilities.setValue("");
+        mDamageResistances = new MutableLiveData<>();
+        mDamageResistances.setValue("");
+        mDamageImmunities = new MutableLiveData<>();
+        mDamageImmunities.setValue("");
     }
 
     private MutableLiveData<String> mName;
@@ -90,6 +96,18 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getSkills() {
         return mSkills;
     }
+    private MutableLiveData<String> mDamageVulnerabilities;
+    public LiveData<String> getDamageVulnerabilities() {
+        return mDamageVulnerabilities;
+    }
+    private MutableLiveData<String> mDamageResistances;
+    public LiveData<String> getDamageResistances() {
+        return mDamageResistances;
+    }
+    private MutableLiveData<String> mDamageImmunities;
+    public LiveData<String> getDamageImmunities() {
+        return mDamageImmunities;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
@@ -107,5 +125,9 @@ public class MonsterViewModel extends ViewModel {
         mCharisma.setValue(monster.getCharismaDescription());
         mSavingThrows.setValue(monster.getSavingThrowsDescription());
         mSkills.setValue(monster.getSkillsDescription());
+        mDamageVulnerabilities.setValue(mMonster.getDamageVulnerabilitiesDescription());
+        mDamageResistances.setValue(mMonster.getDamageResistancesDescription());
+        mDamageImmunities.setValue(mMonster.getDamageImmunitiesDescription());
+
     }
 }
