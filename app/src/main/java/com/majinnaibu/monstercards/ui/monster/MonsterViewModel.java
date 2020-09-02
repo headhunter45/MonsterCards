@@ -32,6 +32,8 @@ public class MonsterViewModel extends ViewModel {
         mWisdom.setValue("");
         mCharisma = new MutableLiveData<>();
         mCharisma.setValue("");
+        mSavingThrows = new MutableLiveData<>();
+        mSavingThrows.setValue("");
     }
 
     private MutableLiveData<String> mName;
@@ -78,6 +80,10 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getCharisma() {
         return mCharisma;
     }
+    private MutableLiveData<String> mSavingThrows;
+    public LiveData<String> getSavingThrows() {
+        return mSavingThrows;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
@@ -93,5 +99,6 @@ public class MonsterViewModel extends ViewModel {
         mIntelligence.setValue(monster.getIntelligenceDescription());
         mWisdom.setValue(monster.getWisdomDescription());
         mCharisma.setValue(monster.getCharismaDescription());
+        mSavingThrows.setValue(monster.getSavingThrowsDescription());
     }
 }

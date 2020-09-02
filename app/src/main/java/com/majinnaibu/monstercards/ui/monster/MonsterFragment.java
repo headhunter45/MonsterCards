@@ -14,7 +14,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.models.SavingThrow;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MonsterFragment extends Fragment {
@@ -57,7 +59,18 @@ public class MonsterFragment extends Fragment {
         monster.setIntelligenceScore(Integer.parseInt("10"));
         monster.setWisdomScore(Integer.parseInt("14"));
         monster.setCharismaScore(Integer.parseInt("15"));
+        // Saving Throws
+        monster.addSavingThrow(new SavingThrow("str", 0));
+        monster.addSavingThrow(new SavingThrow("dex", 1));
+        monster.addSavingThrow(new SavingThrow("con", 2));
+        monster.addSavingThrow(new SavingThrow("int", 3));
+        monster.addSavingThrow(new SavingThrow("wis", 4));
+        monster.addSavingThrow(new SavingThrow("cha", 5));
 
+        // Challenge Rating
+        monster.setChallengeRating("*");
+        monster.setCustomChallengeRating("Infinite (0XP)");
+        monster.setCustomProficiencyBonus(4);
         // END remove block
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
@@ -148,6 +161,19 @@ public class MonsterFragment extends Fragment {
             @Override
             public void onChanged(String charisma) {
                 monsterCharisma.setText(charisma);
+            }
+        });
+
+        final TextView monsterSavingThrows = root.findViewById(R.id.saving_throws);
+        monsterViewModel.getSavingThrows().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String savingThrows) {
+                if (StringHelper.isNullOrEmpty(savingThrows)) {
+                    monsterSavingThrows.setVisibility(View.GONE);
+                } else {
+                    monsterSavingThrows.setVisibility(View.VISIBLE);
+                }
+                monsterSavingThrows.setText(Html.fromHtml("<b>Saving Throws</b> " + savingThrows));
             }
         });
 
