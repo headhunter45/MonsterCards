@@ -42,6 +42,14 @@ public class MonsterFragment extends Fragment {
         monster.setHitDice(1);
         monster.setCustomHP(false);
         monster.setHPText("11 (2d8 + 2)");
+        monster.setSpeed("10");
+        monster.setBurrowSpeed("0");
+        monster.setClimbSpeed("0");
+        monster.setFlySpeed("30");
+        monster.setHover(false);
+        monster.setSwimSpeed("0");
+        monster.setCustomSpeed(false);
+        monster.setSpeedDescription("30 ft., swim 30 ft.");
 
         // END remove block
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
@@ -77,6 +85,14 @@ public class MonsterFragment extends Fragment {
             @Override
             public void onChanged(String hitPoints) {
                 monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints));
+            }
+        });
+
+        final TextView monsterSpeed = root.findViewById(R.id.speed);
+        monsterViewModel.getSpeed().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String speed) {
+                monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed));
             }
         });
 

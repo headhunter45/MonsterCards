@@ -338,5 +338,98 @@ public class Monster {
         }
     }
 
+    private String mSpeed;
+    public String getSpeed() {
+        return mSpeed;
+    }
+    public void setSpeed(String value) {
+        mSpeed = value;
+    }
+
+    private String mBurrowSpeed;
+    public String getBurrowSpeed() {
+        return mBurrowSpeed;
+    }
+    public void setBurrowSpeed(String value) {
+        mBurrowSpeed = value;
+    }
+
+    private String mClimbSpeed;
+    public String getClimbSpeed() {
+        return mClimbSpeed;
+    }
+    public void setClimbSpeed(String value) {
+        mClimbSpeed = value;
+    }
+
+    private String mFlySpeed;
+    public String getFlySpeed() {
+        return mFlySpeed;
+    }
+    public void setFlySpeed(String value) {
+        mFlySpeed = value;
+    }
+
+    private boolean mHover;
+    public boolean getHover() {
+        return mHover;
+    }
+    public void setHover(boolean value) {
+        mHover = value;
+    }
+
+    private String mSwimSpeed;
+    public String getSwimSpeed() {
+        return mSwimSpeed;
+    }
+    public void setSwimSpeed(String value) {
+        mSwimSpeed = value;
+    }
+
+    private boolean mCustomSpeed;
+    public boolean getCustomSpeed() {
+        return mCustomSpeed;
+    }
+    public void setCustomSpeed(boolean value) {
+        mCustomSpeed = value;
+    }
+
+    private String mSpeedDescription;
+    public String getSpeedDescription() {
+        return mSpeedDescription;
+    }
+    public void setSpeedDescription(String value) {
+        mSpeedDescription = value;
+    }
+
+    public String getSpeedText() {
+        if (getCustomSpeed()) {
+            return getSpeedDescription();
+        } else {
+            ArrayList<String> speedParts = new ArrayList<>();
+            speedParts.add(String.format("%s ft.", getSpeed()));
+            String burrowSpeed = getBurrowSpeed();
+            if (!StringHelper.isNullOrEmpty(burrowSpeed) && !"0".equals(burrowSpeed)) {
+                speedParts.add(String.format("burrow %s ft.", burrowSpeed));
+            }
+
+            String climbSpeed = getClimbSpeed();
+            if (!StringHelper.isNullOrEmpty(climbSpeed) && !"0".equals(climbSpeed)) {
+                speedParts.add(String.format("climb %s ft.", climbSpeed));
+            }
+
+            String flySpeed = getFlySpeed();
+            if (!StringHelper.isNullOrEmpty(flySpeed) && !"0".equals(flySpeed)) {
+                speedParts.add(String.format("fly %s ft.%s", flySpeed, getHover() ? " (hover)" : ""));
+            }
+
+            String swimSpeed = getSwimSpeed();
+            if (!StringHelper.isNullOrEmpty(swimSpeed) && !"0".equals(swimSpeed)) {
+                speedParts.add(String.format("swim %s ft.", swimSpeed));
+            }
+
+            return StringHelper.join(", ", speedParts);
+        }
+    }
 
 }

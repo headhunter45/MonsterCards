@@ -1,6 +1,8 @@
 package com.majinnaibu.monstercards.helpers;
 
-@SuppressWarnings({"BooleanMethodIsAlwaysInverted", "RedundantIfStatement"})
+import java.util.Collection;
+
+@SuppressWarnings({"RedundantIfStatement"})
 public final class StringHelper {
     public static boolean isNullOrEmpty(CharSequence value) {
         if (value == null) {
@@ -12,5 +14,25 @@ public final class StringHelper {
         }
 
         return false;
+    }
+
+    public static String join(String delimiter, Collection<String> strings) {
+        int length = strings.size();
+        if (length < 1) {
+            return "";
+        } else  {
+            StringBuilder sb = new StringBuilder();
+            boolean isFirst = true;
+            for (String element : strings) {
+                if (!isFirst) {
+                    sb.append(delimiter);
+                }
+
+                sb.append(element);
+
+                isFirst = false;
+            }
+            return sb.toString();
+        }
     }
 }
