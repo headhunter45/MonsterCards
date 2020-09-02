@@ -26,7 +26,7 @@ public final class CommonMarkHelper {
         if (parent1 == parent2 && parent1 instanceof Paragraph) {
             document = new Document();
             Node child = parent1.getFirstChild();
-            while(child != null) {
+            while (child != null) {
                 Node nextChild = child.getNext();
                 document.appendChild(child);
                 child = nextChild;//child.getNext();
