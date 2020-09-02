@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
+		E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247725005E89007D87ED /* SceneDelegate.m */; };
+		E2F7247B25005E89007D87ED /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247A25005E89007D87ED /* FirstViewController.m */; };
+		E2F7247E25005E89007D87ED /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247D25005E89007D87ED /* SecondViewController.m */; };
+		E2F7248125005E89007D87ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7247F25005E89007D87ED /* Main.storyboard */; };
+		E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
+		E2F7248625005E8A007D87ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2F7248525005E8A007D87ED /* Assets.xcassets */; };
+		E2F7248925005E8A007D87ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */; };
+		E2F7248C25005E8A007D87ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248B25005E8A007D87ED /* main.m */; };
+		E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7249525005E8A007D87ED /* MonsterCardsTests.m */; };
+		E2F724A125005E8A007D87ED /* MonsterCardsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2F7249225005E8A007D87ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2F7246825005E89007D87ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2F7246F25005E89007D87ED;
+			remoteInfo = MonsterCards;
+		};
+		E2F7249D25005E8A007D87ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2F7246825005E89007D87ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2F7246F25005E89007D87ED;
+			remoteInfo = MonsterCards;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E2F7247025005E89007D87ED /* MonsterCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F7247325005E89007D87ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E2F7247425005E89007D87ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2F7247625005E89007D87ED /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		E2F7247725005E89007D87ED /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		E2F7247925005E89007D87ED /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		E2F7247A25005E89007D87ED /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		E2F7247C25005E89007D87ED /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		E2F7247D25005E89007D87ED /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		E2F7248025005E89007D87ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterCards.xcdatamodel; sourceTree = "<group>"; };
+		E2F7248525005E8A007D87ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2F7248825005E8A007D87ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E2F7248A25005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F7248B25005E8A007D87ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F7249525005E8A007D87ED /* MonsterCardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterCardsTests.m; sourceTree = "<group>"; };
+		E2F7249725005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterCardsUITests.m; sourceTree = "<group>"; };
+		E2F724A225005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2F7246D25005E89007D87ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2F7248E25005E8A007D87ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2F7249925005E8A007D87ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2F7246725005E89007D87ED = {
+			isa = PBXGroup;
+			children = (
+				E2F7247225005E89007D87ED /* MonsterCards */,
+				E2F7249425005E8A007D87ED /* MonsterCardsTests */,
+				E2F7249F25005E8A007D87ED /* MonsterCardsUITests */,
+				E2F7247125005E89007D87ED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2F7247125005E89007D87ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7247025005E89007D87ED /* MonsterCards.app */,
+				E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */,
+				E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2F7247225005E89007D87ED /* MonsterCards */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7247325005E89007D87ED /* AppDelegate.h */,
+				E2F7247425005E89007D87ED /* AppDelegate.m */,
+				E2F7247625005E89007D87ED /* SceneDelegate.h */,
+				E2F7247725005E89007D87ED /* SceneDelegate.m */,
+				E2F7247925005E89007D87ED /* FirstViewController.h */,
+				E2F7247A25005E89007D87ED /* FirstViewController.m */,
+				E2F7247C25005E89007D87ED /* SecondViewController.h */,
+				E2F7247D25005E89007D87ED /* SecondViewController.m */,
+				E2F7247F25005E89007D87ED /* Main.storyboard */,
+				E2F7248525005E8A007D87ED /* Assets.xcassets */,
+				E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */,
+				E2F7248A25005E8A007D87ED /* Info.plist */,
+				E2F7248B25005E8A007D87ED /* main.m */,
+				E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */,
+			);
+			path = MonsterCards;
+			sourceTree = "<group>";
+		};
+		E2F7249425005E8A007D87ED /* MonsterCardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7249525005E8A007D87ED /* MonsterCardsTests.m */,
+				E2F7249725005E8A007D87ED /* Info.plist */,
+			);
+			path = MonsterCardsTests;
+			sourceTree = "<group>";
+		};
+		E2F7249F25005E8A007D87ED /* MonsterCardsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */,
+				E2F724A225005E8A007D87ED /* Info.plist */,
+			);
+			path = MonsterCardsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2F7246F25005E89007D87ED /* MonsterCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2F724A525005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCards" */;
+			buildPhases = (
+				E2F7246C25005E89007D87ED /* Sources */,
+				E2F7246D25005E89007D87ED /* Frameworks */,
+				E2F7246E25005E89007D87ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonsterCards;
+			productName = MonsterCards;
+			productReference = E2F7247025005E89007D87ED /* MonsterCards.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2F7249025005E8A007D87ED /* MonsterCardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2F724A825005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */;
+			buildPhases = (
+				E2F7248D25005E8A007D87ED /* Sources */,
+				E2F7248E25005E8A007D87ED /* Frameworks */,
+				E2F7248F25005E8A007D87ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2F7249325005E8A007D87ED /* PBXTargetDependency */,
+			);
+			name = MonsterCardsTests;
+			productName = MonsterCardsTests;
+			productReference = E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2F7249B25005E8A007D87ED /* MonsterCardsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2F724AB25005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */;
+			buildPhases = (
+				E2F7249825005E8A007D87ED /* Sources */,
+				E2F7249925005E8A007D87ED /* Frameworks */,
+				E2F7249A25005E8A007D87ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2F7249E25005E8A007D87ED /* PBXTargetDependency */,
+			);
+			name = MonsterCardsUITests;
+			productName = MonsterCardsUITests;
+			productReference = E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2F7246825005E89007D87ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "Tom Hicks";
+				TargetAttributes = {
+					E2F7246F25005E89007D87ED = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					E2F7249025005E8A007D87ED = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = E2F7246F25005E89007D87ED;
+					};
+					E2F7249B25005E8A007D87ED = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = E2F7246F25005E89007D87ED;
+					};
+				};
+			};
+			buildConfigurationList = E2F7246B25005E89007D87ED /* Build configuration list for PBXProject "MonsterCards" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E2F7246725005E89007D87ED;
+			productRefGroup = E2F7247125005E89007D87ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2F7246F25005E89007D87ED /* MonsterCards */,
+				E2F7249025005E8A007D87ED /* MonsterCardsTests */,
+				E2F7249B25005E8A007D87ED /* MonsterCardsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2F7246E25005E89007D87ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2F7248925005E8A007D87ED /* LaunchScreen.storyboard in Resources */,
+				E2F7248625005E8A007D87ED /* Assets.xcassets in Resources */,
+				E2F7248125005E89007D87ED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2F7248F25005E8A007D87ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2F7249A25005E8A007D87ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2F7246C25005E89007D87ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2F7247E25005E89007D87ED /* SecondViewController.m in Sources */,
+				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
+				E2F7247B25005E89007D87ED /* FirstViewController.m in Sources */,
+				E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */,
+				E2F7248C25005E8A007D87ED /* main.m in Sources */,
+				E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2F7248D25005E8A007D87ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2F7249825005E8A007D87ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2F724A125005E8A007D87ED /* MonsterCardsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2F7249325005E8A007D87ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2F7246F25005E89007D87ED /* MonsterCards */;
+			targetProxy = E2F7249225005E8A007D87ED /* PBXContainerItemProxy */;
+		};
+		E2F7249E25005E8A007D87ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2F7246F25005E89007D87ED /* MonsterCards */;
+			targetProxy = E2F7249D25005E8A007D87ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E2F7247F25005E89007D87ED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2F7248025005E89007D87ED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2F7248825005E8A007D87ED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2F724A325005E8A007D87ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E2F724A425005E8A007D87ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2F724A625005E8A007D87ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterCards/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2F724A725005E8A007D87ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterCards/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E2F724A925005E8A007D87ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterCardsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterCards.app/MonsterCards";
+			};
+			name = Debug;
+		};
+		E2F724AA25005E8A007D87ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterCardsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterCards.app/MonsterCards";
+			};
+			name = Release;
+		};
+		E2F724AC25005E8A007D87ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterCardsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MonsterCards;
+			};
+			name = Debug;
+		};
+		E2F724AD25005E8A007D87ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterCardsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MonsterCards;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2F7246B25005E89007D87ED /* Build configuration list for PBXProject "MonsterCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2F724A325005E8A007D87ED /* Debug */,
+				E2F724A425005E8A007D87ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2F724A525005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2F724A625005E8A007D87ED /* Debug */,
+				E2F724A725005E8A007D87ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2F724A825005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2F724A925005E8A007D87ED /* Debug */,
+				E2F724AA25005E8A007D87ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2F724AB25005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2F724AC25005E8A007D87ED /* Debug */,
+				E2F724AD25005E8A007D87ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */,
+			);
+			currentVersion = E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */;
+			path = MonsterCards.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E2F7246825005E89007D87ED /* Project object */;
+}
