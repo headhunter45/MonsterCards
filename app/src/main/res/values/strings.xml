@@ -7,4 +7,10 @@
     <string name="action_search">Search</string>
     <string name="label_search_query">Query</string>
     <string name="section_divider">section divider</string>
+    <string name="strength_abbreviation">STR</string>
+    <string name="dexterity_abbreviation">DEX</string>
+    <string name="constitution_abbreviation">CON</string>
+    <string name="intelligence_abbreviation">INT</string>
+    <string name="wisdom_abbreviation">WIS</string>
+    <string name="charisma_abbreviation">CHA</string>
 </resources>
