@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.models.DamageType;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SavingThrow;
 import com.majinnaibu.monstercards.models.Skill;
@@ -70,6 +71,16 @@ public class MonsterFragment extends Fragment {
         //Skills
         monster.addSkill(new Skill("perception", "wis"));
         monster.addSkill(new Skill("stealth", "dexterity"));
+        // Damage Types
+        monster.addDamageType(new DamageType("acid", " (Vulnerable)", "v"));
+        monster.addDamageType(new DamageType("bludgeoning", " (Vulnerable)", "v"));
+        monster.addDamageType(new DamageType("cold", " (Resistant)", "r"));
+        monster.addDamageType(new DamageType("fire", " (Resistant)", "r"));
+        monster.addDamageType(new DamageType("force", " (Immune)", "i"));
+        monster.addDamageType(new DamageType("lightning", " (Immune)", "i"));
+        monster.addDamageType(new DamageType("necrotic", " (Vulnerable)", "v"));
+        monster.addDamageType(new DamageType("piercing", " (Resistant)", "r"));
+        monster.addDamageType(new DamageType("poison", " (Immune)", "i"));
 
         // Challenge Rating
         monster.setChallengeRating("*");
@@ -191,6 +202,45 @@ public class MonsterFragment extends Fragment {
                     monsterSkills.setVisibility(View.VISIBLE);
                 }
                 monsterSkills.setText(Html.fromHtml("<b>Skills</b> " + skills));
+            }
+        });
+
+        final TextView monsterDamageVulnerabilities = root.findViewById(R.id.damage_vulnerabilities);
+        monsterViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String damageType) {
+                if (StringHelper.isNullOrEmpty(damageType)) {
+                    monsterDamageVulnerabilities.setVisibility(View.GONE);
+                } else {
+                    monsterDamageVulnerabilities.setVisibility(View.VISIBLE);
+                }
+                monsterDamageVulnerabilities.setText(Html.fromHtml("<b>Damage Vulnerabilities</b> " + damageType));
+            }
+        });
+
+        final TextView monsterDamageResistances = root.findViewById(R.id.damage_resistances);
+        monsterViewModel.getDamageResistances().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String damageType) {
+                if (StringHelper.isNullOrEmpty(damageType)) {
+                    monsterDamageResistances.setVisibility(View.GONE);
+                } else {
+                    monsterDamageResistances.setVisibility(View.VISIBLE);
+                }
+                monsterDamageResistances.setText(Html.fromHtml("<b>Damage Resistances</b> " + damageType));
+            }
+        });
+
+        final TextView monsterDamageImmunities = root.findViewById(R.id.damage_immunities);
+        monsterViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String damageType) {
+                if (StringHelper.isNullOrEmpty(damageType)) {
+                    monsterDamageImmunities.setVisibility(View.GONE);
+                } else {
+                    monsterDamageImmunities.setVisibility(View.VISIBLE);
+                }
+                monsterDamageImmunities.setText(Html.fromHtml("<b>Damage Immunities</b> " + damageType));
             }
         });
 
