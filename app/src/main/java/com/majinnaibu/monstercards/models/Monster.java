@@ -284,4 +284,59 @@ public class Monster {
     private static final int SPLINT_ARMOR_CLASS = BASE_ARMOR_CLASS + 7;
     private static final int PLATE_ARMOR_CLASS = BASE_ARMOR_CLASS + 8;
 
+    private int mHitDice;
+    public int getHitDice() {
+        return mHitDice;
+    }
+    public void setHitDice(int value) {
+        mHitDice = value;
+    }
+
+    private boolean mCustomHP;
+    public boolean getCustomHP() {
+        return mCustomHP;
+    }
+    public void setCustomHP(boolean value) {
+        mCustomHP = value;
+    }
+
+    private String mHPText;
+    public String getHPText() {
+        return mHPText;
+    }
+    public void setHPText(String value) {
+        mHPText = value;
+    }
+
+    public String getHitPoints() {
+        if (getCustomHP()) {
+            return getHPText();
+        } else {
+            int hitDice = getHitDice();
+            int dieSize = getHitDieForSize(getSize());
+            int conMod = getConstitutionModifier();
+            int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
+            return String.format(Locale.US, "%d (%dd%d %+d)", hpTotal, hitDice, dieSize, conMod * hitDice);
+        }
+    }
+
+    private static int getHitDieForSize(String size) {
+        if ("tiny".equals(size)) {
+            return 4;
+        } else if ("small".equals(size)) {
+            return 6;
+        } else if ("medium".equals(size)) {
+            return 8;
+        } else if ("large".equals(size)) {
+            return 10;
+        } else if ("huge".equals(size)) {
+            return 12;
+        } else if ("gargantuan".equals(size)) {
+            return 20;
+        } else {
+            return 8;
+        }
+    }
+
+
 }
