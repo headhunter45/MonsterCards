@@ -20,7 +20,7 @@ public final class StringHelper {
         int length = strings.size();
         if (length < 1) {
             return "";
-        } else  {
+        } else {
             StringBuilder sb = new StringBuilder();
             boolean isFirst = true;
             for (String element : strings) {
@@ -46,7 +46,7 @@ public final class StringHelper {
             StringBuilder sb = new StringBuilder();
             int index = 0;
             int lastIndex = length - 1;
-            for(String element : strings) {
+            for (String element : strings) {
                 if (index > 0 && index < lastIndex) {
                     sb.append(delimiter);
                 } else if (index > 0 && index >= lastIndex) {

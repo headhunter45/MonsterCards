@@ -10,17 +10,21 @@ public class SavingThrow implements Comparator<SavingThrow>, Comparable<SavingTh
     }
 
     private String mName;
+
     public String getName() {
         return mName;
     }
+
     public void setName(String value) {
         mName = value;
     }
 
     private int mOrder;
+
     public int getOrder() {
         return mOrder;
     }
+
     public void setOrder(int value) {
         mOrder = value;
     }
