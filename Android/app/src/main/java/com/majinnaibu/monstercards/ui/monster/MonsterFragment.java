@@ -17,6 +17,7 @@ import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SavingThrow;
+import com.majinnaibu.monstercards.models.Skill;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MonsterFragment extends Fragment {
@@ -66,6 +67,9 @@ public class MonsterFragment extends Fragment {
         monster.addSavingThrow(new SavingThrow("int", 3));
         monster.addSavingThrow(new SavingThrow("wis", 4));
         monster.addSavingThrow(new SavingThrow("cha", 5));
+        //Skills
+        monster.addSkill(new Skill("perception", "wis"));
+        monster.addSkill(new Skill("stealth", "dexterity"));
 
         // Challenge Rating
         monster.setChallengeRating("*");
@@ -174,6 +178,19 @@ public class MonsterFragment extends Fragment {
                     monsterSavingThrows.setVisibility(View.VISIBLE);
                 }
                 monsterSavingThrows.setText(Html.fromHtml("<b>Saving Throws</b> " + savingThrows));
+            }
+        });
+
+        final TextView monsterSkills = root.findViewById(R.id.skills);
+        monsterViewModel.getSkills().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String skills) {
+                if (StringHelper.isNullOrEmpty(skills)) {
+                    monsterSkills.setVisibility(View.GONE);
+                } else {
+                    monsterSkills.setVisibility(View.VISIBLE);
+                }
+                monsterSkills.setText(Html.fromHtml("<b>Skills</b> " + skills));
             }
         });
 

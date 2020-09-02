@@ -13,6 +13,7 @@ public class Monster {
 
     public Monster() {
         mSavingThrows = new HashSet<>();
+        mSkills = new HashSet<>();
     }
 
     private String mName;
@@ -586,4 +587,36 @@ public class Monster {
     public void setCustomProficiencyBonus(int proficiencyBonus) {
         mCustomProficiencyBonus = proficiencyBonus;
     }
+
+    private HashSet<Skill> mSkills;
+    public Set<Skill> getSkills() {
+        return mSkills;
+    }
+    public void addSkill(Skill skill) {
+        mSkills.add(skill);
+    }
+    public void removeSkill(Skill skill) {
+        mSkills.remove(skill);
+    }
+    public void clearSkill(Skill skill) {
+        mSkills.clear();
+    }
+
+    public String getSkillsDescription() {
+        Skill[] elements = new Skill[mSkills.size()];
+        elements = mSkills.toArray(elements);
+        Arrays.sort(elements);
+        StringBuilder sb = new StringBuilder();
+        boolean isFirst = true;
+        for (Skill skill : elements) {
+            if (!isFirst) {
+                sb.append(", ");
+            }
+            String name = skill.getName();
+            sb.append(skill.getText(this));
+            isFirst = false;
+        }
+        return sb.toString();
+    }
+
 }
