@@ -290,6 +290,33 @@
             android:textAlignment="center"
             tools:text="15 (+2)" />
 
+        <ImageView
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/section_divider"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_section_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/strength" />
+
+        <TextView
+            android:id="@+id/saving_throws"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider3"
+            tools:text="Saving Throws" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
