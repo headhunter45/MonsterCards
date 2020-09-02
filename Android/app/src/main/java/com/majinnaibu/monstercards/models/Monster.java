@@ -690,4 +690,84 @@ public class Monster {
         return StringHelper.oxfordJoin(", ", ", and ", " and ", immunities);
     }
 
+    private String mBlindsight;
+    public String getBlindsight() {
+        return mBlindsight;
+    }
+    public void setBlindsight(String value) {
+        mBlindsight = value;
+    }
+
+    private boolean mIsBlind;
+    public boolean getIsBlind() {
+        return mIsBlind;
+    }
+    public void setIsBlind(boolean value) {
+        mIsBlind = value;
+    }
+
+    private String mDarkvision;
+    public String getDarkvision() {
+        return mDarkvision;
+    }
+    public void setDarkvision(String value) {
+        mDarkvision = value;
+    }
+
+    private String mTremorsense;
+    public String getTremorsense() {
+        return mTremorsense;
+    }
+    public void setTremorsense(String value) {
+        mTremorsense = value;
+    }
+
+    private String mTruesight;
+    public String getTruesight() {
+        return mTruesight;
+    }
+    public void setTruesight(String value) {
+        mTruesight = value;
+    }
+
+    private int mTelepathy;
+    public int getTelepathy() {
+        return mTelepathy;
+    }
+    public void setTelepathy(int value) {
+        mTelepathy = value;
+    }
+
+    private String mUnderstandsBut;
+    public String getUnderstandsBut() {
+        return mUnderstandsBut;
+    }
+    public void setUnderstandsBut(String value) {
+        mUnderstandsBut = value;
+    }
+
+    public String getSensesDescription() {
+        ArrayList<String> parts = new ArrayList<>();
+
+        String blindsight = getBlindsight();
+        if (!StringHelper.isNullOrEmpty(blindsight) && !"0".equals(blindsight)) {
+            parts.add(String.format(Locale.US, "blindsight %s ft.%s", blindsight, getIsBlind() ? " (blind beyond this radius)" : ""));
+        }
+        String darkvision = getDarkvision();
+        if (!StringHelper.isNullOrEmpty(darkvision) && !"0".equals(darkvision)) {
+            parts.add(String.format(Locale.US, "darkvision %s ft.", darkvision));
+        }
+        String tremorsense = getTremorsense();
+        if (!StringHelper.isNullOrEmpty(tremorsense) && !"0".equals(tremorsense)) {
+            parts.add(String.format(Locale.US, "tremorsense %s ft.", tremorsense));
+        }
+        String truesight = getTruesight();
+        if (!StringHelper.isNullOrEmpty(truesight) && !"0".equals(truesight)) {
+            parts.add(String.format(Locale.US, "truesight %s ft.", truesight));
+        }
+        parts.add(String.format(Locale.US, "passive Perception %d", 10 + getWisdomModifier()));
+
+        return StringHelper.join(", ", parts);
+    }
+
 }
