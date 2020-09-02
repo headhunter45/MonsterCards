@@ -14,6 +14,7 @@ public class Monster {
 
     public Monster() {
         mAbilities = new ArrayList<>();
+        mActions = new ArrayList<>();
         mConditionImmunities = new HashSet<>();
         mDamageTypes = new HashSet<>();
         mLanguages = new HashSet<>();
@@ -977,6 +978,28 @@ public class Monster {
 
     public int getAttackBonus(String abilityScoreName) {
         return getProficiencyBonus() + getAbilityModifier(abilityScoreName);
+    }
+
+    public List<String> getActionDescriptions() {
+        ArrayList<String> actions = new ArrayList<>();
+        for (Action action : getActions()) {
+            actions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.getName(), action.getDescription())));
+        }
+        return actions;
+    }
+
+    private ArrayList<Action> mActions;
+    public List<Action> getActions() {
+        return mActions;
+    }
+    public void addAction(Action ability) {
+        mActions.add(ability);
+    }
+    public void removeAction(Action ability) {
+        mActions.remove(ability);
+    }
+    public void clearActions() {
+        mActions.clear();
     }
 
 }
