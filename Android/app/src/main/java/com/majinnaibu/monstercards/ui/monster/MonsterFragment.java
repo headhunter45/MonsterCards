@@ -38,6 +38,11 @@ public class MonsterFragment extends Fragment {
         monster.setShieldBonus(0);
         monster.setNaturalArmorBonus(7);
         monster.setOtherArmorDescription("14");
+        // Hit Points
+        monster.setHitDice(1);
+        monster.setCustomHP(false);
+        monster.setHPText("11 (2d8 + 2)");
+
         // END remove block
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
@@ -64,6 +69,14 @@ public class MonsterFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String armorText) {
                 monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText));
+            }
+        });
+
+        final TextView monsterHitPoints = root.findViewById(R.id.hit_points);
+        monsterViewModel.getHitPoints().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String hitPoints) {
+                monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints));
             }
         });
 
