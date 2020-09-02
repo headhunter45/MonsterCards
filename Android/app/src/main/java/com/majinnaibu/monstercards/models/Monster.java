@@ -432,4 +432,28 @@ public class Monster {
         }
     }
 
+    public String getStrengthDescription() {
+        return String.format(Locale.US, "%d (%+d)", getStrengthScore(), getStrengthModifier());
+    }
+
+    public String getDexterityDescription() {
+        return String.format(Locale.US, "%d (%+d)", getDexterityScore(), getDexterityModifier());
+    }
+
+    public String getConstitutionDescription() {
+        return String.format(Locale.US, "%d (%+d)", getConstitutionScore(), getConstitutionModifier());
+    }
+
+    public String getIntelligenceDescription() {
+        return String.format(Locale.US, "%d (%+d)", getIntelligenceScore(), getIntelligenceModifier());
+    }
+
+    public String getWisdomDescription() {
+        return String.format(Locale.US, "%d (%+d)", getWisdomScore(), getWisdomModifier());
+    }
+
+    public String getCharismaDescription() {
+        return String.format(Locale.US, "%d (%+d)", getCharismaScore(), getCharismaModifier());
+    }
+
 }

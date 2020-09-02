@@ -50,6 +50,13 @@ public class MonsterFragment extends Fragment {
         monster.setSwimSpeed("0");
         monster.setCustomSpeed(false);
         monster.setSpeedDescription("30 ft., swim 30 ft.");
+        // Ability Scores
+        monster.setStrengthScore(Integer.parseInt("2"));
+        monster.setDexterityScore(Integer.parseInt("20"));
+        monster.setConstitutionScore(Integer.parseInt("8"));
+        monster.setIntelligenceScore(Integer.parseInt("10"));
+        monster.setWisdomScore(Integer.parseInt("14"));
+        monster.setCharismaScore(Integer.parseInt("15"));
 
         // END remove block
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
@@ -93,6 +100,54 @@ public class MonsterFragment extends Fragment {
             @Override
             public void onChanged(String speed) {
                 monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed));
+            }
+        });
+
+        final TextView monsterStrength = root.findViewById(R.id.strength);
+        monsterViewModel.getStrength().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String strength) {
+                monsterStrength.setText(strength);
+            }
+        });
+
+        final TextView monsterDexterity = root.findViewById(R.id.dexterity);
+        monsterViewModel.getDexterity().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String dexterity) {
+                monsterDexterity.setText(dexterity);
+            }
+        });
+
+        final TextView monsterConstitution = root.findViewById(R.id.constitution);
+        monsterViewModel.getConstitution().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String constitution) {
+                monsterConstitution.setText(constitution);
+            }
+        });
+
+        final TextView monsterIntelligence = root.findViewById(R.id.intelligence);
+        monsterViewModel.getIntelligence().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String intelligence) {
+                monsterIntelligence.setText(intelligence);
+            }
+        });
+
+        final TextView monsterWisdom = root.findViewById(R.id.wisdom);
+        monsterViewModel.getWisdom().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String wisdom) {
+                monsterWisdom.setText(wisdom);
+            }
+        });
+
+        final TextView monsterCharisma = root.findViewById(R.id.charisma);
+        monsterViewModel.getCharisma().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String charisma) {
+                monsterCharisma.setText(charisma);
             }
         });
 
