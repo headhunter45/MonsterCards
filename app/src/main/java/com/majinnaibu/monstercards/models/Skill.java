@@ -24,6 +24,7 @@ public class Skill implements Comparator<Skill>, Comparable<Skill> {
     public String getName() {
         return mName;
     }
+
     public void setName(String name) {
         mName = name;
     }
@@ -31,6 +32,7 @@ public class Skill implements Comparator<Skill>, Comparable<Skill> {
     public String getAbilityScoreName() {
         return mAbilityScoreName;
     }
+
     public void setAbilityScoreName(String abilityScoreName) {
         mAbilityScoreName = abilityScoreName;
     }
@@ -52,7 +54,7 @@ public class Skill implements Comparator<Skill>, Comparable<Skill> {
     public String getText(Monster monster) {
         int bonus = getSkillBonus(monster);
 
-        return String.format(Locale.US, "%s%s %d", mName.substring(0,1), mName.substring(1), bonus);
+        return String.format(Locale.US, "%s%s %d", mName.substring(0, 1), mName.substring(1), bonus);
     }
 
     @Override

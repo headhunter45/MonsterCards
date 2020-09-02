@@ -10,17 +10,21 @@ public class Language implements Comparator<Language>, Comparable<Language> {
     }
 
     private String mName;
+
     public String getName() {
         return mName;
     }
+
     public void setName(String value) {
         mName = value;
     }
 
     private boolean mSpeaks;
+
     public boolean getSpeaks() {
         return mSpeaks;
     }
+
     public void setSpeaks(boolean value) {
         mSpeaks = value;
     }

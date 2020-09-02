@@ -8,17 +8,21 @@ public class Action {
     }
 
     private String mName;
+
     public String getName() {
         return mName;
     }
+
     public void setName(String name) {
         mName = name;
     }
 
     private String mDescription;
+
     public String getDescription() {
         return mDescription;
     }
+
     public void setDescription(String description) {
         mDescription = description;
     }

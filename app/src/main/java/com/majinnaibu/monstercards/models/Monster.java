@@ -23,41 +23,51 @@ public class Monster {
     }
 
     private String mName;
+
     public String getName() {
         return mName;
     }
+
     public void setName(String value) {
         mName = value;
     }
 
     private String mSize;
+
     public String getSize() {
         return mSize;
     }
+
     public void setSize(String value) {
         mSize = value;
     }
 
     private String mType;
+
     public String getType() {
         return mType;
     }
+
     public void setType(String value) {
         mType = value;
     }
 
     private String mTag;
+
     public String getTag() {
         return mTag;
     }
+
     public void setTag(String value) {
         mTag = value;
     }
 
     private String mAlignment;
+
     public String getAlignment() {
         return mAlignment;
     }
+
     public void setAlignment(String value) {
         mAlignment = value;
     }
@@ -121,7 +131,7 @@ public class Monster {
     }
 
     public static int getAbilityModifierForScore(int score) {
-        return (int)Math.floor((score-10)/2.0);
+        return (int) Math.floor((score - 10) / 2.0);
     }
 
     public int getAbilityModifier(String abilityScoreName) {
@@ -130,99 +140,125 @@ public class Monster {
     }
 
     private int mStrengthScore;
+
     public int getStrengthScore() {
         return mStrengthScore;
     }
+
     public void setStrengthScore(int value) {
         mStrengthScore = value;
     }
+
     public int getStrengthModifier() {
         return getAbilityModifierForScore(getStrengthScore());
     }
 
     private int mDexterityScore;
+
     public int getDexterityScore() {
         return mDexterityScore;
     }
+
     public void setDexterityScore(int value) {
         mDexterityScore = value;
     }
+
     public int getDexterityModifier() {
         return getAbilityModifierForScore(getDexterityScore());
     }
 
     private int mConstitutionScore;
+
     public int getConstitutionScore() {
         return mConstitutionScore;
     }
+
     public void setConstitutionScore(int value) {
         mConstitutionScore = value;
     }
+
     public int getConstitutionModifier() {
         return getAbilityModifierForScore(getConstitutionScore());
     }
 
     private int mIntelligenceScore;
+
     public int getIntelligenceScore() {
         return mIntelligenceScore;
     }
+
     public void setIntelligenceScore(int value) {
         mIntelligenceScore = value;
     }
+
     public int getIntelligenceModifier() {
         return getAbilityModifierForScore(getIntelligenceScore());
     }
 
     private int mWisdomScore;
+
     public int getWisdomScore() {
         return mWisdomScore;
     }
+
     public void setWisdomScore(int value) {
         mWisdomScore = value;
     }
+
     public int getWisdomModifier() {
         return getAbilityModifierForScore(getWisdomScore());
     }
 
     private int mCharismaScore;
+
     public int getCharismaScore() {
         return mCharismaScore;
     }
+
     public void setCharismaScore(int value) {
         mCharismaScore = value;
     }
+
     public int getCharismaModifier() {
         return getAbilityModifierForScore(getCharismaScore());
     }
 
     private String mArmorName;
+
     public String getArmorName() {
         return mArmorName;
     }
+
     public void setArmorName(String value) {
         mArmorName = value;
     }
 
     private int mShieldBonus;
+
     public int getShieldBonus() {
         return mShieldBonus;
     }
+
     public void setShieldBonus(int value) {
         mShieldBonus = value;
     }
 
     private int mNaturalArmorBonus;
+
     public int getNaturalArmorBonus() {
         return mNaturalArmorBonus;
     }
+
     public void setNaturalArmorBonus(int value) {
         mNaturalArmorBonus = value;
     }
 
     private String mOtherArmorDescription;
+
     public String getOtherArmorDescription() {
         return mOtherArmorDescription;
     }
+
     public void setOtherArmorDescription(String value) {
         mOtherArmorDescription = value;
     }
@@ -233,7 +269,7 @@ public class Monster {
         if (StringHelper.isNullOrEmpty(armorName) || "none".equals(armorName)) {
             // 10 + dexMod + 2 for shieldBonus "15" or "17 (shield)"
             return String.format(Locale.US, "%d%s", BASE_ARMOR_CLASS + getDexterityModifier() + getShieldBonus(), hasShield ? " (shield)" : "");
-        } else if("natural armor".equals(armorName)) {
+        } else if ("natural armor".equals(armorName)) {
             // 10 + dexMod + naturalArmorBonus + 2 for shieldBonus "16 (natural armor)" or "18 (natural armor, shield)"
             return String.format(Locale.US, "%d (natural armor%s)", BASE_ARMOR_CLASS + getDexterityModifier() + getNaturalArmorBonus() + getShieldBonus(), hasShield ? ", shield" : "");
         } else if ("mage armor".equals(armorName)) {
@@ -259,7 +295,7 @@ public class Monster {
             return String.format(Locale.US, "%d (scale mail%s)", SCALE_MAIL_ARMOR_CLASS + Math.min(2, getDexterityModifier()) + getShieldBonus(), hasShield ? ", shield" : "");
         } else if ("breastplate".equals(armorName)) {
             // 14 + Min(2, dexMod) + 2 for shield "16 (breastplate)"
-            return String.format(Locale.US, "%d (breastplate%s)", BREASTPLATE_ARMOR_CLASS +Math.min(2, getDexterityModifier()) + getShieldBonus(), hasShield ? ", shield" : "");
+            return String.format(Locale.US, "%d (breastplate%s)", BREASTPLATE_ARMOR_CLASS + Math.min(2, getDexterityModifier()) + getShieldBonus(), hasShield ? ", shield" : "");
         } else if ("half plate".equals(armorName)) {
             // 15 + Min(2, dexMod) + 2 for shield "17 (half plate)"
             return String.format(Locale.US, "%d (half plate%s)", HALF_PLATE_ARMOR_CLASS + Math.min(2, getDexterityModifier()) + getShieldBonus(), hasShield ? ", shield" : "");
@@ -271,10 +307,10 @@ public class Monster {
             return String.format(Locale.US, "%d (chain mail%s)", CHAIN_MAIL_ARMOR_CLASS + getShieldBonus(), hasShield ? ", shield" : "");
         } else if ("splint".equals(armorName)) {
             // 17 + 2 for shield "17 (splint)"
-            return String.format(Locale.US, "%d (splint%s)", SPLINT_ARMOR_CLASS + getShieldBonus(), hasShield ? ", shield": "");
+            return String.format(Locale.US, "%d (splint%s)", SPLINT_ARMOR_CLASS + getShieldBonus(), hasShield ? ", shield" : "");
         } else if ("plate".equals(armorName)) {
             // 18 + 2 for shield "18 (plate)"
-            return String.format(Locale.US, "%d (plate%s)", PLATE_ARMOR_CLASS + getShieldBonus(), hasShield ? ", shield": "");
+            return String.format(Locale.US, "%d (plate%s)", PLATE_ARMOR_CLASS + getShieldBonus(), hasShield ? ", shield" : "");
         } else if ("other".equals(armorName)) {
             // pure string value shield check does nothing just copies the string from otherArmorDesc
             return getOtherArmorDescription();
@@ -299,25 +335,31 @@ public class Monster {
     private static final int PLATE_ARMOR_CLASS = BASE_ARMOR_CLASS + 8;
 
     private int mHitDice;
+
     public int getHitDice() {
         return mHitDice;
     }
+
     public void setHitDice(int value) {
         mHitDice = value;
     }
 
     private boolean mCustomHP;
+
     public boolean getCustomHP() {
         return mCustomHP;
     }
+
     public void setCustomHP(boolean value) {
         mCustomHP = value;
     }
 
     private String mHPText;
+
     public String getHPText() {
         return mHPText;
     }
+
     public void setHPText(String value) {
         mHPText = value;
     }
@@ -353,65 +395,81 @@ public class Monster {
     }
 
     private String mSpeed;
+
     public String getSpeed() {
         return mSpeed;
     }
+
     public void setSpeed(String value) {
         mSpeed = value;
     }
 
     private String mBurrowSpeed;
+
     public String getBurrowSpeed() {
         return mBurrowSpeed;
     }
+
     public void setBurrowSpeed(String value) {
         mBurrowSpeed = value;
     }
 
     private String mClimbSpeed;
+
     public String getClimbSpeed() {
         return mClimbSpeed;
     }
+
     public void setClimbSpeed(String value) {
         mClimbSpeed = value;
     }
 
     private String mFlySpeed;
+
     public String getFlySpeed() {
         return mFlySpeed;
     }
+
     public void setFlySpeed(String value) {
         mFlySpeed = value;
     }
 
     private boolean mHover;
+
     public boolean getHover() {
         return mHover;
     }
+
     public void setHover(boolean value) {
         mHover = value;
     }
 
     private String mSwimSpeed;
+
     public String getSwimSpeed() {
         return mSwimSpeed;
     }
+
     public void setSwimSpeed(String value) {
         mSwimSpeed = value;
     }
 
     private boolean mCustomSpeed;
+
     public boolean getCustomSpeed() {
         return mCustomSpeed;
     }
+
     public void setCustomSpeed(boolean value) {
         mCustomSpeed = value;
     }
 
     private String mSpeedDescription;
+
     public String getSpeedDescription() {
         return mSpeedDescription;
     }
+
     public void setSpeedDescription(String value) {
         mSpeedDescription = value;
     }
@@ -471,15 +529,19 @@ public class Monster {
     }
 
     private HashSet<SavingThrow> mSavingThrows;
+
     public Set<SavingThrow> getSavingThrows() {
         return mSavingThrows;
     }
+
     public void addSavingThrow(SavingThrow savingThrow) {
         mSavingThrows.add(savingThrow);
     }
+
     public void removeSavingThrow(SavingThrow savingThrow) {
         mSavingThrows.remove(savingThrow);
     }
+
     public void clearSavingThrows() {
         mSavingThrows.clear();
     }
@@ -496,7 +558,7 @@ public class Monster {
             }
             String name = st.getName();
 
-            sb.append(String.format(Locale.US, "%s%s %+d", name.substring(0,1).toUpperCase(Locale.US), name.substring(1), getAbilityModifier(name) + getProficiencyBonus()));
+            sb.append(String.format(Locale.US, "%s%s %+d", name.substring(0, 1).toUpperCase(Locale.US), name.substring(1), getAbilityModifier(name) + getProficiencyBonus()));
             isFirst = false;
         }
         return sb.toString();
@@ -507,61 +569,61 @@ public class Monster {
         if ("*".equals(challengeRating)) {
             return getCustomProficiencyBonus();
         } else if (
-            "0".equals(challengeRating) ||
-            "1/8".equals(challengeRating) ||
-            "1/4".equals(challengeRating) ||
-            "1/2".equals(challengeRating) ||
-            "1".equals(challengeRating) ||
-            "2".equals(challengeRating) ||
-            "3".equals(challengeRating) ||
-            "4".equals(challengeRating)
+                "0".equals(challengeRating) ||
+                        "1/8".equals(challengeRating) ||
+                        "1/4".equals(challengeRating) ||
+                        "1/2".equals(challengeRating) ||
+                        "1".equals(challengeRating) ||
+                        "2".equals(challengeRating) ||
+                        "3".equals(challengeRating) ||
+                        "4".equals(challengeRating)
         ) {
             return 2;
         } else if (
-            "5".equals(challengeRating) ||
-            "6".equals(challengeRating) ||
-            "7".equals(challengeRating) ||
-            "8".equals(challengeRating)
+                "5".equals(challengeRating) ||
+                        "6".equals(challengeRating) ||
+                        "7".equals(challengeRating) ||
+                        "8".equals(challengeRating)
         ) {
             return 3;
         } else if (
-            "9".equals(challengeRating) ||
-            "10".equals(challengeRating) ||
-            "11".equals(challengeRating) ||
-            "12".equals(challengeRating)
+                "9".equals(challengeRating) ||
+                        "10".equals(challengeRating) ||
+                        "11".equals(challengeRating) ||
+                        "12".equals(challengeRating)
         ) {
             return 4;
         } else if (
-            "13".equals(challengeRating) ||
-            "14".equals(challengeRating) ||
-            "15".equals(challengeRating) ||
-            "16".equals(challengeRating)
+                "13".equals(challengeRating) ||
+                        "14".equals(challengeRating) ||
+                        "15".equals(challengeRating) ||
+                        "16".equals(challengeRating)
         ) {
             return 5;
         } else if (
-            "17".equals(challengeRating) ||
-            "18".equals(challengeRating) ||
-            "19".equals(challengeRating) ||
-            "20".equals(challengeRating)
+                "17".equals(challengeRating) ||
+                        "18".equals(challengeRating) ||
+                        "19".equals(challengeRating) ||
+                        "20".equals(challengeRating)
         ) {
             return 6;
         } else if (
-            "21".equals(challengeRating) ||
-            "22".equals(challengeRating) ||
-            "23".equals(challengeRating) ||
-            "24".equals(challengeRating)
+                "21".equals(challengeRating) ||
+                        "22".equals(challengeRating) ||
+                        "23".equals(challengeRating) ||
+                        "24".equals(challengeRating)
         ) {
             return 7;
         } else if (
-            "25".equals(challengeRating) ||
-            "26".equals(challengeRating) ||
-            "27".equals(challengeRating) ||
-            "28".equals(challengeRating)
+                "25".equals(challengeRating) ||
+                        "26".equals(challengeRating) ||
+                        "27".equals(challengeRating) ||
+                        "28".equals(challengeRating)
         ) {
             return 8;
         } else if (
-            "29".equals(challengeRating) ||
-            "30".equals(challengeRating)
+                "29".equals(challengeRating) ||
+                        "30".equals(challengeRating)
         ) {
             return 9;
         } else {
@@ -570,40 +632,50 @@ public class Monster {
     }
 
     private String mChallengeRating;
+
     public String getChallengeRating() {
         return mChallengeRating;
     }
+
     public void setChallengeRating(String challengeRating) {
         mChallengeRating = challengeRating;
         // TODO: update proficiency bonus based on CR
     }
 
     private String mCustomChallengeRating;
+
     public String getCustomChallengeRating() {
         return mCustomChallengeRating;
     }
+
     public void setCustomChallengeRating(String challengeRating) {
         mCustomChallengeRating = challengeRating;
     }
 
     private int mCustomProficiencyBonus;
+
     public int getCustomProficiencyBonus() {
         return mCustomProficiencyBonus;
     }
+
     public void setCustomProficiencyBonus(int proficiencyBonus) {
         mCustomProficiencyBonus = proficiencyBonus;
     }
 
     private HashSet<Skill> mSkills;
+
     public Set<Skill> getSkills() {
         return mSkills;
     }
+
     public void addSkill(Skill skill) {
         mSkills.add(skill);
     }
+
     public void removeSkill(Skill skill) {
         mSkills.remove(skill);
     }
+
     public void clearSkill(Skill skill) {
         mSkills.clear();
     }
@@ -626,16 +698,20 @@ public class Monster {
     }
 
     private HashSet<DamageType> mDamageTypes;
+
     public Set<DamageType> getDamageTypes() {
         return mDamageTypes;
     }
+
     public void addDamageType(DamageType damageType) {
         // TODO: make this remove the damage type with the same name if it exists first
         mDamageTypes.add(damageType);
     }
+
     public void removeDamageType(DamageType damageType) {
         mDamageTypes.remove(damageType);
     }
+
     public void clearDamageTypes() {
         mDamageTypes.clear();
     }
@@ -650,6 +726,7 @@ public class Monster {
         Collections.sort(vulnerabilities);
         return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
     }
+
     public String getDamageResistancesDescription() {
         ArrayList<String> vulnerabilities = new ArrayList<>();
         for (DamageType damageType : mDamageTypes) {
@@ -660,6 +737,7 @@ public class Monster {
         Collections.sort(vulnerabilities);
         return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
     }
+
     public String getDamageImmunitiesDescription() {
         ArrayList<String> vulnerabilities = new ArrayList<>();
         for (DamageType damageType : mDamageTypes) {
@@ -672,17 +750,21 @@ public class Monster {
     }
 
     private HashSet<String> mConditionImmunities;
+
     public Set<String> getConditionImmunities() {
         return mConditionImmunities;
     }
+
     public void addConditionImmunity(String condition) {
         // TODO: filter out duplicates
         mConditionImmunities.add(condition);
     }
+
     public void removeConditionImmunity(String condition) {
         // TODO: make sure this works even though we're using strings
         mConditionImmunities.remove(condition);
     }
+
     public void clearConditionImmunities() {
         mConditionImmunities.clear();
     }
@@ -694,41 +776,51 @@ public class Monster {
     }
 
     private String mBlindsight;
+
     public String getBlindsight() {
         return mBlindsight;
     }
+
     public void setBlindsight(String value) {
         mBlindsight = value;
     }
 
     private boolean mIsBlind;
+
     public boolean getIsBlind() {
         return mIsBlind;
     }
+
     public void setIsBlind(boolean value) {
         mIsBlind = value;
     }
 
     private String mDarkvision;
+
     public String getDarkvision() {
         return mDarkvision;
     }
+
     public void setDarkvision(String value) {
         mDarkvision = value;
     }
 
     private String mTremorsense;
+
     public String getTremorsense() {
         return mTremorsense;
     }
+
     public void setTremorsense(String value) {
         mTremorsense = value;
     }
 
     private String mTruesight;
+
     public String getTruesight() {
         return mTruesight;
     }
+
     public void setTruesight(String value) {
         mTruesight = value;
     }
@@ -758,31 +850,39 @@ public class Monster {
     }
 
     private HashSet<Language> mLanguages;
+
     public Set<Language> getLanguages() {
         return mLanguages;
     }
+
     public void addLanguage(Language value) {
         mLanguages.add(value);
     }
+
     public void removeLanguage(Language value) {
         mLanguages.remove(value);
     }
+
     public void clearLanguages() {
         mLanguages.clear();
     }
 
     private int mTelepathy;
+
     public int getTelepathy() {
         return mTelepathy;
     }
+
     public void setTelepathy(int value) {
         mTelepathy = value;
     }
 
     private String mUnderstandsBut;
+
     public String getUnderstandsBut() {
         return mUnderstandsBut;
     }
+
     public void setUnderstandsBut(String value) {
         mUnderstandsBut = value;
     }
@@ -921,15 +1021,19 @@ public class Monster {
     }
 
     private ArrayList<Ability> mAbilities;
+
     public List<Ability> getAbilities() {
         return mAbilities;
     }
+
     public void addAbility(Ability ability) {
         mAbilities.add(ability);
     }
+
     public void removeAbility(Ability ability) {
         mAbilities.remove(ability);
     }
+
     public void clearAbilities() {
         mAbilities.clear();
     }
@@ -960,7 +1064,7 @@ public class Monster {
 
     public int getSavingThrow(String name) {
         Set<SavingThrow> sts = getSavingThrows();
-        for(SavingThrow st : sts) {
+        for (SavingThrow st : sts) {
             if (name.equals(st.getName())) {
                 return getAbilityModifier(name) + getProficiencyBonus();
             }
@@ -989,15 +1093,19 @@ public class Monster {
     }
 
     private ArrayList<Action> mActions;
+
     public List<Action> getActions() {
         return mActions;
     }
+
     public void addAction(Action ability) {
         mActions.add(ability);
     }
+
     public void removeAction(Action ability) {
         mActions.remove(ability);
     }
+
     public void clearActions() {
         mActions.clear();
     }
