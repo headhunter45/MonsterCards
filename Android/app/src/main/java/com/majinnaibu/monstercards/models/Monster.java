@@ -16,6 +16,7 @@ public class Monster {
         mSavingThrows = new HashSet<>();
         mSkills = new HashSet<>();
         mDamageTypes = new HashSet<>();
+        mConditionImmunities = new HashSet<>();
     }
 
     private String mName;
@@ -665,6 +666,28 @@ public class Monster {
         }
         Collections.sort(vulnerabilities);
         return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
+    }
+
+    private HashSet<String> mConditionImmunities;
+    public Set<String> getConditionImmunities() {
+        return mConditionImmunities;
+    }
+    public void addConditionImmunity(String condition) {
+        // TODO: filter out duplicates
+        mConditionImmunities.add(condition);
+    }
+    public void removeConditionImmunity(String condition) {
+        // TODO: make sure this works even though we're using strings
+        mConditionImmunities.remove(condition);
+    }
+    public void clearConditionImmunities() {
+        mConditionImmunities.clear();
+    }
+
+    public String getConditionImmunitiesDescription() {
+        ArrayList<String> immunities = new ArrayList<>(getConditionImmunities());
+        Collections.sort(immunities);
+        return StringHelper.oxfordJoin(", ", ", and ", " and ", immunities);
     }
 
 }

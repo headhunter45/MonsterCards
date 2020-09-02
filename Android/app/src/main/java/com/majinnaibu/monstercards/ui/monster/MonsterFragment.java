@@ -81,6 +81,8 @@ public class MonsterFragment extends Fragment {
         monster.addDamageType(new DamageType("necrotic", " (Vulnerable)", "v"));
         monster.addDamageType(new DamageType("piercing", " (Resistant)", "r"));
         monster.addDamageType(new DamageType("poison", " (Immune)", "i"));
+        // Condition Immunities
+        monster.addConditionImmunity("blinded");
 
         // Challenge Rating
         monster.setChallengeRating("*");
@@ -241,6 +243,19 @@ public class MonsterFragment extends Fragment {
                     monsterDamageImmunities.setVisibility(View.VISIBLE);
                 }
                 monsterDamageImmunities.setText(Html.fromHtml("<b>Damage Immunities</b> " + damageType));
+            }
+        });
+
+        final TextView monsterConditionImmunities = root.findViewById(R.id.condition_immunities);
+        monsterViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String conditionImmunities) {
+                if (StringHelper.isNullOrEmpty(conditionImmunities)) {
+                    monsterConditionImmunities.setVisibility(View.GONE);
+                } else {
+                    monsterConditionImmunities.setVisibility(View.VISIBLE);
+                }
+                monsterConditionImmunities.setText(Html.fromHtml("<b>Condition Immunities</b> " + conditionImmunities));
             }
         });
 
