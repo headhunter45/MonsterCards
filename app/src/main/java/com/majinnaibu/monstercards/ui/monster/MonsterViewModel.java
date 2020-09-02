@@ -18,6 +18,8 @@ public class MonsterViewModel extends ViewModel {
         mArmorClass.setValue("");
         mHitPoints = new MutableLiveData<>();
         mHitPoints.setValue("");
+        mSpeed = new MutableLiveData<>();
+        mSpeed.setValue("");
     }
 
     private MutableLiveData<String> mName;
@@ -36,6 +38,10 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getHitPoints() {
         return mHitPoints;
     }
+    private MutableLiveData<String> mSpeed;
+    public LiveData<String> getSpeed() {
+        return mSpeed;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
@@ -44,5 +50,6 @@ public class MonsterViewModel extends ViewModel {
         mMeta.setValue(mMonster.getMeta());
         mArmorClass.setValue(mMonster.getArmorClass());
         mHitPoints.setValue(mMonster.getHitPoints());
+        mSpeed.setValue(mMonster.getSpeedText());
     }
 }
