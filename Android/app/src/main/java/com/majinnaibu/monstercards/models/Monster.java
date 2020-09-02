@@ -3,10 +3,17 @@ package com.majinnaibu.monstercards.models;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public class Monster {
+
+    public Monster() {
+        mSavingThrows = new HashSet<>();
+    }
 
     private String mName;
     public String getName() {
@@ -456,4 +463,127 @@ public class Monster {
         return String.format(Locale.US, "%d (%+d)", getCharismaScore(), getCharismaModifier());
     }
 
+    private HashSet<SavingThrow> mSavingThrows;
+    public Set<SavingThrow> getSavingThrows() {
+        return mSavingThrows;
+    }
+    public void addSavingThrow(SavingThrow savingThrow) {
+        mSavingThrows.add(savingThrow);
+    }
+    public void removeSavingThrow(SavingThrow savingThrow) {
+        mSavingThrows.remove(savingThrow);
+    }
+    public void clearSavingThrows() {
+        mSavingThrows.clear();
+    }
+
+    public String getSavingThrowsDescription() {
+        SavingThrow[] elements = new SavingThrow[mSavingThrows.size()];
+        elements = mSavingThrows.toArray(elements);
+        Arrays.sort(elements);
+        StringBuilder sb = new StringBuilder();
+        boolean isFirst = true;
+        for (SavingThrow st : elements) {
+            if (!isFirst) {
+                sb.append(", ");
+            }
+            String name = st.getName();
+
+            sb.append(String.format(Locale.US, "%s%s %+d", name.substring(0,1).toUpperCase(Locale.US), name.substring(1), getAbilityModifier(name) + getProficiencyBonus()));
+            isFirst = false;
+        }
+        return sb.toString();
+    }
+
+    public int getProficiencyBonus() {
+        String challengeRating = getChallengeRating();
+        if ("*".equals(challengeRating)) {
+            return getCustomProficiencyBonus();
+        } else if (
+            "0".equals(challengeRating) ||
+            "1/8".equals(challengeRating) ||
+            "1/4".equals(challengeRating) ||
+            "1/2".equals(challengeRating) ||
+            "1".equals(challengeRating) ||
+            "2".equals(challengeRating) ||
+            "3".equals(challengeRating) ||
+            "4".equals(challengeRating)
+        ) {
+            return 2;
+        } else if (
+            "5".equals(challengeRating) ||
+            "6".equals(challengeRating) ||
+            "7".equals(challengeRating) ||
+            "8".equals(challengeRating)
+        ) {
+            return 3;
+        } else if (
+            "9".equals(challengeRating) ||
+            "10".equals(challengeRating) ||
+            "11".equals(challengeRating) ||
+            "12".equals(challengeRating)
+        ) {
+            return 4;
+        } else if (
+            "13".equals(challengeRating) ||
+            "14".equals(challengeRating) ||
+            "15".equals(challengeRating) ||
+            "16".equals(challengeRating)
+        ) {
+            return 5;
+        } else if (
+            "17".equals(challengeRating) ||
+            "18".equals(challengeRating) ||
+            "19".equals(challengeRating) ||
+            "20".equals(challengeRating)
+        ) {
+            return 6;
+        } else if (
+            "21".equals(challengeRating) ||
+            "22".equals(challengeRating) ||
+            "23".equals(challengeRating) ||
+            "24".equals(challengeRating)
+        ) {
+            return 7;
+        } else if (
+            "25".equals(challengeRating) ||
+            "26".equals(challengeRating) ||
+            "27".equals(challengeRating) ||
+            "28".equals(challengeRating)
+        ) {
+            return 8;
+        } else if (
+            "29".equals(challengeRating) ||
+            "30".equals(challengeRating)
+        ) {
+            return 9;
+        } else {
+            return 0;
+        }
+    }
+
+    private String mChallengeRating;
+    public String getChallengeRating() {
+        return mChallengeRating;
+    }
+    public void setChallengeRating(String challengeRating) {
+        mChallengeRating = challengeRating;
+        // TODO: update proficiency bonus based on CR
+    }
+
+    private String mCustomChallengeRating;
+    public String getCustomChallengeRating() {
+        return mCustomChallengeRating;
+    }
+    public void setCustomChallengeRating(String challengeRating) {
+        mCustomChallengeRating = challengeRating;
+    }
+
+    private int mCustomProficiencyBonus;
+    public int getCustomProficiencyBonus() {
+        return mCustomProficiencyBonus;
+    }
+    public void setCustomProficiencyBonus(int proficiencyBonus) {
+        mCustomProficiencyBonus = proficiencyBonus;
+    }
 }
