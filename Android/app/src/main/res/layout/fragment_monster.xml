@@ -331,5 +331,44 @@
             app:layout_constraintTop_toBottomOf="@+id/saving_throws"
             tools:text="Skills" />
 
+        <TextView
+            android:id="@+id/damage_vulnerabilities"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skills"
+            tools:text="Damage Vulnerabilities" />
+
+        <TextView
+            android:id="@+id/damage_resistances"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/damage_vulnerabilities"
+            tools:text="Damage Resistances" />
+
+        <TextView
+            android:id="@+id/damage_immunities"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/damage_resistances"
+            tools:text="Damage Immunities" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

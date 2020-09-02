@@ -35,4 +35,27 @@ public final class StringHelper {
             return sb.toString();
         }
     }
+
+    public static String oxfordJoin(String delimiter, String lastDelimiter, String onlyDelimiter, Collection<String> strings) {
+        int length = strings.size();
+        if (length < 1) {
+            return "";
+        } else if (length == 2) {
+            return join(onlyDelimiter, strings);
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0;
+            int lastIndex = length - 1;
+            for(String element : strings) {
+                if (index > 0 && index < lastIndex) {
+                    sb.append(delimiter);
+                } else if (index > 0 && index >= lastIndex) {
+                    sb.append(lastDelimiter);
+                }
+                sb.append(element);
+                index++;
+            }
+            return sb.toString();
+        }
+    }
 }
