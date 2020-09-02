@@ -1,10 +1,16 @@
 package com.majinnaibu.monstercards.ui.monster;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Spanned;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,12 +20,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.models.Ability;
 import com.majinnaibu.monstercards.models.DamageType;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SavingThrow;
 import com.majinnaibu.monstercards.models.Skill;
+
+import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MonsterFragment extends Fragment {
@@ -99,11 +109,14 @@ public class MonsterFragment extends Fragment {
         monster.addLanguage(new Language("French", true));
         monster.addLanguage(new Language("Mermataur", false));
         monster.addLanguage(new Language("Goldfish", false));
-
         // Challenge Rating
         monster.setChallengeRating("*");
         monster.setCustomChallengeRating("Infinite (0XP)");
         monster.setCustomProficiencyBonus(4);
+        // Abilities
+        monster.addAbility(new Ability("Spellcasting", "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n\n> Cantrips (at will): _light, sacred flame, thaumaturgy_\n> 1st level (3 slots): _bless, cure wounds, sanctuary_"));
+        monster.addAbility(new Ability("Amphibious", "The dragon can breathe air and water."));
+        monster.addAbility(new Ability("Legendary Resistance (3/Day)", "If the dragon fails a saving throw, it can choose to succeed instead."));
         // END remove block
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
@@ -298,6 +311,43 @@ public class MonsterFragment extends Fragment {
                     monsterLanguages.setVisibility(View.VISIBLE);
                 }
                 monsterLanguages.setText(Html.fromHtml("<b>Languages</b> " + languages));
+            }
+        });
+
+        final TextView monsterChallenge = root.findViewById(R.id.challenge);
+        monsterViewModel.getChallenge().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String challengeRating) {
+                monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating));
+            }
+        });
+
+        final LinearLayout monsterAbilities = root.findViewById(R.id.abilities);
+        monsterViewModel.getAbilities().observe(getViewLifecycleOwner(), new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> abilities) {
+                Context context = getContext();
+                DisplayMetrics displayMetrics = null;
+                if (context != null) {
+                    Resources resources = context.getResources();
+                    if (resources != null) {
+                        displayMetrics = resources.getDisplayMetrics();
+                    }
+                }
+                monsterAbilities.removeAllViews();
+                if (abilities != null) {
+                    for (String ability : abilities) {
+                        TextView tvAbility = new TextView(context);
+                        // TODO: Handle multiline block quotes specially so they stay multiline.
+                        // TODO: Replace QuoteSpans in the result of fromHtml with something like this https://stackoverflow.com/questions/7717567/how-to-style-blockquotes-in-android-textviews to make them indent as expected
+                        Spanned spannedText = Html.fromHtml(CommonMarkHelper.toHtml(ability));
+                        tvAbility.setText(spannedText);
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
+                        tvAbility.setLayoutParams(layoutParams);
+                        monsterAbilities.addView(tvAbility);
+                    }
+                }
             }
         });
 

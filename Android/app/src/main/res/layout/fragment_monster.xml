@@ -409,5 +409,33 @@
             app:layout_constraintTop_toBottomOf="@+id/senses"
             tools:text="Languages" />
 
+        <TextView
+            android:id="@+id/challenge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/languages"
+            tools:text="Challenge" />
+
+        <!-- Abilities -->
+        <LinearLayout
+            android:id="@+id/abilities"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/challenge"
+            tools:text="Damage Vulnerabilities" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

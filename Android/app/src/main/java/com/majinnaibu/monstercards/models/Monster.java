@@ -13,11 +13,12 @@ import java.util.Set;
 public class Monster {
 
     public Monster() {
+        mAbilities = new ArrayList<>();
+        mConditionImmunities = new HashSet<>();
+        mDamageTypes = new HashSet<>();
+        mLanguages = new HashSet<>();
         mSavingThrows = new HashSet<>();
         mSkills = new HashSet<>();
-        mDamageTypes = new HashSet<>();
-        mConditionImmunities = new HashSet<>();
-        mLanguages = new HashSet<>();
     }
 
     private String mName;
@@ -838,6 +839,144 @@ public class Monster {
                         hasTelepathy ? telepathyString : "");
             }
         }
+    }
+
+    public String getChallengeRatingDescription() {
+        String challengeRating = getChallengeRating();
+        if ("*".equals(challengeRating)) {
+            // Custom CR
+            return getCustomChallengeRating();
+        } else if ("0".equals(challengeRating)) {
+            return "0 (10 XP)";
+        } else if ("1/8".equals(challengeRating)) {
+            return "1/8 (25 XP)";
+        } else if ("1/4".equals(challengeRating)) {
+            return "1/4 (50 XP)";
+        } else if ("1/2".equals(challengeRating)) {
+            return "1/2 (100 XP)";
+        } else if ("1".equals(challengeRating)) {
+            return "1 (200 XP)";
+        } else if ("2".equals(challengeRating)) {
+            return "2 (450 XP)";
+        } else if ("3".equals(challengeRating)) {
+            return "3 (700 XP)";
+        } else if ("4".equals(challengeRating)) {
+            return "4 (1,100 XP)";
+        } else if ("5".equals(challengeRating)) {
+            return "5 (1,800 XP)";
+        } else if ("6".equals(challengeRating)) {
+            return "6 (2,300 XP)";
+        } else if ("7".equals(challengeRating)) {
+            return "7 (2,900 XP)";
+        } else if ("8".equals(challengeRating)) {
+            return "8 (3,900 XP)";
+        } else if ("9".equals(challengeRating)) {
+            return "9 (5,000 XP)";
+        } else if ("10".equals(challengeRating)) {
+            return "10 (5,900 XP)";
+        } else if ("11".equals(challengeRating)) {
+            return "11 (7,200 XP)";
+        } else if ("12".equals(challengeRating)) {
+            return "12 (8,400 XP)";
+        } else if ("13".equals(challengeRating)) {
+            return "13 (10,000 XP)";
+        } else if ("14".equals(challengeRating)) {
+            return "14 (11,500 XP)";
+        } else if ("15".equals(challengeRating)) {
+            return "15 (13,000 XP)";
+        } else if ("16".equals(challengeRating)) {
+            return "16 (15,000 XP)";
+        } else if ("17".equals(challengeRating)) {
+            return "17 (18,000 XP)";
+        } else if ("18".equals(challengeRating)) {
+            return "18 (20,000 XP)";
+        } else if ("19".equals(challengeRating)) {
+            return "19 (22,000 XP)";
+        } else if ("20".equals(challengeRating)) {
+            return "20 (25,000 XP)";
+        } else if ("21".equals(challengeRating)) {
+            return "21 (33,000 XP)";
+        } else if ("22".equals(challengeRating)) {
+            return "22 (41,000 XP)";
+        } else if ("23".equals(challengeRating)) {
+            return "23 (50,000 XP)";
+        } else if ("24".equals(challengeRating)) {
+            return "24 (62,000 XP)";
+        } else if ("25".equals(challengeRating)) {
+            return "25 (75,000 XP)";
+        } else if ("26".equals(challengeRating)) {
+            return "26 (90,000 XP)";
+        } else if ("27".equals(challengeRating)) {
+            return "27 (105,000 XP)";
+        } else if ("28".equals(challengeRating)) {
+            return "28 (120,000 XP)";
+        } else if ("29".equals(challengeRating)) {
+            return "29 (135,000 XP)";
+        } else if ("30".equals(challengeRating)) {
+            return "30 (155,000 XP)";
+        } else {
+            return getCustomChallengeRating();
+        }
+    }
+
+    private ArrayList<Ability> mAbilities;
+    public List<Ability> getAbilities() {
+        return mAbilities;
+    }
+    public void addAbility(Ability ability) {
+        mAbilities.add(ability);
+    }
+    public void removeAbility(Ability ability) {
+        mAbilities.remove(ability);
+    }
+    public void clearAbilities() {
+        mAbilities.clear();
+    }
+
+    public List<String> getAbilityDescriptions() {
+        ArrayList<String> abilities = new ArrayList<>();
+        for (Ability ability : getAbilities()) {
+            abilities.add(getPlaceholderReplacedText(String.format("__%s__ %s", ability.getName(), ability.getDescription())));
+        }
+        return abilities;
+    }
+
+    public String getPlaceholderReplacedText(String rawText) {
+        return rawText
+                .replaceAll("\\[STR SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("strength")))
+                .replaceAll("\\[STR ATK]", String.format(Locale.US, "%+d", getAttackBonus("strength")))
+                .replaceAll("\\[DEX SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("dexterity")))
+                .replaceAll("\\[DEX ATK]", String.format(Locale.US, "%+d", getAttackBonus("dexterity")))
+                .replaceAll("\\[CON SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("constitution")))
+                .replaceAll("\\[CON ATK]", String.format(Locale.US, "%+d", getAttackBonus("constitution")))
+                .replaceAll("\\[INT SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("intelligence")))
+                .replaceAll("\\[INT ATK]", String.format(Locale.US, "%+d", getAttackBonus("intelligence")))
+                .replaceAll("\\[WIS SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("wisdom")))
+                .replaceAll("\\[WIS ATK]", String.format(Locale.US, "%+d", getAttackBonus("wisdom")))
+                .replaceAll("\\[CHA SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("charisma")))
+                .replaceAll("\\[CHA ATK]", String.format(Locale.US, "%+d", getAttackBonus("charisma")));
+    }
+
+    public int getSavingThrow(String name) {
+        Set<SavingThrow> sts = getSavingThrows();
+        for(SavingThrow st : sts) {
+            if (name.equals(st.getName())) {
+                return getAbilityModifier(name) + getProficiencyBonus();
+            }
+        }
+        return getAbilityModifier(name);
+    }
+
+    public String getWisdomSave() {
+        return String.format(Locale.US, "%+d", getSavingThrow("wis"));
+    }
+
+    public int getSpellSaveDC(String abilityScoreName) {
+        return 8 + getProficiencyBonus() + getAbilityModifier(abilityScoreName);
+    }
+
+    public int getAttackBonus(String abilityScoreName) {
+        return getProficiencyBonus() + getAbilityModifier(abilityScoreName);
     }
 
 }
