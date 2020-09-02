@@ -301,6 +301,14 @@ public class MonsterFragment extends Fragment {
             }
         });
 
+        final TextView monsterChallenge = root.findViewById(R.id.challenge);
+        monsterViewModel.getChallenge().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String challengeRating) {
+                monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating));
+            }
+        });
+
         return root;
     }
 }
