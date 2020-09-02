@@ -840,4 +840,81 @@ public class Monster {
         }
     }
 
+    public String getChallengeRatingDescription() {
+        String challengeRating = getChallengeRating();
+        if ("*".equals(challengeRating)) {
+            // Custom CR
+            return getCustomChallengeRating();
+        } else if ("0".equals(challengeRating)) {
+            return "0 (10 XP)";
+        } else if ("1/8".equals(challengeRating)) {
+            return "1/8 (25 XP)";
+        } else if ("1/4".equals(challengeRating)) {
+            return "1/4 (50 XP)";
+        } else if ("1/2".equals(challengeRating)) {
+            return "1/2 (100 XP)";
+        } else if ("1".equals(challengeRating)) {
+            return "1 (200 XP)";
+        } else if ("2".equals(challengeRating)) {
+            return "2 (450 XP)";
+        } else if ("3".equals(challengeRating)) {
+            return "3 (700 XP)";
+        } else if ("4".equals(challengeRating)) {
+            return "4 (1,100 XP)";
+        } else if ("5".equals(challengeRating)) {
+            return "5 (1,800 XP)";
+        } else if ("6".equals(challengeRating)) {
+            return "6 (2,300 XP)";
+        } else if ("7".equals(challengeRating)) {
+            return "7 (2,900 XP)";
+        } else if ("8".equals(challengeRating)) {
+            return "8 (3,900 XP)";
+        } else if ("9".equals(challengeRating)) {
+            return "9 (5,000 XP)";
+        } else if ("10".equals(challengeRating)) {
+            return "10 (5,900 XP)";
+        } else if ("11".equals(challengeRating)) {
+            return "11 (7,200 XP)";
+        } else if ("12".equals(challengeRating)) {
+            return "12 (8,400 XP)";
+        } else if ("13".equals(challengeRating)) {
+            return "13 (10,000 XP)";
+        } else if ("14".equals(challengeRating)) {
+            return "14 (11,500 XP)";
+        } else if ("15".equals(challengeRating)) {
+            return "15 (13,000 XP)";
+        } else if ("16".equals(challengeRating)) {
+            return "16 (15,000 XP)";
+        } else if ("17".equals(challengeRating)) {
+            return "17 (18,000 XP)";
+        } else if ("18".equals(challengeRating)) {
+            return "18 (20,000 XP)";
+        } else if ("19".equals(challengeRating)) {
+            return "19 (22,000 XP)";
+        } else if ("20".equals(challengeRating)) {
+            return "20 (25,000 XP)";
+        } else if ("21".equals(challengeRating)) {
+            return "21 (33,000 XP)";
+        } else if ("22".equals(challengeRating)) {
+            return "22 (41,000 XP)";
+        } else if ("23".equals(challengeRating)) {
+            return "23 (50,000 XP)";
+        } else if ("24".equals(challengeRating)) {
+            return "24 (62,000 XP)";
+        } else if ("25".equals(challengeRating)) {
+            return "25 (75,000 XP)";
+        } else if ("26".equals(challengeRating)) {
+            return "26 (90,000 XP)";
+        } else if ("27".equals(challengeRating)) {
+            return "27 (105,000 XP)";
+        } else if ("28".equals(challengeRating)) {
+            return "28 (120,000 XP)";
+        } else if ("29".equals(challengeRating)) {
+            return "29 (135,000 XP)";
+        } else if ("30".equals(challengeRating)) {
+            return "30 (155,000 XP)";
+        } else {
+            return getCustomChallengeRating();
+        }
+    }
 }
