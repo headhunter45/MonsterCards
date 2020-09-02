@@ -48,6 +48,8 @@ public class MonsterViewModel extends ViewModel {
         mSenses.setValue("");
         mLanguages = new MutableLiveData<>();
         mLanguages.setValue("");
+        mChallenge = new MutableLiveData<>();
+        mChallenge.setValue("");
     }
 
     private MutableLiveData<String> mName;
@@ -126,6 +128,10 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getLanguages() {
         return mLanguages;
     }
+    private MutableLiveData<String> mChallenge;
+    public LiveData<String> getChallenge() {
+        return mChallenge;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
@@ -149,5 +155,6 @@ public class MonsterViewModel extends ViewModel {
         mConditionImmunities.setValue(mMonster.getConditionImmunitiesDescription());
         mSenses.setValue(monster.getSensesDescription());
         mLanguages.setValue(mMonster.getLanguagesDescription());
+        mChallenge.setValue(mMonster.getChallengeRatingDescription());
     }
 }
