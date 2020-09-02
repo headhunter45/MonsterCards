@@ -13,11 +13,12 @@ import java.util.Set;
 public class Monster {
 
     public Monster() {
+        mAbilities = new ArrayList<>();
+        mConditionImmunities = new HashSet<>();
+        mDamageTypes = new HashSet<>();
+        mLanguages = new HashSet<>();
         mSavingThrows = new HashSet<>();
         mSkills = new HashSet<>();
-        mDamageTypes = new HashSet<>();
-        mConditionImmunities = new HashSet<>();
-        mLanguages = new HashSet<>();
     }
 
     private String mName;
@@ -917,4 +918,65 @@ public class Monster {
             return getCustomChallengeRating();
         }
     }
+
+    private ArrayList<Ability> mAbilities;
+    public List<Ability> getAbilities() {
+        return mAbilities;
+    }
+    public void addAbility(Ability ability) {
+        mAbilities.add(ability);
+    }
+    public void removeAbility(Ability ability) {
+        mAbilities.remove(ability);
+    }
+    public void clearAbilities() {
+        mAbilities.clear();
+    }
+
+    public List<String> getAbilityDescriptions() {
+        ArrayList<String> abilities = new ArrayList<>();
+        for (Ability ability : getAbilities()) {
+            abilities.add(getPlaceholderReplacedText(String.format("__%s__ %s", ability.getName(), ability.getDescription())));
+        }
+        return abilities;
+    }
+
+    public String getPlaceholderReplacedText(String rawText) {
+        return rawText
+                .replaceAll("\\[STR SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("strength")))
+                .replaceAll("\\[STR ATK]", String.format(Locale.US, "%+d", getAttackBonus("strength")))
+                .replaceAll("\\[DEX SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("dexterity")))
+                .replaceAll("\\[DEX ATK]", String.format(Locale.US, "%+d", getAttackBonus("dexterity")))
+                .replaceAll("\\[CON SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("constitution")))
+                .replaceAll("\\[CON ATK]", String.format(Locale.US, "%+d", getAttackBonus("constitution")))
+                .replaceAll("\\[INT SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("intelligence")))
+                .replaceAll("\\[INT ATK]", String.format(Locale.US, "%+d", getAttackBonus("intelligence")))
+                .replaceAll("\\[WIS SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("wisdom")))
+                .replaceAll("\\[WIS ATK]", String.format(Locale.US, "%+d", getAttackBonus("wisdom")))
+                .replaceAll("\\[CHA SAVE]", String.format(Locale.US, "%+d", getSpellSaveDC("charisma")))
+                .replaceAll("\\[CHA ATK]", String.format(Locale.US, "%+d", getAttackBonus("charisma")));
+    }
+
+    public int getSavingThrow(String name) {
+        Set<SavingThrow> sts = getSavingThrows();
+        for(SavingThrow st : sts) {
+            if (name.equals(st.getName())) {
+                return getAbilityModifier(name) + getProficiencyBonus();
+            }
+        }
+        return getAbilityModifier(name);
+    }
+
+    public String getWisdomSave() {
+        return String.format(Locale.US, "%+d", getSavingThrow("wis"));
+    }
+
+    public int getSpellSaveDC(String abilityScoreName) {
+        return 8 + getProficiencyBonus() + getAbilityModifier(abilityScoreName);
+    }
+
+    public int getAttackBonus(String abilityScoreName) {
+        return getProficiencyBonus() + getAbilityModifier(abilityScoreName);
+    }
+
 }
