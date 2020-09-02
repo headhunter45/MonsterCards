@@ -46,6 +46,8 @@ public class MonsterViewModel extends ViewModel {
         mConditionImmunities.setValue("");
         mSenses = new MutableLiveData<>();
         mSenses.setValue("");
+        mLanguages = new MutableLiveData<>();
+        mLanguages.setValue("");
     }
 
     private MutableLiveData<String> mName;
@@ -120,6 +122,10 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getSenses() {
         return mSenses;
     }
+    private MutableLiveData<String> mLanguages;
+    public LiveData<String> getLanguages() {
+        return mLanguages;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
@@ -142,5 +148,6 @@ public class MonsterViewModel extends ViewModel {
         mDamageImmunities.setValue(mMonster.getDamageImmunitiesDescription());
         mConditionImmunities.setValue(mMonster.getConditionImmunitiesDescription());
         mSenses.setValue(monster.getSensesDescription());
+        mLanguages.setValue(mMonster.getLanguagesDescription());
     }
 }

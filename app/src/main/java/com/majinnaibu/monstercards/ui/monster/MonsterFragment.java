@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.DamageType;
+import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SavingThrow;
 import com.majinnaibu.monstercards.models.Skill;
@@ -91,6 +92,13 @@ public class MonsterFragment extends Fragment {
         monster.setTruesight("40");
         monster.setTelepathy(20);
         monster.setUnderstandsBut("doesn't care");
+        // Languages
+        monster.addLanguage(new Language("English", true));
+        monster.addLanguage(new Language("Steve", false));
+        monster.addLanguage(new Language("Spanish", true));
+        monster.addLanguage(new Language("French", true));
+        monster.addLanguage(new Language("Mermataur", false));
+        monster.addLanguage(new Language("Goldfish", false));
 
         // Challenge Rating
         monster.setChallengeRating("*");
@@ -271,15 +279,27 @@ public class MonsterFragment extends Fragment {
         monsterViewModel.getSenses().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String senses) {
-            if (StringHelper.isNullOrEmpty(senses)) {
-                monsterSenses.setVisibility(View.GONE);
-            } else {
-                monsterSenses.setVisibility(View.VISIBLE);
+                if (StringHelper.isNullOrEmpty(senses)) {
+                    monsterSenses.setVisibility(View.GONE);
+                } else {
+                    monsterSenses.setVisibility(View.VISIBLE);
+                }
+                monsterSenses.setText(Html.fromHtml("<b>Senses</b> " + senses));
             }
-            monsterSenses.setText(Html.fromHtml("<b>Senses</b> " + senses));
-        }
-    });
+        });
 
+        final TextView monsterLanguages = root.findViewById(R.id.languages);
+        monsterViewModel.getLanguages().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String languages) {
+                if (StringHelper.isNullOrEmpty(languages)) {
+                    monsterLanguages.setVisibility(View.GONE);
+                } else {
+                    monsterLanguages.setVisibility(View.VISIBLE);
+                }
+                monsterLanguages.setText(Html.fromHtml("<b>Languages</b> " + languages));
+            }
+        });
 
         return root;
     }
