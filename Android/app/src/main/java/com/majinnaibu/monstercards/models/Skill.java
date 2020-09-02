@@ -1,95 +1,68 @@
 package com.majinnaibu.monstercards.models;
 
-import android.annotation.SuppressLint;
-
-import androidx.annotation.Nullable;
-
-import com.majinnaibu.monstercards.data.enums.AbilityScore;
-import com.majinnaibu.monstercards.data.enums.AdvantageType;
-import com.majinnaibu.monstercards.data.enums.ProficiencyType;
-
 import java.util.Comparator;
-import java.util.Objects;
+import java.util.Locale;
 
-@SuppressLint("DefaultLocale")
 public class Skill implements Comparator<Skill>, Comparable<Skill> {
 
-    public String name;
-    public AbilityScore abilityScore;
-    public AdvantageType advantageType;
-    public ProficiencyType proficiencyType;
+    private String mName;
+    private String mAbilityScoreName;
+    private String mNote;
 
-    public Skill(String name, AbilityScore abilityScore) {
-        this(name, abilityScore, AdvantageType.NONE, ProficiencyType.PROFICIENT);
+    public Skill(String name, String abilityScoreName) {
+        mName = name;
+        mAbilityScoreName = abilityScoreName;
+        mNote = "";
     }
 
-    public Skill(String name, AbilityScore abilityScore, AdvantageType advantageType) {
-        this(name, abilityScore, advantageType, ProficiencyType.PROFICIENT);
+    public Skill(String name, String abilityScoreName, String note) {
+        mName = name;
+        mAbilityScoreName = abilityScoreName;
+        mNote = note;
     }
 
-    public Skill(String name, AbilityScore abilityScore, AdvantageType advantageType, ProficiencyType proficiencyType) {
-        this.name = name;
-        this.abilityScore = abilityScore;
-        this.advantageType = advantageType;
-        this.proficiencyType = proficiencyType;
+    public String getName() {
+        return mName;
+    }
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public String getAbilityScoreName() {
+        return mAbilityScoreName;
+    }
+    public void setAbilityScoreName(String abilityScoreName) {
+        mAbilityScoreName = abilityScoreName;
+    }
+
+    public String getNote() {
+        return mNote;
     }
 
     public int getSkillBonus(Monster monster) {
-        int modifier = monster.getAbilityModifier(abilityScore);
-        switch (proficiencyType) {
-            case PROFICIENT:
-                return modifier + monster.getProficiencyBonus();
-            case EXPERTISE:
-                return modifier + monster.getProficiencyBonus() * 2;
-            case NONE:
-            default:
-                return modifier;
+        int bonus = monster.getAbilityModifier(mAbilityScoreName);
+        if (" (ex)".equals(getNote())) {
+            bonus += 2 * monster.getProficiencyBonus();
+        } else {
+            bonus += monster.getProficiencyBonus();
         }
+        return bonus;
     }
 
     public String getText(Monster monster) {
         int bonus = getSkillBonus(monster);
 
-        return String.format(
-                "%s%s %+d%s",
-                name.charAt(0),
-                name.substring(1),
-                bonus,
-                advantageType == AdvantageType.ADVANTAGE ? " A" : advantageType == AdvantageType.DISADVANTAGE ? " D" : ""
-        );
+        return String.format(Locale.US, "%s%s %d", mName.substring(0,1), mName.substring(1), bonus);
     }
 
     @Override
     public int compareTo(Skill o) {
-        return this.name.compareToIgnoreCase(o.name);
+        return this.getName().compareToIgnoreCase(o.getName());
     }
 
     @Override
     public int compare(Skill o1, Skill o2) {
-        return o1.name.compareToIgnoreCase(o2.name);
+        return o1.getName().compareToIgnoreCase(o2.getName());
     }
 
-    @Override
-    public boolean equals(@Nullable Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof Skill)) {
-            return false;
-        }
-        Skill otherSkill = (Skill) obj;
-        if (!Objects.equals(this.name, otherSkill.name)) {
-            return false;
-        }
-        if (this.abilityScore != otherSkill.abilityScore) {
-            return false;
-        }
-        if (this.advantageType != otherSkill.advantageType) {
-            return false;
-        }
-        if (this.proficiencyType != otherSkill.proficiencyType) {
-            return false;
-        }
-        return true;
-    }
 }
