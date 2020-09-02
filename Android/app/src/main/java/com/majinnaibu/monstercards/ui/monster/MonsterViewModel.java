@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 import com.majinnaibu.monstercards.models.Monster;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MonsterViewModel extends ViewModel {
 
     public MonsterViewModel() {
@@ -50,6 +53,8 @@ public class MonsterViewModel extends ViewModel {
         mLanguages.setValue("");
         mChallenge = new MutableLiveData<>();
         mChallenge.setValue("");
+        mAbilities = new MutableLiveData<>();
+        mAbilities.setValue(new ArrayList<String>());
     }
 
     private MutableLiveData<String> mName;
@@ -132,6 +137,10 @@ public class MonsterViewModel extends ViewModel {
     public LiveData<String> getChallenge() {
         return mChallenge;
     }
+    private MutableLiveData<List<String>> mAbilities;
+    public LiveData<List<String>> getAbilities() {
+        return mAbilities;
+    }
 
     private Monster mMonster;
     public void setMonster(Monster monster) {
@@ -156,5 +165,6 @@ public class MonsterViewModel extends ViewModel {
         mSenses.setValue(monster.getSensesDescription());
         mLanguages.setValue(mMonster.getLanguagesDescription());
         mChallenge.setValue(mMonster.getChallengeRatingDescription());
+        mAbilities.setValue(mMonster.getAbilityDescriptions());
     }
 }
