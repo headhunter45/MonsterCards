@@ -83,6 +83,14 @@ public class MonsterFragment extends Fragment {
         monster.addDamageType(new DamageType("poison", " (Immune)", "i"));
         // Condition Immunities
         monster.addConditionImmunity("blinded");
+        // Senses
+        monster.setBlindsight("10");
+        monster.setIsBlind(true);
+        monster.setDarkvision("20");
+        monster.setTremorsense("30");
+        monster.setTruesight("40");
+        monster.setTelepathy(20);
+        monster.setUnderstandsBut("doesn't care");
 
         // Challenge Rating
         monster.setChallengeRating("*");
@@ -258,6 +266,20 @@ public class MonsterFragment extends Fragment {
                 monsterConditionImmunities.setText(Html.fromHtml("<b>Condition Immunities</b> " + conditionImmunities));
             }
         });
+
+        final TextView monsterSenses = root.findViewById(R.id.senses);
+        monsterViewModel.getSenses().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String senses) {
+            if (StringHelper.isNullOrEmpty(senses)) {
+                monsterSenses.setVisibility(View.GONE);
+            } else {
+                monsterSenses.setVisibility(View.VISIBLE);
+            }
+            monsterSenses.setText(Html.fromHtml("<b>Senses</b> " + senses));
+        }
+    });
+
 
         return root;
     }
