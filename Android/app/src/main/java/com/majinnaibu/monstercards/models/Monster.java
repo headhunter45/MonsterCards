@@ -17,6 +17,7 @@ public class Monster {
         mSkills = new HashSet<>();
         mDamageTypes = new HashSet<>();
         mConditionImmunities = new HashSet<>();
+        mLanguages = new HashSet<>();
     }
 
     private String mName;
@@ -730,22 +731,6 @@ public class Monster {
         mTruesight = value;
     }
 
-    private int mTelepathy;
-    public int getTelepathy() {
-        return mTelepathy;
-    }
-    public void setTelepathy(int value) {
-        mTelepathy = value;
-    }
-
-    private String mUnderstandsBut;
-    public String getUnderstandsBut() {
-        return mUnderstandsBut;
-    }
-    public void setUnderstandsBut(String value) {
-        mUnderstandsBut = value;
-    }
-
     public String getSensesDescription() {
         ArrayList<String> parts = new ArrayList<>();
 
@@ -768,6 +753,91 @@ public class Monster {
         parts.add(String.format(Locale.US, "passive Perception %d", 10 + getWisdomModifier()));
 
         return StringHelper.join(", ", parts);
+    }
+
+    private HashSet<Language> mLanguages;
+    public Set<Language> getLanguages() {
+        return mLanguages;
+    }
+    public void addLanguage(Language value) {
+        mLanguages.add(value);
+    }
+    public void removeLanguage(Language value) {
+        mLanguages.remove(value);
+    }
+    public void clearLanguages() {
+        mLanguages.clear();
+    }
+
+    private int mTelepathy;
+    public int getTelepathy() {
+        return mTelepathy;
+    }
+    public void setTelepathy(int value) {
+        mTelepathy = value;
+    }
+
+    private String mUnderstandsBut;
+    public String getUnderstandsBut() {
+        return mUnderstandsBut;
+    }
+    public void setUnderstandsBut(String value) {
+        mUnderstandsBut = value;
+    }
+
+    public String getLanguagesDescription() {
+        ArrayList<String> spokenLanguages = new ArrayList<>();
+        ArrayList<String> understoodLanguages = new ArrayList<>();
+        for (Language language : mLanguages) {
+            if (language != null) {
+                if (language.getSpeaks()) {
+                    spokenLanguages.add(language.getName());
+                } else {
+                    understoodLanguages.add(language.getName());
+                }
+            }
+        }
+        Collections.sort(spokenLanguages);
+        Collections.sort(understoodLanguages);
+
+        String spokenLanguagesString = StringHelper.oxfordJoin(", ", ", and ", " and ", spokenLanguages);
+        String understoodLanguagesString = StringHelper.oxfordJoin(", ", ", and ", " and ", understoodLanguages);
+
+        String understandsBut = getUnderstandsBut();
+        boolean hasUnderstandsBut = understandsBut.length() > 0;
+        int telepathy = getTelepathy();
+        boolean hasTelepathy = telepathy > 0;
+        String telepathyString = String.format(Locale.US, ", telepathy %d ft.", telepathy);
+
+        if (spokenLanguages.size() > 0) {
+            if (understoodLanguages.size() > 0) {
+                return String.format(
+                        "%s, understands %s%s%s",
+                        spokenLanguagesString,
+                        understoodLanguagesString,
+                        hasUnderstandsBut ? " but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            } else {
+                return String.format(
+                        "%s%s%s",
+                        spokenLanguagesString,
+                        hasUnderstandsBut ? " but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            }
+        } else {
+            if (understoodLanguages.size() > 0) {
+                return String.format(
+                        "understands %s%s%s",
+                        understoodLanguagesString,
+                        hasUnderstandsBut ? " but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            } else {
+                return String.format(
+                        "%S%s",
+                        hasUnderstandsBut ? "none but " + understandsBut : "",
+                        hasTelepathy ? telepathyString : "");
+            }
+        }
     }
 
 }
