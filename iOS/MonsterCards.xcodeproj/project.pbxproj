@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E2F7247025005E89007D87ED /* MonsterCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F7247325005E89007D87ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2F7247425005E89007D87ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E2F7247625005E89007D87ED /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		E2F7247125005E89007D87ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2F7247025005E89007D87ED /* MonsterCards.app */,
+				E2F7247025005E89007D87ED /* Monster Cards.app */,
 				E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */,
 				E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */,
 			);
@@ -162,7 +162,7 @@
 			);
 			name = MonsterCards;
 			productName = MonsterCards;
-			productReference = E2F7247025005E89007D87ED /* MonsterCards.app */;
+			productReference = E2F7247025005E89007D87ED /* Monster Cards.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E2F7249025005E8A007D87ED /* MonsterCardsTests */ = {
@@ -457,7 +457,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Monster Cards";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -474,7 +474,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Monster Cards";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
