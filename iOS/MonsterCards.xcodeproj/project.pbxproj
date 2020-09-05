@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032325031B9D00FB6E43 /* SearchViewController.m */; };
+		E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032725031BDA00FB6E43 /* MonsterViewController.m */; };
+		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
+		E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */; };
+		E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D033025031BFD00FB6E43 /* DashboardViewController.m */; };
 		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
 		E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247725005E89007D87ED /* SceneDelegate.m */; };
-		E2F7247B25005E89007D87ED /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247A25005E89007D87ED /* FirstViewController.m */; };
-		E2F7247E25005E89007D87ED /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247D25005E89007D87ED /* SecondViewController.m */; };
 		E2F7248125005E89007D87ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7247F25005E89007D87ED /* Main.storyboard */; };
 		E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
 		E2F7248625005E8A007D87ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2F7248525005E8A007D87ED /* Assets.xcassets */; };
@@ -38,15 +41,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E20D032225031B9D00FB6E43 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		E20D032325031B9D00FB6E43 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		E20D032625031BDA00FB6E43 /* MonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterViewController.h; sourceTree = "<group>"; };
+		E20D032725031BDA00FB6E43 /* MonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterViewController.m; sourceTree = "<group>"; };
+		E20D032925031BE500FB6E43 /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		E20D032A25031BE500FB6E43 /* LibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		E20D032C25031BEF00FB6E43 /* CollectionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionsViewController.h; sourceTree = "<group>"; };
+		E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
+		E20D032F25031BFD00FB6E43 /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		E20D033025031BFD00FB6E43 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F7247325005E89007D87ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2F7247425005E89007D87ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E2F7247625005E89007D87ED /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		E2F7247725005E89007D87ED /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		E2F7247925005E89007D87ED /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		E2F7247A25005E89007D87ED /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		E2F7247C25005E89007D87ED /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		E2F7247D25005E89007D87ED /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		E2F7248025005E89007D87ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterCards.xcdatamodel; sourceTree = "<group>"; };
 		E2F7248525005E8A007D87ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +95,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E20D032525031BA700FB6E43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E20D032225031B9D00FB6E43 /* SearchViewController.h */,
+				E20D032325031B9D00FB6E43 /* SearchViewController.m */,
+				E20D032625031BDA00FB6E43 /* MonsterViewController.h */,
+				E20D032725031BDA00FB6E43 /* MonsterViewController.m */,
+				E20D032925031BE500FB6E43 /* LibraryViewController.h */,
+				E20D032A25031BE500FB6E43 /* LibraryViewController.m */,
+				E20D032C25031BEF00FB6E43 /* CollectionsViewController.h */,
+				E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */,
+				E20D032F25031BFD00FB6E43 /* DashboardViewController.h */,
+				E20D033025031BFD00FB6E43 /* DashboardViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E20D033225034C0700FB6E43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E20D033325034C0C00FB6E43 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E2F7246725005E89007D87ED = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +149,13 @@
 		E2F7247225005E89007D87ED /* MonsterCards */ = {
 			isa = PBXGroup;
 			children = (
+				E20D033325034C0C00FB6E43 /* Helpers */,
+				E20D033225034C0700FB6E43 /* Models */,
+				E20D032525031BA700FB6E43 /* Views */,
 				E2F7247325005E89007D87ED /* AppDelegate.h */,
 				E2F7247425005E89007D87ED /* AppDelegate.m */,
 				E2F7247625005E89007D87ED /* SceneDelegate.h */,
 				E2F7247725005E89007D87ED /* SceneDelegate.m */,
-				E2F7247925005E89007D87ED /* FirstViewController.h */,
-				E2F7247A25005E89007D87ED /* FirstViewController.m */,
-				E2F7247C25005E89007D87ED /* SecondViewController.h */,
-				E2F7247D25005E89007D87ED /* SecondViewController.m */,
 				E2F7247F25005E89007D87ED /* Main.storyboard */,
 				E2F7248525005E8A007D87ED /* Assets.xcassets */,
 				E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */,
@@ -275,12 +314,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2F7247E25005E89007D87ED /* SecondViewController.m in Sources */,
+				E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */,
 				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
-				E2F7247B25005E89007D87ED /* FirstViewController.m in Sources */,
+				E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */,
+				E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */,
 				E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */,
+				E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */,
 				E2F7248C25005E8A007D87ED /* main.m in Sources */,
 				E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */,
+				E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
