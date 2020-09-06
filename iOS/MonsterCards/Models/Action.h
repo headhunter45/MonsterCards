@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Action : NSObject
 
+@property NSString* name;
+@property NSString* actionDescription;
+
+-(id)initWithName: (NSString*)name andDescription: (NSString*)description;
+
 @end
 
 NS_ASSUME_NONNULL_END
