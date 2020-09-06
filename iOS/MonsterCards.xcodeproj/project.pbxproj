@@ -12,6 +12,13 @@
 		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
 		E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */; };
 		E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D033025031BFD00FB6E43 /* DashboardViewController.m */; };
+		E25BD5F5250352C4007B04EF /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F4250352C4007B04EF /* Monster.m */; };
+		E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F7250368A8007B04EF /* SavingThrow.m */; };
+		E25BD5FB250369D7007B04EF /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5FA250369D7007B04EF /* Skill.m */; };
+		E25BD5FE25036A76007B04EF /* DamageType.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5FD25036A76007B04EF /* DamageType.m */; };
+		E25BD60125036BF8007B04EF /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60025036BF8007B04EF /* Language.m */; };
+		E25BD60425036CF0007B04EF /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60325036CF0007B04EF /* Ability.m */; };
+		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
 		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
 		E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247725005E89007D87ED /* SceneDelegate.m */; };
 		E2F7248125005E89007D87ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7247F25005E89007D87ED /* Main.storyboard */; };
@@ -51,6 +58,20 @@
 		E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
 		E20D032F25031BFD00FB6E43 /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		E20D033025031BFD00FB6E43 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		E25BD5F3250352C4007B04EF /* Monster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
+		E25BD5F4250352C4007B04EF /* Monster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
+		E25BD5F6250368A8007B04EF /* SavingThrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavingThrow.h; sourceTree = "<group>"; };
+		E25BD5F7250368A8007B04EF /* SavingThrow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavingThrow.m; sourceTree = "<group>"; };
+		E25BD5F9250369D7007B04EF /* Skill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		E25BD5FA250369D7007B04EF /* Skill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		E25BD5FC25036A76007B04EF /* DamageType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DamageType.h; sourceTree = "<group>"; };
+		E25BD5FD25036A76007B04EF /* DamageType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamageType.m; sourceTree = "<group>"; };
+		E25BD5FF25036BF8007B04EF /* Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
+		E25BD60025036BF8007B04EF /* Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
+		E25BD60225036CF0007B04EF /* Ability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ability.h; sourceTree = "<group>"; };
+		E25BD60325036CF0007B04EF /* Ability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ability.m; sourceTree = "<group>"; };
+		E25BD60525036CFA007B04EF /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		E25BD60625036CFA007B04EF /* Action.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F7247325005E89007D87ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2F7247425005E89007D87ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +136,20 @@
 		E20D033225034C0700FB6E43 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E25BD60225036CF0007B04EF /* Ability.h */,
+				E25BD60325036CF0007B04EF /* Ability.m */,
+				E25BD60525036CFA007B04EF /* Action.h */,
+				E25BD60625036CFA007B04EF /* Action.m */,
+				E25BD5FC25036A76007B04EF /* DamageType.h */,
+				E25BD5FD25036A76007B04EF /* DamageType.m */,
+				E25BD5FF25036BF8007B04EF /* Language.h */,
+				E25BD60025036BF8007B04EF /* Language.m */,
+				E25BD5F3250352C4007B04EF /* Monster.h */,
+				E25BD5F4250352C4007B04EF /* Monster.m */,
+				E25BD5F6250368A8007B04EF /* SavingThrow.h */,
+				E25BD5F7250368A8007B04EF /* SavingThrow.m */,
+				E25BD5F9250369D7007B04EF /* Skill.h */,
+				E25BD5FA250369D7007B04EF /* Skill.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,14 +350,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */,
+				E25BD60725036CFA007B04EF /* Action.m in Sources */,
 				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
 				E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */,
 				E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */,
+				E25BD5FE25036A76007B04EF /* DamageType.m in Sources */,
 				E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */,
+				E25BD60425036CF0007B04EF /* Ability.m in Sources */,
 				E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */,
+				E25BD5F5250352C4007B04EF /* Monster.m in Sources */,
+				E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */,
 				E2F7248C25005E8A007D87ED /* main.m in Sources */,
+				E25BD5FB250369D7007B04EF /* Skill.m in Sources */,
 				E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */,
 				E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */,
+				E25BD60125036BF8007B04EF /* Language.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
