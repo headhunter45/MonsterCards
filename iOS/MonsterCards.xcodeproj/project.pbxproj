@@ -33,6 +33,7 @@
 		E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E5250481F300D5E935 /* ActionTests.m */; };
 		E2FD91E82504832A00D5E935 /* DamageTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E72504832A00D5E935 /* DamageTypeTests.m */; };
 		E2FD91EA250493C000D5E935 /* LanguageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E9250493C000D5E935 /* LanguageTests.m */; };
+		E2FD91EC250496B000D5E935 /* SavingThrowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91EB250496B000D5E935 /* SavingThrowTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E2FD91E5250481F300D5E935 /* ActionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionTests.m; sourceTree = "<group>"; };
 		E2FD91E72504832A00D5E935 /* DamageTypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamageTypeTests.m; sourceTree = "<group>"; };
 		E2FD91E9250493C000D5E935 /* LanguageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageTests.m; sourceTree = "<group>"; };
+		E2FD91EB250496B000D5E935 /* SavingThrowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavingThrowTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 				E2FD91E5250481F300D5E935 /* ActionTests.m */,
 				E2FD91E72504832A00D5E935 /* DamageTypeTests.m */,
 				E2FD91E9250493C000D5E935 /* LanguageTests.m */,
+				E2FD91EB250496B000D5E935 /* SavingThrowTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			files = (
 				E2FD91EA250493C000D5E935 /* LanguageTests.m in Sources */,
 				E2FD91E82504832A00D5E935 /* DamageTypeTests.m in Sources */,
+				E2FD91EC250496B000D5E935 /* SavingThrowTests.m in Sources */,
 				E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */,
 				E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */,
 				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
