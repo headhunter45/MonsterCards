@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2A61B332F293AB365B59E7 /* Pods_MonsterCards_MonsterCardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */; };
+		92967C3D4DFE1D9C66FF994F /* Pods_MonsterCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */; };
+		CE281520762D69A9E98D19CF /* Pods_MonsterCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */; };
 		E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032325031B9D00FB6E43 /* SearchViewController.m */; };
 		E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032725031BDA00FB6E43 /* MonsterViewController.m */; };
 		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
@@ -54,6 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A3B9A106B1FD3BB7C0750DF /* Pods-MonsterCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		598715810FF9D9DA2A1E91C6 /* Pods-MonsterCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E60C8124CB33D697F6D0390 /* Pods-MonsterCards-MonsterCardsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.release.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCards_MonsterCardsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards/Pods-MonsterCards.debug.xcconfig"; sourceTree = "<group>"; };
+		A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards.release.xcconfig"; path = "Target Support Files/Pods-MonsterCards/Pods-MonsterCards.release.xcconfig"; sourceTree = "<group>"; };
 		E20D032225031B9D00FB6E43 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		E20D032325031B9D00FB6E43 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		E20D032625031BDA00FB6E43 /* MonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterViewController.h; sourceTree = "<group>"; };
@@ -80,6 +90,7 @@
 		E25BD60325036CF0007B04EF /* Ability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ability.m; sourceTree = "<group>"; };
 		E25BD60525036CFA007B04EF /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		E25BD60625036CFA007B04EF /* Action.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
+		E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F7247325005E89007D87ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2F7247425005E89007D87ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,6 +113,7 @@
 		E2FD91E72504832A00D5E935 /* DamageTypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamageTypeTests.m; sourceTree = "<group>"; };
 		E2FD91E9250493C000D5E935 /* LanguageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageTests.m; sourceTree = "<group>"; };
 		E2FD91EB250496B000D5E935 /* SavingThrowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavingThrowTests.m; sourceTree = "<group>"; };
+		FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92967C3D4DFE1D9C66FF994F /* Pods_MonsterCards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE281520762D69A9E98D19CF /* Pods_MonsterCardsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,12 +137,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2A61B332F293AB365B59E7 /* Pods_MonsterCards_MonsterCardsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		609B2034EDEFF32DFBB7EA4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */,
+				89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */,
+				A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A84BC38693A798A444629A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */,
+				D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */,
+				E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */,
+				6E60C8124CB33D697F6D0390 /* Pods-MonsterCards-MonsterCardsUITests.release.xcconfig */,
+				1A3B9A106B1FD3BB7C0750DF /* Pods-MonsterCardsTests.debug.xcconfig */,
+				598715810FF9D9DA2A1E91C6 /* Pods-MonsterCardsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E20D032525031BA700FB6E43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +221,8 @@
 				E2F7249425005E8A007D87ED /* MonsterCardsTests */,
 				E2F7249F25005E8A007D87ED /* MonsterCardsUITests */,
 				E2F7247125005E89007D87ED /* Products */,
+				6A84BC38693A798A444629A6 /* Pods */,
+				609B2034EDEFF32DFBB7EA4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +294,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2F724A525005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCards" */;
 			buildPhases = (
+				AF1B6FE4523297C87023B0DF /* [CP] Check Pods Manifest.lock */,
 				E2F7246C25005E89007D87ED /* Sources */,
 				E2F7246D25005E89007D87ED /* Frameworks */,
 				E2F7246E25005E89007D87ED /* Resources */,
@@ -271,9 +312,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2F724A825005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */;
 			buildPhases = (
+				D9D7576D397FF8A326CDF668 /* [CP] Check Pods Manifest.lock */,
 				E2F7248D25005E8A007D87ED /* Sources */,
 				E2F7248E25005E8A007D87ED /* Frameworks */,
 				E2F7248F25005E8A007D87ED /* Resources */,
+				B173B419A3492DBA8FAF736D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,9 +332,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2F724AB25005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */;
 			buildPhases = (
+				5A9D2F6B7303F47844E1DAB9 /* [CP] Check Pods Manifest.lock */,
 				E2F7249825005E8A007D87ED /* Sources */,
 				E2F7249925005E8A007D87ED /* Frameworks */,
 				E2F7249A25005E8A007D87ED /* Resources */,
+				A89C1C3958588F1AC6C1F437 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -371,6 +416,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A9D2F6B7303F47844E1DAB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonsterCards-MonsterCardsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A89C1C3958588F1AC6C1F437 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF1B6FE4523297C87023B0DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonsterCards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B173B419A3492DBA8FAF736D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9D7576D397FF8A326CDF668 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonsterCardsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E2F7246C25005E89007D87ED /* Sources */ = {
@@ -565,6 +713,7 @@
 		};
 		E2F724A625005E8A007D87ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -582,6 +731,7 @@
 		};
 		E2F724A725005E8A007D87ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -599,6 +749,7 @@
 		};
 		E2F724A925005E8A007D87ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A3B9A106B1FD3BB7C0750DF /* Pods-MonsterCardsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -619,6 +770,7 @@
 		};
 		E2F724AA25005E8A007D87ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 598715810FF9D9DA2A1E91C6 /* Pods-MonsterCardsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -639,6 +791,7 @@
 		};
 		E2F724AC25005E8A007D87ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
@@ -657,6 +810,7 @@
 		};
 		E2F724AD25005E8A007D87ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E60C8124CB33D697F6D0390 /* Pods-MonsterCards-MonsterCardsUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
