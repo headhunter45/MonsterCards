@@ -35,20 +35,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhy-IY-MGR">
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="hhy-IY-MGR">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="Qse-6C-5ov"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="doU-4j-6Uq"/>
+                                    <constraint firstAttribute="height" constant="44" id="lcK-UF-ayt"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="43I-Fg-55Z">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OvK-M9-fq5">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OvK-M9-fq5" id="Xss-ca-pCw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="43I-Fg-55Z" firstAttribute="top" secondItem="hhy-IY-MGR" secondAttribute="bottom" id="7z3-Be-mh1"/>
+                            <constraint firstAttribute="trailing" secondItem="hhy-IY-MGR" secondAttribute="trailing" id="En5-ad-XTh"/>
+                            <constraint firstItem="hhy-IY-MGR" firstAttribute="trailing" secondItem="pin-A6-Rgr" secondAttribute="trailing" id="GvV-4N-bgJ"/>
+                            <constraint firstItem="hhy-IY-MGR" firstAttribute="leading" secondItem="pin-A6-Rgr" secondAttribute="leading" id="JqC-hz-1M5"/>
+                            <constraint firstItem="43I-Fg-55Z" firstAttribute="trailing" secondItem="pin-A6-Rgr" secondAttribute="trailing" id="PAU-Ai-dgw"/>
+                            <constraint firstItem="43I-Fg-55Z" firstAttribute="bottom" secondItem="pin-A6-Rgr" secondAttribute="bottom" id="Rpy-az-9Mi"/>
+                            <constraint firstItem="43I-Fg-55Z" firstAttribute="top" secondItem="hhy-IY-MGR" secondAttribute="bottom" id="WQm-fz-N7o"/>
+                            <constraint firstItem="43I-Fg-55Z" firstAttribute="leading" secondItem="pin-A6-Rgr" secondAttribute="leading" id="ax4-s9-Jsp"/>
+                            <constraint firstItem="hhy-IY-MGR" firstAttribute="top" secondItem="pin-A6-Rgr" secondAttribute="top" id="cPF-sD-gG4"/>
+                            <constraint firstItem="pin-A6-Rgr" firstAttribute="trailing" secondItem="43I-Fg-55Z" secondAttribute="trailing" id="jEJ-0A-aK8"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="43I-Fg-55Z" secondAttribute="bottom" id="p9E-Si-JWQ"/>
+                            <constraint firstItem="43I-Fg-55Z" firstAttribute="leading" secondItem="pin-A6-Rgr" secondAttribute="leading" id="pHf-dQ-vqP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pin-A6-Rgr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="BbH-jq-PCM"/>
+                    <connections>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="kbb-pI-zWM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3z5-qY-mqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501" y="-83"/>
+            <point key="canvasLocation" x="623" y="-243"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="qOG-lF-VxJ">
@@ -61,10 +97,13 @@
                         <viewLayoutGuide key="safeArea" id="QQV-YX-2Yb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="rectangle.3.offgrid.fill" catalog="system" id="wgb-7v-3jq"/>
+                    <connections>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" id="sr3-CG-0gP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onm-5g-reZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="-83"/>
+            <point key="canvasLocation" x="1735" y="-243"/>
         </scene>
         <!--Collections-->
         <scene sceneID="7BQ-Kv-Tfd">
@@ -77,10 +116,13 @@
                         <viewLayoutGuide key="safeArea" id="Rkq-9l-CBb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Collections" image="tray.full.fill" catalog="system" id="7og-Zf-zGt"/>
+                    <connections>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" id="1Lj-e3-q3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gar-xb-BMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2613" y="674"/>
+            <point key="canvasLocation" x="1735" y="513"/>
         </scene>
         <!--Library-->
         <scene sceneID="mw9-ha-zsU">
@@ -93,10 +135,13 @@
                         <viewLayoutGuide key="safeArea" id="Zpr-Mf-Q8Q"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="Kz3-Xe-dOi"/>
+                    <connections>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" id="aWg-AZ-vgo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FB-l6-6nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501" y="674"/>
+            <point key="canvasLocation" x="622" y="513"/>
         </scene>
         <!--Monster View Controller-->
         <scene sceneID="hsG-UQ-0zC">
@@ -108,12 +153,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="94T-3G-yzn"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4KB-rX-Umj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3070" y="-920"/>
+            <point key="canvasLocation" x="2822" y="135"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kbb-pI-zWM"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

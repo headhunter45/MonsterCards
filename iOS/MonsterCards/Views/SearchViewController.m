@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "MonsterViewController.h"
 
 @interface SearchViewController ()
 
