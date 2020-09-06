@@ -29,6 +29,7 @@
 		E2F7248C25005E8A007D87ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248B25005E8A007D87ED /* main.m */; };
 		E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7249525005E8A007D87ED /* MonsterCardsTests.m */; };
 		E2F724A125005E8A007D87ED /* MonsterCardsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */; };
+		E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E325047C4400D5E935 /* AbilityTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterCardsUITests.m; sourceTree = "<group>"; };
 		E2F724A225005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2FD91E325047C4400D5E935 /* AbilityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbilityTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 		E2F7249425005E8A007D87ED /* MonsterCardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2FD91E225047C1D00D5E935 /* Models */,
 				E2F7249525005E8A007D87ED /* MonsterCardsTests.m */,
 				E2F7249725005E8A007D87ED /* Info.plist */,
 			);
@@ -222,6 +225,14 @@
 				E2F724A225005E8A007D87ED /* Info.plist */,
 			);
 			path = MonsterCardsUITests;
+			sourceTree = "<group>";
+		};
+		E2FD91E225047C1D00D5E935 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2FD91E325047C4400D5E935 /* AbilityTests.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */,
 				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,7 +597,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterCards.app/MonsterCards";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monster Cards.app/Monster Cards";
 			};
 			name = Debug;
 		};
@@ -605,7 +617,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterCards.app/MonsterCards";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monster Cards.app/Monster Cards";
 			};
 			name = Release;
 		};
