@@ -47,16 +47,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="43I-Fg-55Z">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OvK-M9-fq5">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OvK-M9-fq5" id="Xss-ca-pCw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="IwG-ax-Esn" id="3Ya-Rh-Hn4"/>
@@ -104,7 +94,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="rectangle.3.offgrid.fill" catalog="system" id="wgb-7v-3jq"/>
                     <connections>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" id="sr3-CG-0gP"/>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="sr3-CG-0gP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onm-5g-reZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -123,7 +113,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Collections" image="tray.full.fill" catalog="system" id="7og-Zf-zGt"/>
                     <connections>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" id="1Lj-e3-q3z"/>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="1Lj-e3-q3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gar-xb-BMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -142,7 +132,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="Kz3-Xe-dOi"/>
                     <connections>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" id="aWg-AZ-vgo"/>
+                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="aWg-AZ-vgo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FB-l6-6nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -154,12 +144,28 @@
             <objects>
                 <viewController id="qLX-b5-SkZ" customClass="MonsterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aUl-2i-Cv3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhW-Jl-IGd">
+                                <rect key="frame" x="8" y="8" width="398" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QhW-Jl-IGd" firstAttribute="top" secondItem="94T-3G-yzn" secondAttribute="top" constant="8" id="4ru-QH-fKb"/>
+                            <constraint firstItem="94T-3G-yzn" firstAttribute="trailing" secondItem="QhW-Jl-IGd" secondAttribute="trailing" constant="8" id="Kzk-jM-vEb"/>
+                            <constraint firstItem="QhW-Jl-IGd" firstAttribute="leading" secondItem="94T-3G-yzn" secondAttribute="leading" constant="8" id="Qfx-iO-frj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="94T-3G-yzn"/>
                     </view>
                     <navigationItem key="navigationItem" id="4KB-rX-Umj"/>
+                    <connections>
+                        <outlet property="monsterName" destination="QhW-Jl-IGd" id="1kI-Si-k4X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,7 +173,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kbb-pI-zWM"/>
+        <segue reference="sr3-CG-0gP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>

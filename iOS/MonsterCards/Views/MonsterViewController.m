@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.monsterName.text = _monster.name;
     // Do any additional setup after loading the view.
 }
 
