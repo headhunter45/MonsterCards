@@ -10,7 +10,16 @@
 
 @implementation Language
 
--(id)initWithName: (NSString*)name andSpeaks: (NSString*)canSpeak {
+-(id)init {
+    self = [super init];
+    
+    self.name = @"";
+    self.speaks = YES;
+    
+    return self;
+}
+
+-(id)initWithName: (NSString*)name andSpeaks: (BOOL)canSpeak {
     self = [super init];
     
     self.name = name;
