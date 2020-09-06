@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Monster.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class Monster;
 
 @interface Skill : NSObject
+
+@property NSString* name;
+@property NSString* abilityScoreName;
+@property NSString* notes;
+
+-(id)initWithName: (NSString*)name abilityScoreName:(NSString*)abilityScoreName andNotes:(NSString*)notes;
+-(int)skillBonusForMonster: (Monster*)monster;
+-(NSString*)textForMonster: (Monster*)monster;
 
 @end
 
