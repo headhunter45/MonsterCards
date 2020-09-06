@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SavingThrow : NSObject
 
+@property NSString* name;
+@property int order;
+
+-(id)initWithName: (NSString*)name andOrder: (int)order;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,4 +10,13 @@
 
 @implementation SavingThrow
 
+-(id)initWithName: (NSString*)name andOrder: (int)order {
+    self = [super init];
+    
+    self.name = name;
+    self.order = order;
+    
+    return self;
+}
+
 @end
