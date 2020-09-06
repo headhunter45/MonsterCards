@@ -8,15 +8,28 @@
 
 #import "SearchViewController.h"
 #import "MonsterViewController.h"
+#import "Monster.h"
 
 @interface SearchViewController ()
 
 @end
 
-@implementation SearchViewController
+@implementation SearchViewController {
+    NSMutableArray *_monsters;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _searchBar.text = @"Hello, World!";
+    _monsters = [[NSMutableArray alloc] init];
+    Monster *monster;
+    monster = [[Monster alloc] init];
+    monster.name = @"Pixie";
+    [_monsters addObject:monster];
+    monster = [[Monster alloc] init];
+    monster.name = @"Acolyte";
+    [_monsters addObject:monster];
+
     // Do any additional setup after loading the view.
 }
 
@@ -29,5 +42,34 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_monsters count];
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [_searchResults dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = ((Monster*)[_monsters objectAtIndex:indexPath.row]).name;
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    
+    [self performSegueWithIdentifier:@"ShowMonsterDetail" sender:self];
+}
+
 
 @end

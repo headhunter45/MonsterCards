@@ -58,6 +58,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IwG-ax-Esn" id="3Ya-Rh-Hn4"/>
+                                    <outlet property="delegate" destination="IwG-ax-Esn" id="0MV-S6-Rtx"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -79,6 +83,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="BbH-jq-PCM"/>
                     <connections>
+                        <outlet property="searchBar" destination="hhy-IY-MGR" id="G2a-h9-e8z"/>
+                        <outlet property="searchResults" destination="43I-Fg-55Z" id="chP-zW-RKH"/>
                         <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="kbb-pI-zWM"/>
                     </connections>
                 </viewController>
