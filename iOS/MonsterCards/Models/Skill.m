@@ -10,6 +10,16 @@
 
 @implementation Skill
 
+-(id)init {
+    self = [super init];
+    
+    self.name = @"";
+    self.abilityScoreName = @"";
+    self.notes = @"";
+    
+    return self;
+}
+
 -(id)initWithName: (NSString*)name abilityScoreName:(NSString*)abilityScoreName andNotes:(NSString*)notes{
     self = [super init];
     
@@ -33,7 +43,8 @@
 -(NSString*)textForMonster: (Monster*)monster {
     int bonus = [self skillBonusForMonster:monster];
     
-    return [NSString stringWithFormat:@"%@%@ %d", [self.name substringToIndex:1], [self.name substringFromIndex:1], bonus];
+//    [self.name localizedUppercaseString]
+    return [NSString stringWithFormat:@"%@%@ %d", [[self.name substringToIndex:1] localizedUppercaseString], [self.name substringFromIndex:1], bonus];
 }
 
 @end
