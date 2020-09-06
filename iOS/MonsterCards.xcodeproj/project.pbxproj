@@ -12,6 +12,7 @@
 		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
 		E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */; };
 		E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D033025031BFD00FB6E43 /* DashboardViewController.m */; };
+		E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2532E8825038DE100CA4CBA /* StringHelper.m */; };
 		E25BD5F5250352C4007B04EF /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F4250352C4007B04EF /* Monster.m */; };
 		E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F7250368A8007B04EF /* SavingThrow.m */; };
 		E25BD5FB250369D7007B04EF /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5FA250369D7007B04EF /* Skill.m */; };
@@ -58,6 +59,8 @@
 		E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
 		E20D032F25031BFD00FB6E43 /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		E20D033025031BFD00FB6E43 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		E2532E8725038DE100CA4CBA /* StringHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
+		E2532E8825038DE100CA4CBA /* StringHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
 		E25BD5F3250352C4007B04EF /* Monster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		E25BD5F4250352C4007B04EF /* Monster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 		E25BD5F6250368A8007B04EF /* SavingThrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavingThrow.h; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 		E20D033325034C0C00FB6E43 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E2532E8725038DE100CA4CBA /* StringHelper.h */,
+				E2532E8825038DE100CA4CBA /* StringHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */,
 				E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */,
 				E25BD60725036CFA007B04EF /* Action.m in Sources */,
 				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
