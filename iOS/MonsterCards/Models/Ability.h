@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Ability : NSObject
 
+@property NSString* name;
+@property NSString* abilityDescription;
+
+-(id)initWithName: (NSString*)name andDescription: (NSString*)description;
+
 @end
 
 NS_ASSUME_NONNULL_END

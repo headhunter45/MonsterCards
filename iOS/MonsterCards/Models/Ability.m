@@ -10,4 +10,13 @@
 
 @implementation Ability
 
+-(id)initWithName: (NSString*)name andDescription: (NSString*)description {
+    self = [super init];
+    
+    self.name = name;
+    self.abilityDescription = description;
+    
+    return self;
+}
+
 @end
