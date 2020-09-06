@@ -10,6 +10,15 @@
 
 @implementation Action
 
+-(id)init {
+    self = [super init];
+    
+    self.name = @"";
+    self.actionDescription = @"";
+    
+    return self;
+}
+
 -(id)initWithName: (NSString*)name andDescription: (NSString*)description {
     self = [super init];
     

@@ -30,6 +30,7 @@
 		E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7249525005E8A007D87ED /* MonsterCardsTests.m */; };
 		E2F724A125005E8A007D87ED /* MonsterCardsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */; };
 		E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E325047C4400D5E935 /* AbilityTests.m */; };
+		E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E5250481F300D5E935 /* ActionTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterCardsUITests.m; sourceTree = "<group>"; };
 		E2F724A225005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2FD91E325047C4400D5E935 /* AbilityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbilityTests.m; sourceTree = "<group>"; };
+		E2FD91E5250481F300D5E935 /* ActionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				E2FD91E325047C4400D5E935 /* AbilityTests.m */,
+				E2FD91E5250481F300D5E935 /* ActionTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */,
 				E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */,
 				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
 			);
