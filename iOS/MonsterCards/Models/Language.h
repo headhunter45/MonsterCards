@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Language : NSObject
 
+@property NSString* name;
+@property BOOL speaks;
+
+-(id)initWithName: (NSString*)name andSpeaks: (NSString*)canSpeak;
+
 @end
 
 NS_ASSUME_NONNULL_END

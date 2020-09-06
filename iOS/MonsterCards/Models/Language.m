@@ -10,4 +10,13 @@
 
 @implementation Language
 
+-(id)initWithName: (NSString*)name andSpeaks: (NSString*)canSpeak {
+    self = [super init];
+    
+    self.name = name;
+    self.speaks = canSpeak;
+    
+    return self;
+}
+
 @end
