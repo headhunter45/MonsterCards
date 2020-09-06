@@ -10,4 +10,14 @@
 
 @implementation DamageType
 
+-(id)initWithName: (NSString*)name note: (NSString*)note andType: (NSString*)type{
+    self = [super init];
+    
+    self.name = name;
+    self.note = note;
+    self.type = type;
+    
+    return self;
+}
+
 @end

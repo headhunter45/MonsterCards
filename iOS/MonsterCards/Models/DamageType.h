@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DamageType : NSObject
 
+@property NSString* name;
+@property NSString* note;
+@property NSString* type;
+
+-(id)initWithName: (NSString*)name note: (NSString*)note andType: (NSString*)type;
+
 @end
 
 NS_ASSUME_NONNULL_END
