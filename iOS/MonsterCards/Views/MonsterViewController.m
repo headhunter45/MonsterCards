@@ -16,18 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.monsterName.text = _monster.name;
-    // Do any additional setup after loading the view.
+    if (self.monsterName != nil) {
+        self.monsterName.text = self.monster.name;
+    } else if (self.navigationItem != nil && self.navigationItem.title != nil) {
+        self.navigationItem.title = self.monster.name;
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

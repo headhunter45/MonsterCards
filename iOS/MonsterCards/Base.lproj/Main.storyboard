@@ -17,7 +17,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="IwG-ax-Esn" kind="relationship" relationship="viewControllers" id="B9W-Wj-7VD"/>
+                        <segue destination="ymH-E2-afX" kind="relationship" relationship="viewControllers" id="aRQ-Ld-n77"/>
                         <segue destination="giS-lS-9u3" kind="relationship" relationship="viewControllers" id="QFA-Ya-tDm"/>
                         <segue destination="hrp-Ji-OWx" kind="relationship" relationship="viewControllers" id="OpL-Bq-zuh"/>
                         <segue destination="UOt-f0-SX4" kind="relationship" relationship="viewControllers" id="tX1-v4-ah1"/>
@@ -25,62 +25,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-625" y="135"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="WgT-2T-yP6">
-            <objects>
-                <viewController id="IwG-ax-Esn" customClass="SearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IsN-o9-re4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="hhy-IY-MGR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="Qse-6C-5ov"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="doU-4j-6Uq"/>
-                                    <constraint firstAttribute="height" constant="44" id="lcK-UF-ayt"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="43I-Fg-55Z">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="IwG-ax-Esn" id="3Ya-Rh-Hn4"/>
-                                    <outlet property="delegate" destination="IwG-ax-Esn" id="0MV-S6-Rtx"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="43I-Fg-55Z" firstAttribute="top" secondItem="hhy-IY-MGR" secondAttribute="bottom" id="7z3-Be-mh1"/>
-                            <constraint firstAttribute="trailing" secondItem="hhy-IY-MGR" secondAttribute="trailing" id="En5-ad-XTh"/>
-                            <constraint firstItem="hhy-IY-MGR" firstAttribute="trailing" secondItem="pin-A6-Rgr" secondAttribute="trailing" id="GvV-4N-bgJ"/>
-                            <constraint firstItem="hhy-IY-MGR" firstAttribute="leading" secondItem="pin-A6-Rgr" secondAttribute="leading" id="JqC-hz-1M5"/>
-                            <constraint firstItem="43I-Fg-55Z" firstAttribute="trailing" secondItem="pin-A6-Rgr" secondAttribute="trailing" id="PAU-Ai-dgw"/>
-                            <constraint firstItem="43I-Fg-55Z" firstAttribute="bottom" secondItem="pin-A6-Rgr" secondAttribute="bottom" id="Rpy-az-9Mi"/>
-                            <constraint firstItem="43I-Fg-55Z" firstAttribute="top" secondItem="hhy-IY-MGR" secondAttribute="bottom" id="WQm-fz-N7o"/>
-                            <constraint firstItem="43I-Fg-55Z" firstAttribute="leading" secondItem="pin-A6-Rgr" secondAttribute="leading" id="ax4-s9-Jsp"/>
-                            <constraint firstItem="hhy-IY-MGR" firstAttribute="top" secondItem="pin-A6-Rgr" secondAttribute="top" id="cPF-sD-gG4"/>
-                            <constraint firstItem="pin-A6-Rgr" firstAttribute="trailing" secondItem="43I-Fg-55Z" secondAttribute="trailing" id="jEJ-0A-aK8"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="43I-Fg-55Z" secondAttribute="bottom" id="p9E-Si-JWQ"/>
-                            <constraint firstItem="43I-Fg-55Z" firstAttribute="leading" secondItem="pin-A6-Rgr" secondAttribute="leading" id="pHf-dQ-vqP"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="pin-A6-Rgr"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="BbH-jq-PCM"/>
-                    <connections>
-                        <outlet property="searchBar" destination="hhy-IY-MGR" id="G2a-h9-e8z"/>
-                        <outlet property="searchResults" destination="43I-Fg-55Z" id="chP-zW-RKH"/>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="kbb-pI-zWM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3z5-qY-mqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="623" y="-243"/>
+            <point key="canvasLocation" x="-1197" y="135"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="qOG-lF-VxJ">
@@ -93,13 +38,10 @@
                         <viewLayoutGuide key="safeArea" id="QQV-YX-2Yb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="rectangle.3.offgrid.fill" catalog="system" id="wgb-7v-3jq"/>
-                    <connections>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="sr3-CG-0gP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onm-5g-reZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="-243"/>
+            <point key="canvasLocation" x="622" y="-243"/>
         </scene>
         <!--Collections-->
         <scene sceneID="7BQ-Kv-Tfd">
@@ -112,13 +54,10 @@
                         <viewLayoutGuide key="safeArea" id="Rkq-9l-CBb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Collections" image="tray.full.fill" catalog="system" id="7og-Zf-zGt"/>
-                    <connections>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="1Lj-e3-q3z"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gar-xb-BMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="513"/>
+            <point key="canvasLocation" x="622" y="513"/>
         </scene>
         <!--Library-->
         <scene sceneID="mw9-ha-zsU">
@@ -131,50 +70,92 @@
                         <viewLayoutGuide key="safeArea" id="Zpr-Mf-Q8Q"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="Kz3-Xe-dOi"/>
-                    <connections>
-                        <segue destination="qLX-b5-SkZ" kind="presentation" identifier="ShowMonsterDetail" id="aWg-AZ-vgo"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FB-l6-6nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="513"/>
+            <point key="canvasLocation" x="622" y="1269"/>
         </scene>
         <!--Monster View Controller-->
         <scene sceneID="hsG-UQ-0zC">
             <objects>
-                <viewController id="qLX-b5-SkZ" customClass="MonsterViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController modalPresentationStyle="fullScreen" id="qLX-b5-SkZ" customClass="MonsterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aUl-2i-Cv3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhW-Jl-IGd">
-                                <rect key="frame" x="8" y="8" width="398" height="41"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="QhW-Jl-IGd" firstAttribute="top" secondItem="94T-3G-yzn" secondAttribute="top" constant="8" id="4ru-QH-fKb"/>
-                            <constraint firstItem="94T-3G-yzn" firstAttribute="trailing" secondItem="QhW-Jl-IGd" secondAttribute="trailing" constant="8" id="Kzk-jM-vEb"/>
-                            <constraint firstItem="QhW-Jl-IGd" firstAttribute="leading" secondItem="94T-3G-yzn" secondAttribute="leading" constant="8" id="Qfx-iO-frj"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="94T-3G-yzn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4KB-rX-Umj"/>
-                    <connections>
-                        <outlet property="monsterName" destination="QhW-Jl-IGd" id="1kI-Si-k4X"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Ax8-R1-tho"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="135"/>
+            <point key="canvasLocation" x="2441" y="-999"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="gMb-gI-y2F">
+            <objects>
+                <tableViewController id="WmO-9m-qPj" customClass="SearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCq-Hl-UA9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="fQb-XL-QZB">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="WmO-9m-qPj" id="z6d-4x-mQ2"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonsterCell" id="T01-Aw-boG">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T01-Aw-boG" id="eV3-pN-I0b">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qLX-b5-SkZ" kind="show" identifier="ShowMonsterDetail" id="pgU-gT-nUw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WmO-9m-qPj" id="g6M-G6-7uY"/>
+                            <outlet property="delegate" destination="WmO-9m-qPj" id="tXc-lT-yN2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="iaa-fm-F6D"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="fQb-XL-QZB" id="Xxv-bW-N10"/>
+                        <outlet property="searchResults" destination="oCq-Hl-UA9" id="zpM-Yi-UyD"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pju-ns-0Vf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="-999"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="CGm-bP-IV8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ymH-E2-afX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="pkF-hG-DTJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0jh-Lf-VY3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WmO-9m-qPj" kind="relationship" relationship="rootViewController" id="cee-Qb-RoS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQU-y1-4NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="622" y="-999"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="sr3-CG-0gP"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

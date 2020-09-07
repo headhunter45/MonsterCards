@@ -12,23 +12,19 @@
 
 @interface SearchViewController ()
 
+@property NSArray* allMonsters;
+@property NSArray* foundMonsters;
+
 @end
 
-@implementation SearchViewController {
-    NSMutableArray *_monsters;
-}
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _monsters = [[NSMutableArray alloc] init];
-    Monster *monster;
-    monster = [[Monster alloc] init];
-    monster.name = @"Pixie";
-    [_monsters addObject:monster];
-    monster = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}"];
-    [_monsters addObject:monster];
-
-    // Do any additional setup after loading the view.
+    Monster *pixie = [[Monster alloc] initWithJSONString:@"{\"name\":\"Pixie\"}"];
+    Monster *acolyte = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}"];
+    self.allMonsters = [NSArray arrayWithObjects:acolyte, pixie, nil];
+    self.foundMonsters=  self.allMonsters;
 }
 
 #pragma mark - Navigation
@@ -40,37 +36,56 @@
     if ([@"ShowMonsterDetail" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.searchResults indexPathForSelectedRow];
         MonsterViewController *vc = (MonsterViewController*)segue.destinationViewController;
-        vc.monster = [_monsters objectAtIndex:indexPath.row];
+        vc.monster = [self.foundMonsters objectAtIndex:indexPath.row];
     }
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_monsters count];
+    return [self.foundMonsters count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"MonsterCell";
     
-    UITableViewCell *cell = [_searchResults dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITableViewCell *cell = [self.searchResults dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = ((Monster*)[_monsters objectAtIndex:indexPath.row]).name;
+    Monster *monster = (Monster*)[self.foundMonsters objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = monster.name;
     
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UISearchBarDelegate
 
-// Tap on table Row
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText {
     
-    [self performSegueWithIdentifier:@"ShowMonsterDetail" sender:self];
+    if (searchText != nil && ![@"" isEqualToString:searchText]) {
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id item, NSDictionary *bindings) {
+            if (![item isKindOfClass:[Monster class]]) {
+                return false;
+            }
+            Monster *monster = (Monster*)item;
+            
+            if ([monster.name localizedCaseInsensitiveContainsString:searchText]) {
+                return true;
+            }
+            
+            return false;
+        }];
+        self.foundMonsters = [self.allMonsters filteredArrayUsingPredicate:predicate];
+    } else {
+        self.foundMonsters = self.allMonsters;
+    }
+    
+    [self.tableView reloadData];
 }
-
 
 @end
