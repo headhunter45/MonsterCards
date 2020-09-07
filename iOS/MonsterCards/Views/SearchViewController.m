@@ -26,8 +26,7 @@
     monster = [[Monster alloc] init];
     monster.name = @"Pixie";
     [_monsters addObject:monster];
-    monster = [[Monster alloc] init];
-    monster.name = @"Acolyte";
+    monster = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}"];
     [_monsters addObject:monster];
 
     // Do any additional setup after loading the view.

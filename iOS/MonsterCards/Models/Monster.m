@@ -19,16 +19,31 @@
 }
 
 -(id)init {
+    NSLog(@"TOM_init");
     self = [super init];
         
+    self.name = @"";
     // TODO: Actually initialize the class.
 
     return self;
 }
 
--(id)initWithJSON: (NSString*)jsonData {
+-(id)initWithJSONString: (NSString*)jsonString {
+    NSLog(@"TOM_initWithJSONString");
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return [self initWithJSONData:jsonData];
+}
+
+-(id)initWithJSONData: (NSData*)jsonData {
+    NSLog(@"TOM_initWithJSONData");
     self = [super init];
     
+    NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    
+    NSString *name = [jsonRoot objectForKey:@"name"];
+    NSLog(@"decoded name is |%@|", name);
+    self.name = name;//[jsonRoot objectForKey:@"name"];
     // TODO: Actually initialize the class.
     
     return self;
