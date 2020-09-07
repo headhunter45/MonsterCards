@@ -20,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _searchBar.text = @"Hello, World!";
     _monsters = [[NSMutableArray alloc] init];
     Monster *monster;
     monster = [[Monster alloc] init];
