@@ -46,8 +46,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"ShowMonsterDetail" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        MonsterViewController *vc = (MonsterViewController*)segue.destinationViewController;
-        vc.monster = [self.allMonsters objectAtIndex:indexPath.row];
+        if ([segue.destinationViewController isKindOfClass:[MonsterViewController class]]) {
+            MonsterViewController *vc = (MonsterViewController*)segue.destinationViewController;
+            vc.monster = [self.allMonsters objectAtIndex:indexPath.row];
+        }
     }
 }
 

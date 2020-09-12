@@ -59,22 +59,6 @@
             </objects>
             <point key="canvasLocation" x="622" y="513"/>
         </scene>
-        <!--Monster View Controller-->
-        <scene sceneID="hsG-UQ-0zC">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="qLX-b5-SkZ" customClass="MonsterViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aUl-2i-Cv3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="94T-3G-yzn"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ax8-R1-tho"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2441" y="-999"/>
-        </scene>
         <!--Search View Controller-->
         <scene sceneID="gMb-gI-y2F">
             <objects>
@@ -100,7 +84,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qLX-b5-SkZ" kind="show" identifier="ShowMonsterDetail" id="pgU-gT-nUw"/>
+                                    <segue destination="2B6-hx-mku" kind="show" identifier="ShowMonsterDetail" id="Ob1-Gh-ZDQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -291,6 +275,9 @@
             <point key="canvasLocation" x="3347.826086956522" y="1268.9732142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ob1-Gh-ZDQ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
