@@ -42,6 +42,18 @@
     return self;
 }
 
+-(id)initWithMonster:(Monster*)monster {
+    if (monster == nil) {
+        return [self init];
+    }
+    
+    self = [super init];
+    
+    self.name = monster.name;
+    
+    return self;
+}
+
 -(NSString*)meta {
     @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
 }

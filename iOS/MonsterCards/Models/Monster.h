@@ -66,6 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(id)initWithJSONString:(NSString*)jsonString;
 -(id)initWithJSONData:(NSData*)jsonData;
+-(id)initWithMonster:(Monster*)monster;
 -(NSString*)meta;
 -(int)abilityScoreForAbilityScoreName: (NSString*)abilityScoreName;
 -(int)abilityModifierForAbilityScoreName: (NSString*)abilityScoreName;
