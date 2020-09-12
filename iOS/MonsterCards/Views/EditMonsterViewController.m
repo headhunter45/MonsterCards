@@ -41,7 +41,7 @@
         [_context rollback];
     } else if ([@"SaveChanges" isEqualToString:segue.identifier]) {
         // TODO: this should use a method on originalMonster to copy values from editingMonster or pass the new monster back some way. Core Data would save and probably trigger a refresh in the receiving view.
-        self.originalMonster.name = self.editingMonster.name;
+        [self.originalMonster copyFromMonster:self.editingMonster];
         [_context refreshObject:self.editingMonster mergeChanges:NO];
         [_context save:nil];
     } else {
@@ -59,7 +59,7 @@
     //   * Subtype
     //   * Alignment
     
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -76,9 +76,20 @@
                     }
                     shortStringCell.delegate = self;
                     shortStringCell.identifier = @"monster.name";
-                    // TODO: make these setters on EditableShortStringTableViewCell
+                    // TODO: make these use setters on EditableShortStringTableViewCell
                     shortStringCell.textField.text = self.editingMonster.name;
-                    shortStringCell.textField.placeholder = @"Name";
+                    shortStringCell.textField.placeholder = NSLocalizedString(@"Name", @"Placeholder text for the name of a monster or NPC.");
+                    return shortStringCell;
+                case 1:
+                    shortStringCell = [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"];
+                    if (shortStringCell == nil) {
+                        shortStringCell = [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
+                    }
+                    shortStringCell.delegate = self;
+                    shortStringCell.identifier = @"monster.size";
+                    // TODO: make these use setters on EditableShortStringTableViewCell
+                    shortStringCell.textField.text = self.editingMonster.size;
+                    shortStringCell.textField.placeholder = NSLocalizedString(@"Size", @"Placehodler text for the size of a monster or NPC.");
                     return shortStringCell;
             }
             break;
@@ -93,6 +104,8 @@
     if ([@"String" isEqualToString:type]) {
         if ([@"monster.name" isEqualToString:identifier]) {
             self.editingMonster.name = (NSString*)value;
+        } else if ([@"monster.size" isEqualToString:identifier]) {
+            self.editingMonster.size = (NSString*)value;
         }
     }
 }

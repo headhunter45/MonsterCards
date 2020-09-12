@@ -7,6 +7,7 @@
 //
 
 #import "Monster.h"
+#import "StringHelper.h"
 
 @implementation Monster
 
@@ -54,6 +55,7 @@
     self = [super init];
         
     self.name = @"";
+    self.size = @"";
 
     return self;
 }
@@ -69,7 +71,8 @@
     
     NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     
-    self.name = [jsonRoot objectForKey:@"name"];
+    self.name = [jsonRoot objectForKey:@"name"] ?: @"";
+    self.size = [jsonRoot objectForKey:@"size"] ?: @"";
     
     return self;
 }
@@ -83,7 +86,26 @@
 }
 
 -(NSString*)meta {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    //"${size} ${type} (${subtype}) ${alignment}"
+
+    NSMutableArray *parts = [NSMutableArray arrayWithCapacity:4];
+    if (![StringHelper isStringNilOrEmpty:self.size]) {
+        [parts addObject:self.size];
+    }
+    
+    if (![StringHelper isStringNilOrEmpty:self.type]) {
+        [parts addObject:self.type];
+    }
+    
+    if (![StringHelper isStringNilOrEmpty:self.subtype]) {
+        [parts addObject:[NSString stringWithFormat:@"(%@)", self.subtype]];
+    }
+    
+    if (![StringHelper isStringNilOrEmpty:self.alignment]) {
+        [parts addObject:self.alignment];
+    }
+    
+    return [parts componentsJoinedByString:@" "];
 }
 
 -(int)abilityScoreForAbilityScoreName: (NSString*)abilityScoreName {
@@ -307,6 +329,11 @@
 
 -(int)attackBonusForAbilityScoreName: (NSString*)abilityScoreName {
     @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+}
+
+-(void)copyFromMonster:(Monster*)monster {
+    self.name = monster.name;
+    self.size = monster.size;
 }
 
 @end

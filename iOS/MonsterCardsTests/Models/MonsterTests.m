@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\"}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"large\"}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -36,6 +36,7 @@
 - (void)testDefaultInitializer {
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"", _monster.name);
+    XCTAssertEqualObjects(@"", _monster.size);
 }
 
 - (void)testInitWithJSONString {
@@ -43,19 +44,34 @@
     
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"Acolyte", _monster.name);
+    XCTAssertEqualObjects(@"large", _monster.size);
 }
 
+- (void)testInitWithEmptyJSONString {
+    _monster = [[Monster alloc] initWithJSONString:@"{}" andContext:_context];
+    
+    XCTAssertNotNil(_monster);
+    XCTAssertEqualObjects(@"", _monster.name);
+    XCTAssertEqualObjects(@"", _monster.size);
+}
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
     
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"Acolyte", _monster.name);
+    XCTAssertEqualObjects(@"large", _monster.size);
 }
 
 - (void)testNameGetterAndSetter {
     NSString *name = @"Pixie";
     _monster.name = name;
     XCTAssertEqualObjects(name, _monster.name);
+}
+
+- (void)testSizeGetterAndSetter {
+    NSString *size = @"huge";
+    _monster.size = size;
+    XCTAssertEqualObjects(size, _monster.size);
 }
 
 @end

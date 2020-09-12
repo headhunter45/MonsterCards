@@ -34,7 +34,7 @@
 
 - (IBAction)addNewMonster:(id)sender {
     Monster *monster = [[Monster alloc] initWithContext:_context];
-    monster.name = @"Unnamed Monster";
+    monster.name = NSLocalizedString(@"Unnamed Monster", @"The default name of a new monster.");
     self.allMonsters = [self.allMonsters arrayByAddingObject:monster];
     //DispatchQueue.main.async{"code here"}
     [_context save:nil];

@@ -35,6 +35,12 @@
             self.navigationItem.title = self.monster.name;
         }
     }
+    NSString *metaText = self.monster.meta;
+    if (metaText == nil) {
+        self.monsterMeta.text = @"";
+    } else {
+        self.monsterMeta.text = metaText;
+    }
 }
 
 - (IBAction)unwindWithSegue:(UIStoryboardSegue *)unwindSegue {

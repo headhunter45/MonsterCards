@@ -190,7 +190,20 @@
                     <view key="view" contentMode="scaleToFill" id="skY-EN-baw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZa-ia-7UT">
+                                <rect key="frame" x="8" y="96" width="398" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WIX-Yu-LXJ" firstAttribute="trailing" secondItem="pZa-ia-7UT" secondAttribute="trailing" constant="8" id="8F1-nO-xrO"/>
+                            <constraint firstItem="pZa-ia-7UT" firstAttribute="leading" secondItem="WIX-Yu-LXJ" secondAttribute="leading" constant="8" id="9Yo-N3-VeP"/>
+                            <constraint firstItem="pZa-ia-7UT" firstAttribute="top" secondItem="WIX-Yu-LXJ" secondAttribute="top" constant="8" id="GZ7-bL-EbS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WIX-Yu-LXJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="U0U-wB-eVJ">
@@ -200,6 +213,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="monsterMeta" destination="pZa-ia-7UT" id="QEV-cs-IEk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvO-c7-FKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,7 +292,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ob1-Gh-ZDQ"/>
+        <segue reference="W6E-7q-Wzb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>

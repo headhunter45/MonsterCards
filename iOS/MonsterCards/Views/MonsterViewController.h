@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MonsterViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *monsterName;
+@property (weak, nonatomic) IBOutlet UILabel *monsterMeta;
 
 @property Monster* monster;
 
