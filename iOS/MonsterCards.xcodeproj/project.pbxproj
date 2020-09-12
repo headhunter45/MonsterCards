@@ -23,6 +23,7 @@
 		E25BD60125036BF8007B04EF /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60025036BF8007B04EF /* Language.m */; };
 		E25BD60425036CF0007B04EF /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60325036CF0007B04EF /* Ability.m */; };
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
+		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
 		E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */; };
 		E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */; };
 		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
@@ -93,6 +94,8 @@
 		E25BD60525036CFA007B04EF /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		E25BD60625036CFA007B04EF /* Action.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
+		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
 		E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTests.m; sourceTree = "<group>"; };
 		E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterTests.m; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +181,8 @@
 				E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */,
 				E20D032F25031BFD00FB6E43 /* DashboardViewController.h */,
 				E20D033025031BFD00FB6E43 /* DashboardViewController.m */,
+				E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */,
+				E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */,
 				E20D032925031BE500FB6E43 /* LibraryViewController.h */,
 				E20D032A25031BE500FB6E43 /* LibraryViewController.m */,
 				E20D032625031BDA00FB6E43 /* MonsterViewController.h */,
@@ -534,6 +539,7 @@
 				E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */,
 				E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */,
 				E25BD60725036CFA007B04EF /* Action.m in Sources */,
+				E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */,
 				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
 				E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */,
 				E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */,

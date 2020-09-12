@@ -20,7 +20,7 @@
                         <segue destination="ymH-E2-afX" kind="relationship" relationship="viewControllers" id="aRQ-Ld-n77"/>
                         <segue destination="giS-lS-9u3" kind="relationship" relationship="viewControllers" id="QFA-Ya-tDm"/>
                         <segue destination="hrp-Ji-OWx" kind="relationship" relationship="viewControllers" id="OpL-Bq-zuh"/>
-                        <segue destination="k1r-8K-fba" kind="relationship" relationship="viewControllers" id="FA3-20-Ak2"/>
+                        <segue destination="k1r-8K-fba" kind="relationship" relationship="viewControllers" id="tX1-v4-ah1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -210,12 +210,85 @@
                         <viewLayoutGuide key="safeArea" id="WIX-Yu-LXJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="U0U-wB-eVJ">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="JQh-6t-vKa"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="JQh-6t-vKa">
+                            <connections>
+                                <segue destination="9au-4W-gkk" kind="show" identifier="EditMonster" id="h6n-Yx-e51"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvO-c7-FKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2441" y="1269"/>
+        </scene>
+        <!--Edit Monster-->
+        <scene sceneID="Pm6-vB-wuj">
+            <objects>
+                <viewController id="9au-4W-gkk" customClass="EditMonsterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ji-9h-I5j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ph7-w5-jbm">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditableShortString" id="s66-ds-RzY" customClass="EditableShortStringTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="39.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s66-ds-RzY" id="hip-Sr-WMn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="39.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vSp-Bb-6Ii">
+                                                    <rect key="frame" x="20" y="10" width="374" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vSp-Bb-6Ii" firstAttribute="top" secondItem="hip-Sr-WMn" secondAttribute="top" constant="10" id="0dV-mK-UWQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="vSp-Bb-6Ii" secondAttribute="bottom" constant="10" id="FUw-mZ-a2e"/>
+                                                <constraint firstItem="vSp-Bb-6Ii" firstAttribute="leading" secondItem="hip-Sr-WMn" secondAttribute="leadingMargin" id="aQK-cB-xb2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vSp-Bb-6Ii" secondAttribute="trailing" id="b5f-5M-OTX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="vSp-Bb-6Ii" id="yff-c9-CXK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ph7-w5-jbm" firstAttribute="leading" secondItem="PhC-ja-AcN" secondAttribute="leading" id="Z21-h9-5uc"/>
+                            <constraint firstItem="PhC-ja-AcN" firstAttribute="bottom" secondItem="Ph7-w5-jbm" secondAttribute="bottom" id="sSZ-aH-KLX"/>
+                            <constraint firstItem="Ph7-w5-jbm" firstAttribute="top" secondItem="PhC-ja-AcN" secondAttribute="top" id="utK-QF-3ZS"/>
+                            <constraint firstItem="PhC-ja-AcN" firstAttribute="trailing" secondItem="Ph7-w5-jbm" secondAttribute="trailing" id="y6Z-Sy-84h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PhC-ja-AcN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Monster" id="6DN-Xf-XAZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4Ld-nj-3La">
+                            <connections>
+                                <segue destination="IHZ-ur-HNo" kind="unwind" identifier="DiscardChanges" unwindAction="unwindWithSegue:" id="bO7-E6-0Qd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fCy-Er-XgT">
+                            <connections>
+                                <segue destination="IHZ-ur-HNo" kind="unwind" identifier="SaveChanges" unwindAction="unwindWithSegue:" id="zmX-J1-j2M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="monsterTableView" destination="Ph7-w5-jbm" id="O5X-1g-Uvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpm-3g-PFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="IHZ-ur-HNo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3347.826086956522" y="1268.9732142857142"/>
         </scene>
     </scenes>
     <resources>
