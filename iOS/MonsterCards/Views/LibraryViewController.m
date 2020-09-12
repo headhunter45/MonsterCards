@@ -73,4 +73,20 @@
     return cell;
 }
 
+#pragma  mark - UITableViewDelegate
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView
+trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:NSLocalizedString(@"Delete", @"Command to delete an object.") handler:^(UIContextualAction *action, __kindof UIView *sourceView, void (^completionHandler)(BOOL actionPerformed)) {
+        Monster *monster = [self.allMonsters objectAtIndex:indexPath.row];
+        [self->_context deleteObject:monster];
+        [self->_context save:nil];
+        self.allMonsters = [self->_context executeFetchRequest:[Monster fetchRequest] error:nil];
+        [self.tableView reloadData];
+    }];
+    
+    UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:[NSArray arrayWithObject:action]];
+    return config;
+}
+
 @end
