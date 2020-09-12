@@ -18,17 +18,18 @@
 
 @end
 
-@implementation SearchViewController
+@implementation SearchViewController {
+    NSManagedObjectContext *_context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
-    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-    Monster *pixie = [[Monster alloc] initWithContext:context];
-    pixie.name = @"Pixie";
-    Monster *acolyte = [[Monster alloc] initWithEntity:[NSEntityDescription entityForName:@"Monster" inManagedObjectContext:context] insertIntoManagedObjectContext:nil];
-    acolyte.name = @"Acolyte";
-    self.allMonsters = [NSArray arrayWithObjects:acolyte, pixie, nil];
+    _context = appDelegate.persistentContainer.viewContext;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.allMonsters = [_context executeFetchRequest:[Monster fetchRequest] error:nil];
     self.foundMonsters=  self.allMonsters;
 }
 

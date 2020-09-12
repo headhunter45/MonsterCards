@@ -17,36 +17,32 @@
 
 @end
 
-@implementation LibraryViewController
+@implementation LibraryViewController {
+    NSManagedObjectContext *_context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
-    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-
-    // Temporary setup of allMonsters until we bind to CoreData.
-    Monster *pixie = [[Monster alloc] initWithJSONString:@"{\"name\":\"Pixie\"}" andContext:context];
-    Monster *acolyte = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}" andContext:context];
-    self.allMonsters = [NSArray arrayWithObjects:acolyte, pixie, nil];
+    _context = appDelegate.persistentContainer.viewContext;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // TODO: fetch monsters from CoreData
+    self.allMonsters = [_context executeFetchRequest:[Monster fetchRequest] error:nil];
     [self.monstersTable reloadData];
 }
 
 - (IBAction)addNewMonster:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
-    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-    Monster *monster = [[Monster alloc] initWithContext:context];
+    Monster *monster = [[Monster alloc] initWithContext:_context];
     monster.name = @"Unnamed Monster";
     self.allMonsters = [self.allMonsters arrayByAddingObject:monster];
+    //DispatchQueue.main.async{"code here"}
+    [_context save:nil];
     [self.monstersTable reloadData];
 }
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"ShowMonsterDetail" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];

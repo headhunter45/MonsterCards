@@ -8,6 +8,7 @@
 
 #import "EditMonsterViewController.h"
 #import "EditableShortStringTableViewCell.h"
+#import "AppDelegate.h"
 
 @interface EditMonsterViewController ()
 
@@ -15,10 +16,15 @@
 
 @end
 
-@implementation EditMonsterViewController
+@implementation EditMonsterViewController {
+    NSManagedObjectContext *_context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
+    _context = appDelegate.persistentContainer.viewContext;
+
     self.monsterTableView.dataSource = self;
     self.monsterTableView.delegate = self;
 }
@@ -32,9 +38,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([@"DiscardChanges" isEqualToString:segue.identifier]) {
+        [_context rollback];
     } else if ([@"SaveChanges" isEqualToString:segue.identifier]) {
         // TODO: this should use a method on originalMonster to copy values from editingMonster or pass the new monster back some way. Core Data would save and probably trigger a refresh in the receiving view.
         self.originalMonster.name = self.editingMonster.name;
+        [_context refreshObject:self.editingMonster mergeChanges:NO];
+        [_context save:nil];
     } else {
         NSLog(@"Unknown Segue %@", segue.identifier);
     }
