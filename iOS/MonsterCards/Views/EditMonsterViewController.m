@@ -11,16 +11,81 @@
 
 @interface EditMonsterViewController ()
 
+@property Monster* editingMonster;
+
 @end
 
 @implementation EditMonsterViewController
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.monsterTableView.dataSource = self;
+    self.monsterTableView.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.editingMonster = [[Monster alloc] initWithMonster:self.originalMonster];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([@"DiscardChanges" isEqualToString:segue.identifier]) {
+    } else if ([@"SaveChanges" isEqualToString:segue.identifier]) {
+        // TODO: this should use a method on originalMonster to copy values from editingMonster or pass the new monster back some way. Core Data would save and probably trigger a refresh in the receiving view.
+        self.originalMonster.name = self.editingMonster.name;
+    } else {
+        NSLog(@"Unknown Segue %@", segue.identifier);
+    }
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    // Section 0 is basic info
+    //   * Name
+    //   * Size
+    //   * Type
+    //   * Subtype
+    //   * Alignment
+    
+    return 1;
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    EditableShortStringTableViewCell *shortStringCell = nil;
+
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:
+                    shortStringCell = [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"];
+                    if (shortStringCell == nil) {
+                        shortStringCell = [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
+                    }
+                    shortStringCell.delegate = self;
+                    shortStringCell.identifier = @"monster.name";
+                    // TODO: make these setters on EditableShortStringTableViewCell
+                    shortStringCell.textField.text = self.editingMonster.name;
+                    shortStringCell.textField.placeholder = @"Name";
+                    return shortStringCell;
+            }
+            break;
+    }
+    
     return nil;
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+#pragma mark - EditableShortStringDelegate
+
+- (void)editableValueDidChange:(NSObject*)value forIdentifier:(NSString*)identifier andType:(NSString*)type {
+    if ([@"String" isEqualToString:type]) {
+        if ([@"monster.name" isEqualToString:identifier]) {
+            self.editingMonster.name = (NSString*)value;
+        }
+    }
 }
 
 @end
