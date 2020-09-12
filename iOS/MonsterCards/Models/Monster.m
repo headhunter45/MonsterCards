@@ -73,6 +73,7 @@
     
     self.name = [jsonRoot objectForKey:@"name"] ?: @"";
     self.size = [jsonRoot objectForKey:@"size"] ?: @"";
+    self.type = [jsonRoot objectForKey:@"type"] ?: @"";
     
     return self;
 }
@@ -80,7 +81,7 @@
 -(id)initWithMonster:(Monster* _Nonnull)monster {
     self = [self initWithContext:monster.managedObjectContext];
     
-    self.name = monster.name;
+    [self copyFromMonster:monster];
     
     return self;
 }
@@ -334,6 +335,7 @@
 -(void)copyFromMonster:(Monster*)monster {
     self.name = monster.name;
     self.size = monster.size;
+    self.type = monster.type;
 }
 
 @end

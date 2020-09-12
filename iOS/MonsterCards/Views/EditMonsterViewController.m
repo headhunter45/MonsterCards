@@ -59,7 +59,7 @@
     //   * Subtype
     //   * Alignment
     
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -91,6 +91,17 @@
                     shortStringCell.textField.text = self.editingMonster.size;
                     shortStringCell.textField.placeholder = NSLocalizedString(@"Size", @"Placehodler text for the size of a monster or NPC.");
                     return shortStringCell;
+                case 2:
+                    shortStringCell = [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"];
+                    if (shortStringCell == nil) {
+                        shortStringCell = [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
+                    }
+                    shortStringCell.delegate = self;
+                    shortStringCell.identifier = @"monster.type";
+                    // TODO: make these use setters on EditableShortStringTableViewCell
+                    shortStringCell.textField.text = self.editingMonster.type;
+                    shortStringCell.textField.placeholder = NSLocalizedString(@"Type", @"Placehodler text for the type of a monster or NPC.");
+                    return shortStringCell;
             }
             break;
     }
@@ -106,6 +117,8 @@
             self.editingMonster.name = (NSString*)value;
         } else if ([@"monster.size" isEqualToString:identifier]) {
             self.editingMonster.size = (NSString*)value;
+        } else if ([@"monster.type" isEqualToString:identifier]) {
+            self.editingMonster.type = (NSString*)value;
         }
     }
 }

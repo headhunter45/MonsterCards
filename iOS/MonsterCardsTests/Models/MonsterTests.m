@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"large\"}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\"}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -37,6 +37,7 @@
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"", _monster.name);
     XCTAssertEqualObjects(@"", _monster.size);
+    XCTAssertEqualObjects(@"", _monster.type);
 }
 
 - (void)testInitWithJSONString {
@@ -44,7 +45,8 @@
     
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"Acolyte", _monster.name);
-    XCTAssertEqualObjects(@"large", _monster.size);
+    XCTAssertEqualObjects(@"medium", _monster.size);
+    XCTAssertEqualObjects(@"humanoid", _monster.type);
 }
 
 - (void)testInitWithEmptyJSONString {
@@ -53,13 +55,15 @@
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"", _monster.name);
     XCTAssertEqualObjects(@"", _monster.size);
+    XCTAssertEqualObjects(@"", _monster.type);
 }
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
     
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"Acolyte", _monster.name);
-    XCTAssertEqualObjects(@"large", _monster.size);
+    XCTAssertEqualObjects(@"medium", _monster.size);
+    XCTAssertEqualObjects(@"humanoid", _monster.type);
 }
 
 - (void)testNameGetterAndSetter {
@@ -72,6 +76,22 @@
     NSString *size = @"huge";
     _monster.size = size;
     XCTAssertEqualObjects(size, _monster.size);
+}
+
+- (void)testTypeGetterAndSetter {
+    NSString *type = @"fey";
+    _monster.type = type;
+    XCTAssertEqualObjects(type, _monster.type);
+}
+
+- (void)testCopyFromMonster {
+    Monster *otherMonster = [[Monster alloc] initWithJSONString:_jsonString andContext:_context];
+    [_monster copyFromMonster:otherMonster];
+    
+    XCTAssertNotNil(_monster);
+    XCTAssertEqualObjects(@"Acolyte", _monster.name);
+    XCTAssertEqualObjects(@"medium", _monster.size);
+    XCTAssertEqualObjects(@"humanoid", _monster.type);
 }
 
 @end
