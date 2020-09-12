@@ -7,6 +7,7 @@
 //
 
 #import "MonsterViewController.h"
+#import "EditMonsterViewController.h"
 
 @interface MonsterViewController ()
 
@@ -44,6 +45,12 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([@"EditMonster" isEqualToString:segue.identifier]) {
+        if ([segue.destinationViewController isKindOfClass:[EditMonsterViewController class]]) {
+            EditMonsterViewController *vc = (EditMonsterViewController*)segue.destinationViewController;
+            vc.originalMonster = self.monster;
+        }
+    }
 }
 
 @end
