@@ -29,8 +29,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSString *searchText = nil;
+    if (self.searchBar != nil) {
+        searchText = self.searchBar.text;
+    }
     self.allMonsters = [_context executeFetchRequest:[Monster fetchRequest] error:nil];
-    self.foundMonsters=  self.allMonsters;
+    self.foundMonsters = [self filterAllMonstersWithText:searchText];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Navigation
@@ -69,9 +74,7 @@
 
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBar:(UISearchBar *)searchBar
-    textDidChange:(NSString *)searchText {
-    
+- (NSArray*)filterAllMonstersWithText:(NSString *)searchText {
     if (searchText != nil && ![@"" isEqualToString:searchText]) {
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id item, NSDictionary *bindings) {
             if (![item isKindOfClass:[Monster class]]) {
@@ -85,10 +88,16 @@
             
             return false;
         }];
-        self.foundMonsters = [self.allMonsters filteredArrayUsingPredicate:predicate];
+        return [self.allMonsters filteredArrayUsingPredicate:predicate];
     } else {
-        self.foundMonsters = self.allMonsters;
+        return self.allMonsters;
     }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText {
+
+    self.foundMonsters = [self filterAllMonstersWithText:searchText];
     
     [self.tableView reloadData];
 }
