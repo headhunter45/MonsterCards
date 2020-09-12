@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "MonsterViewController.h"
 #import "Monster.h"
+#import "AppDelegate.h"
 
 @interface SearchViewController ()
 
@@ -21,8 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Monster *pixie = [[Monster alloc] initWithJSONString:@"{\"name\":\"Pixie\"}"];
-    Monster *acolyte = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}"];
+    AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
+    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+    Monster *pixie = [[Monster alloc] initWithContext:context];
+    pixie.name = @"Pixie";
+    Monster *acolyte = [[Monster alloc] initWithEntity:[NSEntityDescription entityForName:@"Monster" inManagedObjectContext:context] insertIntoManagedObjectContext:nil];
+    acolyte.name = @"Acolyte";
     self.allMonsters = [NSArray arrayWithObjects:acolyte, pixie, nil];
     self.foundMonsters=  self.allMonsters;
 }

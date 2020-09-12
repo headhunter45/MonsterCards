@@ -9,6 +9,7 @@
 #import "LibraryViewController.h"
 #import "Monster.h"
 #import "MonsterViewController.h"
+#import "AppDelegate.h"
 
 @interface LibraryViewController ()
 
@@ -20,9 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
+    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+
     // Temporary setup of allMonsters until we bind to CoreData.
-    Monster *pixie = [[Monster alloc] initWithJSONString:@"{\"name\":\"Pixie\"}"];
-    Monster *acolyte = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}"];
+    Monster *pixie = [[Monster alloc] initWithJSONString:@"{\"name\":\"Pixie\"}" andContext:context];
+    Monster *acolyte = [[Monster alloc] initWithJSONString:@"{\"name\":\"Acolyte\"}" andContext:context];
     self.allMonsters = [NSArray arrayWithObjects:acolyte, pixie, nil];
 }
 
@@ -32,7 +36,9 @@
 }
 
 - (IBAction)addNewMonster:(id)sender {
-    Monster *monster = [[Monster alloc] init];
+    AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
+    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+    Monster *monster = [[Monster alloc] initWithContext:context];
     monster.name = @"Unnamed Monster";
     self.allMonsters = [self.allMonsters arrayByAddingObject:monster];
     [self.monstersTable reloadData];

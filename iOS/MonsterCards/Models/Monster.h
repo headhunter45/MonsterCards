@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "Ability.h"
 #import "Action.h"
 #import "DamageType.h"
@@ -18,13 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class Skill;
 
-@interface Monster : NSObject
+@interface Monster : NSManagedObject
 
-@property NSString *name;
-@property NSString *size;
-@property NSString *type;
-@property NSString *tag;
-@property NSString *alignment;
 @property NSString *armorName;
 @property NSString *otherArmorDescription;
 @property NSString *hpText;
@@ -64,8 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(int)abilityModifierForScore: (int)score;
 +(int)hitDieForSize: (NSString*)size;
 
--(id)initWithJSONString:(NSString*)jsonString;
--(id)initWithJSONData:(NSData*)jsonData;
+-(id)initWithJSONString:(NSString*)jsonString andContext:(NSManagedObjectContext*)context;
+-(id)initWithJSONData:(NSData*)jsonData andContext:(NSManagedObjectContext*)context;
 -(id)initWithMonster:(Monster*)monster;
 -(NSString*)meta;
 -(int)abilityScoreForAbilityScoreName: (NSString*)abilityScoreName;
@@ -130,3 +126,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#import "Monster+CoreDataProperties.h"

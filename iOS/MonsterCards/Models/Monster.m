@@ -10,6 +10,38 @@
 
 @implementation Monster
 
+@synthesize armorName;
+@synthesize blindsightDistance;
+@synthesize burrowSpeed;
+@synthesize challengeRating;
+@synthesize charismaScore;
+@synthesize climbSpeed;
+@synthesize constitutionScore;
+@synthesize customChallengeRating;
+@synthesize customHP;
+@synthesize customProficiencyBonus;
+@synthesize customSpeed;
+@synthesize customSpeedDescription;
+@synthesize darkvisionDistance;
+@synthesize dexterityScore;
+@synthesize flySpeed;
+@synthesize hitDice;
+@synthesize hover;
+@synthesize hpText;
+@synthesize intelligenceScore;
+@synthesize isBlind;
+@synthesize naturalArmorBonus;
+@synthesize otherArmorDescription;
+@synthesize shieldBonus;
+@synthesize speed;
+@synthesize strengthScore;
+@synthesize swimSpeed;
+@synthesize telepathy;
+@synthesize tremorsenseDistance;
+@synthesize truesightDistance;
+@synthesize understandsBut;
+@synthesize wisdomScore;
+
 +(int)abilityModifierForScore: (int)score {
     @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
 }
@@ -26,14 +58,14 @@
     return self;
 }
 
--(id)initWithJSONString: (NSString*)jsonString {
+-(id)initWithJSONString: (NSString*)jsonString andContext:(NSManagedObjectContext*)context {
     NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     
-    return [self initWithJSONData:jsonData];
+    return [self initWithJSONData:jsonData andContext:context];
 }
 
--(id)initWithJSONData: (NSData*)jsonData {
-    self = [super init];
+-(id)initWithJSONData: (NSData*)jsonData andContext:(NSManagedObjectContext*)context {
+    self = [self initWithContext:context];
     
     NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     
@@ -42,12 +74,8 @@
     return self;
 }
 
--(id)initWithMonster:(Monster*)monster {
-    if (monster == nil) {
-        return [self init];
-    }
-    
-    self = [super init];
+-(id)initWithMonster:(Monster* _Nonnull)monster {
+    self = [self initWithContext:monster.managedObjectContext];
     
     self.name = monster.name;
     
