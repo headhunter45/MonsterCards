@@ -174,16 +174,16 @@
 		E20D032525031BA700FB6E43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E20D032225031B9D00FB6E43 /* SearchViewController.h */,
-				E20D032325031B9D00FB6E43 /* SearchViewController.m */,
-				E20D032625031BDA00FB6E43 /* MonsterViewController.h */,
-				E20D032725031BDA00FB6E43 /* MonsterViewController.m */,
-				E20D032925031BE500FB6E43 /* LibraryViewController.h */,
-				E20D032A25031BE500FB6E43 /* LibraryViewController.m */,
 				E20D032C25031BEF00FB6E43 /* CollectionsViewController.h */,
 				E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */,
 				E20D032F25031BFD00FB6E43 /* DashboardViewController.h */,
 				E20D033025031BFD00FB6E43 /* DashboardViewController.m */,
+				E20D032925031BE500FB6E43 /* LibraryViewController.h */,
+				E20D032A25031BE500FB6E43 /* LibraryViewController.m */,
+				E20D032625031BDA00FB6E43 /* MonsterViewController.h */,
+				E20D032725031BDA00FB6E43 /* MonsterViewController.m */,
+				E20D032225031B9D00FB6E43 /* SearchViewController.h */,
+				E20D032325031B9D00FB6E43 /* SearchViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";

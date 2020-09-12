@@ -20,7 +20,7 @@
                         <segue destination="ymH-E2-afX" kind="relationship" relationship="viewControllers" id="aRQ-Ld-n77"/>
                         <segue destination="giS-lS-9u3" kind="relationship" relationship="viewControllers" id="QFA-Ya-tDm"/>
                         <segue destination="hrp-Ji-OWx" kind="relationship" relationship="viewControllers" id="OpL-Bq-zuh"/>
-                        <segue destination="UOt-f0-SX4" kind="relationship" relationship="viewControllers" id="tX1-v4-ah1"/>
+                        <segue destination="k1r-8K-fba" kind="relationship" relationship="viewControllers" id="FA3-20-Ak2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -59,26 +59,9 @@
             </objects>
             <point key="canvasLocation" x="622" y="513"/>
         </scene>
-        <!--Library-->
-        <scene sceneID="mw9-ha-zsU">
-            <objects>
-                <viewController id="UOt-f0-SX4" customClass="LibraryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xf1-1p-JxE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Zpr-Mf-Q8Q"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="Kz3-Xe-dOi"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1FB-l6-6nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="622" y="1269"/>
-        </scene>
         <!--Monster View Controller-->
         <scene sceneID="hsG-UQ-0zC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController modalPresentationStyle="fullScreen" id="qLX-b5-SkZ" customClass="MonsterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aUl-2i-Cv3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -88,6 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ax8-R1-tho"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scT-cb-C2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2441" y="-999"/>
         </scene>
@@ -155,10 +139,89 @@
             </objects>
             <point key="canvasLocation" x="622" y="-999"/>
         </scene>
+        <!--Library-->
+        <scene sceneID="5mp-gP-3px">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k1r-8K-fba" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="Kz3-Xe-dOi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MGB-oQ-Uth">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5c8-8y-QZ5" kind="relationship" relationship="rootViewController" id="OAU-YH-mgF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vS1-d2-ni5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="622" y="1269"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="bsS-Pz-KZX">
+            <objects>
+                <tableViewController id="5c8-8y-QZ5" customClass="LibraryViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NgM-um-5Ur">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonsterCell" id="Boi-md-853">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Boi-md-853" id="o5t-lM-bf4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2B6-hx-mku" kind="show" identifier="ShowMonsterDetail" id="W6E-7q-Wzb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5c8-8y-QZ5" id="xtC-Yg-dwQ"/>
+                            <outlet property="delegate" destination="5c8-8y-QZ5" id="6wi-Pi-KwG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Library" id="MnW-A3-Ua9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="qDP-Tb-aMi">
+                            <connections>
+                                <action selector="addNewMonster:" destination="5c8-8y-QZ5" id="pQe-rL-fqA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="monstersTable" destination="NgM-um-5Ur" id="HFK-4U-MeQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32A-4i-7h9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="1269"/>
+        </scene>
+        <!--Monster View Controller-->
+        <scene sceneID="b1L-lx-eFe">
+            <objects>
+                <viewController id="2B6-hx-mku" customClass="MonsterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="skY-EN-baw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="WIX-Yu-LXJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U0U-wB-eVJ">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="JQh-6t-vKa"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvO-c7-FKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="1269"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.3.offgrid.fill" catalog="system" width="128" height="81"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
     </resources>
