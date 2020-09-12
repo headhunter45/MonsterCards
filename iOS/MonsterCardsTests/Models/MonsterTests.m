@@ -17,12 +17,14 @@
 
 @implementation MonsterTests {
     Monster *_monster;
+    NSManagedObjectContext *_context;
     NSString *_jsonString;
     NSData *_jsonData;
 }
 
 - (void)setUp {
-    _monster = [[Monster alloc] init];
+    _context = nil;
+    _monster = [[Monster alloc] initWithContext:_context];
     _jsonString = @"{\"name\":\"Acolyte\"}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
@@ -37,14 +39,14 @@
 }
 
 - (void)testInitWithJSONString {
-    _monster = [[Monster alloc] initWithJSONString:_jsonString];
+    _monster = [[Monster alloc] initWithJSONString:_jsonString andContext:_context];
     
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"Acolyte", _monster.name);
 }
 
 - (void)testInitWithJSONData {
-    _monster = [[Monster alloc] initWithJSONData:_jsonData];
+    _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
     
     XCTAssertNotNil(_monster);
     XCTAssertEqualObjects(@"Acolyte", _monster.name);

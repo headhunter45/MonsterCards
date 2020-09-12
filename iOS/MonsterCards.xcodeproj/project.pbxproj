@@ -25,6 +25,7 @@
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
 		E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */; };
+		E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
 		E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */; };
 		E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */; };
 		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
@@ -584,6 +585,7 @@
 				E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */,
 				E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */,
 				E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */,
+				E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */,
 				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
