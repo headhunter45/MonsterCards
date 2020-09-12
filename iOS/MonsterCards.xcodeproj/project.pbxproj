@@ -24,6 +24,7 @@
 		E25BD60425036CF0007B04EF /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60325036CF0007B04EF /* Ability.m */; };
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
+		E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */; };
 		E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */; };
 		E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */; };
 		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
@@ -79,6 +80,7 @@
 		E20D033025031BFD00FB6E43 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		E2532E8725038DE100CA4CBA /* StringHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
 		E2532E8825038DE100CA4CBA /* StringHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
+		E2591EB62509DD4900B396FD /* EditableFormFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableFormFieldDelegate.h; sourceTree = "<group>"; };
 		E25BD5F3250352C4007B04EF /* Monster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		E25BD5F4250352C4007B04EF /* Monster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 		E25BD5F6250368A8007B04EF /* SavingThrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavingThrow.h; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
 		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
+		E2D3E3B22508C3360052A8EC /* EditableShortStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableShortStringTableViewCell.h; sourceTree = "<group>"; };
+		E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditableShortStringTableViewCell.m; sourceTree = "<group>"; };
 		E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTests.m; sourceTree = "<group>"; };
 		E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterTests.m; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +181,7 @@
 		E20D032525031BA700FB6E43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2D3E3B12508C2FE0052A8EC /* FormFields */,
 				E20D032C25031BEF00FB6E43 /* CollectionsViewController.h */,
 				E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */,
 				E20D032F25031BFD00FB6E43 /* DashboardViewController.h */,
@@ -221,6 +226,16 @@
 				E2532E8825038DE100CA4CBA /* StringHelper.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E2D3E3B12508C2FE0052A8EC /* FormFields */ = {
+			isa = PBXGroup;
+			children = (
+				E2D3E3B22508C3360052A8EC /* EditableShortStringTableViewCell.h */,
+				E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */,
+				E2591EB62509DD4900B396FD /* EditableFormFieldDelegate.h */,
+			);
+			path = FormFields;
 			sourceTree = "<group>";
 		};
 		E2F7246725005E89007D87ED = {
@@ -541,6 +556,7 @@
 				E25BD60725036CFA007B04EF /* Action.m in Sources */,
 				E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */,
 				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
+				E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */,
 				E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */,
 				E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */,
 				E25BD5FE25036A76007B04EF /* DamageType.m in Sources */,

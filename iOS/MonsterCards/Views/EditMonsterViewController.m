@@ -7,6 +7,7 @@
 //
 
 #import "EditMonsterViewController.h"
+#import "EditableShortStringTableViewCell.h"
 
 @interface EditMonsterViewController ()
 
