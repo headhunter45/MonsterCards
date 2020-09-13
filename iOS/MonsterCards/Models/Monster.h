@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Monster : NSManagedObject
 
-@property NSString *armorName;
 @property NSString *otherArmorDescription;
 @property NSString *hpText;
 @property NSString *speed;

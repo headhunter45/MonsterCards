@@ -11,7 +11,6 @@
 
 @implementation Monster
 
-@synthesize armorName;
 @synthesize blindsightDistance;
 @synthesize burrowSpeed;
 @synthesize challengeRating;
@@ -71,6 +70,7 @@
     self.type = [jsonRoot objectForKey:@"type"] ?: @"";
     self.subtype = [jsonRoot objectForKey:@"tag"] ?: @"";
     self.alignment = [jsonRoot objectForKey:@"alignment"] ?: @"";
+    self.armorName = [jsonRoot objectForKey:@"armorName"] ?: @"";
     tempNumber = [jsonRoot objectForKey:@"strPoints"];
     if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
         self.strengthScore = tempNumber.intValue;
@@ -366,6 +366,7 @@
     self.intelligenceScore = monster.intelligenceScore;
     self.wisdomScore = monster.wisdomScore;
     self.charismaScore = monster.charismaScore;
+    self.armorName = monster.armorName;
 }
 
 @end
