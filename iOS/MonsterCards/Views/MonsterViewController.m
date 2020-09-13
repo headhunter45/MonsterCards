@@ -8,6 +8,7 @@
 
 #import "MonsterViewController.h"
 #import "EditMonsterViewController.h"
+#import "HTMLHelper.h"
 
 @interface MonsterViewController ()
 
@@ -35,11 +36,21 @@
             self.navigationItem.title = self.monster.name;
         }
     }
-    NSString *metaText = self.monster.meta;
-    if (metaText == nil) {
-        self.monsterMeta.text = @"";
-    } else {
-        self.monsterMeta.text = metaText;
+    if (self.monsterMeta != nil) {
+        NSString *metaText = self.monster.meta;
+        if (metaText == nil) {
+            self.monsterMeta.text = @"";
+        } else {
+            self.monsterMeta.text = metaText;
+        }
+    }
+    if (self.monsterArmorClass != nil) {
+        NSString *armorClassDescription = self.monster.armorClassDescription;
+        if (armorClassDescription == nil) {
+            self.monsterArmorClass.text = @"";
+        } else {
+            self.monsterArmorClass.attributedText = [HTMLHelper attributedStringFromHTML:[NSString stringWithFormat:@"<span style=\"font-family: helvetica; font-size: 12pt; color: #9B2818;\"><b>Armor Class</b> %@</span>", armorClassDescription]];
+        }
     }
 }
 

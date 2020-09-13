@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *monsterName;
 @property (weak, nonatomic) IBOutlet UILabel *monsterMeta;
+@property (weak, nonatomic) IBOutlet UILabel *monsterArmorClass;
 
 @property Monster* monster;
 

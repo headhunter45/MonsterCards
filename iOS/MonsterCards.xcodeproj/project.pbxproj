@@ -25,6 +25,7 @@
 		E25BD60425036CF0007B04EF /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60325036CF0007B04EF /* Ability.m */; };
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
 		E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E26A73562511BA1900C5677E /* HTMLHelper.m */; };
+		E278E21B250DFFCA00D3EC0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E278E21A250DFFCA00D3EC0E /* Images.xcassets */; };
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
 		E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */; };
 		E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
@@ -102,6 +103,7 @@
 		E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E26A73552511BA1900C5677E /* HTMLHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLHelper.h; sourceTree = "<group>"; };
 		E26A73562511BA1900C5677E /* HTMLHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLHelper.m; sourceTree = "<group>"; };
+		E278E21A250DFFCA00D3EC0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
 		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
 		E2D3E3B22508C3360052A8EC /* EditableShortStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableShortStringTableViewCell.h; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				E2F7247425005E89007D87ED /* AppDelegate.m */,
 				E2F7247625005E89007D87ED /* SceneDelegate.h */,
 				E2F7247725005E89007D87ED /* SceneDelegate.m */,
+				E278E21A250DFFCA00D3EC0E /* Images.xcassets */,
 				E2F7247F25005E89007D87ED /* Main.storyboard */,
 				E2F7248525005E8A007D87ED /* Assets.xcassets */,
 				E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */,
@@ -439,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F7248925005E8A007D87ED /* LaunchScreen.storyboard in Resources */,
+				E278E21B250DFFCA00D3EC0E /* Images.xcassets in Resources */,
 				E2F7248625005E8A007D87ED /* Assets.xcassets in Resources */,
 				E2F7248125005E89007D87ED /* Main.storyboard in Resources */,
 			);
