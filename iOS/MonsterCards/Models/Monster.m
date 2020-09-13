@@ -70,12 +70,17 @@
     self = [self initWithContext:context];
     
     NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSNumber *tempNumber;
     
     self.name = [jsonRoot objectForKey:@"name"] ?: @"";
     self.size = [jsonRoot objectForKey:@"size"] ?: @"";
     self.type = [jsonRoot objectForKey:@"type"] ?: @"";
     self.subtype = [jsonRoot objectForKey:@"tag"] ?: @"";
     self.alignment = [jsonRoot objectForKey:@"alignment"] ?: @"";
+    tempNumber = [jsonRoot objectForKey:@"strPoints"];
+    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
+        self.strengthScore = tempNumber.intValue;
+    }
     
     return self;
 }
@@ -120,7 +125,7 @@
 }
 
 -(int)strengthModifier {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [Monster abilityModifierForScore:self.strengthScore];
 }
 
 -(int)dexterityModifier {
@@ -340,6 +345,7 @@
     self.type = monster.type;
     self.subtype = monster.subtype;
     self.alignment = monster.alignment;
+    self.strengthScore = monster.strengthScore;
 }
 
 @end
