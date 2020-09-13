@@ -16,6 +16,7 @@
 		E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */; };
 		E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D033025031BFD00FB6E43 /* DashboardViewController.m */; };
 		E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2532E8825038DE100CA4CBA /* StringHelper.m */; };
+		E2592B8D250D6B8100906A40 /* EditMonsterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */; };
 		E25BD5F5250352C4007B04EF /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F4250352C4007B04EF /* Monster.m */; };
 		E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F7250368A8007B04EF /* SavingThrow.m */; };
 		E25BD5FB250369D7007B04EF /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5FA250369D7007B04EF /* Skill.m */; };
@@ -82,6 +83,7 @@
 		E2532E8725038DE100CA4CBA /* StringHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
 		E2532E8825038DE100CA4CBA /* StringHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
 		E2591EB62509DD4900B396FD /* EditableFormFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableFormFieldDelegate.h; sourceTree = "<group>"; };
+		E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewControllerTests.m; sourceTree = "<group>"; };
 		E25BD5F3250352C4007B04EF /* Monster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		E25BD5F4250352C4007B04EF /* Monster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 		E25BD5F6250368A8007B04EF /* SavingThrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavingThrow.h; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E2592B8B250D6B6000906A40 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E2D3E3B12508C2FE0052A8EC /* FormFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 		E2F7249425005E8A007D87ED /* MonsterCardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2592B8B250D6B6000906A40 /* Views */,
 				E2FD91E225047C1D00D5E935 /* Models */,
 				E2F7249525005E8A007D87ED /* MonsterCardsTests.m */,
 				E2F7249725005E8A007D87ED /* Info.plist */,
@@ -580,6 +591,7 @@
 			files = (
 				E2FD91EA250493C000D5E935 /* LanguageTests.m in Sources */,
 				E2FD91E82504832A00D5E935 /* DamageTypeTests.m in Sources */,
+				E2592B8D250D6B8100906A40 /* EditMonsterViewControllerTests.m in Sources */,
 				E2FD91EC250496B000D5E935 /* SavingThrowTests.m in Sources */,
 				E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */,
 				E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */,

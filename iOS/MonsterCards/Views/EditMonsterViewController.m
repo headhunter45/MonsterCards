@@ -59,7 +59,16 @@
     //   * Subtype
     //   * Alignment
     
-    return 3;
+    return 4;
+}
+
+- (EditableShortStringTableViewCell*) makeShortStringCellFromCell:(UITableViewCell*)cell {
+    if (cell == nil || ![cell isKindOfClass:[EditableShortStringTableViewCell class]]) {
+        // TODO: Figure out why this doesn't create a cell with a text field.
+        return [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
+    } else {
+        return (EditableShortStringTableViewCell*)cell;
+    }
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -70,10 +79,7 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    shortStringCell = [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"];
-                    if (shortStringCell == nil) {
-                        shortStringCell = [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
-                    }
+                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]];
                     shortStringCell.delegate = self;
                     shortStringCell.identifier = @"monster.name";
                     // TODO: make these use setters on EditableShortStringTableViewCell
@@ -81,10 +87,7 @@
                     shortStringCell.textField.placeholder = NSLocalizedString(@"Name", @"Placeholder text for the name of a monster or NPC.");
                     return shortStringCell;
                 case 1:
-                    shortStringCell = [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"];
-                    if (shortStringCell == nil) {
-                        shortStringCell = [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
-                    }
+                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]];
                     shortStringCell.delegate = self;
                     shortStringCell.identifier = @"monster.size";
                     // TODO: make these use setters on EditableShortStringTableViewCell
@@ -92,15 +95,19 @@
                     shortStringCell.textField.placeholder = NSLocalizedString(@"Size", @"Placehodler text for the size of a monster or NPC.");
                     return shortStringCell;
                 case 2:
-                    shortStringCell = [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"];
-                    if (shortStringCell == nil) {
-                        shortStringCell = [[EditableShortStringTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditableShortString"];
-                    }
+                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]];
                     shortStringCell.delegate = self;
                     shortStringCell.identifier = @"monster.type";
                     // TODO: make these use setters on EditableShortStringTableViewCell
                     shortStringCell.textField.text = self.editingMonster.type;
                     shortStringCell.textField.placeholder = NSLocalizedString(@"Type", @"Placehodler text for the type of a monster or NPC.");
+                    return shortStringCell;
+                case 3:
+                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]];
+                    shortStringCell.delegate = self;
+                    shortStringCell.identifier = @"monster.subtype";
+                    shortStringCell.textField.text = self.editingMonster.subtype;
+                    shortStringCell.textField.placeholder = NSLocalizedString(@"Subtype", @"Placeholder text for the subtype of a monster or NPC.");
                     return shortStringCell;
             }
             break;
@@ -119,6 +126,8 @@
             self.editingMonster.size = (NSString*)value;
         } else if ([@"monster.type" isEqualToString:identifier]) {
             self.editingMonster.type = (NSString*)value;
+        } else if ([@"monster.subtype" isEqualToString:identifier]) {
+            self.editingMonster.subtype = (NSString*)value;
         }
     }
 }
