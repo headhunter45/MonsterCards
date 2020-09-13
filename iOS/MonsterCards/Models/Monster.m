@@ -44,7 +44,7 @@
 @synthesize wisdomScore;
 
 +(int)abilityModifierForScore: (int)score {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return (int)floor((score - 10) / 2.0);
 }
 
 +(int)hitDieForSize: (NSString*)size{

@@ -206,4 +206,29 @@
     XCTAssertEqualObjects(@"large humanoid (elf) chaotic good", _monster.meta);
 }
 
+- (void)testAbilityModifierForScore {
+    XCTAssertEqual(-6, [Monster abilityModifierForScore:-1]);
+    XCTAssertEqual(-5, [Monster abilityModifierForScore:0]);
+    XCTAssertEqual(-5, [Monster abilityModifierForScore:1]);
+    XCTAssertEqual(-4, [Monster abilityModifierForScore:2]);
+    XCTAssertEqual(-4, [Monster abilityModifierForScore:3]);
+    XCTAssertEqual(-3, [Monster abilityModifierForScore:4]);
+    XCTAssertEqual(-3, [Monster abilityModifierForScore:5]);
+    XCTAssertEqual(-2, [Monster abilityModifierForScore:6]);
+    XCTAssertEqual(-2, [Monster abilityModifierForScore:7]);
+    XCTAssertEqual(-1, [Monster abilityModifierForScore:8]);
+    XCTAssertEqual(-1, [Monster abilityModifierForScore:9]);
+    XCTAssertEqual(0, [Monster abilityModifierForScore:10]);
+    XCTAssertEqual(0, [Monster abilityModifierForScore:11]);
+    XCTAssertEqual(1, [Monster abilityModifierForScore:12]);
+    XCTAssertEqual(1, [Monster abilityModifierForScore:13]);
+    XCTAssertEqual(2, [Monster abilityModifierForScore:14]);
+    XCTAssertEqual(2, [Monster abilityModifierForScore:15]);
+    XCTAssertEqual(3, [Monster abilityModifierForScore:16]);
+    XCTAssertEqual(3, [Monster abilityModifierForScore:17]);
+    XCTAssertEqual(4, [Monster abilityModifierForScore:18]);
+    XCTAssertEqual(4, [Monster abilityModifierForScore:19]);
+    XCTAssertEqual(5, [Monster abilityModifierForScore:20]);
+}
+
 @end
