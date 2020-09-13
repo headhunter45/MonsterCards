@@ -81,7 +81,10 @@
     if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
         self.strengthScore = tempNumber.intValue;
     }
-    
+    tempNumber = [jsonRoot objectForKey:@"dexPoints"];
+    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
+        self.dexterityScore = tempNumber.intValue;
+    }
     return self;
 }
 
@@ -129,7 +132,7 @@
 }
 
 -(int)dexterityModifier {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [Monster abilityModifierForScore:self.dexterityScore];
 }
 
 -(int)constitutionModifier {
@@ -346,6 +349,7 @@
     self.subtype = monster.subtype;
     self.alignment = monster.alignment;
     self.strengthScore = monster.strengthScore;
+    self.dexterityScore = monster.dexterityScore;
 }
 
 @end

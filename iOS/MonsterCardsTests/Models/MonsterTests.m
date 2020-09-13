@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -41,6 +41,7 @@
     XCTAssertEqualObjects(@"", _monster.subtype);
     XCTAssertEqualObjects(@"", _monster.alignment);
     XCTAssertEqual(0, _monster.strengthScore);
+    XCTAssertEqual(0, _monster.dexterityScore);
 }
 
 - (void)testInitWithJSONString {
@@ -53,6 +54,7 @@
     XCTAssertEqualObjects(@"any race", _monster.subtype);
     XCTAssertEqualObjects(@"any alignment", _monster.alignment);
     XCTAssertEqual(8, _monster.strengthScore);
+    XCTAssertEqual(10, _monster.dexterityScore);
 }
 
 - (void)testInitWithEmptyJSONString {
@@ -65,6 +67,7 @@
     XCTAssertEqualObjects(@"", _monster.subtype);
     XCTAssertEqualObjects(@"", _monster.alignment);
     XCTAssertEqual(0, _monster.strengthScore);
+    XCTAssertEqual(0, _monster.dexterityScore);
 }
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
@@ -76,6 +79,7 @@
     XCTAssertEqualObjects(@"any race", _monster.subtype);
     XCTAssertEqualObjects(@"any alignment", _monster.alignment);
     XCTAssertEqual(8, _monster.strengthScore);
+    XCTAssertEqual(10, _monster.dexterityScore);
 }
 
 - (void)testNameGetterAndSetter {
@@ -118,6 +122,7 @@
     XCTAssertEqualObjects(@"any race", _monster.subtype);
     XCTAssertEqualObjects(@"any alignment", _monster.alignment);
     XCTAssertEqual(8, _monster.strengthScore);
+    XCTAssertEqual(10, _monster.dexterityScore);
 }
 
 - (void)testMetaWithNoFieldsSet {
@@ -250,6 +255,22 @@
     
     _monster.strengthScore = 12;
     XCTAssertEqual(1, _monster.strengthModifier);
+}
+
+- (void)testDexterityScoreGetterAndSetter {
+    _monster.dexterityScore = 11;
+    XCTAssertEqual(11, _monster.dexterityScore);
+}
+
+- (void)testDexterityModifier {
+    _monster.dexterityScore = 9;
+    XCTAssertEqual(-1, _monster.dexterityModifier);
+    
+    _monster.dexterityScore = 10;
+    XCTAssertEqual(0, _monster.dexterityModifier);
+    
+    _monster.dexterityScore = 12;
+    XCTAssertEqual(1, _monster.dexterityModifier);
 }
 
 @end
