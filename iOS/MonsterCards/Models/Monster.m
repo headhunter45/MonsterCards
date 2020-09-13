@@ -165,10 +165,109 @@
     return [Monster abilityModifierForScore:self.charismaScore];
 }
 
+const int kArmorClassUnarmored = 10;
+const int kArmorClassMageArmor = kArmorClassUnarmored + 3;
+const int kArmorClassPadded = kArmorClassUnarmored + 1;
+const int kArmorClassLeather = kArmorClassUnarmored + 1;
+const int kArmorClassStudded = kArmorClassUnarmored + 2;
+const int kArmorClassHide = kArmorClassUnarmored + 2;
+const int kArmorClassChainShirt = kArmorClassUnarmored + 3;
+const int kArmorClassScaleMail = kArmorClassUnarmored + 4;
+const int kArmorClassBreastplate = kArmorClassUnarmored + 4;
+const int kArmorClassHalfPlate = kArmorClassUnarmored + 5;
+const int kArmorClassRingMail = kArmorClassUnarmored + 4;
+const int kArmorClassChainMail = kArmorClassUnarmored + 6;
+const int kArmorClassSplintMail = kArmorClassUnarmored + 7;
+const int kArmorClassPlate = kArmorClassUnarmored + 8;
+
+NSString const *kArmorNameNone = @"none";
+NSString const *kArmorNameNaturalArmor = @"natural armor";
+NSString const *kArmorNameMageArmor = @"mage armor";
+NSString const *kArmorNamePadded = @"padded";
+NSString const *kArmorNameLeather = @"leather";
+NSString const *kArmorNameStuddedLeather = @"studded";
+NSString const *kArmorNameHide = @"hide";
+NSString const *kArmorNameChainShirt = @"chain shirt";
+NSString const *kArmorNameScaleMail = @"scale mail";
+NSString const *kArmorNameBreastplate = @"breastplate";
+NSString const *kArmorNameHalfPlate = @"half plate";
+NSString const *kArmorNameRingMail = @"ring mail";
+NSString const *kArmorNameChainMail = @"chain mail";
+NSString const *kArmorNameSplintMail = @"splint";
+NSString const *kArmorNamePlateMail = @"plate";
+NSString const *kArmorNameOther = @"other";
 
 //getArmorClass
 -(NSString*)armorClassDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    BOOL hasShield = [self shieldBonus] != 0;
+    NSString *armorName = [self armorName];
+    if ([StringHelper isStringNilOrEmpty:armorName] || [kArmorNameNone isEqualToString:armorName]) {
+        // 10 + dexMod + 2 for shieldBonus "15" or "17 (shield)"
+        int armorClass = kArmorClassUnarmored + self.dexterityModifier + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d%@", armorClass, (hasShield ? @" (shield)" : @"")];
+    } else if ([kArmorNameNaturalArmor isEqualToString:armorName]) {
+        // 10 + dexMod + naturalArmorBonus + 2 for shieldBonus "16 (natural armor)" or "18 (natural armor, shield)"
+        int armorClass = kArmorClassUnarmored + self.dexterityModifier + self.naturalArmorBonus + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (natural armor%@)", armorClass, (hasShield ? @" (shield)" : @"")];
+    } else if ([kArmorNameMageArmor isEqualToString:armorName]) {
+        // 10 + dexMod + 2 for shield + 3 for mage armor "15 (18 with mage armor)" or 17 (shield, 20 with mage armor)
+        int armorClass = kArmorClassUnarmored + self.dexterityModifier + self.shieldBonus;
+        int armorClassWithMageArmor = kArmorClassMageArmor + self.dexterityModifier + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (%@%d with mage armor)", armorClass, (hasShield ? @"shield, " : @""), armorClassWithMageArmor];
+    } else if ([kArmorNamePadded isEqualToString:armorName]) {
+        // 11 + dexMod + 2 for shield "18 (padded armor, shield)"
+        int armorClass = kArmorClassPadded + self.dexterityModifier + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (padded%@)", armorClass, (hasShield ? @"shield, " : @"")];
+    } else if ([kArmorNameLeather isEqualToString:armorName]) {
+        // 11 + dexMod + 2 for shield "18 (leather, shield)"
+        int armorClass = kArmorClassLeather + self.dexterityModifier + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (leather%@)", armorClass, (hasShield ? @"shield, " : @"")];
+    } else if ([kArmorNameStuddedLeather isEqualToString:armorName]) {
+        // 12 + dexMod +2 for shield "17 (studded leather)"
+        int armorClass = kArmorClassStudded + self.dexterityModifier + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (studded leather%@)", armorClass, (hasShield ? @"shield, " : @"")];
+    } else if ([kArmorNameHide isEqualToString:armorName]) {
+        // 12 + Min(2, dexMod) + 2 for shield "12 (hide armor)"
+        int armorClass = kArmorClassHide + MIN(2, self.dexterityModifier) + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (hide%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameChainShirt isEqualToString:armorName]) {
+        // 13 + Min(2, dexMod) + 2 for shield "12 (chain shirt)"
+        int armorClass = kArmorClassChainShirt + MIN(2, self.dexterityModifier) + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (chain shirt%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameScaleMail isEqualToString:armorName]) {
+        // 14 + Min(2, dexMod) + 2 for shield "14 (scale mail)"
+        int armorClass = kArmorClassScaleMail + MIN(2, self.dexterityModifier) + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (scale mail%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameBreastplate isEqualToString:armorName]) {
+        // 14 + Min(2, dexMod) + 2 for shield "16 (breastplate)"
+        int armorClass = kArmorClassBreastplate + MIN(2, self.dexterityModifier) + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (breastplate%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameHalfPlate isEqualToString:armorName]) {
+        // 15 + Min(2, dexMod) + 2 for shield "17 (half plate)"
+        int armorClass = kArmorClassHalfPlate + MIN(2, self.dexterityModifier) + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (half plate%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameRingMail isEqualToString:armorName]) {
+        // 14 + 2 for shield "14 (ring mail)
+        int armorClass = kArmorClassRingMail + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (ring mail%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameChainMail isEqualToString:armorName]) {
+        // 16 + 2 for shield "16 (chain mail)"
+        int armorClass = kArmorClassChainMail + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (chain mail%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameSplintMail isEqualToString:armorName]) {
+        // 17 + 2 for shield "17 (splint)"
+        int armorClass = kArmorClassSplintMail + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (splint%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNamePlateMail isEqualToString:armorName]) {
+        // 18 + 2 for shield "18 (plate)"
+        int armorClass = kArmorClassPlate + self.shieldBonus;
+        return [NSString stringWithFormat:@"%d (plate%@)", armorClass, (hasShield ? @", shield" : @"")];
+    } else if ([kArmorNameOther isEqualToString:armorName]) {
+        // pure string value shield check does nothing just copies the string from otherArmorDesc
+        return self.otherArmorDescription;
+    } else {
+        return @"";
+    }
 }
 
 //getHitPoints
