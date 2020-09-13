@@ -27,7 +27,6 @@
 @synthesize hpText;
 @synthesize isBlind;
 @synthesize naturalArmorBonus;
-@synthesize otherArmorDescription;
 @synthesize shieldBonus;
 @synthesize speed;
 @synthesize swimSpeed;
@@ -71,6 +70,7 @@
     self.subtype = [jsonRoot objectForKey:@"tag"] ?: @"";
     self.alignment = [jsonRoot objectForKey:@"alignment"] ?: @"";
     self.armorName = [jsonRoot objectForKey:@"armorName"] ?: @"";
+    self.otherArmorDescription = [jsonRoot objectForKey:@"otherArmorDesc"] ?: @"";
     tempNumber = [jsonRoot objectForKey:@"strPoints"];
     if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
         self.strengthScore = tempNumber.intValue;
@@ -367,6 +367,7 @@
     self.wisdomScore = monster.wisdomScore;
     self.charismaScore = monster.charismaScore;
     self.armorName = monster.armorName;
+    self.otherArmorDescription = monster.otherArmorDescription;
 }
 
 @end
