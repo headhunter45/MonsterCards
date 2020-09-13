@@ -15,6 +15,8 @@
 		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
 		E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */; };
 		E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D033025031BFD00FB6E43 /* DashboardViewController.m */; };
+		E22F837C2511D14E0072105C /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F837B2511D14E0072105C /* JSONHelper.m */; };
+		E22F837F2511E8500072105C /* JSONHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F837E2511E8500072105C /* JSONHelperTests.m */; };
 		E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2532E8825038DE100CA4CBA /* StringHelper.m */; };
 		E2592B8D250D6B8100906A40 /* EditMonsterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */; };
 		E25BD5F5250352C4007B04EF /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F4250352C4007B04EF /* Monster.m */; };
@@ -82,6 +84,9 @@
 		E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
 		E20D032F25031BFD00FB6E43 /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		E20D033025031BFD00FB6E43 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		E22F837A2511D14E0072105C /* JSONHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
+		E22F837B2511D14E0072105C /* JSONHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
+		E22F837E2511E8500072105C /* JSONHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONHelperTests.m; sourceTree = "<group>"; };
 		E2532E8725038DE100CA4CBA /* StringHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
 		E2532E8825038DE100CA4CBA /* StringHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
 		E2591EB62509DD4900B396FD /* EditableFormFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableFormFieldDelegate.h; sourceTree = "<group>"; };
@@ -234,6 +239,16 @@
 				E2532E8825038DE100CA4CBA /* StringHelper.m */,
 				E26A73552511BA1900C5677E /* HTMLHelper.h */,
 				E26A73562511BA1900C5677E /* HTMLHelper.m */,
+				E22F837A2511D14E0072105C /* JSONHelper.h */,
+				E22F837B2511D14E0072105C /* JSONHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E22F837D2511E8350072105C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E22F837E2511E8500072105C /* JSONHelperTests.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,6 +317,7 @@
 		E2F7249425005E8A007D87ED /* MonsterCardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E22F837D2511E8350072105C /* Helpers */,
 				E2592B8B250D6B6000906A40 /* Views */,
 				E2FD91E225047C1D00D5E935 /* Models */,
 				E2F7249525005E8A007D87ED /* MonsterCardsTests.m */,
@@ -591,6 +607,7 @@
 				E25BD5FB250369D7007B04EF /* Skill.m in Sources */,
 				E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */,
 				E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */,
+				E22F837C2511D14E0072105C /* JSONHelper.m in Sources */,
 				E25BD60125036BF8007B04EF /* Language.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +626,7 @@
 				E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */,
 				E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */,
 				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
+				E22F837F2511E8500072105C /* JSONHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +790,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
 				INFOPLIST_FILE = MonsterCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -791,6 +810,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
 				INFOPLIST_FILE = MonsterCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
