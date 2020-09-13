@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10,\"conPoints\":12,\"intPoints\":14}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10,\"conPoints\":12,\"intPoints\":14,\"wisPoints\":16}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -44,6 +44,7 @@
     XCTAssertEqual(0, _monster.dexterityScore);
     XCTAssertEqual(0, _monster.constitutionScore);
     XCTAssertEqual(0, _monster.intelligenceScore);
+    XCTAssertEqual(0, _monster.wisdomScore);
 }
 
 - (void)testInitWithJSONString {
@@ -59,6 +60,7 @@
     XCTAssertEqual(10, _monster.dexterityScore);
     XCTAssertEqual(12, _monster.constitutionScore);
     XCTAssertEqual(14, _monster.intelligenceScore);
+    XCTAssertEqual(16, _monster.wisdomScore);
 }
 
 - (void)testInitWithEmptyJSONString {
@@ -74,6 +76,7 @@
     XCTAssertEqual(0, _monster.dexterityScore);
     XCTAssertEqual(0, _monster.constitutionScore);
     XCTAssertEqual(0, _monster.intelligenceScore);
+    XCTAssertEqual(0, _monster.wisdomScore);
 }
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
@@ -88,6 +91,7 @@
     XCTAssertEqual(10, _monster.dexterityScore);
     XCTAssertEqual(12, _monster.constitutionScore);
     XCTAssertEqual(14, _monster.intelligenceScore);
+    XCTAssertEqual(16, _monster.wisdomScore);
 }
 
 - (void)testNameGetterAndSetter {
@@ -133,6 +137,7 @@
     XCTAssertEqual(10, _monster.dexterityScore);
     XCTAssertEqual(12, _monster.constitutionScore);
     XCTAssertEqual(14, _monster.intelligenceScore);
+    XCTAssertEqual(16, _monster.wisdomScore);
 }
 
 - (void)testMetaWithNoFieldsSet {
@@ -313,6 +318,22 @@
     
     _monster.intelligenceScore = 12;
     XCTAssertEqual(1, _monster.intelligenceModifier);
+}
+
+- (void)testWisdomScoreGetterAndSetter {
+    _monster.wisdomScore = 11;
+    XCTAssertEqual(11, _monster.wisdomScore);
+}
+
+- (void)testWisdomModifier {
+    _monster.wisdomScore = 9;
+    XCTAssertEqual(-1, _monster.wisdomModifier);
+    
+    _monster.wisdomScore = 10;
+    XCTAssertEqual(0, _monster.wisdomModifier);
+    
+    _monster.wisdomScore = 12;
+    XCTAssertEqual(1, _monster.wisdomModifier);
 }
 
 @end

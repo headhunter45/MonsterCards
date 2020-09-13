@@ -93,6 +93,10 @@
     if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
         self.intelligenceScore = tempNumber.intValue;
     }
+    tempNumber = [jsonRoot objectForKey:@"wisPoints"];
+    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
+        self.wisdomScore = tempNumber.intValue;
+    }
     return self;
 }
 
@@ -152,7 +156,7 @@
 }
 
 -(int)wisdomModifier {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [Monster abilityModifierForScore:self.wisdomScore];
 }
 
 -(int)charismaModifier {
@@ -360,6 +364,7 @@
     self.dexterityScore = monster.dexterityScore;
     self.constitutionScore = monster.constitutionScore;
     self.intelligenceScore = monster.intelligenceScore;
+    self.wisdomScore = monster.wisdomScore;
 }
 
 @end
