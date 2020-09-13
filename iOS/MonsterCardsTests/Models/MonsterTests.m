@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\"}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\"}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -39,6 +39,7 @@
     XCTAssertEqualObjects(@"", _monster.size);
     XCTAssertEqualObjects(@"", _monster.type);
     XCTAssertEqualObjects(@"", _monster.subtype);
+    XCTAssertEqualObjects(@"", _monster.alignment);
 }
 
 - (void)testInitWithJSONString {
@@ -49,6 +50,7 @@
     XCTAssertEqualObjects(@"medium", _monster.size);
     XCTAssertEqualObjects(@"humanoid", _monster.type);
     XCTAssertEqualObjects(@"any race", _monster.subtype);
+    XCTAssertEqualObjects(@"any alignment", _monster.alignment);
 }
 
 - (void)testInitWithEmptyJSONString {
@@ -59,6 +61,7 @@
     XCTAssertEqualObjects(@"", _monster.size);
     XCTAssertEqualObjects(@"", _monster.type);
     XCTAssertEqualObjects(@"", _monster.subtype);
+    XCTAssertEqualObjects(@"", _monster.alignment);
 }
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
@@ -68,6 +71,7 @@
     XCTAssertEqualObjects(@"medium", _monster.size);
     XCTAssertEqualObjects(@"humanoid", _monster.type);
     XCTAssertEqualObjects(@"any race", _monster.subtype);
+    XCTAssertEqualObjects(@"any alignment", _monster.alignment);
 }
 
 - (void)testNameGetterAndSetter {
@@ -94,6 +98,11 @@
     XCTAssertEqualObjects(subtype, _monster.subtype);
 }
 
+- (void)testAlignmentGetterAndSetter {
+    NSString *alignment = @"chaotic good";
+    _monster.alignment = alignment;
+    XCTAssertEqualObjects(alignment, _monster.alignment);
+}
 - (void)testCopyFromMonster {
     Monster *otherMonster = [[Monster alloc] initWithJSONString:_jsonString andContext:_context];
     [_monster copyFromMonster:otherMonster];
@@ -103,6 +112,7 @@
     XCTAssertEqualObjects(@"medium", _monster.size);
     XCTAssertEqualObjects(@"humanoid", _monster.type);
     XCTAssertEqualObjects(@"any race", _monster.subtype);
+    XCTAssertEqualObjects(@"any alignment", _monster.alignment);
 }
 
 - (void)testMetaWithNoFieldsSet {
@@ -148,6 +158,52 @@
     _monster.type = @"humanoid";
     _monster.subtype = @"elf";
     XCTAssertEqualObjects(@"large humanoid (elf)", _monster.meta);
+}
+
+- (void)testMetaWithAlignment {
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"chaotic good", _monster.meta);
+}
+
+- (void)testMetaWithSizeAndAlignment {
+    _monster.size = @"large";
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"large chaotic good", _monster.meta);
+}
+
+- (void)testMetaWithTypeAndAlignment {
+    _monster.type = @"humanoid";
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"humanoid chaotic good", _monster.meta);
+}
+
+- (void)testMetaWithSizeTypeAndAlignment {
+    _monster.size = @"large";
+    _monster.type = @"humanoid";
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"large humanoid chaotic good", _monster.meta);
+}
+
+- (void)testMetaWithSizeSubtypeAndAlignment {
+    _monster.size = @"large";
+    _monster.subtype = @"elf";
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"large (elf) chaotic good", _monster.meta);
+}
+
+- (void)testMetaWithTypeSubtypeAndAlignment {
+    _monster.type = @"humanoid";
+    _monster.subtype = @"elf";
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"humanoid (elf) chaotic good", _monster.meta);
+}
+
+- (void)testMetaWithSizeTypeSubtypeAndAlignment {
+    _monster.size = @"large";
+    _monster.type = @"humanoid";
+    _monster.subtype = @"elf";
+    _monster.alignment = @"chaotic good";
+    XCTAssertEqualObjects(@"large humanoid (elf) chaotic good", _monster.meta);
 }
 
 @end

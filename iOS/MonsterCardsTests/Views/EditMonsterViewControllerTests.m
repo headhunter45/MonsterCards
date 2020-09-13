@@ -31,25 +31,16 @@
     _appDelegate = mock([AppDelegate class]);
     _persistentContainer = mock([NSPersistentCloudKitContainer class]);
     
- UIApplication.sharedApplication.delegate = _appDelegate;
-//    ((AppDelegate*)UIApplication.sharedApplication.delegate).persistentContainer.viewContext = _context;
+    UIApplication.sharedApplication.delegate = _appDelegate;
 }
 
 - (void)tearDown {
 }
 
-// UIViewController
-// UITableViewDelegate
-// UITableViewDataSource
-// EditableShortStringDeletgate
-// Monster *originalMonster
-// UITableView *monsterTableView
-
 - (void)testRendersSubtypeCell {
     UITableView *monstersTableView = mock([UITableView class]);
     NSIndexPath *path = [NSIndexPath indexPathForRow:3 inSection:0];
     EditableShortStringTableViewCell *shortStringCell = [[EditableShortStringTableViewCell alloc] init];
-    //mock([EditableShortStringTableViewCell class]);
     UITextField *textField = [[UITextField alloc] init];
     shortStringCell.textField = textField;
     
@@ -89,5 +80,50 @@
     
     XCTAssertEqualObjects(@"newValue", _viewController.originalMonster.subtype);
 }
+
+- (void)testRendersAlignmentCell {
+    UITableView *monstersTableView = mock([UITableView class]);
+    NSIndexPath *path = [NSIndexPath indexPathForRow:4 inSection:0];
+    EditableShortStringTableViewCell *shortStringCell = [[EditableShortStringTableViewCell alloc] init];
+    UITextField *textField = [[UITextField alloc] init];
+    shortStringCell.textField = textField;
+    
+    [given([monstersTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]) willReturn:shortStringCell];
+    
+    _monster.alignment = @"chaotic good";
+    _viewController.originalMonster = _monster;
+    _viewController.monsterTableView = monstersTableView;
+    [_viewController viewDidLoad];
+    [_viewController viewWillAppear:NO];
+    
+    UITableViewCell *cell = [_viewController tableView:monstersTableView cellForRowAtIndexPath:path];
+    
+    XCTAssertNotNil(cell);
+    
+    XCTAssertTrue([cell isKindOfClass:[EditableShortStringTableViewCell class]]);
+    shortStringCell = (EditableShortStringTableViewCell*)cell;
+    XCTAssertEqualObjects(@"monster.alignment", shortStringCell.identifier);
+    XCTAssertEqualObjects(@"Alignment", shortStringCell.textField.placeholder);
+    XCTAssertEqualObjects(@"", shortStringCell.textField.text);
+    XCTAssertEqual(_viewController, shortStringCell.delegate);
+}
+
+- (void)testEditingAlignment {
+    UIViewController *destinationVC = mock([UIViewController class]);
+    UIStoryboardSegue *segue = [UIStoryboardSegue segueWithIdentifier:@"SaveChanges" source:_viewController destination:destinationVC performHandler:^{}];
+    
+    _monster = [[Monster alloc] initWithContext:_context];
+    _monster.alignment = @"chaotic good";
+    _viewController.originalMonster = _monster;
+    [_viewController viewDidLoad];
+    [_viewController viewWillAppear:NO];
+    
+    [_viewController editableValueDidChange:@"newValue" forIdentifier:@"monster.alignment" andType:@"String"];
+    
+    [_viewController prepareForSegue:segue sender:nil];
+    
+    XCTAssertEqualObjects(@"newValue", _viewController.originalMonster.alignment);
+}
+
 
 @end

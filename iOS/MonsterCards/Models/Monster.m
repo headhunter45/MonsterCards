@@ -75,6 +75,7 @@
     self.size = [jsonRoot objectForKey:@"size"] ?: @"";
     self.type = [jsonRoot objectForKey:@"type"] ?: @"";
     self.subtype = [jsonRoot objectForKey:@"tag"] ?: @"";
+    self.alignment = [jsonRoot objectForKey:@"alignment"] ?: @"";
     
     return self;
 }
@@ -338,6 +339,7 @@
     self.size = monster.size;
     self.type = monster.type;
     self.subtype = monster.subtype;
+    self.alignment = monster.alignment;
 }
 
 @end

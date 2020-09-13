@@ -59,7 +59,7 @@
     //   * Subtype
     //   * Alignment
     
-    return 4;
+    return 5;
 }
 
 - (EditableShortStringTableViewCell*) makeShortStringCellFromCell:(UITableViewCell*)cell {
@@ -109,6 +109,13 @@
                     shortStringCell.textField.text = self.editingMonster.subtype;
                     shortStringCell.textField.placeholder = NSLocalizedString(@"Subtype", @"Placeholder text for the subtype of a monster or NPC.");
                     return shortStringCell;
+                case 4:
+                    shortStringCell = [self makeShortStringCellFromCell: [self.monsterTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]];
+                    shortStringCell.delegate = self;
+                    shortStringCell.identifier = @"monster.alignment";
+                    shortStringCell.textField.text = self.editingMonster.alignment;
+                    shortStringCell.textField.placeholder = NSLocalizedString(@"Alignment", @"Placeholder text for the alignment of a monster or NPC.");
+                    return shortStringCell;
             }
             break;
     }
@@ -128,6 +135,8 @@
             self.editingMonster.type = (NSString*)value;
         } else if ([@"monster.subtype" isEqualToString:identifier]) {
             self.editingMonster.subtype = (NSString*)value;
+        } else if ([@"monster.alignment" isEqualToString:identifier]) {
+            self.editingMonster.alignment = (NSString*)value;
         }
     }
 }
