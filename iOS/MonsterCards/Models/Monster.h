@@ -39,12 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *truesightDistance;
 @property NSString *understandsBut;
 
-@property int strengthScore;
-@property int dexterityScore;
-@property int constitutionScore;
-@property int intelligenceScore;
-@property int wisdomScore;
-@property int charismaScore;
 @property int shieldBonus;
 @property int naturalArmorBonus;
 @property int hitDice;

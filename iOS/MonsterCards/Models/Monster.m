@@ -15,33 +15,27 @@
 @synthesize blindsightDistance;
 @synthesize burrowSpeed;
 @synthesize challengeRating;
-@synthesize charismaScore;
 @synthesize climbSpeed;
-@synthesize constitutionScore;
 @synthesize customChallengeRating;
 @synthesize customHP;
 @synthesize customProficiencyBonus;
 @synthesize customSpeed;
 @synthesize customSpeedDescription;
 @synthesize darkvisionDistance;
-@synthesize dexterityScore;
 @synthesize flySpeed;
 @synthesize hitDice;
 @synthesize hover;
 @synthesize hpText;
-@synthesize intelligenceScore;
 @synthesize isBlind;
 @synthesize naturalArmorBonus;
 @synthesize otherArmorDescription;
 @synthesize shieldBonus;
 @synthesize speed;
-@synthesize strengthScore;
 @synthesize swimSpeed;
 @synthesize telepathy;
 @synthesize tremorsenseDistance;
 @synthesize truesightDistance;
 @synthesize understandsBut;
-@synthesize wisdomScore;
 
 +(int)abilityModifierForScore: (int)score {
     return (int)floor((score - 10) / 2.0);
