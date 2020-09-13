@@ -9,6 +9,7 @@
         <attribute name="intelligenceScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="otherArmorDescription" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="shieldBonus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="size" attributeType="String" defaultValueString=""/>
         <attribute name="strengthScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="subtype" attributeType="String" defaultValueString=""/>
@@ -16,6 +17,6 @@
         <attribute name="wisdomScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="253"/>
     </elements>
 </model>

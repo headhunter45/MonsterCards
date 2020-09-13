@@ -27,7 +27,6 @@
 @synthesize hpText;
 @synthesize isBlind;
 @synthesize naturalArmorBonus;
-@synthesize shieldBonus;
 @synthesize speed;
 @synthesize swimSpeed;
 @synthesize telepathy;
@@ -94,6 +93,10 @@
     tempNumber = [jsonRoot objectForKey:@"chaPoints"];
     if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
         self.charismaScore = tempNumber.intValue;
+    }
+    tempNumber = [jsonRoot objectForKey:@"shieldBonus"];
+    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
+        self.shieldBonus = tempNumber.intValue;
     }
 
     return self;
@@ -368,6 +371,7 @@
     self.charismaScore = monster.charismaScore;
     self.armorName = monster.armorName;
     self.otherArmorDescription = monster.otherArmorDescription;
+    self.shieldBonus = monster.shieldBonus;
 }
 
 @end

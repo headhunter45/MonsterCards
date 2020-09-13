@@ -37,7 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *truesightDistance;
 @property NSString *understandsBut;
 
-@property int shieldBonus;
 @property int naturalArmorBonus;
 @property int hitDice;
 @property int customProficiencyBonus;

@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10,\"conPoints\":12,\"intPoints\":14,\"wisPoints\":16,\"chaPoints\":18,\"armorName\":\"none\"}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10,\"conPoints\":12,\"intPoints\":14,\"wisPoints\":16,\"chaPoints\":18,\"armorName\":\"none\",\"otherArmorDesc\":\"10\",\"shieldBonus\":2}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -47,6 +47,8 @@
     XCTAssertEqual(0, _monster.wisdomScore);
     XCTAssertEqual(0, _monster.charismaScore);
     XCTAssertEqualObjects(@"", _monster.armorName);
+    XCTAssertEqualObjects(@"", _monster.otherArmorDescription);
+    XCTAssertEqual(0, _monster.shieldBonus);
 }
 
 - (void)testInitWithJSONString {
@@ -65,6 +67,8 @@
     XCTAssertEqual(16, _monster.wisdomScore);
     XCTAssertEqual(18, _monster.charismaScore);
     XCTAssertEqualObjects(@"none", _monster.armorName);
+    XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
+    XCTAssertEqual(2, _monster.shieldBonus);
 }
 
 - (void)testInitWithEmptyJSONString {
@@ -83,6 +87,8 @@
     XCTAssertEqual(0, _monster.wisdomScore);
     XCTAssertEqual(0, _monster.charismaScore);
     XCTAssertEqualObjects(@"", _monster.armorName);
+    XCTAssertEqualObjects(@"", _monster.otherArmorDescription);
+    XCTAssertEqual(0, _monster.shieldBonus);
 }
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
@@ -100,6 +106,8 @@
     XCTAssertEqual(16, _monster.wisdomScore);
     XCTAssertEqual(18, _monster.charismaScore);
     XCTAssertEqualObjects(@"none", _monster.armorName);
+    XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
+    XCTAssertEqual(2, _monster.shieldBonus);
 }
 
 - (void)testNameGetterAndSetter {
@@ -148,6 +156,8 @@
     XCTAssertEqual(16, _monster.wisdomScore);
     XCTAssertEqual(18, _monster.charismaScore);
     XCTAssertEqualObjects(@"none", _monster.armorName);
+    XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
+    XCTAssertEqual(2, _monster.shieldBonus);
 }
 
 - (void)testMetaWithNoFieldsSet {
@@ -364,7 +374,12 @@
 
 - (void)testGetterAndSetterForArmorName {
     _monster.armorName = @"dandelion";
-    XCTAssertEqualObjects(_monster.armorName, @"dandelion");
+    XCTAssertEqualObjects(@"dandelion", _monster.armorName);
+}
+
+- (void)testGetterAndSetterForOtherArmorDescription {
+    _monster.otherArmorDescription = @"green";
+    XCTAssertEqualObjects(@"green", _monster.otherArmorDescription);
 }
 
 @end
