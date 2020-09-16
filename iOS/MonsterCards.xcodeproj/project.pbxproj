@@ -24,6 +24,7 @@
 		E25BD60125036BF8007B04EF /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60025036BF8007B04EF /* Language.m */; };
 		E25BD60425036CF0007B04EF /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60325036CF0007B04EF /* Ability.m */; };
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
+		E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E26A73562511BA1900C5677E /* HTMLHelper.m */; };
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
 		E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */; };
 		E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
@@ -99,6 +100,8 @@
 		E25BD60525036CFA007B04EF /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		E25BD60625036CFA007B04EF /* Action.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E26A73552511BA1900C5677E /* HTMLHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLHelper.h; sourceTree = "<group>"; };
+		E26A73562511BA1900C5677E /* HTMLHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLHelper.m; sourceTree = "<group>"; };
 		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
 		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
 		E2D3E3B22508C3360052A8EC /* EditableShortStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableShortStringTableViewCell.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 			children = (
 				E2532E8725038DE100CA4CBA /* StringHelper.h */,
 				E2532E8825038DE100CA4CBA /* StringHelper.m */,
+				E26A73552511BA1900C5677E /* HTMLHelper.h */,
+				E26A73562511BA1900C5677E /* HTMLHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */,
 				E25BD60425036CF0007B04EF /* Ability.m in Sources */,
 				E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */,
+				E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */,
 				E25BD5F5250352C4007B04EF /* Monster.m in Sources */,
 				E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */,
 				E2F7248C25005E8A007D87ED /* main.m in Sources */,
