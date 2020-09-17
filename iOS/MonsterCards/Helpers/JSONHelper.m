@@ -87,6 +87,19 @@ BOOL coerceObjectToBool(NSObject *object, BOOL defaultValue) {
     return coerceObjectToBool(object, defaultValue);
 }
 
++(NSDictionary*)readDictionaryFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key {
+    return [JSONHelper readDictionaryFromDictionary:dictionary forKey:key withDefaultValue:nil];
+}
+
++(NSDictionary*)readDictionaryFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(NSDictionary* _Nullable)defaultValue {
+    NSObject *object = [dictionary objectForKey:key];
+    if ([object isKindOfClass:[NSDictionary class]]) {
+        return (NSDictionary*)object;
+    }
+
+    return defaultValue;
+}
+
 +(NSString*)readStringFromArray:(NSArray*)array forIndex:(NSUInteger)index{
     return [JSONHelper readStringFromArray:array forIndex:index withDefaultValue:nil];
 }
@@ -121,6 +134,19 @@ BOOL coerceObjectToBool(NSObject *object, BOOL defaultValue) {
 +(BOOL)readBoolFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(BOOL)defaultValue {
     NSObject *object = [array objectAtIndex:index];
     return coerceObjectToBool(object, defaultValue);
+}
+
++(NSDictionary*)readDictionaryFromArray:(NSArray*)array forIndex:(NSUInteger)index {
+    return [JSONHelper readDictionaryFromArray:array forIndex:index withDefaultValue:nil];
+}
+
++(NSDictionary*)readDictionaryFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSDictionary* _Nullable)defaultValue {
+    NSObject *object = [array objectAtIndex:index];
+    if ([object isKindOfClass:[NSDictionary class]]) {
+        return (NSDictionary*)object;
+    }
+
+    return defaultValue;
 }
 
 @end
