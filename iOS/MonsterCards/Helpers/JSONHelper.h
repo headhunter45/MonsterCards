@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(BOOL)readBoolFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(BOOL)defaultValue;
 +(NSDictionary*)readDictionaryFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key;
 +(NSDictionary*)readDictionaryFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(NSDictionary* _Nullable)defaultValue;
++(NSArray*)readArrayFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key;
++(NSArray*)readArrayFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(NSArray* _Nullable)defaultValue;
 
 +(NSString*)readStringFromArray:(NSArray*)array forIndex:(NSUInteger)index;
 +(NSString*)readStringFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSString* _Nullable)defaultValue;
@@ -33,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(BOOL)readBoolFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(BOOL)defaultValue;
 +(NSDictionary*)readDictionaryFromArray:(NSArray*)array forIndex:(NSUInteger)index;
 +(NSDictionary*)readDictionaryFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSDictionary* _Nullable)defaultValue;
++(NSArray*)readArrayFromArray:(NSArray*)array forIndex:(NSUInteger)index;
++(NSArray*)readArrayFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSArray* _Nullable)defaultValue;
 
 @end
 

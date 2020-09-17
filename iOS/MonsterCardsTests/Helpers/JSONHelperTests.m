@@ -27,6 +27,10 @@
     NSDictionary *_jsonDictionaryValue;
     NSString *_jsonDictionaryFragment;
     NSString *_jsonDictionaryStringValue;
+    NSString *_jsonArrayKey;
+    NSArray *_jsonArrayValue;
+    NSString *_jsonArrayFragment;
+    NSString *_jsonArrayStringValue;
 }
 
 NSString* escapeStringForJSON(NSString *unescaped) {
@@ -64,9 +68,13 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     _jsonBooleanValue = YES;
     _jsonBooleanFragment = [NSString stringWithFormat:@"\"%@\":true", escapeStringForJSON(_jsonBooleanKey)];
     _jsonDictionaryKey = @"my_dictionary";
-    _jsonDictionaryValue = [NSDictionary dictionaryWithObjectsAndKeys:_jsonStringValue, _jsonStringKey, nil];
+    _jsonDictionaryValue = @{_jsonStringKey: _jsonStringValue};
     _jsonDictionaryStringValue = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
     _jsonDictionaryFragment = [NSString stringWithFormat:@"\"%@\":%@", escapeStringForJSON(_jsonDictionaryKey), _jsonDictionaryStringValue];
+    _jsonArrayKey = @"my_array";
+    _jsonArrayValue = @[_jsonStringValue];
+    _jsonArrayStringValue = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    _jsonArrayFragment = [NSString stringWithFormat:@"\"%@\":%@", escapeStringForJSON(_jsonArrayKey), _jsonArrayStringValue];
 }
 
 - (void)tearDown {
@@ -298,6 +306,54 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     XCTAssertNil(readValue);
 }
 
+#pragma mark - Arrays in Dictionaries
+
+- (void)testReadArrayFromDictionaryReturnsNilIfKeyNotPresent {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    
+    NSArray *readValue = [JSONHelper readArrayFromDictionary:jsonRoot forKey:_jsonArrayKey];
+    XCTAssertNil(readValue);
+}
+
+- (void)testReadArrayFromDictionaryWithDefaultReturnsDefaultIfKeyNotPresent{
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    NSArray *readValue = [JSONHelper readArrayFromDictionary:jsonRoot  forKey:_jsonArrayKey withDefaultValue:@[]];
+    XCTAssertEqualObjects(@[], readValue);
+}
+
+- (void)testReadArrayFromDictionaryReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonArrayFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    NSArray *readValue = [JSONHelper readArrayFromDictionary:jsonRoot  forKey:_jsonArrayKey];
+    XCTAssertEqualObjects(_jsonArrayValue, readValue);
+}
+
+- (void)testReadArrayFromDictionaryWithDefaultReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonIntegerFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    NSArray *readValue = [JSONHelper readArrayFromDictionary:jsonRoot  forKey:_jsonArrayKey withDefaultValue:@[]];
+    XCTAssertEqualObjects(@[], readValue);
+}
+
+- (void)testReadArrayFromDictionaryReturnsNilIfWrongType {
+    NSString *jsonString = [NSString stringWithFormat:@"{\"%@\":\"%@\"}", _jsonArrayKey, _jsonStringValue];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    NSArray *readValue = [JSONHelper readArrayFromDictionary:jsonRoot  forKey:_jsonArrayKey];
+    XCTAssertNil(readValue);
+}
+
 #pragma mark - Integers in Arrays
 
 - (void)testReadIntegerFromArrayReturnsNilIfNotAnInteger {
@@ -497,6 +553,45 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     
     NSDictionary *readValue = [JSONHelper readDictionaryFromArray:jsonRoot forIndex:0];
     XCTAssertEqualObjects(_jsonDictionaryValue, readValue);
+}
+
+#pragma mark - Arrays in Arrays
+
+- (void)testReadArrayFromArrayReturnsNilIfNotCoercable {
+    NSString *jsonString = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    NSArray *readValue = [JSONHelper readArrayFromArray:jsonRoot forIndex:0];
+    XCTAssertNil(readValue);
+}
+
+- (void)testReadArrayFromArrayWithDefaultReturnsDefaultValueIfNotCoercable {
+    NSString *jsonString = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    NSArray *readValue = [JSONHelper readArrayFromArray:jsonRoot forIndex:0 withDefaultValue:@[]];
+    XCTAssertEqualObjects(@[], readValue);
+}
+
+- (void)testReadArrayFromArrayThrowsIfIndexOutOfRange {
+    // TODO: Decide if this should throw or return nil
+    NSString *jsonString = @"[]";
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    XCTAssertThrows([JSONHelper readArrayFromArray:jsonRoot forIndex:0]);
+    XCTAssertThrows([JSONHelper readArrayFromArray:jsonRoot forIndex:-1]);
+}
+
+- (void)testReadArrayFromArrayReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"[%@]", _jsonArrayStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    NSArray *readValue = [JSONHelper readArrayFromArray:jsonRoot forIndex:0];
+    XCTAssertEqualObjects(_jsonArrayValue, readValue);
 }
 
 @end
