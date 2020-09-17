@@ -8,6 +8,7 @@
 
 #import "Monster.h"
 #import "StringHelper.h"
+#import "JSONHelper.h"
 
 @implementation Monster
 
@@ -60,44 +61,22 @@
 -(id)initWithJSONData: (NSData*)jsonData andContext:(NSManagedObjectContext*)context {
     self = [self initWithContext:context];
     
-    NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    NSNumber *tempNumber;
+    NSDictionary *jsonRoot = [JSONHelper parseJSONDataAsDictionary:jsonData];
     
-    self.name = [jsonRoot objectForKey:@"name"] ?: @"";
-    self.size = [jsonRoot objectForKey:@"size"] ?: @"";
-    self.type = [jsonRoot objectForKey:@"type"] ?: @"";
-    self.subtype = [jsonRoot objectForKey:@"tag"] ?: @"";
-    self.alignment = [jsonRoot objectForKey:@"alignment"] ?: @"";
-    self.armorName = [jsonRoot objectForKey:@"armorName"] ?: @"";
-    self.otherArmorDescription = [jsonRoot objectForKey:@"otherArmorDesc"] ?: @"";
-    tempNumber = [jsonRoot objectForKey:@"strPoints"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.strengthScore = tempNumber.intValue;
-    }
-    tempNumber = [jsonRoot objectForKey:@"dexPoints"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.dexterityScore = tempNumber.intValue;
-    }
-    tempNumber = [jsonRoot objectForKey:@"conPoints"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.constitutionScore = tempNumber.intValue;
-    }
-    tempNumber = [jsonRoot objectForKey:@"intPoints"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.intelligenceScore = tempNumber.intValue;
-    }
-    tempNumber = [jsonRoot objectForKey:@"wisPoints"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.wisdomScore = tempNumber.intValue;
-    }
-    tempNumber = [jsonRoot objectForKey:@"chaPoints"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.charismaScore = tempNumber.intValue;
-    }
-    tempNumber = [jsonRoot objectForKey:@"shieldBonus"];
-    if (tempNumber != nil && [tempNumber isKindOfClass:[NSNumber class]]) {
-        self.shieldBonus = tempNumber.intValue;
-    }
+    self.name = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"name" withDefaultValue:@""];
+    self.size = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"size" withDefaultValue:@""];
+    self.type = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"type" withDefaultValue:@""];
+    self.subtype = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"tag" withDefaultValue:@""];
+    self.alignment = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"alignment" withDefaultValue:@""];
+    self.armorName = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"armorName" withDefaultValue:@""];
+    self.otherArmorDescription = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"otherArmorDesc" withDefaultValue:@""];
+    self.strengthScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"strPoints" withDefaultValue:0];
+    self.dexterityScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"dexPoints" withDefaultValue:0];
+    self.constitutionScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"conPoints" withDefaultValue:0];
+    self.intelligenceScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"intPoints" withDefaultValue:0];
+    self.wisdomScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"wisPoints" withDefaultValue:0];
+    self.charismaScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"chaPoints" withDefaultValue:0];
+    self.shieldBonus = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"shieldBonus" withDefaultValue:0];
 
     return self;
 }
