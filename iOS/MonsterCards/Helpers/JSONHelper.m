@@ -43,6 +43,14 @@ int coerceObjectToInt(NSObject *object, int defaultValue) {
     return defaultValue;
 }
 
+BOOL coerceObjectToBool(NSObject *object, BOOL defaultValue) {
+    if ([object isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber*)object boolValue];
+    }
+
+    return defaultValue;
+}
+
 +(NSString*)readStringFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key {
     return [JSONHelper readStringFromDictionary:dictionary forKey:key withDefaultValue:nil];
 }
@@ -70,6 +78,15 @@ int coerceObjectToInt(NSObject *object, int defaultValue) {
     return coerceObjectToInt(object, defaultValue);
 }
 
++(BOOL)readBoolFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key {
+    return [JSONHelper readBoolFromDictionary:dictionary forKey:key withDefaultValue:NO];
+}
+
++(BOOL)readBoolFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(BOOL)defaultValue {
+    NSObject *object = [dictionary objectForKey:key];
+    return coerceObjectToBool(object, defaultValue);
+}
+
 +(NSString*)readStringFromArray:(NSArray*)array forIndex:(NSUInteger)index{
     return [JSONHelper readStringFromArray:array forIndex:index withDefaultValue:nil];
 }
@@ -95,6 +112,15 @@ int coerceObjectToInt(NSObject *object, int defaultValue) {
 +(int)readIntFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(int)defaultValue {
     NSObject *object = [array objectAtIndex:index];
     return coerceObjectToInt(object, defaultValue);
+}
+
++(BOOL)readBoolFromArray:(NSArray*)array forIndex:(NSUInteger)index {
+    return [JSONHelper readBoolFromArray:array forIndex:index withDefaultValue:nil];
+}
+
++(BOOL)readBoolFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(BOOL)defaultValue {
+    NSObject *object = [array objectAtIndex:index];
+    return coerceObjectToBool(object, defaultValue);
 }
 
 @end

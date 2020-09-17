@@ -20,6 +20,9 @@
     NSString *_jsonIntegerKey;
     NSNumber *_jsonIntegerValue;
     NSString *_jsonIntegerFragment;
+    NSString *_jsonBooleanKey;
+    BOOL _jsonBooleanValue;
+    NSString *_jsonBooleanFragment;
 }
 
 NSString* escapeStringForJSON(NSString *unescaped) {
@@ -53,6 +56,9 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     _jsonIntegerKey = @"my_int";
     _jsonIntegerValue = @12345;
     _jsonIntegerFragment = [NSString stringWithFormat:@"\"%@\":%@", escapeStringForJSON(_jsonIntegerKey), [_jsonIntegerValue stringValue]];
+    _jsonBooleanKey = @"my_bool";
+    _jsonBooleanValue = YES;
+    _jsonBooleanFragment = [NSString stringWithFormat:@"\"%@\":true", escapeStringForJSON(_jsonBooleanKey)];
 }
 
 - (void)tearDown {
@@ -310,6 +316,92 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     
     int readNumber = [JSONHelper readIntFromArray:jsonRoot forIndex:0];
     XCTAssertEqual([_jsonIntegerValue intValue], readNumber);
+}
+
+#pragma mark - BOOLs in Dictionaries
+
+- (void)testReadBoolFromDictionaryReturnsFalseIfKeyNotPresent {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    BOOL readValue = [JSONHelper readBoolFromDictionary:jsonRoot forKey:_jsonBooleanKey];
+    XCTAssertEqual(0, readValue);
+}
+
+- (void)testReadBoolFromDictionaryWithDefaultReturnsDefaultIfKeyNotPresent {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    BOOL readValue = [JSONHelper readBoolFromDictionary:jsonRoot forKey:_jsonIntegerKey withDefaultValue:_jsonBooleanValue];
+    XCTAssertEqual(_jsonBooleanValue, readValue);
+}
+
+- (void) testReadBoolFromDictionaryReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonBooleanFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    BOOL readValue = [JSONHelper readBoolFromDictionary:jsonRoot  forKey:_jsonBooleanKey];
+    XCTAssertEqual(_jsonBooleanValue, readValue);
+}
+
+- (void)testReadBoolFromDictionaryWithDefaultReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonBooleanFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    BOOL readValue = [JSONHelper readBoolFromDictionary:jsonRoot  forKey:_jsonBooleanKey withDefaultValue:NO];
+    XCTAssertEqual(_jsonBooleanValue, readValue);
+}
+
+- (void) testReadBoolFromDictionaryReturnsFalseIfWrongType {
+    NSString *jsonString = [NSString stringWithFormat:@"{\"%@\":\"%@\"}", _jsonIntegerKey, _jsonStringValue];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+
+    BOOL readValue = [JSONHelper readBoolFromDictionary:jsonRoot  forKey:_jsonIntegerKey];
+    XCTAssertEqual(NO, readValue);
+}
+
+#pragma mark - BOOLs in Arrays
+
+- (void)testReadBoolFromArrayReturnsFalseIfNotCoercable {
+    NSString *jsonString = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    BOOL readValue = [JSONHelper readBoolFromArray:jsonRoot forIndex:0];
+    XCTAssertEqual(NO, readValue);
+}
+
+- (void)testReadBoolFromArrayWithDefaultReturnsDefaultValueIfNotCoercable {
+    NSString *jsonString = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    BOOL readValue = [JSONHelper readIntFromArray:jsonRoot forIndex:0 withDefaultValue:YES];
+    XCTAssertEqual(YES, readValue);
+}
+
+- (void)testReadBoolFromArrayThrowsIfIndexOutOfRange {
+    // TODO: Decide if this should throw or return 0
+    NSString *jsonString = @"[]";
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    XCTAssertThrows([JSONHelper readBoolFromArray:jsonRoot forIndex:0]);
+    XCTAssertThrows([JSONHelper readBoolFromArray:jsonRoot forIndex:-1]);
+}
+
+- (void)testReadBoolFromArrayReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"[%s]", _jsonBooleanValue ? "true" : "false"];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    BOOL readValue = [JSONHelper readBoolFromArray:jsonRoot forIndex:0];
+    XCTAssertEqual(_jsonBooleanValue, readValue);
 }
 
 @end
