@@ -38,6 +38,14 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSArray*)readArrayFromArray:(NSArray*)array forIndex:(NSUInteger)index;
 +(NSArray*)readArrayFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSArray* _Nullable)defaultValue;
 
++(id)parseJSONString:(NSString*)jsonString;
++(NSDictionary*)parseJSONStringAsDictionary:(NSString*)jsonString;
++(NSArray*)parseJSONStringAsArray:(NSString*)jsonString;
+
++(id)parseJSONData:(NSData*)jsonData;
++(NSDictionary*)parseJSONDataAsDictionary:(NSData*)jsonData;
++(NSArray*)parseJSONDataAsArray:(NSData*)jsonData;
+
 @end
 
 NS_ASSUME_NONNULL_END

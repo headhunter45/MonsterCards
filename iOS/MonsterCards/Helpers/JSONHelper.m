@@ -175,4 +175,53 @@ BOOL coerceObjectToBool(NSObject *object, BOOL defaultValue) {
     return defaultValue;
 }
 
++(id)parseJSONString:(NSString*)jsonString {
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    return jsonRoot;
+}
+
++(NSDictionary*)parseJSONStringAsDictionary:(NSString*)jsonString {
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    if (![jsonRoot isKindOfClass:[NSDictionary class]]) {
+        return nil;
+    } else {
+        return jsonRoot;
+    }
+}
+
++(NSArray*)parseJSONStringAsArray:(NSString*)jsonString {
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    if (![jsonRoot isKindOfClass:[NSArray class]]) {
+        return nil;
+    } else {
+        return jsonRoot;
+    }
+}
+
++(id)parseJSONData:(NSData*)jsonData {
+    NSArray *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    return jsonRoot;
+}
+
++(NSDictionary*)parseJSONDataAsDictionary:(NSData*)jsonData {
+    NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    if (![jsonRoot isKindOfClass:[NSDictionary class]]) {
+        return nil;
+    } else {
+        return jsonRoot;
+    }
+}
+
++(NSArray*)parseJSONDataAsArray:(NSData*)jsonData {
+    NSArray *jsonRoot = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    if (![jsonRoot isKindOfClass:[NSArray class]]) {
+        return nil;
+    } else {
+        return jsonRoot;
+    }
+}
+
 @end

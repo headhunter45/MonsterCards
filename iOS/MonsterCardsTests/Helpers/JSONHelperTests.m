@@ -594,4 +594,104 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     XCTAssertEqualObjects(_jsonArrayValue, readValue);
 }
 
+#pragma mark - JSON parsing
+
+- (void)testParseJSONDataReturnsDictionary {
+    NSString *jsonString = @"{\"a\":1,\"b\":2}";
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    id parsedResult = [JSONHelper parseJSONData:jsonData];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSDictionary class]]);
+}
+
+- (void)testParseJSONDataReturnsArray {
+    NSString *jsonString = @"[\"a\",1,\"b\",2]";
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    id parsedResult = [JSONHelper parseJSONData:jsonData];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSArray class]]);
+}
+
+- (void)testParseJSONDataAsDictionaryReturnsDictionary {
+    NSString *jsonString = @"{\"a\":1,\"b\":2}";
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *parsedResult = [JSONHelper parseJSONDataAsDictionary:jsonData];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSDictionary class]]);
+}
+
+- (void)testParseJSONDataAsDictionaryReturnsNilIfNotDictionary {
+    NSString *jsonString = @"[\"a\",1,\"b\",2]";
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    id parsedResult = [JSONHelper parseJSONDataAsDictionary:jsonData];
+    XCTAssertNil(parsedResult);
+}
+
+- (void)testParseJSONDataAsArrayReturnsArray {
+    NSString *jsonString = @"[\"a\",1,\"b\",2]";
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    id parsedResult = [JSONHelper parseJSONDataAsArray:jsonData];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSArray class]]);
+}
+
+- (void)testParseJSONDataAsArrayReturnsNilIfNotArray {
+    NSString *jsonString = @"{\"a\":1,\"b\":2}";
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    id parsedResult = [JSONHelper parseJSONDataAsArray:jsonData];
+    XCTAssertNil(parsedResult);
+}
+
+- (void)testParseJSONStringReturnsDictionary {
+    NSString *jsonString = @"{\"a\":1,\"b\":2}";
+    
+    id parsedResult = [JSONHelper parseJSONString:jsonString];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSDictionary class]]);
+}
+
+- (void)testParseJSONStringReturnsArray {
+    NSString *jsonString = @"[\"a\",1,\"b\",2]";
+    
+    id parsedResult = [JSONHelper parseJSONString:jsonString];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSArray class]]);
+}
+
+- (void)testParseJSONStringAsDictionaryReturnsDictionary {
+    NSString *jsonString = @"{\"a\":1,\"b\":2}";
+    
+    NSDictionary *parsedResult = [JSONHelper parseJSONStringAsDictionary:jsonString];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSDictionary class]]);
+}
+
+- (void)testParseJSONStringAsDictionaryReturnsNilIfNotDictionary {
+    NSString *jsonString = @"[\"a\",1,\"b\",2]";
+    
+    id parsedResult = [JSONHelper parseJSONStringAsDictionary:jsonString];
+    XCTAssertNil(parsedResult);
+}
+
+- (void)testParseJSONStringAsArrayReturnsArray {
+    NSString *jsonString = @"[\"a\",1,\"b\",2]";
+    
+    id parsedResult = [JSONHelper parseJSONStringAsArray:jsonString];
+    XCTAssertNotNil(parsedResult);
+    XCTAssertTrue([parsedResult isKindOfClass:[NSArray class]]);
+}
+
+- (void)testParseJSONStringAsArrayReturnsNilIfNotArray {
+    NSString *jsonString = @"{\"a\":1,\"b\":2}";
+    
+    id parsedResult = [JSONHelper parseJSONStringAsArray:jsonString];
+    XCTAssertNil(parsedResult);
+}
+
 @end
