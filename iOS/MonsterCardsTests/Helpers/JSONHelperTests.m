@@ -191,6 +191,51 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     XCTAssertNil(readNumber);
 }
 
+- (void)testReadIntFromDictionaryReturnsZeroIfKeyNotPresent {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromDictionary:jsonRoot forKey:_jsonIntegerKey];
+    XCTAssertEqual(0, readNumber);
+}
+
+- (void)testReadIntFromDictionaryWithDefaultReturnsDefaultIfKeyNotPresent {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonStringFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromDictionary:jsonRoot  forKey:_jsonIntegerKey withDefaultValue:[_jsonIntegerValue intValue]];
+    XCTAssertEqual([_jsonIntegerValue intValue], readNumber);
+}
+
+- (void) testReadIntFromDictionaryReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonIntegerFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromDictionary:jsonRoot  forKey:_jsonIntegerKey];
+    XCTAssertEqual([_jsonIntegerValue intValue], readNumber);
+}
+
+- (void)testReadIntFromDictionaryWithDefaultReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"{%@}", _jsonIntegerFragment];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromDictionary:jsonRoot  forKey:_jsonIntegerKey withDefaultValue:67890];
+    XCTAssertEqual([_jsonIntegerValue intValue], readNumber);
+}
+
+- (void) testReadIntFromDictionaryReturnsZeroIfWrongType {
+    NSString *jsonString = [NSString stringWithFormat:@"{\"%@\":\"%@\"}", _jsonIntegerKey, _jsonStringValue];
+    NSDictionary *jsonRoot = readJSONDictionaryFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromDictionary:jsonRoot  forKey:_jsonIntegerKey];
+    XCTAssertEqual(0, readNumber);
+}
+
 #pragma mark - Integers in Arrays
 
 - (void)testReadIntegerFromArrayReturnsNilIfNotAnInteger {
@@ -228,6 +273,43 @@ NSArray* readJSONArrayFromString(NSString *jsonString) {
     
     NSNumber *readNumber = [JSONHelper readNumberFromArray:jsonRoot forIndex:0];
     XCTAssertEqualObjects(_jsonIntegerValue, readNumber);
+}
+
+- (void)testReadIntFromArrayReturnsNilIfNotAnInteger {
+    NSString *jsonString = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromArray:jsonRoot forIndex:0];
+    XCTAssertEqual(0, readNumber);
+}
+
+- (void)testReadIntFromArrayWithDefaultReturnsDefaultValueIfNotAnInteger {
+    NSString *jsonString = [NSString stringWithFormat:@"[\"%@\"]", _jsonStringValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromArray:jsonRoot forIndex:0 withDefaultValue:[_jsonIntegerValue intValue]];
+    XCTAssertEqual([_jsonIntegerValue intValue], readNumber);
+}
+
+- (void)testReadIntFromArrayThrowsIfIndexOutOfRange {
+    // TODO: Decide if this should throw or return 0
+    NSString *jsonString = @"[]";
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    XCTAssertThrows([JSONHelper readIntFromArray:jsonRoot forIndex:0]);
+    XCTAssertThrows([JSONHelper readIntFromArray:jsonRoot forIndex:-1]);
+}
+
+- (void)testReadIntFromArrayReturnsCorrectValue {
+    NSString *jsonString = [NSString stringWithFormat:@"[%@]", _jsonIntegerValue];
+    NSArray *jsonRoot = readJSONArrayFromString(jsonString);
+    XCTAssertNotNil(jsonRoot);
+    
+    int readNumber = [JSONHelper readIntFromArray:jsonRoot forIndex:0];
+    XCTAssertEqual([_jsonIntegerValue intValue], readNumber);
 }
 
 @end
