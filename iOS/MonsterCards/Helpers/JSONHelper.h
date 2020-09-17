@@ -14,8 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSString*)readStringFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key;
 +(NSString*)readStringFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(NSString* _Nullable)defaultValue;
++(NSNumber*)readNumberFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key;
++(NSNumber*)readNumberFromDictionary:(NSDictionary*)dictionary forKey:(NSString*)key withDefaultValue:(NSNumber* _Nullable)defaultValue;
 +(NSString*)readStringFromArray:(NSArray*)array forIndex:(NSUInteger)index;
 +(NSString*)readStringFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSString* _Nullable)defaultValue;
++(NSNumber*)readNumberFromArray:(NSArray*)array forIndex:(NSUInteger)index;
++(NSNumber*)readNumberFromArray:(NSArray*)array forIndex:(NSUInteger)index withDefaultValue:(NSNumber* _Nullable)defaultValue;
+
 @end
 
 NS_ASSUME_NONNULL_END
