@@ -90,7 +90,7 @@
 }
 
 -(NSString*)meta {
-    //"${size} ${type} (${subtype}) ${alignment}"
+    // "${size} ${type} (${subtype}) ${alignment}"
 
     NSMutableArray *parts = [NSMutableArray arrayWithCapacity:4];
     if (![StringHelper isStringNilOrEmpty:self.size]) {
