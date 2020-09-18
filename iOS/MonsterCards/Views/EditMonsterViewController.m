@@ -20,6 +20,19 @@
 const int kSectionIndexBasicInfo = 0;
 const int kSectionIndexAbilityScores = 1;
 
+const int kBasicInfoSectionRowIndexName = 0;
+const int kBasicInfoSectionRowIndexSize = 1;
+const int kBasicInfoSectionRowIndexType = 2;
+const int kBasicInfoSectionRowIndexSubtype = 3;
+const int kBasicInfoSectionRowIndexAlignment = 4;
+
+const int kAbilityScoreSectionRowIndexStrength = 0;
+const int kAbilityScoreSectionRowIndexDexterity = 1;
+const int kAbilityScoreSectionRowIndexConstitution = 2;
+const int kAbilityScoreSectionRowIndexIntelligence = 3;
+const int kAbilityScoreSectionRowIndexWisdom = 4;
+const int kAbilityScoreSectionRowIndexCharisma = 5;
+
 @implementation EditMonsterViewController {
     NSManagedObjectContext *_context;
 }
@@ -111,7 +124,7 @@ const int kSectionIndexAbilityScores = 1;
             //   * Alignment
             return 5;
         case kSectionIndexAbilityScores:
-            return 1;
+            return 6;
         default:
             return 0;
     }
@@ -141,31 +154,31 @@ titleForHeaderInSection:(NSInteger)section {
     switch (indexPath.section) {
         case kSectionIndexBasicInfo:
             switch (indexPath.row) {
-                case 0:
+                case kBasicInfoSectionRowIndexName:
                     newCell = [self makeShortStringCellFromTableView:self.monsterTableView
                                                       withIdentifier:@"monster.name"
                                                                label:NSLocalizedString(@"Name", @"Placeholder text for the name of a monster or NPC.")
                                                      andInitialValue:self.editingMonster.name];
                     break;
-                case 1:
+                case kBasicInfoSectionRowIndexSize:
                     newCell = [self makeShortStringCellFromTableView:self.monsterTableView
                                                       withIdentifier:@"monster.size"
                                                                label:NSLocalizedString(@"Size", @"Placehodler text for the size of a monster or NPC.")
                                                      andInitialValue:self.editingMonster.size];
                     break;
-                case 2:
+                case kBasicInfoSectionRowIndexType:
                     newCell = [self makeShortStringCellFromTableView:self.monsterTableView
                                                       withIdentifier:@"monster.type"
                                                                label:NSLocalizedString(@"Type", @"Placehodler text for the type of a monster or NPC.")
                                                      andInitialValue:self.editingMonster.type];
                     break;
-                case 3:
+                case kBasicInfoSectionRowIndexSubtype:
                     newCell = [self makeShortStringCellFromTableView:self.monsterTableView
                                                       withIdentifier:@"monster.subtype"
                                                                label:NSLocalizedString(@"Subtype", @"Placeholder text for the subtype of a monster or NPC.")
                                                      andInitialValue:self.editingMonster.subtype];
                     break;
-                case 4:
+                case kBasicInfoSectionRowIndexAlignment:
                     newCell = [self makeShortStringCellFromTableView:self.monsterTableView
                                                       withIdentifier:@"monster.alignment"
                                                                label: NSLocalizedString(@"Alignment", @"Placeholder text for the alignment of a monster or NPC.")
@@ -175,11 +188,37 @@ titleForHeaderInSection:(NSInteger)section {
             break;
         case kSectionIndexAbilityScores:
             switch (indexPath.row) {
-                case 0:
+                case kAbilityScoreSectionRowIndexStrength:
                     return [self makeIntegerCellFromTableView:self.monsterTableView
                                                withIdentifier:@"monster.strengthScore"
                                                         label:NSLocalizedString(@"STR", @"Placeholder abbreviation for the strength score of a monster or NPC.")
                                                      andInitialValue:self.editingMonster.strengthScore];
+                case kAbilityScoreSectionRowIndexDexterity:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.dexterityScore"
+                                                        label:NSLocalizedString(@"DEX", @"Placeholder abbreviation for the dexterity score of a monster or NPC.")
+                                              andInitialValue:self.editingMonster.dexterityScore];
+                case kAbilityScoreSectionRowIndexConstitution:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.constitutionScore"
+                                                        label:NSLocalizedString(@"CON", @"Placeholder abbreviation for the constitution score of a monster or NPC.")
+                                              andInitialValue:self.editingMonster.constitutionScore];
+                case kAbilityScoreSectionRowIndexIntelligence:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.intelligenceScore"
+                                                        label:NSLocalizedString(@"INT", @"Placeholder abbreviation for the intelligence score of a monster or NPC.")
+                                              andInitialValue:self.editingMonster.intelligenceScore];
+                case kAbilityScoreSectionRowIndexWisdom:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.wisdomScore"
+                                                        label:NSLocalizedString(@"WIS", @"Placeholder abbreviation for the wisdom score of a monster or NPC.")
+                                              andInitialValue:self.editingMonster.wisdomScore];
+                case kAbilityScoreSectionRowIndexCharisma:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.charismaScore"
+                                                        label:NSLocalizedString(@"CHA", @"Placeholder abbreviation for the charisma score of a monster or NPC.")
+                                              andInitialValue:self.editingMonster.charismaScore];
+                    
             }
             break;
     }
