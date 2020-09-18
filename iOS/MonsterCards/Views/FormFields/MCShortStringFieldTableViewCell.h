@@ -7,22 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MCFormFieldDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol EditableShortStringDelegate <NSObject>
-
-@optional
--(void)editableValueDidChange:(NSString*)value forIdentifier:(NSString*)identifier andType:(NSString*)type;
-
-@end
-
-@interface EditableShortStringTableViewCell : UITableViewCell <UITextFieldDelegate>
+@interface MCShortStringFieldTableViewCell : UITableViewCell
 
 @property NSString* identifier;
 @property NSString* label;
 @property NSString* value;
-@property (nonatomic, weak) id<EditableShortStringDelegate> delegate;
+
+@property (weak, nonatomic) id<MCFormFieldDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end

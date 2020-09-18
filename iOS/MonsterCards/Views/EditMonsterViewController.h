@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Monster.h"
-#import "EditableShortStringTableViewCell.h"
+#import "MCShortStringFieldTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EditMonsterViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EditableShortStringDelegate>
+@interface EditMonsterViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MCFormFieldDelegate>
 
 @property Monster* originalMonster;
 @property (weak, nonatomic) IBOutlet UITableView *monsterTableView;

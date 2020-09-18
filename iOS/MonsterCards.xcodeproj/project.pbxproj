@@ -10,6 +10,7 @@
 		1D2A61B332F293AB365B59E7 /* Pods_MonsterCards_MonsterCardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */; };
 		92967C3D4DFE1D9C66FF994F /* Pods_MonsterCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */; };
 		CE281520762D69A9E98D19CF /* Pods_MonsterCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */; };
+		E20C315425146708003AB1AA /* MCIntegerFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */; };
 		E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032325031B9D00FB6E43 /* SearchViewController.m */; };
 		E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032725031BDA00FB6E43 /* MonsterViewController.m */; };
 		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
@@ -28,8 +29,9 @@
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
 		E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E26A73562511BA1900C5677E /* HTMLHelper.m */; };
 		E278E21B250DFFCA00D3EC0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E278E21A250DFFCA00D3EC0E /* Images.xcassets */; };
+		E288744A25148BA0005CA948 /* MCFormFieldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E288744925148BA0005CA948 /* MCFormFieldConstants.m */; };
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
-		E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */; };
+		E2D3E3B42508C3360052A8EC /* MCShortStringFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */; };
 		E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
 		E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */; };
 		E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */; };
@@ -74,6 +76,8 @@
 		A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards/Pods-MonsterCards.debug.xcconfig"; sourceTree = "<group>"; };
 		A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards.release.xcconfig"; path = "Target Support Files/Pods-MonsterCards/Pods-MonsterCards.release.xcconfig"; sourceTree = "<group>"; };
+		E20C315225146708003AB1AA /* MCIntegerFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCIntegerFieldTableViewCell.h; sourceTree = "<group>"; };
+		E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCIntegerFieldTableViewCell.m; sourceTree = "<group>"; };
 		E20D032225031B9D00FB6E43 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		E20D032325031B9D00FB6E43 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		E20D032625031BDA00FB6E43 /* MonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterViewController.h; sourceTree = "<group>"; };
@@ -89,7 +93,7 @@
 		E22F837E2511E8500072105C /* JSONHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONHelperTests.m; sourceTree = "<group>"; };
 		E2532E8725038DE100CA4CBA /* StringHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
 		E2532E8825038DE100CA4CBA /* StringHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
-		E2591EB62509DD4900B396FD /* EditableFormFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableFormFieldDelegate.h; sourceTree = "<group>"; };
+		E2591EB62509DD4900B396FD /* MCFormFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCFormFieldDelegate.h; sourceTree = "<group>"; };
 		E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewControllerTests.m; sourceTree = "<group>"; };
 		E25BD5F3250352C4007B04EF /* Monster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		E25BD5F4250352C4007B04EF /* Monster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
@@ -109,10 +113,12 @@
 		E26A73552511BA1900C5677E /* HTMLHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLHelper.h; sourceTree = "<group>"; };
 		E26A73562511BA1900C5677E /* HTMLHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLHelper.m; sourceTree = "<group>"; };
 		E278E21A250DFFCA00D3EC0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E288744925148BA0005CA948 /* MCFormFieldConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCFormFieldConstants.m; sourceTree = "<group>"; };
+		E288744E25148BAD005CA948 /* MCFormFieldConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCFormFieldConstants.h; sourceTree = "<group>"; };
 		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
 		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
-		E2D3E3B22508C3360052A8EC /* EditableShortStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableShortStringTableViewCell.h; sourceTree = "<group>"; };
-		E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditableShortStringTableViewCell.m; sourceTree = "<group>"; };
+		E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCShortStringFieldTableViewCell.h; sourceTree = "<group>"; };
+		E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCShortStringFieldTableViewCell.m; sourceTree = "<group>"; };
 		E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTests.m; sourceTree = "<group>"; };
 		E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterTests.m; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,9 +270,13 @@
 		E2D3E3B12508C2FE0052A8EC /* FormFields */ = {
 			isa = PBXGroup;
 			children = (
-				E2D3E3B22508C3360052A8EC /* EditableShortStringTableViewCell.h */,
-				E2D3E3B32508C3360052A8EC /* EditableShortStringTableViewCell.m */,
-				E2591EB62509DD4900B396FD /* EditableFormFieldDelegate.h */,
+				E2591EB62509DD4900B396FD /* MCFormFieldDelegate.h */,
+				E288744E25148BAD005CA948 /* MCFormFieldConstants.h */,
+				E288744925148BA0005CA948 /* MCFormFieldConstants.m */,
+				E20C315225146708003AB1AA /* MCIntegerFieldTableViewCell.h */,
+				E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */,
+				E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */,
+				E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */,
 			);
 			path = FormFields;
 			sourceTree = "<group>";
@@ -592,11 +602,13 @@
 				E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */,
 				E25BD60725036CFA007B04EF /* Action.m in Sources */,
 				E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */,
+				E288744A25148BA0005CA948 /* MCFormFieldConstants.m in Sources */,
 				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
-				E2D3E3B42508C3360052A8EC /* EditableShortStringTableViewCell.m in Sources */,
+				E2D3E3B42508C3360052A8EC /* MCShortStringFieldTableViewCell.m in Sources */,
 				E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */,
 				E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */,
 				E25BD5FE25036A76007B04EF /* DamageType.m in Sources */,
+				E20C315425146708003AB1AA /* MCIntegerFieldTableViewCell.m in Sources */,
 				E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */,
 				E25BD60425036CF0007B04EF /* Ability.m in Sources */,
 				E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */,
