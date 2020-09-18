@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 @import OCMockito;
 @import OCHamcrest;
+#import "MCShortStringFieldTableViewCell.h"
 #import "EditMonsterViewController.h"
 #import "AppDelegate.h"
 
@@ -40,7 +41,7 @@
 - (void)testRendersSubtypeCell {
     UITableView *monstersTableView = mock([UITableView class]);
     NSIndexPath *path = [NSIndexPath indexPathForRow:3 inSection:0];
-    EditableShortStringTableViewCell *shortStringCell = [[EditableShortStringTableViewCell alloc] init];
+    MCShortStringFieldTableViewCell *shortStringCell = [[MCShortStringFieldTableViewCell alloc] init];
     UITextField *textField = [[UITextField alloc] init];
     shortStringCell.textField = textField;
     
@@ -56,8 +57,8 @@
     
     XCTAssertNotNil(cell);
     
-    XCTAssertTrue([cell isKindOfClass:[EditableShortStringTableViewCell class]]);
-    shortStringCell = (EditableShortStringTableViewCell*)cell;
+    XCTAssertTrue([cell isKindOfClass:[MCShortStringFieldTableViewCell class]]);
+    shortStringCell = (MCShortStringFieldTableViewCell*)cell;
     XCTAssertEqualObjects(@"monster.subtype", shortStringCell.identifier);
     XCTAssertEqualObjects(@"Subtype", shortStringCell.textField.placeholder);
     XCTAssertEqualObjects(@"", shortStringCell.textField.text);
@@ -84,7 +85,7 @@
 - (void)testRendersAlignmentCell {
     UITableView *monstersTableView = mock([UITableView class]);
     NSIndexPath *path = [NSIndexPath indexPathForRow:4 inSection:0];
-    EditableShortStringTableViewCell *shortStringCell = [[EditableShortStringTableViewCell alloc] init];
+    MCShortStringFieldTableViewCell *shortStringCell = [[MCShortStringFieldTableViewCell alloc] init];
     UITextField *textField = [[UITextField alloc] init];
     shortStringCell.textField = textField;
     
@@ -100,8 +101,8 @@
     
     XCTAssertNotNil(cell);
     
-    XCTAssertTrue([cell isKindOfClass:[EditableShortStringTableViewCell class]]);
-    shortStringCell = (EditableShortStringTableViewCell*)cell;
+    XCTAssertTrue([cell isKindOfClass:[MCShortStringFieldTableViewCell class]]);
+    shortStringCell = (MCShortStringFieldTableViewCell*)cell;
     XCTAssertEqualObjects(@"monster.alignment", shortStringCell.identifier);
     XCTAssertEqualObjects(@"Alignment", shortStringCell.textField.placeholder);
     XCTAssertEqualObjects(@"", shortStringCell.textField.text);
