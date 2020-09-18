@@ -34,6 +34,24 @@
     return _value;
 }
 
+@synthesize label = _label;
+
+- (void)setLabel:(NSString*)label {
+    if (![_label isEqualToString:label]) {
+        _label = label;
+        if (self.textField) {
+            self.textField.placeholder = label;
+        }
+        if (self.labelView) {
+            self.labelView.text = label;
+        }
+    }
+}
+
+- (NSString*)label {
+    return _label;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self.textField addTarget:self

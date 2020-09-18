@@ -262,7 +262,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RCc-cF-BI3" userLabel="Text Field">
-                                                    <rect key="frame" x="20" y="5" width="254" height="34"/>
+                                                    <rect key="frame" x="82" y="5" width="192" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="8Nj-FL-Ab6"/>
                                                     </constraints>
@@ -282,16 +282,28 @@
                                                         <action selector="stepperValueChanged:" destination="KwC-8P-1dy" eventType="valueChanged" id="BKh-dh-f3d"/>
                                                     </connections>
                                                 </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nN-Bo-Jgm">
+                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="x72-wj-jT3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vgc-Rg-Zc8" firstAttribute="centerY" secondItem="Dwe-Tg-VQ6" secondAttribute="centerY" id="6as-ZA-8B4"/>
-                                                <constraint firstAttribute="trailing" secondItem="vgc-Rg-Zc8" secondAttribute="trailing" constant="20" id="GHC-1H-v20"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vgc-Rg-Zc8" secondAttribute="trailing" id="GHC-1H-v20"/>
+                                                <constraint firstItem="7nN-Bo-Jgm" firstAttribute="centerY" secondItem="Dwe-Tg-VQ6" secondAttribute="centerY" id="Rcx-L4-hEN"/>
+                                                <constraint firstItem="7nN-Bo-Jgm" firstAttribute="leading" secondItem="Dwe-Tg-VQ6" secondAttribute="leadingMargin" id="SQY-8s-eLf"/>
+                                                <constraint firstItem="RCc-cF-BI3" firstAttribute="leading" secondItem="7nN-Bo-Jgm" secondAttribute="trailing" constant="20" id="So8-Uf-Zfa"/>
                                                 <constraint firstItem="vgc-Rg-Zc8" firstAttribute="leading" secondItem="RCc-cF-BI3" secondAttribute="trailing" constant="20" id="T1Y-Pj-gsO"/>
                                                 <constraint firstItem="RCc-cF-BI3" firstAttribute="centerY" secondItem="Dwe-Tg-VQ6" secondAttribute="centerY" id="ett-1I-J0L"/>
-                                                <constraint firstItem="RCc-cF-BI3" firstAttribute="leading" secondItem="Dwe-Tg-VQ6" secondAttribute="leading" constant="20" id="mBk-4r-ebJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="labelView" destination="7nN-Bo-Jgm" id="TC4-Xt-Rrb"/>
                                             <outlet property="stepper" destination="vgc-Rg-Zc8" id="QT0-L8-npw"/>
                                             <outlet property="textField" destination="RCc-cF-BI3" id="JpG-sb-BPS"/>
                                         </connections>
