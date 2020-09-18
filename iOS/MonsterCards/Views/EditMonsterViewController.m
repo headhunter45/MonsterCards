@@ -38,23 +38,50 @@ const int kSectionIndexAbilityScores = 1;
     self.editingMonster = [[Monster alloc] initWithMonster:self.originalMonster];
 }
 
-- (MCShortStringFieldTableViewCell*) makeShortStringCellFromCell:(UITableViewCell*)cell {
-    if (cell == nil || ![cell isKindOfClass:[MCShortStringFieldTableViewCell class]]) {
-        // TODO: Figure out how to make this cell generate child views.
-        return [[MCShortStringFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MCShortStringField"];
-    } else {
-        return (MCShortStringFieldTableViewCell*)cell;
-    }
+- (UITableViewCell*) makeSafeCell {
+#if DEBUG
+    return nil;
+#else
+    return [[UITableViewCell alloc] init];
+#endif
 }
 
-- (MCIntegerFieldTableViewCell*) makeIntegerCellFromCell:(UITableViewCell*)cell {
-    if (cell == nil || ![cell isKindOfClass:[MCIntegerFieldTableViewCell class]]) {
-        // TODO: Figure out how to make this cell generate child views.
-        return [[MCIntegerFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MCIntegerField"];
-    } else {
-        return (MCIntegerFieldTableViewCell*)cell;
+- (MCShortStringFieldTableViewCell*) makeShortStringCellFromTableView:(UITableView*)tableView
+                                                       withIdentifier:(NSString*)identifier
+                                                                label:(NSString*)label
+                                                      andInitialValue:(NSString*)initialValue {
+    MCShortStringFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MCShortStringField"];
+    if (!cell || ![cell isKindOfClass:[MCShortStringFieldTableViewCell class]]) {
+        return nil;
     }
+    cell.delegate = self;
+    cell.identifier = identifier;
+    cell.label = label;
+    cell.value = initialValue;
+
+    // TODO: move these to better properties on MCShortStringFieldTableViewCell they should be stored via label and initialValue/value.
+    cell.textField.text = initialValue;
+    cell.textField.placeholder = label;
+
+    return cell;
 }
+
+- (MCIntegerFieldTableViewCell*) makeIntegerCellFromTableView:(UITableView*)tableView
+                                               withIdentifier:(NSString*)identifier
+                                                        label:(NSString*)label
+                                                     andInitialValue:(int)initialValue {
+    MCIntegerFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MCIntegerField"];
+    if (!cell || ![cell isKindOfClass:[MCIntegerFieldTableViewCell class]]) {
+        return nil;
+    }
+    cell.delegate = self;
+    cell.identifier = identifier;
+    cell.label = label;
+    cell.value = initialValue;
+
+    return cell;
+}
+
 
 #pragma mark - Navigation
 
@@ -84,7 +111,7 @@ const int kSectionIndexAbilityScores = 1;
             //   * Alignment
             return 5;
         case kSectionIndexAbilityScores:
-            return 0;
+            return 1;
         default:
             return 0;
     }
@@ -109,60 +136,60 @@ titleForHeaderInSection:(NSInteger)section {
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    MCShortStringFieldTableViewCell *shortStringCell = nil;
-    MCIntegerFieldTableViewCell *integerCell = nil;
+    UITableViewCell *newCell = nil;
 
     switch (indexPath.section) {
         case kSectionIndexBasicInfo:
             switch (indexPath.row) {
                 case 0:
-                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]];
-                    shortStringCell.delegate = self;
-                    shortStringCell.identifier = @"monster.name";
-                    // TODO: make these use setters on MCShortStringFieldTableViewCell
-                    shortStringCell.textField.text = self.editingMonster.name;
-                    shortStringCell.textField.placeholder = NSLocalizedString(@"Name", @"Placeholder text for the name of a monster or NPC.");
-                    return shortStringCell;
+                    newCell = [self makeShortStringCellFromTableView:self.monsterTableView
+                                                      withIdentifier:@"monster.name"
+                                                               label:NSLocalizedString(@"Name", @"Placeholder text for the name of a monster or NPC.")
+                                                     andInitialValue:self.editingMonster.name];
+                    break;
                 case 1:
-                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]];
-                    shortStringCell.delegate = self;
-                    shortStringCell.identifier = @"monster.size";
-                    // TODO: make these use setters on MCShortStringFieldTableViewCell
-                    shortStringCell.textField.text = self.editingMonster.size;
-                    shortStringCell.textField.placeholder = NSLocalizedString(@"Size", @"Placehodler text for the size of a monster or NPC.");
-                    return shortStringCell;
+                    newCell = [self makeShortStringCellFromTableView:self.monsterTableView
+                                                      withIdentifier:@"monster.size"
+                                                               label:NSLocalizedString(@"Size", @"Placehodler text for the size of a monster or NPC.")
+                                                     andInitialValue:self.editingMonster.size];
+                    break;
                 case 2:
-                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]];
-                    shortStringCell.delegate = self;
-                    shortStringCell.identifier = @"monster.type";
-                    // TODO: make these use setters on MCShortStringFieldTableViewCell
-                    shortStringCell.textField.text = self.editingMonster.type;
-                    shortStringCell.textField.placeholder = NSLocalizedString(@"Type", @"Placehodler text for the type of a monster or NPC.");
-                    return shortStringCell;
+                    newCell = [self makeShortStringCellFromTableView:self.monsterTableView
+                                                      withIdentifier:@"monster.type"
+                                                               label:NSLocalizedString(@"Type", @"Placehodler text for the type of a monster or NPC.")
+                                                     andInitialValue:self.editingMonster.type];
+                    break;
                 case 3:
-                    shortStringCell = [self makeShortStringCellFromCell:[self.monsterTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]];
-                    shortStringCell.delegate = self;
-                    shortStringCell.identifier = @"monster.subtype";
-                    shortStringCell.textField.text = self.editingMonster.subtype;
-                    shortStringCell.textField.placeholder = NSLocalizedString(@"Subtype", @"Placeholder text for the subtype of a monster or NPC.");
-                    return shortStringCell;
+                    newCell = [self makeShortStringCellFromTableView:self.monsterTableView
+                                                      withIdentifier:@"monster.subtype"
+                                                               label:NSLocalizedString(@"Subtype", @"Placeholder text for the subtype of a monster or NPC.")
+                                                     andInitialValue:self.editingMonster.subtype];
+                    break;
                 case 4:
-                    shortStringCell = [self makeShortStringCellFromCell: [self.monsterTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]];
-                    shortStringCell.delegate = self;
-                    shortStringCell.identifier = @"monster.alignment";
-                    shortStringCell.textField.text = self.editingMonster.alignment;
-                    shortStringCell.textField.placeholder = NSLocalizedString(@"Alignment", @"Placeholder text for the alignment of a monster or NPC.");
-                    return shortStringCell;
+                    newCell = [self makeShortStringCellFromTableView:self.monsterTableView
+                                                      withIdentifier:@"monster.alignment"
+                                                               label: NSLocalizedString(@"Alignment", @"Placeholder text for the alignment of a monster or NPC.")
+                                                     andInitialValue:self.editingMonster.alignment];
+                    break;
+            }
+            break;
+        case kSectionIndexAbilityScores:
+            switch (indexPath.row) {
+                case 0:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.strengthScore"
+                                                        label:NSLocalizedString(@"STR", @"Placeholder abbreviation for the strength score of a monster or NPC.")
+                                                     andInitialValue:self.editingMonster.strengthScore];
             }
             break;
     }
     
-#if DEBUG
-    NSLog(@"ERROR: Unable to build a cell for %@", indexPath);
-    return nil;
-#else
-    return [[UITableViewCell alloc] init];
-#endif
+    if (!newCell) {
+        NSLog(@"ERROR: Unable to build a cell for %@", indexPath);
+        newCell = [self makeSafeCell];
+    }
+    
+    return newCell;
 }
 
 #pragma mark - MCShortStringFieldDelegate
@@ -184,6 +211,16 @@ titleForHeaderInSection:(NSInteger)section {
     if ([kMCFieldValueTypeInteger isEqualToString:type]) {
         if ([@"monster.strengthScore" isEqualToString:identifier]) {
             self.editingMonster.strengthScore = [(NSNumber*)value intValue];
+        } else if ([@"monster.dexterityScore" isEqualToString:identifier]) {
+            self.editingMonster.dexterityScore = [(NSNumber*)value intValue];
+        } else if ([@"monster.constitutionScore" isEqualToString:identifier]) {
+            self.editingMonster.constitutionScore = [(NSNumber*)value intValue];
+        } else if ([@"monster.intelligenceScore" isEqualToString:identifier]) {
+            self.editingMonster.intelligenceScore = [(NSNumber*)value intValue];
+        } else if ([@"monster.wisdomScore" isEqualToString:identifier]) {
+            self.editingMonster.wisdomScore = [(NSNumber*)value intValue];
+        } else if ([@"monster.charismaScore" isEqualToString:identifier]) {
+            self.editingMonster.charismaScore = [(NSNumber*)value intValue];
         }
     }
 }
