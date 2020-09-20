@@ -17,6 +17,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString* const kMonsterSizeTiny;
+extern NSString* const kMonsterSizeSmall;
+extern NSString* const kMonsterSizeMedium;
+extern NSString* const kMonsterSizeLarge;
+extern NSString* const kMonsterSizeHuge;
+extern NSString* const kMonsterSizeGargantuan;
 
 extern const int kArmorClassUnarmored;
 extern const int kArmorClassMageArmor;
@@ -54,7 +60,6 @@ extern NSString* const kArmorNameOther;
 
 @interface Monster : NSManagedObject
 
-@property NSString *hpText;
 @property NSString *speed;
 @property NSString *burrowSpeed;
 @property NSString *climbSpeed;
@@ -71,12 +76,10 @@ extern NSString* const kArmorNameOther;
 @property NSString *understandsBut;
 
 @property int naturalArmorBonus;
-@property int hitDice;
 @property int customProficiencyBonus;
 // Shouldn't this be a BOOL?
 @property int telepathy;
 
-@property BOOL customHP;
 @property BOOL hover;
 @property BOOL customSpeed;
 @property BOOL isBlind;

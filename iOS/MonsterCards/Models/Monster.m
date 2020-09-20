@@ -17,15 +17,12 @@
 @synthesize challengeRating;
 @synthesize climbSpeed;
 @synthesize customChallengeRating;
-@synthesize customHP;
 @synthesize customProficiencyBonus;
 @synthesize customSpeed;
 @synthesize customSpeedDescription;
 @synthesize darkvisionDistance;
 @synthesize flySpeed;
-@synthesize hitDice;
 @synthesize hover;
-@synthesize hpText;
 @synthesize isBlind;
 @synthesize naturalArmorBonus;
 @synthesize speed;
@@ -66,12 +63,34 @@ NSString* const kArmorNameChainMail = @"chain mail";
 NSString* const kArmorNameSplintMail = @"splint";
 NSString* const kArmorNamePlateMail = @"plate";
 NSString* const kArmorNameOther = @"other";
+
+NSString* const kMonsterSizeTiny = @"tiny";
+NSString* const kMonsterSizeSmall = @"small";
+NSString* const kMonsterSizeMedium = @"medium";
+NSString* const kMonsterSizeLarge = @"large";
+NSString* const kMonsterSizeHuge = @"huge";
+NSString* const kMonsterSizeGargantuan = @"gargantuan";
+
 +(int)abilityModifierForScore: (int)score {
     return (int)floor((score - 10) / 2.0);
 }
 
 +(int)hitDieForSize: (NSString*)size{
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    if ([kMonsterSizeTiny isEqualToString:size]) {
+        return 4;
+    } else if ([kMonsterSizeSmall isEqualToString:size]) {
+        return 6;
+    } else if ([kMonsterSizeMedium isEqualToString:size]) {
+        return 8;
+    } else if ([kMonsterSizeLarge isEqualToString:size]) {
+        return 10;
+    } else if ([kMonsterSizeHuge isEqualToString:size]) {
+        return 12;
+    } else if ([kMonsterSizeGargantuan isEqualToString:size]) {
+        return 20;
+    } else {
+        return 8;
+    }
 }
 
 -(id)init {
@@ -98,6 +117,8 @@ NSString* const kArmorNameOther = @"other";
     self.size = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"size" withDefaultValue:@""];
     self.type = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"type" withDefaultValue:@""];
     self.subtype = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"tag" withDefaultValue:@""];
+    self.hpText = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"hpText" withDefaultValue:@""];
+
     self.alignment = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"alignment" withDefaultValue:@""];
     self.armorName = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"armorName" withDefaultValue:@""];
     self.otherArmorDescription = [JSONHelper readStringFromDictionary:jsonRoot forKey:@"otherArmorDesc" withDefaultValue:@""];
@@ -108,6 +129,9 @@ NSString* const kArmorNameOther = @"other";
     self.wisdomScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"wisPoints" withDefaultValue:0];
     self.charismaScore = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"chaPoints" withDefaultValue:0];
     self.shieldBonus = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"shieldBonus" withDefaultValue:0];
+    self.hitDice = [JSONHelper readIntFromDictionary:jsonRoot forKey:@"hitDice" withDefaultValue:0];
+    
+    self.customHP = [JSONHelper readBoolFromDictionary:jsonRoot forKey:@"customHP" withDefaultValue:NO];
 
     return self;
 }
@@ -251,7 +275,15 @@ NSString* const kArmorNameOther = @"other";
 
 //getHitPoints
 -(NSString*)hitPointsDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    if (self.customHP) {
+        return self.hpText;
+    } else {
+        int dieSize = [Monster hitDieForSize:self.size];
+        int conMod = self.constitutionModifier;
+        int hpTotal = (int)MAX(1, ceil(dieSize + conMod + (self.hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
+        int conBonus = conMod * self.hitDice;
+        return [NSString stringWithFormat:@"%d (%dd%d%+d)", hpTotal, self.hitDice, dieSize, conBonus];
+    }
 }
 
 //getSpeedText
@@ -450,6 +482,9 @@ NSString* const kArmorNameOther = @"other";
     self.armorName = monster.armorName;
     self.otherArmorDescription = monster.otherArmorDescription;
     self.shieldBonus = monster.shieldBonus;
+    self.customHP = monster.customHP;
+    self.hitDice = monster.hitDice;
+    self.hpText = monster.hpText;
 }
 
 @end

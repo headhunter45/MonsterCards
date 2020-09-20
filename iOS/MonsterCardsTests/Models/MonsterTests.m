@@ -25,7 +25,7 @@
 - (void)setUp {
     _context = nil;
     _monster = [[Monster alloc] initWithContext:_context];
-    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10,\"conPoints\":12,\"intPoints\":14,\"wisPoints\":16,\"chaPoints\":18,\"armorName\":\"none\",\"otherArmorDesc\":\"10\",\"shieldBonus\":2}";
+    _jsonString = @"{\"name\":\"Acolyte\",\"size\":\"medium\",\"type\":\"humanoid\",\"tag\":\"any race\",\"alignment\":\"any alignment\",\"strPoints\":8,\"dexPoints\":10,\"conPoints\":12,\"intPoints\":14,\"wisPoints\":16,\"chaPoints\":18,\"armorName\":\"none\",\"otherArmorDesc\":\"10\",\"shieldBonus\":2,\"hitDice\":3,\"customHP\":true,\"hpText\":\"1234 (1d1+magic)\"}";
     _jsonData = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -49,7 +49,9 @@
     XCTAssertEqualObjects(@"", _monster.armorName);
     XCTAssertEqualObjects(@"", _monster.otherArmorDescription);
     XCTAssertEqual(0, _monster.shieldBonus);
-}
+    XCTAssertEqual(NO, _monster.customHP);
+    XCTAssertEqual(0, _monster.hitDice);
+    XCTAssertEqualObjects(@"", _monster.hpText);}
 
 - (void)testInitWithJSONString {
     _monster = [[Monster alloc] initWithJSONString:_jsonString andContext:_context];
@@ -69,6 +71,9 @@
     XCTAssertEqualObjects(@"none", _monster.armorName);
     XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
     XCTAssertEqual(2, _monster.shieldBonus);
+    XCTAssertEqual(YES, _monster.customHP);
+    XCTAssertEqual(3, _monster.hitDice);
+    XCTAssertEqualObjects(@"1234 (1d1+magic)", _monster.hpText);
 }
 
 - (void)testInitWithEmptyJSONString {
@@ -89,7 +94,11 @@
     XCTAssertEqualObjects(@"", _monster.armorName);
     XCTAssertEqualObjects(@"", _monster.otherArmorDescription);
     XCTAssertEqual(0, _monster.shieldBonus);
+    XCTAssertEqual(NO, _monster.customHP);
+    XCTAssertEqual(0, _monster.hitDice);
+    XCTAssertEqualObjects(@"", _monster.hpText);
 }
+
 - (void)testInitWithJSONData {
     _monster = [[Monster alloc] initWithJSONData:_jsonData andContext:_context];
     
@@ -108,6 +117,9 @@
     XCTAssertEqualObjects(@"none", _monster.armorName);
     XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
     XCTAssertEqual(2, _monster.shieldBonus);
+    XCTAssertEqual(YES, _monster.customHP);
+    XCTAssertEqual(3, _monster.hitDice);
+    XCTAssertEqualObjects(@"1234 (1d1+magic)", _monster.hpText);
 }
 
 - (void)testNameGetterAndSetter {
@@ -381,5 +393,47 @@
     _monster.otherArmorDescription = @"green";
     XCTAssertEqualObjects(@"green", _monster.otherArmorDescription);
 }
+
+- (void)testHitDieForSizeReturnsExpectedValuesForKnownSizes {
+    
+}
+
+- (void)testHitDieForSizeReutnrsEightForUnknownSizes {
+    XCTAssertEqual(4, [Monster hitDieForSize:kMonsterSizeTiny]);
+    XCTAssertEqual(6, [Monster hitDieForSize:kMonsterSizeSmall]);
+    XCTAssertEqual(8, [Monster hitDieForSize:kMonsterSizeMedium]);
+    XCTAssertEqual(10, [Monster hitDieForSize:kMonsterSizeLarge]);
+    XCTAssertEqual(12, [Monster hitDieForSize:kMonsterSizeHuge]);
+    XCTAssertEqual(20, [Monster hitDieForSize:kMonsterSizeGargantuan]);
+}
+
+- (void)testCustomHPGetterAndSetter {
+    XCTAssertEqual(8, [Monster hitDieForSize:nil]);
+    XCTAssertEqual(8, [Monster hitDieForSize:@""]);
+    XCTAssertEqual(8, [Monster hitDieForSize:@"unknown size"]);
+}
+
+- (void)testHitDiceGetterAndSetter {
+    _monster.hitDice = 9;
+    XCTAssertEqual(9, _monster.hitDice);
+}
+
+- (void)testHPTextGetterAndSetter {
+    _monster.hpText = @"This is my HP.";
+    XCTAssertEqualObjects(@"This is my HP.", _monster.hpText);
+}
+
+- (void)testHitPointsDescriptionWithCustomHP {
+    _monster = [[Monster alloc] initWithJSONString:_jsonString andContext:_context];
+    _monster.customHP = YES;
+    XCTAssertEqualObjects(@"1234 (1d1+magic)", _monster.hitPointsDescription);
+}
+
+- (void)testHitPointsDescriptionWithCalculatedHP {
+    _monster = [[Monster alloc] initWithJSONString:_jsonString andContext:_context];
+    _monster.customHP = NO;
+    XCTAssertEqualObjects(@"20 (3d8+3)", _monster.hitPointsDescription);
+}
+
 
 @end
