@@ -45,7 +45,7 @@
     UITextField *textField = [[UITextField alloc] init];
     shortStringCell.textField = textField;
     
-    [given([monstersTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]) willReturn:shortStringCell];
+    [given([monstersTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]) willReturn:shortStringCell];
     
     _monster.subtype = @"elf";
     _viewController.originalMonster = _monster;
@@ -89,7 +89,7 @@
     UITextField *textField = [[UITextField alloc] init];
     shortStringCell.textField = textField;
     
-    [given([monstersTableView dequeueReusableCellWithIdentifier:@"EditableShortString"]) willReturn:shortStringCell];
+    [given([monstersTableView dequeueReusableCellWithIdentifier:@"MCShortStringField"]) willReturn:shortStringCell];
     
     _monster.alignment = @"chaotic good";
     _viewController.originalMonster = _monster;
