@@ -17,6 +17,39 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+extern const int kArmorClassUnarmored;
+extern const int kArmorClassMageArmor;
+extern const int kArmorClassPadded;
+extern const int kArmorClassLeather;
+extern const int kArmorClassStudded;
+extern const int kArmorClassHide;
+extern const int kArmorClassChainShirt;
+extern const int kArmorClassScaleMail;
+extern const int kArmorClassBreastplate;
+extern const int kArmorClassHalfPlate;
+extern const int kArmorClassRingMail;
+extern const int kArmorClassChainMail;
+extern const int kArmorClassSplintMail;
+extern const int kArmorClassPlate;
+
+extern NSString* const kArmorNameNone;
+extern NSString* const kArmorNameNaturalArmor;
+extern NSString* const kArmorNameMageArmor;
+extern NSString* const kArmorNamePadded;
+extern NSString* const kArmorNameLeather;
+extern NSString* const kArmorNameStuddedLeather;
+extern NSString* const kArmorNameHide;
+extern NSString* const kArmorNameChainShirt;
+extern NSString* const kArmorNameScaleMail;
+extern NSString* const kArmorNameBreastplate;
+extern NSString* const kArmorNameHalfPlate;
+extern NSString* const kArmorNameRingMail;
+extern NSString* const kArmorNameChainMail;
+extern NSString* const kArmorNameSplintMail;
+extern NSString* const kArmorNamePlateMail;
+extern NSString* const kArmorNameOther;
+
 @class Skill;
 
 @interface Monster : NSManagedObject

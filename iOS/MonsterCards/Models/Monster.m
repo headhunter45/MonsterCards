@@ -35,6 +35,37 @@
 @synthesize truesightDistance;
 @synthesize understandsBut;
 
+const int kArmorClassUnarmored = 10;
+const int kArmorClassMageArmor = kArmorClassUnarmored + 3;
+const int kArmorClassPadded = kArmorClassUnarmored + 1;
+const int kArmorClassLeather = kArmorClassUnarmored + 1;
+const int kArmorClassStudded = kArmorClassUnarmored + 2;
+const int kArmorClassHide = kArmorClassUnarmored + 2;
+const int kArmorClassChainShirt = kArmorClassUnarmored + 3;
+const int kArmorClassScaleMail = kArmorClassUnarmored + 4;
+const int kArmorClassBreastplate = kArmorClassUnarmored + 4;
+const int kArmorClassHalfPlate = kArmorClassUnarmored + 5;
+const int kArmorClassRingMail = kArmorClassUnarmored + 4;
+const int kArmorClassChainMail = kArmorClassUnarmored + 6;
+const int kArmorClassSplintMail = kArmorClassUnarmored + 7;
+const int kArmorClassPlate = kArmorClassUnarmored + 8;
+
+NSString* const kArmorNameNone = @"none";
+NSString* const kArmorNameNaturalArmor = @"natural armor";
+NSString* const kArmorNameMageArmor = @"mage armor";
+NSString* const kArmorNamePadded = @"padded";
+NSString* const kArmorNameLeather = @"leather";
+NSString* const kArmorNameStuddedLeather = @"studded";
+NSString* const kArmorNameHide = @"hide";
+NSString* const kArmorNameChainShirt = @"chain shirt";
+NSString* const kArmorNameScaleMail = @"scale mail";
+NSString* const kArmorNameBreastplate = @"breastplate";
+NSString* const kArmorNameHalfPlate = @"half plate";
+NSString* const kArmorNameRingMail = @"ring mail";
+NSString* const kArmorNameChainMail = @"chain mail";
+NSString* const kArmorNameSplintMail = @"splint";
+NSString* const kArmorNamePlateMail = @"plate";
+NSString* const kArmorNameOther = @"other";
 +(int)abilityModifierForScore: (int)score {
     return (int)floor((score - 10) / 2.0);
 }
@@ -144,37 +175,6 @@
     return [Monster abilityModifierForScore:self.charismaScore];
 }
 
-const int kArmorClassUnarmored = 10;
-const int kArmorClassMageArmor = kArmorClassUnarmored + 3;
-const int kArmorClassPadded = kArmorClassUnarmored + 1;
-const int kArmorClassLeather = kArmorClassUnarmored + 1;
-const int kArmorClassStudded = kArmorClassUnarmored + 2;
-const int kArmorClassHide = kArmorClassUnarmored + 2;
-const int kArmorClassChainShirt = kArmorClassUnarmored + 3;
-const int kArmorClassScaleMail = kArmorClassUnarmored + 4;
-const int kArmorClassBreastplate = kArmorClassUnarmored + 4;
-const int kArmorClassHalfPlate = kArmorClassUnarmored + 5;
-const int kArmorClassRingMail = kArmorClassUnarmored + 4;
-const int kArmorClassChainMail = kArmorClassUnarmored + 6;
-const int kArmorClassSplintMail = kArmorClassUnarmored + 7;
-const int kArmorClassPlate = kArmorClassUnarmored + 8;
-
-NSString const *kArmorNameNone = @"none";
-NSString const *kArmorNameNaturalArmor = @"natural armor";
-NSString const *kArmorNameMageArmor = @"mage armor";
-NSString const *kArmorNamePadded = @"padded";
-NSString const *kArmorNameLeather = @"leather";
-NSString const *kArmorNameStuddedLeather = @"studded";
-NSString const *kArmorNameHide = @"hide";
-NSString const *kArmorNameChainShirt = @"chain shirt";
-NSString const *kArmorNameScaleMail = @"scale mail";
-NSString const *kArmorNameBreastplate = @"breastplate";
-NSString const *kArmorNameHalfPlate = @"half plate";
-NSString const *kArmorNameRingMail = @"ring mail";
-NSString const *kArmorNameChainMail = @"chain mail";
-NSString const *kArmorNameSplintMail = @"splint";
-NSString const *kArmorNamePlateMail = @"plate";
-NSString const *kArmorNameOther = @"other";
 
 //getArmorClass
 -(NSString*)armorClassDescription {
