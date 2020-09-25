@@ -211,16 +211,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae7-YW-3xk">
+                                <rect key="frame" x="8" y="161.5" width="398" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WIX-Yu-LXJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WIX-Yu-LXJ" firstAttribute="trailing" secondItem="pZa-ia-7UT" secondAttribute="trailing" constant="8" id="8F1-nO-xrO"/>
                             <constraint firstItem="pZa-ia-7UT" firstAttribute="leading" secondItem="WIX-Yu-LXJ" secondAttribute="leading" constant="8" id="9Yo-N3-VeP"/>
+                            <constraint firstItem="Ae7-YW-3xk" firstAttribute="top" secondItem="p05-uG-AlV" secondAttribute="bottom" constant="8" id="Dyg-fV-XyM"/>
                             <constraint firstItem="pZa-ia-7UT" firstAttribute="top" secondItem="WIX-Yu-LXJ" secondAttribute="top" constant="8" id="GZ7-bL-EbS"/>
                             <constraint firstItem="WIX-Yu-LXJ" firstAttribute="trailing" secondItem="p05-uG-AlV" secondAttribute="trailing" constant="8" id="JQZ-8U-oYy"/>
+                            <constraint firstItem="Ae7-YW-3xk" firstAttribute="leading" secondItem="WIX-Yu-LXJ" secondAttribute="leading" constant="8" id="S9u-eI-fvZ"/>
                             <constraint firstItem="p05-uG-AlV" firstAttribute="leading" secondItem="WIX-Yu-LXJ" secondAttribute="leading" constant="8" id="Xz5-d5-Czj"/>
                             <constraint firstItem="WIX-Yu-LXJ" firstAttribute="trailing" secondItem="WYM-ya-Yje" secondAttribute="trailing" constant="8" id="aMh-HD-dBC"/>
+                            <constraint firstItem="WIX-Yu-LXJ" firstAttribute="trailing" secondItem="Ae7-YW-3xk" secondAttribute="trailing" constant="8" id="fhK-dn-EfH"/>
                             <constraint firstItem="p05-uG-AlV" firstAttribute="top" secondItem="WYM-ya-Yje" secondAttribute="bottom" constant="8" id="k9C-fg-kcY"/>
                             <constraint firstItem="WYM-ya-Yje" firstAttribute="top" secondItem="pZa-ia-7UT" secondAttribute="bottom" constant="8" id="mO1-0h-hFW"/>
                             <constraint firstItem="WYM-ya-Yje" firstAttribute="leading" secondItem="WIX-Yu-LXJ" secondAttribute="leading" constant="8" id="wB4-zH-APV"/>
@@ -235,6 +244,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="monsterArmorClass" destination="p05-uG-AlV" id="ISg-8R-AnX"/>
+                        <outlet property="monsterHitPoints" destination="Ae7-YW-3xk" id="3og-CQ-jGe"/>
                         <outlet property="monsterMeta" destination="pZa-ia-7UT" id="QEV-cs-IEk"/>
                     </connections>
                 </viewController>

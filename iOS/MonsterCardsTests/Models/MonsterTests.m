@@ -435,5 +435,4 @@
     XCTAssertEqualObjects(@"20 (3d8+3)", _monster.hitPointsDescription);
 }
 
-
 @end

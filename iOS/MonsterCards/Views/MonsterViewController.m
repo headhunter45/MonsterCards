@@ -52,6 +52,14 @@
             self.monsterArmorClass.attributedText = [HTMLHelper attributedStringFromHTML:[NSString stringWithFormat:@"<span style=\"font-family: helvetica; font-size: 12pt; color: #9B2818;\"><b>Armor Class</b> %@</span>", armorClassDescription]];
         }
     }
+    if (self.monsterHitPoints != nil) {
+        NSString *hitPointsDescription = self.monster.hitPointsDescription;
+        if (hitPointsDescription == nil) {
+            self.monsterHitPoints.text = @"";
+        } else {
+            self.monsterHitPoints.attributedText = [HTMLHelper attributedStringFromHTML:[NSString stringWithFormat:@"<span style=\"font-family: helvetica; font-size: 12pt; color: #9B2818;\"><b>Hit Points</b> %@</span>", hitPointsDescription]];
+        }
+    }
 }
 
 - (IBAction)unwindWithSegue:(UIStoryboardSegue *)unwindSegue {
