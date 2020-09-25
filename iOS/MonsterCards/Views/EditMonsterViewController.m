@@ -9,6 +9,7 @@
 #import "EditMonsterViewController.h"
 #import "MCShortStringFieldTableViewCell.h"
 #import "MCIntegerFieldTableViewCell.h"
+#import "MCBooleanFieldTableViewCell.h"
 #import "AppDelegate.h"
 
 @interface EditMonsterViewController ()
@@ -18,13 +19,18 @@
 @end
 
 const int kSectionIndexBasicInfo = 0;
-const int kSectionIndexAbilityScores = 1;
+const int kSectionIndexArmor = 1;
+const int kSectionIndexAbilityScores = 2;
 
 const int kBasicInfoSectionRowIndexName = 0;
 const int kBasicInfoSectionRowIndexSize = 1;
 const int kBasicInfoSectionRowIndexType = 2;
 const int kBasicInfoSectionRowIndexSubtype = 3;
 const int kBasicInfoSectionRowIndexAlignment = 4;
+
+const int kArmorSectionRowIndexHitDice = 0;
+const int kArmorSectionRowIndexCustomHP = 1;
+const int kArmorSectionRowIndexCustomHPText = 2;
 
 const int kAbilityScoreSectionRowIndexStrength = 0;
 const int kAbilityScoreSectionRowIndexDexterity = 1;
@@ -95,6 +101,22 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
     return cell;
 }
 
+- (MCBooleanFieldTableViewCell*) makeBooleanCellFromTableView:(UITableView*)tableView
+                                               withIdentifier:(NSString*)identifier
+                                                        label:(NSString*)label
+                                              andInitialValue:(BOOL)initialValue {
+    MCBooleanFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MCBooleanField"];
+    if (!cell || ![cell isKindOfClass:[MCBooleanFieldTableViewCell class]]) {
+        return nil;
+    }
+    cell.delegate = self;
+    cell.identifier = identifier;
+    cell.label = label;
+    cell.value = initialValue;
+    
+    return cell;
+}
+
 
 #pragma mark - Navigation
 
@@ -123,6 +145,8 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
             //   * Subtype
             //   * Alignment
             return 5;
+        case kSectionIndexArmor:
+            return 3;
         case kSectionIndexAbilityScores:
             return 6;
         default:
@@ -132,7 +156,7 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSString *)tableView:(UITableView *)tableView
@@ -140,6 +164,8 @@ titleForHeaderInSection:(NSInteger)section {
     switch(section) {
         case kSectionIndexBasicInfo:
             return NSLocalizedString(@"Basic Info", @"Section title");
+        case kSectionIndexArmor:
+            return NSLocalizedString(@"Armor, HP, and Speed", @"Section title");
         case kSectionIndexAbilityScores:
             return NSLocalizedString(@"Ability Scores", @"Section title");
         default:
@@ -184,6 +210,18 @@ titleForHeaderInSection:(NSInteger)section {
                                                                label: NSLocalizedString(@"Alignment", @"Placeholder text for the alignment of a monster or NPC.")
                                                      andInitialValue:self.editingMonster.alignment];
                     break;
+            }
+            break;
+        case kSectionIndexArmor:
+            switch (indexPath.row) {
+                case kArmorSectionRowIndexHitDice:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView withIdentifier:@"monster.hitDice" label:NSLocalizedString(@"Hit Dice", @"") andInitialValue:self.editingMonster.hitDice];
+                case kArmorSectionRowIndexCustomHP:
+                    return [self makeBooleanCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.customHP" label:NSLocalizedString(@"Custom HP", @"") andInitialValue:self.editingMonster.customHP];
+                    return nil;
+                case kArmorSectionRowIndexCustomHPText:
+                    return [self makeShortStringCellFromTableView:self.monsterTableView withIdentifier:@"monster.customHPText" label:NSLocalizedString(@"Custom HP Text", @"") andInitialValue:self.editingMonster.hpText];
             }
             break;
         case kSectionIndexAbilityScores:
@@ -245,6 +283,8 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.subtype = (NSString*)value;
         } else if ([@"monster.alignment" isEqualToString:identifier]) {
             self.editingMonster.alignment = (NSString*)value;
+        } else if ([@"monster.customHPText" isEqualToString:identifier]){
+            self.editingMonster.hpText = (NSString*)value;
         }
     }
     if ([kMCFieldValueTypeInteger isEqualToString:type]) {
@@ -260,6 +300,13 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.wisdomScore = [(NSNumber*)value intValue];
         } else if ([@"monster.charismaScore" isEqualToString:identifier]) {
             self.editingMonster.charismaScore = [(NSNumber*)value intValue];
+        } else if ([@"monster.hitDice" isEqualToString:identifier]){
+            self.editingMonster.hitDice = [(NSNumber*)value intValue];
+        }
+    }
+    if ([kMCFieldValueTypeBoolean isEqualToString:type]) {
+        if ([@"monster.customHP" isEqualToString:identifier]) {
+            self.editingMonster.customHP = [(NSNumber*)value boolValue];
         }
     }
 }
