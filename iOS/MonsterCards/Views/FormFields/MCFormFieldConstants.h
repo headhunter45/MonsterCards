@@ -11,5 +11,6 @@
 
 extern NSString* const kMCFieldValueTypeInteger;
 extern NSString* const kMCFieldValueTypeString;
+extern NSString* const kMCFieldValueTypeBoolean;
 
 #endif /* MCFormFieldConstants_h */

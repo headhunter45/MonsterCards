@@ -29,6 +29,7 @@
 		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
 		E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E26A73562511BA1900C5677E /* HTMLHelper.m */; };
 		E278E21B250DFFCA00D3EC0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E278E21A250DFFCA00D3EC0E /* Images.xcassets */; };
+		E2805514251E03BE00C87527 /* MCBooleanFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */; };
 		E288744A25148BA0005CA948 /* MCFormFieldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E288744925148BA0005CA948 /* MCFormFieldConstants.m */; };
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
 		E2D3E3B42508C3360052A8EC /* MCShortStringFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */; };
@@ -113,6 +114,8 @@
 		E26A73552511BA1900C5677E /* HTMLHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLHelper.h; sourceTree = "<group>"; };
 		E26A73562511BA1900C5677E /* HTMLHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLHelper.m; sourceTree = "<group>"; };
 		E278E21A250DFFCA00D3EC0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E2805512251E03BE00C87527 /* MCBooleanFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCBooleanFieldTableViewCell.h; sourceTree = "<group>"; };
+		E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCBooleanFieldTableViewCell.m; sourceTree = "<group>"; };
 		E288744925148BA0005CA948 /* MCFormFieldConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCFormFieldConstants.m; sourceTree = "<group>"; };
 		E288744E25148BAD005CA948 /* MCFormFieldConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCFormFieldConstants.h; sourceTree = "<group>"; };
 		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */,
 				E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */,
 				E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */,
+				E2805512251E03BE00C87527 /* MCBooleanFieldTableViewCell.h */,
+				E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */,
 			);
 			path = FormFields;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				E25BD60425036CF0007B04EF /* Ability.m in Sources */,
 				E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */,
 				E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */,
+				E2805514251E03BE00C87527 /* MCBooleanFieldTableViewCell.m in Sources */,
 				E25BD5F5250352C4007B04EF /* Monster.m in Sources */,
 				E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */,
 				E2F7248C25005E8A007D87ED /* main.m in Sources */,

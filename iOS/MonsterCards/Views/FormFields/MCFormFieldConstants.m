@@ -11,3 +11,4 @@
 
 NSString* const kMCFieldValueTypeInteger = @"Integer";
 NSString* const kMCFieldValueTypeString = @"String";
+NSString* const kMCFieldValueTypeBoolean = @"Boolean";

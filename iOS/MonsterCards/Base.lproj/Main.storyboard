@@ -348,6 +348,42 @@
                                             <outlet property="textField" destination="vSp-Bb-6Ii" id="LsH-bK-Vns"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MCBooleanField" id="aNO-fN-IMT" userLabel="MCBooleanField" customClass="MCBooleanFieldTableViewCell">
+                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aNO-fN-IMT" id="S88-r0-N1u">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsg-zB-HOv">
+                                                    <rect key="frame" x="20" y="11.5" width="305" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1a-6J-Yco">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="b2p-dO-cAL"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="aNO-fN-IMT" eventType="valueChanged" id="uHk-k4-oPq"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="L1a-6J-Yco" firstAttribute="leading" secondItem="tsg-zB-HOv" secondAttribute="trailing" constant="20" id="3ic-3b-OlQ"/>
+                                                <constraint firstItem="tsg-zB-HOv" firstAttribute="leading" secondItem="S88-r0-N1u" secondAttribute="leadingMargin" id="Meq-RD-TyE"/>
+                                                <constraint firstItem="L1a-6J-Yco" firstAttribute="centerY" secondItem="S88-r0-N1u" secondAttribute="centerY" id="Oei-MK-jz1"/>
+                                                <constraint firstAttribute="trailing" secondItem="L1a-6J-Yco" secondAttribute="trailing" constant="20" id="Ubb-zC-MdW"/>
+                                                <constraint firstItem="tsg-zB-HOv" firstAttribute="centerY" secondItem="S88-r0-N1u" secondAttribute="centerY" id="WUA-gu-TZ7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelView" destination="tsg-zB-HOv" id="ky7-dd-2zz"/>
+                                            <outlet property="switchView" destination="L1a-6J-Yco" id="tTF-vZ-9gZ"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
