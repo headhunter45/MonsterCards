@@ -57,6 +57,8 @@
     [self.textField addTarget:self
                        action:@selector(textFieldValueChanged:)
              forControlEvents:UIControlEventEditingChanged];
+    self.textField.text = [[NSNumber numberWithInt:_value] stringValue];
+    self.stepper.value = _value;
 }
 
 - (void)textFieldValueChanged:(UITextField*)textField {
