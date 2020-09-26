@@ -12,11 +12,13 @@
 @implementation HTMLHelper
 
 + (NSAttributedString*)attributedStringFromHTML:(NSString *)htmlString {
-    
-    return [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES]
-               options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                         NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
-    documentAttributes:nil error:nil];
+    NSData *data = [htmlString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                              NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)};
+    return [[NSAttributedString alloc] initWithData:data
+                                            options:options
+                                 documentAttributes:nil
+                                              error:nil];
 }
 
 @end

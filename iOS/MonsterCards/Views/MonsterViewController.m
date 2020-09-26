@@ -9,24 +9,43 @@
 #import "MonsterViewController.h"
 #import "EditMonsterViewController.h"
 #import "HTMLHelper.h"
+#import "AppDelegate.h"
 
 @interface MonsterViewController ()
 
 @end
 
-@implementation MonsterViewController
+NSString *const defaultFontFamily = @"helvetica";
+NSString *const defaultFontSize = @"12pt";
+NSString *const defaultTextColor = @"#9B2818";
+
+NSString* makeHTMLFragmentString(NSString* format, ...) {
+    va_list args;
+    va_start(args, format);
+    NSString *childString = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    NSString *formattedString = [NSString stringWithFormat:@"<span style=\"font-family: %@; font-size: %@; color: %@;\">%@</span>", defaultFontFamily, defaultFontSize, defaultTextColor, childString];
+    return formattedString;
+}
+
+@implementation MonsterViewController {
+    NSManagedObjectContext *_context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
+    _context = appDelegate.persistentContainer.viewContext;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [_context refreshObject:self.monster mergeChanges:NO];
     if (self.monsterName != nil) {
         self.monsterName.text = self.monster.name;
     } else if (self.navigationItem != nil) {
         self.navigationItem.title = self.monster.name;
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    // TODO: get the latest version of this monster from CoreData
     if (self.monsterName != nil) {
         self.monsterName.text = self.monster.name;
     } else if (self.navigationItem != nil) {
@@ -49,7 +68,7 @@
         if (armorClassDescription == nil) {
             self.monsterArmorClass.text = @"";
         } else {
-            self.monsterArmorClass.attributedText = [HTMLHelper attributedStringFromHTML:[NSString stringWithFormat:@"<span style=\"font-family: helvetica; font-size: 12pt; color: #9B2818;\"><b>Armor Class</b> %@</span>", armorClassDescription]];
+            self.monsterArmorClass.attributedText = [HTMLHelper attributedStringFromHTML:makeHTMLFragmentString(@"<b>Armor Class</b> %@</span>", armorClassDescription)];
         }
     }
     if (self.monsterHitPoints != nil) {
@@ -57,7 +76,15 @@
         if (hitPointsDescription == nil) {
             self.monsterHitPoints.text = @"";
         } else {
-            self.monsterHitPoints.attributedText = [HTMLHelper attributedStringFromHTML:[NSString stringWithFormat:@"<span style=\"font-family: helvetica; font-size: 12pt; color: #9B2818;\"><b>Hit Points</b> %@</span>", hitPointsDescription]];
+            self.monsterHitPoints.attributedText = [HTMLHelper attributedStringFromHTML:makeHTMLFragmentString(@"<b>Hit Points</b> %@", hitPointsDescription)];
+        }
+    }
+    if (self.monsterSpeed != nil) {
+        NSString *speedDescription = self.monster.speedDescription;
+        if (speedDescription == nil) {
+            self.monsterSpeed.text = @"";
+        } else {
+            self.monsterSpeed.attributedText = [HTMLHelper attributedStringFromHTML:makeHTMLFragmentString(@"<b>Speed</b> %@", speedDescription)];
         }
     }
 }

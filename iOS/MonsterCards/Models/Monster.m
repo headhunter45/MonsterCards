@@ -278,9 +278,28 @@ NSString* const kMonsterSizeGargantuan = @"gargantuan";
     }
 }
 
-//getSpeedText
 -(NSString*)speedDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    if (self.hasCustomSpeed) {
+        return self.customSpeed;
+    } else {
+        NSMutableArray* parts = [[NSMutableArray alloc] init];
+        if (self.baseSpeed > 0) {
+            [parts addObject:[NSString stringWithFormat:@"%d ft.", self.baseSpeed]];
+        }
+        if (self.burrowSpeed > 0) {
+            [parts addObject:[NSString stringWithFormat:@"burrow %d ft.", self.burrowSpeed]];
+        }
+        if (self.climbSpeed > 0) {
+            [parts addObject:[NSString stringWithFormat:@"climb %d ft.", self.climbSpeed]];
+        }
+        if (self.flySpeed > 0) {
+            [parts addObject:[NSString stringWithFormat:@"fly %d ft.%@", self.flySpeed, self.canHover ? @" (hover)" : @""]];
+        }
+        if (self.swimSpeed > 0) {
+            [parts addObject:[NSString stringWithFormat:@"swim %d ft.", self.swimSpeed]];
+        }
+        return [parts componentsJoinedByString:@" "];
+    }
 }
 
 -(NSString*)strengthDescription {
