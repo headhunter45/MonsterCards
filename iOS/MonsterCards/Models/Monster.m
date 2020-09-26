@@ -13,20 +13,12 @@
 @implementation Monster
 
 @synthesize blindsightDistance;
-@synthesize burrowSpeed;
 @synthesize challengeRating;
-@synthesize climbSpeed;
 @synthesize customChallengeRating;
 @synthesize customProficiencyBonus;
-@synthesize customSpeed;
-@synthesize customSpeedDescription;
 @synthesize darkvisionDistance;
-@synthesize flySpeed;
-@synthesize hover;
 @synthesize isBlind;
 @synthesize naturalArmorBonus;
-@synthesize speed;
-@synthesize swimSpeed;
 @synthesize telepathy;
 @synthesize tremorsenseDistance;
 @synthesize truesightDistance;
@@ -485,6 +477,14 @@ NSString* const kMonsterSizeGargantuan = @"gargantuan";
     self.customHP = monster.customHP;
     self.hitDice = monster.hitDice;
     self.hpText = monster.hpText;
+    self.baseSpeed = monster.baseSpeed;
+    self.burrowSpeed = monster.burrowSpeed;
+    self.climbSpeed = monster.climbSpeed;
+    self.flySpeed = monster.flySpeed;
+    self.canHover = monster.canHover;
+    self.swimSpeed = monster.swimSpeed;
+    self.hasCustomSpeed = monster.hasCustomSpeed;
+    self.customSpeed = monster.customSpeed;
 }
 
 @end

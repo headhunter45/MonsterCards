@@ -3,10 +3,17 @@
     <entity name="Monster" representedClassName="Monster" syncable="YES" codeGenerationType="category">
         <attribute name="alignment" attributeType="String" defaultValueString=""/>
         <attribute name="armorName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="baseSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="burrowSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="canHover" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="charismaScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="climbSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="constitutionScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="customHP" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="customSpeed" optional="YES" attributeType="String"/>
         <attribute name="dexterityScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="flySpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hasCustomSpeed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="hitDice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hpText" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="intelligenceScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -16,10 +23,11 @@
         <attribute name="size" attributeType="String" defaultValueString=""/>
         <attribute name="strengthScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="subtype" attributeType="String" defaultValueString=""/>
+        <attribute name="swimSpeed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
         <attribute name="wisdomScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="298"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="418"/>
     </elements>
 </model>

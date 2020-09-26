@@ -60,13 +60,7 @@ extern NSString* const kArmorNameOther;
 
 @interface Monster : NSManagedObject
 
-@property NSString *speed;
-@property NSString *burrowSpeed;
-@property NSString *climbSpeed;
-@property NSString *flySpeed;
-@property NSString *swimSpeed;
 // speedDescription
-@property NSString *customSpeedDescription;
 @property NSString *challengeRating;
 @property NSString *customChallengeRating;
 @property NSString *blindsightDistance;
@@ -80,8 +74,6 @@ extern NSString* const kArmorNameOther;
 // Shouldn't this be a BOOL?
 @property int telepathy;
 
-@property BOOL hover;
-@property BOOL customSpeed;
 @property BOOL isBlind;
 
 +(int)abilityModifierForScore: (int)score;

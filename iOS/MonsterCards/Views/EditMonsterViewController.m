@@ -20,7 +20,8 @@
 
 const int kSectionIndexBasicInfo = 0;
 const int kSectionIndexArmor = 1;
-const int kSectionIndexAbilityScores = 2;
+const int kSectionIndexSpeed = 2;
+const int kSectionIndexAbilityScores = 3;
 
 const int kBasicInfoSectionRowIndexName = 0;
 const int kBasicInfoSectionRowIndexSize = 1;
@@ -31,6 +32,15 @@ const int kBasicInfoSectionRowIndexAlignment = 4;
 const int kArmorSectionRowIndexHitDice = 0;
 const int kArmorSectionRowIndexCustomHP = 1;
 const int kArmorSectionRowIndexCustomHPText = 2;
+
+const int kSpeedSectionRowIndexBaseSpeed = 0;
+const int kSpeedSectionRowIndexBurrowSpeed = 1;
+const int kSpeedSectionRowIndexClimbSpeed = 2;
+const int kSpeedSectionRowIndexFlySpeed = 3;
+const int kSpeedSectionRowIndexCanHover = 4;
+const int kSpeedSectionRowIndexSwimSpeed = 5;
+const int kSpeedSectionRowIndexHasCustomSpeed = 6;
+const int kSpeedSectionRowIndexCustomSpeed = 7;
 
 const int kAbilityScoreSectionRowIndexStrength = 0;
 const int kAbilityScoreSectionRowIndexDexterity = 1;
@@ -147,6 +157,8 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
             return 5;
         case kSectionIndexArmor:
             return 3;
+        case kSectionIndexSpeed:
+            return 8;
         case kSectionIndexAbilityScores:
             return 6;
         default:
@@ -165,7 +177,9 @@ titleForHeaderInSection:(NSInteger)section {
         case kSectionIndexBasicInfo:
             return NSLocalizedString(@"Basic Info", @"Section title");
         case kSectionIndexArmor:
-            return NSLocalizedString(@"Armor, HP, and Speed", @"Section title");
+            return NSLocalizedString(@"Armor and HP", @"Section title");
+        case kSectionIndexSpeed:
+            return NSLocalizedString(@"Speed", @"Section title");
         case kSectionIndexAbilityScores:
             return NSLocalizedString(@"Ability Scores", @"Section title");
         default:
@@ -215,13 +229,66 @@ titleForHeaderInSection:(NSInteger)section {
         case kSectionIndexArmor:
             switch (indexPath.row) {
                 case kArmorSectionRowIndexHitDice:
-                    return [self makeIntegerCellFromTableView:self.monsterTableView withIdentifier:@"monster.hitDice" label:NSLocalizedString(@"Hit Dice", @"") andInitialValue:self.editingMonster.hitDice];
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.hitDice"
+                                                        label:NSLocalizedString(@"Hit Dice", @"")
+                                              andInitialValue:self.editingMonster.hitDice];
                 case kArmorSectionRowIndexCustomHP:
                     return [self makeBooleanCellFromTableView:self.monsterTableView
-                                               withIdentifier:@"monster.customHP" label:NSLocalizedString(@"Custom HP", @"") andInitialValue:self.editingMonster.customHP];
+                                               withIdentifier:@"monster.customHP"
+                                                        label:NSLocalizedString(@"Custom HP", @"")
+                                              andInitialValue:self.editingMonster.customHP];
                     return nil;
                 case kArmorSectionRowIndexCustomHPText:
-                    return [self makeShortStringCellFromTableView:self.monsterTableView withIdentifier:@"monster.customHPText" label:NSLocalizedString(@"Custom HP Text", @"") andInitialValue:self.editingMonster.hpText];
+                    return [self makeShortStringCellFromTableView:self.monsterTableView
+                                                   withIdentifier:@"monster.customHPText"
+                                                            label:NSLocalizedString(@"Custom HP Text", @"")
+                                                  andInitialValue:self.editingMonster.hpText];
+            }
+            break;
+        case kSectionIndexSpeed:
+            switch (indexPath.row) {
+                case kSpeedSectionRowIndexBaseSpeed:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.baseSpeed"
+                                                        label:NSLocalizedString(@"Base", @"")
+                                              andInitialValue:self.editingMonster.baseSpeed];
+                case kSpeedSectionRowIndexBurrowSpeed:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.burrowSpeed"
+                                                        label:NSLocalizedString(@"Burrow", @"")
+                                              andInitialValue:self.editingMonster.burrowSpeed];
+                case kSpeedSectionRowIndexClimbSpeed:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.climbSpeed"
+                                                        label:NSLocalizedString(@"Climb", @"")
+                                              andInitialValue:self.editingMonster.climbSpeed];
+                case kSpeedSectionRowIndexFlySpeed:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.flySpeed"
+                                                        label:NSLocalizedString(@"Fly", @"")
+                                              andInitialValue:self.editingMonster.flySpeed];
+                case kSpeedSectionRowIndexCanHover:
+                    return [self makeBooleanCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.canHover"
+                                                        label:NSLocalizedString(@"Hover", @"")
+                                              andInitialValue:self.editingMonster.canHover];
+                case kSpeedSectionRowIndexSwimSpeed:
+                    return [self makeIntegerCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.swimSpeed"
+                                                        label:NSLocalizedString(@"Swim", @"")
+                                              andInitialValue:self.editingMonster.swimSpeed];
+                case kSpeedSectionRowIndexHasCustomSpeed:
+                    return [self makeBooleanCellFromTableView:self.monsterTableView
+                                               withIdentifier:@"monster.hasCustomSpeed"
+                                                        label:NSLocalizedString(@"Custom Speed", @"")
+                                              andInitialValue:self.editingMonster.hasCustomSpeed];
+                case kSpeedSectionRowIndexCustomSpeed:
+                    return [self makeShortStringCellFromTableView:self.monsterTableView
+                                                   withIdentifier:@"monster.customSpeed"
+                                                            label:NSLocalizedString(@"Custom Speed", @"")
+                                                  andInitialValue:self.editingMonster.customSpeed];
+
             }
             break;
         case kSectionIndexAbilityScores:
@@ -283,8 +350,10 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.subtype = (NSString*)value;
         } else if ([@"monster.alignment" isEqualToString:identifier]) {
             self.editingMonster.alignment = (NSString*)value;
-        } else if ([@"monster.customHPText" isEqualToString:identifier]){
+        } else if ([@"monster.customHPText" isEqualToString:identifier]) {
             self.editingMonster.hpText = (NSString*)value;
+        } else if ([@"monster.customSpeed" isEqualToString:identifier]) {
+            self.editingMonster.customSpeed = (NSString*)value;
         }
     }
     if ([kMCFieldValueTypeInteger isEqualToString:type]) {
@@ -300,13 +369,27 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.wisdomScore = [(NSNumber*)value intValue];
         } else if ([@"monster.charismaScore" isEqualToString:identifier]) {
             self.editingMonster.charismaScore = [(NSNumber*)value intValue];
-        } else if ([@"monster.hitDice" isEqualToString:identifier]){
+        } else if ([@"monster.hitDice" isEqualToString:identifier]) {
             self.editingMonster.hitDice = [(NSNumber*)value intValue];
+        } else if ([@"monster.baseSpeed" isEqualToString:identifier]) {
+            self.editingMonster.baseSpeed = [(NSNumber*)value intValue];
+        } else if ([@"monster.burrowSpeed" isEqualToString:identifier]) {
+            self.editingMonster.burrowSpeed = [(NSNumber*)value intValue];
+        } else if ([@"monster.climbSpeed" isEqualToString:identifier]) {
+            self.editingMonster.climbSpeed = [(NSNumber*)value intValue];
+        } else if ([@"monster.flySpeed" isEqualToString:identifier]) {
+            self.editingMonster.flySpeed = [(NSNumber*)value intValue];
+        } else if ([@"monster.swimSpeed" isEqualToString:identifier]) {
+            self.editingMonster.swimSpeed = [(NSNumber*)value intValue];
         }
     }
     if ([kMCFieldValueTypeBoolean isEqualToString:type]) {
         if ([@"monster.customHP" isEqualToString:identifier]) {
             self.editingMonster.customHP = [(NSNumber*)value boolValue];
+        } else if ([@"monster.canHover" isEqualToString:identifier]) {
+            self.editingMonster.canHover = [(NSNumber*)value boolValue];
+        } else if ([@"monster.hasCustomSpeed" isEqualToString:identifier]) {
+            self.editingMonster.hasCustomSpeed = [(NSNumber*)value boolValue];
         }
     }
 }
