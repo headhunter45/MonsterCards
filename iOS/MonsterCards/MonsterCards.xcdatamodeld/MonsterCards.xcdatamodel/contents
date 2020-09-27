@@ -6,29 +6,29 @@
         <attribute name="baseSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="burrowSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="canHover" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="charismaScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="charismaScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="climbSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="constitutionScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="constitutionScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="customArmor" attributeType="String" defaultValueString=""/>
         <attribute name="customHP" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="customSpeed" attributeType="String" defaultValueString=""/>
-        <attribute name="dexterityScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dexterityScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="flySpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hasCustomSpeed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hasShield" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hitDice" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hpText" attributeType="String" defaultValueString=""/>
-        <attribute name="intelligenceScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intelligenceScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="natrualArmorBonus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
         <attribute name="shieldBonus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="size" attributeType="String" defaultValueString=""/>
-        <attribute name="strengthScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="strengthScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="subtype" attributeType="String" defaultValueString=""/>
         <attribute name="swimSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
-        <attribute name="wisdomScore" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wisdomScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Monster" positionX="-63" positionY="-18" width="128" height="463"/>

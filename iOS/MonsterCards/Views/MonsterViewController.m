@@ -87,6 +87,24 @@ NSString* makeHTMLFragmentString(NSString* format, ...) {
             self.monsterSpeed.attributedText = [HTMLHelper attributedStringFromHTML:makeHTMLFragmentString(@"<b>Speed</b> %@", speedDescription)];
         }
     }
+    if (self.monsterStrength) {
+        self.monsterStrength.text = self.monster.strengthDescription;
+    }
+    if (self.monsterDexterity) {
+        self.monsterDexterity.text = self.monster.dexterityDescription;
+    }
+    if (self.monsterConstitution) {
+        self.monsterConstitution.text = self.monster.constitutionDescription;
+    }
+    if (self.monsterIntelligence) {
+        self.monsterIntelligence.text = self.monster.intelligenceDescription;
+    }
+    if (self.monsterWisdom) {
+        self.monsterWisdom.text = self.monster.wisdomDescription;
+    }
+    if (self.monsterCharisma) {
+        self.monsterCharisma.text = self.monster.charismaDescription;
+    }
 }
 
 - (IBAction)unwindWithSegue:(UIStoryboardSegue *)unwindSegue {

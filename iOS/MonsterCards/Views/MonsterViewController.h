@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *monsterArmorClass;
 @property (weak, nonatomic) IBOutlet UILabel *monsterHitPoints;
 @property (weak, nonatomic) IBOutlet UILabel *monsterSpeed;
+@property (weak, nonatomic) IBOutlet UILabel *monsterStrength;
+@property (weak, nonatomic) IBOutlet UILabel *monsterDexterity;
+@property (weak, nonatomic) IBOutlet UILabel *monsterConstitution;
+@property (weak, nonatomic) IBOutlet UILabel *monsterIntelligence;
+@property (weak, nonatomic) IBOutlet UILabel *monsterWisdom;
+@property (weak, nonatomic) IBOutlet UILabel *monsterCharisma;
 
 @property Monster* monster;
 

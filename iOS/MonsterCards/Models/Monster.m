@@ -303,27 +303,28 @@ NSString* const kMonsterSizeGargantuan = @"gargantuan";
 }
 
 -(NSString*)strengthDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [NSString stringWithFormat:@"%d (%+d)", self.strengthScore, self.strengthModifier];
 }
 
 -(NSString*)dexterityDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [NSString stringWithFormat:@"%d (%+d)", self.dexterityScore, self.dexterityModifier];
 }
 
 -(NSString*)constitutionDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [NSString stringWithFormat:@"%d (%+d)", self.constitutionScore, self.constitutionModifier];
 }
 
 -(NSString*)intelligenceDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [NSString stringWithFormat:@"%d (%+d)", self.intelligenceScore, self.intelligenceModifier];
+
 }
 
 -(NSString*)wisdomDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [NSString stringWithFormat:@"%d (%+d)", self.wisdomScore, self.wisdomModifier];
 }
 
 -(NSString*)charismaDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    return [NSString stringWithFormat:@"%d (%+d)", self.charismaScore, self.charismaModifier];
 }
 
 -(NSSet*)savingThrows {
