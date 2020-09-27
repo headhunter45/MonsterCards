@@ -34,6 +34,8 @@
 		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
 		E2D3E3B42508C3360052A8EC /* MCShortStringFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */; };
 		E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
+		E2E90AFF252015B3005241C8 /* MCSelectFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E90AFE252015B3005241C8 /* MCSelectFieldTableViewCell.m */; };
+		E2E90B0525201785005241C8 /* MCChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E90B0425201785005241C8 /* MCChoice.m */; };
 		E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */; };
 		E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */; };
 		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
@@ -122,6 +124,10 @@
 		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
 		E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCShortStringFieldTableViewCell.h; sourceTree = "<group>"; };
 		E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCShortStringFieldTableViewCell.m; sourceTree = "<group>"; };
+		E2E90AFD252015B3005241C8 /* MCSelectFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSelectFieldTableViewCell.h; sourceTree = "<group>"; };
+		E2E90AFE252015B3005241C8 /* MCSelectFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSelectFieldTableViewCell.m; sourceTree = "<group>"; };
+		E2E90B0325201785005241C8 /* MCChoice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCChoice.h; sourceTree = "<group>"; };
+		E2E90B0425201785005241C8 /* MCChoice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCChoice.m; sourceTree = "<group>"; };
 		E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTests.m; sourceTree = "<group>"; };
 		E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterTests.m; sourceTree = "<group>"; };
 		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,12 +282,16 @@
 				E2591EB62509DD4900B396FD /* MCFormFieldDelegate.h */,
 				E288744E25148BAD005CA948 /* MCFormFieldConstants.h */,
 				E288744925148BA0005CA948 /* MCFormFieldConstants.m */,
-				E20C315225146708003AB1AA /* MCIntegerFieldTableViewCell.h */,
-				E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */,
-				E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */,
-				E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */,
+				E2E90B0325201785005241C8 /* MCChoice.h */,
+				E2E90B0425201785005241C8 /* MCChoice.m */,
 				E2805512251E03BE00C87527 /* MCBooleanFieldTableViewCell.h */,
 				E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */,
+				E20C315225146708003AB1AA /* MCIntegerFieldTableViewCell.h */,
+				E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */,
+				E2E90AFD252015B3005241C8 /* MCSelectFieldTableViewCell.h */,
+				E2E90AFE252015B3005241C8 /* MCSelectFieldTableViewCell.m */,
+				E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */,
+				E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */,
 			);
 			path = FormFields;
 			sourceTree = "<group>";
@@ -623,10 +633,12 @@
 				E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */,
 				E2F7248C25005E8A007D87ED /* main.m in Sources */,
 				E25BD5FB250369D7007B04EF /* Skill.m in Sources */,
+				E2E90B0525201785005241C8 /* MCChoice.m in Sources */,
 				E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */,
 				E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */,
 				E22F837C2511D14E0072105C /* JSONHelper.m in Sources */,
 				E25BD60125036BF8007B04EF /* Language.m in Sources */,
+				E2E90AFF252015B3005241C8 /* MCSelectFieldTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

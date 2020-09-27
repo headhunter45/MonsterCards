@@ -394,6 +394,45 @@
                                             <outlet property="switchView" destination="L1a-6J-Yco" id="tTF-vZ-9gZ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MCSelectField" id="PQF-mC-UlI" userLabel="MCSelectField" customClass="MCSelectFieldTableViewCell">
+                                        <rect key="frame" x="0.0" y="158.5" width="414" height="37.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PQF-mC-UlI" id="Wcu-Sa-z2O">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lik-sI-94j" userLabel="Label View">
+                                                    <rect key="frame" x="20" y="8" width="42" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="A1K-Wk-Nuf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFa-Hd-laX" userLabel="Text Field">
+                                                    <rect key="frame" x="82" y="2" width="312" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="zHt-9x-mSt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DFa-Hd-laX" firstAttribute="centerY" secondItem="Wcu-Sa-z2O" secondAttribute="centerY" id="CAr-SD-zJQ"/>
+                                                <constraint firstItem="lik-sI-94j" firstAttribute="centerY" secondItem="Wcu-Sa-z2O" secondAttribute="centerY" id="NXK-tA-2fO"/>
+                                                <constraint firstItem="lik-sI-94j" firstAttribute="leading" secondItem="Wcu-Sa-z2O" secondAttribute="leading" constant="20" id="fea-zT-1Gp"/>
+                                                <constraint firstAttribute="trailing" secondItem="DFa-Hd-laX" secondAttribute="trailing" constant="20" id="k98-fH-Q1Z"/>
+                                                <constraint firstItem="DFa-Hd-laX" firstAttribute="leading" secondItem="lik-sI-94j" secondAttribute="trailing" constant="20" id="pF8-P8-BrC"/>
+                                                <constraint firstItem="lik-sI-94j" firstAttribute="top" secondItem="Wcu-Sa-z2O" secondAttribute="top" constant="8" id="tXM-6N-Dk1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelView" destination="lik-sI-94j" id="TYU-vE-Agy"/>
+                                            <outlet property="textField" destination="DFa-Hd-laX" id="8fm-vK-dar"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

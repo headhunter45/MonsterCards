@@ -504,6 +504,10 @@ NSString* const kMonsterSizeGargantuan = @"gargantuan";
     self.swimSpeed = monster.swimSpeed;
     self.hasCustomSpeed = monster.hasCustomSpeed;
     self.customSpeed = monster.customSpeed;
+    self.armorType = monster.armorType;
+    self.naturalArmorBonus = monster.naturalArmorBonus;
+    self.hasShield = monster.hasShield;
+    self.customArmor = monster.customArmor;
 }
 
 @end

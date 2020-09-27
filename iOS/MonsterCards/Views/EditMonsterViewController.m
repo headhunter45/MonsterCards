@@ -7,9 +7,10 @@
 //
 
 #import "EditMonsterViewController.h"
-#import "MCShortStringFieldTableViewCell.h"
-#import "MCIntegerFieldTableViewCell.h"
 #import "MCBooleanFieldTableViewCell.h"
+#import "MCIntegerFieldTableViewCell.h"
+#import "MCSelectFieldTableViewCell.h"
+#import "MCShortStringFieldTableViewCell.h"
 #import "AppDelegate.h"
 
 @interface EditMonsterViewController ()
@@ -55,12 +56,48 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
 
 @implementation EditMonsterViewController {
     NSManagedObjectContext *_context;
+    NSArray<MCChoice*>* _armorTypes;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
     _context = appDelegate.persistentContainer.viewContext;
+    
+    _armorTypes = [NSArray arrayWithObjects:
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"None", @"")
+                                    andValue:kArmorNameNone],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Natural Armor", @"")
+                                    andValue:kArmorNameNaturalArmor],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Mage Armor", @"")
+                                    andValue:kArmorNameMageArmor],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Padded", @"")
+                                    andValue:kArmorNamePadded],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Leather", @"")
+                                    andValue:kArmorNameLeather],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Studded", @"")
+                                    andValue:kArmorNameStuddedLeather],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Hide", @"")
+                                    andValue:kArmorNameHide],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Chain Shirt", @"")
+                                    andValue:kArmorNameChainShirt],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Scale Mail", @"")
+                                    andValue:kArmorNameScaleMail],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Breastplate", @"")
+                                    andValue:kArmorNameBreastplate],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Half Plate", @"")
+                                    andValue:kArmorNameHalfPlate],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Ring Mail", @"")
+                                    andValue:kArmorNameRingMail],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Chain Mail", @"")
+                                    andValue:kArmorNameChainMail],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Splint", @"")
+                                    andValue:kArmorNameSplintMail],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Plate", @"")
+                                    andValue:kArmorNamePlateMail],
+                   [MCChoice choiceWithLabel:NSLocalizedString(@"Other", @"")
+                                    andValue:kArmorNameOther],
+                   nil];
 
     self.monsterTableView.dataSource = self;
     self.monsterTableView.delegate = self;
@@ -131,6 +168,24 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
     return cell;
 }
 
+- (MCSelectFieldTableViewCell*) makeSelectCellFromTableView:(UITableView*)tableView
+                                             withIdentifier:(NSString*)identifier
+                                                      label:(NSString*)label
+                                               initialValue:(NSObject*)initialValue
+                                                 andChoices:(NSArray*)choices {
+    MCSelectFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MCSelectField"];
+    if (!cell || ![cell isKindOfClass:[MCSelectFieldTableViewCell class]]) {
+        return nil;
+    }
+    cell.delegate = self;
+    cell.identifier = identifier;
+    cell.label = label;
+    cell.selectedValue = initialValue;
+    cell.choices = choices;
+
+    return cell;
+}
+
 
 #pragma mark - Navigation
 
@@ -160,7 +215,7 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
             //   * Alignment
             return 8;
         case kSectionIndexArmor:
-            return 0;
+            return 4;
         case kSectionIndexSpeed:
             return 8;
         case kSectionIndexAbilityScores:
@@ -181,7 +236,7 @@ titleForHeaderInSection:(NSInteger)section {
         case kSectionIndexBasicInfo:
             return NSLocalizedString(@"Basic Info", @"Section title");
         case kSectionIndexArmor:
-            return NSLocalizedString(@"Armor and HP", @"Section title");
+            return NSLocalizedString(@"Armor", @"Section title");
         case kSectionIndexSpeed:
             return NSLocalizedString(@"Speed", @"Section title");
         case kSectionIndexAbilityScores:
@@ -250,6 +305,31 @@ titleForHeaderInSection:(NSInteger)section {
             break;
         case kSectionIndexArmor:
             switch (indexPath.row) {
+                case kArmorSectionRowIndexArmorType:
+                    newCell = [self makeSelectCellFromTableView:self.monsterTableView
+                                                 withIdentifier:@"monster.armorType"
+                                                          label:NSLocalizedString(@"Type", @"")
+                                                   initialValue:self.editingMonster.armorType
+                                                     andChoices:_armorTypes];
+                    break;
+                case kArmorSectionRowIndexHasShield:
+                    newCell = [self makeBooleanCellFromTableView:self.monsterTableView
+                                                  withIdentifier:@"monster.hasShield"
+                                                           label:NSLocalizedString(@"Shield", @"")
+                                                 andInitialValue:self.editingMonster.hasShield];
+                    break;
+                case kArmorSectionRowIndexCustomArmor:
+                    newCell = [self makeShortStringCellFromTableView:self.monsterTableView
+                                                      withIdentifier:@"monster.customArmor"
+                                                               label:NSLocalizedString(@"Custom Armor", @"")
+                                                     andInitialValue:self.editingMonster.customArmor];
+                    break;
+                case kArmorSectionRowIndexNaturalArmorBonus:
+                    newCell = [self makeIntegerCellFromTableView:self.monsterTableView
+                                                  withIdentifier:@"monster.naturalArmorBonus"
+                                                           label:NSLocalizedString(@"Natural Armor Bonus", @"")
+                                                 andInitialValue:self.editingMonster.naturalArmorBonus];
+                    break;
             }
             break;
         case kSectionIndexSpeed:
@@ -373,6 +453,8 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.hpText = (NSString*)value;
         } else if ([@"monster.customSpeed" isEqualToString:identifier]) {
             self.editingMonster.customSpeed = (NSString*)value;
+        } else if ([@"monster.customArmor" isEqualToString:identifier]) {
+            self.editingMonster.customArmor = (NSString*)value;
         }
     }
     if ([kMCFieldValueTypeInteger isEqualToString:type]) {
@@ -400,6 +482,8 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.flySpeed = [(NSNumber*)value intValue];
         } else if ([@"monster.swimSpeed" isEqualToString:identifier]) {
             self.editingMonster.swimSpeed = [(NSNumber*)value intValue];
+        } else if ([@"monster.naturalArmorBonus" isEqualToString:identifier]) {
+            self.editingMonster.naturalArmorBonus = [(NSNumber*)value intValue];
         }
     }
     if ([kMCFieldValueTypeBoolean isEqualToString:type]) {
@@ -409,6 +493,13 @@ titleForHeaderInSection:(NSInteger)section {
             self.editingMonster.canHover = [(NSNumber*)value boolValue];
         } else if ([@"monster.hasCustomSpeed" isEqualToString:identifier]) {
             self.editingMonster.hasCustomSpeed = [(NSNumber*)value boolValue];
+        } else if ([@"monster.hasShield" isEqualToString:identifier]) {
+            self.editingMonster.hasShield = [(NSNumber*)value boolValue];
+        }
+    }
+    if ([kMCFieldValueTypeChoice isEqualToString:type]) {
+        if ([@"monster.armorType" isEqualToString:identifier]) {
+            self.editingMonster.armorType = (NSString*)value;
         }
     }
 }

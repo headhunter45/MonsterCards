@@ -19,7 +19,8 @@
     return self;
 }
 
--(id)initWithName: (NSString*)name andSpeaks: (BOOL)canSpeak {
+-(id)initWithName:(NSString*)name
+        andSpeaks:(BOOL)canSpeak {
     self = [super init];
     
     self.name = name;

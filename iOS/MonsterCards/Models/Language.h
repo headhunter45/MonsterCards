@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* name;
 @property BOOL speaks;
 
--(id)initWithName: (NSString*)name andSpeaks: (BOOL)canSpeak;
+-(id)initWithName:(NSString*)name
+        andSpeaks:(BOOL)canSpeak;
 
 @end
 
