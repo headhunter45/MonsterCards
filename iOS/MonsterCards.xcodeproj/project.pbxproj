@@ -333,8 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				E22F837D2511E8350072105C /* Helpers */,
-				E2592B8B250D6B6000906A40 /* Views */,
 				E2FD91E225047C1D00D5E935 /* Models */,
+				E2592B8B250D6B6000906A40 /* Views */,
 				E2F7249525005E8A007D87ED /* MonsterCardsTests.m */,
 				E2F7249725005E8A007D87ED /* Info.plist */,
 			);

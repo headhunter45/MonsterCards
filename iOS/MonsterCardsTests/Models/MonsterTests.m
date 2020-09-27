@@ -46,7 +46,7 @@
     XCTAssertEqual(0, _monster.intelligenceScore);
     XCTAssertEqual(0, _monster.wisdomScore);
     XCTAssertEqual(0, _monster.charismaScore);
-    XCTAssertEqualObjects(@"", _monster.armorName);
+    XCTAssertEqualObjects(@"", _monster.armorType);
     XCTAssertEqualObjects(@"", _monster.otherArmorDescription);
     XCTAssertEqual(0, _monster.shieldBonus);
     XCTAssertEqual(NO, _monster.customHP);
@@ -68,7 +68,7 @@
     XCTAssertEqual(14, _monster.intelligenceScore);
     XCTAssertEqual(16, _monster.wisdomScore);
     XCTAssertEqual(18, _monster.charismaScore);
-    XCTAssertEqualObjects(@"none", _monster.armorName);
+    XCTAssertEqualObjects(@"none", _monster.armorType);
     XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
     XCTAssertEqual(2, _monster.shieldBonus);
     XCTAssertEqual(YES, _monster.customHP);
@@ -91,7 +91,7 @@
     XCTAssertEqual(0, _monster.intelligenceScore);
     XCTAssertEqual(0, _monster.wisdomScore);
     XCTAssertEqual(0, _monster.charismaScore);
-    XCTAssertEqualObjects(@"", _monster.armorName);
+    XCTAssertEqualObjects(@"", _monster.armorType);
     XCTAssertEqualObjects(@"", _monster.otherArmorDescription);
     XCTAssertEqual(0, _monster.shieldBonus);
     XCTAssertEqual(NO, _monster.customHP);
@@ -114,7 +114,7 @@
     XCTAssertEqual(14, _monster.intelligenceScore);
     XCTAssertEqual(16, _monster.wisdomScore);
     XCTAssertEqual(18, _monster.charismaScore);
-    XCTAssertEqualObjects(@"none", _monster.armorName);
+    XCTAssertEqualObjects(@"none", _monster.armorType);
     XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
     XCTAssertEqual(2, _monster.shieldBonus);
     XCTAssertEqual(YES, _monster.customHP);
@@ -167,7 +167,7 @@
     XCTAssertEqual(14, _monster.intelligenceScore);
     XCTAssertEqual(16, _monster.wisdomScore);
     XCTAssertEqual(18, _monster.charismaScore);
-    XCTAssertEqualObjects(@"none", _monster.armorName);
+    XCTAssertEqualObjects(@"none", _monster.armorType);
     XCTAssertEqualObjects(@"10", _monster.otherArmorDescription);
     XCTAssertEqual(2, _monster.shieldBonus);
 }
@@ -385,8 +385,8 @@
 }
 
 - (void)testGetterAndSetterForArmorName {
-    _monster.armorName = @"dandelion";
-    XCTAssertEqualObjects(@"dandelion", _monster.armorName);
+    _monster.armorType = @"dandelion";
+    XCTAssertEqualObjects(@"dandelion", _monster.armorType);
 }
 
 - (void)testGetterAndSetterForOtherArmorDescription {
