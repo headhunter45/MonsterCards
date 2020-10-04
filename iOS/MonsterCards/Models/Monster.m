@@ -383,7 +383,10 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
     NSString *name;
     NSString *advantage;
     int bonus;
-    if (self.strengthSavingThrowProficiency != kProficiencyTypeNone || self.strengthSavingThrowAdvantage != kAdvantageTypeNone) {
+    if (
+        ![kProficiencyTypeNone isEqualToString:self.strengthSavingThrowProficiency] ||
+        ![kAdvantageTypeNone isEqualToString:self.strengthSavingThrowAdvantage]
+    ) {
         name = NSLocalizedString(@"Strength", @"");
         bonus = self.strengthModifier + [self proficiencyBonusForType:self.strengthSavingThrowProficiency];
         advantage = [Monster advantageLabelStringForType:self.strengthSavingThrowAdvantage];
@@ -392,7 +395,10 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
         }
         [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
-    if (self.dexteritySavingThrowProficiency != kProficiencyTypeNone) {
+    if (
+        ![kProficiencyTypeNone isEqualToString:self.dexteritySavingThrowProficiency] ||
+        ![kAdvantageTypeNone isEqualToString:self.dexteritySavingThrowAdvantage]
+    ) {
         name = NSLocalizedString(@"Dexterity", @"");
         bonus = self.dexterityModifier + [self proficiencyBonusForType:self.dexteritySavingThrowProficiency];
         advantage = [Monster advantageLabelStringForType:self.dexteritySavingThrowAdvantage];
@@ -401,7 +407,10 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
         }
         [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
-    if (self.constitutionSavingThrowProficiency != kProficiencyTypeNone) {
+    if (
+        ![kProficiencyTypeNone isEqualToString:self.constitutionSavingThrowProficiency] ||
+        ![kAdvantageTypeNone isEqualToString:self.constitutionSavingThrowAdvantage]
+    ) {
         name = NSLocalizedString(@"Constitution", @"");
         bonus = self.constitutionModifier + [self proficiencyBonusForType:self.constitutionSavingThrowProficiency];
         advantage = [Monster advantageLabelStringForType:self.constitutionSavingThrowAdvantage];
@@ -410,7 +419,10 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
         }
         [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
-    if (self.intelligenceSavingThrowProficiency != kProficiencyTypeNone) {
+    if (
+        ![kProficiencyTypeNone isEqualToString:self.intelligenceSavingThrowProficiency] ||
+        ![kAdvantageTypeNone isEqualToString:self.intelligenceSavingThrowAdvantage]
+    ) {
         name = NSLocalizedString(@"Intelligence", @"");
         bonus = self.intelligenceModifier + [self proficiencyBonusForType:self.intelligenceSavingThrowProficiency];
         advantage = [Monster advantageLabelStringForType:self.intelligenceSavingThrowAdvantage];
@@ -419,7 +431,10 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
         }
         [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
-    if (self.wisdomSavingThrowProficiency != kProficiencyTypeNone) {
+    if (
+        ![kProficiencyTypeNone isEqualToString:self.wisdomSavingThrowProficiency] ||
+        ![kAdvantageTypeNone isEqualToString:self.wisdomSavingThrowAdvantage]
+    ) {
         name = NSLocalizedString(@"Wisdom", @"");
         bonus = self.wisdomModifier + [self proficiencyBonusForType:self.wisdomSavingThrowProficiency];
         advantage = [Monster advantageLabelStringForType:self.wisdomSavingThrowAdvantage];
@@ -428,7 +443,10 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
         }
         [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
-    if (self.charismaSavingThrowProficiency != kProficiencyTypeNone) {
+    if (
+        ![kProficiencyTypeNone isEqualToString:self.charismaSavingThrowProficiency] ||
+        ![kAdvantageTypeNone isEqualToString:self.charismaSavingThrowAdvantage]
+    ) {
         name = NSLocalizedString(@"Charisma", @"");
         bonus = self.charismaModifier + [self proficiencyBonusForType:self.charismaSavingThrowProficiency];
         advantage = [Monster advantageLabelStringForType:self.charismaSavingThrowAdvantage];
