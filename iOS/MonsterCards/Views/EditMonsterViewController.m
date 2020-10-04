@@ -99,6 +99,8 @@ const int kAbilityScoreSectionRowIndexCharisma = 5;
                                     andValue:kArmorNameOther],
                    nil];
 
+    self.monsterTableView.allowsSelection = NO;
+    self.monsterTableView.allowsSelectionDuringEditing = NO;
     self.monsterTableView.dataSource = self;
     self.monsterTableView.delegate = self;
 }
