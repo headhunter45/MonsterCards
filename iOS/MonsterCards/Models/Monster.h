@@ -56,6 +56,14 @@ extern NSString* const kArmorNameSplintMail;
 extern NSString* const kArmorNamePlateMail;
 extern NSString* const kArmorNameOther;
 
+extern NSString *const kProficiencyTypeNone;
+extern NSString *const kProficiencyTypeProficient;
+extern NSString *const kProficiencyTypeExpertise;
+
+extern NSString *const kAdvantageTypeNone;
+extern NSString *const kAdvantageTypeAdvantage;
+extern NSString *const kAdvantageTypeDisadvantage;
+
 @class Skill;
 
 @interface Monster : NSManagedObject

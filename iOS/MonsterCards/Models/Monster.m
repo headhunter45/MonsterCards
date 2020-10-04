@@ -63,6 +63,14 @@ NSString* const kMonsterSizeLarge = @"large";
 NSString* const kMonsterSizeHuge = @"huge";
 NSString* const kMonsterSizeGargantuan = @"gargantuan";
 
+NSString *const kProficiencyTypeNone = @"none";
+NSString *const kProficiencyTypeProficient = @"proficient";
+NSString *const kProficiencyTypeExpertise = @"expertise";
+
+NSString *const kAdvantageTypeNone = @"none";
+NSString *const kAdvantageTypeAdvantage = @"advantage";
+NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
+
 +(int)abilityModifierForScore: (int)score {
     return (int)floor((score - 10) / 2.0);
 }
@@ -509,6 +517,18 @@ NSString* const kMonsterSizeGargantuan = @"gargantuan";
     self.naturalArmorBonus = monster.naturalArmorBonus;
     self.hasShield = monster.hasShield;
     self.customArmor = monster.customArmor;
+    self.strengthSavingThrowAdvantage = monster.strengthSavingThrowAdvantage;
+    self.strengthSavingThrowProficiency = monster.strengthSavingThrowProficiency;
+    self.dexteritySavingThrowAdvantage = monster.dexteritySavingThrowAdvantage;
+    self.dexteritySavingThrowProficiency = monster.dexteritySavingThrowProficiency;
+    self.constitutionSavingThrowAdvantage = monster.constitutionSavingThrowAdvantage;
+    self.constitutionSavingThrowProficiency = monster.constitutionSavingThrowProficiency;
+    self.intelligenceSavingThrowAdvantage = monster.intelligenceSavingThrowAdvantage;
+    self.intelligenceSavingThrowProficiency = monster.intelligenceSavingThrowProficiency;
+    self.wisdomSavingThrowAdvantage = monster.wisdomSavingThrowAdvantage;
+    self.wisdomSavingThrowProficiency = monster.wisdomSavingThrowProficiency;
+    self.charismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantage;
+    self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiency;
 }
 
 @end

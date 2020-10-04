@@ -6,31 +6,43 @@
         <attribute name="baseSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="burrowSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="canHover" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="charismaSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="charismaSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="charismaScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="climbSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="constitutionSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="constitutionSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="constitutionScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="customArmor" attributeType="String" defaultValueString=""/>
         <attribute name="customHP" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="customSpeed" attributeType="String" defaultValueString=""/>
+        <attribute name="dexteritySavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="dexteritySavingThrowProficiency" attributeType="String" defaultValueString="none" customClassName="none"/>
         <attribute name="dexterityScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="flySpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hasCustomSpeed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hasShield" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hitDice" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hpText" attributeType="String" defaultValueString=""/>
+        <attribute name="intelligenceSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="intelligenceSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="intelligenceScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="natrualArmorBonus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
         <attribute name="shieldBonus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="size" attributeType="String" defaultValueString=""/>
+        <attribute name="strengthSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="strengthSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="strengthScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="subtype" attributeType="String" defaultValueString=""/>
         <attribute name="swimSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
+        <attribute name="wisdomSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="wisdomSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="wisdomScore" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="463"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="643"/>
     </elements>
 </model>

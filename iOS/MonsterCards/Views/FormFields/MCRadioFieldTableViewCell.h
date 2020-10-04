@@ -1,5 +1,5 @@
 //
-//  MCSelectFieldTableViewCell.h
+//  MCRadioFieldTableViewCell.h
 //  MonsterCards
 //
 //  Created by Tom Hicks on 9/26/20.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MCSelectFieldTableViewCell : UITableViewCell<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface MCRadioFieldTableViewCell : UITableViewCell
 
 @property NSString* identifier;
 @property NSString* label;
@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSArray<MCChoice*>* choices;
 
 @property (weak, nonatomic) id<MCFormFieldDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *labelView;
-@property (nonatomic) UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 
 @end
 

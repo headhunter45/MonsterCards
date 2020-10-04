@@ -1,14 +1,14 @@
 //
-//  MCSelectFieldTableViewCell.m
+//  MCRadioFieldTableViewCell.m
 //  MonsterCards
 //
 //  Created by Tom Hicks on 9/26/20.
 //  Copyright © 2020 Tom Hicks. All rights reserved.
 //
 
-#import "MCSelectFieldTableViewCell.h"
+#import "MCRadioFieldTableViewCell.h"
 
-@implementation MCSelectFieldTableViewCell {
+@implementation MCRadioFieldTableViewCell {
     MCChoice* _selectedChoice;
 }
 
@@ -27,7 +27,8 @@
 }
 
 -(void)notifyChangedValue {
-    [self updateView];
+    NSUInteger selectedIndex = [_choices indexOfObject:_selectedChoice];
+    [self.segmentedControl setSelectedSegmentIndex:selectedIndex];
     
     if (_delegate) {
         [_delegate editableValueDidChange:_selectedValue
@@ -36,11 +37,16 @@
     }
 }
 
--(void)updateView {
-    self.textField.text = _selectedChoice.label;
-    NSInteger selectedRow = [_choices indexOfObject:_selectedChoice];
-    [self.pickerView selectRow:selectedRow inComponent:0 animated:YES];
-    
+-(void)updateSegments {
+    if (_segmentedControl) {
+        [_segmentedControl removeAllSegments];
+        int index = 0;
+        for (MCChoice *choice in _choices) {
+            [_segmentedControl insertSegmentWithTitle:choice.label atIndex:index animated:NO];
+            index++;
+        }
+        _segmentedControl.selectedSegmentIndex = [_choices indexOfObject:_selectedChoice];
+    }
 }
 
 @synthesize choices = _choices;
@@ -63,7 +69,7 @@
         self.selectedValue = foundChoice.value;
     }
     
-    [self updateView];
+    [self updateSegments];
 }
 -(NSArray<MCChoice*>*)choices {
     return _choices;
@@ -81,7 +87,6 @@
 -(NSString*)label {
     return _label;
 }
-
 
 @synthesize selectedValue = _selectedValue;
 -(void)setSelectedValue:(NSObject*)value {
@@ -106,27 +111,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.pickerView = [[UIPickerView alloc] init];
-    self.pickerView.delegate = self;
-    self.pickerView.dataSource = self;
-    self.textField.inputView = self.pickerView;
-    self.pickerView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
-    [toolbar sizeToFit];
-    
-    UIBarButtonItem *button =
-    [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"Button label")
-                                     style:UIBarButtonItemStylePlain
-                                    target:self
-                                    action:@selector(choiceSelected)];
-    [toolbar setItems:@[button]
-             animated:true];
-    [toolbar setUserInteractionEnabled:YES];
-    self.textField.inputAccessoryView = toolbar;
-    self.textField.hidden = NO;
-    self.textField.text = _selectedChoice.label;
-    self.textField.delegate = self;
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -135,42 +120,12 @@
     // Configure the view for the selected state
 }
 
-- (void)choiceSelected {
-    [self endEditing:true];
-}
-
-#pragma mark - UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component {
-    return [_choices count];
-}
-
-#pragma mark - UIPickerViewDelegate
-
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component {
-    return [_choices objectAtIndex:row].label;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView
-      didSelectRow:(NSInteger)row
-       inComponent:(NSInteger)component {
-   
-    _selectedChoice = [_choices objectAtIndex:row];
-    self.textField.text = _selectedChoice.label;
-    self.selectedValue = _selectedChoice.value;
-}
-
-#pragma mark - UITextFieldDelegate
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [self updateView];
+- (IBAction)selectedSegmentChanged:(id)sender {
+    NSInteger selectedIndex = _segmentedControl.selectedSegmentIndex;
+    MCChoice *newChoice = [_choices objectAtIndex:selectedIndex];
+    _selectedChoice = newChoice;
+    _selectedValue = _selectedChoice.value;
+    [self notifyChangedValue];
 }
 
 @end
