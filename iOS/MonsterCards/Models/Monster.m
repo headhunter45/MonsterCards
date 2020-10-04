@@ -354,41 +354,90 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
     @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
 }
 
+-(int)proficiencyBonusForType:(NSString*)proficiencyType {
+    if ([kProficiencyTypeNone isEqualToString:proficiencyType]) {
+        return 0;
+    } else if ([kProficiencyTypeProficient isEqualToString:proficiencyType]) {
+        return self.proficiencyBonus;
+    } else if ([kProficiencyTypeExpertise isEqualToString:proficiencyType]) {
+        return self.proficiencyBonus * 2;
+    } else {
+        return 0;
+    }
+}
+
++(NSString*)advantageLabelStringForType:(NSString*)advantageType {
+    if ([kAdvantageTypeNone isEqualToString:advantageType]) {
+        return @"";
+    } else if ([kAdvantageTypeAdvantage isEqualToString:advantageType]) {
+        return @"(A)";
+    } else if ([kAdvantageTypeDisadvantage isEqualToString:advantageType]) {
+        return @"(D)";
+    } else {
+        return @"";
+    }
+}
+
 -(NSString*)savingThrowsDescription {
     NSMutableArray *parts = [[NSMutableArray alloc] init];
     NSString *name;
+    NSString *advantage;
     int bonus;
-    if (self.strengthSavingThrowProficiency != kProficiencyTypeNone) {
+    if (self.strengthSavingThrowProficiency != kProficiencyTypeNone || self.strengthSavingThrowAdvantage != kAdvantageTypeNone) {
         name = NSLocalizedString(@"Strength", @"");
-        bonus = self.proficiencyBonus + self.strengthModifier;
-        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+        bonus = self.strengthModifier + [self proficiencyBonusForType:self.strengthSavingThrowProficiency];
+        advantage = [Monster advantageLabelStringForType:self.strengthSavingThrowAdvantage];
+        if (advantage) {
+            advantage = [@" " stringByAppendingString:advantage];
+        }
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
     if (self.dexteritySavingThrowProficiency != kProficiencyTypeNone) {
         name = NSLocalizedString(@"Dexterity", @"");
-        bonus = self.proficiencyBonus + self.dexterityModifier;
-        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+        bonus = self.dexterityModifier + [self proficiencyBonusForType:self.dexteritySavingThrowProficiency];
+        advantage = [Monster advantageLabelStringForType:self.dexteritySavingThrowAdvantage];
+        if (advantage) {
+            advantage = [@" " stringByAppendingString:advantage];
+        }
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
     if (self.constitutionSavingThrowProficiency != kProficiencyTypeNone) {
         name = NSLocalizedString(@"Constitution", @"");
-        bonus = self.proficiencyBonus + self.constitutionModifier;
-        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+        bonus = self.constitutionModifier + [self proficiencyBonusForType:self.constitutionSavingThrowProficiency];
+        advantage = [Monster advantageLabelStringForType:self.constitutionSavingThrowAdvantage];
+        if (advantage) {
+            advantage = [@" " stringByAppendingString:advantage];
+        }
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
     if (self.intelligenceSavingThrowProficiency != kProficiencyTypeNone) {
         name = NSLocalizedString(@"Intelligence", @"");
-        bonus = self.proficiencyBonus + self.intelligenceModifier;
-        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+        bonus = self.intelligenceModifier + [self proficiencyBonusForType:self.intelligenceSavingThrowProficiency];
+        advantage = [Monster advantageLabelStringForType:self.intelligenceSavingThrowAdvantage];
+        if (advantage) {
+            advantage = [@" " stringByAppendingString:advantage];
+        }
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
     if (self.wisdomSavingThrowProficiency != kProficiencyTypeNone) {
         name = NSLocalizedString(@"Wisdom", @"");
-        bonus = self.proficiencyBonus + self.wisdomModifier;
-        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+        bonus = self.wisdomModifier + [self proficiencyBonusForType:self.wisdomSavingThrowProficiency];
+        advantage = [Monster advantageLabelStringForType:self.wisdomSavingThrowAdvantage];
+        if (advantage) {
+            advantage = [@" " stringByAppendingString:advantage];
+        }
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
     if (self.charismaSavingThrowProficiency != kProficiencyTypeNone) {
         name = NSLocalizedString(@"Charisma", @"");
-        bonus = self.proficiencyBonus + self.charismaModifier;
-        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+        bonus = self.charismaModifier + [self proficiencyBonusForType:self.charismaSavingThrowProficiency];
+        advantage = [Monster advantageLabelStringForType:self.charismaSavingThrowAdvantage];
+        if (advantage) {
+            advantage = [@" " stringByAppendingString:advantage];
+        }
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d%@", name, bonus, advantage]];
     }
-    return [parts componentsJoinedByString:@" "];
+    return [parts componentsJoinedByString:@", "];
 }
 
 -(int)proficiencyBonus {

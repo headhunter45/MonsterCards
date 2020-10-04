@@ -119,6 +119,7 @@ extern NSString *const kAdvantageTypeDisadvantage;
 -(void)clearSavingThrows;
 -(NSString*)savingThrowsDescription;
 -(int)proficiencyBonus;
+-(int)proficiencyBonusForType:(NSString*)proficiencyType;
 -(void)addSkill: (Skill*)skill;
 -(void)removeSkill: (Skill*)skill;
 -(void)clearSkills;
