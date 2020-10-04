@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *monsterIntelligence;
 @property (weak, nonatomic) IBOutlet UILabel *monsterWisdom;
 @property (weak, nonatomic) IBOutlet UILabel *monsterCharisma;
+@property (weak, nonatomic) IBOutlet UILabel *monsterSavingThrows;
 
 @property Monster* monster;
 

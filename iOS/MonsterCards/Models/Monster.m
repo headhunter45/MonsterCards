@@ -13,8 +13,11 @@
 @implementation Monster
 
 @synthesize blindsightDistance;
+// TODO: move this to Core Data and add to editor
 @synthesize challengeRating;
+// TODO: move this to Core Data and add to editor
 @synthesize customChallengeRating;
+// TODO: move this to Core Data and add to editor
 @synthesize customProficiencyBonus;
 @synthesize darkvisionDistance;
 @synthesize isBlind;
@@ -352,11 +355,106 @@ NSString *const kAdvantageTypeDisadvantage = @"disadvantage";
 }
 
 -(NSString*)savingThrowsDescription {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    NSMutableArray *parts = [[NSMutableArray alloc] init];
+    NSString *name;
+    int bonus;
+    if (self.strengthSavingThrowProficiency != kProficiencyTypeNone) {
+        name = NSLocalizedString(@"Strength", @"");
+        bonus = self.proficiencyBonus + self.strengthModifier;
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+    }
+    if (self.dexteritySavingThrowProficiency != kProficiencyTypeNone) {
+        name = NSLocalizedString(@"Dexterity", @"");
+        bonus = self.proficiencyBonus + self.dexterityModifier;
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+    }
+    if (self.constitutionSavingThrowProficiency != kProficiencyTypeNone) {
+        name = NSLocalizedString(@"Constitution", @"");
+        bonus = self.proficiencyBonus + self.constitutionModifier;
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+    }
+    if (self.intelligenceSavingThrowProficiency != kProficiencyTypeNone) {
+        name = NSLocalizedString(@"Intelligence", @"");
+        bonus = self.proficiencyBonus + self.intelligenceModifier;
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+    }
+    if (self.wisdomSavingThrowProficiency != kProficiencyTypeNone) {
+        name = NSLocalizedString(@"Wisdom", @"");
+        bonus = self.proficiencyBonus + self.wisdomModifier;
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+    }
+    if (self.charismaSavingThrowProficiency != kProficiencyTypeNone) {
+        name = NSLocalizedString(@"Charisma", @"");
+        bonus = self.proficiencyBonus + self.charismaModifier;
+        [parts addObject:[NSString stringWithFormat:@"%@ %+d", name, bonus]];
+    }
+    return [parts componentsJoinedByString:@" "];
 }
 
 -(int)proficiencyBonus {
-    @throw [[NSException alloc] initWithName:@"unimplemented" reason:@"Method not implemented." userInfo:nil];
+    if ([@"*" isEqualToString:challengeRating]) {
+        return customProficiencyBonus;
+    } else if (
+               [@"0" isEqualToString:challengeRating] ||
+               [@"1/8" isEqualToString:challengeRating] ||
+               [@"1/4" isEqualToString:challengeRating] ||
+               [@"1/2" isEqualToString:challengeRating] ||
+               [@"1" isEqualToString:challengeRating] ||
+               [@"2" isEqualToString:challengeRating] ||
+               [@"3" isEqualToString:challengeRating] ||
+               [@"4" isEqualToString:challengeRating]
+    ) {
+        return 2;
+    } else if (
+               [@"5" isEqualToString:challengeRating] ||
+               [@"6" isEqualToString:challengeRating] ||
+               [@"7" isEqualToString:challengeRating] ||
+               [@"8" isEqualToString:challengeRating])
+    {
+        return 3;
+    } else if (
+               [@"9" isEqualToString:challengeRating] ||
+               [@"10" isEqualToString:challengeRating] ||
+               [@"11" isEqualToString:challengeRating] ||
+               [@"12" isEqualToString:challengeRating])
+    {
+        return 4;
+    } else if (
+               [@"13" isEqualToString:challengeRating] ||
+               [@"14" isEqualToString:challengeRating] ||
+               [@"15" isEqualToString:challengeRating] ||
+               [@"16" isEqualToString:challengeRating])
+    {
+        return 5;
+    } else if (
+               [@"17" isEqualToString:challengeRating] ||
+               [@"18" isEqualToString:challengeRating] ||
+               [@"19" isEqualToString:challengeRating] ||
+               [@"20" isEqualToString:challengeRating])
+    {
+        return 6;
+    } else if (
+               [@"21" isEqualToString:challengeRating] ||
+               [@"22" isEqualToString:challengeRating] ||
+               [@"23" isEqualToString:challengeRating] ||
+               [@"24" isEqualToString:challengeRating])
+    {
+        return 7;
+    } else if (
+               [@"25" isEqualToString:challengeRating] ||
+               [@"26" isEqualToString:challengeRating] ||
+               [@"27" isEqualToString:challengeRating] ||
+               [@"28" isEqualToString:challengeRating])
+    {
+        return 8;
+    } else if (
+               [@"29" isEqualToString:challengeRating] ||
+               [@"30" isEqualToString:challengeRating])
+    {
+        return 9;
+    } else {
+        return 0;
+    }
 }
 
 -(void)addSkill: (Skill*)skill {

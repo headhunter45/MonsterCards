@@ -105,6 +105,14 @@ NSString* makeHTMLFragmentString(NSString* format, ...) {
     if (self.monsterCharisma) {
         self.monsterCharisma.text = self.monster.charismaDescription;
     }
+    if (self.monsterSavingThrows) {
+        NSString *savingThrowsDescription = self.monster.savingThrowsDescription;
+        if (savingThrowsDescription == nil) {
+            self.monsterSavingThrows.text = @"";
+        } else {
+            self.monsterSavingThrows.attributedText = [HTMLHelper attributedStringFromHTML:makeHTMLFragmentString(@"<b>Saving Throws</b> %@", savingThrowsDescription)];
+        }
+    }
 }
 
 - (IBAction)unwindWithSegue:(UIStoryboardSegue *)unwindSegue {
