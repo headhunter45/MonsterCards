@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Monster" representedClassName="Monster" syncable="YES" codeGenerationType="category">
         <attribute name="alignment" attributeType="String" defaultValueString=""/>
-        <attribute name="armorType" attributeType="String" defaultValueString=""/>
+        <attribute name="armorType" attributeType="String" defaultValueString="none"/>
         <attribute name="baseSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="burrowSpeed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="canHover" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>

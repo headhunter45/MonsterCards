@@ -38,9 +38,14 @@
 
 -(void)updateView {
     self.textField.text = _selectedChoice.label;
-    NSInteger selectedRow = [_choices indexOfObject:_selectedChoice];
-    [self.pickerView selectRow:selectedRow inComponent:0 animated:YES];
-    
+    if (_choices && _choices.count > 0) {
+        NSInteger selectedRow = [_choices indexOfObject:_selectedChoice];
+        if (selectedRow != NSNotFound) {
+            [self.pickerView selectRow:selectedRow inComponent:0 animated:YES];
+        } else {
+            [self.pickerView selectRow:0 inComponent:0 animated:YES];
+        }
+    }
 }
 
 @synthesize choices = _choices;
@@ -90,7 +95,8 @@
     if (!_choices) {
         newValue = value;
     } else if (!foundChoice) {
-        newValue = nil;
+        foundChoice = [_choices firstObject];
+        newValue = foundChoice.value;
     } else {
         newValue = foundChoice.value;
     }
