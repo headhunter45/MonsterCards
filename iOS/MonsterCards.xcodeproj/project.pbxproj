@@ -3,393 +3,218 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D2A61B332F293AB365B59E7 /* Pods_MonsterCards_MonsterCardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */; };
-		92967C3D4DFE1D9C66FF994F /* Pods_MonsterCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */; };
-		CE281520762D69A9E98D19CF /* Pods_MonsterCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */; };
-		E20C315425146708003AB1AA /* MCIntegerFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */; };
-		E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032325031B9D00FB6E43 /* SearchViewController.m */; };
-		E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032725031BDA00FB6E43 /* MonsterViewController.m */; };
-		E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032A25031BE500FB6E43 /* LibraryViewController.m */; };
-		E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */; };
-		E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D033025031BFD00FB6E43 /* DashboardViewController.m */; };
-		E22F837C2511D14E0072105C /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F837B2511D14E0072105C /* JSONHelper.m */; };
-		E22F837F2511E8500072105C /* JSONHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F837E2511E8500072105C /* JSONHelperTests.m */; };
-		E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2532E8825038DE100CA4CBA /* StringHelper.m */; };
-		E2592B8D250D6B8100906A40 /* EditMonsterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */; };
-		E25BD5F5250352C4007B04EF /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F4250352C4007B04EF /* Monster.m */; };
-		E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5F7250368A8007B04EF /* SavingThrow.m */; };
-		E25BD5FB250369D7007B04EF /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5FA250369D7007B04EF /* Skill.m */; };
-		E25BD5FE25036A76007B04EF /* DamageType.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD5FD25036A76007B04EF /* DamageType.m */; };
-		E25BD60125036BF8007B04EF /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60025036BF8007B04EF /* Language.m */; };
-		E25BD60425036CF0007B04EF /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60325036CF0007B04EF /* Ability.m */; };
-		E25BD60725036CFA007B04EF /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BD60625036CFA007B04EF /* Action.m */; };
-		E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E26A73562511BA1900C5677E /* HTMLHelper.m */; };
-		E278E21B250DFFCA00D3EC0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E278E21A250DFFCA00D3EC0E /* Images.xcassets */; };
-		E2805514251E03BE00C87527 /* MCBooleanFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */; };
-		E288744A25148BA0005CA948 /* MCFormFieldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E288744925148BA0005CA948 /* MCFormFieldConstants.m */; };
-		E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */; };
-		E2D3E3B42508C3360052A8EC /* MCShortStringFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */; };
-		E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
-		E2E90AFF252015B3005241C8 /* MCSelectFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E90AFE252015B3005241C8 /* MCSelectFieldTableViewCell.m */; };
-		E2E90B0525201785005241C8 /* MCChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E90B0425201785005241C8 /* MCChoice.m */; };
-		E2E90B172520667F005241C8 /* MCRadioFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E90B162520667E005241C8 /* MCRadioFieldTableViewCell.m */; };
-		E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */; };
-		E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */; };
-		E2F7247525005E89007D87ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247425005E89007D87ED /* AppDelegate.m */; };
-		E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7247725005E89007D87ED /* SceneDelegate.m */; };
-		E2F7248125005E89007D87ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7247F25005E89007D87ED /* Main.storyboard */; };
-		E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */; };
-		E2F7248625005E8A007D87ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2F7248525005E8A007D87ED /* Assets.xcassets */; };
-		E2F7248925005E8A007D87ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */; };
-		E2F7248C25005E8A007D87ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7248B25005E8A007D87ED /* main.m */; };
-		E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7249525005E8A007D87ED /* MonsterCardsTests.m */; };
-		E2F724A125005E8A007D87ED /* MonsterCardsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */; };
-		E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E325047C4400D5E935 /* AbilityTests.m */; };
-		E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E5250481F300D5E935 /* ActionTests.m */; };
-		E2FD91E82504832A00D5E935 /* DamageTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E72504832A00D5E935 /* DamageTypeTests.m */; };
-		E2FD91EA250493C000D5E935 /* LanguageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91E9250493C000D5E935 /* LanguageTests.m */; };
-		E2FD91EC250496B000D5E935 /* SavingThrowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FD91EB250496B000D5E935 /* SavingThrowTests.m */; };
+		E210B83025B426570083EAC5 /* ProficiencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B82F25B426570083EAC5 /* ProficiencyType.swift */; };
+		E210B83525B428A30083EAC5 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83425B428A30083EAC5 /* AdvantageType.swift */; };
+		E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */; };
+		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
+		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
+		E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */; };
+		E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FBA25B1AC520055B23B /* ContentView.swift */; };
+		E2570FBD25B1AC550055B23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2570FBC25B1AC550055B23B /* Assets.xcassets */; };
+		E2570FC025B1AC550055B23B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2570FBF25B1AC550055B23B /* Preview Assets.xcassets */; };
+		E2570FC225B1AC550055B23B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FC125B1AC550055B23B /* Persistence.swift */; };
+		E2570FC525B1AC550055B23B /* MonsterCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */; };
+		E2570FD025B1AC550055B23B /* MonsterCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FCF25B1AC550055B23B /* MonsterCardsTests.swift */; };
+		E2570FDB25B1AC550055B23B /* MonsterCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FDA25B1AC550055B23B /* MonsterCardsUITests.swift */; };
+		E2570FF025B1ADC10055B23B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FEF25B1ADC10055B23B /* Search.swift */; };
+		E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FF425B1ADEB0055B23B /* Dashboard.swift */; };
+		E2570FFA25B1AE020055B23B /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FF925B1AE020055B23B /* Collections.swift */; };
+		E2570FFF25B1AE180055B23B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FFE25B1AE180055B23B /* Library.swift */; };
+		E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100325B1AF4A0055B23B /* SearchBar.swift */; };
+		E257100925B1B2480055B23B /* MonsterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100825B1B2470055B23B /* MonsterDetail.swift */; };
+		E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5285825B3028700AAA69E /* EditMonster.swift */; };
+		E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD702B25B3A8D70058ED69 /* MCTextField.swift */; };
+		E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD703025B3BBB90058ED69 /* MCStepperField.swift */; };
+		E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D473FC25B532C900CB36D7 /* Color+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E2F7249225005E8A007D87ED /* PBXContainerItemProxy */ = {
+		E2570FCC25B1AC550055B23B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E2F7246825005E89007D87ED /* Project object */;
+			containerPortal = E2570FAD25B1AC520055B23B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E2F7246F25005E89007D87ED;
+			remoteGlobalIDString = E2570FB425B1AC520055B23B;
 			remoteInfo = MonsterCards;
 		};
-		E2F7249D25005E8A007D87ED /* PBXContainerItemProxy */ = {
+		E2570FD725B1AC550055B23B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E2F7246825005E89007D87ED /* Project object */;
+			containerPortal = E2570FAD25B1AC520055B23B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E2F7246F25005E89007D87ED;
+			remoteGlobalIDString = E2570FB425B1AC520055B23B;
 			remoteInfo = MonsterCards;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A3B9A106B1FD3BB7C0750DF /* Pods-MonsterCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		598715810FF9D9DA2A1E91C6 /* Pods-MonsterCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests.release.xcconfig"; sourceTree = "<group>"; };
-		6E60C8124CB33D697F6D0390 /* Pods-MonsterCards-MonsterCardsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.release.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.release.xcconfig"; sourceTree = "<group>"; };
-		89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCards_MonsterCardsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards/Pods-MonsterCards.debug.xcconfig"; sourceTree = "<group>"; };
-		A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards.release.xcconfig"; path = "Target Support Files/Pods-MonsterCards/Pods-MonsterCards.release.xcconfig"; sourceTree = "<group>"; };
-		E20C315225146708003AB1AA /* MCIntegerFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCIntegerFieldTableViewCell.h; sourceTree = "<group>"; };
-		E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCIntegerFieldTableViewCell.m; sourceTree = "<group>"; };
-		E20D032225031B9D00FB6E43 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		E20D032325031B9D00FB6E43 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		E20D032625031BDA00FB6E43 /* MonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterViewController.h; sourceTree = "<group>"; };
-		E20D032725031BDA00FB6E43 /* MonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterViewController.m; sourceTree = "<group>"; };
-		E20D032925031BE500FB6E43 /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
-		E20D032A25031BE500FB6E43 /* LibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
-		E20D032C25031BEF00FB6E43 /* CollectionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionsViewController.h; sourceTree = "<group>"; };
-		E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
-		E20D032F25031BFD00FB6E43 /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
-		E20D033025031BFD00FB6E43 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
-		E22F837A2511D14E0072105C /* JSONHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
-		E22F837B2511D14E0072105C /* JSONHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
-		E22F837E2511E8500072105C /* JSONHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONHelperTests.m; sourceTree = "<group>"; };
-		E2532E8725038DE100CA4CBA /* StringHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
-		E2532E8825038DE100CA4CBA /* StringHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
-		E2591EB62509DD4900B396FD /* MCFormFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCFormFieldDelegate.h; sourceTree = "<group>"; };
-		E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewControllerTests.m; sourceTree = "<group>"; };
-		E25BD5F3250352C4007B04EF /* Monster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
-		E25BD5F4250352C4007B04EF /* Monster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
-		E25BD5F6250368A8007B04EF /* SavingThrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavingThrow.h; sourceTree = "<group>"; };
-		E25BD5F7250368A8007B04EF /* SavingThrow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavingThrow.m; sourceTree = "<group>"; };
-		E25BD5F9250369D7007B04EF /* Skill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
-		E25BD5FA250369D7007B04EF /* Skill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
-		E25BD5FC25036A76007B04EF /* DamageType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DamageType.h; sourceTree = "<group>"; };
-		E25BD5FD25036A76007B04EF /* DamageType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamageType.m; sourceTree = "<group>"; };
-		E25BD5FF25036BF8007B04EF /* Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
-		E25BD60025036BF8007B04EF /* Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
-		E25BD60225036CF0007B04EF /* Ability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ability.h; sourceTree = "<group>"; };
-		E25BD60325036CF0007B04EF /* Ability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ability.m; sourceTree = "<group>"; };
-		E25BD60525036CFA007B04EF /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
-		E25BD60625036CFA007B04EF /* Action.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
-		E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E26A73552511BA1900C5677E /* HTMLHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLHelper.h; sourceTree = "<group>"; };
-		E26A73562511BA1900C5677E /* HTMLHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMLHelper.m; sourceTree = "<group>"; };
-		E278E21A250DFFCA00D3EC0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E2805512251E03BE00C87527 /* MCBooleanFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCBooleanFieldTableViewCell.h; sourceTree = "<group>"; };
-		E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCBooleanFieldTableViewCell.m; sourceTree = "<group>"; };
-		E288744925148BA0005CA948 /* MCFormFieldConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCFormFieldConstants.m; sourceTree = "<group>"; };
-		E288744E25148BAD005CA948 /* MCFormFieldConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCFormFieldConstants.h; sourceTree = "<group>"; };
-		E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMonsterViewController.h; sourceTree = "<group>"; };
-		E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMonsterViewController.m; sourceTree = "<group>"; };
-		E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCShortStringFieldTableViewCell.h; sourceTree = "<group>"; };
-		E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCShortStringFieldTableViewCell.m; sourceTree = "<group>"; };
-		E2E90AFD252015B3005241C8 /* MCSelectFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSelectFieldTableViewCell.h; sourceTree = "<group>"; };
-		E2E90AFE252015B3005241C8 /* MCSelectFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSelectFieldTableViewCell.m; sourceTree = "<group>"; };
-		E2E90B0325201785005241C8 /* MCChoice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCChoice.h; sourceTree = "<group>"; };
-		E2E90B0425201785005241C8 /* MCChoice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCChoice.m; sourceTree = "<group>"; };
-		E2E90B152520667E005241C8 /* MCRadioFieldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCRadioFieldTableViewCell.h; sourceTree = "<group>"; };
-		E2E90B162520667E005241C8 /* MCRadioFieldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCRadioFieldTableViewCell.m; sourceTree = "<group>"; };
-		E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTests.m; sourceTree = "<group>"; };
-		E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterTests.m; sourceTree = "<group>"; };
-		E2F7247025005E89007D87ED /* Monster Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monster Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2F7247325005E89007D87ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E2F7247425005E89007D87ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E2F7247625005E89007D87ED /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		E2F7247725005E89007D87ED /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		E2F7248025005E89007D87ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterCards.xcdatamodel; sourceTree = "<group>"; };
-		E2F7248525005E8A007D87ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2F7248825005E8A007D87ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E2F7248A25005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2F7248B25005E8A007D87ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2F7249525005E8A007D87ED /* MonsterCardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterCardsTests.m; sourceTree = "<group>"; };
-		E2F7249725005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterCardsUITests.m; sourceTree = "<group>"; };
-		E2F724A225005E8A007D87ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2FD91E325047C4400D5E935 /* AbilityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbilityTests.m; sourceTree = "<group>"; };
-		E2FD91E5250481F300D5E935 /* ActionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionTests.m; sourceTree = "<group>"; };
-		E2FD91E72504832A00D5E935 /* DamageTypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamageTypeTests.m; sourceTree = "<group>"; };
-		E2FD91E9250493C000D5E935 /* LanguageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageTests.m; sourceTree = "<group>"; };
-		E2FD91EB250496B000D5E935 /* SavingThrowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavingThrowTests.m; sourceTree = "<group>"; };
-		FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonsterCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E210B82F25B426570083EAC5 /* ProficiencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencyType.swift; sourceTree = "<group>"; };
+		E210B83425B428A30083EAC5 /* AdvantageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageType.swift; sourceTree = "<group>"; };
+		E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProficiencyPicker.swift; sourceTree = "<group>"; };
+		E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvantagePicker.swift; sourceTree = "<group>"; };
+		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E2570FB525B1AC520055B23B /* MonsterCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsApp.swift; sourceTree = "<group>"; };
+		E2570FBA25B1AC520055B23B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E2570FBC25B1AC550055B23B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2570FBF25B1AC550055B23B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E2570FC125B1AC550055B23B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E2570FC425B1AC550055B23B /* MonsterCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterCards.xcdatamodel; sourceTree = "<group>"; };
+		E2570FC625B1AC550055B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2570FCB25B1AC550055B23B /* MonsterCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2570FCF25B1AC550055B23B /* MonsterCardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsTests.swift; sourceTree = "<group>"; };
+		E2570FD125B1AC550055B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2570FD625B1AC550055B23B /* MonsterCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2570FDA25B1AC550055B23B /* MonsterCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsUITests.swift; sourceTree = "<group>"; };
+		E2570FDC25B1AC550055B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2570FEF25B1ADC10055B23B /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		E2570FF425B1ADEB0055B23B /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		E2570FF925B1AE020055B23B /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		E2570FFE25B1AE180055B23B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		E257100325B1AF4A0055B23B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E257100825B1B2470055B23B /* MonsterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetail.swift; sourceTree = "<group>"; };
+		E2B5285825B3028700AAA69E /* EditMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMonster.swift; sourceTree = "<group>"; };
+		E2BD702B25B3A8D70058ED69 /* MCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTextField.swift; sourceTree = "<group>"; };
+		E2BD703025B3BBB90058ED69 /* MCStepperField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStepperField.swift; sourceTree = "<group>"; };
+		E2D473FC25B532C900CB36D7 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E2F7246D25005E89007D87ED /* Frameworks */ = {
+		E2570FB225B1AC520055B23B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92967C3D4DFE1D9C66FF994F /* Pods_MonsterCards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2F7248E25005E8A007D87ED /* Frameworks */ = {
+		E2570FC825B1AC550055B23B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE281520762D69A9E98D19CF /* Pods_MonsterCardsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2F7249925005E8A007D87ED /* Frameworks */ = {
+		E2570FD325B1AC550055B23B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2A61B332F293AB365B59E7 /* Pods_MonsterCards_MonsterCardsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		609B2034EDEFF32DFBB7EA4C /* Frameworks */ = {
+		E2570FAC25B1AC520055B23B = {
 			isa = PBXGroup;
 			children = (
-				FA8D56491D6CAB92316D2C1B /* Pods_MonsterCards.framework */,
-				89F0D2EC2EC3C99EFD9A6949 /* Pods_MonsterCards_MonsterCardsUITests.framework */,
-				A9F017069E22ED575758F9E2 /* Pods_MonsterCardsTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6A84BC38693A798A444629A6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */,
-				D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */,
-				E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */,
-				6E60C8124CB33D697F6D0390 /* Pods-MonsterCards-MonsterCardsUITests.release.xcconfig */,
-				1A3B9A106B1FD3BB7C0750DF /* Pods-MonsterCardsTests.debug.xcconfig */,
-				598715810FF9D9DA2A1E91C6 /* Pods-MonsterCardsTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		E20D032525031BA700FB6E43 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E2D3E3B12508C2FE0052A8EC /* FormFields */,
-				E20D032C25031BEF00FB6E43 /* CollectionsViewController.h */,
-				E20D032D25031BEF00FB6E43 /* CollectionsViewController.m */,
-				E20D032F25031BFD00FB6E43 /* DashboardViewController.h */,
-				E20D033025031BFD00FB6E43 /* DashboardViewController.m */,
-				E2D3E3AE250827110052A8EC /* EditMonsterViewController.h */,
-				E2D3E3AF250827110052A8EC /* EditMonsterViewController.m */,
-				E20D032925031BE500FB6E43 /* LibraryViewController.h */,
-				E20D032A25031BE500FB6E43 /* LibraryViewController.m */,
-				E20D032625031BDA00FB6E43 /* MonsterViewController.h */,
-				E20D032725031BDA00FB6E43 /* MonsterViewController.m */,
-				E20D032225031B9D00FB6E43 /* SearchViewController.h */,
-				E20D032325031B9D00FB6E43 /* SearchViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E20D033225034C0700FB6E43 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E25BD60225036CF0007B04EF /* Ability.h */,
-				E25BD60325036CF0007B04EF /* Ability.m */,
-				E25BD60525036CFA007B04EF /* Action.h */,
-				E25BD60625036CFA007B04EF /* Action.m */,
-				E25BD5FC25036A76007B04EF /* DamageType.h */,
-				E25BD5FD25036A76007B04EF /* DamageType.m */,
-				E25BD5FF25036BF8007B04EF /* Language.h */,
-				E25BD60025036BF8007B04EF /* Language.m */,
-				E25BD5F3250352C4007B04EF /* Monster.h */,
-				E25BD5F4250352C4007B04EF /* Monster.m */,
-				E25BD5F6250368A8007B04EF /* SavingThrow.h */,
-				E25BD5F7250368A8007B04EF /* SavingThrow.m */,
-				E25BD5F9250369D7007B04EF /* Skill.h */,
-				E25BD5FA250369D7007B04EF /* Skill.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E20D033325034C0C00FB6E43 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E2532E8725038DE100CA4CBA /* StringHelper.h */,
-				E2532E8825038DE100CA4CBA /* StringHelper.m */,
-				E26A73552511BA1900C5677E /* HTMLHelper.h */,
-				E26A73562511BA1900C5677E /* HTMLHelper.m */,
-				E22F837A2511D14E0072105C /* JSONHelper.h */,
-				E22F837B2511D14E0072105C /* JSONHelper.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		E22F837D2511E8350072105C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E22F837E2511E8500072105C /* JSONHelperTests.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		E2592B8B250D6B6000906A40 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E2592B8C250D6B8100906A40 /* EditMonsterViewControllerTests.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E2D3E3B12508C2FE0052A8EC /* FormFields */ = {
-			isa = PBXGroup;
-			children = (
-				E2591EB62509DD4900B396FD /* MCFormFieldDelegate.h */,
-				E288744E25148BAD005CA948 /* MCFormFieldConstants.h */,
-				E288744925148BA0005CA948 /* MCFormFieldConstants.m */,
-				E2E90B0325201785005241C8 /* MCChoice.h */,
-				E2E90B0425201785005241C8 /* MCChoice.m */,
-				E2805512251E03BE00C87527 /* MCBooleanFieldTableViewCell.h */,
-				E2805513251E03BE00C87527 /* MCBooleanFieldTableViewCell.m */,
-				E20C315225146708003AB1AA /* MCIntegerFieldTableViewCell.h */,
-				E20C315325146708003AB1AA /* MCIntegerFieldTableViewCell.m */,
-				E2E90B152520667E005241C8 /* MCRadioFieldTableViewCell.h */,
-				E2E90B162520667E005241C8 /* MCRadioFieldTableViewCell.m */,
-				E2E90AFD252015B3005241C8 /* MCSelectFieldTableViewCell.h */,
-				E2E90AFE252015B3005241C8 /* MCSelectFieldTableViewCell.m */,
-				E2D3E3B22508C3360052A8EC /* MCShortStringFieldTableViewCell.h */,
-				E2D3E3B32508C3360052A8EC /* MCShortStringFieldTableViewCell.m */,
-			);
-			path = FormFields;
-			sourceTree = "<group>";
-		};
-		E2F7246725005E89007D87ED = {
-			isa = PBXGroup;
-			children = (
-				E2F7247225005E89007D87ED /* MonsterCards */,
-				E2F7249425005E8A007D87ED /* MonsterCardsTests */,
-				E2F7249F25005E8A007D87ED /* MonsterCardsUITests */,
-				E2F7247125005E89007D87ED /* Products */,
-				6A84BC38693A798A444629A6 /* Pods */,
-				609B2034EDEFF32DFBB7EA4C /* Frameworks */,
+				E2570FB725B1AC520055B23B /* MonsterCards */,
+				E2570FCE25B1AC550055B23B /* MonsterCardsTests */,
+				E2570FD925B1AC550055B23B /* MonsterCardsUITests */,
+				E2570FB625B1AC520055B23B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E2F7247125005E89007D87ED /* Products */ = {
+		E2570FB625B1AC520055B23B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2F7247025005E89007D87ED /* Monster Cards.app */,
-				E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */,
-				E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */,
+				E2570FB525B1AC520055B23B /* MonsterCards.app */,
+				E2570FCB25B1AC550055B23B /* MonsterCardsTests.xctest */,
+				E2570FD625B1AC550055B23B /* MonsterCardsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2F7247225005E89007D87ED /* MonsterCards */ = {
+		E2570FB725B1AC520055B23B /* MonsterCards */ = {
 			isa = PBXGroup;
 			children = (
-				E20D033325034C0C00FB6E43 /* Helpers */,
-				E20D033225034C0700FB6E43 /* Models */,
-				E20D032525031BA700FB6E43 /* Views */,
-				E2F7247325005E89007D87ED /* AppDelegate.h */,
-				E2F7247425005E89007D87ED /* AppDelegate.m */,
-				E2F7247625005E89007D87ED /* SceneDelegate.h */,
-				E2F7247725005E89007D87ED /* SceneDelegate.m */,
-				E278E21A250DFFCA00D3EC0E /* Images.xcassets */,
-				E2F7247F25005E89007D87ED /* Main.storyboard */,
-				E2F7248525005E8A007D87ED /* Assets.xcassets */,
-				E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */,
-				E2F7248A25005E8A007D87ED /* Info.plist */,
-				E2F7248B25005E8A007D87ED /* main.m */,
-				E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */,
+				E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */,
+				E2D473FB25B5328800CB36D7 /* Helpers */,
+				E257101225B1B2790055B23B /* Models */,
+				E2570FEB25B1ADA90055B23B /* Views */,
+				E2570FBC25B1AC550055B23B /* Assets.xcassets */,
+				E2570FC125B1AC550055B23B /* Persistence.swift */,
+				E2570FC625B1AC550055B23B /* Info.plist */,
+				E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */,
+				E2570FBE25B1AC550055B23B /* Preview Content */,
 			);
 			path = MonsterCards;
 			sourceTree = "<group>";
 		};
-		E2F7249425005E8A007D87ED /* MonsterCardsTests */ = {
+		E2570FBE25B1AC550055B23B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E22F837D2511E8350072105C /* Helpers */,
-				E2FD91E225047C1D00D5E935 /* Models */,
-				E2592B8B250D6B6000906A40 /* Views */,
-				E2F7249525005E8A007D87ED /* MonsterCardsTests.m */,
-				E2F7249725005E8A007D87ED /* Info.plist */,
+				E2570FBF25B1AC550055B23B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E2570FCE25B1AC550055B23B /* MonsterCardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2570FCF25B1AC550055B23B /* MonsterCardsTests.swift */,
+				E2570FD125B1AC550055B23B /* Info.plist */,
 			);
 			path = MonsterCardsTests;
 			sourceTree = "<group>";
 		};
-		E2F7249F25005E8A007D87ED /* MonsterCardsUITests */ = {
+		E2570FD925B1AC550055B23B /* MonsterCardsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E2F724A025005E8A007D87ED /* MonsterCardsUITests.m */,
-				E2F724A225005E8A007D87ED /* Info.plist */,
+				E2570FDA25B1AC550055B23B /* MonsterCardsUITests.swift */,
+				E2570FDC25B1AC550055B23B /* Info.plist */,
 			);
 			path = MonsterCardsUITests;
 			sourceTree = "<group>";
 		};
-		E2FD91E225047C1D00D5E935 /* Models */ = {
+		E2570FEB25B1ADA90055B23B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E2FD91E325047C4400D5E935 /* AbilityTests.m */,
-				E2FD91E5250481F300D5E935 /* ActionTests.m */,
-				E2FD91E72504832A00D5E935 /* DamageTypeTests.m */,
-				E2FD91E9250493C000D5E935 /* LanguageTests.m */,
-				E2FD91EB250496B000D5E935 /* SavingThrowTests.m */,
-				E2ECA8F22504AC3300C1FFA5 /* SkillTests.m */,
-				E2ECA8F42504BAAD00C1FFA5 /* MonsterTests.m */,
+				E2570FBA25B1AC520055B23B /* ContentView.swift */,
+				E2570FEF25B1ADC10055B23B /* Search.swift */,
+				E2570FF425B1ADEB0055B23B /* Dashboard.swift */,
+				E2570FF925B1AE020055B23B /* Collections.swift */,
+				E2570FFE25B1AE180055B23B /* Library.swift */,
+				E257100325B1AF4A0055B23B /* SearchBar.swift */,
+				E257100825B1B2470055B23B /* MonsterDetail.swift */,
+				E2B5285825B3028700AAA69E /* EditMonster.swift */,
+				E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */,
+				E2BD702B25B3A8D70058ED69 /* MCTextField.swift */,
+				E2BD703025B3BBB90058ED69 /* MCStepperField.swift */,
+				E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E257101225B1B2790055B23B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */,
+				E210B82F25B426570083EAC5 /* ProficiencyType.swift */,
+				E210B83425B428A30083EAC5 /* AdvantageType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2D473FB25B5328800CB36D7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E2D473FC25B532C900CB36D7 /* Color+Hex.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2F7246F25005E89007D87ED /* MonsterCards */ = {
+		E2570FB425B1AC520055B23B /* MonsterCards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2F724A525005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCards" */;
+			buildConfigurationList = E2570FDF25B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCards" */;
 			buildPhases = (
-				AF1B6FE4523297C87023B0DF /* [CP] Check Pods Manifest.lock */,
-				E2F7246C25005E89007D87ED /* Sources */,
-				E2F7246D25005E89007D87ED /* Frameworks */,
-				E2F7246E25005E89007D87ED /* Resources */,
+				E2570FB125B1AC520055B23B /* Sources */,
+				E2570FB225B1AC520055B23B /* Frameworks */,
+				E2570FB325B1AC520055B23B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -397,72 +222,68 @@
 			);
 			name = MonsterCards;
 			productName = MonsterCards;
-			productReference = E2F7247025005E89007D87ED /* Monster Cards.app */;
+			productReference = E2570FB525B1AC520055B23B /* MonsterCards.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E2F7249025005E8A007D87ED /* MonsterCardsTests */ = {
+		E2570FCA25B1AC550055B23B /* MonsterCardsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2F724A825005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */;
+			buildConfigurationList = E2570FE225B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */;
 			buildPhases = (
-				D9D7576D397FF8A326CDF668 /* [CP] Check Pods Manifest.lock */,
-				E2F7248D25005E8A007D87ED /* Sources */,
-				E2F7248E25005E8A007D87ED /* Frameworks */,
-				E2F7248F25005E8A007D87ED /* Resources */,
-				B173B419A3492DBA8FAF736D /* [CP] Embed Pods Frameworks */,
+				E2570FC725B1AC550055B23B /* Sources */,
+				E2570FC825B1AC550055B23B /* Frameworks */,
+				E2570FC925B1AC550055B23B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E2F7249325005E8A007D87ED /* PBXTargetDependency */,
+				E2570FCD25B1AC550055B23B /* PBXTargetDependency */,
 			);
 			name = MonsterCardsTests;
 			productName = MonsterCardsTests;
-			productReference = E2F7249125005E8A007D87ED /* MonsterCardsTests.xctest */;
+			productReference = E2570FCB25B1AC550055B23B /* MonsterCardsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E2F7249B25005E8A007D87ED /* MonsterCardsUITests */ = {
+		E2570FD525B1AC550055B23B /* MonsterCardsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2F724AB25005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */;
+			buildConfigurationList = E2570FE525B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */;
 			buildPhases = (
-				5A9D2F6B7303F47844E1DAB9 /* [CP] Check Pods Manifest.lock */,
-				E2F7249825005E8A007D87ED /* Sources */,
-				E2F7249925005E8A007D87ED /* Frameworks */,
-				E2F7249A25005E8A007D87ED /* Resources */,
-				A89C1C3958588F1AC6C1F437 /* [CP] Embed Pods Frameworks */,
+				E2570FD225B1AC550055B23B /* Sources */,
+				E2570FD325B1AC550055B23B /* Frameworks */,
+				E2570FD425B1AC550055B23B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E2F7249E25005E8A007D87ED /* PBXTargetDependency */,
+				E2570FD825B1AC550055B23B /* PBXTargetDependency */,
 			);
 			name = MonsterCardsUITests;
 			productName = MonsterCardsUITests;
-			productReference = E2F7249C25005E8A007D87ED /* MonsterCardsUITests.xctest */;
+			productReference = E2570FD625B1AC550055B23B /* MonsterCardsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E2F7246825005E89007D87ED /* Project object */ = {
+		E2570FAD25B1AC520055B23B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = "Tom Hicks";
 				TargetAttributes = {
-					E2F7246F25005E89007D87ED = {
-						CreatedOnToolsVersion = 11.7;
+					E2570FB425B1AC520055B23B = {
+						CreatedOnToolsVersion = 12.0.1;
 					};
-					E2F7249025005E8A007D87ED = {
-						CreatedOnToolsVersion = 11.7;
-						TestTargetID = E2F7246F25005E89007D87ED;
+					E2570FCA25B1AC550055B23B = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = E2570FB425B1AC520055B23B;
 					};
-					E2F7249B25005E8A007D87ED = {
-						CreatedOnToolsVersion = 11.7;
-						TestTargetID = E2F7246F25005E89007D87ED;
+					E2570FD525B1AC550055B23B = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = E2570FB425B1AC520055B23B;
 					};
 				};
 			};
-			buildConfigurationList = E2F7246B25005E89007D87ED /* Build configuration list for PBXProject "MonsterCards" */;
+			buildConfigurationList = E2570FB025B1AC520055B23B /* Build configuration list for PBXProject "MonsterCards" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -470,38 +291,36 @@
 				en,
 				Base,
 			);
-			mainGroup = E2F7246725005E89007D87ED;
-			productRefGroup = E2F7247125005E89007D87ED /* Products */;
+			mainGroup = E2570FAC25B1AC520055B23B;
+			productRefGroup = E2570FB625B1AC520055B23B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2F7246F25005E89007D87ED /* MonsterCards */,
-				E2F7249025005E8A007D87ED /* MonsterCardsTests */,
-				E2F7249B25005E8A007D87ED /* MonsterCardsUITests */,
+				E2570FB425B1AC520055B23B /* MonsterCards */,
+				E2570FCA25B1AC550055B23B /* MonsterCardsTests */,
+				E2570FD525B1AC550055B23B /* MonsterCardsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E2F7246E25005E89007D87ED /* Resources */ = {
+		E2570FB325B1AC520055B23B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2F7248925005E8A007D87ED /* LaunchScreen.storyboard in Resources */,
-				E278E21B250DFFCA00D3EC0E /* Images.xcassets in Resources */,
-				E2F7248625005E8A007D87ED /* Assets.xcassets in Resources */,
-				E2F7248125005E89007D87ED /* Main.storyboard in Resources */,
+				E2570FC025B1AC550055B23B /* Preview Assets.xcassets in Resources */,
+				E2570FBD25B1AC550055B23B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2F7248F25005E8A007D87ED /* Resources */ = {
+		E2570FC925B1AC550055B23B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2F7249A25005E8A007D87ED /* Resources */ = {
+		E2570FD425B1AC550055B23B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -510,206 +329,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5A9D2F6B7303F47844E1DAB9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MonsterCards-MonsterCardsUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A89C1C3958588F1AC6C1F437 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonsterCards-MonsterCardsUITests/Pods-MonsterCards-MonsterCardsUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF1B6FE4523297C87023B0DF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MonsterCards-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B173B419A3492DBA8FAF736D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonsterCardsTests/Pods-MonsterCardsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9D7576D397FF8A326CDF668 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MonsterCardsTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		E2F7246C25005E89007D87ED /* Sources */ = {
+		E2570FB125B1AC520055B23B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2532E8925038DE100CA4CBA /* StringHelper.m in Sources */,
-				E20D032825031BDA00FB6E43 /* MonsterViewController.m in Sources */,
-				E25BD60725036CFA007B04EF /* Action.m in Sources */,
-				E2D3E3B0250827110052A8EC /* EditMonsterViewController.m in Sources */,
-				E288744A25148BA0005CA948 /* MCFormFieldConstants.m in Sources */,
-				E2F7247525005E89007D87ED /* AppDelegate.m in Sources */,
-				E2D3E3B42508C3360052A8EC /* MCShortStringFieldTableViewCell.m in Sources */,
-				E20D032B25031BE500FB6E43 /* LibraryViewController.m in Sources */,
-				E20D033125031BFD00FB6E43 /* DashboardViewController.m in Sources */,
-				E25BD5FE25036A76007B04EF /* DamageType.m in Sources */,
-				E20C315425146708003AB1AA /* MCIntegerFieldTableViewCell.m in Sources */,
-				E2F7248425005E89007D87ED /* MonsterCards.xcdatamodeld in Sources */,
-				E25BD60425036CF0007B04EF /* Ability.m in Sources */,
-				E20D032E25031BEF00FB6E43 /* CollectionsViewController.m in Sources */,
-				E26A73572511BA1900C5677E /* HTMLHelper.m in Sources */,
-				E2805514251E03BE00C87527 /* MCBooleanFieldTableViewCell.m in Sources */,
-				E25BD5F5250352C4007B04EF /* Monster.m in Sources */,
-				E25BD5F8250368A8007B04EF /* SavingThrow.m in Sources */,
-				E2F7248C25005E8A007D87ED /* main.m in Sources */,
-				E25BD5FB250369D7007B04EF /* Skill.m in Sources */,
-				E2E90B0525201785005241C8 /* MCChoice.m in Sources */,
-				E2F7247825005E89007D87ED /* SceneDelegate.m in Sources */,
-				E2E90B172520667F005241C8 /* MCRadioFieldTableViewCell.m in Sources */,
-				E20D032425031B9D00FB6E43 /* SearchViewController.m in Sources */,
-				E22F837C2511D14E0072105C /* JSONHelper.m in Sources */,
-				E25BD60125036BF8007B04EF /* Language.m in Sources */,
-				E2E90AFF252015B3005241C8 /* MCSelectFieldTableViewCell.m in Sources */,
+				E2570FC225B1AC550055B23B /* Persistence.swift in Sources */,
+				E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */,
+				E2570FC525B1AC550055B23B /* MonsterCards.xcdatamodeld in Sources */,
+				E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */,
+				E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */,
+				E2570FF025B1ADC10055B23B /* Search.swift in Sources */,
+				E257100925B1B2480055B23B /* MonsterDetail.swift in Sources */,
+				E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */,
+				E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */,
+				E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */,
+				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
+				E2570FFF25B1AE180055B23B /* Library.swift in Sources */,
+				E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */,
+				E210B83525B428A30083EAC5 /* AdvantageType.swift in Sources */,
+				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
+				E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */,
+				E210B83025B426570083EAC5 /* ProficiencyType.swift in Sources */,
+				E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */,
+				E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2F7248D25005E8A007D87ED /* Sources */ = {
+		E2570FC725B1AC550055B23B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2FD91EA250493C000D5E935 /* LanguageTests.m in Sources */,
-				E2FD91E82504832A00D5E935 /* DamageTypeTests.m in Sources */,
-				E2592B8D250D6B8100906A40 /* EditMonsterViewControllerTests.m in Sources */,
-				E2FD91EC250496B000D5E935 /* SavingThrowTests.m in Sources */,
-				E2FD91E6250481F300D5E935 /* ActionTests.m in Sources */,
-				E2ECA8F52504BAAD00C1FFA5 /* MonsterTests.m in Sources */,
-				E2ECA8F32504AC3300C1FFA5 /* SkillTests.m in Sources */,
-				E2FD91E425047C4400D5E935 /* AbilityTests.m in Sources */,
-				E2E25805250CC3A7002E7308 /* MonsterCards.xcdatamodeld in Sources */,
-				E2F7249625005E8A007D87ED /* MonsterCardsTests.m in Sources */,
-				E22F837F2511E8500072105C /* JSONHelperTests.m in Sources */,
+				E2570FD025B1AC550055B23B /* MonsterCardsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2F7249825005E8A007D87ED /* Sources */ = {
+		E2570FD225B1AC550055B23B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2F724A125005E8A007D87ED /* MonsterCardsUITests.m in Sources */,
+				E2570FDB25B1AC550055B23B /* MonsterCardsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E2F7249325005E8A007D87ED /* PBXTargetDependency */ = {
+		E2570FCD25B1AC550055B23B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2F7246F25005E89007D87ED /* MonsterCards */;
-			targetProxy = E2F7249225005E8A007D87ED /* PBXContainerItemProxy */;
+			target = E2570FB425B1AC520055B23B /* MonsterCards */;
+			targetProxy = E2570FCC25B1AC550055B23B /* PBXContainerItemProxy */;
 		};
-		E2F7249E25005E8A007D87ED /* PBXTargetDependency */ = {
+		E2570FD825B1AC550055B23B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2F7246F25005E89007D87ED /* MonsterCards */;
-			targetProxy = E2F7249D25005E8A007D87ED /* PBXContainerItemProxy */;
+			target = E2570FB425B1AC520055B23B /* MonsterCards */;
+			targetProxy = E2570FD725B1AC550055B23B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		E2F7247F25005E89007D87ED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2F7248025005E89007D87ED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E2F7248725005E8A007D87ED /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2F7248825005E8A007D87ED /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		E2F724A325005E8A007D87ED /* Debug */ = {
+		E2570FDD25B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -760,15 +439,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		E2F724A425005E8A007D87ED /* Release */ = {
+		E2570FDE25B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -813,63 +494,69 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		E2F724A625005E8A007D87ED /* Debug */ = {
+		E2570FE025B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7E1FCC69D4538591C4D289B /* Pods-MonsterCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MonsterCards/Preview Content\"";
 				DEVELOPMENT_TEAM = J793L9LQJ2;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
+				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MonsterCards/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards;
-				PRODUCT_NAME = "Monster Cards";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E2F724A725005E8A007D87ED /* Release */ = {
+		E2570FE125B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D079B8CF0ADA838AAA0A13EA /* Pods-MonsterCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MonsterCards/Preview Content\"";
 				DEVELOPMENT_TEAM = J793L9LQJ2;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
+				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MonsterCards/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards;
-				PRODUCT_NAME = "Monster Cards";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		E2F724A925005E8A007D87ED /* Debug */ = {
+		E2570FE325B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A3B9A106B1FD3BB7C0750DF /* Pods-MonsterCardsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
 				INFOPLIST_FILE = MonsterCardsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -877,20 +564,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monster Cards.app/Monster Cards";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterCards.app/MonsterCards";
 			};
 			name = Debug;
 		};
-		E2F724AA25005E8A007D87ED /* Release */ = {
+		E2570FE425B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 598715810FF9D9DA2A1E91C6 /* Pods-MonsterCardsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
 				INFOPLIST_FILE = MonsterCardsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -898,15 +586,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monster Cards.app/Monster Cards";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterCards.app/MonsterCards";
 			};
 			name = Release;
 		};
-		E2F724AC25005E8A007D87ED /* Debug */ = {
+		E2570FE625B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E265EE24B2C8E81E1B559306 /* Pods-MonsterCards-MonsterCardsUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
 				INFOPLIST_FILE = MonsterCardsUITests/Info.plist;
@@ -917,15 +606,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MonsterCards;
 			};
 			name = Debug;
 		};
-		E2F724AD25005E8A007D87ED /* Release */ = {
+		E2570FE725B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E60C8124CB33D697F6D0390 /* Pods-MonsterCards-MonsterCardsUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
 				INFOPLIST_FILE = MonsterCardsUITests/Info.plist;
@@ -936,6 +626,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCardsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MonsterCards;
 			};
@@ -944,38 +635,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2F7246B25005E89007D87ED /* Build configuration list for PBXProject "MonsterCards" */ = {
+		E2570FB025B1AC520055B23B /* Build configuration list for PBXProject "MonsterCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2F724A325005E8A007D87ED /* Debug */,
-				E2F724A425005E8A007D87ED /* Release */,
+				E2570FDD25B1AC550055B23B /* Debug */,
+				E2570FDE25B1AC550055B23B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2F724A525005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCards" */ = {
+		E2570FDF25B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2F724A625005E8A007D87ED /* Debug */,
-				E2F724A725005E8A007D87ED /* Release */,
+				E2570FE025B1AC550055B23B /* Debug */,
+				E2570FE125B1AC550055B23B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2F724A825005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */ = {
+		E2570FE225B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCardsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2F724A925005E8A007D87ED /* Debug */,
-				E2F724AA25005E8A007D87ED /* Release */,
+				E2570FE325B1AC550055B23B /* Debug */,
+				E2570FE425B1AC550055B23B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2F724AB25005E8A007D87ED /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */ = {
+		E2570FE525B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCardsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2F724AC25005E8A007D87ED /* Debug */,
-				E2F724AD25005E8A007D87ED /* Release */,
+				E2570FE625B1AC550055B23B /* Debug */,
+				E2570FE725B1AC550055B23B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -983,17 +674,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E2F7248225005E89007D87ED /* MonsterCards.xcdatamodeld */ = {
+		E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */,
+				E2570FC425B1AC550055B23B /* MonsterCards.xcdatamodel */,
 			);
-			currentVersion = E2F7248325005E89007D87ED /* MonsterCards.xcdatamodel */;
+			currentVersion = E2570FC425B1AC550055B23B /* MonsterCards.xcdatamodel */;
 			path = MonsterCards.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = E2F7246825005E89007D87ED /* Project object */;
+	rootObject = E2570FAD25B1AC520055B23B /* Project object */;
 }
