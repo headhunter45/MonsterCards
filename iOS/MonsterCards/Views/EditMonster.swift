@@ -323,18 +323,18 @@ struct EditMonster: View {
         monsterIntelligenceScore = monster.intelligenceScore
         monsterWisdomScore = monster.wisdomScore
         monsterCharismaScore = monster.charismaScore
-        monsterStrengthSavingThrowProficiency = ProficiencyType.init(rawValue: monster.strengthSavingThrowProficiency ?? "") ?? .none
-        monsterStrengthSavingThrowAdvantage = AdvantageType(rawValue: monster.strengthSavingThrowAdvantage ?? "") ?? .none
-        monsterDexteritySavingThrowProficiency = ProficiencyType(rawValue: monster.dexteritySavingThrowProficiency ?? "") ?? .none
-        monsterDexteritySavingThrowAdvantage = AdvantageType(rawValue: monster.dexteritySavingThrowAdvantage ?? "") ?? .none
-        monsterConstitutionSavingThrowProficiency = ProficiencyType(rawValue: monster.constitutionSavingThrowProficiency ?? "") ?? .none
-        monsterConstitutionSavingThrowAdvantage = AdvantageType(rawValue: monster.constitutionSavingThrowAdvantage ?? "") ?? .none
-        monsterIntelligenceSavingThrowProficiency = ProficiencyType(rawValue: monster.intelligenceSavingThrowProficiency ?? "") ?? .none
-        monsterIntelligenceSavingThrowAdvantage = AdvantageType(rawValue: monster.intelligenceSavingThrowAdvantage ?? "") ?? .none
-        monsterWisdomSavingThrowProficiency = ProficiencyType(rawValue: monster.wisdomSavingThrowProficiency ?? "") ?? .none
-        monsterWisdomSavingThrowAdvantage = AdvantageType(rawValue: monster.wisdomSavingThrowAdvantage ?? "") ?? .none
-        monsterCharismaSavingThrowProficiency = ProficiencyType(rawValue: monster.charismaSavingThrowProficiency ?? "") ?? .none
-        monsterCharismaSavingThrowAdvantage = AdvantageType(rawValue: monster.charismaSavingThrowAdvantage ?? "") ?? .none
+        monsterStrengthSavingThrowProficiency = monster.strengthSavingThrowProficiencyEnum
+        monsterStrengthSavingThrowAdvantage = monster.strengthSavingThrowAdvantageEnum
+        monsterDexteritySavingThrowProficiency = monster.dexteritySavingThrowProficiencyEnum
+        monsterDexteritySavingThrowAdvantage = monster.dexteritySavingThrowAdvantageEnum
+        monsterConstitutionSavingThrowProficiency = monster.constitutionSavingThrowProficiencyEnum
+        monsterConstitutionSavingThrowAdvantage = monster.constitutionSavingThrowAdvantageEnum
+        monsterIntelligenceSavingThrowProficiency = monster.intelligenceSavingThrowProficiencyEnum
+        monsterIntelligenceSavingThrowAdvantage = monster.intelligenceSavingThrowAdvantageEnum
+        monsterWisdomSavingThrowProficiency = monster.wisdomSavingThrowProficiencyEnum
+        monsterWisdomSavingThrowAdvantage = monster.wisdomSavingThrowAdvantageEnum
+        monsterCharismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
+        monsterCharismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantageEnum
     }
     
     private func copyLocalToMonster() {
@@ -364,18 +364,18 @@ struct EditMonster: View {
         monster.intelligenceScore = monsterIntelligenceScore
         monster.wisdomScore = monsterWisdomScore
         monster.charismaScore = monsterCharismaScore
-        monster.strengthSavingThrowProficiency = monsterStrengthSavingThrowProficiency.rawValue
-        monster.strengthSavingThrowAdvantage = monsterStrengthSavingThrowAdvantage.rawValue
-        monster.dexteritySavingThrowProficiency = monsterDexteritySavingThrowProficiency.rawValue
-        monster.dexteritySavingThrowAdvantage = monsterDexteritySavingThrowAdvantage.rawValue
-        monster.constitutionSavingThrowProficiency = monsterConstitutionSavingThrowProficiency.rawValue
-        monster.constitutionSavingThrowAdvantage = monsterConstitutionSavingThrowAdvantage.rawValue
-        monster.intelligenceSavingThrowProficiency = monsterIntelligenceSavingThrowProficiency.rawValue
-        monster.intelligenceSavingThrowAdvantage = monsterIntelligenceSavingThrowAdvantage.rawValue
-        monster.wisdomSavingThrowProficiency = monsterWisdomSavingThrowProficiency.rawValue
-        monster.wisdomSavingThrowAdvantage = monsterWisdomSavingThrowAdvantage.rawValue
-        monster.charismaSavingThrowProficiency = monsterCharismaSavingThrowProficiency.rawValue
-        monster.charismaSavingThrowAdvantage = monsterCharismaSavingThrowAdvantage.rawValue
+        monster.strengthSavingThrowProficiencyEnum = monsterStrengthSavingThrowProficiency
+        monster.strengthSavingThrowAdvantageEnum = monsterStrengthSavingThrowAdvantage
+        monster.dexteritySavingThrowProficiencyEnum = monsterDexteritySavingThrowProficiency
+        monster.dexteritySavingThrowAdvantageEnum = monsterDexteritySavingThrowAdvantage
+        monster.constitutionSavingThrowProficiencyEnum = monsterConstitutionSavingThrowProficiency
+        monster.constitutionSavingThrowAdvantageEnum = monsterConstitutionSavingThrowAdvantage
+        monster.intelligenceSavingThrowProficiencyEnum = monsterIntelligenceSavingThrowProficiency
+        monster.intelligenceSavingThrowAdvantageEnum = monsterIntelligenceSavingThrowAdvantage
+        monster.wisdomSavingThrowProficiencyEnum = monsterWisdomSavingThrowProficiency
+        monster.wisdomSavingThrowAdvantageEnum = monsterWisdomSavingThrowAdvantage
+        monster.charismaSavingThrowProficiencyEnum = monsterCharismaSavingThrowProficiency
+        monster.charismaSavingThrowAdvantageEnum = monsterCharismaSavingThrowAdvantage
     }
 }
 
