@@ -68,24 +68,43 @@ struct MonsterDetail: View {
     var body: some View {
         ScrollView {
             VStack (alignment: .leading) {
-                // meta: "(large humanoid (elf) lawful evil"
-                Text(monster.meta)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    
+                let monsterMeta = monster.meta
+                let monsterArmorClassDescription = monster.armorClassDescription
+                let monsterHitPoints = monster.hitPoints
+                let monsterSpeed = monster.speed
+                
+                if (!monsterMeta.isEmpty) {
+                    // meta: "(large humanoid (elf) lawful evil"
+                    Text(monsterMeta)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                
+                // TODO: Find a way to hide unnecessarry dividiers.
+                // if sections 0, 1, 2, and 3 are present there should be a divider between each of them
+                // if section 1 is not present there should be one and only one divider between sections 0 and 2 as well as the one between 2 and 3
+                // if sections 1 and 2 are not present there should be a single divider between sections 0 and 3
                 SectionDivider()
 
-                // AC
-                LabeledField("Armor Class") {
-                    Text(monster.armorClassDescription)// armor class
+                if (!monsterArmorClassDescription.isEmpty) {
+                    // AC
+                    LabeledField("Armor Class") {
+                        Text(monsterArmorClassDescription)// armor class
+                    }
                 }
-                // HP
-                LabeledField("Hit Points") {
-                    Text(monster.hitPoints) // hit points
+                
+                if (!monsterHitPoints.isEmpty) {
+                    // HP
+                    LabeledField("Hit Points") {
+                        Text(monsterHitPoints) // hit points
+                    }
                 }
+                
                 // Speed
-                LabeledField("Speed") {
-                    Text(monster.speed) // speed
+                if (!monsterSpeed.isEmpty) {
+                    LabeledField("Speed") {
+                        Text(monsterSpeed) // speed
+                    }
                 }
 
                 SectionDivider()
