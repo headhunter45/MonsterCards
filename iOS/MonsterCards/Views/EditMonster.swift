@@ -23,7 +23,7 @@ struct EditMonster: View {
     @State private var monsterHitDice: Int64 = 0
     @State private var monsterHasCustomHP: Bool = false
     @State private var monsterCustomHP: String = ""
-    @State private var monsterArmorType: String = ""
+    @State private var monsterArmorType: ArmorType = ArmorType.none
     @State private var monsterHasShield: Bool = false
     @State private var monsterNaturalArmorBonus: Int64 = 0
     @State private var monsterCustomArmor: String = ""
@@ -103,9 +103,8 @@ struct EditMonster: View {
             .textCase(nil)
             
             Section(header: Text("Armor")) {
-                // Armor Type select bound to monster.armorType?
-                // TODO: this should be a select/dropdown
-                MCTextField(
+                // Armor Type select bound to monster.armorTypeEnum
+                MCArmorTypePicker(
                     label: "Armor Type",
                     value: $monsterArmorType)
                 
@@ -306,7 +305,7 @@ struct EditMonster: View {
         monsterHitDice = monster.hitDice
         monsterHasCustomHP = monster.hasCustomHP
         monsterCustomHP = monster.customHP ?? ""
-        monsterArmorType = monster.armorType ?? ""
+        monsterArmorType = monster.armorTypeEnum
         monsterHasShield = monster.hasShield
         monsterNaturalArmorBonus = monster.naturalArmorBonus
         monsterCustomArmor = monster.customArmor ?? ""
@@ -347,7 +346,7 @@ struct EditMonster: View {
         monster.hitDice = monsterHitDice
         monster.hasCustomHP = monsterHasCustomHP
         monster.customHP = monsterCustomHP
-        monster.armorType = monsterArmorType
+        monster.armorType = monsterArmorType.rawValue
         monster.hasShield = monsterHasShield
         monster.naturalArmorBonus = monsterNaturalArmorBonus
         monster.customArmor = monsterCustomArmor

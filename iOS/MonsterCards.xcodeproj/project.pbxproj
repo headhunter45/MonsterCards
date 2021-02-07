@@ -26,6 +26,7 @@
 		E2570FFF25B1AE180055B23B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FFE25B1AE180055B23B /* Library.swift */; };
 		E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100325B1AF4A0055B23B /* SearchBar.swift */; };
 		E257100925B1B2480055B23B /* MonsterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100825B1B2470055B23B /* MonsterDetail.swift */; };
+		E26CDA2B25CFB38E00E3F50D /* MCArmorTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26CDA2A25CFB38E00E3F50D /* MCArmorTypePicker.swift */; };
 		E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5285825B3028700AAA69E /* EditMonster.swift */; };
 		E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD702B25B3A8D70058ED69 /* MCTextField.swift */; };
 		E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD703025B3BBB90058ED69 /* MCStepperField.swift */; };
@@ -75,6 +76,7 @@
 		E2570FFE25B1AE180055B23B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		E257100325B1AF4A0055B23B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E257100825B1B2470055B23B /* MonsterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetail.swift; sourceTree = "<group>"; };
+		E26CDA2A25CFB38E00E3F50D /* MCArmorTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCArmorTypePicker.swift; sourceTree = "<group>"; };
 		E2B5285825B3028700AAA69E /* EditMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMonster.swift; sourceTree = "<group>"; };
 		E2BD702B25B3A8D70058ED69 /* MCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTextField.swift; sourceTree = "<group>"; };
 		E2BD703025B3BBB90058ED69 /* MCStepperField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStepperField.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				E2BD702B25B3A8D70058ED69 /* MCTextField.swift */,
 				E2BD703025B3BBB90058ED69 /* MCStepperField.swift */,
 				E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */,
+				E26CDA2A25CFB38E00E3F50D /* MCArmorTypePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				E210B83025B426570083EAC5 /* ProficiencyType.swift in Sources */,
 				E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */,
 				E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */,
+				E26CDA2B25CFB38E00E3F50D /* MCArmorTypePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
