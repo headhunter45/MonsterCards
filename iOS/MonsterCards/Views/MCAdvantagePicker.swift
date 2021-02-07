@@ -23,6 +23,11 @@ struct MCAdvantagePicker: View {
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
+//            .pickerStyle(SegmentedPickerStyle())
+//            .pickerStyle(WheelPickerStyle())
+//            .pickerStyle(DefaultPickerStyle())
+//            .pickerStyle(InlinePickerStyle())
+//            .pickerStyle(MenuPickerStyle())
         }
     }
 }
