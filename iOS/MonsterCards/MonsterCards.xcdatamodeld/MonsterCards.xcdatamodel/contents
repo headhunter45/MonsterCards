@@ -49,8 +49,16 @@
         <attribute name="wisdomSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
         <attribute name="wisdomSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="wisdomScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skill" inverseName="monster" inverseEntity="Skill"/>
+    </entity>
+    <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
+        <attribute name="abilityScoreName" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="proficiency" attributeType="String" defaultValueString=""/>
+        <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="763"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="778"/>
+        <element name="Skill" positionX="-63" positionY="135" width="128" height="103"/>
     </elements>
 </model>

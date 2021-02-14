@@ -54,7 +54,8 @@ struct EditMonster: View {
     @State private var monsterWisdomSavingThrowAdvantage: AdvantageType = .none
     @State private var monsterCharismaSavingThrowProficiency: ProficiencyType = .none
     @State private var monsterCharismaSavingThrowAdvantage: AdvantageType = .none
-    
+    @State private var monsterSkills: [Skill] = []
+
 
     var body: some View {
         List {
@@ -258,6 +259,50 @@ struct EditMonster: View {
                 }
             }
             .textCase(nil)
+            Section(header: HStack {
+                Text("Skills")
+                Spacer()
+                Button(action: addSkill) {
+                    Image(systemName:"plus")
+                }
+            }) {
+                VStack {
+//                    ForEach((1...10).reversed(), id: \.self) {
+//                        Text("\($0)…")
+//                    }
+//                List(monster.skillsArray) {_ in
+//                    Text ("Name")
+//                }
+                    ForEach(monsterSkills, id: \.self) { skill in
+                        VStack {
+                            Text("---")
+                            Text(skill.wrappedName)
+                            Text(skill.wrappedProficiency.displayName)
+                            Text(skill.wrappedAbilityScore.displayName)
+                        }
+                    }
+                }
+            }
+            .textCase(nil)
+            
+//            Section(header: HStack {
+//                Text("Skills")
+//                Spacer()
+//                Button(action: addSkill) {
+//                    Image(systemName:"plus")
+//                }
+//            }) {
+//                VStack {
+////                let skills2: [Skill] = monster.skills?.allObjects)
+//                    ForEach(monster.allSkills)) { skill in
+//                        Text("A SKill")
+//                    }
+//                }
+////                ForEach(arrayLiteral: Array(monster.skills)) { skill in
+////                    Text("A Skill")
+////                }
+//            }
+//            .textCase(nil)
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {
@@ -271,6 +316,29 @@ struct EditMonster: View {
         .navigationTitle(monster.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+    }
+    
+    private func addSkill() {
+        print("Add Skill pressed")
+        
+        let newSkill = Skill.init(context: viewContext)
+        newSkill.name = "Acrobatics"
+        newSkill.wrappedAbilityScore = .dexterity
+        newSkill.wrappedProficiency = .proficient
+        monster.addToSkills(newSkill);
+//        newSkill.monster = monster
+//        monster.addSkill(newSkill)
+//        (monster.skills as! NSMutableSet).add(newSkill)
+//        var s1: NSMutableSet = ["A", "S", "D", "F"]
+//        var s2: Set = ["A", "S", "D", "F"]
+//        s1.add
+//
+        do {
+            try viewContext.save()
+            monsterSkills = monster.skillsArray
+        } catch {
+            print("error")
+        }
     }
     
     private func dismissView() {
@@ -376,6 +444,17 @@ struct EditMonster: View {
         monster.wisdomSavingThrowAdvantageEnum = monsterWisdomSavingThrowAdvantage
         monster.charismaSavingThrowProficiencyEnum = monsterCharismaSavingThrowProficiency
         monster.charismaSavingThrowAdvantageEnum = monsterCharismaSavingThrowAdvantage
+        monster.skills?.forEach { s in
+            let skill = s as! Skill
+            if (!monsterSkills.contains(skill)) {
+                monster.removeFromSkills(skill)
+            }
+        }
+        monster.skillsArray.forEach { skill in
+            if (!(monster.skills?.contains(skill) ?? false)) {
+                monster.addToSkills(skill)
+            }
+        }
     }
 }
 

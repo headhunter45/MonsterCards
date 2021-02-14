@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E210B83025B426570083EAC5 /* ProficiencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B82F25B426570083EAC5 /* ProficiencyType.swift */; };
-		E210B83525B428A30083EAC5 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83425B428A30083EAC5 /* AdvantageType.swift */; };
+		E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */; };
+		E20209E825D8DEC100EFE733 /* AbilityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209E725D8DEC100EFE733 /* AbilityScore.swift */; };
+		E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F225D8E04300EFE733 /* ProficiencyType.swift */; };
+		E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F325D8E04300EFE733 /* AdvantageType.swift */; };
+		E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F925D8E19100EFE733 /* SkillViewModel.swift */; };
+		E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */; };
 		E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */; };
 		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
 		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
@@ -51,8 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E210B82F25B426570083EAC5 /* ProficiencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencyType.swift; sourceTree = "<group>"; };
-		E210B83425B428A30083EAC5 /* AdvantageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageType.swift; sourceTree = "<group>"; };
+		E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E20209E725D8DEC100EFE733 /* AbilityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityScore.swift; sourceTree = "<group>"; };
+		E20209F225D8E04300EFE733 /* ProficiencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProficiencyType.swift; sourceTree = "<group>"; };
+		E20209F325D8E04300EFE733 /* AdvantageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvantageType.swift; sourceTree = "<group>"; };
+		E20209F925D8E19100EFE733 /* SkillViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillViewModel.swift; sourceTree = "<group>"; };
+		E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
 		E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProficiencyPicker.swift; sourceTree = "<group>"; };
 		E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvantagePicker.swift; sourceTree = "<group>"; };
 		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -108,6 +116,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E20209E625D8DEB600EFE733 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E20209F325D8E04300EFE733 /* AdvantageType.swift */,
+				E20209F225D8E04300EFE733 /* ProficiencyType.swift */,
+				E20209E725D8DEC100EFE733 /* AbilityScore.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		E2570FAC25B1AC520055B23B = {
 			isa = PBXGroup;
 			children = (
@@ -193,9 +211,11 @@
 		E257101225B1B2790055B23B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */,
+				E20209F925D8E19100EFE733 /* SkillViewModel.swift */,
+				E20209E625D8DEB600EFE733 /* Enums */,
 				E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */,
-				E210B82F25B426570083EAC5 /* ProficiencyType.swift */,
-				E210B83425B428A30083EAC5 /* AdvantageType.swift */,
+				E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */,
 				E2570FC225B1AC550055B23B /* Persistence.swift in Sources */,
 				E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */,
 				E2570FC525B1AC550055B23B /* MonsterCards.xcdatamodeld in Sources */,
@@ -348,13 +369,16 @@
 				E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */,
 				E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
+				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,
+				E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */,
 				E2570FFF25B1AE180055B23B /* Library.swift in Sources */,
 				E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */,
-				E210B83525B428A30083EAC5 /* AdvantageType.swift in Sources */,
+				E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
 				E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */,
-				E210B83025B426570083EAC5 /* ProficiencyType.swift in Sources */,
+				E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */,
 				E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */,
+				E20209E825D8DEC100EFE733 /* AbilityScore.swift in Sources */,
 				E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */,
 				E26CDA2B25CFB38E00E3F50D /* MCArmorTypePicker.swift in Sources */,
 			);

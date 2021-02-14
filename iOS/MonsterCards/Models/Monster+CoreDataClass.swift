@@ -137,6 +137,23 @@ public class Monster: NSManagedObject {
         return Int(floor(Double((score - 10)) / 2.0))
     }
     
+    func abilityModifierForAbilityScore(_ abilityScore: AbilityScore) -> Int {
+        switch abilityScore {
+        case .strength:
+            return strengthModifier;
+        case .dexterity:
+            return dexterityModifier
+        case .constitution:
+            return constitutionModifier
+        case .intelligence:
+            return intelligenceModifier
+        case .wisdom:
+            return wisdomModifier
+        case .charisma:
+            return charismaModifier
+        }
+    }
+    
     var strengthModifier: Int {
         get {
             return Monster.abilityModifierForScore(Int(strengthScore))
@@ -584,6 +601,21 @@ public class Monster: NSManagedObject {
             return "(A)"
         case .disadvantage:
             return "(D)"
+        }
+    }
+    
+    // MARK: Skills
+    
+    var skillsDescription: String {
+        get {
+            return ""
+        }
+    }
+    
+    var skillsArray: [Skill] {
+        let set = skills as? Set<Skill> ?? []
+        return set.sorted {
+            $0.wrappedName < $1.wrappedName
         }
     }
     
