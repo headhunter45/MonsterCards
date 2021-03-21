@@ -21,29 +21,7 @@ struct EditMonster: View {
     var body: some View {
         List {
             NavigationLink("Basic Info", destination: EditBasicInfo(monsterViewModel: monsterViewModel))
-            Section(header: Text("Armor")) {
-                // Armor Type select bound to monster.armorTypeEnum
-                MCArmorTypePicker(
-                    label: "Armor Type",
-                    value: $monsterViewModel.armorType)
-                
-                // Toggle bound to monster.hasShield?
-                Toggle(
-                    "Has Shield",
-                    isOn: $monsterViewModel.hasShield)
-                
-                // Number with -/+ buttons bound to monster.naturalArmorBonus
-                MCStepperField(
-                    label: "Natural Armor Bonus",
-                    value: $monsterViewModel.naturalArmorBonus)
-                
-                // Editable Text field bound to monster.customArmorText?
-                MCTextField(
-                    label: "Custom Armor",
-                    value: $monsterViewModel.customArmor)
-                
-            }
-            .textCase(nil)
+            NavigationLink("Armor", destination: EditArmor(monsterViewModel: monsterViewModel))
             
             Section(header: Text("Speed")) {
                 // Number bound to monster.baseSpeed

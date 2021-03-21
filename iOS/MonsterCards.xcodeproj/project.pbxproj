@@ -17,6 +17,7 @@
 		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
 		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
 		E24ACE502607326E009BF703 /* EditBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */; };
+		E24ACE562607EE94009BF703 /* EditArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE552607EE94009BF703 /* EditArmor.swift */; };
 		E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */; };
 		E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FBA25B1AC520055B23B /* ContentView.swift */; };
 		E2570FBD25B1AC550055B23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2570FBC25B1AC550055B23B /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvantagePicker.swift; sourceTree = "<group>"; };
 		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBasicInfo.swift; sourceTree = "<group>"; };
+		E24ACE552607EE94009BF703 /* EditArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArmor.swift; sourceTree = "<group>"; };
 		E2570FB525B1AC520055B23B /* MonsterCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsApp.swift; sourceTree = "<group>"; };
 		E2570FBA25B1AC520055B23B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		E2570FAC25B1AC520055B23B = {
 			isa = PBXGroup;
 			children = (
+				E24ACE552607EE94009BF703 /* EditArmor.swift */,
 				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
 				E2570FB725B1AC520055B23B /* MonsterCards */,
 				E2570FCE25B1AC550055B23B /* MonsterCardsTests */,
@@ -377,6 +380,7 @@
 				E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */,
 				E2570FFF25B1AE180055B23B /* Library.swift in Sources */,
 				E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */,
+				E24ACE562607EE94009BF703 /* EditArmor.swift in Sources */,
 				E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
 				E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */,
