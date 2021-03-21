@@ -22,59 +22,7 @@ struct EditMonster: View {
         List {
             NavigationLink("Basic Info", destination: EditBasicInfo(monsterViewModel: monsterViewModel))
             NavigationLink("Armor", destination: EditArmor(monsterViewModel: monsterViewModel))
-            
-            Section(header: Text("Speed")) {
-                // Number bound to monster.baseSpeed
-                MCStepperField(
-                    label: "Base",
-                    step: 5,
-                    suffix: " ft.",
-                    value: $monsterViewModel.baseSpeed)
-                
-                // Number bound to monster.burrowSpeed
-                MCStepperField(
-                    label: "Burrow",
-                    step: 5,
-                    suffix: " ft.",
-                    value: $monsterViewModel.burrowSpeed)
-                
-                // Number bound to monster.climbSpeed
-                MCStepperField(
-                    label: "Climb",
-                    step: 5,
-                    suffix: " ft.",
-                    value: $monsterViewModel.climbSpeed)
-                
-                // Number bound to monster.flySpeed
-                MCStepperField(
-                    label: "Fly",
-                    step: 5,
-                    suffix: " ft.",
-                    value: $monsterViewModel.flySpeed)
-                
-                // Toggle bound to monster.canHover
-                Toggle(
-                    "Can Hover",
-                    isOn: $monsterViewModel.canHover)
-                
-                // Number bound to monster.swimSpeed
-                MCStepperField(
-                    label: "Swim",
-                    step: 5,
-                    suffix: " ft.",
-                    value: $monsterViewModel.swimSpeed)
-                
-                // Toggle bound to monster.hasCustomSpeed
-                Toggle(
-                    "Has Custom Speed",
-                    isOn: $monsterViewModel.hasCustomSpeed)
-                
-                // Editable Text field bound to monster.customSpeedText
-                MCTextField(
-                    label: "Custom Speed",
-                    value: $monsterViewModel.customSpeed)
-            }
-            .textCase(nil)
+            NavigationLink("Speed", destination: EditSpeed(monsterViewModel: monsterViewModel))
             
             Section(header: Text("Ability Scores")) {
                 MCStepperField(
