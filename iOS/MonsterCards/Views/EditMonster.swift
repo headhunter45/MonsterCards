@@ -15,90 +15,50 @@ struct EditMonster: View {
     
     var monster: Monster
     
-    @State private var monsterName: String = ""
-    @State private var monsterSize: String = ""
-    @State private var monsterType: String = ""
-    @State private var monsterSubtype: String = ""
-    @State private var monsterAlignment: String = ""
-    @State private var monsterHitDice: Int64 = 0
-    @State private var monsterHasCustomHP: Bool = false
-    @State private var monsterCustomHP: String = ""
-    @State private var monsterArmorType: ArmorType = ArmorType.none
-    @State private var monsterHasShield: Bool = false
-    @State private var monsterNaturalArmorBonus: Int64 = 0
-    @State private var monsterCustomArmor: String = ""
-    @State private var monsterBaseSpeed: Int64 = 0
-    @State private var monsterBurrowSpeed: Int64 = 0
-    @State private var monsterClimbSpeed: Int64 = 0
-    @State private var monsterFlySpeed: Int64 = 0
-    @State private var monsterCanHover: Bool = false
-    @State private var monsterSwimSpeed: Int64 = 0
-    @State private var monsterHasCustomSpeed: Bool = false
-    @State private var monsterCustomSpeed: String = ""
-    @State private var monsterStrengthScore: Int64 = 10
-    @State private var monsterDexterityScore: Int64 = 10
-    @State private var monsterConstitutionScore: Int64 = 10
-    @State private var monsterIntelligenceScore: Int64 = 10
-    @State private var monsterWisdomScore: Int64 = 10
-    @State private var monsterCharismaScore: Int64 = 10
+    @ObservedObject private var monsterViewModel: MonsterViewModel = MonsterViewModel(nil)
     
-    @State private var monsterStrengthSavingThrowProficiency: ProficiencyType = .none
-    @State private var monsterStrengthSavingThrowAdvantage: AdvantageType = .none
-    @State private var monsterDexteritySavingThrowProficiency: ProficiencyType = .none
-    @State private var monsterDexteritySavingThrowAdvantage: AdvantageType = .none
-    @State private var monsterConstitutionSavingThrowProficiency: ProficiencyType = .none
-    @State private var monsterConstitutionSavingThrowAdvantage: AdvantageType = .none
-    @State private var monsterIntelligenceSavingThrowProficiency: ProficiencyType = .none
-    @State private var monsterIntelligenceSavingThrowAdvantage: AdvantageType = .none
-    @State private var monsterWisdomSavingThrowProficiency: ProficiencyType = .none
-    @State private var monsterWisdomSavingThrowAdvantage: AdvantageType = .none
-    @State private var monsterCharismaSavingThrowProficiency: ProficiencyType = .none
-    @State private var monsterCharismaSavingThrowAdvantage: AdvantageType = .none
-    @State private var monsterSkills: [Skill] = []
-
-
     var body: some View {
         List {
             Section(header: Text("Basic Info")) {
                 // Editable Text field bound to monster.name
                 MCTextField(
                     label: "Name",
-                    value: $monsterName)
+                    value: $monsterViewModel.name)
                 
                 // Editable Text field bound to monster.size
                 MCTextField(
                     label: "Size",
-                    value: $monsterSize)
+                    value: $monsterViewModel.size)
                 
                 // Editable Text field bound to monster.type
                 MCTextField(
                     label: "Type",
-                    value: $monsterType)
+                    value: $monsterViewModel.type)
                 
                 // Editable Text field bound to monster.subType
                 MCTextField(
                     label: "Subtype",
-                    value: $monsterSubtype)
+                    value: $monsterViewModel.subType)
                                 
                 // Editable Text field bound to monster.alignment
                 MCTextField(
                     label: "Alignment",
-                    value: $monsterAlignment)
+                    value: $monsterViewModel.alignment)
 
                 // Number with -/+ buttons bound to monster.hitDice
                 MCStepperField(
                     label: "Hit Dice",
-                    value: $monsterHitDice)
+                    value: $monsterViewModel.hitDice)
                 
                 // Toggle bound to monster.hasCustomHP?
                 Toggle(
                     "Has Custom HP",
-                    isOn:$monsterHasCustomHP)
+                    isOn:$monsterViewModel.hasCustomHP)
                 
                 // Editable Text field bound to monster.customHpText?
                 MCTextField(
                     label: "Custom HP",
-                    value: $monsterCustomHP)
+                    value: $monsterViewModel.customHP)
                 
             }
             .textCase(nil)
@@ -107,22 +67,22 @@ struct EditMonster: View {
                 // Armor Type select bound to monster.armorTypeEnum
                 MCArmorTypePicker(
                     label: "Armor Type",
-                    value: $monsterArmorType)
+                    value: $monsterViewModel.armorType)
                 
                 // Toggle bound to monster.hasShield?
                 Toggle(
                     "Has Shield",
-                    isOn: $monsterHasShield)
+                    isOn: $monsterViewModel.hasShield)
                 
                 // Number with -/+ buttons bound to monster.naturalArmorBonus
                 MCStepperField(
                     label: "Natural Armor Bonus",
-                    value: $monsterNaturalArmorBonus)
+                    value: $monsterViewModel.naturalArmorBonus)
                 
                 // Editable Text field bound to monster.customArmorText?
                 MCTextField(
                     label: "Custom Armor",
-                    value: $monsterCustomArmor)
+                    value: $monsterViewModel.customArmor)
                 
             }
             .textCase(nil)
@@ -133,72 +93,72 @@ struct EditMonster: View {
                     label: "Base",
                     step: 5,
                     suffix: " ft.",
-                    value: $monsterBaseSpeed)
+                    value: $monsterViewModel.baseSpeed)
                 
                 // Number bound to monster.burrowSpeed
                 MCStepperField(
                     label: "Burrow",
                     step: 5,
                     suffix: " ft.",
-                    value: $monsterBurrowSpeed)
+                    value: $monsterViewModel.burrowSpeed)
                 
                 // Number bound to monster.climbSpeed
                 MCStepperField(
                     label: "Climb",
                     step: 5,
                     suffix: " ft.",
-                    value: $monsterClimbSpeed)
+                    value: $monsterViewModel.climbSpeed)
                 
                 // Number bound to monster.flySpeed
                 MCStepperField(
                     label: "Fly",
                     step: 5,
                     suffix: " ft.",
-                    value: $monsterFlySpeed)
+                    value: $monsterViewModel.flySpeed)
                 
                 // Toggle bound to monster.canHover
                 Toggle(
                     "Can Hover",
-                    isOn: $monsterCanHover)
+                    isOn: $monsterViewModel.canHover)
                 
                 // Number bound to monster.swimSpeed
                 MCStepperField(
                     label: "Swim",
                     step: 5,
                     suffix: " ft.",
-                    value: $monsterSwimSpeed)
+                    value: $monsterViewModel.swimSpeed)
                 
                 // Toggle bound to monster.hasCustomSpeed
                 Toggle(
                     "Has Custom Speed",
-                    isOn: $monsterHasCustomSpeed)
+                    isOn: $monsterViewModel.hasCustomSpeed)
                 
                 // Editable Text field bound to monster.customSpeedText
                 MCTextField(
                     label: "Custom Speed",
-                    value: $monsterCustomSpeed)
+                    value: $monsterViewModel.customSpeed)
             }
             .textCase(nil)
             
             Section(header: Text("Ability Scores")) {
                 MCStepperField(
                     label: "STR",
-                    value: $monsterStrengthScore)
+                    value: $monsterViewModel.strengthScore)
                 MCStepperField(
                     label: "DEX",
-                    value: $monsterDexterityScore)
+                    value: $monsterViewModel.dexterityScore)
                 MCStepperField(
                     label: "CON",
-                    value: $monsterConstitutionScore)
+                    value: $monsterViewModel.constitutionScore)
                 MCStepperField(
                     label: "INT",
-                    value: $monsterIntelligenceScore)
+                    value: $monsterViewModel.intelligenceScore)
                 MCStepperField(
                     label: "WIS",
-                    value: $monsterWisdomScore)
+                    value: $monsterViewModel.wisdomScore)
                 MCStepperField(
                     label: "CHA",
-                    value: $monsterCharismaScore)
+                    value: $monsterViewModel.charismaScore)
             }
             .textCase(nil)
             
@@ -206,103 +166,60 @@ struct EditMonster: View {
                 VStack {
                     MCAdvantagePicker(
                         label: "Strength Advantage",
-                        value: $monsterStrengthSavingThrowAdvantage)
+                        value: $monsterViewModel.strengthSavingThrowAdvantage)
 
                     MCProficiencyPicker(
                         label: "Strength Proficiency",
-                        value: $monsterStrengthSavingThrowProficiency)
+                        value: $monsterViewModel.strengthSavingThrowProficiency)
                 }
                 VStack {
                     MCAdvantagePicker(
                         label: "Dexterity Advantage",
-                        value: $monsterDexteritySavingThrowAdvantage)
+                        value: $monsterViewModel.dexteritySavingThrowAdvantage)
 
                     MCProficiencyPicker(
                         label: "Dexterity Proficiency",
-                        value: $monsterDexteritySavingThrowProficiency)
+                        value: $monsterViewModel.dexteritySavingThrowProficiency)
                 }
                 VStack {
                     MCAdvantagePicker(
                         label: "Constitution Advantage",
-                        value: $monsterConstitutionSavingThrowAdvantage)
+                        value: $monsterViewModel.constitutionSavingThrowAdvantage)
 
                     MCProficiencyPicker(
                         label: "Constitution Proficiency",
-                        value: $monsterConstitutionSavingThrowProficiency)
+                        value: $monsterViewModel.constitutionSavingThrowProficiency)
                 }
                 VStack {
                     MCAdvantagePicker(
                         label: "Intelligence Advantage",
-                        value: $monsterIntelligenceSavingThrowAdvantage)
+                        value: $monsterViewModel.intelligenceSavingThrowAdvantage)
 
                     MCProficiencyPicker(
                         label: "Intelligence Proficiency",
-                        value: $monsterIntelligenceSavingThrowProficiency)
+                        value: $monsterViewModel.intelligenceSavingThrowProficiency)
                     }
                 VStack {
                     MCAdvantagePicker(
                         label: "Wisdom Advantage",
-                        value: $monsterWisdomSavingThrowAdvantage)
+                        value: $monsterViewModel.wisdomSavingThrowAdvantage)
 
                     MCProficiencyPicker(
                         label: "Wisdom Proficiency",
-                        value: $monsterWisdomSavingThrowProficiency)
+                        value: $monsterViewModel.wisdomSavingThrowProficiency)
                     }
                 VStack {
                     MCAdvantagePicker(
                         label: "Charisma Advantage",
-                        value: $monsterCharismaSavingThrowAdvantage)
+                        value: $monsterViewModel.charismaSavingThrowAdvantage)
 
                     MCProficiencyPicker(
                         label: "Charisma Proficiency",
-                        value: $monsterCharismaSavingThrowProficiency)
-                }
-            }
-            .textCase(nil)
-            Section(header: HStack {
-                Text("Skills")
-                Spacer()
-                Button(action: addSkill) {
-                    Image(systemName:"plus")
-                }
-            }) {
-                VStack {
-//                    ForEach((1...10).reversed(), id: \.self) {
-//                        Text("\($0)…")
-//                    }
-//                List(monster.skillsArray) {_ in
-//                    Text ("Name")
-//                }
-                    ForEach(monsterSkills, id: \.self) { skill in
-                        VStack {
-                            Text("---")
-                            Text(skill.wrappedName)
-                            Text(skill.wrappedProficiency.displayName)
-                            Text(skill.wrappedAbilityScore.displayName)
-                        }
-                    }
+                        value: $monsterViewModel.charismaSavingThrowProficiency)
                 }
             }
             .textCase(nil)
             
-//            Section(header: HStack {
-//                Text("Skills")
-//                Spacer()
-//                Button(action: addSkill) {
-//                    Image(systemName:"plus")
-//                }
-//            }) {
-//                VStack {
-////                let skills2: [Skill] = monster.skills?.allObjects)
-//                    ForEach(monster.allSkills)) { skill in
-//                        Text("A SKill")
-//                    }
-//                }
-////                ForEach(arrayLiteral: Array(monster.skills)) { skill in
-////                    Text("A Skill")
-////                }
-//            }
-//            .textCase(nil)
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {
@@ -320,25 +237,18 @@ struct EditMonster: View {
     
     private func addSkill() {
         print("Add Skill pressed")
-        
-        let newSkill = Skill.init(context: viewContext)
-        newSkill.name = "Acrobatics"
-        newSkill.wrappedAbilityScore = .dexterity
-        newSkill.wrappedProficiency = .proficient
-        monster.addToSkills(newSkill);
-//        newSkill.monster = monster
-//        monster.addSkill(newSkill)
-//        (monster.skills as! NSMutableSet).add(newSkill)
-//        var s1: NSMutableSet = ["A", "S", "D", "F"]
-//        var s2: Set = ["A", "S", "D", "F"]
-//        s1.add
 //
-        do {
-            try viewContext.save()
-            monsterSkills = monster.skillsArray
-        } catch {
-            print("error")
-        }
+//        let newSkill = Skill.init(context: viewContext)
+//        newSkill.name = "Acrobatics"
+//        newSkill.wrappedAbilityScore = .dexterity
+//        newSkill.wrappedProficiency = .proficient
+//        monster.addToSkills(newSkill);
+//        do {
+//            try viewContext.save()
+//            monsterSkills = monster.skillsArray
+//        } catch {
+//            print("error")
+//        }
     }
     
     private func dismissView() {
@@ -365,96 +275,11 @@ struct EditMonster: View {
     }
     
     private func copyMonsterToLocal() {
-        monsterName = monster.name ?? ""
-        monsterSize = monster.size ?? ""
-        monsterType = monster.type ?? ""
-        monsterSubtype = monster.subtype ?? ""
-        monsterAlignment = monster.alignment ?? ""
-        monsterHitDice = monster.hitDice
-        monsterHasCustomHP = monster.hasCustomHP
-        monsterCustomHP = monster.customHP ?? ""
-        monsterArmorType = monster.armorTypeEnum
-        monsterHasShield = monster.hasShield
-        monsterNaturalArmorBonus = monster.naturalArmorBonus
-        monsterCustomArmor = monster.customArmor ?? ""
-        monsterBaseSpeed = monster.baseSpeed
-        monsterBurrowSpeed = monster.burrowSpeed
-        monsterClimbSpeed = monster.climbSpeed
-        monsterFlySpeed = monster.flySpeed
-        monsterCanHover = monster.canHover
-        monsterSwimSpeed = monster.swimSpeed
-        monsterHasCustomSpeed = monster.hasCustomSpeed
-        monsterCustomSpeed = monster.customSpeed ?? ""
-        monsterStrengthScore = monster.strengthScore
-        monsterDexterityScore = monster.dexterityScore
-        monsterConstitutionScore = monster.constitutionScore
-        monsterIntelligenceScore = monster.intelligenceScore
-        monsterWisdomScore = monster.wisdomScore
-        monsterCharismaScore = monster.charismaScore
-        monsterStrengthSavingThrowProficiency = monster.strengthSavingThrowProficiencyEnum
-        monsterStrengthSavingThrowAdvantage = monster.strengthSavingThrowAdvantageEnum
-        monsterDexteritySavingThrowProficiency = monster.dexteritySavingThrowProficiencyEnum
-        monsterDexteritySavingThrowAdvantage = monster.dexteritySavingThrowAdvantageEnum
-        monsterConstitutionSavingThrowProficiency = monster.constitutionSavingThrowProficiencyEnum
-        monsterConstitutionSavingThrowAdvantage = monster.constitutionSavingThrowAdvantageEnum
-        monsterIntelligenceSavingThrowProficiency = monster.intelligenceSavingThrowProficiencyEnum
-        monsterIntelligenceSavingThrowAdvantage = monster.intelligenceSavingThrowAdvantageEnum
-        monsterWisdomSavingThrowProficiency = monster.wisdomSavingThrowProficiencyEnum
-        monsterWisdomSavingThrowAdvantage = monster.wisdomSavingThrowAdvantageEnum
-        monsterCharismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
-        monsterCharismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantageEnum
+        monsterViewModel.copyFromMonster(monster: monster)
     }
     
     private func copyLocalToMonster() {
-        monster.name = monsterName
-        monster.size = monsterSize
-        monster.type = monsterType
-        monster.subtype = monsterSubtype
-        monster.alignment = monsterAlignment
-        monster.hitDice = monsterHitDice
-        monster.hasCustomHP = monsterHasCustomHP
-        monster.customHP = monsterCustomHP
-        monster.armorType = monsterArmorType.rawValue
-        monster.hasShield = monsterHasShield
-        monster.naturalArmorBonus = monsterNaturalArmorBonus
-        monster.customArmor = monsterCustomArmor
-        monster.baseSpeed = monsterBaseSpeed
-        monster.burrowSpeed = monsterBurrowSpeed
-        monster.climbSpeed = monsterClimbSpeed
-        monster.flySpeed = monsterFlySpeed
-        monster.canHover = monsterCanHover
-        monster.swimSpeed = monsterSwimSpeed
-        monster.hasCustomSpeed = monsterHasCustomSpeed
-        monster.customSpeed = monsterCustomSpeed
-        monster.strengthScore = monsterStrengthScore
-        monster.dexterityScore = monsterDexterityScore
-        monster.constitutionScore = monsterConstitutionScore
-        monster.intelligenceScore = monsterIntelligenceScore
-        monster.wisdomScore = monsterWisdomScore
-        monster.charismaScore = monsterCharismaScore
-        monster.strengthSavingThrowProficiencyEnum = monsterStrengthSavingThrowProficiency
-        monster.strengthSavingThrowAdvantageEnum = monsterStrengthSavingThrowAdvantage
-        monster.dexteritySavingThrowProficiencyEnum = monsterDexteritySavingThrowProficiency
-        monster.dexteritySavingThrowAdvantageEnum = monsterDexteritySavingThrowAdvantage
-        monster.constitutionSavingThrowProficiencyEnum = monsterConstitutionSavingThrowProficiency
-        monster.constitutionSavingThrowAdvantageEnum = monsterConstitutionSavingThrowAdvantage
-        monster.intelligenceSavingThrowProficiencyEnum = monsterIntelligenceSavingThrowProficiency
-        monster.intelligenceSavingThrowAdvantageEnum = monsterIntelligenceSavingThrowAdvantage
-        monster.wisdomSavingThrowProficiencyEnum = monsterWisdomSavingThrowProficiency
-        monster.wisdomSavingThrowAdvantageEnum = monsterWisdomSavingThrowAdvantage
-        monster.charismaSavingThrowProficiencyEnum = monsterCharismaSavingThrowProficiency
-        monster.charismaSavingThrowAdvantageEnum = monsterCharismaSavingThrowAdvantage
-        monster.skills?.forEach { s in
-            let skill = s as! Skill
-            if (!monsterSkills.contains(skill)) {
-                monster.removeFromSkills(skill)
-            }
-        }
-        monster.skillsArray.forEach { skill in
-            if (!(monster.skills?.contains(skill) ?? false)) {
-                monster.addToSkills(skill)
-            }
-        }
+        monsterViewModel.copyToMonster(monster: monster)
     }
 }
 
