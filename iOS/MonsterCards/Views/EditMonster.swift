@@ -15,8 +15,9 @@ struct EditMonster: View {
     
     var monster: Monster
     
-    @ObservedObject private var monsterViewModel: MonsterViewModel = MonsterViewModel(nil)
-    
+    @StateObject private var monsterViewModel: MonsterViewModel = MonsterViewModel(nil)
+    @State private var hasInitializedViewModel = false
+        
     var body: some View {
         List {
             Section(header: Text("Basic Info")) {
@@ -226,13 +227,9 @@ struct EditMonster: View {
             ToolbarItem(placement: .primaryAction) {
                 Button("Save", action: saveMonster)
             }
-            ToolbarItem(placement: ToolbarItemPlacement.cancellationAction) {
-                Button("Cancel", action: cancel)
-            }
         })
-        .navigationTitle(monster.name ?? "")
+        .navigationTitle(monsterViewModel.name)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
     }
     
     private func addSkill() {
@@ -259,6 +256,7 @@ struct EditMonster: View {
         copyLocalToMonster()
         
         do {
+            // Save core data context
             try viewContext.save()
         } catch {
             // Replace this implementation with code to handle the error appropriately.
@@ -266,16 +264,14 @@ struct EditMonster: View {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
-        // TODO: save coredata context
-        dismissView()
-    }
-    
-    private func cancel() {
         dismissView()
     }
     
     private func copyMonsterToLocal() {
-        monsterViewModel.copyFromMonster(monster: monster)
+        if (!hasInitializedViewModel) {
+            monsterViewModel.copyFromMonster(monster: monster)
+            hasInitializedViewModel = true
+        }
     }
     
     private func copyLocalToMonster() {
