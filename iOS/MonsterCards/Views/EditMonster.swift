@@ -20,69 +20,25 @@ struct EditMonster: View {
         
     var body: some View {
         List {
-            NavigationLink("Basic Info", destination: EditBasicInfo(monsterViewModel: monsterViewModel))
-            NavigationLink("Armor", destination: EditArmor(monsterViewModel: monsterViewModel))
-            NavigationLink("Speed", destination: EditSpeed(monsterViewModel: monsterViewModel))
-            NavigationLink("Ability Scores", destination: EditAbilityScores(monsterViewModel: monsterViewModel))
+            NavigationLink(
+                "Basic Info",
+                destination: EditBasicInfo(monsterViewModel: monsterViewModel))
             
-            Section(header: Text("Saving Throws")) {
-                VStack {
-                    MCAdvantagePicker(
-                        label: "Strength Advantage",
-                        value: $monsterViewModel.strengthSavingThrowAdvantage)
-
-                    MCProficiencyPicker(
-                        label: "Strength Proficiency",
-                        value: $monsterViewModel.strengthSavingThrowProficiency)
-                }
-                VStack {
-                    MCAdvantagePicker(
-                        label: "Dexterity Advantage",
-                        value: $monsterViewModel.dexteritySavingThrowAdvantage)
-
-                    MCProficiencyPicker(
-                        label: "Dexterity Proficiency",
-                        value: $monsterViewModel.dexteritySavingThrowProficiency)
-                }
-                VStack {
-                    MCAdvantagePicker(
-                        label: "Constitution Advantage",
-                        value: $monsterViewModel.constitutionSavingThrowAdvantage)
-
-                    MCProficiencyPicker(
-                        label: "Constitution Proficiency",
-                        value: $monsterViewModel.constitutionSavingThrowProficiency)
-                }
-                VStack {
-                    MCAdvantagePicker(
-                        label: "Intelligence Advantage",
-                        value: $monsterViewModel.intelligenceSavingThrowAdvantage)
-
-                    MCProficiencyPicker(
-                        label: "Intelligence Proficiency",
-                        value: $monsterViewModel.intelligenceSavingThrowProficiency)
-                    }
-                VStack {
-                    MCAdvantagePicker(
-                        label: "Wisdom Advantage",
-                        value: $monsterViewModel.wisdomSavingThrowAdvantage)
-
-                    MCProficiencyPicker(
-                        label: "Wisdom Proficiency",
-                        value: $monsterViewModel.wisdomSavingThrowProficiency)
-                    }
-                VStack {
-                    MCAdvantagePicker(
-                        label: "Charisma Advantage",
-                        value: $monsterViewModel.charismaSavingThrowAdvantage)
-
-                    MCProficiencyPicker(
-                        label: "Charisma Proficiency",
-                        value: $monsterViewModel.charismaSavingThrowProficiency)
-                }
-            }
-            .textCase(nil)
+            NavigationLink(
+                "Armor",
+                destination: EditArmor(monsterViewModel: monsterViewModel))
             
+            NavigationLink(
+                "Speed",
+                destination: EditSpeed(monsterViewModel: monsterViewModel))
+            
+            NavigationLink(
+                "Ability Scores",
+                destination: EditAbilityScores(monsterViewModel: monsterViewModel))
+            
+            NavigationLink(
+                "Saving Throws",
+                destination: EditSavingThrows(monsterViewModel: monsterViewModel))
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {
