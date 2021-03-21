@@ -39,6 +39,10 @@ struct EditMonster: View {
             NavigationLink(
                 "Saving Throws",
                 destination: EditSavingThrows(monsterViewModel: monsterViewModel))
+            
+            NavigationLink(
+                "Skills",
+                destination: EditSkills(monsterViewModel: monsterViewModel))
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {

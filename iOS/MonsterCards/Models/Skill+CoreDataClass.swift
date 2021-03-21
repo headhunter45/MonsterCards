@@ -40,6 +40,15 @@ public class Skill: NSManagedObject {
         }
     }
     
+    var wrappedAdvantage: AdvantageType {
+        get {
+            return AdvantageType.init(rawValue: advantage ?? "") ?? .none
+        }
+        set {
+            advantage = newValue.rawValue
+        }
+    }
+    
     var modifier: Int64 {
         get {
             let proficiencyBonus = Double(monster?.proficiencyBonus ?? 0)

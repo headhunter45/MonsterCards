@@ -181,16 +181,16 @@ class MonsterViewModel: ObservableObject {
         monster.charismaSavingThrowAdvantageEnum = charismaSavingThrowAdvantage
         monster.charismaSavingThrowProficiencyEnum = charismaSavingThrowProficiency
 
-//        // Remove missing skills from raw monster
-//        monster.skills?.forEach {s in
-//            let skill = s as! Skill
-//            let skillVM = skills.first { $0.isEqualTo(rawSkill: skill) }
-//            if (skillVM != nil) {
-//                skillVM!.copyToSkill(skill: skill)
-//            } else {
-//                monster.removeFromSkills(skill)
-//            }
-//        }
+        // Remove missing skills from raw monster
+        monster.skills?.forEach {s in
+            let skill = s as! Skill
+            let skillVM = skills.first { $0.isEqualTo(rawSkill: skill) }
+            if (skillVM != nil) {
+                skillVM!.copyToSkill(skill: skill)
+            } else {
+                monster.removeFromSkills(skill)
+            }
+        }
 //        // Add new skills to raw monster
 //        skills.forEach {skillVM in
 //            if (!(monster.skills?.contains(

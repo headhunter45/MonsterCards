@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Monster" representedClassName="Monster" syncable="YES" codeGenerationType="category">
         <attribute name="alignment" attributeType="String" defaultValueString=""/>
         <attribute name="armorType" attributeType="String" defaultValueString=""/>
@@ -52,13 +52,14 @@
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skill" inverseName="monster" inverseEntity="Skill"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
-        <attribute name="abilityScoreName" attributeType="String" defaultValueString=""/>
+        <attribute name="abilityScoreName" attributeType="String" defaultValueString="strength"/>
+        <attribute name="advantage" attributeType="String" defaultValueString="none"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
-        <attribute name="proficiency" attributeType="String" defaultValueString=""/>
+        <attribute name="proficiency" attributeType="String" defaultValueString="none"/>
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
         <element name="Monster" positionX="-63" positionY="-18" width="128" height="778"/>
-        <element name="Skill" positionX="-63" positionY="135" width="128" height="103"/>
+        <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>
