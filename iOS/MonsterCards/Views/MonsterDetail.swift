@@ -63,7 +63,7 @@ struct SmallAbilityScore: View {
 struct MonsterDetail: View {
     let kTextColor: Color = Color(hex: 0x982818)
     
-    var monster: Monster
+    @ObservedObject var monster: Monster
     
     var body: some View {
         ScrollView {
