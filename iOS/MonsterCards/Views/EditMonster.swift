@@ -20,50 +20,7 @@ struct EditMonster: View {
         
     var body: some View {
         List {
-            Section(header: Text("Basic Info")) {
-                // Editable Text field bound to monster.name
-                MCTextField(
-                    label: "Name",
-                    value: $monsterViewModel.name)
-                
-                // Editable Text field bound to monster.size
-                MCTextField(
-                    label: "Size",
-                    value: $monsterViewModel.size)
-                
-                // Editable Text field bound to monster.type
-                MCTextField(
-                    label: "Type",
-                    value: $monsterViewModel.type)
-                
-                // Editable Text field bound to monster.subType
-                MCTextField(
-                    label: "Subtype",
-                    value: $monsterViewModel.subType)
-                                
-                // Editable Text field bound to monster.alignment
-                MCTextField(
-                    label: "Alignment",
-                    value: $monsterViewModel.alignment)
-
-                // Number with -/+ buttons bound to monster.hitDice
-                MCStepperField(
-                    label: "Hit Dice",
-                    value: $monsterViewModel.hitDice)
-                
-                // Toggle bound to monster.hasCustomHP?
-                Toggle(
-                    "Has Custom HP",
-                    isOn:$monsterViewModel.hasCustomHP)
-                
-                // Editable Text field bound to monster.customHpText?
-                MCTextField(
-                    label: "Custom HP",
-                    value: $monsterViewModel.customHP)
-                
-            }
-            .textCase(nil)
-            
+            NavigationLink("Basic Info", destination: EditBasicInfo(monsterViewModel: monsterViewModel))
             Section(header: Text("Armor")) {
                 // Armor Type select bound to monster.armorTypeEnum
                 MCArmorTypePicker(
