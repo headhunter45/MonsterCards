@@ -86,9 +86,8 @@ public class Monster: NSManagedObject {
                 let levelNHP = (dieSize + 1.0) / 2.0 + conMod
                 let extraLevelsHP = extraLevels * levelNHP
                 let hpTotal = Int(ceil(level1HP + extraLevelsHP))
-//                let hpTotal = Int(max(1, ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod))))
                 let conBonus = Int(conMod) * Int(hitDice)
-                return String(format: "%d (%dd%d%+d)", hpTotal, hitDice, dieSize, conBonus)
+                return String(format: "%d (%dd%d%+d)", hpTotal, hitDice, Int(dieSize), conBonus)
             }
         }
     }
