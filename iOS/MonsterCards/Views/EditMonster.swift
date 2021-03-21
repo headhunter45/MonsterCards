@@ -23,28 +23,7 @@ struct EditMonster: View {
             NavigationLink("Basic Info", destination: EditBasicInfo(monsterViewModel: monsterViewModel))
             NavigationLink("Armor", destination: EditArmor(monsterViewModel: monsterViewModel))
             NavigationLink("Speed", destination: EditSpeed(monsterViewModel: monsterViewModel))
-            
-            Section(header: Text("Ability Scores")) {
-                MCStepperField(
-                    label: "STR",
-                    value: $monsterViewModel.strengthScore)
-                MCStepperField(
-                    label: "DEX",
-                    value: $monsterViewModel.dexterityScore)
-                MCStepperField(
-                    label: "CON",
-                    value: $monsterViewModel.constitutionScore)
-                MCStepperField(
-                    label: "INT",
-                    value: $monsterViewModel.intelligenceScore)
-                MCStepperField(
-                    label: "WIS",
-                    value: $monsterViewModel.wisdomScore)
-                MCStepperField(
-                    label: "CHA",
-                    value: $monsterViewModel.charismaScore)
-            }
-            .textCase(nil)
+            NavigationLink("Ability Scores", destination: EditAbilityScores(monsterViewModel: monsterViewModel))
             
             Section(header: Text("Saving Throws")) {
                 VStack {

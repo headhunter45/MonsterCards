@@ -19,6 +19,7 @@
 		E24ACE502607326E009BF703 /* EditBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */; };
 		E24ACE562607EE94009BF703 /* EditArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE552607EE94009BF703 /* EditArmor.swift */; };
 		E24ACE5B2607F0F2009BF703 /* EditSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE5A2607F0F2009BF703 /* EditSpeed.swift */; };
+		E24ACE602607F45E009BF703 /* EditAbilityScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */; };
 		E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */; };
 		E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FBA25B1AC520055B23B /* ContentView.swift */; };
 		E2570FBD25B1AC550055B23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2570FBC25B1AC550055B23B /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBasicInfo.swift; sourceTree = "<group>"; };
 		E24ACE552607EE94009BF703 /* EditArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArmor.swift; sourceTree = "<group>"; };
 		E24ACE5A2607F0F2009BF703 /* EditSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpeed.swift; sourceTree = "<group>"; };
+		E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAbilityScores.swift; sourceTree = "<group>"; };
 		E2570FB525B1AC520055B23B /* MonsterCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsApp.swift; sourceTree = "<group>"; };
 		E2570FBA25B1AC520055B23B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		E2570FAC25B1AC520055B23B = {
 			isa = PBXGroup;
 			children = (
+				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
 				E24ACE552607EE94009BF703 /* EditArmor.swift */,
 				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
 				E2570FB725B1AC520055B23B /* MonsterCards */,
@@ -367,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */,
+				E24ACE602607F45E009BF703 /* EditAbilityScores.swift in Sources */,
 				E2570FC225B1AC550055B23B /* Persistence.swift in Sources */,
 				E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */,
 				E24ACE502607326E009BF703 /* EditBasicInfo.swift in Sources */,
