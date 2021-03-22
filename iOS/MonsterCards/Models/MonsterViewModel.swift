@@ -191,15 +191,15 @@ class MonsterViewModel: ObservableObject {
                 monster.removeFromSkills(skill)
             }
         }
-//        // Add new skills to raw monster
-//        skills.forEach {skillVM in
-//            if (!(monster.skills?.contains(
-//                    where: {
-//                        skillVM.isEqualTo(rawSkill: $0 as? Skill)
-//                    }) ?? true)){
-//                monster.addToSkills(skillVM.buildRawSkill(context: monster.managedObjectContext))
-//            }
-//        }
+        // Add new skills to raw monster
+        skills.forEach {skillVM in
+            if (!(monster.skills?.contains(
+                    where: {
+                        skillVM.isEqualTo(rawSkill: $0 as? Skill)
+                    }) ?? true)){
+                monster.addToSkills(skillVM.buildRawSkill(context: monster.managedObjectContext))
+            }
+        }
     }
     
     func copyFromRaw() {
