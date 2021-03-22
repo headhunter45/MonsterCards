@@ -70,6 +70,127 @@ struct SmallAbilityScore: View {
     }
 }
 
+struct BasicInfoView: View {
+    @ObservedObject var monster: Monster
+    
+    var body: some View {
+        let monsterMeta = monster.meta
+        let monsterArmorClassDescription = monster.armorClassDescription
+        let monsterHitPoints = monster.hitPoints
+        let monsterSpeed = monster.speed
+        
+        // meta: "(large humanoid (elf) lawful evil"
+        if (!monsterMeta.isEmpty) {
+            Text(monsterMeta)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        
+        SectionDivider()
+
+        // AC
+        if (!monsterArmorClassDescription.isEmpty) {
+            LabeledField("Armor Class") {
+                Text(monsterArmorClassDescription)// armor class
+            }
+        }
+        
+        // HP
+        if (!monsterHitPoints.isEmpty) {
+            LabeledField("Hit Points") {
+                Text(monsterHitPoints) // hit points
+            }
+        }
+        
+        // Speed
+        if (!monsterSpeed.isEmpty) {
+            LabeledField("Speed") {
+                Text(monsterSpeed) // speed
+            }
+        }
+    }
+}
+
+struct AbilityScoresView: View {
+    @ObservedObject var monster: Monster
+    
+    var body: some View {
+        SectionDivider()
+        
+        // Ability Scores
+        HStack {
+            SmallAbilityScore("STR", monster.strengthScore, monster.strengthModifier)
+            SmallAbilityScore("DEX", monster.dexterityScore, monster.dexterityModifier)
+            SmallAbilityScore("CON", monster.constitutionScore, monster.constitutionModifier)
+            SmallAbilityScore("INT", monster.intelligenceScore, monster.intelligenceModifier)
+            SmallAbilityScore("WIS", monster.wisdomScore, monster.wisdomModifier)
+            SmallAbilityScore("CHA", monster.charismaScore, monster.charismaModifier)
+        }
+    }
+}
+
+struct ResistancesAndImmunitiesView: View {
+    @ObservedObject var monster: Monster
+    
+    var body: some View {
+        let monsterDamageVulnerabilitiesDescription = monster.damageVulnerabilitiesDescription
+        let monsterDamageResistancesDescription = monster.damageResistancesDescription
+        let monsterDamageImmunitiesDescription = monster.damageImmunitiesDescription
+        let monsterConditionImmunitiesDescription = monster.conditionImmunitiesDescription
+        
+        // Damage Vulnerabilities
+        if (!monsterDamageVulnerabilitiesDescription.isEmpty) {
+            LabeledField("Damage Vulnerabilities") {
+                Text(monsterDamageVulnerabilitiesDescription)
+            }
+        }
+        
+        // Damage Resistances
+        if (!monsterDamageResistancesDescription.isEmpty) {
+            LabeledField("Damage Resistances") {
+                Text(monsterDamageResistancesDescription)
+            }
+        }
+        
+        // Damage Immunities
+        if (!monsterDamageImmunitiesDescription.isEmpty) {
+            LabeledField("Damage Immunities") {
+                Text(monsterDamageImmunitiesDescription)
+            }
+        }
+        
+        // Condition Immunities
+        if (!monsterConditionImmunitiesDescription.isEmpty) {
+            LabeledField("Condition Immunities") {
+                Text(monsterConditionImmunitiesDescription)
+            }
+        }
+    }
+}
+
+struct SavingThrowsAndSkillsView: View {
+    @ObservedObject var monster: Monster
+    
+    var body: some View {
+        let savingThrowsDescription = monster.savingThrowsDescription
+        let skillsDescription = monster.skillsDescription
+        
+        // Saving Throws
+        if (!savingThrowsDescription.isEmpty) {
+            LabeledField("Saving Throws") {
+                Text(savingThrowsDescription)
+            }
+        }
+
+        // Skills
+        if (!skillsDescription.isEmpty) {
+            LabeledField("Skills") {
+                Text(skillsDescription)
+            }
+        }
+    }
+}
+
 struct MonsterDetail: View {
     let kTextColor: Color = Color(hex: 0x982818)
     
@@ -78,72 +199,45 @@ struct MonsterDetail: View {
     var body: some View {
         ScrollView {
             VStack (alignment: .leading) {
-                let monsterMeta = monster.meta
-                let monsterArmorClassDescription = monster.armorClassDescription
-                let monsterHitPoints = monster.hitPoints
-                let monsterSpeed = monster.speed
+                let monsterLanguagesDescription = monster.languagesDescription
+                let monsterChallengeRatingDescription = monster.challengeRatingDescription
                 
-                if (!monsterMeta.isEmpty) {
-                    // meta: "(large humanoid (elf) lawful evil"
-                    Text(monsterMeta)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
+                BasicInfoView(monster: monster)
                 
                 // TODO: Find a way to hide unnecessarry dividiers.
                 // if sections 0, 1, 2, and 3 are present there should be a divider between each of them
                 // if section 1 is not present there should be one and only one divider between sections 0 and 2 as well as the one between 2 and 3
                 // if sections 1 and 2 are not present there should be a single divider between sections 0 and 3
-                SectionDivider()
+                
 
-                if (!monsterArmorClassDescription.isEmpty) {
-                    // AC
-                    LabeledField("Armor Class") {
-                        Text(monsterArmorClassDescription)// armor class
-                    }
-                }
-                
-                if (!monsterHitPoints.isEmpty) {
-                    // HP
-                    LabeledField("Hit Points") {
-                        Text(monsterHitPoints) // hit points
-                    }
-                }
-                
-                // Speed
-                if (!monsterSpeed.isEmpty) {
-                    LabeledField("Speed") {
-                        Text(monsterSpeed) // speed
-                    }
-                }
+                AbilityScoresView(monster: monster)
 
                 SectionDivider()
                 
-                // Ability Scores
-                HStack {
-                    SmallAbilityScore("STR", monster.strengthScore, monster.strengthModifier)
-                    SmallAbilityScore("DEX", monster.dexterityScore, monster.dexterityModifier)
-                    SmallAbilityScore("CON", monster.constitutionScore, monster.constitutionModifier)
-                    SmallAbilityScore("INT", monster.intelligenceScore, monster.intelligenceModifier)
-                    SmallAbilityScore("WIS", monster.wisdomScore, monster.wisdomModifier)
-                    SmallAbilityScore("CHA", monster.charismaScore, monster.charismaModifier)
-                }
-
-                SectionDivider()
+                SavingThrowsAndSkillsView(monster: monster)
                 
-                let savingThrowsDescription = monster.savingThrowsDescription
-                if (!savingThrowsDescription.isEmpty) {
-                    LabeledField("Saving Throws") {
-                        Text(savingThrowsDescription)
+                ResistancesAndImmunitiesView(monster: monster)
+                
+                // Languages
+                if (!monsterLanguagesDescription.isEmpty) {
+                    LabeledField("Languages") {
+                        Text(monsterLanguagesDescription)
                     }
                 }
                 
-                let skillsDescription = monster.skillsDescription
-                if (!skillsDescription.isEmpty) {
-                    LabeledField("Skills") {
-                        Text(skillsDescription)
+                // Challenge Rating
+                if (!monsterChallengeRatingDescription.isEmpty) {
+                    LabeledField("Challenge Rating") {
+                        Text(monsterChallengeRatingDescription)
                     }
                 }
+                
+                // Abilities
+                
+                // Actions
+                
+                // Legendary Actions
+                
             }
             .padding(.horizontal)
             .foregroundColor(kTextColor)

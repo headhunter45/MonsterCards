@@ -625,115 +625,84 @@ public class Monster: NSManagedObject {
         }
     }
     
+    // MARK: OTHER
+    
+    var damageVulnerabilitiesArray: [String] {
+        get {
+            return ["Fire", "Poison", "Psychic"]
+        }
+    }
+    
+    var damageVulnerabilitiesDescription: String {
+        get {
+            let sortedVulnerabilities = self.damageVulnerabilitiesArray.sorted()
+            
+            return StringHelper.oxfordJoin(sortedVulnerabilities, ", ", ", and ", " and ")
+        }
+    }
+    
+    var damageResistancesArray: [String] {
+        get {
+            return ["Ice", "Electric"]
+        }
+    }
+    
+    var damageResistancesDescription: String {
+        get {
+            let sortedResistances = self.damageResistancesArray.sorted()
+            return StringHelper.oxfordJoin(sortedResistances, ", ", ", and ", " and ")
+        }
+    }
+    
+    var damageImmunitiesArray: [String] {
+        get {
+            return ["Slashing"]
+        }
+    }
+    
+    var damageImmunitiesDescription: String {
+        get {
+            let sortedImmunities = self.damageImmunitiesArray.sorted()
+            return StringHelper.oxfordJoin(sortedImmunities, ", ", ", and ", " and ")
+        }
+    }
+    
+    var conditionImmunitiesArray: [String] {
+        get {
+            return []
+        }
+    }
+    
+    var conditionImmunitiesDescription: String {
+        get {
+            let sortedImmunities = self.conditionImmunitiesArray.sorted()
+            return StringHelper.oxfordJoin(sortedImmunities, ", ", ", and ", " and ")
+        }
+    }
+    
+    var languagesArray: [String] {
+        get {
+            return ["Common", "Goblin"]
+        }
+    }
+    
+    var languagesDescription: String {
+        get {
+            let sortedLanguages = self.languagesArray.sorted()
+            return StringHelper.oxfordJoin(sortedLanguages, ", ", ", and ", " and ")
+        }
+    }
+    
+    var challengeRatingDescription: String {
+        get {
+            return "";
+        }
+    }
+    
     // MARK: End
 
 }
 
-enum ArmorType: String, CaseIterable, Identifiable {
-    case none = "none"
-    case naturalArmor = "natural armor"
-    case mageArmor = "mage armor"
-    case padded = "padded"
-    case leather = "leather"
-    case studdedLeather = "studded"
-    case hide = "hide"
-    case chainShirt = "chain shirt"
-    case scaleMail = "scale mail"
-    case breastplate = "breastplate"
-    case halfPlate = "half plate"
-    case ringMail = "ring mail"
-    case chainMail = "chain mail"
-    case splintMail = "splint"
-    case plateMail = "plate"
-    case other = "other"
-    
-    var id: ArmorType { self }
-    
-    var displayName: String {
-        switch self {
-            case .none: return "None"
-            case .naturalArmor: return "Natural Armor"
-            case .mageArmor: return "Mage Armor"
-            case .padded: return "Padded"
-            case .leather: return "Leather"
-            case .studdedLeather: return "Studded Leather"
-            case .hide: return "Hide"
-            case .chainShirt: return "Chain Shirt"
-            case .scaleMail: return "Scale Mail"
-            case .breastplate: return "Breastplate"
-            case .halfPlate: return "Half Plate"
-            case .ringMail: return "Ring Mail"
-            case .chainMail: return "Chain Mail"
-            case .splintMail: return "Splint Mail"
-            case .plateMail: return "Plate Mail"
-            case .other: return "Other"
-        }
-    }
-}
 
-enum SizeType: String, CaseIterable, Identifiable {
-    case tiny = "tiny"
-    case small = "small"
-    case medium = "medium"
-    case large = "large"
-    case huge = "huge"
-    case gargantuan = "gargantuan"
-    
-    var id: SizeType { self }
-    
-    var displayName: String {
-        switch self {
-            case .tiny: return "Tiny"
-            case .small: return "Small"
-            case .medium: return "Medium"
-            case .large: return "Large"
-            case .huge: return "Huge"
-        case .gargantuan: return "gargantuan"
-        }
-    }
-}
 
-enum ChallengeRating: String, CaseIterable, Identifiable {
-    case zero = "0"
-    case oneEighth = "1/8"
-    case oneQuarter = "1/4"
-    case oneHalf = "1/2"
-    case one = "1"
-    case two = "2"
-    case three = "3"
-    case four = "4"
-    case five = "5"
-    case six = "6"
-    case seven = "7"
-    case eight = "8"
-    case nine = "9"
-    case ten = "10"
-    case eleven = "11"
-    case twelve = "12"
-    case thirteen = "13"
-    case fourteen = "14"
-    case fifteen = "15"
-    case sixteen = "16"
-    case seventeen = "17"
-    case eighteen = "18"
-    case nineteen = "19"
-    case twenty = "20"
-    case twentyOne = "21"
-    case twentyTwo = "22"
-    case twentyThree = "23"
-    case twentyFour = "24"
-    case twentyFive = "25"
-    case twentySix = "26"
-    case twentySeven = "27"
-    case twentyEight = "28"
-    case twentyNine = "29"
-    case thirty = "30"
-    case custom = "*"
-        
-    var id: ChallengeRating { self }
-    
-    // Probably don't need this
-    var displayName: String {
-        return rawValue
-    }
-}
+
