@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LabeledField<Content: View>: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     let content: Content
     let label: String
     
@@ -19,10 +21,18 @@ struct LabeledField<Content: View>: View {
     }
     
     var body: some View {
-        HStack(alignment: .top) {
-            Text(label)
-                .fontWeight(.bold)
-            content
+        if (sizeClass == .compact) {
+            VStack(alignment: .leading) {
+                Text(label)
+                    .fontWeight(.bold)
+                content
+            }
+        } else {
+            HStack(alignment: .top) {
+                Text(label)
+                    .fontWeight(.bold)
+                content
+            }
         }
     }
 }
