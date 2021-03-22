@@ -16,7 +16,6 @@ struct MCTextField: View {
                 .font(.caption2)
             TextField(label, text: value)
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-//                .padding(.top, -4)
         }
     }
 }

@@ -1,0 +1,39 @@
+//
+//  EditSkill.swift
+//  MonsterCards
+//
+//  Created by Tom Hicks on 3/21/21.
+//
+
+import SwiftUI
+
+struct EditSkill: View {
+    @ObservedObject var skillViewModel: SkillViewModel
+    
+    var body: some View {
+        List {
+            MCTextField(
+                label: "Name",
+                value: $skillViewModel.name)
+            
+            MCAbilityScorePicker(
+                label: "Ability Score",
+                value: $skillViewModel.abilityScore)
+            
+            MCAdvantagePicker(
+                label: "Advantage",
+                value: $skillViewModel.advantage)
+            
+            MCProficiencyPicker(
+                label: "Proficiency",
+                value: $skillViewModel.proficiency)
+        }
+    }
+}
+
+struct EditSkill_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = SkillViewModel(nil)
+        EditSkill(skillViewModel: viewModel)
+    }
+}

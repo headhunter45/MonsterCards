@@ -40,6 +40,8 @@
 		E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5285825B3028700AAA69E /* EditMonster.swift */; };
 		E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD702B25B3A8D70058ED69 /* MCTextField.swift */; };
 		E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD703025B3BBB90058ED69 /* MCStepperField.swift */; };
+		E2CB0DB326080C0500142591 /* EditSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DB226080C0500142591 /* EditSkill.swift */; };
+		E2CB0DB826081A2F00142591 /* MCAbilityScorePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DB726081A2F00142591 /* MCAbilityScorePicker.swift */; };
 		E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D473FC25B532C900CB36D7 /* Color+Hex.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		E2B5285825B3028700AAA69E /* EditMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMonster.swift; sourceTree = "<group>"; };
 		E2BD702B25B3A8D70058ED69 /* MCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTextField.swift; sourceTree = "<group>"; };
 		E2BD703025B3BBB90058ED69 /* MCStepperField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStepperField.swift; sourceTree = "<group>"; };
+		E2CB0DB226080C0500142591 /* EditSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkill.swift; sourceTree = "<group>"; };
+		E2CB0DB726081A2F00142591 /* MCAbilityScorePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAbilityScorePicker.swift; sourceTree = "<group>"; };
 		E2D473FC25B532C900CB36D7 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,11 +145,6 @@
 		E2570FAC25B1AC520055B23B = {
 			isa = PBXGroup;
 			children = (
-				E24ACE692607F715009BF703 /* EditSkills.swift */,
-				E24ACE642607F55D009BF703 /* EditSavingThrows.swift */,
-				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
-				E24ACE552607EE94009BF703 /* EditArmor.swift */,
-				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
 				E2570FB725B1AC520055B23B /* MonsterCards */,
 				E2570FCE25B1AC550055B23B /* MonsterCardsTests */,
 				E2570FD925B1AC550055B23B /* MonsterCardsUITests */,
@@ -208,6 +207,12 @@
 		E2570FEB25B1ADA90055B23B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2CB0DB226080C0500142591 /* EditSkill.swift */,
+				E24ACE692607F715009BF703 /* EditSkills.swift */,
+				E24ACE642607F55D009BF703 /* EditSavingThrows.swift */,
+				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
+				E24ACE552607EE94009BF703 /* EditArmor.swift */,
+				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
 				E2570FBA25B1AC520055B23B /* ContentView.swift */,
 				E2570FEF25B1ADC10055B23B /* Search.swift */,
 				E2570FF425B1ADEB0055B23B /* Dashboard.swift */,
@@ -222,6 +227,7 @@
 				E2BD703025B3BBB90058ED69 /* MCStepperField.swift */,
 				E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */,
 				E26CDA2A25CFB38E00E3F50D /* MCArmorTypePicker.swift */,
+				E2CB0DB726081A2F00142591 /* MCAbilityScorePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,12 +394,14 @@
 				E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */,
 				E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */,
 				E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */,
+				E2CB0DB826081A2F00142591 /* MCAbilityScorePicker.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
 				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,
 				E24ACE6A2607F715009BF703 /* EditSkills.swift in Sources */,
 				E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */,
 				E2570FFF25B1AE180055B23B /* Library.swift in Sources */,
 				E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */,
+				E2CB0DB326080C0500142591 /* EditSkill.swift in Sources */,
 				E24ACE562607EE94009BF703 /* EditArmor.swift in Sources */,
 				E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,

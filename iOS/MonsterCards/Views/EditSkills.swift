@@ -13,7 +13,7 @@ struct EditSkills: View {
     var body: some View {
         List {
             ForEach(monsterViewModel.skills, id: \.self) { skill in
-                Text(skill.name)
+                NavigationLink(skill.name, destination: EditSkill(skillViewModel: skill))
             }
             .onDelete(perform: { indexSet in
                 for index in indexSet {
