@@ -33,6 +33,9 @@ struct EditSkills: View {
                 }
             )
         })
+        .onAppear(perform: {
+            monsterViewModel.skills = monsterViewModel.skills.sorted()
+        })
     }
 }
 

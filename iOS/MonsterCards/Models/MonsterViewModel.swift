@@ -138,7 +138,7 @@ class MonsterViewModel: ObservableObject {
         self.charismaScore = monster.charismaScore
         self.charismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantageEnum
         self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
-        self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!
+        self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     }
     
     func copyToMonster(monster: Monster) {

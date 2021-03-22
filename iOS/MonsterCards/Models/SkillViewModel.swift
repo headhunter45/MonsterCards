@@ -8,7 +8,11 @@
 import Foundation
 import CoreData
 
-class SkillViewModel: ObservableObject, Hashable, Identifiable {
+class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
+    static func < (lhs: SkillViewModel, rhs: SkillViewModel) -> Bool {
+        return lhs.name < rhs.name
+    }
+    
     static func == (lhs: SkillViewModel, rhs: SkillViewModel) -> Bool {
         return lhs.abilityScore == rhs.abilityScore
             && lhs.advantage == rhs.advantage
