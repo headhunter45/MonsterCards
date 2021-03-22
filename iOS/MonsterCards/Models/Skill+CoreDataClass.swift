@@ -20,7 +20,6 @@ public class Skill: NSManagedObject {
             name = newValue
         }
     }
-
     
     var wrappedProficiency: ProficiencyType {
         get {
@@ -66,7 +65,11 @@ public class Skill: NSManagedObject {
     
     var skillDescription: String {
         get {
-            return String(format: "%@ %+d%@", name ?? "", modifier)
+            var advantageLabel = Monster.advantageLabelStringForType(wrappedAdvantage)
+            if (advantageLabel != "") {
+                advantageLabel = " " + advantageLabel
+            }
+            return String(format: "%@ %+d%@", name ?? "", modifier, advantageLabel)
         }
     }
 }

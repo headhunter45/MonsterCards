@@ -124,7 +124,14 @@ struct MonsterDetail: View {
                 let savingThrowsDescription = monster.savingThrowsDescription
                 if (!savingThrowsDescription.isEmpty) {
                     LabeledField("Saving Throws") {
-                        Text(monster.savingThrowsDescription)
+                        Text(savingThrowsDescription)
+                    }
+                }
+                
+                let skillsDescription = monster.skillsDescription
+                if (!skillsDescription.isEmpty) {
+                    LabeledField("Skills") {
+                        Text(skillsDescription)
                     }
                 }
             }

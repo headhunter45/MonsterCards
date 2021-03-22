@@ -607,7 +607,14 @@ public class Monster: NSManagedObject {
     
     var skillsDescription: String {
         get {
-            return ""
+            let sortedSkills = self.skillsArray.sorted {$0.name ?? "" < $1.name ?? ""}
+            return sortedSkills.reduce("") {
+                if $0 == "" {
+                    return $1.skillDescription
+                } else {
+                    return $0 + ", " + $1.skillDescription
+                }
+            }
         }
     }
     
