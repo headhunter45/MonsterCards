@@ -55,6 +55,10 @@ struct EditMonster: View {
             NavigationLink(
                 "Condition Immunities",
                 destination: EditDamageTypes(viewModel: monsterViewModel, path: \.conditionImmunities))
+            
+            NavigationLink(
+                "Damage Vulnerabilities",
+                destination: EditDamageTypes(viewModel: monsterViewModel, path: \.damageVulnerabilities))
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {

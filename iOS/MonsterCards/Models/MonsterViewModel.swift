@@ -53,6 +53,7 @@ class MonsterViewModel: ObservableObject {
     @Published var skills: [SkillViewModel]
     @Published var damageImmunities: [DamageTypeViewModel]
     @Published var damageResistances: [DamageTypeViewModel]
+    @Published var damageVulnerabilities: [DamageTypeViewModel]
     @Published var conditionImmunities: [DamageTypeViewModel]
     
     init(_ rawMonster: Monster?) {
@@ -97,6 +98,7 @@ class MonsterViewModel: ObservableObject {
         self.skills = []
         self.damageImmunities = []
         self.damageResistances = []
+        self.damageVulnerabilities = []
         self.conditionImmunities = []
 
         if (rawMonster != nil) {
@@ -151,6 +153,10 @@ class MonsterViewModel: ObservableObject {
             .sorted()
 
         self.damageResistances = monster.damageResistancesArray
+            .map {DamageTypeViewModel($0)}
+            .sorted()
+        
+        self.damageVulnerabilities = monster.damageVulnerabilitiesArray
             .map {DamageTypeViewModel($0)}
             .sorted()
         
