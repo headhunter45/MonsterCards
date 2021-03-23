@@ -51,6 +51,7 @@ class MonsterViewModel: ObservableObject {
     @Published var charismaSavingThrowProficiency: ProficiencyType
     @Published var charismaSavingThrowAdvantage: AdvantageType
     @Published var skills: [SkillViewModel]
+    @Published var conditionImmunities: [DamageTypeViewModel]
     
     init(_ rawMonster: Monster?) {
         self.name = ""
@@ -92,7 +93,8 @@ class MonsterViewModel: ObservableObject {
         self.charismaSavingThrowAdvantage = .none
         self.charismaSavingThrowProficiency = .none
         self.skills = []
-        
+        self.conditionImmunities = []
+
         if (rawMonster != nil) {
             self.rawMonster = rawMonster
             self.copyFromMonster(monster: rawMonster!)
@@ -139,6 +141,10 @@ class MonsterViewModel: ObservableObject {
         self.charismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantageEnum
         self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
+        
+        self.conditionImmunities = monster.conditionImmunitiesArray
+            .map {DamageTypeViewModel($0)}
+            .sorted()
     }
     
     func copyToMonster(monster: Monster) {

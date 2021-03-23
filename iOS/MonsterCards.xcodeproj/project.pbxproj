@@ -46,6 +46,8 @@
 		E2CB0DC526086E5F00142591 /* SizeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DC426086E5F00142591 /* SizeType.swift */; };
 		E2CB0DCA26086E8300142591 /* ArmorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DC926086E8300142591 /* ArmorType.swift */; };
 		E2CB0DD72608720000142591 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DD62608720000142591 /* StringHelper.swift */; };
+		E2CB0DE1260887ED00142591 /* DamageTypesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE0260887ED00142591 /* DamageTypesViewModel.swift */; };
+		E2CB0DE626088CE400142591 /* EditDamageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE526088CE400142591 /* EditDamageTypes.swift */; };
 		E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D473FC25B532C900CB36D7 /* Color+Hex.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,8 @@
 		E2CB0DC426086E5F00142591 /* SizeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeType.swift; sourceTree = "<group>"; };
 		E2CB0DC926086E8300142591 /* ArmorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorType.swift; sourceTree = "<group>"; };
 		E2CB0DD62608720000142591 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		E2CB0DE0260887ED00142591 /* DamageTypesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTypesViewModel.swift; sourceTree = "<group>"; };
+		E2CB0DE526088CE400142591 /* EditDamageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDamageTypes.swift; sourceTree = "<group>"; };
 		E2D473FC25B532C900CB36D7 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +228,7 @@
 				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
 				E24ACE552607EE94009BF703 /* EditArmor.swift */,
 				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
+				E2CB0DE526088CE400142591 /* EditDamageTypes.swift */,
 				E2B5285825B3028700AAA69E /* EditMonster.swift */,
 				E24ACE642607F55D009BF703 /* EditSavingThrows.swift */,
 				E2CB0DB226080C0500142591 /* EditSkill.swift */,
@@ -246,6 +251,7 @@
 		E257101225B1B2790055B23B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2CB0DE0260887ED00142591 /* DamageTypesViewModel.swift */,
 				E20209E625D8DEB600EFE733 /* Enums */,
 				E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */,
 				E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */,
@@ -415,9 +421,11 @@
 				E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */,
 				E2570FFF25B1AE180055B23B /* Library.swift in Sources */,
 				E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */,
+				E2CB0DE626088CE400142591 /* EditDamageTypes.swift in Sources */,
 				E2CB0DB326080C0500142591 /* EditSkill.swift in Sources */,
 				E2CB0DCA26086E8300142591 /* ArmorType.swift in Sources */,
 				E24ACE562607EE94009BF703 /* EditArmor.swift in Sources */,
+				E2CB0DE1260887ED00142591 /* DamageTypesViewModel.swift in Sources */,
 				E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */,
 				E2CB0DC526086E5F00142591 /* SizeType.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
