@@ -52,6 +52,7 @@ class MonsterViewModel: ObservableObject {
     @Published var charismaSavingThrowAdvantage: AdvantageType
     @Published var skills: [SkillViewModel]
     @Published var damageImmunities: [DamageTypeViewModel]
+    @Published var damageResistances: [DamageTypeViewModel]
     @Published var conditionImmunities: [DamageTypeViewModel]
     
     init(_ rawMonster: Monster?) {
@@ -95,6 +96,7 @@ class MonsterViewModel: ObservableObject {
         self.charismaSavingThrowProficiency = .none
         self.skills = []
         self.damageImmunities = []
+        self.damageResistances = []
         self.conditionImmunities = []
 
         if (rawMonster != nil) {
@@ -145,6 +147,10 @@ class MonsterViewModel: ObservableObject {
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     
         self.damageImmunities = monster.damageImmunitiesArray
+            .map {DamageTypeViewModel($0)}
+            .sorted()
+
+        self.damageResistances = monster.damageResistancesArray
             .map {DamageTypeViewModel($0)}
             .sorted()
         
