@@ -45,6 +45,10 @@ struct EditMonster: View {
                 destination: EditSkills(monsterViewModel: monsterViewModel))
             
             NavigationLink(
+                "Damage Immunities",
+                destination: EditDamageTypes(viewModel: monsterViewModel, path: \.damageImmunities))
+            
+            NavigationLink(
                 "Condition Immunities",
                 destination: EditDamageTypes(viewModel: monsterViewModel, path: \.conditionImmunities))
         }
