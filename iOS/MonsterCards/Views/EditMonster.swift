@@ -69,23 +69,7 @@ struct EditMonster: View {
         .navigationTitle(monsterViewModel.name)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
-    private func addSkill() {
-        print("Add Skill pressed")
-//
-//        let newSkill = Skill.init(context: viewContext)
-//        newSkill.name = "Acrobatics"
-//        newSkill.wrappedAbilityScore = .dexterity
-//        newSkill.wrappedProficiency = .proficient
-//        monster.addToSkills(newSkill);
-//        do {
-//            try viewContext.save()
-//            monsterSkills = monster.skillsArray
-//        } catch {
-//            print("error")
-//        }
-    }
-    
+        
     private func dismissView() {
         self.presentationMode.wrappedValue.dismiss()
     }
