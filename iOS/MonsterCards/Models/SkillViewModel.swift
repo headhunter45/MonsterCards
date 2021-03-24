@@ -50,7 +50,7 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
         skill.wrappedProficiency = proficiency
     }
 
-    init(_ rawSkill: Skill?) {
+    init(_ rawSkill: Skill? = nil) {
         if (rawSkill != nil) {
             _name = rawSkill!.name ?? ""
             _abilityScore = AbilityScore(rawValue: rawSkill!.abilityScoreName ?? "") ?? .strength
