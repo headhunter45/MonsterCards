@@ -67,7 +67,6 @@ struct EditSavingThrows: View {
                     value: $monsterViewModel.charismaSavingThrowProficiency)
             }
         }
-        .textCase(nil)
     }
 }
 

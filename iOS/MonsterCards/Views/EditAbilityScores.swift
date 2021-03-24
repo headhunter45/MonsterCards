@@ -29,8 +29,7 @@ struct EditAbilityScores: View {
         MCStepperField(
             label: "CHA",
             value: $monsterViewModel.charismaScore)
-    }
-    .textCase(nil)
+        }
     }
 }
 

@@ -15,6 +15,7 @@ struct EditSkill: View {
             MCTextField(
                 label: "Name",
                 value: $skillViewModel.name)
+                .autocapitalization(.words)
             
             MCAbilityScorePicker(
                 label: "Ability Score",

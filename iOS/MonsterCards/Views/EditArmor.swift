@@ -31,8 +31,8 @@ struct EditArmor: View {
             MCTextField(
                 label: "Custom Armor",
                 value: $monsterViewModel.customArmor)
+                .autocapitalization(.none)
         }
-        .textCase(nil)
     }
 }
 

@@ -21,6 +21,7 @@ struct EditDamageTypes: View {
                         set: {damageType.name = $0}
                     )
                 )
+                .autocapitalization(.none)
             }
             .onDelete(perform: { indexSet in
                 for index in indexSet {

@@ -61,7 +61,8 @@ struct EditSpeed: View {
             MCTextField(
                 label: "Custom Speed",
                 value: $monsterViewModel.customSpeed)
-        }.textCase(nil)
+                .autocapitalization(.none)
+        }
     }
 }
 
