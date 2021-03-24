@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Monster" representedClassName="Monster" syncable="YES" codeGenerationType="category">
         <attribute name="alignment" attributeType="String" defaultValueString=""/>
         <attribute name="armorType" attributeType="String" defaultValueString=""/>
@@ -12,6 +12,7 @@
         <attribute name="charismaSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="charismaScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="climbSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="conditionImmunities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
         <attribute name="constitutionSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
         <attribute name="constitutionSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="constitutionScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
@@ -19,6 +20,9 @@
         <attribute name="customHP" attributeType="String" defaultValueString=""/>
         <attribute name="customProficiencyBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="customSpeed" attributeType="String" defaultValueString=""/>
+        <attribute name="damageImmunities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="damageResistances" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="damageVulnerabilities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
         <attribute name="darkvisionDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dexteritySavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
         <attribute name="dexteritySavingThrowProficiency" attributeType="String" defaultValueString="none"/>
@@ -59,7 +63,7 @@
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="778"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="824"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>
