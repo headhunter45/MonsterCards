@@ -30,6 +30,7 @@ struct EditAbilityScores: View {
             label: "CHA",
             value: $monsterViewModel.charismaScore)
         }
+        .navigationTitle("Ability Scores")
     }
 }
 

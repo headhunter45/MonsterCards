@@ -10,6 +10,7 @@ import SwiftUI
 struct EditDamageTypes: View {
     @ObservedObject var viewModel: MonsterViewModel
     var path: ReferenceWritableKeyPath<MonsterViewModel, [DamageTypeViewModel]>
+    var title: String
     
     var body: some View {
         List {
@@ -43,13 +44,13 @@ struct EditDamageTypes: View {
         })
         .onAppear(perform: {
             viewModel[keyPath: path] = viewModel[keyPath: path].sorted()
-        })
+        }).navigationTitle(title)
     }
 }
 
 struct EditDamageTypes_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = MonsterViewModel()
-        EditDamageTypes(viewModel: viewModel, path: \.damageImmunities)
+        EditDamageTypes(viewModel: viewModel, path: \.damageImmunities, title: "Damage Types")
     }
 }

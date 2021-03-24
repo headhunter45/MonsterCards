@@ -63,6 +63,7 @@ struct EditSpeed: View {
                 value: $monsterViewModel.customSpeed)
                 .autocapitalization(.none)
         }
+        .navigationTitle("Speed")
     }
 }
 

@@ -33,6 +33,7 @@ struct EditArmor: View {
                 value: $monsterViewModel.customArmor)
                 .autocapitalization(.none)
         }
+        .navigationTitle("Armor")
     }
 }
 

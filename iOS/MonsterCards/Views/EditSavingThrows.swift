@@ -67,6 +67,7 @@ struct EditSavingThrows: View {
                     value: $monsterViewModel.charismaSavingThrowProficiency)
             }
         }
+        .navigationTitle("Saving Throws")
     }
 }
 

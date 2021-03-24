@@ -59,6 +59,7 @@ struct EditBasicInfo: View {
                 value: $monsterViewModel.customHP)
                 .autocapitalization(.none)
         }
+        .navigationTitle("Basic Info")
     }
 }
 

@@ -29,6 +29,7 @@ struct EditSkill: View {
                 label: "Proficiency",
                 value: $skillViewModel.proficiency)
         }
+        .navigationTitle("Skill")
     }
 }
 
