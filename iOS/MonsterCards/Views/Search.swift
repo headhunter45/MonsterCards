@@ -23,8 +23,42 @@ struct Search: View {
             List {
                 SearchBar(text: $searchText)
                     .padding(.top, -30)
-
-                ForEach(allMonsters.filter({searchText.isEmpty ? true : $0.name?.containsCaseInsensitive(searchText) ?? false })) { monster in
+                
+                ForEach(
+                    allMonsters.filter(
+                        {
+                            // TODO: consider splitting search text into words and if each word appears in any of these fields return true e.g, "large demon" would match large in size and demon in type.
+                            // TODO: add tags and search by tags
+                            // TODO: add a display of what fields matched on each item in the results
+                            // TODO: make the criteria configurable from this screen
+                            // TODO: find a way to add challenge rating as a search criteria
+                            
+                            if (searchText.isEmpty) {
+                                return true
+                            }
+                            
+                            if (StringHelper.safeContainsCaseInsensitive($0.name, searchText)) {
+                                return true
+                            }
+                            
+                            if (StringHelper.safeContainsCaseInsensitive($0.size, searchText)) {
+                                return true
+                            }
+                            
+                            if (StringHelper.safeContainsCaseInsensitive($0.type, searchText)) {
+                                return true
+                            }
+                            
+                            if (StringHelper.safeContainsCaseInsensitive($0.subtype, searchText)) {
+                                return true
+                            }
+                            
+                            if (StringHelper.safeContainsCaseInsensitive($0.alignment, searchText)) {
+                                return true
+                            }
+                            
+                            return false
+                        })) { monster in
                     NavigationLink(destination: MonsterDetail(monster: monster)) {
                         Text(monster.name ?? "")
                     }

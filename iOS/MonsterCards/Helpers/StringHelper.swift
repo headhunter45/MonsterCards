@@ -37,4 +37,12 @@ class StringHelper {
             return joined
         }
     }
+    
+    static func safeContainsCaseInsensitive(_ str: String?, _ match: String) -> Bool {
+        if (str == nil) {
+            return false
+        }
+        
+        return str!.containsCaseInsensitive(match)
+    }
 }
