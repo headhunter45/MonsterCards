@@ -34,6 +34,7 @@ struct EditSkills: View {
                 }
             )
         })
+        .navigationTitle("Skills")
         .onAppear(perform: {
             monsterViewModel.skills = monsterViewModel.skills.sorted()
         })
