@@ -15,7 +15,7 @@ struct EditMonster: View {
     
     var monster: Monster
     
-    @StateObject private var monsterViewModel: MonsterViewModel = MonsterViewModel(nil)
+    @StateObject private var monsterViewModel: MonsterViewModel = MonsterViewModel()
     @State private var hasInitializedViewModel = false
         
     var body: some View {

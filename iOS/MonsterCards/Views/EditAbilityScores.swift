@@ -36,7 +36,7 @@ struct EditAbilityScores: View {
 
 struct EditAbilityScores_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel(nil)
+        let viewModel = MonsterViewModel()
         EditAbilityScores(monsterViewModel: viewModel)
     }
 }

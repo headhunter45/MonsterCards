@@ -73,7 +73,7 @@ struct EditSavingThrows: View {
 
 struct EditSavingThrows_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel(nil)
+        let viewModel = MonsterViewModel()
         EditSavingThrows(monsterViewModel: viewModel)
     }
 }

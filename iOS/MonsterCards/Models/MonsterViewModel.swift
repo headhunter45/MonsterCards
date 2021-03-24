@@ -10,8 +10,6 @@ import CoreData
 
 class MonsterViewModel: ObservableObject {
     
-    private var rawMonster: Monster?
-    
     @Published var name: String
     @Published var size: String
     @Published var type: String
@@ -56,7 +54,7 @@ class MonsterViewModel: ObservableObject {
     @Published var damageVulnerabilities: [DamageTypeViewModel]
     @Published var conditionImmunities: [DamageTypeViewModel]
     
-    init(_ rawMonster: Monster?) {
+    init(_ rawMonster: Monster? = nil) {
         self.name = ""
         self.size = ""
         self.type = ""
@@ -102,7 +100,6 @@ class MonsterViewModel: ObservableObject {
         self.conditionImmunities = []
 
         if (rawMonster != nil) {
-            self.rawMonster = rawMonster
             self.copyFromMonster(monster: rawMonster!)
         }
     }
@@ -224,15 +221,6 @@ class MonsterViewModel: ObservableObject {
                 monster.addToSkills(skillVM.buildRawSkill(context: monster.managedObjectContext))
             }
         }
-    }
-    
-    func copyFromRaw() {
-        if (self.rawMonster != nil) {
-            self.copyFromMonster(monster: self.rawMonster!);
-        }
-    }
-    
-    func copyToRaw() {
         
         monster.conditionImmunities = conditionImmunities.map {$0.name}
         monster.damageImmunities = damageImmunities.map {$0.name}

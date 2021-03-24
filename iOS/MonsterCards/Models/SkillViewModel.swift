@@ -52,7 +52,6 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
 
     init(_ rawSkill: Skill?) {
         if (rawSkill != nil) {
-            self.rawSkill = rawSkill
             _name = rawSkill!.name ?? ""
             _abilityScore = AbilityScore(rawValue: rawSkill!.abilityScoreName ?? "") ?? .strength
             _proficiency = ProficiencyType(rawValue: rawSkill!.proficiency ?? "") ?? .none
@@ -66,8 +65,6 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
         }
     }
     
-    var rawSkill: Skill?
-    
     private var _name: String = ""
     var name: String {
         get {
@@ -77,9 +74,6 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
             if (newValue != _name) {
                 _name = newValue
                 // Notify changed name
-            }
-            if (rawSkill != nil) {
-                rawSkill!.name = newValue
             }
         }
     }
@@ -94,9 +88,6 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
                 _abilityScore = newValue
                 // Notify changed
             }
-            if (rawSkill != nil) {
-                rawSkill!.wrappedAbilityScore = newValue
-            }
         }
     }
     
@@ -110,9 +101,6 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
                 _proficiency = newValue
                 // Notify changed
             }
-            if (rawSkill != nil) {
-                rawSkill!.wrappedProficiency = newValue
-            }
         }
     }
     
@@ -125,9 +113,6 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
             if (newValue != _advantage) {
                 _advantage = newValue
                 // Notify changed
-            }
-            if (rawSkill != nil) {
-                rawSkill!.wrappedAdvantage = newValue
             }
         }
     }

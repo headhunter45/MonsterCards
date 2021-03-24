@@ -48,7 +48,7 @@ struct EditDamageTypes: View {
 
 struct EditDamageTypes_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel(nil)
+        let viewModel = MonsterViewModel()
         EditDamageTypes(viewModel: viewModel, path: \.damageImmunities)
     }
 }

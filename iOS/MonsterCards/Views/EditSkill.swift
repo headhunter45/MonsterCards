@@ -33,7 +33,7 @@ struct EditSkill: View {
 
 struct EditSkill_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = SkillViewModel(nil)
+        let viewModel = SkillViewModel()
         EditSkill(skillViewModel: viewModel)
     }
 }

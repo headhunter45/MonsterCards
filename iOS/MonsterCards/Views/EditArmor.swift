@@ -38,7 +38,7 @@ struct EditArmor: View {
 
 struct EditArmor_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel(nil)
+        let viewModel = MonsterViewModel()
         EditArmor(monsterViewModel: viewModel)
     }
 }

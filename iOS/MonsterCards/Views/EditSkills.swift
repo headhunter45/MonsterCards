@@ -24,7 +24,7 @@ struct EditSkills: View {
         .toolbar(content: {
             Button(
                 action: {
-                    let newSkill = SkillViewModel(nil)
+                    let newSkill = SkillViewModel()
                     newSkill.name = "New Skill"
                     monsterViewModel.skills.append(newSkill)
                 },
@@ -41,7 +41,7 @@ struct EditSkills: View {
 
 struct EditSkills_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel(nil)
+        let viewModel = MonsterViewModel()
         EditSkills(monsterViewModel: viewModel)
     }
 }

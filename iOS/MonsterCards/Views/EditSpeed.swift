@@ -67,7 +67,7 @@ struct EditSpeed: View {
 
 struct EditSpeed_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel(nil)
+        let viewModel = MonsterViewModel()
         EditSpeed(monsterViewModel: viewModel)
     }
 }
