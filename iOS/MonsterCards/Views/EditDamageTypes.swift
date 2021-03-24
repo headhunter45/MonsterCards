@@ -31,7 +31,7 @@ struct EditDamageTypes: View {
         .toolbar(content: {
             Button(
                 action: {
-                    let newDamageType = DamageTypeViewModel("New Type")
+                    let newDamageType = DamageTypeViewModel()
                     viewModel[keyPath: path].append(newDamageType)
                     viewModel[keyPath: path] = viewModel[keyPath: path].sorted()
                 },

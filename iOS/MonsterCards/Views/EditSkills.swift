@@ -25,7 +25,8 @@ struct EditSkills: View {
             Button(
                 action: {
                     let newSkill = SkillViewModel()
-                    newSkill.name = "New Skill"
+                    newSkill.name = ""
+                    newSkill.proficiency = .proficient
                     monsterViewModel.skills.append(newSkill)
                 },
                 label: {

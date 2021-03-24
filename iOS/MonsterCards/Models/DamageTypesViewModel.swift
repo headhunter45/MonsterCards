@@ -18,7 +18,7 @@ class DamageTypeViewModel: ObservableObject, Comparable, Identifiable {
     
     @Published var name: String
     
-    init(_ name: String) {
+    init(_ name: String = "") {
         self.name = name
     }
 }
