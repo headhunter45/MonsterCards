@@ -627,55 +627,31 @@ public class Monster: NSManagedObject {
     
     // MARK: OTHER
     
-    var damageVulnerabilitiesArray: [String] {
-        get {
-            return ["Fire", "Poison", "Psychic"]
-        }
-    }
-    
     var damageVulnerabilitiesDescription: String {
         get {
-            let sortedVulnerabilities = self.damageVulnerabilitiesArray.sorted()
+            let sortedVulnerabilities = self.damageVulnerabilities?.sorted() ?? []
             
             return StringHelper.oxfordJoin(sortedVulnerabilities, ", ", ", and ", " and ")
         }
     }
     
-    var damageResistancesArray: [String] {
-        get {
-            return ["Ice", "Electric"]
-        }
-    }
-    
     var damageResistancesDescription: String {
         get {
-            let sortedResistances = self.damageResistancesArray.sorted()
+            let sortedResistances = self.damageResistances?.sorted() ?? []
             return StringHelper.oxfordJoin(sortedResistances, ", ", ", and ", " and ")
         }
     }
-    
-    var damageImmunitiesArray: [String] {
-        get {
-            return ["Slashing"]
-        }
-    }
-    
+        
     var damageImmunitiesDescription: String {
         get {
-            let sortedImmunities = self.damageImmunitiesArray.sorted()
+            let sortedImmunities = self.damageImmunities?.sorted() ?? []
             return StringHelper.oxfordJoin(sortedImmunities, ", ", ", and ", " and ")
-        }
-    }
-    
-    var conditionImmunitiesArray: [String] {
-        get {
-            return []
         }
     }
     
     var conditionImmunitiesDescription: String {
         get {
-            let sortedImmunities = self.conditionImmunitiesArray.sorted()
+            let sortedImmunities = self.conditionImmunities?.sorted() ?? []
             return StringHelper.oxfordJoin(sortedImmunities, ", ", ", and ", " and ")
         }
     }

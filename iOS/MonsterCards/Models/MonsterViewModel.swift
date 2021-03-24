@@ -148,19 +148,19 @@ class MonsterViewModel: ObservableObject {
         self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     
-        self.damageImmunities = monster.damageImmunitiesArray
+        self.damageImmunities = (monster.damageImmunities ?? [])
             .map {DamageTypeViewModel($0)}
             .sorted()
 
-        self.damageResistances = monster.damageResistancesArray
+        self.damageResistances = (monster.damageResistances ?? [])
             .map {DamageTypeViewModel($0)}
             .sorted()
         
-        self.damageVulnerabilities = monster.damageVulnerabilitiesArray
+        self.damageVulnerabilities = (monster.damageVulnerabilities ?? [])
             .map {DamageTypeViewModel($0)}
             .sorted()
         
-        self.conditionImmunities = monster.conditionImmunitiesArray
+        self.conditionImmunities = (monster.conditionImmunities ?? [])
             .map {DamageTypeViewModel($0)}
             .sorted()
     }
@@ -234,5 +234,9 @@ class MonsterViewModel: ObservableObject {
     
     func copyToRaw() {
         
+        monster.conditionImmunities = conditionImmunities.map {$0.name}
+        monster.damageImmunities = damageImmunities.map {$0.name}
+        monster.damageResistances = damageResistances.map {$0.name}
+        monster.damageVulnerabilities = damageVulnerabilities.map {$0.name}
     }
 }
