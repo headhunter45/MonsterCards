@@ -73,6 +73,9 @@ struct EditMonster: View {
                 NavigationLink(
                     "Challenge Rating",
                     destination: EditChallengeRating(viewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Abilities", destination: EditAbilities(viewModel: monsterViewModel, path: \.abilities, title: "Abilities"))
             }
             
         }

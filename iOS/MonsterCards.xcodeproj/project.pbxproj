@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,10 @@
 		E24ACE602607F45E009BF703 /* EditAbilityScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */; };
 		E24ACE652607F55D009BF703 /* EditSavingThrows.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE642607F55D009BF703 /* EditSavingThrows.swift */; };
 		E24ACE6A2607F715009BF703 /* EditSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE692607F715009BF703 /* EditSkills.swift */; };
+		E254F901260D07C1009295A5 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = E254F900260D07C1009295A5 /* MarkdownUI */; };
+		E254F906260D0818009295A5 /* AbilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254F905260D0818009295A5 /* AbilityViewModel.swift */; };
+		E254F90E260D19A0009295A5 /* EditAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254F90D260D19A0009295A5 /* EditAbilities.swift */; };
+		E254F913260D1F6D009295A5 /* EditAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254F912260D1F6D009295A5 /* EditAbility.swift */; };
 		E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */; };
 		E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FBA25B1AC520055B23B /* ContentView.swift */; };
 		E2570FBD25B1AC550055B23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2570FBC25B1AC550055B23B /* Assets.xcassets */; };
@@ -96,6 +100,9 @@
 		E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAbilityScores.swift; sourceTree = "<group>"; };
 		E24ACE642607F55D009BF703 /* EditSavingThrows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSavingThrows.swift; sourceTree = "<group>"; };
 		E24ACE692607F715009BF703 /* EditSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkills.swift; sourceTree = "<group>"; };
+		E254F905260D0818009295A5 /* AbilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityViewModel.swift; sourceTree = "<group>"; };
+		E254F90D260D19A0009295A5 /* EditAbilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAbilities.swift; sourceTree = "<group>"; };
+		E254F912260D1F6D009295A5 /* EditAbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAbility.swift; sourceTree = "<group>"; };
 		E2570FB525B1AC520055B23B /* MonsterCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsApp.swift; sourceTree = "<group>"; };
 		E2570FBA25B1AC520055B23B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E254F901260D07C1009295A5 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +245,8 @@
 				E2570FF925B1AE020055B23B /* Collections.swift */,
 				E2570FBA25B1AC520055B23B /* ContentView.swift */,
 				E2570FF425B1ADEB0055B23B /* Dashboard.swift */,
+				E254F90D260D19A0009295A5 /* EditAbilities.swift */,
+				E254F912260D1F6D009295A5 /* EditAbility.swift */,
 				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
 				E24ACE552607EE94009BF703 /* EditArmor.swift */,
 				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
@@ -267,6 +277,7 @@
 		E257101225B1B2790055B23B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E254F905260D0818009295A5 /* AbilityViewModel.swift */,
 				E216B7B6260C5A9800FB205F /* ChallengeRatingViewModel.swift */,
 				E20209E625D8DEB600EFE733 /* Enums */,
 				E216B790260C1FE800FB205F /* LanguageViewModel.swift */,
@@ -304,6 +315,9 @@
 			dependencies = (
 			);
 			name = MonsterCards;
+			packageProductDependencies = (
+				E254F900260D07C1009295A5 /* MarkdownUI */,
+			);
 			productName = MonsterCards;
 			productReference = E2570FB525B1AC520055B23B /* MonsterCards.app */;
 			productType = "com.apple.product-type.application";
@@ -375,6 +389,9 @@
 				Base,
 			);
 			mainGroup = E2570FAC25B1AC520055B23B;
+			packageReferences = (
+				E254F8FF260D07C1009295A5 /* XCRemoteSwiftPackageReference "MarkdownUI" */,
+			);
 			productRefGroup = E2570FB625B1AC520055B23B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -423,6 +440,7 @@
 				E216B799260C2DF200FB205F /* EditLanguages.swift in Sources */,
 				E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */,
 				E24ACE502607326E009BF703 /* EditBasicInfo.swift in Sources */,
+				E254F90E260D19A0009295A5 /* EditAbilities.swift in Sources */,
 				E2570FC525B1AC550055B23B /* MonsterCards.xcdatamodeld in Sources */,
 				E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */,
 				E216B791260C1FE800FB205F /* LanguageViewModel.swift in Sources */,
@@ -449,9 +467,11 @@
 				E2CB0DE1260887ED00142591 /* StringViewModel.swift in Sources */,
 				E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */,
 				E2CB0DC526086E5F00142591 /* SizeType.swift in Sources */,
+				E254F906260D0818009295A5 /* AbilityViewModel.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
 				E24ACE5B2607F0F2009BF703 /* EditSpeed.swift in Sources */,
 				E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */,
+				E254F913260D1F6D009295A5 /* EditAbility.swift in Sources */,
 				E216B7B7260C5A9800FB205F /* ChallengeRatingViewModel.swift in Sources */,
 				E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */,
 				E24ACE652607F55D009BF703 /* EditSavingThrows.swift in Sources */,
@@ -780,6 +800,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E254F8FF260D07C1009295A5 /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/MarkdownUI";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E254F900260D07C1009295A5 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E254F8FF260D07C1009295A5 /* XCRemoteSwiftPackageReference "MarkdownUI" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */ = {

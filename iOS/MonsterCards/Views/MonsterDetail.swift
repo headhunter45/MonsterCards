@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct LabeledField<Content: View>: View {
     @Environment(\.horizontalSizeClass) var sizeClass
@@ -209,6 +210,7 @@ struct MonsterDetail: View {
             VStack (alignment: .leading) {
                 let monsterLanguagesDescription = monster.languagesDescription
                 let monsterChallengeRatingDescription = monster.challengeRatingDescription
+                let monsterAbilities: [AbilityViewModel] = monster.abilities ?? []
                 
                 BasicInfoView(monster: monster)
                 
@@ -243,7 +245,15 @@ struct MonsterDetail: View {
                 }
                 
                 // Abilities
-                
+                if (monsterAbilities.count > 0) {
+                    ForEach(monsterAbilities) { ability in
+                        VStack {
+                            Markdown(Document(ability.renderedText(monster)/*.fullText*/))
+                            Divider()
+                        }
+                    }
+                }
+
                 // Actions
                 
                 // Legendary Actions

@@ -33,8 +33,8 @@ struct EditStrings: View {
         .toolbar(content: {
             Button(
                 action: {
-                    let newDamageType = StringViewModel()
-                    viewModel[keyPath: path].append(newDamageType)
+                    let newString = StringViewModel()
+                    viewModel[keyPath: path].append(newString)
                     viewModel[keyPath: path] = viewModel[keyPath: path].sorted()
                 },
                 label: {
@@ -44,13 +44,17 @@ struct EditStrings: View {
         })
         .onAppear(perform: {
             viewModel[keyPath: path] = viewModel[keyPath: path].sorted()
-        }).navigationTitle(title)
+        })
+        .navigationTitle(title)
     }
 }
 
 struct EditStrings_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = MonsterViewModel()
-        EditStrings(viewModel: viewModel, path: \.damageImmunities, title: "Damage Types")
+        EditStrings(
+            viewModel: viewModel,
+            path: \.damageImmunities,
+            title: "Damage Types")
     }
 }

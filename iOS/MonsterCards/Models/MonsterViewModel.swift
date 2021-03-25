@@ -60,6 +60,7 @@ class MonsterViewModel: ObservableObject {
     @Published var challengeRating: ChallengeRating
     @Published var customChallengeRating: String
     @Published var customProficiencyBonus: Int64
+    @Published var abilities: [AbilityViewModel]
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -112,6 +113,7 @@ class MonsterViewModel: ObservableObject {
         self.challengeRating = .one
         self.customChallengeRating = ""
         self.customProficiencyBonus = 0
+        self.abilities = []
 
         if (rawMonster != nil) {
             self.copyFromMonster(monster: rawMonster!)
@@ -186,7 +188,12 @@ class MonsterViewModel: ObservableObject {
             .sorted()
         
         self.languages = (monster.languages ?? [])
+            .map {LanguageViewModel($0.name, $0.speaks)}
             .sorted()
+        
+        // These are manually sorted in the UI
+        self.abilities = (monster.abilities ?? [])
+            .map {AbilityViewModel($0.name, $0.abilityDescription)}
     }
     
     func copyToMonster(monster: Monster) {
@@ -262,5 +269,7 @@ class MonsterViewModel: ObservableObject {
         
         // This is necessary so core data sees the language objects as changed. Without it they won't be persisted.
         monster.languages = languages.map {LanguageViewModel($0.name, $0.speaks)}
+        
+        monster.abilities = abilities.map {AbilityViewModel($0.name, $0.abilityDescription)}
     }
 }
