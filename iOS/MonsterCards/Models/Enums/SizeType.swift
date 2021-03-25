@@ -27,4 +27,26 @@ enum SizeType: String, CaseIterable, Identifiable {
         case .gargantuan: return "gargantuan"
         }
     }
+    
+    init?(rawValue: String) {
+        var match: SizeType? = nil
+        
+        for size in SizeType.allCases {
+            if (size.rawValue == rawValue) {
+                match = size
+            }
+        }
+        
+        for size in SizeType.allCases {
+            if (size.rawValue.lowercased() == rawValue.lowercased()) {
+                match = size
+            }
+        }
+        
+        if (match == nil) {
+            return nil
+        } else {
+            self = match!
+        }
+    }
 }
