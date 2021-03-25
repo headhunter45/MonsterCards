@@ -61,6 +61,7 @@ class MonsterViewModel: ObservableObject {
     @Published var customChallengeRating: String
     @Published var customProficiencyBonus: Int64
     @Published var abilities: [AbilityViewModel]
+    @Published var actions: [AbilityViewModel]
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -114,6 +115,7 @@ class MonsterViewModel: ObservableObject {
         self.customChallengeRating = ""
         self.customProficiencyBonus = 0
         self.abilities = []
+        self.actions = []
 
         if (rawMonster != nil) {
             self.copyFromMonster(monster: rawMonster!)
@@ -194,6 +196,9 @@ class MonsterViewModel: ObservableObject {
         // These are manually sorted in the UI
         self.abilities = (monster.abilities ?? [])
             .map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        self.actions = (monster.actions ?? [])
+            .map {AbilityViewModel($0.name, $0.abilityDescription)}
     }
     
     func copyToMonster(monster: Monster) {
@@ -271,5 +276,7 @@ class MonsterViewModel: ObservableObject {
         monster.languages = languages.map {LanguageViewModel($0.name, $0.speaks)}
         
         monster.abilities = abilities.map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        monster.actions = actions.map {AbilityViewModel($0.name, $0.abilityDescription)}
     }
 }

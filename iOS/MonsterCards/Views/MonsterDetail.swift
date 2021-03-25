@@ -211,6 +211,7 @@ struct MonsterDetail: View {
                 let monsterLanguagesDescription = monster.languagesDescription
                 let monsterChallengeRatingDescription = monster.challengeRatingDescription
                 let monsterAbilities: [AbilityViewModel] = monster.abilities ?? []
+                let monsterActions: [AbilityViewModel] = monster.actions ?? []
                 
                 BasicInfoView(monster: monster)
                 
@@ -248,14 +249,25 @@ struct MonsterDetail: View {
                 if (monsterAbilities.count > 0) {
                     ForEach(monsterAbilities) { ability in
                         VStack {
-                            Markdown(Document(ability.renderedText(monster)/*.fullText*/))
+                            Markdown(Document(ability.renderedText(monster)))
                             Divider()
                         }
                     }
                 }
 
                 // Actions
-                
+                if (monsterActions.count > 0) {
+                    VStack {
+                        Text("Actions")
+                        ForEach(monsterActions) { action in
+                            VStack {
+                                Markdown(Document(action.renderedText(monster)))
+                                Divider()
+                            }
+                        }
+                    }
+                }
+
                 // Legendary Actions
                 
             }
