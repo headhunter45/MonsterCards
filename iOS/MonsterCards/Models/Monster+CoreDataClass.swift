@@ -684,7 +684,7 @@ public class Monster: NSManagedObject {
                 $0.starts(with: "passive Perception")
             })
             if (!hasPassivePerceptionSense) {
-                let calculatedPassivePerception = String(format: "passive Perception %+d", passivePerception)
+                let calculatedPassivePerception = String(format: "passive Perception %d", passivePerception)
                 modifiedSenses.append(calculatedPassivePerception)
             }
             
