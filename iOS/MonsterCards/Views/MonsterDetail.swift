@@ -238,6 +238,8 @@ struct MonsterDetail: View {
                     LabeledField("Challenge") {
                         Text(monsterChallengeRatingDescription)
                     }
+                    
+                    // TODO: add proficiency bonus
                 }
                 
                 // Abilities

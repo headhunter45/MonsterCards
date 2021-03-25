@@ -629,6 +629,7 @@ public class Monster: NSManagedObject {
     
     var damageVulnerabilitiesDescription: String {
         get {
+            // TODO: sort "bludgeoning, piercing, and slashing from nonmagical attacks" to the end and use ; as a separator before it.
             let sortedVulnerabilities = self.damageVulnerabilities?.sorted() ?? []
             
             return StringHelper.oxfordJoin(sortedVulnerabilities, ", ", ", and ", " and ")
@@ -637,6 +638,7 @@ public class Monster: NSManagedObject {
     
     var damageResistancesDescription: String {
         get {
+            // TODO: sort "bludgeoning, piercing, and slashing from nonmagical attacks" to the end and use ; as a separator before it.
             let sortedResistances = self.damageResistances?.sorted() ?? []
             return StringHelper.oxfordJoin(sortedResistances, ", ", ", and ", " and ")
         }
@@ -644,6 +646,7 @@ public class Monster: NSManagedObject {
         
     var damageImmunitiesDescription: String {
         get {
+            // TODO: sort "bludgeoning, piercing, and slashing from nonmagical attacks" to the end and use ; as a separator before it.
             let sortedImmunities = self.damageImmunities?.sorted() ?? []
             return StringHelper.oxfordJoin(sortedImmunities, ", ", ", and ", " and ")
         }
