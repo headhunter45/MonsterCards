@@ -69,6 +69,10 @@ struct EditMonster: View {
                 NavigationLink(
                     "Languages",
                     destination: EditLanguages(viewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Challenge Rating",
+                    destination: EditChallengeRating(viewModel: monsterViewModel))
             }
             
         }

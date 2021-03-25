@@ -235,7 +235,7 @@ struct MonsterDetail: View {
                 
                 // Challenge Rating
                 if (!monsterChallengeRatingDescription.isEmpty) {
-                    LabeledField("Challenge Rating") {
+                    LabeledField("Challenge") {
                         Text(monsterChallengeRatingDescription)
                     }
                 }

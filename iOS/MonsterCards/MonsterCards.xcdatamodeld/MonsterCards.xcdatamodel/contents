@@ -17,6 +17,7 @@
         <attribute name="constitutionSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="constitutionScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="customArmor" attributeType="String" defaultValueString=""/>
+        <attribute name="customChallengeRating" attributeType="String" defaultValueString=""/>
         <attribute name="customHP" attributeType="String" defaultValueString=""/>
         <attribute name="customProficiencyBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="customSpeed" attributeType="String" defaultValueString=""/>
@@ -66,7 +67,7 @@
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="869"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="884"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>

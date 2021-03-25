@@ -321,79 +321,78 @@ public class Monster: NSManagedObject {
     }
     
     var proficiencyBonus: Int {
-        return 5
-//        switch challengeRatingEnum {
-//        case .custom:
-//            return Int(customProficiencyBonus)
-//        case .zero:
-//            fallthrough
-//        case .oneEighth:
-//            fallthrough
-//        case .oneQuarter:
-//            fallthrough
-//        case .oneHalf:
-//            fallthrough
-//        case .one:
-//            fallthrough
-//        case .two:
-//            fallthrough
-//        case .three:
-//            fallthrough
-//        case .four:
-//            return 2
-//        case .five:
-//            fallthrough
-//        case .six:
-//            fallthrough
-//        case .seven:
-//            fallthrough
-//        case .eight:
-//            return 3
-//        case .nine:
-//            fallthrough
-//        case .ten:
-//            fallthrough
-//        case .eleven:
-//            fallthrough
-//        case .twelve:
-//            return 4
-//        case .thirteen:
-//            fallthrough
-//        case .fourteen:
-//            fallthrough
-//        case .fifteen:
-//            fallthrough
-//        case .sixteen:
-//            return 5
-//        case .seventeen:
-//            fallthrough
-//        case .eighteen:
-//            fallthrough
-//        case .nineteen:
-//            fallthrough
-//        case .twenty:
-//            return 6
-//        case .twentyOne:
-//            fallthrough
-//        case .twentyTwo:
-//            fallthrough
-//        case .twentyThree:
-//            fallthrough
-//        case .twentyFour:
-//            return 7
-//        case .twentyFive:
-//            fallthrough
-//        case .twentySix:
-//            fallthrough
-//        case .twentySeven:
-//            fallthrough
-//        case .twentyEight:
-//            return 8
-//        case .twentyNine:
-//            fallthrough
-//        case .thirty:
-//            return 9
-//        }
+        switch challengeRatingEnum {
+        case .custom:
+            return Int(customProficiencyBonus)
+        case .zero:
+            fallthrough
+        case .oneEighth:
+            fallthrough
+        case .oneQuarter:
+            fallthrough
+        case .oneHalf:
+            fallthrough
+        case .one:
+            fallthrough
+        case .two:
+            fallthrough
+        case .three:
+            fallthrough
+        case .four:
+            return 2
+        case .five:
+            fallthrough
+        case .six:
+            fallthrough
+        case .seven:
+            fallthrough
+        case .eight:
+            return 3
+        case .nine:
+            fallthrough
+        case .ten:
+            fallthrough
+        case .eleven:
+            fallthrough
+        case .twelve:
+            return 4
+        case .thirteen:
+            fallthrough
+        case .fourteen:
+            fallthrough
+        case .fifteen:
+            fallthrough
+        case .sixteen:
+            return 5
+        case .seventeen:
+            fallthrough
+        case .eighteen:
+            fallthrough
+        case .nineteen:
+            fallthrough
+        case .twenty:
+            return 6
+        case .twentyOne:
+            fallthrough
+        case .twentyTwo:
+            fallthrough
+        case .twentyThree:
+            fallthrough
+        case .twentyFour:
+            return 7
+        case .twentyFive:
+            fallthrough
+        case .twentySix:
+            fallthrough
+        case .twentySeven:
+            fallthrough
+        case .twentyEight:
+            return 8
+        case .twentyNine:
+            fallthrough
+        case .thirty:
+            return 9
+        }
     }
     
     func proficiencyBonusForType(_ profType: ProficiencyType) -> Int {
@@ -748,7 +747,11 @@ public class Monster: NSManagedObject {
     
     var challengeRatingDescription: String {
         get {
-            return "";
+            if (challengeRatingEnum != .custom) {
+                return challengeRatingEnum.displayName
+            } else {
+                return customChallengeRating ?? ""
+            }
         }
     }
     

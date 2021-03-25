@@ -57,6 +57,9 @@ class MonsterViewModel: ObservableObject {
     @Published var languages: [LanguageViewModel]
     @Published var telepathy: Int64
     @Published var understandsBut: String
+    @Published var challengeRating: ChallengeRating
+    @Published var customChallengeRating: String
+    @Published var customProficiencyBonus: Int64
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -106,6 +109,9 @@ class MonsterViewModel: ObservableObject {
         self.languages = []
         self.telepathy = 0
         self.understandsBut = ""
+        self.challengeRating = .one
+        self.customChallengeRating = ""
+        self.customProficiencyBonus = 0
 
         if (rawMonster != nil) {
             self.copyFromMonster(monster: rawMonster!)
@@ -153,6 +159,10 @@ class MonsterViewModel: ObservableObject {
         self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
         self.telepathy = monster.telepathy
         self.understandsBut = monster.understandsBut ?? ""
+        self.challengeRating = monster.challengeRatingEnum
+        self.customChallengeRating = monster.customChallengeRating ?? ""
+        self.customProficiencyBonus = monster.customProficiencyBonus
+        
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     
         self.damageImmunities = (monster.damageImmunities ?? [])
@@ -220,6 +230,9 @@ class MonsterViewModel: ObservableObject {
         monster.charismaSavingThrowProficiencyEnum = charismaSavingThrowProficiency
         monster.telepathy = telepathy
         monster.understandsBut = understandsBut
+        monster.challengeRatingEnum = challengeRating
+        monster.customChallengeRating = customChallengeRating
+        monster.customProficiencyBonus = customProficiencyBonus
 
         // Remove missing skills from raw monster
         monster.skills?.forEach {s in
