@@ -53,6 +53,7 @@ class MonsterViewModel: ObservableObject {
     @Published var damageResistances: [StringViewModel]
     @Published var damageVulnerabilities: [StringViewModel]
     @Published var conditionImmunities: [StringViewModel]
+    @Published var senses: [StringViewModel]
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -98,6 +99,7 @@ class MonsterViewModel: ObservableObject {
         self.damageResistances = []
         self.damageVulnerabilities = []
         self.conditionImmunities = []
+        self.senses = []
 
         if (rawMonster != nil) {
             self.copyFromMonster(monster: rawMonster!)
@@ -158,6 +160,10 @@ class MonsterViewModel: ObservableObject {
             .sorted()
         
         self.conditionImmunities = (monster.conditionImmunities ?? [])
+            .map {StringViewModel($0)}
+            .sorted()
+        
+        self.senses = (monster.senses ?? [])
             .map {StringViewModel($0)}
             .sorted()
     }
@@ -226,5 +232,6 @@ class MonsterViewModel: ObservableObject {
         monster.damageImmunities = damageImmunities.map {$0.name}
         monster.damageResistances = damageResistances.map {$0.name}
         monster.damageVulnerabilities = damageVulnerabilities.map {$0.name}
+        monster.senses = senses.map {$0.name}
     }
 }

@@ -39,6 +39,7 @@
         <attribute name="name" attributeType="String" defaultValueString="Unnamed Monster"/>
         <attribute name="naturalArmorBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
+        <attribute name="senses" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
         <attribute name="shieldBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="size" attributeType="String" defaultValueString=""/>
         <attribute name="strengthSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
@@ -63,7 +64,7 @@
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="824"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="839"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>

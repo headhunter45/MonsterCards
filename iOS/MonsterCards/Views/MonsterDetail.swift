@@ -137,6 +137,7 @@ struct ResistancesAndImmunitiesView: View {
         let monsterDamageResistancesDescription = monster.damageResistancesDescription
         let monsterDamageImmunitiesDescription = monster.damageImmunitiesDescription
         let monsterConditionImmunitiesDescription = monster.conditionImmunitiesDescription
+        let monsterSensesDescription = monster.sensesDescription
         
         // Damage Vulnerabilities
         if (!monsterDamageVulnerabilitiesDescription.isEmpty) {
@@ -163,6 +164,13 @@ struct ResistancesAndImmunitiesView: View {
         if (!monsterConditionImmunitiesDescription.isEmpty) {
             LabeledField("Condition Immunities") {
                 Text(monsterConditionImmunitiesDescription)
+            }
+        }
+        
+        // Senses
+        if (!monsterSensesDescription.isEmpty) {
+            LabeledField("Senses") {
+                Text(monsterSensesDescription)
             }
         }
     }

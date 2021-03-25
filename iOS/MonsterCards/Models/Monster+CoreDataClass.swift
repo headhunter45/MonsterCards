@@ -625,7 +625,7 @@ public class Monster: NSManagedObject {
         }
     }
     
-    // MARK: OTHER
+    // MARK: Immunities, Resistances, and Vulnerabilities
     
     var damageVulnerabilitiesDescription: String {
         get {
@@ -653,6 +653,40 @@ public class Monster: NSManagedObject {
         get {
             let sortedImmunities = self.conditionImmunities?.sorted() ?? []
             return StringHelper.oxfordJoin(sortedImmunities, ", ", ", and ", " and ")
+        }
+    }
+    
+    // MARK: OTHER
+    
+    var passivePerception: Int {
+        get {
+            let perceptionSkill = skillsArray.first(where: {
+                StringHelper.safeEqualsIgnoreCase($0.name, "Perception")
+            })
+            if (perceptionSkill == nil) {
+                return wisdomModifier
+            } else if (perceptionSkill?.wrappedProficiency == ProficiencyType.expertise) {
+                return wisdomModifier + proficiencyBonus + proficiencyBonus
+            } else if (perceptionSkill?.wrappedProficiency == ProficiencyType.proficient) {
+                return wisdomModifier + proficiencyBonus
+            } else {
+                return wisdomModifier
+            }
+        }
+    }
+    
+    var sensesDescription: String {
+        get {
+            var modifiedSenses = self.senses?.sorted() ?? []
+            let hasPassivePerceptionSense = modifiedSenses.contains(where: {
+                $0.starts(with: "passive Perception")
+            })
+            if (!hasPassivePerceptionSense) {
+                let calculatedPassivePerception = String(format: "passive Perception %+d", passivePerception)
+                modifiedSenses.append(calculatedPassivePerception)
+            }
+            
+            return modifiedSenses.sorted().joined(separator: ", ")
         }
     }
     

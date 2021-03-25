@@ -45,4 +45,12 @@ class StringHelper {
         
         return str!.containsCaseInsensitive(match)
     }
+    
+    static func safeEqualsIgnoreCase(_ str: String?, _ match: String) -> Bool {
+        if (str == nil) {
+            return false
+        }
+        
+        return str!.lowercased() == match.lowercased()
+    }
 }

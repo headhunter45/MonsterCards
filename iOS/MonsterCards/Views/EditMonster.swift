@@ -20,45 +20,53 @@ struct EditMonster: View {
         
     var body: some View {
         List {
-            NavigationLink(
-                "Basic Info",
-                destination: EditBasicInfo(monsterViewModel: monsterViewModel))
+            Group {
+                NavigationLink(
+                    "Basic Info",
+                    destination: EditBasicInfo(monsterViewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Armor",
+                    destination: EditArmor(monsterViewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Speed",
+                    destination: EditSpeed(monsterViewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Ability Scores",
+                    destination: EditAbilityScores(monsterViewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Saving Throws",
+                    destination: EditSavingThrows(monsterViewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Skills",
+                    destination: EditSkills(monsterViewModel: monsterViewModel))
+                
+                NavigationLink(
+                    "Condition Immunities",
+                    destination: EditStrings(viewModel: monsterViewModel, path: \.conditionImmunities, title: "Condition Immunities"))
+                
+                NavigationLink(
+                    "Damage Immunities",
+                    destination: EditStrings(viewModel: monsterViewModel, path: \.damageImmunities, title: "Damage Immunities"))
+                
+                NavigationLink(
+                    "Damage Resistances",
+                    destination: EditStrings(viewModel: monsterViewModel, path: \.damageResistances, title: "Damage Resistances"))
+                
+                NavigationLink(
+                    "Damage Vulnerabilities",
+                    destination: EditStrings(viewModel: monsterViewModel, path: \.damageVulnerabilities, title: "Damage Vulnerabilities"))
+            }
+            Group {
+                NavigationLink(
+                    "Senses",
+                    destination: EditStrings(viewModel: monsterViewModel, path: \.senses, title: "Senses"))
+            }
             
-            NavigationLink(
-                "Armor",
-                destination: EditArmor(monsterViewModel: monsterViewModel))
-            
-            NavigationLink(
-                "Speed",
-                destination: EditSpeed(monsterViewModel: monsterViewModel))
-            
-            NavigationLink(
-                "Ability Scores",
-                destination: EditAbilityScores(monsterViewModel: monsterViewModel))
-            
-            NavigationLink(
-                "Saving Throws",
-                destination: EditSavingThrows(monsterViewModel: monsterViewModel))
-            
-            NavigationLink(
-                "Skills",
-                destination: EditSkills(monsterViewModel: monsterViewModel))
-            
-            NavigationLink(
-                "Condition Immunities",
-                destination: EditStrings(viewModel: monsterViewModel, path: \.conditionImmunities, title: "Condition Immunities"))
-            
-            NavigationLink(
-                "Damage Immunities",
-                destination: EditStrings(viewModel: monsterViewModel, path: \.damageImmunities, title: "Damage Immunities"))
-            
-            NavigationLink(
-                "Damage Resistances",
-                destination: EditStrings(viewModel: monsterViewModel, path: \.damageResistances, title: "Damage Resistances"))
-            
-            NavigationLink(
-                "Damage Vulnerabilities",
-                destination: EditStrings(viewModel: monsterViewModel, path: \.damageVulnerabilities, title: "Damage Vulnerabilities"))
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {

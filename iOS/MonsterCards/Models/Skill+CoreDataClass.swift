@@ -48,17 +48,17 @@ public class Skill: NSManagedObject {
         }
     }
     
-    var modifier: Int64 {
+    var modifier: Int {
         get {
             let proficiencyBonus = Double(monster?.proficiencyBonus ?? 0)
             let abilityScoreModifier = Double(monster?.abilityModifierForAbilityScore(wrappedAbilityScore) ?? 0)
             switch wrappedProficiency {
             case .none:
-                return Int64(abilityScoreModifier)
+                return Int(abilityScoreModifier)
             case .proficient:
-                return Int64(abilityScoreModifier + proficiencyBonus)
+                return Int(abilityScoreModifier + proficiencyBonus)
             case .expertise:
-                return Int64(abilityScoreModifier + 2 * proficiencyBonus)
+                return Int(abilityScoreModifier + 2 * proficiencyBonus)
             }
         }
     }
