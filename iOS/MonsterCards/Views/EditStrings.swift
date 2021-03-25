@@ -1,5 +1,5 @@
 //
-//  EditDamageTypes.swift
+//  EditStrings.swift
 //  MonsterCards
 //
 //  Created by Tom Hicks on 3/22/21.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct EditDamageTypes: View {
+struct EditStrings: View {
     @ObservedObject var viewModel: MonsterViewModel
-    var path: ReferenceWritableKeyPath<MonsterViewModel, [DamageTypeViewModel]>
+    var path: ReferenceWritableKeyPath<MonsterViewModel, [StringViewModel]>
     var title: String
     
     var body: some View {
@@ -33,7 +33,7 @@ struct EditDamageTypes: View {
         .toolbar(content: {
             Button(
                 action: {
-                    let newDamageType = DamageTypeViewModel()
+                    let newDamageType = StringViewModel()
                     viewModel[keyPath: path].append(newDamageType)
                     viewModel[keyPath: path] = viewModel[keyPath: path].sorted()
                 },
@@ -48,9 +48,9 @@ struct EditDamageTypes: View {
     }
 }
 
-struct EditDamageTypes_Previews: PreviewProvider {
+struct EditStrings_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = MonsterViewModel()
-        EditDamageTypes(viewModel: viewModel, path: \.damageImmunities, title: "Damage Types")
+        EditStrings(viewModel: viewModel, path: \.damageImmunities, title: "Damage Types")
     }
 }

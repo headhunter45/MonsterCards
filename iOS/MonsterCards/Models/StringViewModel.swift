@@ -7,12 +7,12 @@
 
 import Foundation
 
-class DamageTypeViewModel: ObservableObject, Comparable, Identifiable {
-    static func < (lhs: DamageTypeViewModel, rhs: DamageTypeViewModel) -> Bool {
+class StringViewModel: ObservableObject, Comparable, Identifiable {
+    static func < (lhs: StringViewModel, rhs: StringViewModel) -> Bool {
         lhs.name < rhs.name
     }
     
-    static func == (lhs: DamageTypeViewModel, rhs: DamageTypeViewModel) -> Bool {
+    static func == (lhs: StringViewModel, rhs: StringViewModel) -> Bool {
         lhs.name == rhs.name
     }
     

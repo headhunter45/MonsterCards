@@ -46,19 +46,19 @@ struct EditMonster: View {
             
             NavigationLink(
                 "Condition Immunities",
-                destination: EditDamageTypes(viewModel: monsterViewModel, path: \.conditionImmunities, title: "Condition Immunities"))
+                destination: EditStrings(viewModel: monsterViewModel, path: \.conditionImmunities, title: "Condition Immunities"))
             
             NavigationLink(
                 "Damage Immunities",
-                destination: EditDamageTypes(viewModel: monsterViewModel, path: \.damageImmunities, title: "Damage Immunities"))
+                destination: EditStrings(viewModel: monsterViewModel, path: \.damageImmunities, title: "Damage Immunities"))
             
             NavigationLink(
                 "Damage Resistances",
-                destination: EditDamageTypes(viewModel: monsterViewModel, path: \.damageResistances, title: "Damage Resistances"))
+                destination: EditStrings(viewModel: monsterViewModel, path: \.damageResistances, title: "Damage Resistances"))
             
             NavigationLink(
                 "Damage Vulnerabilities",
-                destination: EditDamageTypes(viewModel: monsterViewModel, path: \.damageVulnerabilities, title: "Damage Vulnerabilities"))
+                destination: EditStrings(viewModel: monsterViewModel, path: \.damageVulnerabilities, title: "Damage Vulnerabilities"))
         }
         .onAppear(perform: copyMonsterToLocal)
         .toolbar(content: {

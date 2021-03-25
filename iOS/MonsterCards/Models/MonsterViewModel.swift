@@ -49,10 +49,10 @@ class MonsterViewModel: ObservableObject {
     @Published var charismaSavingThrowProficiency: ProficiencyType
     @Published var charismaSavingThrowAdvantage: AdvantageType
     @Published var skills: [SkillViewModel]
-    @Published var damageImmunities: [DamageTypeViewModel]
-    @Published var damageResistances: [DamageTypeViewModel]
-    @Published var damageVulnerabilities: [DamageTypeViewModel]
-    @Published var conditionImmunities: [DamageTypeViewModel]
+    @Published var damageImmunities: [StringViewModel]
+    @Published var damageResistances: [StringViewModel]
+    @Published var damageVulnerabilities: [StringViewModel]
+    @Published var conditionImmunities: [StringViewModel]
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -146,19 +146,19 @@ class MonsterViewModel: ObservableObject {
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     
         self.damageImmunities = (monster.damageImmunities ?? [])
-            .map {DamageTypeViewModel($0)}
+            .map {StringViewModel($0)}
             .sorted()
 
         self.damageResistances = (monster.damageResistances ?? [])
-            .map {DamageTypeViewModel($0)}
+            .map {StringViewModel($0)}
             .sorted()
         
         self.damageVulnerabilities = (monster.damageVulnerabilities ?? [])
-            .map {DamageTypeViewModel($0)}
+            .map {StringViewModel($0)}
             .sorted()
         
         self.conditionImmunities = (monster.conditionImmunities ?? [])
-            .map {DamageTypeViewModel($0)}
+            .map {StringViewModel($0)}
             .sorted()
     }
     
