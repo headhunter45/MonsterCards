@@ -11,13 +11,18 @@ struct EditTrait: View {
     @ObservedObject var viewModel: AbilityViewModel
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             MCTextField(
                 label: "Name",
                 value: $viewModel.name)
             
+            Text("Description")
+                .font(.caption2)
+        
             TextEditor(text: $viewModel.abilityDescription)
+                
         }
+        .padding()
     }
 }
 
