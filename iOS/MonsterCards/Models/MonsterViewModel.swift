@@ -62,6 +62,7 @@ class MonsterViewModel: ObservableObject {
     @Published var customProficiencyBonus: Int64
     @Published var abilities: [AbilityViewModel]
     @Published var actions: [AbilityViewModel]
+    @Published var legendaryActions: [AbilityViewModel]
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -116,6 +117,7 @@ class MonsterViewModel: ObservableObject {
         self.customProficiencyBonus = 0
         self.abilities = []
         self.actions = []
+        self.legendaryActions = []
 
         if (rawMonster != nil) {
             self.copyFromMonster(monster: rawMonster!)
@@ -199,6 +201,9 @@ class MonsterViewModel: ObservableObject {
         
         self.actions = (monster.actions ?? [])
             .map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        self.legendaryActions = (monster.legendaryActions ?? [])
+            .map {AbilityViewModel($0.name, $0.abilityDescription)}
     }
     
     func copyToMonster(monster: Monster) {
@@ -278,5 +283,7 @@ class MonsterViewModel: ObservableObject {
         monster.abilities = abilities.map {AbilityViewModel($0.name, $0.abilityDescription)}
         
         monster.actions = actions.map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        monster.legendaryActions = legendaryActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
     }
 }

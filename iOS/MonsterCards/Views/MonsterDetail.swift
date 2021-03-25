@@ -213,6 +213,7 @@ struct MonsterDetail: View {
                 let monsterChallengeRatingDescription = monster.challengeRatingDescription
                 let monsterAbilities: [AbilityViewModel] = monster.abilities ?? []
                 let monsterActions: [AbilityViewModel] = monster.actions ?? []
+                let monsterLegendaryActions: [AbilityViewModel] = monster.legendaryActions ?? []
                 
                 BasicInfoView(monster: monster)
                 
@@ -270,6 +271,18 @@ struct MonsterDetail: View {
                 }
 
                 // Legendary Actions
+                if (monsterLegendaryActions.count > 0) {
+                    VStack(alignment: .leading) {
+                        Text("Legendary Actions")
+                            .fontWeight(.bold)
+                        ForEach(monsterLegendaryActions) { action in
+                            VStack {
+                                Markdown(Document(action.renderedText(monster)))
+                                Divider()
+                            }
+                        }
+                    }
+                }
                 
             }
             .padding(.horizontal)

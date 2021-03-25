@@ -40,6 +40,7 @@
         <attribute name="intelligenceScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="isBlind" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="languages" optional="YES" attributeType="Transformable" valueTransformerName="LanguageViewModelValueTransformer" customClassName="[LanguageViewModel]"/>
+        <attribute name="legendaryActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
         <attribute name="name" attributeType="String" defaultValueString="Unnamed Monster"/>
         <attribute name="naturalArmorBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
@@ -69,7 +70,7 @@
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="914"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="929"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>

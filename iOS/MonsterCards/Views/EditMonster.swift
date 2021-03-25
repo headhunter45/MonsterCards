@@ -80,6 +80,10 @@ struct EditMonster: View {
                 NavigationLink(
                     "Actions",
                     destination: EditTraits(viewModel: monsterViewModel, path: \.actions, title: "Actions"))
+                
+                NavigationLink(
+                    "Legendary Actions",
+                    destination: EditTraits(viewModel: monsterViewModel, path: \.legendaryActions, title: "Legendary Actions"))
             }
             
         }
