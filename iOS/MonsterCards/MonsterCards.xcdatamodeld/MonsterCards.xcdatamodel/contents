@@ -36,6 +36,7 @@
         <attribute name="intelligenceSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="intelligenceScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="isBlind" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="languages" optional="YES" attributeType="Transformable" valueTransformerName="LanguageViewModelValueTransformer" customClassName="[LanguageViewModel]"/>
         <attribute name="name" attributeType="String" defaultValueString="Unnamed Monster"/>
         <attribute name="naturalArmorBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
@@ -47,6 +48,7 @@
         <attribute name="strengthScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="subtype" attributeType="String" defaultValueString=""/>
         <attribute name="swimSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="telepathy" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tremorsenseDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="truesightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
@@ -64,7 +66,7 @@
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="839"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="869"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>

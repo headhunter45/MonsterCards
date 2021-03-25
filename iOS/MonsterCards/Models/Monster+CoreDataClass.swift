@@ -698,8 +698,51 @@ public class Monster: NSManagedObject {
     
     var languagesDescription: String {
         get {
-            let sortedLanguages = self.languagesArray.sorted()
-            return StringHelper.oxfordJoin(sortedLanguages, ", ", ", and ", " and ")
+            let spokenLanguages = (self.languages ?? [])
+                .filter({ $0.speaks })
+                .map({$0.name})
+                .sorted()
+            let understoodLanguages = (self.languages ?? [])
+                .filter({ !$0.speaks })
+                .map({$0.name})
+                .sorted()
+
+            let understandsButText = understandsBut?.isEmpty ?? false
+                ? ""
+                : String(format: " but %@", understandsBut!)
+            
+            let telepathyText = telepathy > 0
+                ? String(format: ", telepathy %d ft.", telepathy)
+                : ""
+            
+            if (spokenLanguages.count > 0) {
+                if (understoodLanguages.count > 0) {
+                    return String(
+                        format:"%@ and understands %@%@%@",
+                        StringHelper.oxfordJoin(spokenLanguages),
+                        StringHelper.oxfordJoin(understoodLanguages),
+                        understandsButText,
+                        telepathyText)
+                } else {
+                  return String(
+                    format: "%@%@%@",
+                    StringHelper.oxfordJoin(spokenLanguages),
+                    understandsButText,
+                    telepathyText)
+                }
+            } else {
+                if (understoodLanguages.count > 0) {
+                    return String(
+                      format: "understands %@%@%@",
+                      StringHelper.oxfordJoin(understoodLanguages),
+                      understandsButText,
+                      telepathyText)
+                } else if (telepathy > 0){
+                    return String(format: "telepathy %d ft.", telepathy)
+                } else {
+                    return ""
+                }
+            }
         }
     }
     

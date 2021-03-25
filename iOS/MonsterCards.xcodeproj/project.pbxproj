@@ -15,6 +15,9 @@
 		E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */; };
 		E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */; };
 		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
+		E216B791260C1FE800FB205F /* LanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B790260C1FE800FB205F /* LanguageViewModel.swift */; };
+		E216B799260C2DF200FB205F /* EditLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B798260C2DF200FB205F /* EditLanguages.swift */; };
+		E216B79E260C396F00FB205F /* EditLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B79D260C396F00FB205F /* EditLanguage.swift */; };
 		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
 		E24ACE502607326E009BF703 /* EditBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */; };
 		E24ACE562607EE94009BF703 /* EditArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ACE552607EE94009BF703 /* EditArmor.swift */; };
@@ -77,6 +80,9 @@
 		E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
 		E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProficiencyPicker.swift; sourceTree = "<group>"; };
 		E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvantagePicker.swift; sourceTree = "<group>"; };
+		E216B790260C1FE800FB205F /* LanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewModel.swift; sourceTree = "<group>"; };
+		E216B798260C2DF200FB205F /* EditLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLanguages.swift; sourceTree = "<group>"; };
+		E216B79D260C396F00FB205F /* EditLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLanguage.swift; sourceTree = "<group>"; };
 		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBasicInfo.swift; sourceTree = "<group>"; };
 		E24ACE552607EE94009BF703 /* EditArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArmor.swift; sourceTree = "<group>"; };
@@ -180,15 +186,15 @@
 		E2570FB725B1AC520055B23B /* MonsterCards */ = {
 			isa = PBXGroup;
 			children = (
-				E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */,
-				E2D473FB25B5328800CB36D7 /* Helpers */,
-				E257101225B1B2790055B23B /* Models */,
-				E2570FEB25B1ADA90055B23B /* Views */,
 				E2570FBC25B1AC550055B23B /* Assets.xcassets */,
-				E2570FC125B1AC550055B23B /* Persistence.swift */,
+				E2D473FB25B5328800CB36D7 /* Helpers */,
 				E2570FC625B1AC550055B23B /* Info.plist */,
+				E257101225B1B2790055B23B /* Models */,
 				E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */,
+				E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */,
+				E2570FC125B1AC550055B23B /* Persistence.swift */,
 				E2570FBE25B1AC550055B23B /* Preview Content */,
+				E2570FEB25B1ADA90055B23B /* Views */,
 			);
 			path = MonsterCards;
 			sourceTree = "<group>";
@@ -228,12 +234,14 @@
 				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
 				E24ACE552607EE94009BF703 /* EditArmor.swift */,
 				E24ACE4F2607326E009BF703 /* EditBasicInfo.swift */,
-				E2CB0DE526088CE400142591 /* EditStrings.swift */,
+				E216B79D260C396F00FB205F /* EditLanguage.swift */,
+				E216B798260C2DF200FB205F /* EditLanguages.swift */,
 				E2B5285825B3028700AAA69E /* EditMonster.swift */,
 				E24ACE642607F55D009BF703 /* EditSavingThrows.swift */,
 				E2CB0DB226080C0500142591 /* EditSkill.swift */,
 				E24ACE692607F715009BF703 /* EditSkills.swift */,
 				E24ACE5A2607F0F2009BF703 /* EditSpeed.swift */,
+				E2CB0DE526088CE400142591 /* EditStrings.swift */,
 				E2570FFE25B1AE180055B23B /* Library.swift */,
 				E2CB0DB726081A2F00142591 /* MCAbilityScorePicker.swift */,
 				E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */,
@@ -251,12 +259,13 @@
 		E257101225B1B2790055B23B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E2CB0DE0260887ED00142591 /* StringViewModel.swift */,
 				E20209E625D8DEB600EFE733 /* Enums */,
+				E216B790260C1FE800FB205F /* LanguageViewModel.swift */,
 				E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */,
 				E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */,
 				E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */,
 				E20209F925D8E19100EFE733 /* SkillViewModel.swift */,
+				E2CB0DE0260887ED00142591 /* StringViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,10 +411,12 @@
 				E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */,
 				E24ACE602607F45E009BF703 /* EditAbilityScores.swift in Sources */,
 				E2570FC225B1AC550055B23B /* Persistence.swift in Sources */,
+				E216B799260C2DF200FB205F /* EditLanguages.swift in Sources */,
 				E2570FBB25B1AC520055B23B /* ContentView.swift in Sources */,
 				E24ACE502607326E009BF703 /* EditBasicInfo.swift in Sources */,
 				E2570FC525B1AC550055B23B /* MonsterCards.xcdatamodeld in Sources */,
 				E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */,
+				E216B791260C1FE800FB205F /* LanguageViewModel.swift in Sources */,
 				E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */,
 				E2570FF025B1ADC10055B23B /* Search.swift in Sources */,
 				E257100925B1B2480055B23B /* MonsterDetail.swift in Sources */,
@@ -420,6 +431,7 @@
 				E24ACE6A2607F715009BF703 /* EditSkills.swift in Sources */,
 				E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */,
 				E2570FFF25B1AE180055B23B /* Library.swift in Sources */,
+				E216B79E260C396F00FB205F /* EditLanguage.swift in Sources */,
 				E2BD703125B3BBB90058ED69 /* MCStepperField.swift in Sources */,
 				E2CB0DE626088CE400142591 /* EditStrings.swift in Sources */,
 				E2CB0DB326080C0500142591 /* EditSkill.swift in Sources */,

@@ -65,6 +65,10 @@ struct EditMonster: View {
                 NavigationLink(
                     "Senses",
                     destination: EditStrings(viewModel: monsterViewModel, path: \.senses, title: "Senses"))
+                
+                NavigationLink(
+                    "Languages",
+                    destination: EditLanguages(viewModel: monsterViewModel))
             }
             
         }

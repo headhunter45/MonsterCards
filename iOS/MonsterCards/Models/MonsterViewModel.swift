@@ -54,6 +54,9 @@ class MonsterViewModel: ObservableObject {
     @Published var damageVulnerabilities: [StringViewModel]
     @Published var conditionImmunities: [StringViewModel]
     @Published var senses: [StringViewModel]
+    @Published var languages: [LanguageViewModel]
+    @Published var telepathy: Int64
+    @Published var understandsBut: String
     
     init(_ rawMonster: Monster? = nil) {
         self.name = ""
@@ -100,6 +103,9 @@ class MonsterViewModel: ObservableObject {
         self.damageVulnerabilities = []
         self.conditionImmunities = []
         self.senses = []
+        self.languages = []
+        self.telepathy = 0
+        self.understandsBut = ""
 
         if (rawMonster != nil) {
             self.copyFromMonster(monster: rawMonster!)
@@ -145,6 +151,8 @@ class MonsterViewModel: ObservableObject {
         self.charismaScore = monster.charismaScore
         self.charismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantageEnum
         self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
+        self.telepathy = monster.telepathy
+        self.understandsBut = monster.understandsBut ?? ""
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     
         self.damageImmunities = (monster.damageImmunities ?? [])
@@ -165,6 +173,9 @@ class MonsterViewModel: ObservableObject {
         
         self.senses = (monster.senses ?? [])
             .map {StringViewModel($0)}
+            .sorted()
+        
+        self.languages = (monster.languages ?? [])
             .sorted()
     }
     
@@ -207,6 +218,8 @@ class MonsterViewModel: ObservableObject {
         monster.charismaScore = charismaScore
         monster.charismaSavingThrowAdvantageEnum = charismaSavingThrowAdvantage
         monster.charismaSavingThrowProficiencyEnum = charismaSavingThrowProficiency
+        monster.telepathy = telepathy
+        monster.understandsBut = understandsBut
 
         // Remove missing skills from raw monster
         monster.skills?.forEach {s in
@@ -233,5 +246,6 @@ class MonsterViewModel: ObservableObject {
         monster.damageResistances = damageResistances.map {$0.name}
         monster.damageVulnerabilities = damageVulnerabilities.map {$0.name}
         monster.senses = senses.map {$0.name}
+        monster.languages = languages.map {LanguageViewModel($0.name, $0.speaks)}
     }
 }

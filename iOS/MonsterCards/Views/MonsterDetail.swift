@@ -302,6 +302,11 @@ struct MonsterDetail_Previews: PreviewProvider {
         monster.wisdomSavingThrowProficiencyEnum = ProficiencyType.proficient
         monster.charismaSavingThrowAdvantageEnum = AdvantageType.disadvantage
         monster.charismaSavingThrowProficiencyEnum = ProficiencyType.none
+        monster.telepathy = 1
+        monster.languages = [
+            LanguageViewModel("English", true),
+            LanguageViewModel("French", false)
+        ]
         
         return Group {
             MonsterDetail(monster: monster)
