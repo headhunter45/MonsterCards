@@ -259,8 +259,9 @@ struct MonsterDetail: View {
 
                 // Actions
                 if (monsterActions.count > 0) {
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text("Actions")
+                            .fontWeight(.bold)
                         ForEach(monsterActions) { action in
                             VStack {
                                 Markdown(Document(action.renderedText(monster)))
