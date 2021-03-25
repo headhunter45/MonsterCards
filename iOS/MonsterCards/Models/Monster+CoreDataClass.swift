@@ -81,7 +81,8 @@ public class Monster: NSManagedObject {
             } else {
                 let dieSize = Double(Monster.hitDieForSize(sizeEnum))
                 let conMod = Double(constitutionModifier)
-                let level1HP = Double(dieSize + conMod)
+//                let level1HP = Double(dieSize + conMod)
+                let level1HP = Double(dieSize/2.0 + conMod)
                 let extraLevels = Double(hitDice - 1)
                 let levelNHP = (dieSize + 1.0) / 2.0 + conMod
                 let extraLevelsHP = extraLevels * levelNHP
