@@ -666,13 +666,13 @@ public class Monster: NSManagedObject {
                 StringHelper.safeEqualsIgnoreCase($0.name, "Perception")
             })
             if (perceptionSkill == nil) {
-                return wisdomModifier
+                return 10 + wisdomModifier
             } else if (perceptionSkill?.wrappedProficiency == ProficiencyType.expertise) {
-                return wisdomModifier + proficiencyBonus + proficiencyBonus
+                return 10 + wisdomModifier + proficiencyBonus + proficiencyBonus
             } else if (perceptionSkill?.wrappedProficiency == ProficiencyType.proficient) {
-                return wisdomModifier + proficiencyBonus
+                return 10 + wisdomModifier + proficiencyBonus
             } else {
-                return wisdomModifier
+                return 10 + wisdomModifier
             }
         }
     }
