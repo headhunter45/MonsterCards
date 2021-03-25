@@ -75,11 +75,11 @@ struct EditMonster: View {
                     destination: EditChallengeRating(viewModel: monsterViewModel))
                 
                 NavigationLink(
-                    "Abilities", destination: EditAbilities(viewModel: monsterViewModel, path: \.abilities, title: "Abilities"))
+                    "Abilities", destination: EditTraits(viewModel: monsterViewModel, path: \.abilities, title: "Abilities"))
                 
                 NavigationLink(
                     "Actions",
-                    destination: EditAbilities(viewModel: monsterViewModel, path: \.actions, title: "Actions"))
+                    destination: EditTraits(viewModel: monsterViewModel, path: \.actions, title: "Actions"))
             }
             
         }

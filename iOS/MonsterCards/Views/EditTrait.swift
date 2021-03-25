@@ -1,5 +1,5 @@
 //
-//  EditAbility.swift
+//  EditTrait.swift
 //  MonsterCards
 //
 //  Created by Tom Hicks on 3/25/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditAbility: View {
+struct EditTrait: View {
     @ObservedObject var viewModel: AbilityViewModel
     
     var body: some View {
@@ -21,9 +21,9 @@ struct EditAbility: View {
     }
 }
 
-struct EditAbility_Previews: PreviewProvider {
+struct EditTrait_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = AbilityViewModel()
-        EditAbility(viewModel: viewModel)
+        EditTrait(viewModel: viewModel)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  EditAbilities.swift
+//  EditTraits.swift
 //  MonsterCards
 //
 //  Created by Tom Hicks on 3/25/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditAbilities: View {
+struct EditTraits: View {
     @ObservedObject var viewModel: MonsterViewModel
     var path: ReferenceWritableKeyPath<MonsterViewModel, [AbilityViewModel]>
     var title: String
@@ -17,7 +17,7 @@ struct EditAbilities: View {
             ForEach(viewModel[keyPath: path]) { ability in
                 NavigationLink(
                     ability.name,
-                    destination: EditAbility(viewModel: ability))
+                    destination: EditTrait(viewModel: ability))
             }
             .onDelete(perform: { indexSet in
                 for index in indexSet {
@@ -53,10 +53,10 @@ struct EditAbilities: View {
     }
 }
 
-struct EditAbilities_Previews: PreviewProvider {
+struct EditTraits_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = MonsterViewModel()
-        EditAbilities(
+        EditTraits(
             viewModel: viewModel,
             path: \.abilities,
             title: "Abilities")
