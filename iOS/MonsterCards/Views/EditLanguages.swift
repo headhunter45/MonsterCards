@@ -20,19 +20,27 @@ struct EditLanguages: View {
             ForEach(sortedLanguages/*viewModel.languages*/) { language in
                 NavigationLink(language.name, destination: EditLanguage(viewModel: language))
             }
-            
+            .onDelete(perform: { indexSet in
+                for index in indexSet {
+                    viewModel.languages.remove(at: index)
+                }
+            })
         }
         .toolbar(content: {
-            Button(
-                action: {
-                    let newLanguage = LanguageViewModel("English")
-                    viewModel.languages.append(newLanguage)
-                    viewModel.languages = viewModel.languages.sorted()
-                },
-                label: {
-                    Image(systemName: "plus")
-                }
-            )
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                EditButton()
+                
+                Button(
+                    action: {
+                        let newLanguage = LanguageViewModel("English")
+                        viewModel.languages.append(newLanguage)
+                        viewModel.languages = viewModel.languages.sorted()
+                    },
+                    label: {
+                        Image(systemName: "plus")
+                    }
+                )
+            }
         })
         .onAppear(perform: {
             viewModel.languages = viewModel.languages.sorted()
