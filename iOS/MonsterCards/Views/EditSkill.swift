@@ -21,6 +21,7 @@ struct EditSkill: View {
                 label: "Ability Score",
                 value: $skillViewModel.abilityScore)
             
+            // TODO: Add a version of this layout for wider screens where these two are in an HStack
             MCAdvantagePicker(
                 label: "Advantage",
                 value: $skillViewModel.advantage)

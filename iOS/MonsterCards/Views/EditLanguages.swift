@@ -16,7 +16,9 @@ struct EditLanguages: View {
             MCTextField(
                 label: "Understands But",
                 value: $viewModel.understandsBut)
+            
             MCStepperField(label: "Telepathy", prefix: "", step: 5, suffix: " ft.", value: $viewModel.telepathy)
+            
             ForEach(sortedLanguages/*viewModel.languages*/) { language in
                 NavigationLink(language.name, destination: EditLanguage(viewModel: language))
             }

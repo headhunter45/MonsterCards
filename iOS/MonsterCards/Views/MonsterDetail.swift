@@ -207,6 +207,7 @@ struct MonsterDetail: View {
     
     var body: some View {
         ScrollView {
+            // TODO: Consider adding an inmage here at the top
             VStack (alignment: .leading) {
                 let monsterLanguagesDescription = monster.languagesDescription
                 let monsterChallengeRatingDescription = monster.challengeRatingDescription

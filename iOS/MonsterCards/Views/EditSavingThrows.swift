@@ -12,6 +12,7 @@ struct EditSavingThrows: View {
     
     var body: some View {
         List {
+            // TODO: Add a version of this layout for wider screens where these VStacks with HStacks
             VStack {
                 MCAdvantagePicker(
                     label: "Strength Advantage",
