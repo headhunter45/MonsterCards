@@ -10,9 +10,9 @@ import Foundation
 class StringHelper {
     static func oxfordJoin(
         _ strings: [String],
-        _ separator: String,
-        _ lastSeparator: String,
-        _ onlySeparator: String
+        _ separator: String = ", ",
+        _ lastSeparator: String = ", and ",
+        _ onlySeparator: String =  " and "
     ) -> String {
         let numStrings = strings.count
         if (numStrings < 1) {
