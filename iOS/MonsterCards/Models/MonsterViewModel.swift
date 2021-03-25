@@ -246,6 +246,8 @@ class MonsterViewModel: ObservableObject {
         monster.damageResistances = damageResistances.map {$0.name}
         monster.damageVulnerabilities = damageVulnerabilities.map {$0.name}
         monster.senses = senses.map {$0.name}
+        
+        // This is necessary so core data sees the language objects as changed. Without it they won't be persisted.
         monster.languages = languages.map {LanguageViewModel($0.name, $0.speaks)}
     }
 }

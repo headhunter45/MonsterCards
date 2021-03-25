@@ -33,7 +33,7 @@ public class LanguageViewModel : NSObject, ObservableObject, Comparable, Identif
     @Published var name: String
     @Published var speaks: Bool
     
-    init(
+    public init(
         _ name: String = "",
         _ speaks: Bool = true
     ) {

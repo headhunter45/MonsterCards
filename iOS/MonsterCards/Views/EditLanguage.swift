@@ -11,12 +11,17 @@ struct EditLanguage: View {
     @ObservedObject var viewModel: LanguageViewModel
     
     var body: some View {
-        MCTextField(
-            label: "Name",
-            value: $viewModel.name)
-            .autocapitalization(.none)
-        
-        Toggle("Speaks", isOn: $viewModel.speaks)
+        VStack(alignment: .leading) {
+            MCTextField(
+                label: "Name",
+                value: $viewModel.name)
+                .autocapitalization(.none)
+            
+            Toggle("Speaks", isOn: $viewModel.speaks)
+            
+            Spacer()
+        }
+        .padding()
     }
 }
 
