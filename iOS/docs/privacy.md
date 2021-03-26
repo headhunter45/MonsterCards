@@ -1,4 +1,10 @@
-  **Privacy Policy**
+---
+# layout: page
+title: Privacy Policy
+permalink: /privacy
+---
+
+**Privacy Policy**
 
 Tom Hicks built the Monster Cards app as an Open Source app. This SERVICE is provided by Tom Hicks at no cost and is intended for use as is.
 

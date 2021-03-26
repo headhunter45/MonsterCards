@@ -1,3 +1,8 @@
+---
+title: Terms & Conditions
+permalink: /terms
+---
+
 **Terms & Conditions**
 
 By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. The app is governed by the MIT license located [here](https://github.com/headhunter45/MonsterCards-iOS/blob/develop/LICENSE). 
