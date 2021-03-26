@@ -1,6 +1,6 @@
 **Terms & Conditions**
 
-By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. The app is governed by the MIT license located here. 
+By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. The app is governed by the MIT license located [here](https://github.com/headhunter45/MonsterCards-iOS/blob/develop/LICENSE). 
 
 Tom Hicks is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you’re paying for.
 
