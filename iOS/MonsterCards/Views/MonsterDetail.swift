@@ -231,60 +231,64 @@ struct MonsterDetail: View {
                 
                 ResistancesAndImmunitiesView(monster: monster)
                 
-                // Languages
-                if (!monsterLanguagesDescription.isEmpty) {
-                    LabeledField("Languages") {
-                        Text(monsterLanguagesDescription)
-                    }
-                }
-                
-                // Challenge Rating
-                if (!monsterChallengeRatingDescription.isEmpty) {
-                    LabeledField("Challenge") {
-                        Text(monsterChallengeRatingDescription)
+                Group {
+                    // Languages
+                    if (!monsterLanguagesDescription.isEmpty) {
+                        LabeledField("Languages") {
+                            Text(monsterLanguagesDescription)
+                        }
                     }
                     
-                    // TODO: add proficiency bonus
-                }
-                
-                // Abilities
-                if (monsterAbilities.count > 0) {
-                    ForEach(monsterAbilities) { ability in
-                        VStack {
-                            Markdown(Document(ability.renderedText(monster)))
-                            Divider()
+                    // Challenge Rating
+                    if (!monsterChallengeRatingDescription.isEmpty) {
+                        LabeledField("Challenge") {
+                            Text(monsterChallengeRatingDescription)
                         }
                     }
-                }
-
-                // Actions
-                if (monsterActions.count > 0) {
-                    VStack(alignment: .leading) {
-                        Text("Actions")
-                            .fontWeight(.bold)
-                        ForEach(monsterActions) { action in
+                    
+                    // Proficiency Bonus
+                    LabeledField("Proficiency Bonus") {
+                        Text(String(monster.proficiencyBonus))
+                    }
+                
+                    // Abilities
+                    if (monsterAbilities.count > 0) {
+                        ForEach(monsterAbilities) { ability in
                             VStack {
-                                Markdown(Document(action.renderedText(monster)))
+                                Markdown(Document(ability.renderedText(monster)))
                                 Divider()
                             }
                         }
                     }
-                }
 
-                // Legendary Actions
-                if (monsterLegendaryActions.count > 0) {
-                    VStack(alignment: .leading) {
-                        Text("Legendary Actions")
-                            .fontWeight(.bold)
-                        ForEach(monsterLegendaryActions) { action in
-                            VStack {
-                                Markdown(Document(action.renderedText(monster)))
-                                Divider()
+                    // Actions
+                    if (monsterActions.count > 0) {
+                        VStack(alignment: .leading) {
+                            Text("Actions")
+                                .font(.system(size: 24, weight: .bold))
+                            ForEach(monsterActions) { action in
+                                VStack {
+                                    Markdown(Document(action.renderedText(monster)))
+                                    Divider()
+                                }
+                            }
+                        }
+                    }
+
+                    // Legendary Actions
+                    if (monsterLegendaryActions.count > 0) {
+                        VStack(alignment: .leading) {
+                            Text("Legendary Actions")
+                                .font(.system(size: 20, weight: .bold))
+                            ForEach(monsterLegendaryActions) { action in
+                                VStack {
+                                    Markdown(Document(action.renderedText(monster)))
+                                    Divider()
+                                }
                             }
                         }
                     }
                 }
-                
             }
             .padding(.horizontal)
             .foregroundColor(kTextColor)
