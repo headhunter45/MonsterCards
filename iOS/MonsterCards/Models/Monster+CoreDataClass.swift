@@ -100,8 +100,8 @@ public class Monster: NSManagedObject {
             } else {
                 var parts: [String] = []
                 
-                if (baseSpeed > 0) {
-                    parts.append("\(baseSpeed) ft.")
+                if (walkSpeed > 0) {
+                    parts.append("\(walkSpeed) ft.")
                 }
                 if (burrowSpeed > 0) {
                     parts.append("burrow \(burrowSpeed) ft.")

@@ -8,9 +8,15 @@
 import SwiftUI
 import CoreData
 
+struct ImportInfo {
+    var monster: MonsterViewModel = MonsterViewModel()
+}
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @State private var importInfo = ImportInfo()
+    @State private var isShowingImportDialog = false
+        
     var body: some View {
         TabView {
             Search()
@@ -35,69 +41,32 @@ struct ContentView: View {
                     Text("Library")
                 }
         }
+        .onOpenURL(perform: beginImportingMonster)
+        .sheet(isPresented: self.$isShowingImportDialog) {
+            ImportMonster(monster: $importInfo.monster)
+        }
+    }
+    
+    func beginImportingMonster(url: URL) {
+
+        // TOOD: only do this if the file name ends in .json or .monster
+        
+        let decoder = JSONDecoder()
+        do {
+            let data = try Data(contentsOf: url)
+            let monsterDTO = try decoder.decode(MonsterDTO.self, from: data)
+            print(String(format: "Loaded monster: %@", monsterDTO.name))
+            // TODO: check for some minimal set of properties to ensure this is the expected json schema
+            self.importInfo.monster = MonsterImportHelper.import5ESBMonster(monsterDTO)
+            // TODO: throw or set an err here and don't set isShowingImportDialog to true if the file didn't match any of our supported monster schemas.
+            self.isShowingImportDialog = true
+        } catch let error as NSError {
+            // TODO: handle this better
+            print(error)
+        }
     }
 
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-//    private var items: FetchedResults<Item>
-//
-//    var body: some View {
-//        List {
-//            ForEach(items) { item in
-//                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-//            }
-//            .onDelete(perform: deleteItems)
-//        }
-//        .toolbar {
-//            #if os(iOS)
-//            EditButton()
-//            #endif
-//
-//            Button(action: addItem) {
-//                Label("Add Item", systemImage: "plus")
-//            }
-//        }
-//    }
-//
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-//
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
 }
-
-//private let itemFormatter: DateFormatter = {
-//    let formatter = DateFormatter()
-//    formatter.dateStyle = .short
-//    formatter.timeStyle = .medium
-//    return formatter
-//}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

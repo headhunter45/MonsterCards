@@ -20,7 +20,7 @@ struct Library: View {
     var body: some View {
         NavigationView{
             List(allMonsters) { monster in
-                NavigationLink(destination: MonsterDetail(monster: monster)) {
+                NavigationLink(destination: MonsterDetailWrapper(monster: monster)) {
                     Text(monster.name ?? "")
                 }
             }

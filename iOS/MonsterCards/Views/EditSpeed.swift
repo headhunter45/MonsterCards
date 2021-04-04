@@ -12,12 +12,12 @@ struct EditSpeed: View {
     
     var body: some View {
         List {
-            // Number bound to monster.baseSpeed
+            // Number bound to monster.walkSpeed
             MCStepperField(
                 label: "Base",
                 step: 5,
                 suffix: " ft.",
-                value: $monsterViewModel.baseSpeed)
+                value: $monsterViewModel.walkSpeed)
             
             // Number bound to monster.burrowSpeed
             MCStepperField(

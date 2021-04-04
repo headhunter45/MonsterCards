@@ -65,6 +65,13 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
         }
     }
     
+    init(_ name: String, _ abilityScore: AbilityScore, _ proficiency: ProficiencyType = .proficient, _ advantage: AdvantageType = .none) {
+        _name = name
+        _abilityScore = abilityScore
+        _proficiency = proficiency
+        _advantage = advantage
+    }
+    
     private var _name: String = ""
     var name: String {
         get {
@@ -124,5 +131,26 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
         newSkill.wrappedProficiency = proficiency
         newSkill.wrappedAdvantage = advantage
         return newSkill
+    }
+    
+    func modifier(forMonster: MonsterViewModel) -> Int {
+        let proficiencyBonus = Double(forMonster.proficiencyBonus)
+        let abilityScoreModifier = Double(forMonster.abilityModifierForAbilityScore(abilityScore))
+        switch proficiency {
+        case .none:
+            return Int(abilityScoreModifier)
+        case .proficient:
+            return Int(abilityScoreModifier + proficiencyBonus)
+        case .expertise:
+            return Int(abilityScoreModifier + 2 * proficiencyBonus)
+        }
+    }
+    
+    func skillDescription(forMonster: MonsterViewModel) -> String {
+        var advantageLabel = Monster.advantageLabelStringForType(advantage)
+        if (advantageLabel != "") {
+            advantageLabel = " " + advantageLabel
+        }
+        return String(format: "%@ %+d%@", name, modifier(forMonster: forMonster), advantageLabel)
     }
 }

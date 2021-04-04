@@ -59,7 +59,7 @@ struct Search: View {
                             
                             return false
                         })) { monster in
-                    NavigationLink(destination: MonsterDetail(monster: monster)) {
+                    NavigationLink(destination: MonsterDetailWrapper(monster: monster)) {
                         Text(monster.name ?? "")
                     }
                 }

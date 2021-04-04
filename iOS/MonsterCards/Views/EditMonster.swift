@@ -9,7 +9,11 @@ import CoreData
 import SwiftUI
 
 struct EditMonster: View {
-    // TODO: add challengeRating/challengeRatingEnum and customChallengeRating maybe in basicInfo
+    // TODO: Add challengeRating/challengeRatingEnum and customChallengeRating maybe in basicInfo
+    // TODO: Add a way to edit the monster being blind. Probably a header section to the senses section.
+    // TODO: Add a way to edit lair actions
+    // TODO: Add a way to edit regional actions
+    // TODO: Add a way to edit reactions
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -141,7 +145,7 @@ struct EditMonster_Previews: PreviewProvider {
         monster.hitDice = 6
         monster.hasCustomHP = true
         monster.customHP = "12 (1d10)+2"
-        monster.baseSpeed = 5
+        monster.walkSpeed = 5
         monster.burrowSpeed = 10
         monster.climbSpeed = 15
         monster.flySpeed = 20

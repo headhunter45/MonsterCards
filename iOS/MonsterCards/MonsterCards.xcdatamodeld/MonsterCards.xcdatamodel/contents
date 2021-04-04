@@ -5,7 +5,6 @@
         <attribute name="actions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
         <attribute name="alignment" attributeType="String" defaultValueString=""/>
         <attribute name="armorType" attributeType="String" defaultValueString=""/>
-        <attribute name="baseSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="blindsightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="burrowSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="canHover" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -39,11 +38,14 @@
         <attribute name="intelligenceSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="intelligenceScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="isBlind" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="lairActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
         <attribute name="languages" optional="YES" attributeType="Transformable" valueTransformerName="LanguageViewModelValueTransformer" customClassName="[LanguageViewModel]"/>
         <attribute name="legendaryActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
         <attribute name="name" attributeType="String" defaultValueString="Unnamed Monster"/>
         <attribute name="naturalArmorBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
+        <attribute name="reactions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="regionalActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
         <attribute name="senses" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
         <attribute name="shieldBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="size" attributeType="String" defaultValueString=""/>
@@ -57,6 +59,7 @@
         <attribute name="truesightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
         <attribute name="understandsBut" attributeType="String" defaultValueString=""/>
+        <attribute name="walkSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wisdomSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
         <attribute name="wisdomSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="wisdomScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
@@ -70,7 +73,7 @@
         <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
     <elements>
-        <element name="Monster" positionX="-63" positionY="-18" width="128" height="929"/>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="974"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
     </elements>
 </model>
