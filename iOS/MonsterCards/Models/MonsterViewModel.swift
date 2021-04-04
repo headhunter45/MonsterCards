@@ -19,7 +19,9 @@ class MonsterViewModel: ObservableObject {
     @Published var hasCustomHP: Bool
     @Published var customHP: String
     @Published var armorType: ArmorType
-    @Published var hasShield: Bool
+    @Published var hasShield: Bool {
+        didSet { shieldBonus = hasShield ? 2 : 0 }
+    }
     @Published var naturalArmorBonus: Int64
     @Published var customArmor: String
     @Published var baseSpeed: Int64
