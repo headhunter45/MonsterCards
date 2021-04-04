@@ -10,6 +10,8 @@ import CoreData
 
 class MonsterViewModel: ObservableObject {
     
+    // TODO: Determine whether to prefer Int or Int64 for these fields and switch as many as possible to the winner.
+    
     @Published var name: String
     @Published var size: String
     @Published var type: String
