@@ -72,7 +72,7 @@ struct SmallAbilityScore: View {
 }
 
 struct BasicInfoView: View {
-    @ObservedObject var monster: Monster
+    @ObservedObject var monster: MonsterViewModel
     
     var body: some View {
         let monsterMeta = monster.meta
@@ -113,7 +113,7 @@ struct BasicInfoView: View {
 }
 
 struct AbilityScoresView: View {
-    @ObservedObject var monster: Monster
+    @ObservedObject var monster: MonsterViewModel
     
     var body: some View {
         SectionDivider()
@@ -131,7 +131,7 @@ struct AbilityScoresView: View {
 }
 
 struct ResistancesAndImmunitiesView: View {
-    @ObservedObject var monster: Monster
+    @ObservedObject var monster: MonsterViewModel
     
     var body: some View {
         let monsterDamageVulnerabilitiesDescription = monster.damageVulnerabilitiesDescription
@@ -178,7 +178,7 @@ struct ResistancesAndImmunitiesView: View {
 }
 
 struct SavingThrowsAndSkillsView: View {
-    @ObservedObject var monster: Monster
+    @ObservedObject var monster: MonsterViewModel
     
     var body: some View {
         let savingThrowsDescription = monster.savingThrowsDescription
@@ -200,37 +200,28 @@ struct SavingThrowsAndSkillsView: View {
     }
 }
 
-struct MonsterDetail: View {
-    let kTextColor: Color = Color(hex: 0x982818)
+struct MonsterDetailView: View {
+    let kTextColor = Color(hex: 0x982818)
     
-    @ObservedObject var monster: Monster
+    var viewModel: MonsterViewModel
     
     var body: some View {
+        let monsterLanguagesDescription = viewModel.languagesDescription
+        let monsterChallengeRatingDescription = viewModel.challengeRatingDescription
+        
         ScrollView {
             // TODO: Consider adding an inmage here at the top
             VStack (alignment: .leading) {
-                let monsterLanguagesDescription = monster.languagesDescription
-                let monsterChallengeRatingDescription = monster.challengeRatingDescription
-                let monsterAbilities: [AbilityViewModel] = monster.abilities ?? []
-                let monsterActions: [AbilityViewModel] = monster.actions ?? []
-                let monsterLegendaryActions: [AbilityViewModel] = monster.legendaryActions ?? []
-                
-                BasicInfoView(monster: monster)
-                
                 // TODO: Find a way to hide unnecessarry dividiers.
                 // if sections 0, 1, 2, and 3 are present there should be a divider between each of them
                 // if section 1 is not present there should be one and only one divider between sections 0 and 2 as well as the one between 2 and 3
                 // if sections 1 and 2 are not present there should be a single divider between sections 0 and 3
-                
 
-                AbilityScoresView(monster: monster)
-
+                BasicInfoView(monster: viewModel)
+                AbilityScoresView(monster: viewModel)
                 SectionDivider()
-                
-                SavingThrowsAndSkillsView(monster: monster)
-                
-                ResistancesAndImmunitiesView(monster: monster)
-                
+                SavingThrowsAndSkillsView(monster: viewModel)
+                ResistancesAndImmunitiesView(monster: viewModel)
                 Group {
                     // Languages
                     if (!monsterLanguagesDescription.isEmpty) {
@@ -248,27 +239,27 @@ struct MonsterDetail: View {
                     
                     // Proficiency Bonus
                     LabeledField("Proficiency Bonus") {
-                        Text(String(monster.proficiencyBonus))
+                        Text(String(viewModel.proficiencyBonus))
                     }
                 
                     // Abilities
-                    if (monsterAbilities.count > 0) {
-                        ForEach(monsterAbilities) { ability in
+                    if (viewModel.abilities.count > 0) {
+                        ForEach(viewModel.abilities) { ability in
                             VStack {
-                                Markdown(Document(ability.renderedText(monster)))
+                                Markdown(Document(ability.renderedText(viewModel)))
                                 Divider()
                             }
                         }
                     }
-
+                    
                     // Actions
-                    if (monsterActions.count > 0) {
+                    if (viewModel.actions.count > 0) {
                         VStack(alignment: .leading) {
                             Text("Actions")
                                 .font(.system(size: 24, weight: .bold))
-                            ForEach(monsterActions) { action in
+                            ForEach(viewModel.actions) { action in
                                 VStack {
-                                    Markdown(Document(action.renderedText(monster)))
+                                    Markdown(Document(action.renderedText(viewModel)))
                                     Divider()
                                 }
                             }
@@ -276,13 +267,13 @@ struct MonsterDetail: View {
                     }
 
                     // Legendary Actions
-                    if (monsterLegendaryActions.count > 0) {
+                    if (viewModel.legendaryActions.count > 0) {
                         VStack(alignment: .leading) {
                             Text("Legendary Actions")
                                 .font(.system(size: 20, weight: .bold))
-                            ForEach(monsterLegendaryActions) { action in
+                            ForEach(viewModel.legendaryActions) { action in
                                 VStack {
-                                    Markdown(Document(action.renderedText(monster)))
+                                    Markdown(Document(action.renderedText(viewModel)))
                                     Divider()
                                 }
                             }
@@ -293,13 +284,28 @@ struct MonsterDetail: View {
             .padding(.horizontal)
             .foregroundColor(kTextColor)
         }
-        .toolbar(content: {
-            ToolbarItem(placement: .primaryAction) {
-                NavigationLink("Edit", destination: EditMonster(monster: monster))
-            }
-        })
-        .navigationTitle(monster.name ?? "")
-        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct MonsterDetailWrapper: View {
+    let kTextColor: Color = Color(hex: 0x982818)
+    
+    @ObservedObject var monster: Monster
+    @StateObject private var viewModel = MonsterViewModel()
+    
+    var body: some View {
+        
+        MonsterDetailView(viewModel: viewModel)
+            .onAppear(perform: {
+                viewModel.copyFromMonster(monster: monster)
+            })
+            .toolbar(content: {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink("Edit", destination: EditMonster(monster: monster))
+                }
+            })
+            .navigationTitle(monster.name ?? "")
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     private func editMonster() {
@@ -307,7 +313,7 @@ struct MonsterDetail: View {
     }
 }
 
-struct MonsterDetail_Previews: PreviewProvider {
+struct MonsterDetailWrapper_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.preview.container.viewContext
         let monster = Monster.init(context: context)
@@ -352,10 +358,10 @@ struct MonsterDetail_Previews: PreviewProvider {
         ]
         
         return Group {
-            MonsterDetail(monster: monster)
+            MonsterDetailWrapper(monster: monster)
                 .environment(\.managedObjectContext, context)
                 .previewDevice("iPod touch (7th generation)")
-            MonsterDetail(monster: monster)
+            MonsterDetailWrapper(monster: monster)
                 .environment(\.managedObjectContext, context)
                 .previewDevice("iPad Pro (11-inch) (2nd generation)")
         }

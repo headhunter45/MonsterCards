@@ -34,7 +34,7 @@ public class AbilityViewModel: NSObject, ObservableObject, Identifiable, NSSecur
         }
     }
     
-    public func renderedText(_ monster: Monster) -> String {
+    func renderedText(_ monster: MonsterViewModel) -> String {
         let strSave = monster.strengthModifier + monster.proficiencyBonus + 8
         let dexSave = monster.dexterityModifier + monster.proficiencyBonus + 8
         let conSave = monster.constitutionModifier + monster.proficiencyBonus + 8
