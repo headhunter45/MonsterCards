@@ -80,6 +80,11 @@ struct BasicInfoView: View {
         let monsterHitPoints = monster.hitPoints
         let monsterSpeed = monster.speed
         
+        if (!monster.name.isEmpty) {
+            Text(monster.name)
+                .font(.largeTitle)
+        }
+        
         // meta: "(large humanoid (elf) lawful evil"
         if (!monsterMeta.isEmpty) {
             Text(monsterMeta)
