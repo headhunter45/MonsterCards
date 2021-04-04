@@ -15,6 +15,7 @@
 		E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */; };
 		E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */; };
 		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
+		E21661D12616E9A800117782 /* ImportMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21661D02616E9A800117782 /* ImportMonster.swift */; };
 		E216B791260C1FE800FB205F /* LanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B790260C1FE800FB205F /* LanguageViewModel.swift */; };
 		E216B799260C2DF200FB205F /* EditLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B798260C2DF200FB205F /* EditLanguages.swift */; };
 		E216B79E260C396F00FB205F /* EditLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B79D260C396F00FB205F /* EditLanguage.swift */; };
@@ -87,6 +88,7 @@
 		E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
 		E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProficiencyPicker.swift; sourceTree = "<group>"; };
 		E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvantagePicker.swift; sourceTree = "<group>"; };
+		E21661D02616E9A800117782 /* ImportMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMonster.swift; sourceTree = "<group>"; };
 		E216B790260C1FE800FB205F /* LanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewModel.swift; sourceTree = "<group>"; };
 		E216B798260C2DF200FB205F /* EditLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLanguages.swift; sourceTree = "<group>"; };
 		E216B79D260C396F00FB205F /* EditLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLanguage.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				E2B5285825B3028700AAA69E /* EditMonster.swift */,
 				E24ACE642607F55D009BF703 /* EditSavingThrows.swift */,
 				E2CB0DB226080C0500142591 /* EditSkill.swift */,
+				E21661D02616E9A800117782 /* ImportMonster.swift */,
 				E24ACE692607F715009BF703 /* EditSkills.swift */,
 				E24ACE5A2607F0F2009BF703 /* EditSpeed.swift */,
 				E2CB0DE526088CE400142591 /* EditStrings.swift */,
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */,
+				E21661D12616E9A800117782 /* ImportMonster.swift in Sources */,
 				E24ACE602607F45E009BF703 /* EditAbilityScores.swift in Sources */,
 				E2570FC225B1AC550055B23B /* Persistence.swift in Sources */,
 				E216B799260C2DF200FB205F /* EditLanguages.swift in Sources */,

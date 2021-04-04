@@ -8,10 +8,15 @@
 import SwiftUI
 import CoreData
 
+struct ImportInfo {
+    var monster: MonsterViewModel = MonsterViewModel()
+}
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var importInfo = ImportInfo()
     @State private var isShowingImportDialog = false
- 
+        
     var body: some View {
         TabView {
             Search()
@@ -38,11 +43,12 @@ struct ContentView: View {
         }
         .onOpenURL(perform: beginImportingMonster)
         .sheet(isPresented: self.$isShowingImportDialog) {
-            Text("Importing Monster")
+            ImportMonster(monster: $importInfo.monster)
         }
     }
     
     func beginImportingMonster(url: URL) {
+        self.importInfo.monster.name = url.absoluteString
         self.isShowingImportDialog = true
     }
 }
