@@ -65,6 +65,13 @@ class SkillViewModel: ObservableObject, Comparable, Hashable, Identifiable {
         }
     }
     
+    init(_ name: String, _ abilityScore: AbilityScore, _ proficiency: ProficiencyType = .proficient, _ advantage: AdvantageType = .none) {
+        _name = name
+        _abilityScore = abilityScore
+        _proficiency = proficiency
+        _advantage = advantage
+    }
+    
     private var _name: String = ""
     var name: String {
         get {

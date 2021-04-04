@@ -24,7 +24,7 @@ class MonsterViewModel: ObservableObject {
     }
     @Published var naturalArmorBonus: Int64
     @Published var customArmor: String
-    @Published var baseSpeed: Int64
+    @Published var walkSpeed: Int64
     @Published var burrowSpeed: Int64
     @Published var climbSpeed: Int64
     @Published var flySpeed: Int64
@@ -65,6 +65,10 @@ class MonsterViewModel: ObservableObject {
     @Published var abilities: [AbilityViewModel]
     @Published var actions: [AbilityViewModel]
     @Published var legendaryActions: [AbilityViewModel]
+    @Published var lairActions: [AbilityViewModel]
+    @Published var regionalActions: [AbilityViewModel]
+    @Published var reactions: [AbilityViewModel]
+    @Published var isBlind: Bool
     
     private var shieldBonus: Int
     private var otherArmorDescription: String
@@ -97,7 +101,7 @@ class MonsterViewModel: ObservableObject {
         self.hasShield = false
         self.naturalArmorBonus = 0
         self.customArmor = ""
-        self.baseSpeed = 0
+        self.walkSpeed = 0
         self.burrowSpeed = 0
         self.climbSpeed = 0
         self.flySpeed = 0
@@ -138,6 +142,10 @@ class MonsterViewModel: ObservableObject {
         self.abilities = []
         self.actions = []
         self.legendaryActions = []
+        self.lairActions = []
+        self.regionalActions = []
+        self.reactions = []
+        self.isBlind = false
         
         // Private properties
         self.shieldBonus = 0
@@ -162,7 +170,7 @@ class MonsterViewModel: ObservableObject {
         self.hasShield = monster.hasShield
         self.naturalArmorBonus = monster.naturalArmorBonus
         self.customArmor = monster.customArmor ?? ""
-        self.baseSpeed = monster.baseSpeed
+        self.walkSpeed = monster.walkSpeed
         self.burrowSpeed = monster.burrowSpeed
         self.climbSpeed = monster.climbSpeed
         self.flySpeed = monster.flySpeed
@@ -193,6 +201,7 @@ class MonsterViewModel: ObservableObject {
         self.challengeRating = monster.challengeRatingEnum
         self.customChallengeRating = monster.customChallengeRating ?? ""
         self.customProficiencyBonus = monster.customProficiencyBonus
+        self.isBlind = monster.isBlind
         
         self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
     
@@ -230,6 +239,15 @@ class MonsterViewModel: ObservableObject {
         self.legendaryActions = (monster.legendaryActions ?? [])
             .map {AbilityViewModel($0.name, $0.abilityDescription)}
         
+        self.lairActions = (monster.lairActions ?? [])
+            .map {AbilityViewModel($0.name, $0.abilityDescription)}
+
+        self.regionalActions = (monster.regionalActions ?? [])
+            .map {AbilityViewModel($0.name, $0.abilityDescription)}
+
+        self.reactions = (monster.reactions ?? [])
+            .map {AbilityViewModel($0.name, $0.abilityDescription)}
+
         // Private fields
         
         self.shieldBonus = Int(monster.shieldBonus)
@@ -249,7 +267,7 @@ class MonsterViewModel: ObservableObject {
         monster.hasShield = hasShield
         monster.naturalArmorBonus = naturalArmorBonus
         monster.customArmor = customArmor
-        monster.baseSpeed = baseSpeed
+        monster.walkSpeed = walkSpeed
         monster.burrowSpeed = burrowSpeed
         monster.climbSpeed = climbSpeed
         monster.flySpeed = flySpeed
@@ -280,6 +298,7 @@ class MonsterViewModel: ObservableObject {
         monster.challengeRatingEnum = challengeRating
         monster.customChallengeRating = customChallengeRating
         monster.customProficiencyBonus = customProficiencyBonus
+        monster.isBlind = isBlind
 
         // Remove missing skills from raw monster
         monster.skills?.forEach {s in
@@ -315,6 +334,12 @@ class MonsterViewModel: ObservableObject {
         monster.actions = actions.map {AbilityViewModel($0.name, $0.abilityDescription)}
         
         monster.legendaryActions = legendaryActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        monster.lairActions = lairActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        monster.regionalActions = regionalActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
+        
+        monster.reactions = reactions.map {AbilityViewModel($0.name, $0.abilityDescription)}
         
         monster.shieldBonus = Int64(shieldBonus)
         monster.otherArmorDescription = otherArmorDescription
@@ -382,8 +407,8 @@ class MonsterViewModel: ObservableObject {
             } else {
                 var parts: [String] = []
                 
-                if (baseSpeed > 0) {
-                    parts.append("\(baseSpeed) ft.")
+                if (walkSpeed > 0) {
+                    parts.append("\(walkSpeed) ft.")
                 }
                 if (burrowSpeed > 0) {
                     parts.append("burrow \(burrowSpeed) ft.")
@@ -467,7 +492,6 @@ class MonsterViewModel: ObservableObject {
     
     var armorClassDescription: String {
         get {
-            let hasShield = shieldBonus != 0
             var armorClassTotal = 0
             if (armorType == ArmorType.none) {
                 // 10 + dexMod + 2 for shieldBonus "15" or "17 (shield)"

@@ -293,6 +293,10 @@ struct MonsterDetailView: View {
 }
 
 struct MonsterDetailWrapper: View {
+    // TODO: Add display for when the monster is blind
+    // TODO: Add display for lair actions
+    // TODO: Add display for regional actions
+    // TODO: Add display for reactions
     let kTextColor: Color = Color(hex: 0x982818)
     
     @ObservedObject var monster: Monster
@@ -330,7 +334,7 @@ struct MonsterDetailWrapper_Previews: PreviewProvider {
         monster.hitDice = 6
         monster.hasCustomHP = true
         monster.customHP = "12 (1d10)+2"
-        monster.baseSpeed = 5
+        monster.walkSpeed = 5
         monster.burrowSpeed = 10
         monster.climbSpeed = 15
         monster.flySpeed = 20
