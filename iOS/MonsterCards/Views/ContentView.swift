@@ -48,9 +48,24 @@ struct ContentView: View {
     }
     
     func beginImportingMonster(url: URL) {
-        self.importInfo.monster.name = url.absoluteString
-        self.isShowingImportDialog = true
+
+        // TOOD: only do this if the file name ends in .json or .monster
+        
+        let decoder = JSONDecoder()
+        do {
+            let data = try Data(contentsOf: url)
+            let monsterDTO = try decoder.decode(MonsterDTO.self, from: data)
+            print(String(format: "Loaded monster: %@", monsterDTO.name))
+            // TODO: check for some minimal set of properties to ensure this is the expected json schema
+            self.importInfo.monster = MonsterImportHelper.import5ESBMonster(monsterDTO)
+            // TODO: throw or set an err here and don't set isShowingImportDialog to true if the file didn't match any of our supported monster schemas.
+            self.isShowingImportDialog = true
+        } catch let error as NSError {
+            // TODO: handle this better
+            print(error)
+        }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
