@@ -10,7 +10,8 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @State private var isShowingImportDialog = false
+ 
     var body: some View {
         TabView {
             Search()
@@ -35,6 +36,14 @@ struct ContentView: View {
                     Text("Library")
                 }
         }
+        .onOpenURL(perform: beginImportingMonster)
+        .sheet(isPresented: self.$isShowingImportDialog) {
+            Text("Importing Monster")
+        }
+    }
+    
+    func beginImportingMonster(url: URL) {
+        self.isShowingImportDialog = true
     }
 }
 
