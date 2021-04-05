@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct Library: View {
+    // TODO: add an import button that searches https://api.open5e.com/monsters/ and lets you import a monster from there
+    // TODO: add an import button that lets you browse for a tetra cube monster file and import it
     @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Monster.name, ascending: true),
