@@ -42,8 +42,8 @@ struct ContentView: View {
                 }
         }
         .onOpenURL(perform: beginImportingMonster)
-        .sheet(isPresented: self.$isShowingImportDialog) {
-            ImportMonster(monster: $importInfo.monster)
+        .sheet(isPresented: $isShowingImportDialog) {
+            ImportMonster(monster: $importInfo.monster, isOpen: $isShowingImportDialog)
         }
     }
     
@@ -55,7 +55,6 @@ struct ContentView: View {
         do {
             let data = try Data(contentsOf: url)
             let monsterDTO = try decoder.decode(MonsterDTO.self, from: data)
-            print(String(format: "Loaded monster: %@", monsterDTO.name))
             // TODO: check for some minimal set of properties to ensure this is the expected json schema
             self.importInfo.monster = MonsterImportHelper.import5ESBMonster(monsterDTO)
             // TODO: throw or set an err here and don't set isShowingImportDialog to true if the file didn't match any of our supported monster schemas.
