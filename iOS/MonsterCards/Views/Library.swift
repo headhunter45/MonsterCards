@@ -19,10 +19,26 @@ struct Library: View {
     
     var body: some View {
         NavigationView{
-            List(allMonsters) { monster in
-                NavigationLink(destination: MonsterDetailWrapper(monster: monster)) {
-                    Text(monster.name ?? "")
+            List {
+                ForEach(allMonsters) { monster in
+                    NavigationLink(destination: MonsterDetailWrapper(monster: monster)) {
+                        Text(monster.name ?? "")
+                    }
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        let monster = allMonsters[index]
+                        viewContext.delete(monster)
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            // Replace this implementation with code to handle the error appropriately.
+                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
+                    }
+                })
             }
             .navigationTitle("Library")
             .navigationBarTitleDisplayMode(.inline)
