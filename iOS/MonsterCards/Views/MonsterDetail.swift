@@ -205,10 +205,30 @@ struct SavingThrowsAndSkillsView: View {
     }
 }
 
+struct TraitList: View {
+    var title: String
+    var traits: [AbilityViewModel]
+    var viewModel: MonsterViewModel
+        
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+                .font(.system(size: 20, weight: .bold))
+            ForEach(traits) { action in
+                VStack {
+                    Markdown(Document(action.renderedText(viewModel)))
+                    Divider()
+                }
+            }
+        }
+
+    }
+}
+
 struct MonsterDetailView: View {
     let kTextColor = Color(hex: 0x982818)
     
-    var viewModel: MonsterViewModel
+    @ObservedObject var viewModel: MonsterViewModel
     
     var body: some View {
         let monsterLanguagesDescription = viewModel.languagesDescription
@@ -259,30 +279,42 @@ struct MonsterDetailView: View {
                     
                     // Actions
                     if (viewModel.actions.count > 0) {
-                        VStack(alignment: .leading) {
-                            Text("Actions")
-                                .font(.system(size: 24, weight: .bold))
-                            ForEach(viewModel.actions) { action in
-                                VStack {
-                                    Markdown(Document(action.renderedText(viewModel)))
-                                    Divider()
-                                }
-                            }
-                        }
+                        TraitList(
+                            title:"Actions",
+                            traits: viewModel.actions,
+                            viewModel: viewModel)
+                    }
+                    
+                    // Reactions
+                    if (viewModel.reactions.count > 0) {
+                        TraitList(
+                            title:"Reactions",
+                            traits: viewModel.reactions,
+                            viewModel: viewModel)
                     }
 
                     // Legendary Actions
                     if (viewModel.legendaryActions.count > 0) {
-                        VStack(alignment: .leading) {
-                            Text("Legendary Actions")
-                                .font(.system(size: 20, weight: .bold))
-                            ForEach(viewModel.legendaryActions) { action in
-                                VStack {
-                                    Markdown(Document(action.renderedText(viewModel)))
-                                    Divider()
-                                }
-                            }
-                        }
+                        TraitList(
+                            title:"Legendary Actions",
+                            traits: viewModel.legendaryActions,
+                            viewModel: viewModel)
+                    }
+                    
+                    // Lair Actions
+                    if (viewModel.lairActions.count > 0) {
+                        TraitList(
+                            title: "Lair Actions",
+                            traits: viewModel.lairActions,
+                            viewModel: viewModel)
+                    }
+                    
+                    // Regional Actions
+                    if (viewModel.regionalActions.count > 0) {
+                        TraitList(
+                            title: "Regional Actions",
+                            traits: viewModel.regionalActions,
+                            viewModel: viewModel)
                     }
                 }
             }
@@ -294,9 +326,6 @@ struct MonsterDetailView: View {
 
 struct MonsterDetailWrapper: View {
     // TODO: Add display for when the monster is blind
-    // TODO: Add display for lair actions
-    // TODO: Add display for regional actions
-    // TODO: Add display for reactions
     let kTextColor: Color = Color(hex: 0x982818)
     
     @ObservedObject var monster: Monster

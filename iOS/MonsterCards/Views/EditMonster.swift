@@ -11,9 +11,6 @@ import SwiftUI
 struct EditMonster: View {
     // TODO: Add challengeRating/challengeRatingEnum and customChallengeRating maybe in basicInfo
     // TODO: Add a way to edit the monster being blind. Probably a header section to the senses section.
-    // TODO: Add a way to edit lair actions
-    // TODO: Add a way to edit regional actions
-    // TODO: Add a way to edit reactions
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -51,24 +48,39 @@ struct EditMonster: View {
                 
                 NavigationLink(
                     "Condition Immunities",
-                    destination: EditStrings(viewModel: monsterViewModel, path: \.conditionImmunities, title: "Condition Immunities"))
+                    destination: EditStrings(
+                        viewModel: monsterViewModel,
+                        path: \.conditionImmunities,
+                        title: "Condition Immunities"))
                 
                 NavigationLink(
                     "Damage Immunities",
-                    destination: EditStrings(viewModel: monsterViewModel, path: \.damageImmunities, title: "Damage Immunities"))
+                    destination: EditStrings(
+                        viewModel: monsterViewModel,
+                        path: \.damageImmunities,
+                        title: "Damage Immunities"))
                 
                 NavigationLink(
                     "Damage Resistances",
-                    destination: EditStrings(viewModel: monsterViewModel, path: \.damageResistances, title: "Damage Resistances"))
+                    destination: EditStrings(
+                        viewModel: monsterViewModel,
+                        path: \.damageResistances,
+                        title: "Damage Resistances"))
                 
                 NavigationLink(
                     "Damage Vulnerabilities",
-                    destination: EditStrings(viewModel: monsterViewModel, path: \.damageVulnerabilities, title: "Damage Vulnerabilities"))
+                    destination: EditStrings(
+                        viewModel: monsterViewModel,
+                        path: \.damageVulnerabilities,
+                        title: "Damage Vulnerabilities"))
             }
             Group {
                 NavigationLink(
                     "Senses",
-                    destination: EditStrings(viewModel: monsterViewModel, path: \.senses, title: "Senses"))
+                    destination: EditStrings(
+                        viewModel: monsterViewModel,
+                        path: \.senses,
+                        title: "Senses"))
                 
                 NavigationLink(
                     "Languages",
@@ -79,15 +91,46 @@ struct EditMonster: View {
                     destination: EditChallengeRating(viewModel: monsterViewModel))
                 
                 NavigationLink(
-                    "Abilities", destination: EditTraits(viewModel: monsterViewModel, path: \.abilities, title: "Abilities"))
+                    "Abilities",
+                    destination: EditTraits(
+                        viewModel: monsterViewModel,
+                        path: \.abilities,
+                        title: "Abilities"))
                 
                 NavigationLink(
                     "Actions",
-                    destination: EditTraits(viewModel: monsterViewModel, path: \.actions, title: "Actions"))
+                    destination: EditTraits(
+                        viewModel: monsterViewModel,
+                        path: \.actions,
+                        title: "Actions"))
+                
+                NavigationLink(
+                    "Reactions",
+                    destination: EditTraits(
+                        viewModel: monsterViewModel,
+                        path: \.reactions,
+                        title: "Reactions"))
                 
                 NavigationLink(
                     "Legendary Actions",
-                    destination: EditTraits(viewModel: monsterViewModel, path: \.legendaryActions, title: "Legendary Actions"))
+                    destination: EditTraits(
+                        viewModel: monsterViewModel,
+                        path: \.legendaryActions,
+                        title: "Legendary Actions"))
+                
+                NavigationLink(
+                    "Lair Actions",
+                    destination: EditTraits(
+                        viewModel: monsterViewModel,
+                        path: \.lairActions,
+                        title: "Lair Actions"))
+                
+                NavigationLink(
+                    "Regional Actions",
+                    destination: EditTraits(
+                        viewModel: monsterViewModel,
+                        path: \.regionalActions,
+                        title: "Regional Actions"))
             }
             
         }
