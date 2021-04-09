@@ -19,7 +19,7 @@ private enum SkillDTOCodingKeys: String, CodingKey {
     case note = "note"
 }
 
-extension SkillDTO: Decodable {
+extension SkillDTO: Codable {
     
     init(from decoder: Decoder) throws {
         
@@ -28,9 +28,6 @@ extension SkillDTO: Decodable {
         self.note = (try? container.decode(String.self, forKey: .note)) ?? ""
         self.stat = (try? container.decode(String.self, forKey: .stat)) ?? ""
     }
-}
-
-extension SkillDTO: Encodable {
     
     func encode(to encoder: Encoder) throws {
     

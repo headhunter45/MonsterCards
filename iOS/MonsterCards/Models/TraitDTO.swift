@@ -19,7 +19,7 @@ private enum TraitDTOCodingKeys: String, CodingKey {
     case desc = "desc"
 }
 
-extension TraitDTO: Decodable {
+extension TraitDTO: Codable {
     
     init(from decoder: Decoder) throws {
         
@@ -28,9 +28,6 @@ extension TraitDTO: Decodable {
         self.note = (try? container.decode(String.self, forKey: .note)) ?? ""
         self.desc = (try? container.decode(String.self, forKey: .desc)) ?? ""
     }
-}
-
-extension TraitDTO: Encodable {
         
     func encode(to encoder: Encoder) throws {
     

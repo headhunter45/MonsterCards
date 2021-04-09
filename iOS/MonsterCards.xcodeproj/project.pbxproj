@@ -22,6 +22,7 @@
 		E216B7B7260C5A9800FB205F /* ChallengeRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B7B6260C5A9800FB205F /* ChallengeRatingViewModel.swift */; };
 		E216B7BC260C691400FB205F /* EditChallengeRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B7BB260C691400FB205F /* EditChallengeRating.swift */; };
 		E216B7C1260C6B6000FB205F /* MCChallengeRatingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B7C0260C6B6000FB205F /* MCChallengeRatingPicker.swift */; };
+		E216E465261FDA2E00FD9262 /* MonsterDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E464261FDA2E00FD9262 /* MonsterDocument.swift */; };
 		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
 		E219247B261989B400C84E12 /* MonsterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247A261989B400C84E12 /* MonsterDTO.swift */; };
 		E2192480261989F700C84E12 /* SavingThrowDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247F261989F700C84E12 /* SavingThrowDTO.swift */; };
@@ -102,6 +103,7 @@
 		E216B7B6260C5A9800FB205F /* ChallengeRatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRatingViewModel.swift; sourceTree = "<group>"; };
 		E216B7BB260C691400FB205F /* EditChallengeRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChallengeRating.swift; sourceTree = "<group>"; };
 		E216B7C0260C6B6000FB205F /* MCChallengeRatingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCChallengeRatingPicker.swift; sourceTree = "<group>"; };
+		E216E464261FDA2E00FD9262 /* MonsterDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDocument.swift; sourceTree = "<group>"; };
 		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E219247A261989B400C84E12 /* MonsterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDTO.swift; sourceTree = "<group>"; };
 		E219247F261989F700C84E12 /* SavingThrowDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingThrowDTO.swift; sourceTree = "<group>"; };
@@ -216,13 +218,13 @@
 		E2570FB725B1AC520055B23B /* MonsterCards */ = {
 			isa = PBXGroup;
 			children = (
-				E2570FC625B1AC550055B23B /* Info.plist */,
-				E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */,
-				E2570FC125B1AC550055B23B /* Persistence.swift */,
 				E2570FBC25B1AC550055B23B /* Assets.xcassets */,
 				E2D473FB25B5328800CB36D7 /* Helpers */,
+				E2570FC625B1AC550055B23B /* Info.plist */,
 				E257101225B1B2790055B23B /* Models */,
 				E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */,
+				E2570FB825B1AC520055B23B /* MonsterCardsApp.swift */,
+				E2570FC125B1AC550055B23B /* Persistence.swift */,
 				E2570FBE25B1AC550055B23B /* Preview Content */,
 				E2570FEB25B1ADA90055B23B /* Views */,
 			);
@@ -301,6 +303,7 @@
 				E219249326198A8200C84E12 /* LanguageDTO.swift */,
 				E216B790260C1FE800FB205F /* LanguageViewModel.swift */,
 				E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */,
+				E216E464261FDA2E00FD9262 /* MonsterDocument.swift */,
 				E219247A261989B400C84E12 /* MonsterDTO.swift */,
 				E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */,
 				E219247F261989F700C84E12 /* SavingThrowDTO.swift */,
@@ -497,6 +500,7 @@
 				E219248F26198A6A00C84E12 /* DamageTypeDTO.swift in Sources */,
 				E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */,
 				E2CB0DC526086E5F00142591 /* SizeType.swift in Sources */,
+				E216E465261FDA2E00FD9262 /* MonsterDocument.swift in Sources */,
 				E254F906260D0818009295A5 /* AbilityViewModel.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
 				E24ACE5B2607F0F2009BF703 /* EditSpeed.swift in Sources */,

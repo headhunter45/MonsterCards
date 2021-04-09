@@ -69,6 +69,70 @@ struct MonsterDTO {
     var doubleColumns: Bool
     var separationPoint: Int
     var damage: [DamageTypeDTO] // TODO: figure this out
+    
+    init() {
+        self.abilities = []
+        self.actions = []
+        self.alignment = ""
+        self.armorName = ""
+        self.blind = false
+        self.blindsight = 0
+        self.burrowSpeed = 0
+        self.chaPoints = 0
+        self.climbSpeed = 0
+        self.conPoints = 0
+        self.conditions = []
+        self.cr = ""
+        self.customCr = ""
+        self.customHP = false
+        self.customProf = 0
+        self.customSpeed = false
+        self.damage = []
+        self.damageTypes = []
+        self.darkvision = 0
+        self.dexPoints = 0
+        self.doubleColumns = false
+        self.flySpeed = 0
+        self.hitDice = 0
+        self.hover = false
+        self.hpText = ""
+        self.intPoints = 0
+        self.isLair = false
+        self.isLegendary = false
+        self.isRegional = false
+        self.lairs = []
+        self.languages = []
+        self.legendaries = []
+        self.lairDescription = ""
+        self.legendaryDescription = ""
+        self.lairDescriptionEnd = ""
+        self.name = ""
+        self.natArmorBonus = 0
+        self.otherArmorDesc = ""
+        self.reactions = []
+        self.regionals = []
+        self.regionalDescription = ""
+        self.regionalDescriptionEnd = ""
+        self.size = ""
+        self.speed = 0
+        self.skills = []
+        self.sthrows = []
+        self.strPoints = 0
+        self.swimSpeed = 0
+        self.speedDesc = ""
+        self.shortName = ""
+        self.specialDamage = []
+        self.shieldBonus = 0
+        self.separationPoint = 0
+        self.type = ""
+        self.tag = ""
+        self.telepathy = 0
+        self.truesight = 0
+        self.tremorsense = 0
+        self.understandsBut = ""
+        self.wisPoints = 0
+    }
+
 }
 
 enum MonsterDTOCodingKeys: String, CodingKey {
@@ -135,7 +199,7 @@ enum MonsterDTOCodingKeys: String, CodingKey {
     case damage = "damage"
 }
 
-extension MonsterDTO: Decodable {
+extension MonsterDTO: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MonsterDTOCodingKeys.self)
         self.name = (try? container.decode(String.self, forKey: .name)) ?? "Imported Monster"
@@ -207,9 +271,6 @@ extension MonsterDTO: Decodable {
         self.damageTypes = (try? container.decode([DamageTypeDTO].self, forKey: .damageTypes)) ?? []
         self.languages = (try? container.decode([LanguageDTO].self, forKey: .languages)) ?? []
     }
-}
-
-extension MonsterDTO: Encodable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MonsterDTOCodingKeys.self)
@@ -266,7 +327,7 @@ extension MonsterDTO: Encodable {
         try container.encode(self.isRegional, forKey: .isRegional)
         try container.encode(self.regionalDescription, forKey: .regionalDescription)
         try container.encode(self.regionalDescriptionEnd, forKey: .regionalDescriptionEnd)
-//        try container.encode(self.properties, forKey: .properties)
+        try container.encode([] as [TraitDTO], forKey: .properties)
         try container.encode(self.lairs, forKey: .lairs)
         try container.encode(self.regionals, forKey: .regionals)
         try container.encode(self.specialDamage, forKey: .specialDamage)

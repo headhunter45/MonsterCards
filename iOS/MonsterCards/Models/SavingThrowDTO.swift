@@ -17,7 +17,7 @@ private enum SavingThrowDTOCodingKeys: String, CodingKey {
     case order = "order"
 }
 
-extension SavingThrowDTO: Decodable {
+extension SavingThrowDTO: Codable {
     
     init(from decoder: Decoder) throws {
         
@@ -25,9 +25,6 @@ extension SavingThrowDTO: Decodable {
         self.name = (try? container.decode(String.self, forKey: .name)) ?? ""
         self.order = (try? container.decode(Int.self, forKey: .order)) ?? 0
     }
-}
-
-extension SavingThrowDTO: Encodable {
     
     func encode(to encoder: Encoder) throws {
     

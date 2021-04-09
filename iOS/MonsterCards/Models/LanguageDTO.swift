@@ -17,7 +17,7 @@ private enum LanguageDTOCodingKeys: String, CodingKey {
     case speaks = "speaks"
 }
 
-extension LanguageDTO: Decodable {
+extension LanguageDTO: Codable {
         
     init(from decoder: Decoder) throws {
         
@@ -25,9 +25,6 @@ extension LanguageDTO: Decodable {
         self.name = (try? container.decode(String.self, forKey: .name)) ?? ""
         self.speaks = (try? container.decode(Bool.self, forKey: .speaks)) ?? false
     }
-}
-
-extension LanguageDTO: Encodable {
     
     func encode(to encoder: Encoder) throws {
     
