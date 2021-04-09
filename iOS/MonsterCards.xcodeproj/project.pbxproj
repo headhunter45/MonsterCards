@@ -14,6 +14,8 @@
 		E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F925D8E19100EFE733 /* SkillViewModel.swift */; };
 		E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */; };
 		E20CEFEC261FEA2100B55D72 /* MonsterDetailWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20CEFEB261FEA2100B55D72 /* MonsterDetailWrapper.swift */; };
+		E20CEFFA261FEBBA00B55D72 /* MonsterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100825B1B2470055B23B /* MonsterDetailView.swift */; };
+		E20CF000261FEBD300B55D72 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = E20CEFFF261FEBD300B55D72 /* MarkdownUI */; };
 		E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */; };
 		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
 		E21661D12616E9A800117782 /* ImportMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21661D02616E9A800117782 /* ImportMonster.swift */; };
@@ -26,6 +28,32 @@
 		E216E465261FDA2E00FD9262 /* MonsterDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E464261FDA2E00FD9262 /* MonsterDocument.swift */; };
 		E216E46D261FDE5600FD9262 /* MonsterViewModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E46C261FDE5600FD9262 /* MonsterViewModel+CoreData.swift */; };
 		E216E472261FDF3200FD9262 /* SkillViewModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */; };
+		E216E47E261FE76F00FD9262 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E216E47D261FE76F00FD9262 /* QuickLook.framework */; };
+		E216E481261FE76F00FD9262 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E480261FE76F00FD9262 /* PreviewViewController.swift */; };
+		E216E484261FE76F00FD9262 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E216E482261FE76F00FD9262 /* MainInterface.storyboard */; };
+		E216E488261FE76F00FD9262 /* MonsterPreview.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E216E47B261FE76F00FD9262 /* MonsterPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E216E491261FE7B200FD9262 /* SavingThrowDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247F261989F700C84E12 /* SavingThrowDTO.swift */; };
+		E216E492261FE7B200FD9262 /* AbilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254F905260D0818009295A5 /* AbilityViewModel.swift */; };
+		E216E493261FE7B200FD9262 /* DamageTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219248E26198A6A00C84E12 /* DamageTypeDTO.swift */; };
+		E216E494261FE7B200FD9262 /* SkillDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219248426198A1200C84E12 /* SkillDTO.swift */; };
+		E216E495261FE7B200FD9262 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F925D8E19100EFE733 /* SkillViewModel.swift */; };
+		E216E496261FE7B200FD9262 /* ArmorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DC926086E8300142591 /* ArmorType.swift */; };
+		E216E497261FE7B200FD9262 /* SizeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DC426086E5F00142591 /* SizeType.swift */; };
+		E216E498261FE7B200FD9262 /* LanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B790260C1FE800FB205F /* LanguageViewModel.swift */; };
+		E216E499261FE7B200FD9262 /* StringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE0260887ED00142591 /* StringViewModel.swift */; };
+		E216E49A261FE7B200FD9262 /* ProficiencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F225D8E04300EFE733 /* ProficiencyType.swift */; };
+		E216E49B261FE7B200FD9262 /* ChallengeRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DBF26086E3C00142591 /* ChallengeRating.swift */; };
+		E216E49C261FE7B200FD9262 /* MonsterDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E464261FDA2E00FD9262 /* MonsterDocument.swift */; };
+		E216E49D261FE7B200FD9262 /* ChallengeRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B7B6260C5A9800FB205F /* ChallengeRatingViewModel.swift */; };
+		E216E49E261FE7B200FD9262 /* MonsterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247A261989B400C84E12 /* MonsterDTO.swift */; };
+		E216E49F261FE7B200FD9262 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F325D8E04300EFE733 /* AdvantageType.swift */; };
+		E216E4A0261FE7B200FD9262 /* TraitDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219248926198A5400C84E12 /* TraitDTO.swift */; };
+		E216E4A1261FE7B200FD9262 /* AbilityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209E725D8DEC100EFE733 /* AbilityScore.swift */; };
+		E216E4A2261FE7B200FD9262 /* LanguageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219249326198A8200C84E12 /* LanguageDTO.swift */; };
+		E216E4A3261FE7B200FD9262 /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */; };
+		E216E4A8261FE7D100FD9262 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DD62608720000142591 /* StringHelper.swift */; };
+		E216E4A9261FE7D100FD9262 /* MonsterImportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219249826198E0D00C84E12 /* MonsterImportHelper.swift */; };
+		E216E4AA261FE7D100FD9262 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D473FC25B532C900CB36D7 /* Color+Hex.swift */; };
 		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
 		E219247B261989B400C84E12 /* MonsterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247A261989B400C84E12 /* MonsterDTO.swift */; };
 		E2192480261989F700C84E12 /* SavingThrowDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247F261989F700C84E12 /* SavingThrowDTO.swift */; };
@@ -74,6 +102,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E216E486261FE76F00FD9262 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2570FAD25B1AC520055B23B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E216E47A261FE76F00FD9262;
+			remoteInfo = MonsterPreview;
+		};
 		E2570FCC25B1AC550055B23B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2570FAD25B1AC520055B23B /* Project object */;
@@ -89,6 +124,20 @@
 			remoteInfo = MonsterCards;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E216E48C261FE76F00FD9262 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E216E488261FE76F00FD9262 /* MonsterPreview.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -110,6 +159,11 @@
 		E216E464261FDA2E00FD9262 /* MonsterDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDocument.swift; sourceTree = "<group>"; };
 		E216E46C261FDE5600FD9262 /* MonsterViewModel+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonsterViewModel+CoreData.swift"; sourceTree = "<group>"; };
 		E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkillViewModel+CoreData.swift"; sourceTree = "<group>"; };
+		E216E47B261FE76F00FD9262 /* MonsterPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MonsterPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E216E47D261FE76F00FD9262 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		E216E480261FE76F00FD9262 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		E216E483261FE76F00FD9262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E216E485261FE76F00FD9262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E219247A261989B400C84E12 /* MonsterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDTO.swift; sourceTree = "<group>"; };
 		E219247F261989F700C84E12 /* SavingThrowDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingThrowDTO.swift; sourceTree = "<group>"; };
@@ -163,6 +217,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E216E478261FE76F00FD9262 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E216E47E261FE76F00FD9262 /* QuickLook.framework in Frameworks */,
+				E20CF000261FEBD300B55D72 /* MarkdownUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2570FB225B1AC520055B23B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,12 +264,32 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		E216E47C261FE76F00FD9262 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E216E47D261FE76F00FD9262 /* QuickLook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E216E47F261FE76F00FD9262 /* MonsterPreview */ = {
+			isa = PBXGroup;
+			children = (
+				E216E480261FE76F00FD9262 /* PreviewViewController.swift */,
+				E216E482261FE76F00FD9262 /* MainInterface.storyboard */,
+				E216E485261FE76F00FD9262 /* Info.plist */,
+			);
+			path = MonsterPreview;
+			sourceTree = "<group>";
+		};
 		E2570FAC25B1AC520055B23B = {
 			isa = PBXGroup;
 			children = (
 				E2570FB725B1AC520055B23B /* MonsterCards */,
 				E2570FCE25B1AC550055B23B /* MonsterCardsTests */,
 				E2570FD925B1AC550055B23B /* MonsterCardsUITests */,
+				E216E47F261FE76F00FD9262 /* MonsterPreview */,
+				E216E47C261FE76F00FD9262 /* Frameworks */,
 				E2570FB625B1AC520055B23B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,6 +300,7 @@
 				E2570FB525B1AC520055B23B /* MonsterCards.app */,
 				E2570FCB25B1AC550055B23B /* MonsterCardsTests.xctest */,
 				E2570FD625B1AC550055B23B /* MonsterCardsUITests.xctest */,
+				E216E47B261FE76F00FD9262 /* MonsterPreview.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,6 +422,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E216E47A261FE76F00FD9262 /* MonsterPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E216E489261FE76F00FD9262 /* Build configuration list for PBXNativeTarget "MonsterPreview" */;
+			buildPhases = (
+				E216E477261FE76F00FD9262 /* Sources */,
+				E216E478261FE76F00FD9262 /* Frameworks */,
+				E216E479261FE76F00FD9262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonsterPreview;
+			packageProductDependencies = (
+				E20CEFFF261FEBD300B55D72 /* MarkdownUI */,
+			);
+			productName = MonsterPreview;
+			productReference = E216E47B261FE76F00FD9262 /* MonsterPreview.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E2570FB425B1AC520055B23B /* MonsterCards */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2570FDF25B1AC550055B23B /* Build configuration list for PBXNativeTarget "MonsterCards" */;
@@ -345,10 +449,12 @@
 				E2570FB125B1AC520055B23B /* Sources */,
 				E2570FB225B1AC520055B23B /* Frameworks */,
 				E2570FB325B1AC520055B23B /* Resources */,
+				E216E48C261FE76F00FD9262 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E216E487261FE76F00FD9262 /* PBXTargetDependency */,
 			);
 			name = MonsterCards;
 			packageProductDependencies = (
@@ -400,9 +506,12 @@
 		E2570FAD25B1AC520055B23B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					E216E47A261FE76F00FD9262 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					E2570FB425B1AC520055B23B = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -435,11 +544,20 @@
 				E2570FB425B1AC520055B23B /* MonsterCards */,
 				E2570FCA25B1AC550055B23B /* MonsterCardsTests */,
 				E2570FD525B1AC550055B23B /* MonsterCardsUITests */,
+				E216E47A261FE76F00FD9262 /* MonsterPreview */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E216E479261FE76F00FD9262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E216E484261FE76F00FD9262 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2570FB325B1AC520055B23B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -466,6 +584,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E216E477261FE76F00FD9262 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E20CEFFA261FEBBA00B55D72 /* MonsterDetailView.swift in Sources */,
+				E216E4AA261FE7D100FD9262 /* Color+Hex.swift in Sources */,
+				E216E491261FE7B200FD9262 /* SavingThrowDTO.swift in Sources */,
+				E216E499261FE7B200FD9262 /* StringViewModel.swift in Sources */,
+				E216E496261FE7B200FD9262 /* ArmorType.swift in Sources */,
+				E216E4A1261FE7B200FD9262 /* AbilityScore.swift in Sources */,
+				E216E481261FE76F00FD9262 /* PreviewViewController.swift in Sources */,
+				E216E493261FE7B200FD9262 /* DamageTypeDTO.swift in Sources */,
+				E216E4A2261FE7B200FD9262 /* LanguageDTO.swift in Sources */,
+				E216E498261FE7B200FD9262 /* LanguageViewModel.swift in Sources */,
+				E216E492261FE7B200FD9262 /* AbilityViewModel.swift in Sources */,
+				E216E49D261FE7B200FD9262 /* ChallengeRatingViewModel.swift in Sources */,
+				E216E49E261FE7B200FD9262 /* MonsterDTO.swift in Sources */,
+				E216E495261FE7B200FD9262 /* SkillViewModel.swift in Sources */,
+				E216E49B261FE7B200FD9262 /* ChallengeRating.swift in Sources */,
+				E216E49F261FE7B200FD9262 /* AdvantageType.swift in Sources */,
+				E216E4A0261FE7B200FD9262 /* TraitDTO.swift in Sources */,
+				E216E49C261FE7B200FD9262 /* MonsterDocument.swift in Sources */,
+				E216E497261FE7B200FD9262 /* SizeType.swift in Sources */,
+				E216E4A3261FE7B200FD9262 /* MonsterViewModel.swift in Sources */,
+				E216E4A8261FE7D100FD9262 /* StringHelper.swift in Sources */,
+				E216E494261FE7B200FD9262 /* SkillDTO.swift in Sources */,
+				E216E49A261FE7B200FD9262 /* ProficiencyType.swift in Sources */,
+				E216E4A9261FE7D100FD9262 /* MonsterImportHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2570FB125B1AC520055B23B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -551,6 +700,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E216E487261FE76F00FD9262 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E216E47A261FE76F00FD9262 /* MonsterPreview */;
+			targetProxy = E216E486261FE76F00FD9262 /* PBXContainerItemProxy */;
+		};
 		E2570FCD25B1AC550055B23B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E2570FB425B1AC520055B23B /* MonsterCards */;
@@ -563,7 +717,58 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E216E482261FE76F00FD9262 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E216E483261FE76F00FD9262 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		E216E48A261FE76F00FD9262 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterPreview/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards.MonsterPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E216E48B261FE76F00FD9262 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J793L9LQJ2;
+				INFOPLIST_FILE = MonsterPreview/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.majinnaibu.monstercards.MonsterCards.MonsterPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E2570FDD25B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -683,6 +888,7 @@
 		E2570FE025B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -705,6 +911,7 @@
 		E2570FE125B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -811,6 +1018,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E216E489261FE76F00FD9262 /* Build configuration list for PBXNativeTarget "MonsterPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E216E48A261FE76F00FD9262 /* Debug */,
+				E216E48B261FE76F00FD9262 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E2570FB025B1AC520055B23B /* Build configuration list for PBXProject "MonsterCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -861,6 +1077,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E20CEFFF261FEBD300B55D72 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E254F8FF260D07C1009295A5 /* XCRemoteSwiftPackageReference "MarkdownUI" */;
+			productName = MarkdownUI;
+		};
 		E254F900260D07C1009295A5 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E254F8FF260D07C1009295A5 /* XCRemoteSwiftPackageReference "MarkdownUI" */;

@@ -39,18 +39,12 @@ class StringHelper {
     }
     
     static func safeContainsCaseInsensitive(_ str: String?, _ match: String) -> Bool {
-        if (str == nil) {
-            return false
-        }
-        
-        return str!.containsCaseInsensitive(match)
+        guard let str = str else { return false }
+        return str.localizedCaseInsensitiveContains(match)
     }
     
     static func safeEqualsIgnoreCase(_ str: String?, _ match: String) -> Bool {
-        if (str == nil) {
-            return false
-        }
-        
-        return str!.lowercased() == match.lowercased()
+        guard let str = str else { return false }
+        return str.lowercased() == match.lowercased()
     }
 }
