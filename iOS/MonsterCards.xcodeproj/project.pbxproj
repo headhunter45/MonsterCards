@@ -13,6 +13,7 @@
 		E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F325D8E04300EFE733 /* AdvantageType.swift */; };
 		E20209FB25D8E19100EFE733 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F925D8E19100EFE733 /* SkillViewModel.swift */; };
 		E20209FC25D8E19100EFE733 /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */; };
+		E20CEFEC261FEA2100B55D72 /* MonsterDetailWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20CEFEB261FEA2100B55D72 /* MonsterDetailWrapper.swift */; };
 		E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */; };
 		E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */; };
 		E21661D12616E9A800117782 /* ImportMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21661D02616E9A800117782 /* ImportMonster.swift */; };
@@ -56,7 +57,7 @@
 		E2570FFA25B1AE020055B23B /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FF925B1AE020055B23B /* Collections.swift */; };
 		E2570FFF25B1AE180055B23B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FFE25B1AE180055B23B /* Library.swift */; };
 		E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100325B1AF4A0055B23B /* SearchBar.swift */; };
-		E257100925B1B2480055B23B /* MonsterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100825B1B2470055B23B /* MonsterDetail.swift */; };
+		E257100925B1B2480055B23B /* MonsterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100825B1B2470055B23B /* MonsterDetailView.swift */; };
 		E26CDA2B25CFB38E00E3F50D /* MCArmorTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26CDA2A25CFB38E00E3F50D /* MCArmorTypePicker.swift */; };
 		E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5285825B3028700AAA69E /* EditMonster.swift */; };
 		E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD702B25B3A8D70058ED69 /* MCTextField.swift */; };
@@ -96,6 +97,7 @@
 		E20209F325D8E04300EFE733 /* AdvantageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvantageType.swift; sourceTree = "<group>"; };
 		E20209F925D8E19100EFE733 /* SkillViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillViewModel.swift; sourceTree = "<group>"; };
 		E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
+		E20CEFEB261FEA2100B55D72 /* MonsterDetailWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailWrapper.swift; sourceTree = "<group>"; };
 		E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProficiencyPicker.swift; sourceTree = "<group>"; };
 		E210B83E25B42DAB0083EAC5 /* MCAdvantagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvantagePicker.swift; sourceTree = "<group>"; };
 		E21661D02616E9A800117782 /* ImportMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMonster.swift; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 		E2570FF925B1AE020055B23B /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		E2570FFE25B1AE180055B23B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		E257100325B1AF4A0055B23B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		E257100825B1B2470055B23B /* MonsterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetail.swift; sourceTree = "<group>"; };
+		E257100825B1B2470055B23B /* MonsterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailView.swift; sourceTree = "<group>"; };
 		E26CDA2A25CFB38E00E3F50D /* MCArmorTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCArmorTypePicker.swift; sourceTree = "<group>"; };
 		E2B5285825B3028700AAA69E /* EditMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMonster.swift; sourceTree = "<group>"; };
 		E2BD702B25B3A8D70058ED69 /* MCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTextField.swift; sourceTree = "<group>"; };
@@ -290,7 +292,8 @@
 				E210B83925B42D980083EAC5 /* MCProficiencyPicker.swift */,
 				E2BD703025B3BBB90058ED69 /* MCStepperField.swift */,
 				E2BD702B25B3A8D70058ED69 /* MCTextField.swift */,
-				E257100825B1B2470055B23B /* MonsterDetail.swift */,
+				E257100825B1B2470055B23B /* MonsterDetailView.swift */,
+				E20CEFEB261FEA2100B55D72 /* MonsterDetailWrapper.swift */,
 				E2570FEF25B1ADC10055B23B /* Search.swift */,
 				E257100325B1AF4A0055B23B /* SearchBar.swift */,
 			);
@@ -481,7 +484,7 @@
 				E216B791260C1FE800FB205F /* LanguageViewModel.swift in Sources */,
 				E210B83A25B42D980083EAC5 /* MCProficiencyPicker.swift in Sources */,
 				E2570FF025B1ADC10055B23B /* Search.swift in Sources */,
-				E257100925B1B2480055B23B /* MonsterDetail.swift in Sources */,
+				E257100925B1B2480055B23B /* MonsterDetailView.swift in Sources */,
 				E219248526198A1200C84E12 /* SkillDTO.swift in Sources */,
 				E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */,
 				E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */,
@@ -523,6 +526,7 @@
 				E20209E825D8DEC100EFE733 /* AbilityScore.swift in Sources */,
 				E219248A26198A5400C84E12 /* TraitDTO.swift in Sources */,
 				E210B83F25B42DAB0083EAC5 /* MCAdvantagePicker.swift in Sources */,
+				E20CEFEC261FEA2100B55D72 /* MonsterDetailWrapper.swift in Sources */,
 				E216B7C1260C6B6000FB205F /* MCChallengeRatingPicker.swift in Sources */,
 				E26CDA2B25CFB38E00E3F50D /* MCArmorTypePicker.swift in Sources */,
 			);

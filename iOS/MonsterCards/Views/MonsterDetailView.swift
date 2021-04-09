@@ -324,41 +324,13 @@ struct MonsterDetailView: View {
     }
 }
 
-struct MonsterDetailWrapper: View {
-    // TODO: Add display for when the monster is blind
-    let kTextColor: Color = Color(hex: 0x982818)
-    
-    @ObservedObject var monster: Monster
-    @StateObject private var viewModel = MonsterViewModel()
-    
-    var body: some View {
-        
-        MonsterDetailView(viewModel: viewModel)
-            .onAppear(perform: {
-                viewModel.copyFromMonster(monster: monster)
-            })
-            .toolbar(content: {
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink("Edit", destination: EditMonster(monster: monster))
-                }
-            })
-            .navigationTitle(monster.name ?? "")
-            .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    private func editMonster() {
-        print("Edit Monster pressed")
-    }
-}
-
-struct MonsterDetailWrapper_Previews: PreviewProvider {
+struct MonsterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let monster = Monster.init(context: context)
+        let monster = MonsterViewModel.init()
         monster.name = "Steve"
         monster.size = "Medium"
         monster.type = "humanoid"
-        monster.subtype = "human"
+        monster.subType = "human"
         monster.alignment = "LG"
         monster.hitDice = 6
         monster.hasCustomHP = true
@@ -377,18 +349,18 @@ struct MonsterDetailWrapper_Previews: PreviewProvider {
         monster.intelligenceScore = 14
         monster.wisdomScore = 16
         monster.charismaScore = 18
-        monster.strengthSavingThrowAdvantageEnum = AdvantageType.none
-        monster.strengthSavingThrowProficiencyEnum = ProficiencyType.none
-        monster.dexteritySavingThrowAdvantageEnum = AdvantageType.advantage
-        monster.dexteritySavingThrowProficiencyEnum = ProficiencyType.proficient
-        monster.constitutionSavingThrowAdvantageEnum = AdvantageType.disadvantage
-        monster.constitutionSavingThrowProficiencyEnum = ProficiencyType.expertise
-        monster.intelligenceSavingThrowAdvantageEnum = AdvantageType.none
-        monster.intelligenceSavingThrowProficiencyEnum = ProficiencyType.expertise
-        monster.wisdomSavingThrowAdvantageEnum = AdvantageType.advantage
-        monster.wisdomSavingThrowProficiencyEnum = ProficiencyType.proficient
-        monster.charismaSavingThrowAdvantageEnum = AdvantageType.disadvantage
-        monster.charismaSavingThrowProficiencyEnum = ProficiencyType.none
+        monster.strengthSavingThrowAdvantage = AdvantageType.none
+        monster.strengthSavingThrowProficiency = ProficiencyType.none
+        monster.dexteritySavingThrowAdvantage = AdvantageType.advantage
+        monster.dexteritySavingThrowProficiency = ProficiencyType.proficient
+        monster.constitutionSavingThrowAdvantage = AdvantageType.disadvantage
+        monster.constitutionSavingThrowProficiency = ProficiencyType.expertise
+        monster.intelligenceSavingThrowAdvantage = AdvantageType.none
+        monster.intelligenceSavingThrowProficiency = ProficiencyType.expertise
+        monster.wisdomSavingThrowAdvantage = AdvantageType.advantage
+        monster.wisdomSavingThrowProficiency = ProficiencyType.proficient
+        monster.charismaSavingThrowAdvantage = AdvantageType.disadvantage
+        monster.charismaSavingThrowProficiency = ProficiencyType.none
         monster.telepathy = 1
         monster.languages = [
             LanguageViewModel("English", true),
@@ -396,12 +368,7 @@ struct MonsterDetailWrapper_Previews: PreviewProvider {
         ]
         
         return Group {
-            MonsterDetailWrapper(monster: monster)
-                .environment(\.managedObjectContext, context)
-                .previewDevice("iPod touch (7th generation)")
-            MonsterDetailWrapper(monster: monster)
-                .environment(\.managedObjectContext, context)
-                .previewDevice("iPad Pro (11-inch) (2nd generation)")
+            MonsterDetailView(viewModel: monster)
         }
     }
 }
