@@ -305,7 +305,6 @@ class MonsterViewModel: ObservableObject {
         }
     }
 
-    
     // MARK: Armor
     
     var armorClassDescription: String {
@@ -382,7 +381,6 @@ class MonsterViewModel: ObservableObject {
     }
     
     // MARK: Challenge Rating / Proficiency Bonus
-    
 
     var proficiencyBonus: Int {
         switch challengeRating {

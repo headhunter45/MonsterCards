@@ -19,8 +19,7 @@ public class Monster: NSManagedObject {
         self.subtype = subtype;
         self.alignment = alignment;
     }
-        
-    // MARK: Armor
+   // MARK: Armor
     
     var armorTypeEnum: ArmorType {
         get {
