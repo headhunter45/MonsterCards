@@ -23,6 +23,8 @@
 		E216B7BC260C691400FB205F /* EditChallengeRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B7BB260C691400FB205F /* EditChallengeRating.swift */; };
 		E216B7C1260C6B6000FB205F /* MCChallengeRatingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216B7C0260C6B6000FB205F /* MCChallengeRatingPicker.swift */; };
 		E216E465261FDA2E00FD9262 /* MonsterDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E464261FDA2E00FD9262 /* MonsterDocument.swift */; };
+		E216E46D261FDE5600FD9262 /* MonsterViewModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E46C261FDE5600FD9262 /* MonsterViewModel+CoreData.swift */; };
+		E216E472261FDF3200FD9262 /* SkillViewModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */; };
 		E2182E6425B22F8A00DFAEF8 /* Monster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */; };
 		E219247B261989B400C84E12 /* MonsterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247A261989B400C84E12 /* MonsterDTO.swift */; };
 		E2192480261989F700C84E12 /* SavingThrowDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247F261989F700C84E12 /* SavingThrowDTO.swift */; };
@@ -104,6 +106,8 @@
 		E216B7BB260C691400FB205F /* EditChallengeRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChallengeRating.swift; sourceTree = "<group>"; };
 		E216B7C0260C6B6000FB205F /* MCChallengeRatingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCChallengeRatingPicker.swift; sourceTree = "<group>"; };
 		E216E464261FDA2E00FD9262 /* MonsterDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDocument.swift; sourceTree = "<group>"; };
+		E216E46C261FDE5600FD9262 /* MonsterViewModel+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonsterViewModel+CoreData.swift"; sourceTree = "<group>"; };
+		E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkillViewModel+CoreData.swift"; sourceTree = "<group>"; };
 		E2182E6225B22F8A00DFAEF8 /* Monster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E219247A261989B400C84E12 /* MonsterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDTO.swift; sourceTree = "<group>"; };
 		E219247F261989F700C84E12 /* SavingThrowDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingThrowDTO.swift; sourceTree = "<group>"; };
@@ -306,10 +310,12 @@
 				E216E464261FDA2E00FD9262 /* MonsterDocument.swift */,
 				E219247A261989B400C84E12 /* MonsterDTO.swift */,
 				E20209FA25D8E19100EFE733 /* MonsterViewModel.swift */,
+				E216E46C261FDE5600FD9262 /* MonsterViewModel+CoreData.swift */,
 				E219247F261989F700C84E12 /* SavingThrowDTO.swift */,
 				E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */,
 				E219248426198A1200C84E12 /* SkillDTO.swift */,
 				E20209F925D8E19100EFE733 /* SkillViewModel.swift */,
+				E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */,
 				E2CB0DE0260887ED00142591 /* StringViewModel.swift */,
 				E219248926198A5400C84E12 /* TraitDTO.swift */,
 			);
@@ -481,6 +487,8 @@
 				E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */,
 				E219247B261989B400C84E12 /* MonsterDTO.swift in Sources */,
 				E2CB0DD72608720000142591 /* StringHelper.swift in Sources */,
+				E216E46D261FDE5600FD9262 /* MonsterViewModel+CoreData.swift in Sources */,
+				E216E472261FDF3200FD9262 /* SkillViewModel+CoreData.swift in Sources */,
 				E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */,
 				E2CB0DB826081A2F00142591 /* MCAbilityScorePicker.swift in Sources */,
 				E219249926198E0D00C84E12 /* MonsterImportHelper.swift in Sources */,

@@ -71,9 +71,8 @@ class MonsterViewModel: ObservableObject {
     @Published var regionalActions: [AbilityViewModel]
     @Published var reactions: [AbilityViewModel]
     @Published var isBlind: Bool
-    
-    private var shieldBonus: Int
-    private var otherArmorDescription: String
+    @Published var shieldBonus: Int
+    @Published var otherArmorDescription: String
     
     let kBaseArmorClassUnarmored = 10;
     let kBaseArmorClassMageArmor = 13;
@@ -90,7 +89,7 @@ class MonsterViewModel: ObservableObject {
     let kBaseArmorClassSplintMail = 17;
     let kBaseArmorClassPlate = 18;
     
-    init(_ rawMonster: Monster? = nil) {
+    init() {
         self.name = ""
         self.size = ""
         self.type = ""
@@ -152,199 +151,6 @@ class MonsterViewModel: ObservableObject {
         // Private properties
         self.shieldBonus = 0
         self.otherArmorDescription = ""
-
-        // Call the copy constructor
-        if (rawMonster != nil) {
-            self.copyFromMonster(monster: rawMonster!)
-        }
-    }
-    
-    func copyFromMonster(monster: Monster) {
-        self.name = monster.name ?? ""
-        self.size = monster.size ?? ""
-        self.type = monster.type ?? ""
-        self.subType = monster.subtype ?? ""
-        self.alignment = monster.alignment ?? ""
-        self.hitDice = monster.hitDice
-        self.hasCustomHP = monster.hasCustomHP
-        self.customHP = monster.customHP ?? ""
-        self.armorType = monster.armorTypeEnum
-        self.hasShield = monster.hasShield
-        self.naturalArmorBonus = monster.naturalArmorBonus
-        self.customArmor = monster.customArmor ?? ""
-        self.walkSpeed = monster.walkSpeed
-        self.burrowSpeed = monster.burrowSpeed
-        self.climbSpeed = monster.climbSpeed
-        self.flySpeed = monster.flySpeed
-        self.canHover = monster.canHover
-        self.swimSpeed = monster.swimSpeed
-        self.hasCustomSpeed = monster.hasCustomSpeed
-        self.customSpeed = monster.customSpeed ?? ""
-        self.strengthScore = monster.strengthScore
-        self.strengthSavingThrowAdvantage = monster.strengthSavingThrowAdvantageEnum
-        self.strengthSavingThrowProficiency = monster.strengthSavingThrowProficiencyEnum
-        self.dexterityScore = monster.dexterityScore
-        self.dexteritySavingThrowAdvantage = monster.dexteritySavingThrowAdvantageEnum
-        self.dexteritySavingThrowProficiency = monster.dexteritySavingThrowProficiencyEnum
-        self.constitutionScore = monster.constitutionScore
-        self.constitutionSavingThrowAdvantage = monster.constitutionSavingThrowAdvantageEnum
-        self.constitutionSavingThrowProficiency = monster.constitutionSavingThrowProficiencyEnum
-        self.intelligenceScore = monster.intelligenceScore
-        self.intelligenceSavingThrowAdvantage = monster.intelligenceSavingThrowAdvantageEnum
-        self.intelligenceSavingThrowProficiency = monster.intelligenceSavingThrowProficiencyEnum
-        self.wisdomScore = monster.wisdomScore
-        self.wisdomSavingThrowAdvantage = monster.wisdomSavingThrowAdvantageEnum
-        self.wisdomSavingThrowProficiency = monster.wisdomSavingThrowProficiencyEnum
-        self.charismaScore = monster.charismaScore
-        self.charismaSavingThrowAdvantage = monster.charismaSavingThrowAdvantageEnum
-        self.charismaSavingThrowProficiency = monster.charismaSavingThrowProficiencyEnum
-        self.telepathy = monster.telepathy
-        self.understandsBut = monster.understandsBut ?? ""
-        self.challengeRating = monster.challengeRatingEnum
-        self.customChallengeRating = monster.customChallengeRating ?? ""
-        self.customProficiencyBonus = monster.customProficiencyBonus
-        self.isBlind = monster.isBlind
-        
-        self.skills = (monster.skills?.allObjects.map {SkillViewModel(($0 as! Skill))})!.sorted()
-    
-        self.damageImmunities = (monster.damageImmunities ?? [])
-            .map {StringViewModel($0)}
-            .sorted()
-
-        self.damageResistances = (monster.damageResistances ?? [])
-            .map {StringViewModel($0)}
-            .sorted()
-        
-        self.damageVulnerabilities = (monster.damageVulnerabilities ?? [])
-            .map {StringViewModel($0)}
-            .sorted()
-        
-        self.conditionImmunities = (monster.conditionImmunities ?? [])
-            .map {StringViewModel($0)}
-            .sorted()
-        
-        self.senses = (monster.senses ?? [])
-            .map {StringViewModel($0)}
-            .sorted()
-        
-        self.languages = (monster.languages ?? [])
-            .map {LanguageViewModel($0.name, $0.speaks)}
-            .sorted()
-        
-        // These are manually sorted in the UI
-        self.abilities = (monster.abilities ?? [])
-            .map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        self.actions = (monster.actions ?? [])
-            .map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        self.legendaryActions = (monster.legendaryActions ?? [])
-            .map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        self.lairActions = (monster.lairActions ?? [])
-            .map {AbilityViewModel($0.name, $0.abilityDescription)}
-
-        self.regionalActions = (monster.regionalActions ?? [])
-            .map {AbilityViewModel($0.name, $0.abilityDescription)}
-
-        self.reactions = (monster.reactions ?? [])
-            .map {AbilityViewModel($0.name, $0.abilityDescription)}
-
-        // Private fields
-        
-        self.shieldBonus = Int(monster.shieldBonus)
-        self.otherArmorDescription = monster.otherArmorDescription ?? ""
-    }
-    
-    func copyToMonster(monster: Monster) {
-        monster.name = name
-        monster.size = size
-        monster.type = type
-        monster.subtype = subType
-        monster.alignment = alignment
-        monster.hitDice = hitDice
-        monster.hasCustomHP = hasCustomHP
-        monster.customHP = customHP
-        monster.armorTypeEnum = armorType
-        monster.hasShield = hasShield
-        monster.naturalArmorBonus = naturalArmorBonus
-        monster.customArmor = customArmor
-        monster.walkSpeed = walkSpeed
-        monster.burrowSpeed = burrowSpeed
-        monster.climbSpeed = climbSpeed
-        monster.flySpeed = flySpeed
-        monster.canHover = canHover
-        monster.swimSpeed = swimSpeed
-        monster.hasCustomSpeed = hasCustomSpeed
-        monster.customSpeed = customSpeed
-        monster.strengthScore = strengthScore
-        monster.strengthSavingThrowAdvantageEnum = strengthSavingThrowAdvantage
-        monster.strengthSavingThrowProficiencyEnum = strengthSavingThrowProficiency
-        monster.dexterityScore = dexterityScore
-        monster.dexteritySavingThrowAdvantageEnum = dexteritySavingThrowAdvantage
-        monster.dexteritySavingThrowProficiencyEnum = dexteritySavingThrowProficiency
-        monster.constitutionScore = constitutionScore
-        monster.constitutionSavingThrowAdvantageEnum = constitutionSavingThrowAdvantage
-        monster.constitutionSavingThrowProficiencyEnum = constitutionSavingThrowProficiency
-        monster.intelligenceScore = intelligenceScore
-        monster.intelligenceSavingThrowAdvantageEnum = intelligenceSavingThrowAdvantage
-        monster.intelligenceSavingThrowProficiencyEnum = intelligenceSavingThrowProficiency
-        monster.wisdomScore = wisdomScore
-        monster.wisdomSavingThrowAdvantageEnum = wisdomSavingThrowAdvantage
-        monster.wisdomSavingThrowProficiencyEnum = wisdomSavingThrowProficiency
-        monster.charismaScore = charismaScore
-        monster.charismaSavingThrowAdvantageEnum = charismaSavingThrowAdvantage
-        monster.charismaSavingThrowProficiencyEnum = charismaSavingThrowProficiency
-        monster.telepathy = telepathy
-        monster.understandsBut = understandsBut
-        monster.challengeRatingEnum = challengeRating
-        monster.customChallengeRating = customChallengeRating
-        monster.customProficiencyBonus = customProficiencyBonus
-        monster.isBlind = isBlind
-
-        // Remove missing skills from raw monster
-        monster.skills?.forEach {s in
-            let skill = s as! Skill
-            let skillVM = skills.first { $0.isEqualTo(rawSkill: skill) }
-            if (skillVM != nil) {
-                skillVM!.copyToSkill(skill: skill)
-            } else {
-                monster.removeFromSkills(skill)
-            }
-        }
-        // Add new skills to raw monster
-        skills.forEach {skillVM in
-            if (!(monster.skills?.contains(
-                    where: {
-                        skillVM.isEqualTo(rawSkill: $0 as? Skill)
-                    }) ?? true)){
-                monster.addToSkills(skillVM.buildRawSkill(context: monster.managedObjectContext))
-            }
-        }
-        
-        monster.conditionImmunities = conditionImmunities.map {$0.name}
-        monster.damageImmunities = damageImmunities.map {$0.name}
-        monster.damageResistances = damageResistances.map {$0.name}
-        monster.damageVulnerabilities = damageVulnerabilities.map {$0.name}
-        monster.senses = senses.map {$0.name}
-        
-        // This is necessary so core data sees the language objects as changed. Without it they won't be persisted.
-        monster.languages = languages.map {LanguageViewModel($0.name, $0.speaks)}
-        
-        monster.abilities = abilities.map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        monster.actions = actions.map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        monster.legendaryActions = legendaryActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        monster.lairActions = lairActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        monster.regionalActions = regionalActions.map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        monster.reactions = reactions.map {AbilityViewModel($0.name, $0.abilityDescription)}
-        
-        monster.shieldBonus = Int64(shieldBonus)
-        monster.otherArmorDescription = otherArmorDescription
     }
     
     // MARK: Basic Info
@@ -388,7 +194,7 @@ class MonsterViewModel: ObservableObject {
             if (hasCustomHP) {
                 return customHP;
             } else {
-                let dieSize = Double(Monster.hitDieForSize(sizeEnum))
+                let dieSize = Double(MonsterViewModel.hitDieForSize(sizeEnum))
                 let conMod = Double(constitutionModifier)
 //                let level1HP = Double(dieSize + conMod)
                 let level1HP = Double(dieSize/2.0 + conMod)
@@ -429,7 +235,17 @@ class MonsterViewModel: ObservableObject {
             }
         }
     }
-    
+
+    class func hitDieForSize(_ size: SizeType) -> Int {
+        switch size {
+            case .tiny: return 4
+            case .small: return 6
+            case .medium: return 8
+            case .large: return 10
+            case .huge: return 12
+            case .gargantuan: return 20
+        }
+    }
 
     // MARK: Ability Scores
     class func abilityModifierForScore(_ score: Int) -> Int {
@@ -667,7 +483,7 @@ class MonsterViewModel: ObservableObject {
             if (strengthSavingThrowAdvantage != .none || strengthSavingThrowProficiency != .none) {
                 name = "Strength"
                 bonus = strengthModifier + proficiencyBonusForType(strengthSavingThrowProficiency)
-                advantage = Monster.advantageLabelStringForType(strengthSavingThrowAdvantage)
+                advantage = MonsterViewModel.advantageLabelStringForType(strengthSavingThrowAdvantage)
                 if (!advantage.isEmpty) {
                     advantage = " " + advantage
                 }
@@ -677,7 +493,7 @@ class MonsterViewModel: ObservableObject {
             if (dexteritySavingThrowAdvantage != .none || dexteritySavingThrowProficiency != .none) {
                 name = "Dexterity"
                 bonus = dexterityModifier + proficiencyBonusForType(dexteritySavingThrowProficiency)
-                advantage = Monster.advantageLabelStringForType(dexteritySavingThrowAdvantage)
+                advantage = MonsterViewModel.advantageLabelStringForType(dexteritySavingThrowAdvantage)
                 if (!advantage.isEmpty) {
                     advantage = " " + advantage
                 }
@@ -687,7 +503,7 @@ class MonsterViewModel: ObservableObject {
             if (constitutionSavingThrowAdvantage != .none || constitutionSavingThrowProficiency != .none) {
                 name = "Constitution"
                 bonus = constitutionModifier + proficiencyBonusForType(constitutionSavingThrowProficiency)
-                advantage = Monster.advantageLabelStringForType(constitutionSavingThrowAdvantage)
+                advantage = MonsterViewModel.advantageLabelStringForType(constitutionSavingThrowAdvantage)
                 if (!advantage.isEmpty) {
                     advantage = " " + advantage
                 }
@@ -697,7 +513,7 @@ class MonsterViewModel: ObservableObject {
             if (intelligenceSavingThrowAdvantage != .none || intelligenceSavingThrowProficiency != .none) {
                 name = "Intelligence"
                 bonus = intelligenceModifier + proficiencyBonusForType(intelligenceSavingThrowProficiency)
-                advantage = Monster.advantageLabelStringForType(intelligenceSavingThrowAdvantage)
+                advantage = MonsterViewModel.advantageLabelStringForType(intelligenceSavingThrowAdvantage)
                 if (!advantage.isEmpty) {
                     advantage = " " + advantage
                 }
@@ -707,7 +523,7 @@ class MonsterViewModel: ObservableObject {
             if (wisdomSavingThrowAdvantage != .none || wisdomSavingThrowProficiency != .none) {
                 name = "Wisdom"
                 bonus = wisdomModifier + proficiencyBonusForType(wisdomSavingThrowProficiency)
-                advantage = Monster.advantageLabelStringForType(wisdomSavingThrowAdvantage)
+                advantage = MonsterViewModel.advantageLabelStringForType(wisdomSavingThrowAdvantage)
                 if (!advantage.isEmpty) {
                     advantage = " " + advantage
                 }
@@ -717,7 +533,7 @@ class MonsterViewModel: ObservableObject {
             if (charismaSavingThrowAdvantage != .none || charismaSavingThrowProficiency != .none) {
                 name = "Charisma"
                 bonus = charismaModifier + proficiencyBonusForType(charismaSavingThrowProficiency)
-                advantage = Monster.advantageLabelStringForType(charismaSavingThrowAdvantage)
+                advantage = MonsterViewModel.advantageLabelStringForType(charismaSavingThrowAdvantage)
                 if (!advantage.isEmpty) {
                     advantage = " " + advantage
                 }
@@ -731,7 +547,17 @@ class MonsterViewModel: ObservableObject {
 
     // MARK: Misc Helpers
 
-    
+    class func advantageLabelStringForType(_ advType: AdvantageType) -> String {
+        switch advType {
+        case .none:
+            return ""
+        case .advantage:
+            return "(A)"
+        case .disadvantage:
+            return "(D)"
+        }
+    }
+
     // MARK: Skills
 
     var skillsDescription: String {

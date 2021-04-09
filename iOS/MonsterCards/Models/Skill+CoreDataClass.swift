@@ -47,29 +47,4 @@ public class Skill: NSManagedObject {
             advantage = newValue.rawValue
         }
     }
-    
-    var modifier: Int {
-        get {
-            let proficiencyBonus = Double(monster?.proficiencyBonus ?? 0)
-            let abilityScoreModifier = Double(monster?.abilityModifierForAbilityScore(wrappedAbilityScore) ?? 0)
-            switch wrappedProficiency {
-            case .none:
-                return Int(abilityScoreModifier)
-            case .proficient:
-                return Int(abilityScoreModifier + proficiencyBonus)
-            case .expertise:
-                return Int(abilityScoreModifier + 2 * proficiencyBonus)
-            }
-        }
-    }
-    
-    var skillDescription: String {
-        get {
-            var advantageLabel = Monster.advantageLabelStringForType(wrappedAdvantage)
-            if (advantageLabel != "") {
-                advantageLabel = " " + advantageLabel
-            }
-            return String(format: "%@ %+d%@", name ?? "", modifier, advantageLabel)
-        }
-    }
 }
