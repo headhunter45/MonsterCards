@@ -1,6 +1,8 @@
 # MonsterCards
 
-[![Build status](https://build.appcenter.ms/v0.1/apps/bbde5430-0b21-4b78-aa2f-32ce210fc578/branches/master/badge)](https://appcenter.ms)
+master: [![Build status](https://build.appcenter.ms/v0.1/apps/bbde5430-0b21-4b78-aa2f-32ce210fc578/branches/master/badge)](https://appcenter.ms)
+beta: [![Build status](https://build.appcenter.ms/v0.1/apps/bbde5430-0b21-4b78-aa2f-32ce210fc578/branches/beta/badge)](https://appcenter.ms)
+develop: [![Build status](https://build.appcenter.ms/v0.1/apps/bbde5430-0b21-4b78-aa2f-32ce210fc578/branches/develop/badge)](https://appcenter.ms)
 
 MonsterCards let you create and store monster statblocks for 5e compatible sytems. You can also import the files created by the popular 5e stat block generator at [https://tetra-cube.com/dnd/dnd-statblock.html] You monster library is synced between your devices using iCloud. You'll need to create your own app ids, provisioning profiles, and iCloud storage if building from source. Due to the way iCloud works. Building from source will mean you sync data to a different iCloud container than using the official app. The app is currently in limited beta but will be available in the app store as soon as the collection and dashboard features are finished.
 
