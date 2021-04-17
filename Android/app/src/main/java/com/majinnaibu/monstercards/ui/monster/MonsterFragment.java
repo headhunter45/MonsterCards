@@ -42,7 +42,7 @@ public class MonsterFragment extends Fragment {
         // TODO: remove this block make the monster ID a parameter to the view and get the monster from saved data (sqlite)
         Monster monster = new Monster();
         // Name
-        monster.setName("Pixie");
+        monster.name ="Pixie";
         // Meta
         monster.setSize("tiny");
         monster.setType("fey");
