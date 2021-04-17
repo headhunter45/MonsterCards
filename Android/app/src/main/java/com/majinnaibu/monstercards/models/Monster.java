@@ -1,5 +1,11 @@
 package com.majinnaibu.monstercards.models;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.majinnaibu.monstercards.helpers.StringHelper;
 
 import java.util.ArrayList;
@@ -9,10 +15,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.UUID;
 
+@Entity
 public class Monster {
 
+    @PrimaryKey
+    @NonNull
+    public UUID id;
+
+    @NonNull
+    @ColumnInfo(defaultValue = "")
+    public String name;
+
     public Monster() {
+        name = "";
         mAbilities = new ArrayList<>();
         mActions = new ArrayList<>();
         mConditionImmunities = new HashSet<>();
@@ -22,16 +39,7 @@ public class Monster {
         mSkills = new HashSet<>();
     }
 
-    private String mName;
-
-    public String getName() {
-        return mName;
-    }
-
-    public void setName(String value) {
-        mName = value;
-    }
-
+    @Ignore()
     private String mSize;
 
     public String getSize() {
@@ -42,6 +50,7 @@ public class Monster {
         mSize = value;
     }
 
+    @Ignore()
     private String mType;
 
     public String getType() {
@@ -52,6 +61,7 @@ public class Monster {
         mType = value;
     }
 
+    @Ignore()
     private String mTag;
 
     public String getTag() {
@@ -62,6 +72,7 @@ public class Monster {
         mTag = value;
     }
 
+    @Ignore()
     private String mAlignment;
 
     public String getAlignment() {
@@ -139,6 +150,7 @@ public class Monster {
         return getAbilityModifierForScore(score);
     }
 
+    @Ignore()
     private int mStrengthScore;
 
     public int getStrengthScore() {
@@ -153,6 +165,7 @@ public class Monster {
         return getAbilityModifierForScore(getStrengthScore());
     }
 
+    @Ignore()
     private int mDexterityScore;
 
     public int getDexterityScore() {
@@ -167,6 +180,7 @@ public class Monster {
         return getAbilityModifierForScore(getDexterityScore());
     }
 
+    @Ignore()
     private int mConstitutionScore;
 
     public int getConstitutionScore() {
@@ -181,6 +195,7 @@ public class Monster {
         return getAbilityModifierForScore(getConstitutionScore());
     }
 
+    @Ignore()
     private int mIntelligenceScore;
 
     public int getIntelligenceScore() {
@@ -195,6 +210,7 @@ public class Monster {
         return getAbilityModifierForScore(getIntelligenceScore());
     }
 
+    @Ignore()
     private int mWisdomScore;
 
     public int getWisdomScore() {
@@ -209,6 +225,7 @@ public class Monster {
         return getAbilityModifierForScore(getWisdomScore());
     }
 
+    @Ignore()
     private int mCharismaScore;
 
     public int getCharismaScore() {
@@ -223,6 +240,7 @@ public class Monster {
         return getAbilityModifierForScore(getCharismaScore());
     }
 
+    @Ignore()
     private String mArmorName;
 
     public String getArmorName() {
@@ -233,6 +251,7 @@ public class Monster {
         mArmorName = value;
     }
 
+    @Ignore()
     private int mShieldBonus;
 
     public int getShieldBonus() {
@@ -243,6 +262,7 @@ public class Monster {
         mShieldBonus = value;
     }
 
+    @Ignore()
     private int mNaturalArmorBonus;
 
     public int getNaturalArmorBonus() {
@@ -253,6 +273,7 @@ public class Monster {
         mNaturalArmorBonus = value;
     }
 
+    @Ignore()
     private String mOtherArmorDescription;
 
     public String getOtherArmorDescription() {
@@ -334,6 +355,7 @@ public class Monster {
     private static final int SPLINT_ARMOR_CLASS = BASE_ARMOR_CLASS + 7;
     private static final int PLATE_ARMOR_CLASS = BASE_ARMOR_CLASS + 8;
 
+    @Ignore()
     private int mHitDice;
 
     public int getHitDice() {
@@ -344,6 +366,7 @@ public class Monster {
         mHitDice = value;
     }
 
+    @Ignore()
     private boolean mCustomHP;
 
     public boolean getCustomHP() {
@@ -354,6 +377,7 @@ public class Monster {
         mCustomHP = value;
     }
 
+    @Ignore()
     private String mHPText;
 
     public String getHPText() {
@@ -397,6 +421,7 @@ public class Monster {
         }
     }
 
+    @Ignore()
     private String mSpeed;
 
     public String getSpeed() {
@@ -407,6 +432,7 @@ public class Monster {
         mSpeed = value;
     }
 
+    @Ignore()
     private String mBurrowSpeed;
 
     public String getBurrowSpeed() {
@@ -417,6 +443,7 @@ public class Monster {
         mBurrowSpeed = value;
     }
 
+    @Ignore()
     private String mClimbSpeed;
 
     public String getClimbSpeed() {
@@ -427,6 +454,7 @@ public class Monster {
         mClimbSpeed = value;
     }
 
+    @Ignore()
     private String mFlySpeed;
 
     public String getFlySpeed() {
@@ -437,6 +465,7 @@ public class Monster {
         mFlySpeed = value;
     }
 
+    @Ignore()
     private boolean mHover;
 
     public boolean getHover() {
@@ -447,6 +476,7 @@ public class Monster {
         mHover = value;
     }
 
+    @Ignore()
     private String mSwimSpeed;
 
     public String getSwimSpeed() {
@@ -457,6 +487,7 @@ public class Monster {
         mSwimSpeed = value;
     }
 
+    @Ignore()
     private boolean mCustomSpeed;
 
     public boolean getCustomSpeed() {
@@ -467,6 +498,7 @@ public class Monster {
         mCustomSpeed = value;
     }
 
+    @Ignore()
     private String mSpeedDescription;
 
     public String getSpeedDescription() {
@@ -531,6 +563,7 @@ public class Monster {
         return String.format(Locale.US, "%d (%+d)", getCharismaScore(), getCharismaModifier());
     }
 
+    @Ignore()
     private HashSet<SavingThrow> mSavingThrows;
 
     public Set<SavingThrow> getSavingThrows() {
@@ -634,6 +667,7 @@ public class Monster {
         }
     }
 
+    @Ignore()
     private String mChallengeRating;
 
     public String getChallengeRating() {
@@ -645,6 +679,7 @@ public class Monster {
         // TODO: update proficiency bonus based on CR
     }
 
+    @Ignore()
     private String mCustomChallengeRating;
 
     public String getCustomChallengeRating() {
@@ -655,6 +690,7 @@ public class Monster {
         mCustomChallengeRating = challengeRating;
     }
 
+    @Ignore()
     private int mCustomProficiencyBonus;
 
     public int getCustomProficiencyBonus() {
@@ -665,6 +701,7 @@ public class Monster {
         mCustomProficiencyBonus = proficiencyBonus;
     }
 
+    @Ignore()
     private HashSet<Skill> mSkills;
 
     public Set<Skill> getSkills() {
@@ -700,6 +737,7 @@ public class Monster {
         return sb.toString();
     }
 
+    @Ignore()
     private HashSet<DamageType> mDamageTypes;
 
     public Set<DamageType> getDamageTypes() {
@@ -752,6 +790,7 @@ public class Monster {
         return StringHelper.oxfordJoin(", ", ", and ", " and ", vulnerabilities);
     }
 
+    @Ignore()
     private HashSet<String> mConditionImmunities;
 
     public Set<String> getConditionImmunities() {
@@ -778,6 +817,7 @@ public class Monster {
         return StringHelper.oxfordJoin(", ", ", and ", " and ", immunities);
     }
 
+    @Ignore()
     private String mBlindsight;
 
     public String getBlindsight() {
@@ -788,6 +828,7 @@ public class Monster {
         mBlindsight = value;
     }
 
+    @Ignore()
     private boolean mIsBlind;
 
     public boolean getIsBlind() {
@@ -798,6 +839,7 @@ public class Monster {
         mIsBlind = value;
     }
 
+    @Ignore()
     private String mDarkvision;
 
     public String getDarkvision() {
@@ -808,6 +850,7 @@ public class Monster {
         mDarkvision = value;
     }
 
+    @Ignore()
     private String mTremorsense;
 
     public String getTremorsense() {
@@ -818,6 +861,7 @@ public class Monster {
         mTremorsense = value;
     }
 
+    @Ignore()
     private String mTruesight;
 
     public String getTruesight() {
@@ -852,6 +896,7 @@ public class Monster {
         return StringHelper.join(", ", parts);
     }
 
+    @Ignore()
     private HashSet<Language> mLanguages;
 
     public Set<Language> getLanguages() {
@@ -870,6 +915,7 @@ public class Monster {
         mLanguages.clear();
     }
 
+    @Ignore()
     private int mTelepathy;
 
     public int getTelepathy() {
@@ -880,6 +926,7 @@ public class Monster {
         mTelepathy = value;
     }
 
+    @Ignore()
     private String mUnderstandsBut;
 
     public String getUnderstandsBut() {
@@ -1023,6 +1070,7 @@ public class Monster {
         }
     }
 
+    @Ignore()
     private ArrayList<Ability> mAbilities;
 
     public List<Ability> getAbilities() {
@@ -1095,6 +1143,7 @@ public class Monster {
         return actions;
     }
 
+    @Ignore()
     private ArrayList<Action> mActions;
 
     public List<Action> getActions() {
