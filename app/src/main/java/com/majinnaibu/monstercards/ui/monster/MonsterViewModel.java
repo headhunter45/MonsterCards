@@ -167,7 +167,7 @@ public class MonsterViewModel extends ViewModel {
         mIntelligence.setValue(monster.getIntelligenceDescription());
         mLanguages.setValue(mMonster.getLanguagesDescription());
         mMeta.setValue(mMonster.getMeta());
-        mName.setValue(mMonster.getName());
+        mName.setValue(mMonster.name);
         mSavingThrows.setValue(monster.getSavingThrowsDescription());
         mSenses.setValue(monster.getSensesDescription());
         mSkills.setValue(monster.getSkillsDescription());
