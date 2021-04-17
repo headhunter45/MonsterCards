@@ -371,6 +371,9 @@ public class Monster {
             int hitDice = getHitDice();
             int dieSize = getHitDieForSize(getSize());
             int conMod = getConstitutionModifier();
+            // For PC style calculations use this
+            //int hpTotal = (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
+            // For monster style calculations use this
             int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
             return String.format(Locale.US, "%d (%dd%d %+d)", hpTotal, hitDice, dieSize, conMod * hitDice);
         }
