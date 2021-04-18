@@ -1,4 +1,4 @@
-package com.majinnaibu.monstercards.converters;
+package com.majinnaibu.monstercards.data.converters;
 
 import androidx.room.TypeConverter;
 
