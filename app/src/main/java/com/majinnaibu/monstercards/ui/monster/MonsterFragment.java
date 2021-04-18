@@ -14,23 +14,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.data.enums.AbilityScore;
+import com.majinnaibu.monstercards.data.enums.AdvantageType;
+import com.majinnaibu.monstercards.data.enums.ArmorType;
+import com.majinnaibu.monstercards.data.enums.ChallengeRating;
+import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
-import com.majinnaibu.monstercards.models.Ability;
-import com.majinnaibu.monstercards.models.Action;
-import com.majinnaibu.monstercards.models.DamageType;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.models.SavingThrow;
 import com.majinnaibu.monstercards.models.Skill;
-
-import java.util.List;
+import com.majinnaibu.monstercards.models.Trait;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MonsterFragment extends Fragment {
@@ -43,83 +41,96 @@ public class MonsterFragment extends Fragment {
         // TODO: remove this block make the monster ID a parameter to the view and get the monster from saved data (sqlite)
         Monster monster = new Monster();
         // Name
-        monster.name ="Pixie";
+        monster.name = "Pixie";
         // Meta
-        monster.setSize("tiny");
-        monster.setType("fey");
-        monster.setTag("");
-        monster.setAlignment("neutral good");
+        monster.size = "tiny";
+        monster.type = "fey";
+        monster.subtype = "";
+        monster.alignment = "neutral good";
+        monster.armorType = ArmorType.NONE;
         // Armor & Armor Class
-        monster.setArmorName("none");
-        monster.setShieldBonus(0);
-        monster.setNaturalArmorBonus(7);
-        monster.setOtherArmorDescription("14");
+        monster.shieldBonus = 0;
+        monster.naturalArmorBonus = 7;
+        monster.otherArmorDescription = "14";
         // Hit Points
-        monster.setHitDice(1);
-        monster.setCustomHP(false);
-        monster.setHPText("11 (2d8 + 2)");
-        monster.setSpeed("10");
-        monster.setBurrowSpeed("0");
-        monster.setClimbSpeed("0");
-        monster.setFlySpeed("30");
-        monster.setHover(false);
-        monster.setSwimSpeed("0");
-        monster.setCustomSpeed(false);
-        monster.setSpeedDescription("30 ft., swim 30 ft.");
+        monster.hitDice = 1;
+        monster.hasCustomHP = false;
+        monster.customHPDescription = "11 (2d8 + 2)";
+        monster.walkSpeed = 10;
+        monster.burrowSpeed = 0;
+        monster.climbSpeed = 0;
+        monster.flySpeed = 30;
+        monster.canHover = false;
+        monster.swimSpeed = 0;
+        monster.hasCustomSpeed = false;
+        monster.customSpeedDescription = "30 ft., swim 30 ft.";
         // Ability Scores
-        monster.setStrengthScore(Integer.parseInt("2"));
-        monster.setDexterityScore(Integer.parseInt("20"));
-        monster.setConstitutionScore(Integer.parseInt("8"));
-        monster.setIntelligenceScore(Integer.parseInt("10"));
-        monster.setWisdomScore(Integer.parseInt("14"));
-        monster.setCharismaScore(Integer.parseInt("15"));
+        monster.strengthScore = Integer.parseInt("2");
+        monster.dexterityScore = Integer.parseInt("20");
+        monster.constitutionScore = Integer.parseInt("8");
+        monster.intelligenceScore = Integer.parseInt("10");
+        monster.wisdomScore = Integer.parseInt("14");
+        monster.charismaScore = Integer.parseInt("15");
+//        monster.strengthScore = 10;
+//        monster.dexterityScore = 10;
+//        monster.constitutionScore = 10;
+//        monster.intelligenceScore = 10;
+//        monster.wisdomScore = 10;
+//        monster.charismaScore = 10;
+
         // Saving Throws
-        monster.addSavingThrow(new SavingThrow("str", 0));
-        monster.addSavingThrow(new SavingThrow("dex", 1));
-        monster.addSavingThrow(new SavingThrow("con", 2));
-        monster.addSavingThrow(new SavingThrow("int", 3));
-        monster.addSavingThrow(new SavingThrow("wis", 4));
-        monster.addSavingThrow(new SavingThrow("cha", 5));
+        monster.strengthSavingThrowAdvantage = AdvantageType.NONE;
+        monster.strengthSavingThrowProficiency = ProficiencyType.NONE;
+        monster.dexteritySavingThrowAdvantage = AdvantageType.ADVANTAGE;
+        monster.dexteritySavingThrowProficiency = ProficiencyType.PROFICIENT;
+        monster.constitutionSavingThrowAdvantage = AdvantageType.DISADVANTAGE;
+        monster.constitutionSavingThrowProficiency = ProficiencyType.EXPERTISE;
+        monster.intelligenceSavingThrowAdvantage = AdvantageType.NONE;
+        monster.intelligenceSavingThrowProficiency = ProficiencyType.EXPERTISE;
+        monster.wisdomSavingThrowAdvantage = AdvantageType.ADVANTAGE;
+        monster.wisdomSavingThrowProficiency = ProficiencyType.PROFICIENT;
+        monster.charismaSavingThrowAdvantage = AdvantageType.DISADVANTAGE;
+        monster.charismaSavingThrowProficiency = ProficiencyType.NONE;
         //Skills
-        monster.addSkill(new Skill("perception", "wis"));
-        monster.addSkill(new Skill("stealth", "dexterity"));
+        monster.skills.add(new Skill("perception", AbilityScore.WISDOM));
+        monster.skills.add(new Skill("stealth", AbilityScore.DEXTERITY));
         // Damage Types
-        monster.addDamageType(new DamageType("acid", " (Vulnerable)", "v"));
-        monster.addDamageType(new DamageType("bludgeoning", " (Vulnerable)", "v"));
-        monster.addDamageType(new DamageType("cold", " (Resistant)", "r"));
-        monster.addDamageType(new DamageType("fire", " (Resistant)", "r"));
-        monster.addDamageType(new DamageType("force", " (Immune)", "i"));
-        monster.addDamageType(new DamageType("lightning", " (Immune)", "i"));
-        monster.addDamageType(new DamageType("necrotic", " (Vulnerable)", "v"));
-        monster.addDamageType(new DamageType("piercing", " (Resistant)", "r"));
-        monster.addDamageType(new DamageType("poison", " (Immune)", "i"));
+        monster.damageImmunities.add("force");
+        monster.damageImmunities.add("lightning");
+        monster.damageImmunities.add("poison");
+        monster.damageResistances.add("cold");
+        monster.damageResistances.add("fire");
+        monster.damageResistances.add("piercing");
+        monster.damageVulnerabilities.add("acid");
+        monster.damageVulnerabilities.add("bludgeoning");
+        monster.damageVulnerabilities.add("necrotic");
         // Condition Immunities
-        monster.addConditionImmunity("blinded");
+        monster.conditionImmunities.add("blinded");
         // Senses
-        monster.setBlindsight("10");
-        monster.setIsBlind(true);
-        monster.setDarkvision("20");
-        monster.setTremorsense("30");
-        monster.setTruesight("40");
-        monster.setTelepathy(20);
-        monster.setUnderstandsBut("doesn't care");
+        monster.blindsightRange = 10;
+        monster.isBlindBeyondBlindsightRange = true;
+        monster.darkvisionRange = 20;
+        monster.tremorsenseRange = 30;
+        monster.truesightRange = 40;
+        monster.telepathyRange = 20;
+        monster.understandsButDescription = "doesn't care";
         // Languages
-        monster.addLanguage(new Language("English", true));
-        monster.addLanguage(new Language("Steve", false));
-        monster.addLanguage(new Language("Spanish", true));
-        monster.addLanguage(new Language("French", true));
-        monster.addLanguage(new Language("Mermataur", false));
-        monster.addLanguage(new Language("Goldfish", false));
+        monster.languages.add(new Language("English", true));
+        monster.languages.add(new Language("Steve", false));
+        monster.languages.add(new Language("Spanish", true));
+        monster.languages.add(new Language("French", true));
+        monster.languages.add(new Language("Mermataur", false));
+        monster.languages.add(new Language("Goldfish", false));
         // Challenge Rating
-        monster.setChallengeRating("*");
-        monster.setCustomChallengeRating("Infinite (0XP)");
-        monster.setCustomProficiencyBonus(4);
+        monster.challengeRating = ChallengeRating.CUSTOM;
+        monster.customChallengeRatingDescription = "Infinite (0XP)";
+        monster.customProficiencyBonus = 4;
         // Abilities
-        monster.addAbility(new Ability("Spellcasting", "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n\n> Cantrips (at will): _light, sacred flame, thaumaturgy_\n> 1st level (3 slots): _bless, cure wounds, sanctuary_"));
-        monster.addAbility(new Ability("Amphibious", "The dragon can breathe air and water."));
-        monster.addAbility(new Ability("Legendary Resistance (3/Day)", "If the dragon fails a saving throw, it can choose to succeed instead."));
+        monster.abilities.add(new Trait("Spellcasting", "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n\n> Cantrips (at will): _light, sacred flame, thaumaturgy_\n> 1st level (3 slots): _bless, cure wounds, sanctuary_"));
+        monster.abilities.add(new Trait("Amphibious", "The dragon can breathe air and water."));
+        monster.abilities.add(new Trait("Legendary Resistance (3/Day)", "If the dragon fails a saving throw, it can choose to succeed instead."));
         // Actions
-        monster.addAction(new Action("Club", "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ 2 (1d4) bludgeoning damage."));
+        monster.actions.add(new Trait("Club", "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ 2 (1d4) bludgeoning damage."));
         // END remove block
 
         monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
@@ -127,256 +138,166 @@ public class MonsterFragment extends Fragment {
         monsterViewModel.setMonster(monster);
 
         final TextView monsterName = root.findViewById(R.id.name);
-        monsterViewModel.getName().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String name) {
-                monsterName.setText(name);
-            }
-        });
+        monsterViewModel.getName().observe(getViewLifecycleOwner(), name -> monsterName.setText(name));
 
         final TextView monsterMeta = root.findViewById(R.id.meta);
-        monsterViewModel.getMeta().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String metaText) {
-                monsterMeta.setText(metaText);
-            }
-        });
+        monsterViewModel.getMeta().observe(getViewLifecycleOwner(), metaText -> monsterMeta.setText(metaText));
 
         final TextView monsterArmorClass = root.findViewById(R.id.armor_class);
-        monsterViewModel.getArmorClass().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String armorText) {
-                monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText));
-            }
-        });
+        monsterViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText)));
 
         final TextView monsterHitPoints = root.findViewById(R.id.hit_points);
-        monsterViewModel.getHitPoints().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String hitPoints) {
-                monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints));
-            }
-        });
+        monsterViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints)));
 
         final TextView monsterSpeed = root.findViewById(R.id.speed);
-        monsterViewModel.getSpeed().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String speed) {
-                monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed));
-            }
-        });
+        monsterViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed)));
 
         final TextView monsterStrength = root.findViewById(R.id.strength);
-        monsterViewModel.getStrength().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String strength) {
-                monsterStrength.setText(strength);
-            }
-        });
+        monsterViewModel.getStrength().observe(getViewLifecycleOwner(), strength -> monsterStrength.setText(strength));
 
         final TextView monsterDexterity = root.findViewById(R.id.dexterity);
-        monsterViewModel.getDexterity().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String dexterity) {
-                monsterDexterity.setText(dexterity);
-            }
-        });
+        monsterViewModel.getDexterity().observe(getViewLifecycleOwner(), dexterity -> monsterDexterity.setText(dexterity));
 
         final TextView monsterConstitution = root.findViewById(R.id.constitution);
-        monsterViewModel.getConstitution().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String constitution) {
-                monsterConstitution.setText(constitution);
-            }
-        });
+        monsterViewModel.getConstitution().observe(getViewLifecycleOwner(), constitution -> monsterConstitution.setText(constitution));
 
         final TextView monsterIntelligence = root.findViewById(R.id.intelligence);
-        monsterViewModel.getIntelligence().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String intelligence) {
-                monsterIntelligence.setText(intelligence);
-            }
-        });
+        monsterViewModel.getIntelligence().observe(getViewLifecycleOwner(), intelligence -> monsterIntelligence.setText(intelligence));
 
         final TextView monsterWisdom = root.findViewById(R.id.wisdom);
-        monsterViewModel.getWisdom().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String wisdom) {
-                monsterWisdom.setText(wisdom);
-            }
-        });
+        monsterViewModel.getWisdom().observe(getViewLifecycleOwner(), wisdom -> monsterWisdom.setText(wisdom));
 
         final TextView monsterCharisma = root.findViewById(R.id.charisma);
-        monsterViewModel.getCharisma().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String charisma) {
-                monsterCharisma.setText(charisma);
-            }
-        });
+        monsterViewModel.getCharisma().observe(getViewLifecycleOwner(), charisma -> monsterCharisma.setText(charisma));
 
         final TextView monsterSavingThrows = root.findViewById(R.id.saving_throws);
-        monsterViewModel.getSavingThrows().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String savingThrows) {
-                if (StringHelper.isNullOrEmpty(savingThrows)) {
-                    monsterSavingThrows.setVisibility(View.GONE);
-                } else {
-                    monsterSavingThrows.setVisibility(View.VISIBLE);
-                }
-                monsterSavingThrows.setText(Html.fromHtml("<b>Saving Throws</b> " + savingThrows));
+        monsterViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> {
+            if (StringHelper.isNullOrEmpty(savingThrows)) {
+                monsterSavingThrows.setVisibility(View.GONE);
+            } else {
+                monsterSavingThrows.setVisibility(View.VISIBLE);
             }
+            monsterSavingThrows.setText(Html.fromHtml("<b>Saving Throws</b> " + savingThrows));
         });
 
         final TextView monsterSkills = root.findViewById(R.id.skills);
-        monsterViewModel.getSkills().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String skills) {
-                if (StringHelper.isNullOrEmpty(skills)) {
-                    monsterSkills.setVisibility(View.GONE);
-                } else {
-                    monsterSkills.setVisibility(View.VISIBLE);
-                }
-                monsterSkills.setText(Html.fromHtml("<b>Skills</b> " + skills));
+        monsterViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
+            if (StringHelper.isNullOrEmpty(skills)) {
+                monsterSkills.setVisibility(View.GONE);
+            } else {
+                monsterSkills.setVisibility(View.VISIBLE);
             }
+            monsterSkills.setText(Html.fromHtml("<b>Skills</b> " + skills));
         });
 
         final TextView monsterDamageVulnerabilities = root.findViewById(R.id.damage_vulnerabilities);
-        monsterViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String damageType) {
-                if (StringHelper.isNullOrEmpty(damageType)) {
-                    monsterDamageVulnerabilities.setVisibility(View.GONE);
-                } else {
-                    monsterDamageVulnerabilities.setVisibility(View.VISIBLE);
-                }
-                monsterDamageVulnerabilities.setText(Html.fromHtml("<b>Damage Vulnerabilities</b> " + damageType));
+        monsterViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), damageType -> {
+            if (StringHelper.isNullOrEmpty(damageType)) {
+                monsterDamageVulnerabilities.setVisibility(View.GONE);
+            } else {
+                monsterDamageVulnerabilities.setVisibility(View.VISIBLE);
             }
+            monsterDamageVulnerabilities.setText(Html.fromHtml("<b>Damage Vulnerabilities</b> " + damageType));
         });
 
         final TextView monsterDamageResistances = root.findViewById(R.id.damage_resistances);
-        monsterViewModel.getDamageResistances().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String damageType) {
-                if (StringHelper.isNullOrEmpty(damageType)) {
-                    monsterDamageResistances.setVisibility(View.GONE);
-                } else {
-                    monsterDamageResistances.setVisibility(View.VISIBLE);
-                }
-                monsterDamageResistances.setText(Html.fromHtml("<b>Damage Resistances</b> " + damageType));
+        monsterViewModel.getDamageResistances().observe(getViewLifecycleOwner(), damageType -> {
+            if (StringHelper.isNullOrEmpty(damageType)) {
+                monsterDamageResistances.setVisibility(View.GONE);
+            } else {
+                monsterDamageResistances.setVisibility(View.VISIBLE);
             }
+            monsterDamageResistances.setText(Html.fromHtml("<b>Damage Resistances</b> " + damageType));
         });
 
         final TextView monsterDamageImmunities = root.findViewById(R.id.damage_immunities);
-        monsterViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String damageType) {
-                if (StringHelper.isNullOrEmpty(damageType)) {
-                    monsterDamageImmunities.setVisibility(View.GONE);
-                } else {
-                    monsterDamageImmunities.setVisibility(View.VISIBLE);
-                }
-                monsterDamageImmunities.setText(Html.fromHtml("<b>Damage Immunities</b> " + damageType));
+        monsterViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), damageType -> {
+            if (StringHelper.isNullOrEmpty(damageType)) {
+                monsterDamageImmunities.setVisibility(View.GONE);
+            } else {
+                monsterDamageImmunities.setVisibility(View.VISIBLE);
             }
+            monsterDamageImmunities.setText(Html.fromHtml("<b>Damage Immunities</b> " + damageType));
         });
 
         final TextView monsterConditionImmunities = root.findViewById(R.id.condition_immunities);
-        monsterViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String conditionImmunities) {
-                if (StringHelper.isNullOrEmpty(conditionImmunities)) {
-                    monsterConditionImmunities.setVisibility(View.GONE);
-                } else {
-                    monsterConditionImmunities.setVisibility(View.VISIBLE);
-                }
-                monsterConditionImmunities.setText(Html.fromHtml("<b>Condition Immunities</b> " + conditionImmunities));
+        monsterViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), conditionImmunities -> {
+            if (StringHelper.isNullOrEmpty(conditionImmunities)) {
+                monsterConditionImmunities.setVisibility(View.GONE);
+            } else {
+                monsterConditionImmunities.setVisibility(View.VISIBLE);
             }
+            monsterConditionImmunities.setText(Html.fromHtml("<b>Condition Immunities</b> " + conditionImmunities));
         });
 
         final TextView monsterSenses = root.findViewById(R.id.senses);
-        monsterViewModel.getSenses().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String senses) {
-                if (StringHelper.isNullOrEmpty(senses)) {
-                    monsterSenses.setVisibility(View.GONE);
-                } else {
-                    monsterSenses.setVisibility(View.VISIBLE);
-                }
-                monsterSenses.setText(Html.fromHtml("<b>Senses</b> " + senses));
+        monsterViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> {
+            if (StringHelper.isNullOrEmpty(senses)) {
+                monsterSenses.setVisibility(View.GONE);
+            } else {
+                monsterSenses.setVisibility(View.VISIBLE);
             }
+            monsterSenses.setText(Html.fromHtml("<b>Senses</b> " + senses));
         });
 
         final TextView monsterLanguages = root.findViewById(R.id.languages);
-        monsterViewModel.getLanguages().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String languages) {
-                if (StringHelper.isNullOrEmpty(languages)) {
-                    monsterLanguages.setVisibility(View.GONE);
-                } else {
-                    monsterLanguages.setVisibility(View.VISIBLE);
-                }
-                monsterLanguages.setText(Html.fromHtml("<b>Languages</b> " + languages));
+        monsterViewModel.getLanguages().observe(getViewLifecycleOwner(), languages -> {
+            if (StringHelper.isNullOrEmpty(languages)) {
+                monsterLanguages.setVisibility(View.GONE);
+            } else {
+                monsterLanguages.setVisibility(View.VISIBLE);
             }
+            monsterLanguages.setText(Html.fromHtml("<b>Languages</b> " + languages));
         });
 
         final TextView monsterChallenge = root.findViewById(R.id.challenge);
-        monsterViewModel.getChallenge().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String challengeRating) {
-                monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating));
-            }
-        });
+        monsterViewModel.getChallenge().observe(getViewLifecycleOwner(), challengeRating -> monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating)));
 
         final LinearLayout monsterAbilities = root.findViewById(R.id.abilities);
-        monsterViewModel.getAbilities().observe(getViewLifecycleOwner(), new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> abilities) {
-                Context context = getContext();
-                DisplayMetrics displayMetrics = null;
-                if (context != null) {
-                    Resources resources = context.getResources();
-                    if (resources != null) {
-                        displayMetrics = resources.getDisplayMetrics();
-                    }
+        monsterViewModel.getAbilities().observe(getViewLifecycleOwner(), abilities -> {
+            Context context = getContext();
+            DisplayMetrics displayMetrics = null;
+            if (context != null) {
+                Resources resources = context.getResources();
+                if (resources != null) {
+                    displayMetrics = resources.getDisplayMetrics();
                 }
-                monsterAbilities.removeAllViews();
-                if (abilities != null) {
-                    for (String ability : abilities) {
-                        TextView tvAbility = new TextView(context);
-                        // TODO: Handle multiline block quotes specially so they stay multiline.
-                        // TODO: Replace QuoteSpans in the result of fromHtml with something like this https://stackoverflow.com/questions/7717567/how-to-style-blockquotes-in-android-textviews to make them indent as expected
-                        Spanned spannedText = Html.fromHtml(CommonMarkHelper.toHtml(ability));
-                        tvAbility.setText(spannedText);
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                        layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
-                        tvAbility.setLayoutParams(layoutParams);
-                        monsterAbilities.addView(tvAbility);
-                    }
+            }
+            monsterAbilities.removeAllViews();
+            if (abilities != null) {
+                for (String ability : abilities) {
+                    TextView tvAbility = new TextView(context);
+                    // TODO: Handle multiline block quotes specially so they stay multiline.
+                    // TODO: Replace QuoteSpans in the result of fromHtml with something like this https://stackoverflow.com/questions/7717567/how-to-style-blockquotes-in-android-textviews to make them indent as expected
+                    Spanned spannedText = Html.fromHtml(CommonMarkHelper.toHtml(ability));
+                    tvAbility.setText(spannedText);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
+                    tvAbility.setLayoutParams(layoutParams);
+                    monsterAbilities.addView(tvAbility);
                 }
             }
         });
 
         final LinearLayout monsterActions = root.findViewById(R.id.actions);
-        monsterViewModel.getActions().observe(getViewLifecycleOwner(), new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> actions) {
-                Context context = getContext();
-                DisplayMetrics displayMetrics = null;
-                if (context != null) {
-                    Resources resources = context.getResources();
-                    if (resources != null) {
-                        displayMetrics = resources.getDisplayMetrics();
-                    }
+        monsterViewModel.getActions().observe(getViewLifecycleOwner(), actions -> {
+            Context context = getContext();
+            DisplayMetrics displayMetrics = null;
+            if (context != null) {
+                Resources resources = context.getResources();
+                if (resources != null) {
+                    displayMetrics = resources.getDisplayMetrics();
                 }
-                monsterActions.removeAllViews();
-                if (actions != null) {
-                    for (String action : actions) {
-                        TextView tvAction = new TextView(getContext());
-                        tvAction.setText(Html.fromHtml(CommonMarkHelper.toHtml(action)));
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                        layoutParams.topMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
-                        tvAction.setLayoutParams(layoutParams);
-                        monsterActions.addView(tvAction);
-                    }
+            }
+            monsterActions.removeAllViews();
+            if (actions != null) {
+                for (String action : actions) {
+                    TextView tvAction = new TextView(getContext());
+                    tvAction.setText(Html.fromHtml(CommonMarkHelper.toHtml(action)));
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
+                    tvAction.setLayoutParams(layoutParams);
+                    monsterActions.addView(tvAction);
                 }
             }
         });
