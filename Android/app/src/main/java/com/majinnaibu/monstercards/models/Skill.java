@@ -1,68 +1,69 @@
 package com.majinnaibu.monstercards.models;
 
-import java.util.Comparator;
-import java.util.Locale;
+import android.annotation.SuppressLint;
 
+import com.majinnaibu.monstercards.data.enums.AbilityScore;
+import com.majinnaibu.monstercards.data.enums.AdvantageType;
+import com.majinnaibu.monstercards.data.enums.ProficiencyType;
+
+import java.util.Comparator;
+
+@SuppressLint("DefaultLocale")
 public class Skill implements Comparator<Skill>, Comparable<Skill> {
 
-    private String mName;
-    private String mAbilityScoreName;
-    private String mNote;
+    public String name;
+    public AbilityScore abilityScore;
+    public AdvantageType advantageType;
+    public ProficiencyType proficiencyType;
 
-    public Skill(String name, String abilityScoreName) {
-        mName = name;
-        mAbilityScoreName = abilityScoreName;
-        mNote = "";
-    }
-
-    public Skill(String name, String abilityScoreName, String note) {
-        mName = name;
-        mAbilityScoreName = abilityScoreName;
-        mNote = note;
+    public Skill(String name, AbilityScore abilityScore) {
+        this(name, abilityScore, AdvantageType.NONE, ProficiencyType.PROFICIENT);
     }
 
-    public String getName() {
-        return mName;
-    }
-    public void setName(String name) {
-        mName = name;
+    public Skill(String name, AbilityScore abilityScore, AdvantageType advantageType) {
+        this(name, abilityScore, advantageType, ProficiencyType.PROFICIENT);
     }
 
-    public String getAbilityScoreName() {
-        return mAbilityScoreName;
-    }
-    public void setAbilityScoreName(String abilityScoreName) {
-        mAbilityScoreName = abilityScoreName;
-    }
-
-    public String getNote() {
-        return mNote;
+    public Skill(String name, AbilityScore abilityScore, AdvantageType advantageType, ProficiencyType proficiencyType) {
+        this.name = name;
+        this.abilityScore = abilityScore;
+        this.advantageType = advantageType;
+        this.proficiencyType = proficiencyType;
     }
 
     public int getSkillBonus(Monster monster) {
-        int bonus = monster.getAbilityModifier(mAbilityScoreName);
-        if (" (ex)".equals(getNote())) {
-            bonus += 2 * monster.getProficiencyBonus();
-        } else {
-            bonus += monster.getProficiencyBonus();
+        int modifier = monster.getAbilityModifier(abilityScore);
+        switch (proficiencyType) {
+            case PROFICIENT:
+                return modifier + monster.getProficiencyBonus();
+            case EXPERTISE:
+                return modifier + monster.getProficiencyBonus() * 2;
+            case NONE:
+            default:
+                return modifier;
         }
-        return bonus;
     }
 
     public String getText(Monster monster) {
         int bonus = getSkillBonus(monster);
 
-        return String.format(Locale.US, "%s%s %d", mName.substring(0,1), mName.substring(1), bonus);
+        return String.format(
+                "%s%s %+d%s",
+                name.substring(0, 1),
+                name.substring(1),
+                bonus,
+                advantageType == AdvantageType.ADVANTAGE ? " A" : advantageType == AdvantageType.DISADVANTAGE ? " D" : ""
+        );
     }
 
     @Override
     public int compareTo(Skill o) {
-        return this.getName().compareToIgnoreCase(o.getName());
+        return this.name.compareToIgnoreCase(o.name);
     }
 
     @Override
     public int compare(Skill o1, Skill o2) {
-        return o1.getName().compareToIgnoreCase(o2.getName());
+        return o1.name.compareToIgnoreCase(o2.name);
     }
 
 }

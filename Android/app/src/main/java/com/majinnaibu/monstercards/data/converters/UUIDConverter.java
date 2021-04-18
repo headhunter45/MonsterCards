@@ -1,15 +1,13 @@
 package com.majinnaibu.monstercards.data.converters;
 
-import androidx.annotation.NonNull;
 import androidx.room.TypeConverter;
 
 import java.util.UUID;
 
 public class UUIDConverter {
 
-    @NonNull
     @TypeConverter
-    public static String fromUUID(@NonNull UUID uuid) {
+    public static String fromUUID(UUID uuid) {
         return uuid.toString();
     }
 
