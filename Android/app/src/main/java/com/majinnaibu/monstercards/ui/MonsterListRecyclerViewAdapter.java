@@ -110,4 +110,10 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
         }
     }
 
+    public void deleteItem(int position) {
+        if (mOnDelete != null) {
+            Monster monster = mValues.get(position);
+            mOnDelete.onItem(monster);
+        }
+    }
 }
