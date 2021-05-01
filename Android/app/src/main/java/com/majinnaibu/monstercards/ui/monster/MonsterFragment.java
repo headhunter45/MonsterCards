@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
@@ -29,9 +28,11 @@ import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
+import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.utils.Logger;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class MonsterFragment extends Fragment {
+public class MonsterFragment extends MCFragment {
 
     private MonsterViewModel monsterViewModel;
 
