@@ -6,6 +6,14 @@ import android.content.res.Configuration;
 
 import androidx.room.Room;
 
+import com.facebook.flipper.android.AndroidFlipperClient;
+import com.facebook.flipper.android.utils.FlipperUtils;
+import com.facebook.flipper.core.FlipperClient;
+import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
+import com.facebook.flipper.plugins.inspector.DescriptorMapping;
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
+import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin;
+import com.facebook.soloader.SoLoader;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 
 public class MonsterCardsApplication extends Application {
@@ -31,8 +39,19 @@ public class MonsterCardsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Required initialization logic here!
+        SoLoader.init(this, false);
 
-        m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters").build();
+        if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
+            final FlipperClient client = AndroidFlipperClient.getInstance(this);
+            client.addPlugin(new InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()));
+            client.addPlugin(new DatabasesFlipperPlugin(this));
+            client.addPlugin(NavigationFlipperPlugin.getInstance());
+            client.start();
+        }
+
+        m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
+                .fallbackToDestructiveMigrationOnDowngrade()
+                .build();
         m_monsterLibraryRepository = new MonsterRepository(m_db);
     }
 
