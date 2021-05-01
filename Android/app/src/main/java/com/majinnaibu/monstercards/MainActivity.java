@@ -15,6 +15,12 @@ import com.microsoft.appcenter.crashes.Crashes;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return navController.navigateUp() || super.onSupportNavigateUp();
+    }
+
     @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
