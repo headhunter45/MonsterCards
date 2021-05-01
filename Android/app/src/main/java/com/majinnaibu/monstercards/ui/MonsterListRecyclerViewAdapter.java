@@ -6,11 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.library.LibraryFragment;
+import com.majinnaibu.monstercards.ui.library.LibraryFragmentDirections;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,21 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Monster monster = (Monster) view.getTag();
+            // TODO: I would like to call navigateToMonsterDetail(item.id) here
+            if (mTwoPane) {
+                // TODO: Figure out how to navigate to a MonsterDetailFragment when in two pane view.
+//                    Bundle arguments = new Bundle();
+//                    arguments.putString(ItemDetailFragment.ARG_ITEM_ID, monster.id.toString());
+//                    ItemDetailFragment fragment = new ItemDetailFragment();
+//                    fragment.setArguments(arguments);
+//                    mParentActivity.getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.item_detail_container, fragment)
+//                            .commit();
+            } else {
+                NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monster.id.toString());
+                Navigation.findNavController(view).navigate(action);
+            }
         }
     };
 
