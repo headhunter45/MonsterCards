@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.ui.MonsterListRecyclerViewAdapter;
 
 public class LibraryFragment extends MCFragment {
 
@@ -20,15 +20,26 @@ public class LibraryFragment extends MCFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        libraryViewModel = new ViewModelProvider(this).get(LibraryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_library, container, false);
-        final TextView textView = root.findViewById(R.id.text_library);
-        libraryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        RecyclerView recyclerView = root.findViewById(R.id.monster_list);
+        assert recyclerView != null;
+        setupRecyclerView(recyclerView);
+
         return root;
+    }
+
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        MonsterRepository repository = this.getMonsterRepository();
+        boolean mTwoPane = false;
+        MonsterListRecyclerViewAdapter adapter = new MonsterListRecyclerViewAdapter(
+                this,
+                repository.getMonsters(),
+                (monster) -> {
+                },
+                mTwoPane);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
     }
 }
