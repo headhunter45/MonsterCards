@@ -246,6 +246,27 @@ public class Monster {
         customSpeedDescription = "";
         challengeRating = ChallengeRating.ONE;
         customChallengeRatingDescription = "";
+        customProficiencyBonus = 0;
+        blindsightRange = 0;
+        isBlindBeyondBlindsightRange = false;
+        darkvisionRange = 0;
+        tremorsenseRange = 0;
+        truesightRange = 0;
+        telepathyRange = 0;
+        understandsButDescription = "";
+        strengthSavingThrowAdvantage = AdvantageType.NONE;
+        strengthSavingThrowProficiency = ProficiencyType.NONE;
+        dexteritySavingThrowAdvantage = AdvantageType.NONE;
+        dexteritySavingThrowProficiency = ProficiencyType.NONE;
+        constitutionSavingThrowAdvantage = AdvantageType.NONE;
+        constitutionSavingThrowProficiency = ProficiencyType.NONE;
+        intelligenceSavingThrowAdvantage = AdvantageType.NONE;
+        intelligenceSavingThrowProficiency = ProficiencyType.NONE;
+        wisdomSavingThrowAdvantage = AdvantageType.NONE;
+        wisdomSavingThrowProficiency = ProficiencyType.NONE;
+        charismaSavingThrowAdvantage = AdvantageType.NONE;
+        charismaSavingThrowProficiency = ProficiencyType.NONE;
+
 
         skills = new HashSet<>();
         damageImmunities = new HashSet<>();
