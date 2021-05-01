@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.MCFragment;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends MCFragment {
 
     private SearchViewModel searchViewModel;
 
