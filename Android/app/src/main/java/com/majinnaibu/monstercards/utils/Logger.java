@@ -2,10 +2,9 @@ package com.majinnaibu.monstercards.utils;
 
 import android.util.Log;
 
-@SuppressWarnings("unused")
 public class Logger {
     public static final String LOG_TAG = "MonsterCards";
-
+    
     public static void logUnimplementedMethod() {
         Exception ex = new Exception();
         StackTraceElement[] stackTrace = ex.getStackTrace();
@@ -38,7 +37,7 @@ public class Logger {
         StackTraceElement stackTraceElement = throwable.getStackTrace()[0];
 
         String location = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
-        String message = String.format("Unexpected error occurred at %s.", location);
+        String message = String.format("Unexpected error occured at %s.", location);
         Log.wtf(LOG_TAG, message, throwable);
     }
 
@@ -56,7 +55,7 @@ public class Logger {
         StackTraceElement stackTraceElement = throwable.getStackTrace()[0];
 
         String location = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
-        String message = String.format("Unexpected error occurred at %s.", location);
+        String message = String.format("Unexpected error occured at %s.", location);
         Log.e(LOG_TAG, message, throwable);
     }
 
@@ -74,7 +73,7 @@ public class Logger {
         StackTraceElement stackTraceElement = throwable.getStackTrace()[0];
 
         String location = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
-        String message = String.format("Unexpected error occurred at %s.", location);
+        String message = String.format("Unexpected error occured at %s.", location);
         Log.w(LOG_TAG, message, throwable);
     }
 
@@ -92,7 +91,7 @@ public class Logger {
         StackTraceElement stackTraceElement = throwable.getStackTrace()[0];
 
         String location = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
-        String message = String.format("Unexpected error occurred at %s.", location);
+        String message = String.format("Unexpected error occured at %s.", location);
         Log.i(LOG_TAG, message, throwable);
     }
 
@@ -110,7 +109,7 @@ public class Logger {
         StackTraceElement stackTraceElement = throwable.getStackTrace()[0];
 
         String location = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
-        String message = String.format("Unexpected error occurred at %s.", location);
+        String message = String.format("Unexpected error occured at %s.", location);
         Log.d(LOG_TAG, message, throwable);
     }
 
@@ -128,7 +127,7 @@ public class Logger {
         StackTraceElement stackTraceElement = throwable.getStackTrace()[0];
 
         String location = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + ":" + stackTraceElement.getLineNumber();
-        String message = String.format("Unexpected error occurred at %s.", location);
+        String message = String.format("Unexpected error occured at %s.", location);
         Log.v(LOG_TAG, message, throwable);
     }
 
