@@ -49,6 +49,10 @@
         android:id="@+id/navigation_monster"
         android:name="com.majinnaibu.monstercards.ui.monster.MonsterFragment"
         android:label="Monster"
-        tools:layout="@layout/fragment_monster" />
+        tools:layout="@layout/fragment_monster">
+        <argument
+            android:name="monster_id"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
