@@ -12,8 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
 
@@ -37,8 +35,6 @@ public class SearchFragment extends Fragment {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = SearchFragmentDirections.actionNavigationSearchToNavigationMonster();
-                Navigation.findNavController(view).navigate(action);
             }
         });
         return root;
