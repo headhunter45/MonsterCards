@@ -14,9 +14,9 @@ public class MonsterViewModel extends ViewModel {
     public MonsterViewModel() {
         mMonster = null;
         mAbilities = new MutableLiveData<>();
-        mAbilities.setValue(new ArrayList<String>());
+        mAbilities.setValue(new ArrayList<>());
         mActions = new MutableLiveData<>();
-        mActions.setValue(new ArrayList<String>());
+        mActions.setValue(new ArrayList<>());
         mArmorClass = new MutableLiveData<>();
         mArmorClass.setValue("");
         mChallenge = new MutableLiveData<>();
@@ -59,96 +59,140 @@ public class MonsterViewModel extends ViewModel {
         mWisdom.setValue("");
     }
 
-    private MutableLiveData<List<String>> mAbilities;
+    private final MutableLiveData<List<String>> mAbilities;
+
     public LiveData<List<String>> getAbilities() {
         return mAbilities;
     }
-    private MutableLiveData<List<String>> mActions;
+
+    private final MutableLiveData<List<String>> mActions;
+
     public LiveData<List<String>> getActions() {
         return mActions;
     }
-    private MutableLiveData<String> mArmorClass;
+
+    private final MutableLiveData<String> mArmorClass;
+
     public LiveData<String> getArmorClass() {
         return mArmorClass;
     }
-    private MutableLiveData<String> mChallenge;
+
+    private final MutableLiveData<String> mChallenge;
+
     public LiveData<String> getChallenge() {
         return mChallenge;
     }
-    private MutableLiveData<String> mCharisma;
+
+    private final MutableLiveData<String> mCharisma;
+
     public LiveData<String> getCharisma() {
         return mCharisma;
     }
-    private MutableLiveData<String> mConditionImmunities;
+
+    private final MutableLiveData<String> mConditionImmunities;
+
     public LiveData<String> getConditionImmunities() {
         return mConditionImmunities;
     }
-    private MutableLiveData<String> mConstitution;
+
+    private final MutableLiveData<String> mConstitution;
+
     public LiveData<String> getConstitution() {
         return mConstitution;
     }
-    private MutableLiveData<String> mDamageResistances;
+
+    private final MutableLiveData<String> mDamageResistances;
+
     public LiveData<String> getDamageResistances() {
         return mDamageResistances;
     }
-    private MutableLiveData<String> mDamageImmunities;
+
+    private final MutableLiveData<String> mDamageImmunities;
+
     public LiveData<String> getDamageImmunities() {
         return mDamageImmunities;
     }
-    private MutableLiveData<String> mDamageVulnerabilities;
+
+    private final MutableLiveData<String> mDamageVulnerabilities;
+
     public LiveData<String> getDamageVulnerabilities() {
         return mDamageVulnerabilities;
     }
-    private MutableLiveData<String> mDexterity;
+
+    private final MutableLiveData<String> mDexterity;
+
     public LiveData<String> getDexterity() {
         return mDexterity;
     }
-    private MutableLiveData<String> mHitPoints;
+
+    private final MutableLiveData<String> mHitPoints;
+
     public LiveData<String> getHitPoints() {
         return mHitPoints;
     }
-    private MutableLiveData<String> mIntelligence;
+
+    private final MutableLiveData<String> mIntelligence;
+
     public LiveData<String> getIntelligence() {
         return mIntelligence;
     }
-    private MutableLiveData<String> mLanguages;
+
+    private final MutableLiveData<String> mLanguages;
+
     public LiveData<String> getLanguages() {
         return mLanguages;
     }
-    private MutableLiveData<String> mMeta;
+
+    private final MutableLiveData<String> mMeta;
+
     public LiveData<String> getMeta() {
         return mMeta;
     }
-    private MutableLiveData<String> mName;
+
+    private final MutableLiveData<String> mName;
+
     public LiveData<String> getName() {
         return mName;
     }
-    private MutableLiveData<String> mSavingThrows;
+
+    private final MutableLiveData<String> mSavingThrows;
+
     public LiveData<String> getSavingThrows() {
         return mSavingThrows;
     }
-    private MutableLiveData<String> mSenses;
+
+    private final MutableLiveData<String> mSenses;
+
     public LiveData<String> getSenses() {
         return mSenses;
     }
-    private MutableLiveData<String> mSkills;
+
+    private final MutableLiveData<String> mSkills;
+
     public LiveData<String> getSkills() {
         return mSkills;
     }
-    private MutableLiveData<String> mSpeed;
+
+    private final MutableLiveData<String> mSpeed;
+
     public LiveData<String> getSpeed() {
         return mSpeed;
     }
-    private MutableLiveData<String> mStrength;
+
+    private final MutableLiveData<String> mStrength;
+
     public LiveData<String> getStrength() {
         return mStrength;
     }
-    private MutableLiveData<String> mWisdom;
+
+    private final MutableLiveData<String> mWisdom;
+
     public LiveData<String> getWisdom() {
         return mWisdom;
     }
 
     private Monster mMonster;
+
     public void setMonster(Monster monster) {
         mMonster = monster;
 
