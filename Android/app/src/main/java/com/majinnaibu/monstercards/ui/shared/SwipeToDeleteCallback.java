@@ -18,17 +18,19 @@ import com.majinnaibu.monstercards.R;
 
 public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
 
+    public interface OnDeleteCallback {
+        void onDelete(int position);
+    }
+
     private final Drawable icon;
     private final ColorDrawable background;
     private final Paint clearPaint;
-    private final OnSwipeCallback mOnDelete;
-    private final OnMoveCallback mOnMove;
+    private final OnDeleteCallback mOnDelete;
     private final Context mContext;
 
-    public SwipeToDeleteCallback(@NonNull Context context, OnSwipeCallback onDelete, OnMoveCallback onMove) {
-        super(onMove == null ? 0 : ItemTouchHelper.UP | ItemTouchHelper.DOWN, onDelete == null ? 0 : ItemTouchHelper.LEFT);
+    public SwipeToDeleteCallback(Context context, OnDeleteCallback onDelete) {
+        super(0, ItemTouchHelper.LEFT);
         mOnDelete = onDelete;
-        mOnMove = onMove;
         mContext = context;
         icon = ContextCompat.getDrawable(mContext, R.drawable.ic_delete_white_36);
         background = new ColorDrawable(context.getResources().getColor(R.color.red));
@@ -42,11 +44,6 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
             @NonNull RecyclerView.ViewHolder viewHolder,
             @NonNull RecyclerView.ViewHolder target
     ) {
-        if (mOnMove != null) {
-            int from = viewHolder.getAdapterPosition();
-            int to = target.getAdapterPosition();
-            return mOnMove.onMove(from, to);
-        }
         return false;
     }
 
@@ -54,7 +51,7 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         if (mOnDelete != null) {
             int position = viewHolder.getAdapterPosition();
-            mOnDelete.onSwipe(position, direction);
+            mOnDelete.onDelete(position);
         }
     }
 
@@ -86,13 +83,5 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
         icon.draw(c);
 
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-    }
-
-    public interface OnSwipeCallback {
-        void onSwipe(int position, int direction);
-    }
-
-    public interface OnMoveCallback {
-        boolean onMove(int from, int to);
     }
 }
