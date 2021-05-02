@@ -20,11 +20,15 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<SearchResultsRecyclerViewAdapter.ViewHolder> {
+    public interface ItemCallback {
+        void onItem(Monster monster);
+    }
+
     private final MonsterRepository mRepository;
-    private final ItemCallback mOnClickHandler;
     private String mSearchText;
     private List<Monster> mValues;
     private Disposable mSubscriptionHandler;
+    private final ItemCallback mOnClickHandler;
 
     public SearchResultsRecyclerViewAdapter(MonsterRepository repository,
                                             ItemCallback onClick) {
@@ -50,7 +54,6 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
                 throwable -> Logger.logError("Error performing search", throwable));
     }
 
-    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -59,8 +62,9 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Monster monster = mValues.get(position);
+        holder.mIdView.setText(monster.id.toString().substring(0, 6));
         holder.mContentView.setText(monster.name);
         holder.itemView.setTag(monster);
         holder.itemView.setOnClickListener(view -> {
@@ -75,15 +79,13 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
         return mValues.size();
     }
 
-    public interface ItemCallback {
-        void onItem(Monster monster);
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView mIdView;
         final TextView mContentView;
 
         ViewHolder(View view) {
             super(view);
+            mIdView = view.findViewById(R.id.id_text);
             mContentView = view.findViewById(R.id.content);
         }
     }

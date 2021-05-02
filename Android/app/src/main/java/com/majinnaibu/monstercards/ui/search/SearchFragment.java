@@ -1,47 +1,55 @@
 package com.majinnaibu.monstercards.ui.search;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.ui.MCFragment;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends MCFragment {
 
     private SearchViewModel searchViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        searchViewModel =
-                ViewModelProviders.of(this).get(SearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_search, container, false);
+        MonsterRepository repository = this.getMonsterRepository();
+        SearchResultsRecyclerViewAdapter adapter = new SearchResultsRecyclerViewAdapter(repository, null);
+        final RecyclerView recyclerView = root.findViewById(R.id.monster_list);
+        assert recyclerView != null;
+        setupRecyclerView(recyclerView, adapter);
+
         final TextView textView = root.findViewById(R.id.search_query);
-        searchViewModel.getSearchQuery().observe(getViewLifecycleOwner(), new Observer<String>() {
+        textView.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                adapter.doSearch(textView.getText().toString());
             }
         });
 
-        final Button btnSearch = root.findViewById(R.id.button_search);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = SearchFragmentDirections.actionNavigationSearchToNavigationMonster();
-                Navigation.findNavController(view).navigate(action);
-            }
-        });
         return root;
+    }
+
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView, @NonNull SearchResultsRecyclerViewAdapter adapter) {
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

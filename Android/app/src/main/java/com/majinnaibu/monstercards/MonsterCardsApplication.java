@@ -4,8 +4,19 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 
+import androidx.annotation.NonNull;
 import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.facebook.flipper.android.AndroidFlipperClient;
+import com.facebook.flipper.android.utils.FlipperUtils;
+import com.facebook.flipper.core.FlipperClient;
+import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
+import com.facebook.flipper.plugins.inspector.DescriptorMapping;
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
+import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin;
+import com.facebook.soloader.SoLoader;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 
 public class MonsterCardsApplication extends Application {
@@ -31,8 +42,20 @@ public class MonsterCardsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Required initialization logic here!
+        SoLoader.init(this, false);
 
-        m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters").build();
+        if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
+            final FlipperClient client = AndroidFlipperClient.getInstance(this);
+            client.addPlugin(new InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()));
+            client.addPlugin(new DatabasesFlipperPlugin(this));
+            client.addPlugin(NavigationFlipperPlugin.getInstance());
+            client.start();
+        }
+
+        m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
+                .addMigrations(MIGRATION_1_2)
+                .fallbackToDestructiveMigrationOnDowngrade()
+                .build();
         m_monsterLibraryRepository = new MonsterRepository(m_db);
     }
 
@@ -50,4 +73,17 @@ public class MonsterCardsApplication extends Application {
     public void onLowMemory() {
         super.onLowMemory();
     }
+
+    private static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            // rename table monster to monsters
+            database.execSQL("ALTER TABLE monster RENAME TO monsters");
+            // create the fts view
+            database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `monsters_fts` USING FTS4(`name` TEXT, `size` TEXT, `type` TEXT, `subtype` TEXT, `alignment` TEXT, content=`monsters`)");
+            // build the initial full text search index
+            database.execSQL("INSERT INTO monsters_fts(monsters_fts) VALUES('rebuild')");
+
+        }
+    };
 }

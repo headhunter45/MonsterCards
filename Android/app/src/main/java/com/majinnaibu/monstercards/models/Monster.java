@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-@Entity
+@Entity(tableName = "monsters")
 @SuppressLint("DefaultLocale")
 @SuppressWarnings("unused")
 public class Monster {
