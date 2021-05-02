@@ -9,9 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.microsoft.appcenter.AppCenter;
-import com.microsoft.appcenter.analytics.Analytics;
-import com.microsoft.appcenter.crashes.Crashes;
+import com.majinnaibu.monstercards.init.AppCenterInitializer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (BuildConfig.APPCENTER_SECRET != null && !"".equals(BuildConfig.APPCENTER_SECRET)) {
-            AppCenter.start(
-                    getApplication(),
-                    BuildConfig.APPCENTER_SECRET,
-                    Analytics.class,
-                    Crashes.class
-            );
-        }
+        AppCenterInitializer.init(getApplication());
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
