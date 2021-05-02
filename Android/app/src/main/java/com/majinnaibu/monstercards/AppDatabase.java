@@ -14,9 +14,10 @@ import com.majinnaibu.monstercards.data.converters.SetOfStringConverter;
 import com.majinnaibu.monstercards.data.converters.SetOfTraitConverter;
 import com.majinnaibu.monstercards.data.converters.UUIDConverter;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.models.MonsterFTS;
 
 @SuppressWarnings("unused")
-@Database(entities = {Monster.class}, version = 1)
+@Database(entities = {Monster.class, MonsterFTS.class}, version = 2)
 @TypeConverters({
         ArmorTypeConverter.class,
         ChallengeRatingConverter.class,

@@ -29,6 +29,13 @@ public class MonsterRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Flowable<List<Monster>> searchMonsters(String searchText) {
+        return m_db.monsterDAO()
+                .search(searchText)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Flowable<Monster> getMonster(UUID monsterId) {
         return m_db.monsterDAO()
                 .loadAllByIds(new String[]{monsterId.toString()})
