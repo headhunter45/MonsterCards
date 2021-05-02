@@ -17,9 +17,7 @@ import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.ui.MCFragment;
 
 public class SearchFragment extends MCFragment {
-
-    private SearchViewModel searchViewModel;
-
+    
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_search, container, false);
