@@ -10,7 +10,7 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.majinnaibu.monstercards.data.MonsterRepository;
-import com.majinnaibu.monstercards.utils.FlipperInitializer;
+import com.majinnaibu.monstercards.init.FlipperInitializer;
 
 public class MonsterCardsApplication extends Application {
 

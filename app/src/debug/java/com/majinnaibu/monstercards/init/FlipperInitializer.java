@@ -1,4 +1,4 @@
-package com.majinnaibu.monstercards.utils;
+package com.majinnaibu.monstercards.init;
 
 
 import android.content.Context;
