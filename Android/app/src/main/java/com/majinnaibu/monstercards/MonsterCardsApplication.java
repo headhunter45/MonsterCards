@@ -1,7 +1,6 @@
 package com.majinnaibu.monstercards;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.res.Configuration;
 
 import androidx.annotation.NonNull;
@@ -14,15 +13,10 @@ import com.majinnaibu.monstercards.init.FlipperInitializer;
 
 public class MonsterCardsApplication extends Application {
 
-    private AppDatabase m_db;
     private MonsterRepository m_monsterLibraryRepository;
 
     public MonsterRepository getMonsterRepository() {
         return m_monsterLibraryRepository;
-    }
-
-    public static MonsterCardsApplication getInstance(Context context) {
-        return (MonsterCardsApplication) context.getApplicationContext();
     }
 
     public MonsterCardsApplication() {
@@ -38,9 +32,11 @@ public class MonsterCardsApplication extends Application {
 
         FlipperInitializer.init(this);
 
-        m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
+        //                .fallbackToDestructiveMigration()
+        AppDatabase m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
                 .addMigrations(MIGRATION_1_2)
                 .fallbackToDestructiveMigrationOnDowngrade()
+//                .fallbackToDestructiveMigration()
                 .build();
         m_monsterLibraryRepository = new MonsterRepository(m_db);
     }
