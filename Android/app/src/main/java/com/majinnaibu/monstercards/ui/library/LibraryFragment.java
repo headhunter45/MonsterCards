@@ -35,9 +35,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class LibraryFragment extends MCFragment {
-    // TODO: TOM: rename MonsterFragment MonsterDetailFragment
-
-    private LibraryViewModel libraryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
