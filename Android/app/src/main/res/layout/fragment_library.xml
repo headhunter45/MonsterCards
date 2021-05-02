@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/action_add_monster"
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"

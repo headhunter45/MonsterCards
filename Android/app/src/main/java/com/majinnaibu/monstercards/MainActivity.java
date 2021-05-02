@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
+import com.majinnaibu.monstercards.init.FlipperInitializer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            FlipperInitializer.sendNavigationEvent(controller, destination, arguments);
+        });
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
