@@ -28,19 +28,18 @@ import java.util.UUID;
 
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 
-@SuppressWarnings("FieldCanBeLocal")
-public class MonsterFragment extends MCFragment {
+public class MonsterDetailFragment extends MCFragment {
 
-    private MonsterViewModel monsterViewModel;
+    private MonsterDetailViewModel monsterDetailViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         MonsterRepository repository = getMonsterRepository();
         Bundle arguments = getArguments();
         assert arguments != null;
-        UUID monsterId = UUID.fromString(MonsterFragmentArgs.fromBundle(arguments).getMonsterId());
+        UUID monsterId = UUID.fromString(MonsterDetailFragmentArgs.fromBundle(arguments).getMonsterId());
 
-        monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
+        monsterDetailViewModel = new ViewModelProvider(this).get(MonsterDetailViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
 
         repository.getMonster(monsterId).toObservable()
@@ -48,7 +47,7 @@ public class MonsterFragment extends MCFragment {
                 .subscribe(new DisposableSingleObserver<Monster>() {
                     @Override
                     public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Monster monster) {
-                        monsterViewModel.setMonster(monster);
+                        monsterDetailViewModel.setMonster(monster);
                         dispose();
                     }
 
@@ -60,40 +59,40 @@ public class MonsterFragment extends MCFragment {
                 });
 
         final TextView monsterName = root.findViewById(R.id.name);
-        monsterViewModel.getName().observe(getViewLifecycleOwner(), monsterName::setText);
+        monsterDetailViewModel.getName().observe(getViewLifecycleOwner(), monsterName::setText);
 
         final TextView monsterMeta = root.findViewById(R.id.meta);
-        monsterViewModel.getMeta().observe(getViewLifecycleOwner(), monsterMeta::setText);
+        monsterDetailViewModel.getMeta().observe(getViewLifecycleOwner(), monsterMeta::setText);
 
         final TextView monsterArmorClass = root.findViewById(R.id.armor_class);
-        monsterViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText)));
+        monsterDetailViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText)));
 
         final TextView monsterHitPoints = root.findViewById(R.id.hit_points);
-        monsterViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints)));
+        monsterDetailViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints)));
 
         final TextView monsterSpeed = root.findViewById(R.id.speed);
-        monsterViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed)));
+        monsterDetailViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed)));
 
         final TextView monsterStrength = root.findViewById(R.id.strength);
-        monsterViewModel.getStrength().observe(getViewLifecycleOwner(), monsterStrength::setText);
+        monsterDetailViewModel.getStrength().observe(getViewLifecycleOwner(), monsterStrength::setText);
 
         final TextView monsterDexterity = root.findViewById(R.id.dexterity);
-        monsterViewModel.getDexterity().observe(getViewLifecycleOwner(), monsterDexterity::setText);
+        monsterDetailViewModel.getDexterity().observe(getViewLifecycleOwner(), monsterDexterity::setText);
 
         final TextView monsterConstitution = root.findViewById(R.id.constitution);
-        monsterViewModel.getConstitution().observe(getViewLifecycleOwner(), monsterConstitution::setText);
+        monsterDetailViewModel.getConstitution().observe(getViewLifecycleOwner(), monsterConstitution::setText);
 
         final TextView monsterIntelligence = root.findViewById(R.id.intelligence);
-        monsterViewModel.getIntelligence().observe(getViewLifecycleOwner(), monsterIntelligence::setText);
+        monsterDetailViewModel.getIntelligence().observe(getViewLifecycleOwner(), monsterIntelligence::setText);
 
         final TextView monsterWisdom = root.findViewById(R.id.wisdom);
-        monsterViewModel.getWisdom().observe(getViewLifecycleOwner(), monsterWisdom::setText);
+        monsterDetailViewModel.getWisdom().observe(getViewLifecycleOwner(), monsterWisdom::setText);
 
         final TextView monsterCharisma = root.findViewById(R.id.charisma);
-        monsterViewModel.getCharisma().observe(getViewLifecycleOwner(), monsterCharisma::setText);
+        monsterDetailViewModel.getCharisma().observe(getViewLifecycleOwner(), monsterCharisma::setText);
 
         final TextView monsterSavingThrows = root.findViewById(R.id.saving_throws);
-        monsterViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> {
+        monsterDetailViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> {
             if (StringHelper.isNullOrEmpty(savingThrows)) {
                 monsterSavingThrows.setVisibility(View.GONE);
             } else {
@@ -103,7 +102,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterSkills = root.findViewById(R.id.skills);
-        monsterViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
+        monsterDetailViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
             if (StringHelper.isNullOrEmpty(skills)) {
                 monsterSkills.setVisibility(View.GONE);
             } else {
@@ -113,7 +112,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterDamageVulnerabilities = root.findViewById(R.id.damage_vulnerabilities);
-        monsterViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), damageType -> {
+        monsterDetailViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), damageType -> {
             if (StringHelper.isNullOrEmpty(damageType)) {
                 monsterDamageVulnerabilities.setVisibility(View.GONE);
             } else {
@@ -123,7 +122,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterDamageResistances = root.findViewById(R.id.damage_resistances);
-        monsterViewModel.getDamageResistances().observe(getViewLifecycleOwner(), damageType -> {
+        monsterDetailViewModel.getDamageResistances().observe(getViewLifecycleOwner(), damageType -> {
             if (StringHelper.isNullOrEmpty(damageType)) {
                 monsterDamageResistances.setVisibility(View.GONE);
             } else {
@@ -133,7 +132,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterDamageImmunities = root.findViewById(R.id.damage_immunities);
-        monsterViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), damageType -> {
+        monsterDetailViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), damageType -> {
             if (StringHelper.isNullOrEmpty(damageType)) {
                 monsterDamageImmunities.setVisibility(View.GONE);
             } else {
@@ -143,7 +142,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterConditionImmunities = root.findViewById(R.id.condition_immunities);
-        monsterViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), conditionImmunities -> {
+        monsterDetailViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), conditionImmunities -> {
             if (StringHelper.isNullOrEmpty(conditionImmunities)) {
                 monsterConditionImmunities.setVisibility(View.GONE);
             } else {
@@ -153,7 +152,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterSenses = root.findViewById(R.id.senses);
-        monsterViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> {
+        monsterDetailViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> {
             if (StringHelper.isNullOrEmpty(senses)) {
                 monsterSenses.setVisibility(View.GONE);
             } else {
@@ -163,7 +162,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterLanguages = root.findViewById(R.id.languages);
-        monsterViewModel.getLanguages().observe(getViewLifecycleOwner(), languages -> {
+        monsterDetailViewModel.getLanguages().observe(getViewLifecycleOwner(), languages -> {
             if (StringHelper.isNullOrEmpty(languages)) {
                 monsterLanguages.setVisibility(View.GONE);
             } else {
@@ -173,10 +172,10 @@ public class MonsterFragment extends MCFragment {
         });
 
         final TextView monsterChallenge = root.findViewById(R.id.challenge);
-        monsterViewModel.getChallenge().observe(getViewLifecycleOwner(), challengeRating -> monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating)));
+        monsterDetailViewModel.getChallenge().observe(getViewLifecycleOwner(), challengeRating -> monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating)));
 
         final LinearLayout monsterAbilities = root.findViewById(R.id.abilities);
-        monsterViewModel.getAbilities().observe(getViewLifecycleOwner(), abilities -> {
+        monsterDetailViewModel.getAbilities().observe(getViewLifecycleOwner(), abilities -> {
             Context context = getContext();
             DisplayMetrics displayMetrics = null;
             if (context != null) {
@@ -202,7 +201,7 @@ public class MonsterFragment extends MCFragment {
         });
 
         final LinearLayout monsterActions = root.findViewById(R.id.actions);
-        monsterViewModel.getActions().observe(getViewLifecycleOwner(), actions -> {
+        monsterDetailViewModel.getActions().observe(getViewLifecycleOwner(), actions -> {
             Context context = getContext();
             DisplayMetrics displayMetrics = null;
             if (context != null) {

@@ -9,9 +9,9 @@ import com.majinnaibu.monstercards.models.Monster;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MonsterViewModel extends ViewModel {
+public class MonsterDetailViewModel extends ViewModel {
 
-    public MonsterViewModel() {
+    public MonsterDetailViewModel() {
         mMonster = null;
         mAbilities = new MutableLiveData<>();
         mAbilities.setValue(new ArrayList<>());
