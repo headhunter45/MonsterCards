@@ -5,11 +5,13 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
+import com.majinnaibu.monstercards.init.FlipperInitializer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +36,11 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_collections,
                 R.id.navigation_library)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            FlipperInitializer.sendNavigationEvent(controller, destination, arguments);
+        });
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
