@@ -18,13 +18,13 @@ import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.MCFragment;
-import com.majinnaibu.monstercards.ui.MonsterListRecyclerViewAdapter;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class LibraryFragment extends MCFragment {
@@ -46,25 +46,28 @@ public class LibraryFragment extends MCFragment {
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         MonsterRepository repository = this.getMonsterRepository();
-        boolean mTwoPane = false;
         MonsterListRecyclerViewAdapter adapter = new MonsterListRecyclerViewAdapter(
-                this,
+                getContext(),
                 repository.getMonsters(),
-                (monster) -> {
-                    repository
-                            .deleteMonster(monster)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(() -> {
+                (monster) -> navigateToMonsterDetail(monster.id),
+                (monster) -> repository
+                        .deleteMonster(monster)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new DisposableCompletableObserver() {
+                            @Override
+                            public void onComplete() {
                                 Logger.logDebug("deleted");
-                            }, Logger::logError);
-                },
-                mTwoPane);
+                            }
+
+                            @Override
+                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                                Logger.logError(e);
+                            }
+                        }));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(getContext(), (position) -> {
-            adapter.deleteItem(position);
-        }));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(requireContext(), adapter::deleteItem));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
@@ -76,26 +79,36 @@ public class LibraryFragment extends MCFragment {
             repository.addMonster(monster)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(() -> {
-                        Snackbar.make(
-                                getView(),
-                                String.format("%s created", monster.name),
-                                Snackbar.LENGTH_LONG)
-                                .setAction("Action", (_view) -> {
-                                    navigateToMonsterDetail(monster.id);
-                                })
-                                .show();
-                    }, throwable -> {
-                        Logger.logError("Error creating monster", throwable);
-                        Snackbar.make(getView(), "Failed to create monster", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
-                    });
-        });
+                    .subscribe(
+                            new DisposableCompletableObserver() {
+                                @Override
+                                public void onComplete() {
+                                    View view = getView();
+                                    assert view != null;
+                                    Snackbar.make(
+                                            view,
+                                            String.format("%s created", monster.name),
+                                            Snackbar.LENGTH_LONG)
+                                            .setAction("Action", (_view) -> navigateToMonsterDetail(monster.id))
+                                            .show();
+                                }
 
+                                @Override
+                                public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                                    Logger.logError("Error creating monster", e);
+                                    View view = getView();
+                                    assert view != null;
+                                    Snackbar.make(view, "Failed to create monster", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                }
+                            });
+        });
     }
 
     protected void navigateToMonsterDetail(UUID monsterId) {
         NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
-        Navigation.findNavController(getView()).navigate(action);
+        View view = getView();
+        assert view != null;
+        Navigation.findNavController(view).navigate(action);
     }
 }
