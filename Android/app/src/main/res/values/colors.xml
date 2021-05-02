@@ -4,4 +4,14 @@
     <color name="colorPrimaryDark">#661A10</color>
     <!--    <color name="colorAccent">#188B9B</color>-->
     <color name="colorAccent">#995500</color>
+
+    <!-- fruit system colors -->
+    <color name="red">#FF3B30</color>
+    <color name="orange">#FF9500</color>
+    <color name="yellow">#FFCC00</color>
+    <color name="green">#4CD964</color>
+    <color name="tealBlue">#5AC8FA</color>
+    <color name="blue">#007AFF</color>
+    <color name="purple">#5855D6</color>
+    <color name="pink">#FF2D55</color>
 </resources>
