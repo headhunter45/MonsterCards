@@ -8,37 +8,29 @@ import android.text.Spanned;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.ui.shared.MCFragment;
+import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import java.util.List;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 
 public class MonsterDetailFragment extends MCFragment {
-    private ViewHolder mHolder;
 
-    private MonsterDetailViewModel mViewModel;
+    private MonsterDetailViewModel monsterDetailViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,14 +38,16 @@ public class MonsterDetailFragment extends MCFragment {
         Bundle arguments = getArguments();
         assert arguments != null;
         UUID monsterId = UUID.fromString(MonsterDetailFragmentArgs.fromBundle(arguments).getMonsterId());
-        setHasOptionsMenu(true);
-        mViewModel = new ViewModelProvider(this).get(MonsterDetailViewModel.class);
+
+        monsterDetailViewModel = new ViewModelProvider(this).get(MonsterDetailViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_monster, container, false);
+
         repository.getMonster(monsterId).toObservable()
                 .firstOrError()
                 .subscribe(new DisposableSingleObserver<Monster>() {
                     @Override
                     public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Monster monster) {
-                        mViewModel.setMonster(monster);
+                        monsterDetailViewModel.setMonster(monster);
                         dispose();
                     }
 
@@ -63,194 +57,172 @@ public class MonsterDetailFragment extends MCFragment {
                         dispose();
                     }
                 });
-        View root = inflater.inflate(R.layout.fragment_monster, container, false);
-        mHolder = new ViewHolder(root);
 
-        mViewModel.getName().observe(getViewLifecycleOwner(), name -> {
-            mHolder.name.setText(name);
-            setTitle(getString(R.string.title_monsterDetails_fmt, name));
+        final TextView monsterName = root.findViewById(R.id.name);
+        monsterDetailViewModel.getName().observe(getViewLifecycleOwner(), monsterName::setText);
+
+        final TextView monsterMeta = root.findViewById(R.id.meta);
+        monsterDetailViewModel.getMeta().observe(getViewLifecycleOwner(), monsterMeta::setText);
+
+        final TextView monsterArmorClass = root.findViewById(R.id.armor_class);
+        monsterDetailViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText)));
+
+        final TextView monsterHitPoints = root.findViewById(R.id.hit_points);
+        monsterDetailViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> monsterHitPoints.setText(Html.fromHtml("<b>Hit Points</b> " + hitPoints)));
+
+        final TextView monsterSpeed = root.findViewById(R.id.speed);
+        monsterDetailViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed)));
+
+        final TextView monsterStrength = root.findViewById(R.id.strength);
+        monsterDetailViewModel.getStrength().observe(getViewLifecycleOwner(), monsterStrength::setText);
+
+        final TextView monsterDexterity = root.findViewById(R.id.dexterity);
+        monsterDetailViewModel.getDexterity().observe(getViewLifecycleOwner(), monsterDexterity::setText);
+
+        final TextView monsterConstitution = root.findViewById(R.id.constitution);
+        monsterDetailViewModel.getConstitution().observe(getViewLifecycleOwner(), monsterConstitution::setText);
+
+        final TextView monsterIntelligence = root.findViewById(R.id.intelligence);
+        monsterDetailViewModel.getIntelligence().observe(getViewLifecycleOwner(), monsterIntelligence::setText);
+
+        final TextView monsterWisdom = root.findViewById(R.id.wisdom);
+        monsterDetailViewModel.getWisdom().observe(getViewLifecycleOwner(), monsterWisdom::setText);
+
+        final TextView monsterCharisma = root.findViewById(R.id.charisma);
+        monsterDetailViewModel.getCharisma().observe(getViewLifecycleOwner(), monsterCharisma::setText);
+
+        final TextView monsterSavingThrows = root.findViewById(R.id.saving_throws);
+        monsterDetailViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> {
+            if (StringHelper.isNullOrEmpty(savingThrows)) {
+                monsterSavingThrows.setVisibility(View.GONE);
+            } else {
+                monsterSavingThrows.setVisibility(View.VISIBLE);
+            }
+            monsterSavingThrows.setText(Html.fromHtml("<b>Saving Throws</b> " + savingThrows));
         });
-        mViewModel.getMeta().observe(getViewLifecycleOwner(), mHolder.meta::setText);
-        mViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> setupLabeledTextView(mHolder.armorClass, armorText, R.string.label_armor_class));
-        mViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> setupLabeledTextView(mHolder.hitPoints, hitPoints, R.string.label_hit_points));
-        mViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> setupLabeledTextView(mHolder.speed, speed, R.string.label_speed));
-        mViewModel.getStrength().observe(getViewLifecycleOwner(), mHolder.strength::setText);
-        mViewModel.getDexterity().observe(getViewLifecycleOwner(), mHolder.dexterity::setText);
-        mViewModel.getConstitution().observe(getViewLifecycleOwner(), mHolder.constitution::setText);
-        mViewModel.getIntelligence().observe(getViewLifecycleOwner(), mHolder.intelligence::setText);
-        mViewModel.getWisdom().observe(getViewLifecycleOwner(), mHolder.wisdom::setText);
-        mViewModel.getCharisma().observe(getViewLifecycleOwner(), mHolder.charisma::setText);
-        mViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> setupOptionalTextView(mHolder.savingThrows, savingThrows, R.string.label_saving_throws));
-        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> setupOptionalTextView(mHolder.skills, skills, R.string.label_skills));
-        mViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), damageTypes -> setupOptionalTextView(mHolder.damageVulnerabilities, damageTypes, R.string.label_damage_vulnerabilities));
-        mViewModel.getDamageResistances().observe(getViewLifecycleOwner(), damageTypes -> setupOptionalTextView(mHolder.damageResistances, damageTypes, R.string.label_damage_resistances));
-        mViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), damageTypes -> setupOptionalTextView(mHolder.damageImmunities, damageTypes, R.string.label_damage_immunities));
-        mViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), conditionImmunities -> setupOptionalTextView(mHolder.conditionImmunities, conditionImmunities, R.string.label_condition_immunities));
-        mViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> setupOptionalTextView(mHolder.senses, senses, R.string.label_senses));
-        mViewModel.getLanguages().observe(getViewLifecycleOwner(), languages -> setupOptionalTextView(mHolder.languages, languages, R.string.label_languages));
-        mViewModel.getChallenge().observe(getViewLifecycleOwner(), challengeRating -> setupLabeledTextView(mHolder.challenge, challengeRating, R.string.label_challenge_rating));
-        mViewModel.getAbilities().observe(getViewLifecycleOwner(), abilities -> setupTraitList(mHolder.abilities, abilities));
-        mViewModel.getActions().observe(getViewLifecycleOwner(), actions -> setupTraitList(mHolder.actions, actions, mHolder.actions_label, mHolder.actions_divider));
-        mViewModel.getReactions().observe(getViewLifecycleOwner(), reactions -> setupTraitList(mHolder.reactions, reactions, mHolder.reactions_label, mHolder.reactions_divider));
-        mViewModel.getRegionalEffects().observe(getViewLifecycleOwner(), regionalEffects -> setupTraitList(mHolder.regionalEffects, regionalEffects, mHolder.regionalEffects_label, mHolder.regionalEffects_divider));
-        mViewModel.getLairActions().observe(getViewLifecycleOwner(), lairActions -> setupTraitList(mHolder.lairActions, lairActions, mHolder.lairActions_label, mHolder.lairActions_divider));
-        mViewModel.getLegendaryActions().observe(getViewLifecycleOwner(), legendaryActions -> setupTraitList(mHolder.legendaryActions, legendaryActions, mHolder.legendaryActions_label, mHolder.legendaryActions_divider));
+
+        final TextView monsterSkills = root.findViewById(R.id.skills);
+        monsterDetailViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
+            if (StringHelper.isNullOrEmpty(skills)) {
+                monsterSkills.setVisibility(View.GONE);
+            } else {
+                monsterSkills.setVisibility(View.VISIBLE);
+            }
+            monsterSkills.setText(Html.fromHtml("<b>Skills</b> " + skills));
+        });
+
+        final TextView monsterDamageVulnerabilities = root.findViewById(R.id.damage_vulnerabilities);
+        monsterDetailViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), damageType -> {
+            if (StringHelper.isNullOrEmpty(damageType)) {
+                monsterDamageVulnerabilities.setVisibility(View.GONE);
+            } else {
+                monsterDamageVulnerabilities.setVisibility(View.VISIBLE);
+            }
+            monsterDamageVulnerabilities.setText(Html.fromHtml("<b>Damage Vulnerabilities</b> " + damageType));
+        });
+
+        final TextView monsterDamageResistances = root.findViewById(R.id.damage_resistances);
+        monsterDetailViewModel.getDamageResistances().observe(getViewLifecycleOwner(), damageType -> {
+            if (StringHelper.isNullOrEmpty(damageType)) {
+                monsterDamageResistances.setVisibility(View.GONE);
+            } else {
+                monsterDamageResistances.setVisibility(View.VISIBLE);
+            }
+            monsterDamageResistances.setText(Html.fromHtml("<b>Damage Resistances</b> " + damageType));
+        });
+
+        final TextView monsterDamageImmunities = root.findViewById(R.id.damage_immunities);
+        monsterDetailViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), damageType -> {
+            if (StringHelper.isNullOrEmpty(damageType)) {
+                monsterDamageImmunities.setVisibility(View.GONE);
+            } else {
+                monsterDamageImmunities.setVisibility(View.VISIBLE);
+            }
+            monsterDamageImmunities.setText(Html.fromHtml("<b>Damage Immunities</b> " + damageType));
+        });
+
+        final TextView monsterConditionImmunities = root.findViewById(R.id.condition_immunities);
+        monsterDetailViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), conditionImmunities -> {
+            if (StringHelper.isNullOrEmpty(conditionImmunities)) {
+                monsterConditionImmunities.setVisibility(View.GONE);
+            } else {
+                monsterConditionImmunities.setVisibility(View.VISIBLE);
+            }
+            monsterConditionImmunities.setText(Html.fromHtml("<b>Condition Immunities</b> " + conditionImmunities));
+        });
+
+        final TextView monsterSenses = root.findViewById(R.id.senses);
+        monsterDetailViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> {
+            if (StringHelper.isNullOrEmpty(senses)) {
+                monsterSenses.setVisibility(View.GONE);
+            } else {
+                monsterSenses.setVisibility(View.VISIBLE);
+            }
+            monsterSenses.setText(Html.fromHtml("<b>Senses</b> " + senses));
+        });
+
+        final TextView monsterLanguages = root.findViewById(R.id.languages);
+        monsterDetailViewModel.getLanguages().observe(getViewLifecycleOwner(), languages -> {
+            if (StringHelper.isNullOrEmpty(languages)) {
+                monsterLanguages.setVisibility(View.GONE);
+            } else {
+                monsterLanguages.setVisibility(View.VISIBLE);
+            }
+            monsterLanguages.setText(Html.fromHtml("<b>Languages</b> " + languages));
+        });
+
+        final TextView monsterChallenge = root.findViewById(R.id.challenge);
+        monsterDetailViewModel.getChallenge().observe(getViewLifecycleOwner(), challengeRating -> monsterChallenge.setText(Html.fromHtml("<b>Challenge</b> " + challengeRating)));
+
+        final LinearLayout monsterAbilities = root.findViewById(R.id.abilities);
+        monsterDetailViewModel.getAbilities().observe(getViewLifecycleOwner(), abilities -> {
+            Context context = getContext();
+            DisplayMetrics displayMetrics = null;
+            if (context != null) {
+                Resources resources = context.getResources();
+                if (resources != null) {
+                    displayMetrics = resources.getDisplayMetrics();
+                }
+            }
+            monsterAbilities.removeAllViews();
+            if (abilities != null) {
+                for (String ability : abilities) {
+                    TextView tvAbility = new TextView(context);
+                    // TODO: Handle multiline block quotes specially so they stay multiline.
+                    // TODO: Replace QuoteSpans in the result of fromHtml with something like this https://stackoverflow.com/questions/7717567/how-to-style-blockquotes-in-android-textviews to make them indent as expected
+                    Spanned spannedText = Html.fromHtml(CommonMarkHelper.toHtml(ability));
+                    tvAbility.setText(spannedText);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
+                    tvAbility.setLayoutParams(layoutParams);
+                    monsterAbilities.addView(tvAbility);
+                }
+            }
+        });
+
+        final LinearLayout monsterActions = root.findViewById(R.id.actions);
+        monsterDetailViewModel.getActions().observe(getViewLifecycleOwner(), actions -> {
+            Context context = getContext();
+            DisplayMetrics displayMetrics = null;
+            if (context != null) {
+                Resources resources = context.getResources();
+                if (resources != null) {
+                    displayMetrics = resources.getDisplayMetrics();
+                }
+            }
+            monsterActions.removeAllViews();
+            if (actions != null) {
+                for (String action : actions) {
+                    TextView tvAction = new TextView(getContext());
+                    tvAction.setText(Html.fromHtml(CommonMarkHelper.toHtml(action)));
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
+                    tvAction.setLayoutParams(layoutParams);
+                    monsterActions.addView(tvAction);
+                }
+            }
+        });
 
         return root;
-    }
-
-    private void setupLabeledTextView(@NonNull TextView view, String text, int titleId) {
-        String title = getString(titleId);
-        String fullText = String.format("<b>%s</b> %s", title, text);
-        view.setText(Html.fromHtml(fullText));
-    }
-
-    private void setupOptionalTextView(TextView root, String text, int titleId) {
-        String title = getString(titleId);
-        if (StringHelper.isNullOrEmpty(text)) {
-            root.setVisibility(View.GONE);
-        } else {
-            root.setVisibility(View.VISIBLE);
-        }
-        Spanned formatted;
-        if (StringHelper.isNullOrEmpty(title)) {
-            formatted = Html.fromHtml(text);
-        } else {
-            formatted = Html.fromHtml(String.format("<b>%s</b> %s", title, text));
-        }
-        root.setText(formatted);
-    }
-
-    private void setupTraitList(@NonNull LinearLayout root, @NonNull List<String> traits) {
-        setupTraitList(root, traits, null, null);
-    }
-
-    private void setupTraitList(@NonNull LinearLayout root, @NonNull List<String> traits, View label, View divider) {
-        int visibility = traits.size() > 0 ? View.VISIBLE : View.GONE;
-        Context context = getContext();
-        DisplayMetrics displayMetrics = null;
-        if (context != null) {
-            Resources resources = context.getResources();
-            if (resources != null) {
-                displayMetrics = resources.getDisplayMetrics();
-            }
-        }
-        root.removeAllViews();
-        for (String action : traits) {
-            TextView tvAction = new TextView(getContext());
-            // TODO: Handle multiline block quotes specially so they stay multiline.
-            // TODO: Replace QuoteSpans in the result of fromHtml with something like this https://stackoverflow.com/questions/7717567/how-to-style-blockquotes-in-android-textviews to make them indent as expected
-            tvAction.setText(Html.fromHtml(CommonMarkHelper.toHtml(action)));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, displayMetrics);
-            tvAction.setLayoutParams(layoutParams);
-            root.addView(tvAction);
-        }
-        root.setVisibility(visibility);
-        if (label != null) {
-            label.setVisibility(visibility);
-        }
-        if (divider != null) {
-            divider.setVisibility(visibility);
-        }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.monster_detail_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_action_edit_monster) {
-            UUID monsterId = mViewModel.getId().getValue();
-            if (monsterId != null) {
-                NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
-                Navigation.findNavController(requireView()).navigate(action);
-            } else {
-                Logger.logWTF("monsterId cannot be null.");
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private static class ViewHolder {
-        final TextView name;
-        final TextView meta;
-        final TextView armorClass;
-        final TextView hitPoints;
-        final TextView speed;
-        final TextView strength;
-        final TextView dexterity;
-        final TextView constitution;
-        final TextView intelligence;
-        final TextView wisdom;
-        final TextView charisma;
-        final TextView savingThrows;
-        final TextView skills;
-        final TextView damageVulnerabilities;
-        final TextView damageResistances;
-        final TextView damageImmunities;
-        final TextView conditionImmunities;
-        final TextView senses;
-        final TextView languages;
-        final TextView challenge;
-        final LinearLayout abilities;
-        final LinearLayout actions;
-        final TextView actions_label;
-        final ImageView actions_divider;
-        final LinearLayout reactions;
-        final TextView reactions_label;
-        final ImageView reactions_divider;
-        final LinearLayout legendaryActions;
-        final TextView legendaryActions_label;
-        final ImageView legendaryActions_divider;
-        final LinearLayout lairActions;
-        final TextView lairActions_label;
-        final ImageView lairActions_divider;
-        final LinearLayout regionalEffects;
-        final TextView regionalEffects_label;
-        final ImageView regionalEffects_divider;
-
-        ViewHolder(@NonNull View root) {
-            name = root.findViewById(R.id.name);
-            meta = root.findViewById(R.id.meta);
-            armorClass = root.findViewById(R.id.armorClass);
-            hitPoints = root.findViewById(R.id.hitPoints);
-            speed = root.findViewById(R.id.speed);
-            strength = root.findViewById(R.id.strength);
-            dexterity = root.findViewById(R.id.dexterity);
-            constitution = root.findViewById(R.id.constitution);
-            intelligence = root.findViewById(R.id.intelligence);
-            wisdom = root.findViewById(R.id.wisdom);
-            charisma = root.findViewById(R.id.charisma);
-            savingThrows = root.findViewById(R.id.savingThrows);
-            skills = root.findViewById(R.id.skills);
-            damageVulnerabilities = root.findViewById(R.id.damageVulnerabilities);
-            damageResistances = root.findViewById(R.id.damageResistances);
-            damageImmunities = root.findViewById(R.id.damageImmunities);
-            conditionImmunities = root.findViewById(R.id.conditionImmunities);
-            senses = root.findViewById(R.id.senses);
-            languages = root.findViewById(R.id.languages);
-            challenge = root.findViewById(R.id.challenge);
-            abilities = root.findViewById(R.id.abilities);
-            actions = root.findViewById(R.id.actions);
-            actions_divider = root.findViewById(R.id.actions_divider);
-            actions_label = root.findViewById(R.id.actions_label);
-            reactions = root.findViewById(R.id.reactions);
-            reactions_divider = root.findViewById(R.id.reactions_divider);
-            reactions_label = root.findViewById(R.id.reactions_label);
-            legendaryActions = root.findViewById(R.id.legendaryActions);
-            legendaryActions_divider = root.findViewById(R.id.legendaryActions_divider);
-            legendaryActions_label = root.findViewById(R.id.legendaryActions_label);
-            lairActions = root.findViewById(R.id.lairActions);
-            lairActions_divider = root.findViewById(R.id.lairActions_divider);
-            lairActions_label = root.findViewById(R.id.lairActions_label);
-            regionalEffects = root.findViewById(R.id.regionalEffects);
-            regionalEffects_divider = root.findViewById(R.id.regionalEffects_divider);
-            regionalEffects_label = root.findViewById(R.id.regionalEffects_label);
-        }
     }
 }
