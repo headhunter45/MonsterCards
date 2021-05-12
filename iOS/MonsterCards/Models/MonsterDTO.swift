@@ -199,51 +199,68 @@ enum MonsterDTOCodingKeys: String, CodingKey {
     case damage = "damage"
 }
 
+func readInt(_ container: KeyedDecodingContainer<MonsterDTOCodingKeys>, _ key: MonsterDTOCodingKeys, _ defaultValue: Int = 0) -> Int {
+    let readInt = try? container.decode(Int.self, forKey: key)
+    let readString = try? container.decode(String.self, forKey: key)
+    if (readInt != nil) {
+        return readInt!
+    }
+    if (readString != nil) {
+        return Int(readString!) ?? defaultValue
+    }
+    
+    return defaultValue;
+}
+
+func readString(_ container: KeyedDecodingContainer<MonsterDTOCodingKeys>, _ key: MonsterDTOCodingKeys, _ defaultValue: String = "") -> String {
+    return (try? container.decode(String.self, forKey: key)) ?? defaultValue
+}
+
 extension MonsterDTO: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MonsterDTOCodingKeys.self)
-        self.name = (try? container.decode(String.self, forKey: .name)) ?? "Imported Monster"
-        self.type = (try? container.decode(String.self, forKey: .type)) ?? ""
-        self.alignment = (try? container.decode(String.self, forKey: .alignment)) ?? ""
-        self.size = (try? container.decode(String.self, forKey: .size)) ?? ""
-        self.hitDice = (try? container.decode(Int.self, forKey: .hitDice)) ?? 0
-        self.armorName = (try? container.decode(String.self, forKey: .armorName)) ?? ""
-        self.otherArmorDesc = (try? container.decode(String.self, forKey: .otherArmorDesc)) ?? ""
-        self.shieldBonus = (try? container.decode(Int.self, forKey: .shieldBonus)) ?? 0
-        self.natArmorBonus = (try? container.decode(Int.self, forKey: .natArmorBonus)) ?? 0
-        self.speed = (try? container.decode(Int.self, forKey: .speed)) ?? 0
-        self.burrowSpeed = (try? container.decode(Int.self, forKey: .burrowSpeed)) ?? 0
-        self.climbSpeed = (try? container.decode(Int.self, forKey: .climbSpeed)) ?? 0
-        self.flySpeed = (try? container.decode(Int.self, forKey: .flySpeed)) ?? 0
+        self.name = readString(container, .name, "Imported Monster")
+        self.type = readString(container, .type, "")
+        self.alignment = readString(container, .alignment, "")
+        self.size = readString(container, .size, "")
+        self.hitDice = readInt(container, .hitDice, 0)
+        self.armorName = readString(container, .armorName, "")
+        self.otherArmorDesc = readString(container, .otherArmorDesc, "")
+        self.shieldBonus = readInt(container, .shieldBonus, 0)
+        self.natArmorBonus = readInt(container, .natArmorBonus, 0)
+        self.speed = readInt(container, .speed, 0)
+        self.burrowSpeed = readInt(container, .burrowSpeed, 0)
+        self.climbSpeed = readInt(container, .climbSpeed, 0)
+        self.flySpeed = readInt(container, .flySpeed, 0)
         self.hover = (try? container.decode(Bool.self, forKey: .hover)) ?? false
-        self.swimSpeed = (try? container.decode(Int.self, forKey: .swimSpeed)) ?? 0
-        self.speedDesc = (try? container.decode(String.self, forKey: .speedDesc)) ?? ""
+        self.swimSpeed = readInt(container, .swimSpeed, 0)
+        self.speedDesc = readString(container, .speedDesc, "")
         self.customSpeed = (try? container.decode(Bool.self, forKey: .customSpeed)) ?? false
-        self.strPoints = (try? container.decode(Int.self, forKey: .strPoints)) ?? 0
-        self.dexPoints = (try? container.decode(Int.self, forKey: .dexPoints)) ?? 0
-        self.conPoints = (try? container.decode(Int.self, forKey: .conPoints)) ?? 0
-        self.intPoints = (try? container.decode(Int.self, forKey: .intPoints)) ?? 0
-        self.wisPoints = (try? container.decode(Int.self, forKey: .wisPoints)) ?? 0
-        self.chaPoints = (try? container.decode(Int.self, forKey: .chaPoints)) ?? 0
-        self.cr = (try? container.decode(String.self, forKey: .cr)) ?? ""
-        self.customCr = (try? container.decode(String.self, forKey: .customCr)) ?? ""
-        self.customProf = (try? container.decode(Int.self, forKey: .customProf)) ?? 0
-        self.hpText = (try? container.decode(String.self, forKey: .hpText)) ?? ""
-        self.legendaryDescription = (try? container.decode(String.self, forKey: .legendaryDescription)) ?? ""
-        self.understandsBut = (try? container.decode(String.self, forKey: .understandsBut)) ?? ""
-        self.tag = (try? container.decode(String.self, forKey: .tag)) ?? ""
-        self.lairDescription = (try? container.decode(String.self, forKey: .lairDescription)) ?? ""
-        self.lairDescriptionEnd = (try? container.decode(String.self, forKey: .lairDescriptionEnd)) ?? ""
-        self.regionalDescription = (try? container.decode(String.self, forKey: .regionalDescription)) ?? ""
-        self.regionalDescriptionEnd = (try? container.decode(String.self, forKey: .regionalDescriptionEnd)) ?? ""
-        self.shortName = (try? container.decode(String.self, forKey: .shortName)) ?? ""
+        self.strPoints = readInt(container, .strPoints, 0)
+        self.dexPoints = readInt(container, .dexPoints, 0)
+        self.conPoints = readInt(container, .conPoints, 0)
+        self.intPoints = readInt(container, .intPoints, 0)
+        self.wisPoints = readInt(container, .wisPoints, 0)
+        self.chaPoints = readInt(container, .chaPoints, 0)
+        self.cr = readString(container, .cr, "")
+        self.customCr = readString(container, .customCr, "")
+        self.customProf = readInt(container, .customProf, 0)
+        self.hpText = readString(container, .hpText, "")
+        self.legendaryDescription = readString(container, .legendaryDescription, "")
+        self.understandsBut = readString(container, .understandsBut, "")
+        self.tag = readString(container, .tag, "")
+        self.lairDescription = readString(container, .lairDescription, "")
+        self.lairDescriptionEnd = readString(container, .lairDescriptionEnd, "")
+        self.regionalDescription = readString(container, .regionalDescription, "")
+        self.regionalDescriptionEnd = readString(container, .regionalDescriptionEnd, "")
+        self.shortName = readString(container, .shortName, "")
         
-        self.telepathy = (try? container.decode(Int.self, forKey: .telepathy)) ?? 0
-        self.blindsight = (try? container.decode(Int.self, forKey: .blindsight)) ?? 0
-        self.darkvision = (try? container.decode(Int.self, forKey: .darkvision)) ?? 0
-        self.tremorsense = (try? container.decode(Int.self, forKey: .tremorsense)) ?? 0
-        self.truesight = (try? container.decode(Int.self, forKey: .truesight)) ?? 0
-        self.separationPoint = (try? container.decode(Int.self, forKey: .separationPoint)) ?? 0
+        self.telepathy = readInt(container, .telepathy, 0)
+        self.blindsight = readInt(container, .blindsight, 0)
+        self.darkvision = readInt(container, .darkvision, 0)
+        self.tremorsense = readInt(container, .tremorsense, 0)
+        self.truesight = readInt(container, .truesight, 0)
+        self.separationPoint = readInt(container, .separationPoint, 0)
 
         self.blind = (try? container.decode(Bool.self, forKey: .blind)) ?? false
         self.customHP = (try? container.decode(Bool.self, forKey: .customHP)) ?? false
@@ -252,9 +269,6 @@ extension MonsterDTO: Codable {
         self.isRegional = (try? container.decode(Bool.self, forKey: .isRegional)) ?? false
         self.doubleColumns = (try? container.decode(Bool.self, forKey: .doubleColumns)) ?? false
 
-        // properties is always an empty array
-        
-//        self.properties = (try? container.decode([String].self, forKey: .properties)) ?? []
         self.lairs = (try? container.decode([TraitDTO].self, forKey: .lairs)) ?? []
         self.regionals = (try? container.decode([TraitDTO].self, forKey: .regionals)) ?? []
         self.specialDamage = (try? container.decode([DamageTypeDTO].self, forKey: .specialDamage)) ?? []

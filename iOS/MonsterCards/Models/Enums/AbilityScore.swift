@@ -50,4 +50,24 @@ enum AbilityScore: String, CaseIterable, Identifiable {
             return "CHA"
         }
     }
+    
+    init?(rawValue: String) {
+        var match: AbilityScore? = nil
+        let raw = rawValue.lowercased()
+        
+        for abilityScore in AbilityScore.allCases {
+            if (abilityScore.rawValue.lowercased() == raw) {
+                match = abilityScore
+            }
+            if (abilityScore.shortDisplayName.lowercased() == raw) {
+                match = abilityScore
+            }
+        }
+        
+        if (match == nil) {
+            return nil
+        } else {
+            self = match!
+        }
+    }
 }
