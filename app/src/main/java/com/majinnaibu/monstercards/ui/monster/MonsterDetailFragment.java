@@ -8,12 +8,15 @@ import android.text.Spanned;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
@@ -38,6 +41,7 @@ public class MonsterDetailFragment extends MCFragment {
         Bundle arguments = getArguments();
         assert arguments != null;
         UUID monsterId = UUID.fromString(MonsterDetailFragmentArgs.fromBundle(arguments).getMonsterId());
+        setHasOptionsMenu(true);
 
         monsterDetailViewModel = new ViewModelProvider(this).get(MonsterDetailViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
@@ -224,5 +228,11 @@ public class MonsterDetailFragment extends MCFragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.monster_detail_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }
