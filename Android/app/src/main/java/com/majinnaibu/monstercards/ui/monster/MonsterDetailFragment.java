@@ -8,149 +8,40 @@ import android.text.Spanned;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.data.enums.AbilityScore;
-import com.majinnaibu.monstercards.data.enums.AdvantageType;
-import com.majinnaibu.monstercards.data.enums.ArmorType;
-import com.majinnaibu.monstercards.data.enums.ChallengeRating;
-import com.majinnaibu.monstercards.data.enums.ProficiencyType;
+import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
-import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.models.Skill;
-import com.majinnaibu.monstercards.models.Trait;
+import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.utils.Logger;
 
-<<<<<<<< HEAD:Android/app/src/main/java/com/majinnaibu/monstercards/ui/monster/MonsterFragment.java
-@SuppressWarnings("FieldCanBeLocal")
-public class MonsterFragment extends Fragment {
-========
+import java.util.UUID;
+
+import io.reactivex.rxjava3.observers.DisposableSingleObserver;
+
 public class MonsterDetailFragment extends MCFragment {
->>>>>>>> d78280b (Renames MonsterFragment to MonsterDetailFragment to better explain its use.):Android/app/src/main/java/com/majinnaibu/monstercards/ui/monster/MonsterDetailFragment.java
 
     private MonsterDetailViewModel monsterDetailViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-<<<<<<<< HEAD:Android/app/src/main/java/com/majinnaibu/monstercards/ui/monster/MonsterFragment.java
-
-        // TODO: remove this block make the monster ID a parameter to the view and get the monster from saved data (sqlite)
-        Monster monster = new Monster();
-        // Name
-        monster.name = "Pixie";
-        // Meta
-        monster.size = "tiny";
-        monster.type = "fey";
-        monster.subtype = "";
-        monster.alignment = "neutral good";
-        monster.armorType = ArmorType.NONE;
-        // Armor & Armor Class
-        monster.shieldBonus = 0;
-        monster.naturalArmorBonus = 7;
-        monster.otherArmorDescription = "14";
-        // Hit Points
-        monster.hitDice = 1;
-        monster.hasCustomHP = false;
-        monster.customHPDescription = "11 (2d8 + 2)";
-        monster.walkSpeed = 10;
-        monster.burrowSpeed = 0;
-        monster.climbSpeed = 0;
-        monster.flySpeed = 30;
-        monster.canHover = false;
-        monster.swimSpeed = 0;
-        monster.hasCustomSpeed = false;
-        monster.customSpeedDescription = "30 ft., swim 30 ft.";
-        // Ability Scores
-        monster.strengthScore = Integer.parseInt("2");
-        monster.dexterityScore = Integer.parseInt("20");
-        monster.constitutionScore = Integer.parseInt("8");
-        monster.intelligenceScore = Integer.parseInt("10");
-        monster.wisdomScore = Integer.parseInt("14");
-        monster.charismaScore = Integer.parseInt("15");
-//        monster.strengthScore = 10;
-//        monster.dexterityScore = 10;
-//        monster.constitutionScore = 10;
-//        monster.intelligenceScore = 10;
-//        monster.wisdomScore = 10;
-//        monster.charismaScore = 10;
-
-        // Saving Throws
-        monster.strengthSavingThrowAdvantage = AdvantageType.NONE;
-        monster.strengthSavingThrowProficiency = ProficiencyType.NONE;
-        monster.dexteritySavingThrowAdvantage = AdvantageType.ADVANTAGE;
-        monster.dexteritySavingThrowProficiency = ProficiencyType.PROFICIENT;
-        monster.constitutionSavingThrowAdvantage = AdvantageType.DISADVANTAGE;
-        monster.constitutionSavingThrowProficiency = ProficiencyType.EXPERTISE;
-        monster.intelligenceSavingThrowAdvantage = AdvantageType.NONE;
-        monster.intelligenceSavingThrowProficiency = ProficiencyType.EXPERTISE;
-        monster.wisdomSavingThrowAdvantage = AdvantageType.ADVANTAGE;
-        monster.wisdomSavingThrowProficiency = ProficiencyType.PROFICIENT;
-        monster.charismaSavingThrowAdvantage = AdvantageType.DISADVANTAGE;
-        monster.charismaSavingThrowProficiency = ProficiencyType.NONE;
-        //Skills
-        monster.skills.add(new Skill("perception", AbilityScore.WISDOM));
-        monster.skills.add(new Skill("stealth", AbilityScore.DEXTERITY));
-        // Damage Types
-        monster.damageImmunities.add("force");
-        monster.damageImmunities.add("lightning");
-        monster.damageImmunities.add("poison");
-        monster.damageResistances.add("cold");
-        monster.damageResistances.add("fire");
-        monster.damageResistances.add("piercing");
-        monster.damageVulnerabilities.add("acid");
-        monster.damageVulnerabilities.add("bludgeoning");
-        monster.damageVulnerabilities.add("necrotic");
-        // Condition Immunities
-        monster.conditionImmunities.add("blinded");
-        // Senses
-        monster.blindsightRange = 10;
-        monster.isBlindBeyondBlindsightRange = true;
-        monster.darkvisionRange = 20;
-        monster.tremorsenseRange = 30;
-        monster.truesightRange = 40;
-        monster.telepathyRange = 20;
-        monster.understandsButDescription = "doesn't care";
-        // Languages
-        monster.languages.add(new Language("English", true));
-        monster.languages.add(new Language("Steve", false));
-        monster.languages.add(new Language("Spanish", true));
-        monster.languages.add(new Language("French", true));
-        monster.languages.add(new Language("Mermataur", false));
-        monster.languages.add(new Language("Goldfish", false));
-        // Challenge Rating
-        monster.challengeRating = ChallengeRating.CUSTOM;
-        monster.customChallengeRatingDescription = "Infinite (0XP)";
-        monster.customProficiencyBonus = 4;
-        // Abilities
-        monster.abilities.add(new Trait("Spellcasting", "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n\n> Cantrips (at will): _light, sacred flame, thaumaturgy_\n> 1st level (3 slots): _bless, cure wounds, sanctuary_"));
-        monster.abilities.add(new Trait("Amphibious", "The dragon can breathe air and water."));
-        monster.abilities.add(new Trait("Legendary Resistance (3/Day)", "If the dragon fails a saving throw, it can choose to succeed instead."));
-        // Actions
-        monster.actions.add(new Trait("Club", "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ 2 (1d4) bludgeoning damage."));
-        // END remove block
-        monsterViewModel = new ViewModelProvider(this).get(MonsterViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_monster, container, false);
-        monsterViewModel.setMonster(monster);
-
-        final TextView monsterName = root.findViewById(R.id.name);
-        monsterViewModel.getName().observe(getViewLifecycleOwner(), name -> monsterName.setText(name));
-
-        final TextView monsterMeta = root.findViewById(R.id.meta);
-        monsterViewModel.getMeta().observe(getViewLifecycleOwner(), metaText -> monsterMeta.setText(metaText));
-========
         MonsterRepository repository = getMonsterRepository();
         Bundle arguments = getArguments();
         assert arguments != null;
         UUID monsterId = UUID.fromString(MonsterDetailFragmentArgs.fromBundle(arguments).getMonsterId());
+        setHasOptionsMenu(true);
 
         monsterDetailViewModel = new ViewModelProvider(this).get(MonsterDetailViewModel.class);
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
@@ -176,7 +67,6 @@ public class MonsterDetailFragment extends MCFragment {
 
         final TextView monsterMeta = root.findViewById(R.id.meta);
         monsterDetailViewModel.getMeta().observe(getViewLifecycleOwner(), monsterMeta::setText);
->>>>>>>> d78280b (Renames MonsterFragment to MonsterDetailFragment to better explain its use.):Android/app/src/main/java/com/majinnaibu/monstercards/ui/monster/MonsterDetailFragment.java
 
         final TextView monsterArmorClass = root.findViewById(R.id.armor_class);
         monsterDetailViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> monsterArmorClass.setText(Html.fromHtml("<b>Armor Class</b> " + armorText)));
@@ -188,24 +78,6 @@ public class MonsterDetailFragment extends MCFragment {
         monsterDetailViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> monsterSpeed.setText(Html.fromHtml("<b>Speed</b> " + speed)));
 
         final TextView monsterStrength = root.findViewById(R.id.strength);
-<<<<<<<< HEAD:Android/app/src/main/java/com/majinnaibu/monstercards/ui/monster/MonsterFragment.java
-        monsterViewModel.getStrength().observe(getViewLifecycleOwner(), strength -> monsterStrength.setText(strength));
-
-        final TextView monsterDexterity = root.findViewById(R.id.dexterity);
-        monsterViewModel.getDexterity().observe(getViewLifecycleOwner(), dexterity -> monsterDexterity.setText(dexterity));
-
-        final TextView monsterConstitution = root.findViewById(R.id.constitution);
-        monsterViewModel.getConstitution().observe(getViewLifecycleOwner(), constitution -> monsterConstitution.setText(constitution));
-
-        final TextView monsterIntelligence = root.findViewById(R.id.intelligence);
-        monsterViewModel.getIntelligence().observe(getViewLifecycleOwner(), intelligence -> monsterIntelligence.setText(intelligence));
-
-        final TextView monsterWisdom = root.findViewById(R.id.wisdom);
-        monsterViewModel.getWisdom().observe(getViewLifecycleOwner(), wisdom -> monsterWisdom.setText(wisdom));
-
-        final TextView monsterCharisma = root.findViewById(R.id.charisma);
-        monsterViewModel.getCharisma().observe(getViewLifecycleOwner(), charisma -> monsterCharisma.setText(charisma));
-========
         monsterDetailViewModel.getStrength().observe(getViewLifecycleOwner(), monsterStrength::setText);
 
         final TextView monsterDexterity = root.findViewById(R.id.dexterity);
@@ -222,7 +94,6 @@ public class MonsterDetailFragment extends MCFragment {
 
         final TextView monsterCharisma = root.findViewById(R.id.charisma);
         monsterDetailViewModel.getCharisma().observe(getViewLifecycleOwner(), monsterCharisma::setText);
->>>>>>>> d78280b (Renames MonsterFragment to MonsterDetailFragment to better explain its use.):Android/app/src/main/java/com/majinnaibu/monstercards/ui/monster/MonsterDetailFragment.java
 
         final TextView monsterSavingThrows = root.findViewById(R.id.saving_throws);
         monsterDetailViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> {
@@ -357,5 +228,11 @@ public class MonsterDetailFragment extends MCFragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.monster_detail_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }
