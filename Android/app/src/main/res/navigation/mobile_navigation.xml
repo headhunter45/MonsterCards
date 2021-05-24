@@ -49,6 +49,22 @@
         android:id="@+id/navigation_monster"
         android:name="com.majinnaibu.monstercards.ui.monster.MonsterDetailFragment"
         android:label="Monster"
-        tools:layout="@layout/fragment_monster" />
+        tools:layout="@layout/fragment_monster">
+        <argument
+            android:name="monster_id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_monster_to_editMonsterFragment"
+            app:destination="@id/editMonsterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMonsterFragment"
+        android:name="com.majinnaibu.monstercards.ui.monster.EditMonsterFragment"
+        android:label="fragment_edit_monster_list"
+        tools:layout="@layout/fragment_edit_monster_list" >
+        <argument
+            android:name="monster_id"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
