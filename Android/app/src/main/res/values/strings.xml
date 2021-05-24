@@ -14,4 +14,5 @@
     <string name="title_search">Search</string>
     <string name="wisdom_abbreviation">WIS</string>
     <string name="action_add_monster">Add monster</string>
+    <string name="action_edit">Edit</string>
 </resources>
