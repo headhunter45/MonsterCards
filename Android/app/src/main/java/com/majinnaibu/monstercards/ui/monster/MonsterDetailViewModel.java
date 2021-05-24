@@ -8,6 +8,7 @@ import com.majinnaibu.monstercards.models.Monster;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class MonsterDetailViewModel extends ViewModel {
 
@@ -57,6 +58,8 @@ public class MonsterDetailViewModel extends ViewModel {
         mStrength.setValue("");
         mWisdom = new MutableLiveData<>();
         mWisdom.setValue("");
+        mMonsterId = new MutableLiveData<>();
+        mMonsterId.setValue(UUID.fromString("00000000-0000-0000-0000-000000000000"));
     }
 
     private final MutableLiveData<List<String>> mAbilities;
@@ -189,6 +192,12 @@ public class MonsterDetailViewModel extends ViewModel {
 
     public LiveData<String> getWisdom() {
         return mWisdom;
+    }
+
+    private final MutableLiveData<UUID> mMonsterId;
+
+    public LiveData<UUID> getId() {
+        return mMonsterId;
     }
 
     private Monster mMonster;
