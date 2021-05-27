@@ -59,9 +59,9 @@
     </fragment>
     <fragment
         android:id="@+id/editMonsterFragment"
-        android:name="com.majinnaibu.monstercards.ui.monster.EditMonsterFragment"
-        android:label="fragment_edit_monster_list"
-        tools:layout="@layout/fragment_edit_monster_list" >
+        android:name="com.majinnaibu.monstercards.ui.editmonster.EditMonsterFragment"
+        android:label="fragment_edit_monster"
+        tools:layout="@layout/fragment_edit_monster" >
         <argument
             android:name="monster_id"
             app:argType="string" />
