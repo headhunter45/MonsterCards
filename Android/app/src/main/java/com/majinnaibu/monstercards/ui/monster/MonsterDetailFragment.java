@@ -241,7 +241,7 @@ public class MonsterDetailFragment extends MCFragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_action_edit_monster) {
-            NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterDetailViewModel.getId().toString());
+            NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterDetailViewModel.getId().getValue().toString());
             View view = getView();
             assert view != null;
             Navigation.findNavController(view).navigate(action);
