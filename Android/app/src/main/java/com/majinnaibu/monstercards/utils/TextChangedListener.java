@@ -3,7 +3,6 @@ package com.majinnaibu.monstercards.utils;
 import android.text.Editable;
 import android.text.TextWatcher;
 
-@SuppressWarnings("unused")
 public class TextChangedListener implements TextWatcher {
 
     private final BeforeTextChangedCallback mBeforeTextChangedCallback;
