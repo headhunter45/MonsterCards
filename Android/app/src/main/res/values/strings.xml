@@ -34,4 +34,7 @@
     <string name="label_legendary_actions">Legendary Actions</string>
     <string name="label_lair_actions">Lair Actions</string>
     <string name="label_regional_actions">Regional Actions</string>
+    <string name="default_monster_name">Unnamed Monster</string>
+    <string name="snackbar_failed_to_create_monster">Failed to create monster</string>
+    <string name="snackbar_monster_created">%1$s created</string>
 </resources>

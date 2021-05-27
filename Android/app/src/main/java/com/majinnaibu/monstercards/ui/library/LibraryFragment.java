@@ -74,7 +74,7 @@ public class LibraryFragment extends MCFragment {
     private void setupAddMonsterButton(@NonNull FloatingActionButton fab) {
         fab.setOnClickListener(view -> {
             Monster monster = new Monster();
-            monster.name = "Unnamed Monster";
+            monster.name = getString(R.string.default_monster_name);
             MonsterRepository repository = this.getMonsterRepository();
             repository.addMonster(monster)
                     .subscribeOn(Schedulers.io())
@@ -87,7 +87,7 @@ public class LibraryFragment extends MCFragment {
                                     assert view != null;
                                     Snackbar.make(
                                             view,
-                                            String.format("%s created", monster.name),
+                                            getString(R.string.snackbar_monster_created, monster.name),
                                             Snackbar.LENGTH_LONG)
                                             .setAction("Action", (_view) -> navigateToMonsterDetail(monster.id))
                                             .show();
@@ -98,7 +98,7 @@ public class LibraryFragment extends MCFragment {
                                     Logger.logError("Error creating monster", e);
                                     View view = getView();
                                     assert view != null;
-                                    Snackbar.make(view, "Failed to create monster", Snackbar.LENGTH_LONG)
+                                    Snackbar.make(view, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG)
                                             .setAction("Action", null).show();
                                 }
                             });
