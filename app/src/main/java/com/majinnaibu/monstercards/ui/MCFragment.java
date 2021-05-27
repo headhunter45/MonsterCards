@@ -1,5 +1,6 @@
 package com.majinnaibu.monstercards.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.majinnaibu.monstercards.MonsterCardsApplication;
@@ -12,5 +13,9 @@ public class MCFragment extends Fragment {
 
     protected MonsterRepository getMonsterRepository() {
         return this.getApplication().getMonsterRepository();
+    }
+
+    public AppCompatActivity requireAppCompatActivity() {
+        return (AppCompatActivity) requireActivity();
     }
 }
