@@ -14,6 +14,7 @@ import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
 import com.facebook.flipper.plugins.inspector.DescriptorMapping;
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
 import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin;
+import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
 import com.facebook.soloader.SoLoader;
 import com.google.gson.Gson;
 import com.majinnaibu.monstercards.BuildConfig;
@@ -27,6 +28,7 @@ public class FlipperInitializer {
             final FlipperClient client = AndroidFlipperClient.getInstance(ctx);
             client.addPlugin(new InspectorFlipperPlugin(ctx, DescriptorMapping.withDefaults()));
             client.addPlugin(new DatabasesFlipperPlugin(ctx));
+            client.addPlugin(new SharedPreferencesFlipperPlugin(ctx));
             client.addPlugin(NavigationFlipperPlugin.getInstance());
             client.start();
         }
