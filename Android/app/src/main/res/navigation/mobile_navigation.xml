@@ -55,16 +55,32 @@
             app:argType="string" />
         <action
             android:id="@+id/action_navigation_monster_to_editMonsterFragment"
-            app:destination="@id/editMonsterFragment" />
+            app:destination="@id/edit_monster_navigation" />
     </fragment>
-    <fragment
-        android:id="@+id/editMonsterFragment"
-        android:name="com.majinnaibu.monstercards.ui.editmonster.EditMonsterFragment"
-        android:label="Edit Monster"
-        tools:layout="@layout/fragment_edit_monster">
+    <navigation
+        android:id="@+id/edit_monster_navigation"
+        app:startDestination="@id/editMonsterFragment">
         <argument
             android:name="monster_id"
             app:argType="string" />
-    </fragment>
+
+        <fragment
+            android:id="@+id/editMonsterFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditMonsterFragment"
+            android:label="Edit Monster"
+            tools:layout="@layout/fragment_edit_monster">
+            <argument
+                android:name="monster_id"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editBasicInfoFragment"
+                app:destination="@id/editBasicInfoFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editBasicInfoFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditBasicInfoFragment"
+            android:label="fragment_edit_basic_info"
+            tools:layout="@layout/fragment_edit_basic_info" />
+    </navigation>
 
 </navigation>
