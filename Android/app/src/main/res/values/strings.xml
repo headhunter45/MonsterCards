@@ -44,4 +44,6 @@
     <string name="label_subtype">Subtype</string>
     <string name="label_alignment">Alignment</string>
     <string name="label_custom_hp">Custom HP</string>
+    <string name="label_has_custom_hp">Has Custom HP</string>
+    <string name="label_hit_dice">Hit Dice</string>
 </resources>
