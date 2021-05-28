@@ -1,5 +1,8 @@
 package com.majinnaibu.monstercards.ui;
 
+import android.app.Activity;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -17,5 +20,16 @@ public class MCFragment extends Fragment {
 
     public AppCompatActivity requireAppCompatActivity() {
         return (AppCompatActivity) requireActivity();
+    }
+
+    public void setTitle(CharSequence title) {
+        Activity activity = requireActivity();
+        if (activity instanceof AppCompatActivity) {
+            AppCompatActivity appCompatActivity = (AppCompatActivity) activity;
+            ActionBar supportActionBar = appCompatActivity.getSupportActionBar();
+            if (supportActionBar != null) {
+                supportActionBar.setTitle(title);
+            }
+        }
     }
 }
