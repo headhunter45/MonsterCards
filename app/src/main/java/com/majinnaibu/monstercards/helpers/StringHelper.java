@@ -58,4 +58,12 @@ public final class StringHelper {
             return sb.toString();
         }
     }
+
+    public static Integer parseInt(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException _ex) {
+            return null;
+        }
+    }
 }
