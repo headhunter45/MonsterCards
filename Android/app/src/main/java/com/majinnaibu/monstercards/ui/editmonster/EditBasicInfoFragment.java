@@ -12,6 +12,7 @@ import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -20,6 +21,7 @@ import com.majinnaibu.monstercards.utils.TextChangedListener;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class EditBasicInfoFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
@@ -71,6 +73,18 @@ public class EditBasicInfoFragment extends MCFragment {
             Logger.logDebug(String.format("Monster Custom Hit Points changed to %s", mViewModel.getCustomHitPoints().getValue()));
         })));
 
+        mHolder.hitDice.setText(mViewModel.getHitDiceValueAsString());
+        mHolder.hitDice.addTextChangedListener((new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> {
+            mViewModel.setHitDice(s.toString());
+            Logger.logDebug(String.format("Monster Hit Dice changed to %s", mViewModel.getHitDiceValueAsString()));
+        })));
+
+        mHolder.hasCustomHitPoints.setChecked(mViewModel.getHasCustomHitPointsValueAsBoolean());
+        mHolder.hasCustomHitPoints.setOnCheckedChangeListener((button, isChecked) -> {
+            mViewModel.setHasCustomHitPoints(isChecked);
+            Logger.logDebug(String.format("Monster Has Custom Hit Points changed to %s", isChecked ? "TRUE" : "FALSE"));
+        });
+
         return root;
     }
 
@@ -81,6 +95,8 @@ public class EditBasicInfoFragment extends MCFragment {
         private final EditText subtype;
         private final EditText alignment;
         private final EditText customHitPoints;
+        private final EditText hitDice;
+        private final SwitchMaterial hasCustomHitPoints;
 
         ViewHolder(View root) {
             name = root.findViewById(R.id.name);
@@ -89,7 +105,8 @@ public class EditBasicInfoFragment extends MCFragment {
             subtype = root.findViewById(R.id.subtype);
             alignment = root.findViewById(R.id.alignment);
             customHitPoints = root.findViewById(R.id.customHitPoints);
-            // TODO: add hitDice, hasCustomHitPoints, and customHitPoints
+            hitDice = root.findViewById(R.id.hitDice);
+            hasCustomHitPoints = root.findViewById(R.id.hasCustomHitPoints);
         }
     }
 }

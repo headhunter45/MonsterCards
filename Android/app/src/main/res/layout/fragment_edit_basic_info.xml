@@ -87,7 +87,28 @@
 
         <!-- Hit Dice (int) -->
 
-        <!-- Has ustom HP (boolean) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/hitDice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="@string/label_hit_dice"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/hasCustomHitPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/label_has_custom_hp"
+            android:textSize="@dimen/text_h4_size" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

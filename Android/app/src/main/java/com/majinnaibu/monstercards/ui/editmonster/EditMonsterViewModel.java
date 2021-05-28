@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
 
 import java.util.UUID;
@@ -22,6 +23,8 @@ public class EditMonsterViewModel extends ViewModel {
     private final MutableLiveData<String> mAlignment;
     private final MutableLiveData<String> mCustomHitPoints;
     private final MutableLiveData<Boolean> mHasChanges;
+    private final MutableLiveData<Integer> mHitDice;
+    private final MutableLiveData<Boolean> mHasCustomHitPoints;
 
     public EditMonsterViewModel() {
 
@@ -35,6 +38,8 @@ public class EditMonsterViewModel extends ViewModel {
         mSubtype = new MutableLiveData<>("");
         mAlignment = new MutableLiveData<>("");
         mCustomHitPoints = new MutableLiveData<>("");
+        mHitDice = new MutableLiveData<>(0);
+        mHasCustomHitPoints = new MutableLiveData<>(false);
         // TODO: consider initializing this to true so all new monsters need saving
         mHasChanges = new MutableLiveData<>(false);
     }
@@ -48,6 +53,8 @@ public class EditMonsterViewModel extends ViewModel {
         mSubtype.setValue(monster.subtype);
         mAlignment.setValue(monster.alignment);
         mCustomHitPoints.setValue(monster.customHPDescription);
+        mHitDice.setValue(monster.hitDice);
+        mHasCustomHitPoints.setValue(monster.hasCustomHP);
         mHasChanges.setValue(false);
     }
 
@@ -145,12 +152,43 @@ public class EditMonsterViewModel extends ViewModel {
         return mHasChanges;
     }
 
-    public void setHasChanges(@NonNull Boolean hasChanges) {
+    public void setHasChanges(boolean hasChanges) {
         mHasChanges.setValue(hasChanges);
     }
 
     public boolean hasChanges() {
         return mHasChanges.getValue();
+    }
+
+    public LiveData<Integer> getHitDice() {
+        return mHitDice;
+    }
+
+    public void setHitDice(int hitDice) {
+        mHitDice.setValue(hitDice);
+        mHasChanges.setValue(true);
+    }
+
+    public void setHitDice(String hitDice) {
+        Integer parsedHitDice = StringHelper.parseInt(hitDice);
+        this.setHitDice(parsedHitDice != null ? parsedHitDice : 0);
+    }
+
+    public String getHitDiceValueAsString() {
+        return mHitDice.getValue().toString();
+    }
+
+    public LiveData<Boolean> getHasCustomHitPoints() {
+        return mHasCustomHitPoints;
+    }
+
+    public void setHasCustomHitPoints(boolean hasCustomHitPoints) {
+        mHasCustomHitPoints.setValue(hasCustomHitPoints);
+        mHasChanges.setValue(true);
+    }
+
+    public boolean getHasCustomHitPointsValueAsBoolean() {
+        return mHasCustomHitPoints.getValue();
     }
 
     public Monster buildMonster() {
@@ -163,6 +201,8 @@ public class EditMonsterViewModel extends ViewModel {
         monster.subtype = mSubtype.getValue();
         monster.alignment = mAlignment.getValue();
         monster.customHPDescription = mCustomHitPoints.getValue();
+        monster.hitDice = mHitDice.getValue();
+        monster.hasCustomHP = mHasCustomHitPoints.getValue();
 
         return monster;
     }
