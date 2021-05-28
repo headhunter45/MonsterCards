@@ -63,4 +63,9 @@ public class MonsterRepository {
         return result;
     }
 
+    public Completable saveMonster(Monster monster) {
+        Completable result = m_db.monsterDAO().save(monster);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
 }
