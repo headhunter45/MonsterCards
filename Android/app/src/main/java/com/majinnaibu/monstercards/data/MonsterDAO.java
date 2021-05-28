@@ -4,6 +4,7 @@ package com.majinnaibu.monstercards.data;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.majinnaibu.monstercards.models.Monster;
@@ -29,6 +30,9 @@ public interface MonsterDAO {
 
     @Insert
     Completable insertAll(Monster... monsters);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    Completable save(Monster... monsters);
 
     @Delete
     Completable delete(Monster monster);
