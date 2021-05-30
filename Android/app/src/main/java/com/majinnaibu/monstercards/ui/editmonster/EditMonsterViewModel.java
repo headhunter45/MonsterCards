@@ -287,8 +287,10 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setHasShield(boolean hasShield) {
-        mHasShield.setValue(hasShield);
-        mHasChanges.setValue(true);
+        if (!Objects.equals(mHasShield.getValue(), hasShield)) {
+            mHasShield.setValue(hasShield);
+            mHasChanges.setValue(true);
+        }
     }
 
     public boolean getHasShieldValueAsBoolean() {
@@ -300,8 +302,10 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setShieldBonus(int shieldBonus) {
-        mShieldBonus.setValue(shieldBonus);
-        mHasChanges.setValue(true);
+        if (!Objects.equals(mShieldBonus.getValue(), shieldBonus)) {
+            mShieldBonus.setValue(shieldBonus);
+            mHasChanges.setValue(true);
+        }
     }
 
     public void setShieldBonus(String shieldBonus) {
@@ -314,8 +318,10 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCustomArmor(String customArmor) {
-        mCustomArmor.setValue(customArmor);
-        mHasChanges.setValue(true);
+        if (!Objects.equals(mCustomArmor.getValue(), customArmor)) {
+            mCustomArmor.setValue(customArmor);
+            mHasChanges.setValue(true);
+        }
     }
 
     public String getShieldBonusValueAsString() {
