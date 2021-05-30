@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,15 +15,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.majinnaibu.monstercards.ui.components.Stepper
-            android:id="@+id/naturalArmorBonus"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            app:label="@string/label_natural_armor_bonus"
-            app:maxValue="99"
-            app:minValue="0"
-            app:stepAmount="1" />
+            android:layout_margin="@dimen/text_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/naturalArmorBonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="@string/label_natural_armor_bonus"
+                android:importantForAutofill="no"
+                android:inputType="numberSigned"
+                tools:text="+2" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/hasShield"
@@ -32,17 +37,23 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:text="@string/label_has_a_shield"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+            android:textSize="20sp" />
 
-        <com.majinnaibu.monstercards.ui.components.Stepper
-            android:id="@+id/shieldBonus"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            app:label="@string/label_shield_bonus"
-            app:maxValue="99"
-            app:minValue="0"
-            app:stepAmount="1" />
+            android:layout_margin="@dimen/text_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shieldBonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="@string/label_shield_bonus"
+                android:importantForAutofill="no"
+                android:inputType="numberSigned"
+                tools:text="4" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
