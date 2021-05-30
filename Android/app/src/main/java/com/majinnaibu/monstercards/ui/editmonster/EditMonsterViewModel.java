@@ -21,10 +21,17 @@ public class EditMonsterViewModel extends ViewModel {
     private final MutableLiveData<Boolean> mHasChanges;
     private final MutableLiveData<Boolean> mHasCustomHitPoints;
     private final MutableLiveData<Boolean> mHasShield;
+    private final MutableLiveData<Boolean> mCanHover;
+    private final MutableLiveData<Boolean> mHasCustomSpeed;
     private final MutableLiveData<ArmorType> mArmorType;
     private final MutableLiveData<Integer> mHitDice;
     private final MutableLiveData<Integer> mNaturalArmorBonus;
     private final MutableLiveData<Integer> mShieldBonus;
+    private final MutableLiveData<Integer> mWalkSpeed;
+    private final MutableLiveData<Integer> mBurrowSpeed;
+    private final MutableLiveData<Integer> mClimbSpeed;
+    private final MutableLiveData<Integer> mFlySpeed;
+    private final MutableLiveData<Integer> mSwimSpeed;
     private final MutableLiveData<String> mName;
     private final MutableLiveData<String> mErrorMessage;
     private final MutableLiveData<String> mSize;
@@ -33,6 +40,7 @@ public class EditMonsterViewModel extends ViewModel {
     private final MutableLiveData<String> mAlignment;
     private final MutableLiveData<String> mCustomHitPoints;
     private final MutableLiveData<String> mCustomArmor;
+    private final MutableLiveData<String> mCustomSpeed;
 
     public EditMonsterViewModel() {
 
@@ -53,6 +61,14 @@ public class EditMonsterViewModel extends ViewModel {
         mHasShield = new MutableLiveData<>(false);
         mShieldBonus = new MutableLiveData<>(0);
         mCustomArmor = new MutableLiveData<>("");
+        mWalkSpeed = new MutableLiveData<>(0);
+        mBurrowSpeed = new MutableLiveData<>(0);
+        mClimbSpeed = new MutableLiveData<>(0);
+        mFlySpeed = new MutableLiveData<>(0);
+        mSwimSpeed = new MutableLiveData<>(0);
+        mCanHover = new MutableLiveData<>(false);
+        mHasCustomSpeed = new MutableLiveData<>(false);
+        mCustomSpeed = new MutableLiveData<>("");
         // TODO: consider initializing this to true so all new monsters need saving
         mHasChanges = new MutableLiveData<>(false);
     }
@@ -73,6 +89,15 @@ public class EditMonsterViewModel extends ViewModel {
         mHasShield.setValue(monster.shieldBonus != 0);
         mShieldBonus.setValue(monster.shieldBonus);
         mCustomArmor.setValue(monster.otherArmorDescription);
+        mWalkSpeed.setValue(monster.walkSpeed);
+        mBurrowSpeed.setValue(monster.burrowSpeed);
+        mClimbSpeed.setValue(monster.climbSpeed);
+        mFlySpeed.setValue(monster.flySpeed);
+        mSwimSpeed.setValue(monster.swimSpeed);
+        mCanHover.setValue(monster.canHover);
+        mHasCustomSpeed.setValue(monster.hasCustomSpeed);
+        mCustomSpeed.setValue(monster.customSpeedDescription);
+
         mHasChanges.setValue(false);
     }
 
@@ -297,6 +322,136 @@ public class EditMonsterViewModel extends ViewModel {
         return mShieldBonus.getValue().toString();
     }
 
+    public LiveData<Integer> getWalkSpeed() {
+        return mWalkSpeed;
+    }
+
+    public void setWalkSpeed(int walkSpeed) {
+        if (!Objects.equals(mWalkSpeed.getValue(), walkSpeed)) {
+            mWalkSpeed.setValue(walkSpeed);
+            mHasChanges.setValue(true);
+            Logger.logDebug(String.format("Setting walk speed to %d ft.", walkSpeed));
+        }
+    }
+
+    public void incrementWalkSpeed() {
+        setWalkSpeed(mWalkSpeed.getValue() + 5);
+    }
+
+    public void decrementWalkSpeed() {
+        setWalkSpeed(mWalkSpeed.getValue() - 5);
+    }
+
+    public LiveData<Integer> getBurrowSpeed() {
+        return mBurrowSpeed;
+    }
+
+    public void setBurrowSpeed(int burrowSpeed) {
+        if (!Objects.equals(mBurrowSpeed.getValue(), burrowSpeed)) {
+            mBurrowSpeed.setValue(burrowSpeed);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<Integer> getClimbSpeed() {
+        return mClimbSpeed;
+    }
+
+    public void setClimbSpeed(int climbSpeed) {
+        if (!Objects.equals(mClimbSpeed.getValue(), climbSpeed)) {
+            mClimbSpeed.setValue(climbSpeed);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<Integer> getFlySpeed() {
+        return mFlySpeed;
+    }
+
+    public void setFlySpeed(int flySpeed) {
+        if (!Objects.equals(mFlySpeed.getValue(), flySpeed)) {
+            mFlySpeed.setValue(flySpeed);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<Integer> getSwimSpeed() {
+        return mSwimSpeed;
+    }
+
+    public void setSwimSpeed(int swimSpeed) {
+        if (!Objects.equals(mSwimSpeed.getValue(), swimSpeed)) {
+            mSwimSpeed.setValue(swimSpeed);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<Boolean> getCanHover() {
+        return mCanHover;
+    }
+
+    public void setCanHover(boolean canHover) {
+        if (!Objects.equals(mCanHover.getValue(), canHover)) {
+            mCanHover.setValue(canHover);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<Boolean> getHasCustomSpeed() {
+        return mHasCustomSpeed;
+    }
+
+    public void setHasCustomSpeed(boolean hasCustomSpeed) {
+        if (!Objects.equals(mHasCustomSpeed.getValue(), hasCustomSpeed)) {
+            mHasCustomSpeed.setValue(hasCustomSpeed);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<String> getCustomSpeed() {
+        return mCustomSpeed;
+    }
+
+    public void setCustomSpeed(String customSpeed) {
+        if (!Objects.equals(mCustomSpeed.getValue(), customSpeed)) {
+            mCustomSpeed.setValue(customSpeed);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementBurrowSpeed() {
+        setBurrowSpeed(mBurrowSpeed.getValue() + 5);
+    }
+
+    public void decrementBurrowSpeed() {
+        setBurrowSpeed(mBurrowSpeed.getValue() - 5);
+    }
+
+    public void incrementClimbSpeed() {
+        setClimbSpeed(mClimbSpeed.getValue() + 5);
+    }
+
+    public void decrementClimbSpeed() {
+        setClimbSpeed(mClimbSpeed.getValue() - 5);
+    }
+
+    public void incrementFlySpeed() {
+        setFlySpeed(mFlySpeed.getValue() + 5);
+    }
+
+    public void decrementFlySpeed() {
+        setFlySpeed(mFlySpeed.getValue() - 5);
+    }
+
+    public void incrementSwimSpeed() {
+        setSwimSpeed(mSwimSpeed.getValue() + 5);
+    }
+
+    public void decrementSwimSpeed() {
+        setSwimSpeed(mSwimSpeed.getValue() - 5);
+    }
+
+
     public Monster buildMonster() {
         Monster monster = new Monster();
 
@@ -313,6 +468,14 @@ public class EditMonsterViewModel extends ViewModel {
         monster.naturalArmorBonus = mNaturalArmorBonus.getValue();
         monster.shieldBonus = mShieldBonus.getValue();
         monster.otherArmorDescription = mCustomArmor.getValue();
+        monster.walkSpeed = mWalkSpeed.getValue();
+        monster.burrowSpeed = mBurrowSpeed.getValue();
+        monster.climbSpeed = mClimbSpeed.getValue();
+        monster.flySpeed = mFlySpeed.getValue();
+        monster.swimSpeed = mSwimSpeed.getValue();
+        monster.canHover = mCanHover.getValue();
+        monster.hasCustomSpeed = mHasCustomSpeed.getValue();
+        monster.customSpeedDescription = mCustomSpeed.getValue();
 
         return monster;
     }

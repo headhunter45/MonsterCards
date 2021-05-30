@@ -80,14 +80,23 @@ public class EditMonsterFragment extends MCFragment {
                         }
                     });
         }
+
         mHolder.basicInfoButton.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditBasicInfoFragment();
             View view = getView();
             assert view != null;
             Navigation.findNavController(view).navigate(action);
         });
+
         mHolder.armorButton.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditArmorFragment();
+            View view = getView();
+            assert view != null;
+            Navigation.findNavController(view).navigate(action);
+        });
+
+        mHolder.speedButton.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSpeedFragment();
             View view = getView();
             assert view != null;
             Navigation.findNavController(view).navigate(action);
@@ -144,10 +153,12 @@ public class EditMonsterFragment extends MCFragment {
 
         TextView basicInfoButton;
         TextView armorButton;
+        TextView speedButton;
 
         ViewHolder(View root) {
             basicInfoButton = root.findViewById(R.id.basicInfo);
             armorButton = root.findViewById(R.id.armor);
+            speedButton = root.findViewById(R.id.speed);
         }
     }
 }
