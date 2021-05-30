@@ -19,8 +19,10 @@
     <string name="label_burrow_speed">Burrow Speed</string>
     <string name="label_can_hover">Can Hover</string>
     <string name="label_challenge_rating">Challenge Rating</string>
+    <string name="label_charisma">Charisma</string>
     <string name="label_climb_speed">Climb Speed</string>
     <string name="label_condition_immunities">Condition Immunities</string>
+    <string name="label_constitution">Constitution</string>
     <string name="label_custom_armor">Custom Armor</string>
     <string name="label_custom_hp">Custom HP</string>
     <string name="label_custom_speed">Custom Speed</string>
@@ -28,11 +30,13 @@
     <string name="label_damage_resistances">Damage Resistances</string>
     <string name="label_damage_vulnerabilities">Damage Vulnerabilities</string>
     <string name="label_decrement_field">-</string>
+    <string name="label_dexterity">Dexterity</string>
     <string name="label_has_custom_hp">Has Custom HP</string>
     <string name="label_has_custom_speed">Has Custom Speed</string>
     <string name="label_has_a_shield">Has a Shield</string>
     <string name="label_hit_dice">Hit Dice</string>
     <string name="label_increment_field">+</string>
+    <string name="label_intelligence">Intelligence</string>
     <string name="label_lair_actions">Lair Actions</string>
     <string name="label_languages">Languages</string>
     <string name="label_legendary_actions">Legendary Actions</string>
@@ -47,8 +51,10 @@
     <string name="label_size">Size</string>
     <string name="label_skills">Skills</string>
     <string name="label_speed">Speed</string>
+    <string name="label_strength">Strength</string>
     <string name="label_subtype">Subtype</string>
     <string name="label_type">Type</string>
+    <string name="label_wisdom">Wisdom</string>
     <string name="section_divider">section divider</string>
     <string name="snackbar_failed_to_create_monster">Failed to create monster</string>
     <string name="snackbar_monster_created">%1$s created</string>
@@ -59,4 +65,5 @@
     <string name="title_library">Library</string>
     <string name="title_search">Search</string>
     <string name="wisdom_abbreviation">WIS</string>
+
 </resources>
