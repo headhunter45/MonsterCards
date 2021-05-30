@@ -11,215 +11,55 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/baseSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_base_speed"
+            app:maxValue="1000"
+            app:minValue="0"
+            app:stepAmount="5" />
 
-            <TextView
-                android:id="@+id/baseSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="20 ft." />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_base_speed"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/baseSpeed_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_decrement_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/baseSpeed_increment"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/baseSpeed_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_increment_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/burrowSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_burrow_speed"
+            app:maxValue="1000"
+            app:minValue="0"
+            app:stepAmount="5" />
 
-            <TextView
-                android:id="@+id/burrowSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="20 ft." />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_burrow_speed"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/burrowSpeed_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_decrement_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/burrowSpeed_increment"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/burrowSpeed_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_increment_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/climbSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_climb_speed"
+            app:maxValue="1000"
+            app:minValue="0"
+            app:stepAmount="5" />
 
-            <TextView
-                android:id="@+id/climbSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="20 ft." />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_climb_speed"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/climbSpeed_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_decrement_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/climbSpeed_increment"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/climbSpeed_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_increment_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/flySpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_fly_speed"
+            app:maxValue="1000"
+            app:minValue="0"
+            app:stepAmount="5" />
 
-            <TextView
-                android:id="@+id/flySpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="20 ft." />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Fly Speed" />
-
-            <Button
-                android:id="@+id/flySpeed_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_decrement_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/flySpeed_increment"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/flySpeed_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_increment_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/swimSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
-
-            <TextView
-                android:id="@+id/swimSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="20 ft." />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Swim Speed" />
-
-            <Button
-                android:id="@+id/swimSpeed_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_decrement_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/swimSpeed_increment"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/swimSpeed_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_increment_field"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_swim_speed"
+            app:maxValue="1000"
+            app:minValue="0"
+            app:stepAmount="5" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/canHover"
