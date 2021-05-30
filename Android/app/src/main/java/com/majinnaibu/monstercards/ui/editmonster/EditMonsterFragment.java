@@ -102,6 +102,13 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(view).navigate(action);
         });
 
+        mHolder.abilityScoresButton.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditAbilityScoresFragment();
+            View view = getView();
+            assert view != null;
+            Navigation.findNavController(view).navigate(action);
+        });
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -154,11 +161,13 @@ public class EditMonsterFragment extends MCFragment {
         TextView basicInfoButton;
         TextView armorButton;
         TextView speedButton;
+        TextView abilityScoresButton;
 
         ViewHolder(View root) {
             basicInfoButton = root.findViewById(R.id.basicInfo);
             armorButton = root.findViewById(R.id.armor);
             speedButton = root.findViewById(R.id.speed);
+            abilityScoresButton = root.findViewById(R.id.abilityScores);
         }
     }
 }

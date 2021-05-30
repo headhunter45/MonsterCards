@@ -32,6 +32,12 @@ public class EditMonsterViewModel extends ViewModel {
     private final MutableLiveData<Integer> mClimbSpeed;
     private final MutableLiveData<Integer> mFlySpeed;
     private final MutableLiveData<Integer> mSwimSpeed;
+    private final MutableLiveData<Integer> mStrength;
+    private final MutableLiveData<Integer> mDexterity;
+    private final MutableLiveData<Integer> mConstitution;
+    private final MutableLiveData<Integer> mIntelligence;
+    private final MutableLiveData<Integer> mWisdom;
+    private final MutableLiveData<Integer> mCharisma;
     private final MutableLiveData<String> mName;
     private final MutableLiveData<String> mErrorMessage;
     private final MutableLiveData<String> mSize;
@@ -69,6 +75,13 @@ public class EditMonsterViewModel extends ViewModel {
         mCanHover = new MutableLiveData<>(false);
         mHasCustomSpeed = new MutableLiveData<>(false);
         mCustomSpeed = new MutableLiveData<>("");
+        mStrength = new MutableLiveData<>(10);
+        mDexterity = new MutableLiveData<>(10);
+        mConstitution = new MutableLiveData<>(10);
+        mIntelligence = new MutableLiveData<>(10);
+        mWisdom = new MutableLiveData<>(10);
+        mCharisma = new MutableLiveData<>(10);
+
         // TODO: consider initializing this to true so all new monsters need saving
         mHasChanges = new MutableLiveData<>(false);
     }
@@ -97,6 +110,12 @@ public class EditMonsterViewModel extends ViewModel {
         mCanHover.setValue(monster.canHover);
         mHasCustomSpeed.setValue(monster.hasCustomSpeed);
         mCustomSpeed.setValue(monster.customSpeedDescription);
+        mStrength.setValue(monster.strengthScore);
+        mDexterity.setValue(monster.dexterityScore);
+        mConstitution.setValue(monster.constitutionScore);
+        mIntelligence.setValue(monster.intelligenceScore);
+        mWisdom.setValue(monster.wisdomScore);
+        mCharisma.setValue(monster.charismaScore);
 
         mHasChanges.setValue(false);
     }
@@ -330,7 +349,6 @@ public class EditMonsterViewModel extends ViewModel {
         if (!Objects.equals(mWalkSpeed.getValue(), walkSpeed)) {
             mWalkSpeed.setValue(walkSpeed);
             mHasChanges.setValue(true);
-            Logger.logDebug(String.format("Setting walk speed to %d ft.", walkSpeed));
         }
     }
 
@@ -451,6 +469,119 @@ public class EditMonsterViewModel extends ViewModel {
         setSwimSpeed(mSwimSpeed.getValue() - 5);
     }
 
+    public LiveData<Integer> getStrength() {
+        return mStrength;
+    }
+
+    public void setStrength(int strength) {
+        if (!Objects.equals(mStrength.getValue(), strength)) {
+            mStrength.setValue(strength);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementStrength() {
+        setStrength(mStrength.getValue() + 1);
+    }
+
+    public void decrementStrength() {
+        setStrength(mStrength.getValue() - 1);
+    }
+
+    public LiveData<Integer> getDexterity() {
+        return mDexterity;
+    }
+
+    public void setDexterity(int dexterity) {
+        if (!Objects.equals(mDexterity.getValue(), dexterity)) {
+            mDexterity.setValue(dexterity);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementDexterity() {
+        setDexterity(mDexterity.getValue() + 1);
+    }
+
+    public void decrementDexterity() {
+        setDexterity(mDexterity.getValue() - 1);
+    }
+
+    public LiveData<Integer> getConstitution() {
+        return mConstitution;
+    }
+
+    public void setConstitution(int constitution) {
+        if (!Objects.equals(mConstitution.getValue(), constitution)) {
+            mConstitution.setValue(constitution);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementConstitution() {
+        setConstitution(mConstitution.getValue() + 1);
+    }
+
+    public void decrementConstitution() {
+        setConstitution(mConstitution.getValue() - 1);
+    }
+
+    public LiveData<Integer> getIntelligence() {
+        return mIntelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        if (!Objects.equals(mIntelligence.getValue(), intelligence)) {
+            mIntelligence.setValue(intelligence);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementIntelligence() {
+        setIntelligence(mIntelligence.getValue() + 1);
+    }
+
+    public void decrementIntelligence() {
+        setIntelligence(mIntelligence.getValue() - 1);
+    }
+
+    public LiveData<Integer> getWisdom() {
+        return mWisdom;
+    }
+
+    public void setWisdom(int wisdom) {
+        if (!Objects.equals(mWisdom.getValue(), wisdom)) {
+            mWisdom.setValue(wisdom);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementWisdom() {
+        setWisdom(mWisdom.getValue() + 1);
+    }
+
+    public void decrementWisdom() {
+        setWisdom(mWisdom.getValue() - 1);
+    }
+
+    public LiveData<Integer> getCharisma() {
+        return mCharisma;
+    }
+
+    public void setCharisma(int charisma) {
+        if (!Objects.equals(mCharisma.getValue(), charisma)) {
+            mCharisma.setValue(charisma);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public void incrementCharisma() {
+        setCharisma(mCharisma.getValue() + 1);
+    }
+
+    public void decrementCharisma() {
+        setCharisma(mCharisma.getValue() - 1);
+    }
 
     public Monster buildMonster() {
         Monster monster = new Monster();
@@ -476,6 +607,12 @@ public class EditMonsterViewModel extends ViewModel {
         monster.canHover = mCanHover.getValue();
         monster.hasCustomSpeed = mHasCustomSpeed.getValue();
         monster.customSpeedDescription = mCustomSpeed.getValue();
+        monster.strengthScore = mStrength.getValue();
+        monster.dexterityScore = mDexterity.getValue();
+        monster.constitutionScore = mConstitution.getValue();
+        monster.intelligenceScore = mIntelligence.getValue();
+        monster.wisdomScore = mWisdom.getValue();
+        monster.charismaScore = mCharisma.getValue();
 
         return monster;
     }
