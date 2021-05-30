@@ -86,6 +86,12 @@ public class EditMonsterFragment extends MCFragment {
             assert view != null;
             Navigation.findNavController(view).navigate(action);
         });
+        mHolder.armorButton.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditArmorFragment();
+            View view = getView();
+            assert view != null;
+            Navigation.findNavController(view).navigate(action);
+        });
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
@@ -137,9 +143,11 @@ public class EditMonsterFragment extends MCFragment {
     private static class ViewHolder {
 
         TextView basicInfoButton;
+        TextView armorButton;
 
         ViewHolder(View root) {
             basicInfoButton = root.findViewById(R.id.basicInfo);
+            armorButton = root.findViewById(R.id.armor);
         }
     }
 }

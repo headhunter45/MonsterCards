@@ -75,12 +75,20 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editBasicInfoFragment"
                 app:destination="@id/editBasicInfoFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editArmorFragment"
+                app:destination="@id/editArmorFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditBasicInfoFragment"
             android:label="fragment_edit_basic_info"
             tools:layout="@layout/fragment_edit_basic_info" />
+        <fragment
+            android:id="@+id/editArmorFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditArmorFragment"
+            android:label="fragment_edit_armor"
+            tools:layout="@layout/fragment_edit_armor" />
     </navigation>
 
 </navigation>
