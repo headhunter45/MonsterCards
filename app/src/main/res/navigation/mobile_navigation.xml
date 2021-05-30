@@ -78,6 +78,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editArmorFragment"
                 app:destination="@id/editArmorFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editSpeedFragment"
+                app:destination="@id/editSpeedFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -89,6 +92,11 @@
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditArmorFragment"
             android:label="fragment_edit_armor"
             tools:layout="@layout/fragment_edit_armor" />
+        <fragment
+            android:id="@+id/editSpeedFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSpeedFragment"
+            android:label="fragment_edit_speed"
+            tools:layout="@layout/fragment_edit_speed" />
     </navigation>
 
 </navigation>
