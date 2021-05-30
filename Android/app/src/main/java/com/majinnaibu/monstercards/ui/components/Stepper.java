@@ -13,11 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.Objects;
 
 
-@SuppressWarnings("unused")
 public class Stepper extends ConstraintLayout {
     private final ViewHolder mHolder;
     private int mCurrentValue;
@@ -46,7 +46,6 @@ public class Stepper extends ConstraintLayout {
         mHolder = new ViewHolder(root);
 
         setValue(mCurrentValue);
-        updateDisplayedValue();
         mHolder.increment.setOnClickListener(v -> setValue(mCurrentValue + mStep));
         mHolder.decrement.setOnClickListener(v -> setValue(mCurrentValue - mStep));
 
@@ -75,20 +74,17 @@ public class Stepper extends ConstraintLayout {
     public void setValue(int value) {
         int oldValue = this.mCurrentValue;
         int newValue = Math.min(mMaxValue, Math.max(mMinValue, value));
+        Logger.logDebug(String.format("Setting stepper value value: %d, oldValue: %d, newValue: %d", value, oldValue, newValue));
         if (newValue != oldValue) {
             this.mCurrentValue = newValue;
             if (mOnValueChangeListener != null) {
                 mOnValueChangeListener.onChange(newValue, oldValue);
             }
-            updateDisplayedValue();
-        }
-    }
-
-    private void updateDisplayedValue() {
-        if (mOnFormatValueCallback != null) {
-            mHolder.text.setText(mOnFormatValueCallback.onFormatValue(this.mCurrentValue));
-        } else {
-            mHolder.text.setText(String.valueOf(this.mCurrentValue));
+            if (mOnFormatValueCallback != null) {
+                mHolder.text.setText(mOnFormatValueCallback.onFormatValue(this.mCurrentValue));
+            } else {
+                mHolder.text.setText(String.valueOf(this.mCurrentValue));
+            }
         }
     }
 
@@ -98,7 +94,6 @@ public class Stepper extends ConstraintLayout {
 
     public void setOnFormatValueCallback(OnFormatValueCallback callback) {
         mOnFormatValueCallback = callback;
-        updateDisplayedValue();
     }
 
     public int getStep() {
@@ -139,7 +134,7 @@ public class Stepper extends ConstraintLayout {
         final Button increment;
         final Button decrement;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             text = root.findViewById(R.id.text);
             label = root.findViewById(R.id.label);
             increment = root.findViewById(R.id.increment);

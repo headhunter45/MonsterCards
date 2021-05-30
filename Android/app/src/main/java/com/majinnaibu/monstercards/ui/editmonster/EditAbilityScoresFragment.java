@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,10 +12,16 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.components.Stepper;
 
 public class EditAbilityScoresFragment extends Fragment {
+    private final String ABILITY_SCORE_FORMAT = "%d (%+d)";
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
+
+    private int getModifier(int value) {
+        return value / 2 - 5;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,72 +35,48 @@ public class EditAbilityScoresFragment extends Fragment {
 
         mHolder = new ViewHolder(root);
 
-        mViewModel.getStrength().observe(getViewLifecycleOwner(), value -> mHolder.strength.setText(String.valueOf(value)));
-        mHolder.increaseStrength.setOnClickListener(v -> mViewModel.incrementStrength());
-        mHolder.decreaseStrength.setOnClickListener(v -> mViewModel.decrementStrength());
+        mViewModel.getStrength().observe(getViewLifecycleOwner(), value -> mHolder.strength.setValue(value));
+        mHolder.strength.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setStrength(newValue));
+        mHolder.strength.setOnFormatValueCallback(value -> String.format(ABILITY_SCORE_FORMAT, value, getModifier(value)));
 
-        mViewModel.getDexterity().observe(getViewLifecycleOwner(), value -> mHolder.dexterity.setText(String.valueOf(value)));
-        mHolder.increaseDexterity.setOnClickListener(v -> mViewModel.incrementDexterity());
-        mHolder.decreaseDexterity.setOnClickListener(v -> mViewModel.decrementDexterity());
+        mViewModel.getDexterity().observe(getViewLifecycleOwner(), value -> mHolder.dexterity.setValue(value));
+        mHolder.dexterity.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setDexterity(newValue));
+        mHolder.dexterity.setOnFormatValueCallback(value -> String.format(ABILITY_SCORE_FORMAT, value, getModifier(value)));
 
-        mViewModel.getConstitution().observe(getViewLifecycleOwner(), value -> mHolder.constitution.setText(String.valueOf(value)));
-        mHolder.increaseConstitution.setOnClickListener(v -> mViewModel.incrementConstitution());
-        mHolder.decreaseConstitution.setOnClickListener(v -> mViewModel.decrementConstitution());
+        mViewModel.getConstitution().observe(getViewLifecycleOwner(), value -> mHolder.constitution.setValue(value));
+        mHolder.constitution.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setConstitution(newValue));
+        mHolder.constitution.setOnFormatValueCallback(value -> String.format(ABILITY_SCORE_FORMAT, value, getModifier(value)));
 
-        mViewModel.getIntelligence().observe(getViewLifecycleOwner(), value -> mHolder.intelligence.setText(String.valueOf(value)));
-        mHolder.increaseIntelligence.setOnClickListener(v -> mViewModel.incrementIntelligence());
-        mHolder.decreaseIntelligence.setOnClickListener(v -> mViewModel.decrementIntelligence());
+        mViewModel.getIntelligence().observe(getViewLifecycleOwner(), value -> mHolder.intelligence.setValue(value));
+        mHolder.intelligence.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setIntelligence(newValue));
+        mHolder.intelligence.setOnFormatValueCallback(value -> String.format(ABILITY_SCORE_FORMAT, value, getModifier(value)));
 
-        mViewModel.getWisdom().observe(getViewLifecycleOwner(), value -> mHolder.wisdom.setText(String.valueOf(value)));
-        mHolder.increaseWisdom.setOnClickListener(v -> mViewModel.incrementWisdom());
-        mHolder.decreaseWisdom.setOnClickListener(v -> mViewModel.decrementWisdom());
+        mViewModel.getWisdom().observe(getViewLifecycleOwner(), value -> mHolder.wisdom.setValue(value));
+        mHolder.wisdom.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setWisdom(newValue));
+        mHolder.wisdom.setOnFormatValueCallback(value -> String.format(ABILITY_SCORE_FORMAT, value, getModifier(value)));
 
-        mViewModel.getCharisma().observe(getViewLifecycleOwner(), value -> mHolder.charisma.setText(String.valueOf(value)));
-        mHolder.increaseCharisma.setOnClickListener(v -> mViewModel.incrementCharisma());
-        mHolder.decreaseCharisma.setOnClickListener(v -> mViewModel.decrementCharisma());
+        mViewModel.getCharisma().observe(getViewLifecycleOwner(), value -> mHolder.charisma.setValue(value));
+        mHolder.charisma.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setCharisma(newValue));
+        mHolder.charisma.setOnFormatValueCallback(value -> String.format(ABILITY_SCORE_FORMAT, value, getModifier(value)));
 
         return root;
     }
 
     private static class ViewHolder {
-        TextView strength;
-        Button decreaseStrength;
-        Button increaseStrength;
-        TextView dexterity;
-        Button increaseDexterity;
-        Button decreaseDexterity;
-        TextView constitution;
-        Button increaseConstitution;
-        Button decreaseConstitution;
-        TextView intelligence;
-        Button increaseIntelligence;
-        Button decreaseIntelligence;
-        TextView wisdom;
-        Button increaseWisdom;
-        Button decreaseWisdom;
-        TextView charisma;
-        Button increaseCharisma;
-        Button decreaseCharisma;
+        final Stepper strength;
+        final Stepper dexterity;
+        final Stepper constitution;
+        final Stepper intelligence;
+        final Stepper wisdom;
+        final Stepper charisma;
 
         ViewHolder(View root) {
             strength = root.findViewById(R.id.strength);
-            increaseStrength = root.findViewById(R.id.strength_increment);
-            decreaseStrength = root.findViewById(R.id.strength_decrement);
             dexterity = root.findViewById(R.id.dexterity);
-            increaseDexterity = root.findViewById(R.id.dexterity_increment);
-            decreaseDexterity = root.findViewById(R.id.dexterity_decrement);
             constitution = root.findViewById(R.id.constitution);
-            increaseConstitution = root.findViewById(R.id.constitution_increment);
-            decreaseConstitution = root.findViewById(R.id.constitution_decrement);
             intelligence = root.findViewById(R.id.intelligence);
-            increaseIntelligence = root.findViewById(R.id.intelligence_increment);
-            decreaseIntelligence = root.findViewById(R.id.intelligence_decrement);
             wisdom = root.findViewById(R.id.wisdom);
-            increaseWisdom = root.findViewById(R.id.wisdom_increment);
-            decreaseWisdom = root.findViewById(R.id.wisdom_decrement);
             charisma = root.findViewById(R.id.charisma);
-            increaseCharisma = root.findViewById(R.id.charisma_increment);
-            decreaseCharisma = root.findViewById(R.id.charisma_decrement);
         }
     }
 }
