@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
+import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -24,6 +26,18 @@ public class EditMonsterViewModel extends ViewModel {
     private final MutableLiveData<Boolean> mCanHover;
     private final MutableLiveData<Boolean> mHasCustomSpeed;
     private final MutableLiveData<ArmorType> mArmorType;
+    private final MutableLiveData<ProficiencyType> mStrengthProficiency;
+    private final MutableLiveData<AdvantageType> mStrengthAdvantage;
+    private final MutableLiveData<ProficiencyType> mDexterityProficiency;
+    private final MutableLiveData<AdvantageType> mDexterityAdvantage;
+    private final MutableLiveData<ProficiencyType> mConstitutionProficiency;
+    private final MutableLiveData<AdvantageType> mConstitutionAdvantage;
+    private final MutableLiveData<ProficiencyType> mIntelligenceProficiency;
+    private final MutableLiveData<AdvantageType> mIntelligenceAdvantage;
+    private final MutableLiveData<ProficiencyType> mWisdomProficiency;
+    private final MutableLiveData<AdvantageType> mWisdomAdvantage;
+    private final MutableLiveData<ProficiencyType> mCharismaProficiency;
+    private final MutableLiveData<AdvantageType> mCharismaAdvantage;
     private final MutableLiveData<Integer> mHitDice;
     private final MutableLiveData<Integer> mNaturalArmorBonus;
     private final MutableLiveData<Integer> mShieldBonus;
@@ -81,6 +95,18 @@ public class EditMonsterViewModel extends ViewModel {
         mIntelligence = new MutableLiveData<>(10);
         mWisdom = new MutableLiveData<>(10);
         mCharisma = new MutableLiveData<>(10);
+        mStrengthProficiency = new MutableLiveData<>(ProficiencyType.NONE);
+        mStrengthAdvantage = new MutableLiveData<>(AdvantageType.NONE);
+        mDexterityProficiency = new MutableLiveData<>(ProficiencyType.NONE);
+        mDexterityAdvantage = new MutableLiveData<>(AdvantageType.NONE);
+        mConstitutionProficiency = new MutableLiveData<>(ProficiencyType.NONE);
+        mConstitutionAdvantage = new MutableLiveData<>(AdvantageType.NONE);
+        mIntelligenceProficiency = new MutableLiveData<>(ProficiencyType.NONE);
+        mIntelligenceAdvantage = new MutableLiveData<>(AdvantageType.NONE);
+        mWisdomProficiency = new MutableLiveData<>(ProficiencyType.NONE);
+        mWisdomAdvantage = new MutableLiveData<>(AdvantageType.NONE);
+        mCharismaProficiency = new MutableLiveData<>(ProficiencyType.NONE);
+        mCharismaAdvantage = new MutableLiveData<>(AdvantageType.NONE);
 
         // TODO: consider initializing this to true so all new monsters need saving
         mHasChanges = new MutableLiveData<>(false);
@@ -116,6 +142,18 @@ public class EditMonsterViewModel extends ViewModel {
         mIntelligence.setValue(monster.intelligenceScore);
         mWisdom.setValue(monster.wisdomScore);
         mCharisma.setValue(monster.charismaScore);
+        mStrengthProficiency.setValue(monster.strengthSavingThrowProficiency);
+        mStrengthAdvantage.setValue(monster.strengthSavingThrowAdvantage);
+        mDexterityProficiency.setValue(monster.dexteritySavingThrowProficiency);
+        mDexterityAdvantage.setValue(monster.dexteritySavingThrowAdvantage);
+        mConstitutionProficiency.setValue(monster.constitutionSavingThrowProficiency);
+        mConstitutionAdvantage.setValue(monster.constitutionSavingThrowAdvantage);
+        mIntelligenceProficiency.setValue(monster.intelligenceSavingThrowProficiency);
+        mIntelligenceAdvantage.setValue(monster.intelligenceSavingThrowAdvantage);
+        mWisdomProficiency.setValue(monster.wisdomSavingThrowProficiency);
+        mWisdomAdvantage.setValue(monster.wisdomSavingThrowAdvantage);
+        mCharismaProficiency.setValue(monster.charismaSavingThrowProficiency);
+        mCharismaAdvantage.setValue(monster.charismaSavingThrowAdvantage);
 
         mHasChanges.setValue(false);
     }
@@ -583,6 +621,138 @@ public class EditMonsterViewModel extends ViewModel {
         setCharisma(mCharisma.getValue() - 1);
     }
 
+    public LiveData<ProficiencyType> getStrengthProficiency() {
+        return mStrengthProficiency;
+    }
+
+    public void setStrengthProficiency(ProficiencyType proficiency) {
+        if (!Objects.equals(mStrengthProficiency.getValue(), proficiency)) {
+            mStrengthProficiency.setValue(proficiency);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<AdvantageType> getStrengthAdvantage() {
+        return mStrengthAdvantage;
+    }
+
+    public void setStrengthAdvantage(AdvantageType advantage) {
+        if (!Objects.equals(mStrengthAdvantage.getValue(), advantage)) {
+            mStrengthAdvantage.setValue(advantage);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<ProficiencyType> getDexterityProficiency() {
+        return mDexterityProficiency;
+    }
+
+    public void setDexterityProficiency(ProficiencyType proficiency) {
+        if (!Objects.equals(mDexterityProficiency.getValue(), proficiency)) {
+            mDexterityProficiency.setValue(proficiency);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<AdvantageType> getDexterityAdvantage() {
+        return mDexterityAdvantage;
+    }
+
+    public void setDexterityAdvantage(AdvantageType advantage) {
+        if (!Objects.equals(mDexterityAdvantage.getValue(), advantage)) {
+            mDexterityAdvantage.setValue(advantage);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<ProficiencyType> getConstitutionProficiency() {
+        return mConstitutionProficiency;
+    }
+
+    public void setConstitutionProficiency(ProficiencyType proficiency) {
+        if (!Objects.equals(mConstitutionProficiency.getValue(), proficiency)) {
+            mConstitutionProficiency.setValue(proficiency);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<AdvantageType> getConstitutionAdvantage() {
+        return mConstitutionAdvantage;
+    }
+
+    public void setConstitutionAdvantage(AdvantageType advantage) {
+        if (!Objects.equals(mConstitutionAdvantage.getValue(), advantage)) {
+            mConstitutionAdvantage.setValue(advantage);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<ProficiencyType> getIntelligenceProficiency() {
+        return mIntelligenceProficiency;
+    }
+
+    public void setIntelligenceProficiency(ProficiencyType proficiency) {
+        if (!Objects.equals(mIntelligenceProficiency.getValue(), proficiency)) {
+            mIntelligenceProficiency.setValue(proficiency);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<AdvantageType> getIntelligenceAdvantage() {
+        return mIntelligenceAdvantage;
+    }
+
+    public void setIntelligenceAdvantage(AdvantageType advantage) {
+        if (!Objects.equals(mIntelligenceAdvantage.getValue(), advantage)) {
+            mIntelligenceAdvantage.setValue(advantage);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<ProficiencyType> getWisdomProficiency() {
+        return mWisdomProficiency;
+    }
+
+    public void setWisdomProficiency(ProficiencyType proficiency) {
+        if (!Objects.equals(mWisdomProficiency.getValue(), proficiency)) {
+            mWisdomProficiency.setValue(proficiency);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<AdvantageType> getWisdomAdvantage() {
+        return mWisdomAdvantage;
+    }
+
+    public void setWisdomAdvantage(AdvantageType advantage) {
+        if (!Objects.equals(mWisdomAdvantage.getValue(), advantage)) {
+            mWisdomAdvantage.setValue(advantage);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<ProficiencyType> getCharismaProficiency() {
+        return mCharismaProficiency;
+    }
+
+    public void setCharismaProficiency(ProficiencyType proficiency) {
+        if (!Objects.equals(mCharismaProficiency.getValue(), proficiency)) {
+            mCharismaProficiency.setValue(proficiency);
+            mHasChanges.setValue(true);
+        }
+    }
+
+    public LiveData<AdvantageType> getCharismaAdvantage() {
+        return mCharismaAdvantage;
+    }
+
+    public void setCharismaAdvantage(AdvantageType advantage) {
+        if (!Objects.equals(mCharismaAdvantage.getValue(), advantage)) {
+            mCharismaAdvantage.setValue(advantage);
+            mHasChanges.setValue(true);
+        }
+    }
+
     public Monster buildMonster() {
         Monster monster = new Monster();
 
@@ -613,6 +783,18 @@ public class EditMonsterViewModel extends ViewModel {
         monster.intelligenceScore = mIntelligence.getValue();
         monster.wisdomScore = mWisdom.getValue();
         monster.charismaScore = mCharisma.getValue();
+        monster.strengthSavingThrowAdvantage = mStrengthAdvantage.getValue();
+        monster.strengthSavingThrowProficiency = mStrengthProficiency.getValue();
+        monster.dexteritySavingThrowAdvantage = mDexterityAdvantage.getValue();
+        monster.dexteritySavingThrowProficiency = mDexterityProficiency.getValue();
+        monster.constitutionSavingThrowAdvantage = mConstitutionAdvantage.getValue();
+        monster.constitutionSavingThrowProficiency = mConstitutionProficiency.getValue();
+        monster.intelligenceSavingThrowAdvantage = mIntelligenceAdvantage.getValue();
+        monster.intelligenceSavingThrowProficiency = mIntelligenceProficiency.getValue();
+        monster.wisdomSavingThrowAdvantage = mWisdomAdvantage.getValue();
+        monster.wisdomSavingThrowProficiency = mWisdomProficiency.getValue();
+        monster.charismaSavingThrowAdvantage = mCharismaAdvantage.getValue();
+        monster.charismaSavingThrowProficiency = mCharismaProficiency.getValue();
 
         return monster;
     }
