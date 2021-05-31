@@ -12,6 +12,10 @@
     <string name="label_ability_scores">Ability Scores</string>
     <string name="label_abilities">Abilities</string>
     <string name="label_actions">Actions</string>
+    <string name="label_advantage">Advantage</string>
+    <string name="label_advantage_advantage">Advantage</string>
+    <string name="label_advantage_disadvantage">Disadvantage</string>
+    <string name="label_advantage_none">None</string>
     <string name="label_alignment">Alignment</string>
     <string name="label_armor">Armor</string>
     <string name="label_base_speed">Base Speed</string>
@@ -42,6 +46,10 @@
     <string name="label_legendary_actions">Legendary Actions</string>
     <string name="label_natural_armor_bonus">Natural Armor Bonus</string>
     <string name="label_name">Name</string>
+    <string name="label_proficiency">Proficiency</string>
+    <string name="label_proficiency_expertise">Expertise</string>
+    <string name="label_proficiency_none">None</string>
+    <string name="label_proficiency_proficient">Proficient</string>
     <string name="label_reactions">Reactions</string>
     <string name="label_regional_actions">Regional Actions</string>
     <string name="label_saving_throws">Saving Throws</string>

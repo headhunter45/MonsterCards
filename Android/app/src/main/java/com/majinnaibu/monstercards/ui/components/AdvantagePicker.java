@@ -33,9 +33,9 @@ public class AdvantagePicker extends ConstraintLayout {
 
         setValue(AdvantageType.NONE);
         mHolder.group.setOnCheckedChangeListener((group, checkedId) -> {
-            if (R.id.hasAdvantage == checkedId) {
+            if (R.id.advantage == checkedId) {
                 setValue(AdvantageType.ADVANTAGE);
-            } else if (R.id.hasDisadvantage == checkedId) {
+            } else if (R.id.disadvantage == checkedId) {
                 setValue(AdvantageType.DISADVANTAGE);
             } else {
                 setValue(AdvantageType.NONE);
@@ -60,11 +60,11 @@ public class AdvantagePicker extends ConstraintLayout {
         }
         final int checkedId = mHolder.group.getCheckedRadioButtonId();
         if (mSelectedValue == AdvantageType.ADVANTAGE) {
-            if (checkedId != R.id.hasAdvantage) {
+            if (checkedId != R.id.advantage) {
                 mHolder.advantage.setChecked(true);
             }
         } else if (mSelectedValue == AdvantageType.DISADVANTAGE) {
-            if (checkedId != R.id.hasDisadvantage) {
+            if (checkedId != R.id.disadvantage) {
                 mHolder.disadvantage.setChecked(true);
             }
         } else {
@@ -88,11 +88,11 @@ public class AdvantagePicker extends ConstraintLayout {
         final MaterialRadioButton advantage;
         final MaterialRadioButton disadvantage;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             group = root.findViewById(R.id.group);
-            none = root.findViewById(R.id.hasNoAdvantage);
-            advantage = root.findViewById(R.id.hasAdvantage);
-            disadvantage = root.findViewById(R.id.hasDisadvantage);
+            none = root.findViewById(R.id.none);
+            advantage = root.findViewById(R.id.advantage);
+            disadvantage = root.findViewById(R.id.disadvantage);
         }
     }
 }
