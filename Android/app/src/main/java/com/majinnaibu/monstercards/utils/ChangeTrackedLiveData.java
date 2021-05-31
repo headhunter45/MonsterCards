@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.Objects;
 
-@SuppressWarnings("unused")
 public class ChangeTrackedLiveData<T> extends MutableLiveData<T> {
     private final OnValueChangedCallback<T> mOnValueChangedCallback;
     private final OnValueDirtiedCallback mOnValueDirtiedCallback;
