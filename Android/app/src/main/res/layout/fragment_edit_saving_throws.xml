@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.editmonster.EditSavingThrowsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/label_strength" />
+
+        <com.majinnaibu.monstercards.ui.components.ProficiencyPicker
+            android:id="@+id/strengthProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.AdvantagePicker
+            android:id="@+id/strengthAdvantage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/label_dexterity" />
+
+        <com.majinnaibu.monstercards.ui.components.ProficiencyPicker
+            android:id="@+id/dexterityProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.AdvantagePicker
+            android:id="@+id/dexterityAdvantage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/label_constitution" />
+
+        <com.majinnaibu.monstercards.ui.components.ProficiencyPicker
+            android:id="@+id/constitutionProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.AdvantagePicker
+            android:id="@+id/constitutionAdvantage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/label_intelligence" />
+
+        <com.majinnaibu.monstercards.ui.components.ProficiencyPicker
+            android:id="@+id/intelligenceProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.AdvantagePicker
+            android:id="@+id/intelligenceAdvantage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/label_wisdom" />
+
+        <com.majinnaibu.monstercards.ui.components.ProficiencyPicker
+            android:id="@+id/wisdomProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.AdvantagePicker
+            android:id="@+id/wisdomAdvantage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/label_charisma" />
+
+        <com.majinnaibu.monstercards.ui.components.ProficiencyPicker
+            android:id="@+id/charismaProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.AdvantagePicker
+            android:id="@+id/charismaAdvantage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

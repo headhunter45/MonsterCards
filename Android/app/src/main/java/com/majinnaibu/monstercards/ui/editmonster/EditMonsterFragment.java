@@ -109,6 +109,13 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(view).navigate(action);
         });
 
+        mHolder.savingThrows.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSavingThrowsFragment();
+            View view = getView();
+            assert view != null;
+            Navigation.findNavController(view).navigate(action);
+        });
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -162,12 +169,42 @@ public class EditMonsterFragment extends MCFragment {
         TextView armorButton;
         TextView speedButton;
         TextView abilityScoresButton;
+        TextView savingThrows;
+        TextView skills;
+        TextView conditionImmunities;
+        TextView damageImmunities;
+        TextView damageResistances;
+        TextView damageVulnerabilities;
+        TextView senses;
+        TextView languages;
+        TextView challengeRating;
+        TextView abilities;
+        TextView actions;
+        TextView reactions;
+        TextView legendaryActions;
+        TextView lairActions;
+        TextView regionalActions;
 
         ViewHolder(View root) {
             basicInfoButton = root.findViewById(R.id.basicInfo);
             armorButton = root.findViewById(R.id.armor);
             speedButton = root.findViewById(R.id.speed);
             abilityScoresButton = root.findViewById(R.id.abilityScores);
+            savingThrows = root.findViewById(R.id.savingThrows);
+            skills = root.findViewById(R.id.skills);
+            conditionImmunities = root.findViewById(R.id.conditionImmunities);
+            damageImmunities = root.findViewById(R.id.damageImmunities);
+            damageResistances = root.findViewById(R.id.damageResistances);
+            damageVulnerabilities = root.findViewById(R.id.damageVulnerabilities);
+            senses = root.findViewById(R.id.senses);
+            languages = root.findViewById(R.id.languages);
+            challengeRating = root.findViewById(R.id.challengeRating);
+            abilities = root.findViewById(R.id.abilities);
+            actions = root.findViewById(R.id.actions);
+            reactions = root.findViewById(R.id.reactions);
+            legendaryActions = root.findViewById(R.id.legendaryActions);
+            lairActions = root.findViewById(R.id.lairActions);
+            regionalActions = root.findViewById(R.id.regionalActions);
         }
     }
 }
