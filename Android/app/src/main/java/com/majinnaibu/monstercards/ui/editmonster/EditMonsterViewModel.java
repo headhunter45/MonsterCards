@@ -10,150 +10,147 @@ import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
-import java.util.Objects;
 import java.util.UUID;
 
 @SuppressWarnings({"ConstantConditions", "unused"})
 public class EditMonsterViewModel extends ViewModel {
-    private final MutableLiveData<UUID> mMonsterId;
+    private final ChangeTrackedLiveData<UUID> mMonsterId;
     private final MutableLiveData<Boolean> mHasError;
     private final MutableLiveData<Boolean> mHasLoaded;
     private final MutableLiveData<Boolean> mHasChanges;
-    private final MutableLiveData<Boolean> mHasCustomHitPoints;
-    private final MutableLiveData<Boolean> mHasShield;
-    private final MutableLiveData<Boolean> mCanHover;
-    private final MutableLiveData<Boolean> mHasCustomSpeed;
-    private final MutableLiveData<ArmorType> mArmorType;
-    private final MutableLiveData<ProficiencyType> mStrengthProficiency;
-    private final MutableLiveData<AdvantageType> mStrengthAdvantage;
-    private final MutableLiveData<ProficiencyType> mDexterityProficiency;
-    private final MutableLiveData<AdvantageType> mDexterityAdvantage;
-    private final MutableLiveData<ProficiencyType> mConstitutionProficiency;
-    private final MutableLiveData<AdvantageType> mConstitutionAdvantage;
-    private final MutableLiveData<ProficiencyType> mIntelligenceProficiency;
-    private final MutableLiveData<AdvantageType> mIntelligenceAdvantage;
-    private final MutableLiveData<ProficiencyType> mWisdomProficiency;
-    private final MutableLiveData<AdvantageType> mWisdomAdvantage;
-    private final MutableLiveData<ProficiencyType> mCharismaProficiency;
-    private final MutableLiveData<AdvantageType> mCharismaAdvantage;
-    private final MutableLiveData<Integer> mHitDice;
-    private final MutableLiveData<Integer> mNaturalArmorBonus;
-    private final MutableLiveData<Integer> mShieldBonus;
-    private final MutableLiveData<Integer> mWalkSpeed;
-    private final MutableLiveData<Integer> mBurrowSpeed;
-    private final MutableLiveData<Integer> mClimbSpeed;
-    private final MutableLiveData<Integer> mFlySpeed;
-    private final MutableLiveData<Integer> mSwimSpeed;
-    private final MutableLiveData<Integer> mStrength;
-    private final MutableLiveData<Integer> mDexterity;
-    private final MutableLiveData<Integer> mConstitution;
-    private final MutableLiveData<Integer> mIntelligence;
-    private final MutableLiveData<Integer> mWisdom;
-    private final MutableLiveData<Integer> mCharisma;
-    private final MutableLiveData<String> mName;
+    private final ChangeTrackedLiveData<Boolean> mHasCustomHitPoints;
+    private final ChangeTrackedLiveData<Boolean> mHasShield;
+    private final ChangeTrackedLiveData<Boolean> mCanHover;
+    private final ChangeTrackedLiveData<Boolean> mHasCustomSpeed;
+    private final ChangeTrackedLiveData<ArmorType> mArmorType;
+    private final ChangeTrackedLiveData<ProficiencyType> mStrengthProficiency;
+    private final ChangeTrackedLiveData<AdvantageType> mStrengthAdvantage;
+    private final ChangeTrackedLiveData<ProficiencyType> mDexterityProficiency;
+    private final ChangeTrackedLiveData<AdvantageType> mDexterityAdvantage;
+    private final ChangeTrackedLiveData<ProficiencyType> mConstitutionProficiency;
+    private final ChangeTrackedLiveData<AdvantageType> mConstitutionAdvantage;
+    private final ChangeTrackedLiveData<ProficiencyType> mIntelligenceProficiency;
+    private final ChangeTrackedLiveData<AdvantageType> mIntelligenceAdvantage;
+    private final ChangeTrackedLiveData<ProficiencyType> mWisdomProficiency;
+    private final ChangeTrackedLiveData<AdvantageType> mWisdomAdvantage;
+    private final ChangeTrackedLiveData<ProficiencyType> mCharismaProficiency;
+    private final ChangeTrackedLiveData<AdvantageType> mCharismaAdvantage;
+    private final ChangeTrackedLiveData<Integer> mHitDice;
+    private final ChangeTrackedLiveData<Integer> mNaturalArmorBonus;
+    private final ChangeTrackedLiveData<Integer> mShieldBonus;
+    private final ChangeTrackedLiveData<Integer> mWalkSpeed;
+    private final ChangeTrackedLiveData<Integer> mBurrowSpeed;
+    private final ChangeTrackedLiveData<Integer> mClimbSpeed;
+    private final ChangeTrackedLiveData<Integer> mFlySpeed;
+    private final ChangeTrackedLiveData<Integer> mSwimSpeed;
+    private final ChangeTrackedLiveData<Integer> mStrength;
+    private final ChangeTrackedLiveData<Integer> mDexterity;
+    private final ChangeTrackedLiveData<Integer> mConstitution;
+    private final ChangeTrackedLiveData<Integer> mIntelligence;
+    private final ChangeTrackedLiveData<Integer> mWisdom;
+    private final ChangeTrackedLiveData<Integer> mCharisma;
+    private final ChangeTrackedLiveData<String> mName;
     private final MutableLiveData<String> mErrorMessage;
-    private final MutableLiveData<String> mSize;
-    private final MutableLiveData<String> mType;
-    private final MutableLiveData<String> mSubtype;
-    private final MutableLiveData<String> mAlignment;
-    private final MutableLiveData<String> mCustomHitPoints;
-    private final MutableLiveData<String> mCustomArmor;
-    private final MutableLiveData<String> mCustomSpeed;
+    private final ChangeTrackedLiveData<String> mSize;
+    private final ChangeTrackedLiveData<String> mType;
+    private final ChangeTrackedLiveData<String> mSubtype;
+    private final ChangeTrackedLiveData<String> mAlignment;
+    private final ChangeTrackedLiveData<String> mCustomHitPoints;
+    private final ChangeTrackedLiveData<String> mCustomArmor;
+    private final ChangeTrackedLiveData<String> mCustomSpeed;
 
     public EditMonsterViewModel() {
-
-        mName = new MutableLiveData<>("");
-        mMonsterId = new MutableLiveData<>(UUID.randomUUID());
         mErrorMessage = new MutableLiveData<>("");
         mHasError = new MutableLiveData<>(false);
         mHasLoaded = new MutableLiveData<>(false);
-        mSize = new MutableLiveData<>("");
-        mType = new MutableLiveData<>("");
-        mSubtype = new MutableLiveData<>("");
-        mAlignment = new MutableLiveData<>("");
-        mCustomHitPoints = new MutableLiveData<>("");
-        mHitDice = new MutableLiveData<>(0);
-        mNaturalArmorBonus = new MutableLiveData<>(0);
-        mHasCustomHitPoints = new MutableLiveData<>(false);
-        mArmorType = new MutableLiveData<>(ArmorType.NONE);
-        mHasShield = new MutableLiveData<>(false);
-        mShieldBonus = new MutableLiveData<>(0);
-        mCustomArmor = new MutableLiveData<>("");
-        mWalkSpeed = new MutableLiveData<>(0);
-        mBurrowSpeed = new MutableLiveData<>(0);
-        mClimbSpeed = new MutableLiveData<>(0);
-        mFlySpeed = new MutableLiveData<>(0);
-        mSwimSpeed = new MutableLiveData<>(0);
-        mCanHover = new MutableLiveData<>(false);
-        mHasCustomSpeed = new MutableLiveData<>(false);
-        mCustomSpeed = new MutableLiveData<>("");
-        mStrength = new MutableLiveData<>(10);
-        mDexterity = new MutableLiveData<>(10);
-        mConstitution = new MutableLiveData<>(10);
-        mIntelligence = new MutableLiveData<>(10);
-        mWisdom = new MutableLiveData<>(10);
-        mCharisma = new MutableLiveData<>(10);
-        mStrengthProficiency = new MutableLiveData<>(ProficiencyType.NONE);
-        mStrengthAdvantage = new MutableLiveData<>(AdvantageType.NONE);
-        mDexterityProficiency = new MutableLiveData<>(ProficiencyType.NONE);
-        mDexterityAdvantage = new MutableLiveData<>(AdvantageType.NONE);
-        mConstitutionProficiency = new MutableLiveData<>(ProficiencyType.NONE);
-        mConstitutionAdvantage = new MutableLiveData<>(AdvantageType.NONE);
-        mIntelligenceProficiency = new MutableLiveData<>(ProficiencyType.NONE);
-        mIntelligenceAdvantage = new MutableLiveData<>(AdvantageType.NONE);
-        mWisdomProficiency = new MutableLiveData<>(ProficiencyType.NONE);
-        mWisdomAdvantage = new MutableLiveData<>(AdvantageType.NONE);
-        mCharismaProficiency = new MutableLiveData<>(ProficiencyType.NONE);
-        mCharismaAdvantage = new MutableLiveData<>(AdvantageType.NONE);
-
-        // TODO: consider initializing this to true so all new monsters need saving
         mHasChanges = new MutableLiveData<>(false);
+        ChangeTrackedLiveData.OnValueDirtiedCallback onDirtied = () -> mHasChanges.setValue(true);
+
+        mName = new ChangeTrackedLiveData<>("", onDirtied);
+        mMonsterId = new ChangeTrackedLiveData<>(UUID.randomUUID(), onDirtied);
+        mSize = new ChangeTrackedLiveData<>("", onDirtied);
+        mType = new ChangeTrackedLiveData<>("", onDirtied);
+        mSubtype = new ChangeTrackedLiveData<>("", onDirtied);
+        mAlignment = new ChangeTrackedLiveData<>("", onDirtied);
+        mCustomHitPoints = new ChangeTrackedLiveData<>("", onDirtied);
+        mHitDice = new ChangeTrackedLiveData<>(0, onDirtied);
+        mNaturalArmorBonus = new ChangeTrackedLiveData<>(0, onDirtied);
+        mHasCustomHitPoints = new ChangeTrackedLiveData<>(false, onDirtied);
+        mArmorType = new ChangeTrackedLiveData<>(ArmorType.NONE, onDirtied);
+        mHasShield = new ChangeTrackedLiveData<>(false, onDirtied);
+        mShieldBonus = new ChangeTrackedLiveData<>(0, onDirtied);
+        mCustomArmor = new ChangeTrackedLiveData<>("", onDirtied);
+        mWalkSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
+        mBurrowSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
+        mClimbSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
+        mFlySpeed = new ChangeTrackedLiveData<>(0, onDirtied);
+        mSwimSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
+        mCanHover = new ChangeTrackedLiveData<>(false, onDirtied);
+        mHasCustomSpeed = new ChangeTrackedLiveData<>(false, onDirtied);
+        mCustomSpeed = new ChangeTrackedLiveData<>("", onDirtied);
+        mStrength = new ChangeTrackedLiveData<>(10, onDirtied);
+        mDexterity = new ChangeTrackedLiveData<>(10, onDirtied);
+        mConstitution = new ChangeTrackedLiveData<>(10, onDirtied);
+        mIntelligence = new ChangeTrackedLiveData<>(10, onDirtied);
+        mWisdom = new ChangeTrackedLiveData<>(10, onDirtied);
+        mCharisma = new ChangeTrackedLiveData<>(10, onDirtied);
+        mStrengthProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
+        mStrengthAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
+        mDexterityProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
+        mDexterityAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
+        mConstitutionProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
+        mConstitutionAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
+        mIntelligenceProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
+        mIntelligenceAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
+        mWisdomProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
+        mWisdomAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
+        mCharismaProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
+        mCharismaAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
     }
 
     public void copyFromMonster(Monster monster) {
-        // TODO: copy from monster to other fields
-        mMonsterId.setValue(monster.id);
-        mName.setValue(monster.name);
-        mSize.setValue(monster.size);
-        mType.setValue(monster.type);
-        mSubtype.setValue(monster.subtype);
-        mAlignment.setValue(monster.alignment);
-        mCustomHitPoints.setValue(monster.customHPDescription);
-        mHitDice.setValue(monster.hitDice);
-        mNaturalArmorBonus.setValue(monster.naturalArmorBonus);
-        mHasCustomHitPoints.setValue(monster.hasCustomHP);
-        mArmorType.setValue(monster.armorType);
-        mHasShield.setValue(monster.shieldBonus != 0);
-        mShieldBonus.setValue(monster.shieldBonus);
-        mCustomArmor.setValue(monster.otherArmorDescription);
-        mWalkSpeed.setValue(monster.walkSpeed);
-        mBurrowSpeed.setValue(monster.burrowSpeed);
-        mClimbSpeed.setValue(monster.climbSpeed);
-        mFlySpeed.setValue(monster.flySpeed);
-        mSwimSpeed.setValue(monster.swimSpeed);
-        mCanHover.setValue(monster.canHover);
-        mHasCustomSpeed.setValue(monster.hasCustomSpeed);
-        mCustomSpeed.setValue(monster.customSpeedDescription);
-        mStrength.setValue(monster.strengthScore);
-        mDexterity.setValue(monster.dexterityScore);
-        mConstitution.setValue(monster.constitutionScore);
-        mIntelligence.setValue(monster.intelligenceScore);
-        mWisdom.setValue(monster.wisdomScore);
-        mCharisma.setValue(monster.charismaScore);
-        mStrengthProficiency.setValue(monster.strengthSavingThrowProficiency);
-        mStrengthAdvantage.setValue(monster.strengthSavingThrowAdvantage);
-        mDexterityProficiency.setValue(monster.dexteritySavingThrowProficiency);
-        mDexterityAdvantage.setValue(monster.dexteritySavingThrowAdvantage);
-        mConstitutionProficiency.setValue(monster.constitutionSavingThrowProficiency);
-        mConstitutionAdvantage.setValue(monster.constitutionSavingThrowAdvantage);
-        mIntelligenceProficiency.setValue(monster.intelligenceSavingThrowProficiency);
-        mIntelligenceAdvantage.setValue(monster.intelligenceSavingThrowAdvantage);
-        mWisdomProficiency.setValue(monster.wisdomSavingThrowProficiency);
-        mWisdomAdvantage.setValue(monster.wisdomSavingThrowAdvantage);
-        mCharismaProficiency.setValue(monster.charismaSavingThrowProficiency);
-        mCharismaAdvantage.setValue(monster.charismaSavingThrowAdvantage);
+        mMonsterId.resetValue(monster.id);
+        mName.resetValue(monster.name);
+        mSize.resetValue(monster.size);
+        mType.resetValue(monster.type);
+        mSubtype.resetValue(monster.subtype);
+        mAlignment.resetValue(monster.alignment);
+        mCustomHitPoints.resetValue(monster.customHPDescription);
+        mHitDice.resetValue(monster.hitDice);
+        mNaturalArmorBonus.resetValue(monster.naturalArmorBonus);
+        mHasCustomHitPoints.resetValue(monster.hasCustomHP);
+        mArmorType.resetValue(monster.armorType);
+        mHasShield.resetValue(monster.shieldBonus != 0);
+        mShieldBonus.resetValue(monster.shieldBonus);
+        mCustomArmor.resetValue(monster.otherArmorDescription);
+        mWalkSpeed.resetValue(monster.walkSpeed);
+        mBurrowSpeed.resetValue(monster.burrowSpeed);
+        mClimbSpeed.resetValue(monster.climbSpeed);
+        mFlySpeed.resetValue(monster.flySpeed);
+        mSwimSpeed.resetValue(monster.swimSpeed);
+        mCanHover.resetValue(monster.canHover);
+        mHasCustomSpeed.resetValue(monster.hasCustomSpeed);
+        mCustomSpeed.resetValue(monster.customSpeedDescription);
+        mStrength.resetValue(monster.strengthScore);
+        mDexterity.resetValue(monster.dexterityScore);
+        mConstitution.resetValue(monster.constitutionScore);
+        mIntelligence.resetValue(monster.intelligenceScore);
+        mWisdom.resetValue(monster.wisdomScore);
+        mCharisma.resetValue(monster.charismaScore);
+        mStrengthProficiency.resetValue(monster.strengthSavingThrowProficiency);
+        mStrengthAdvantage.resetValue(monster.strengthSavingThrowAdvantage);
+        mDexterityProficiency.resetValue(monster.dexteritySavingThrowProficiency);
+        mDexterityAdvantage.resetValue(monster.dexteritySavingThrowAdvantage);
+        mConstitutionProficiency.resetValue(monster.constitutionSavingThrowProficiency);
+        mConstitutionAdvantage.resetValue(monster.constitutionSavingThrowAdvantage);
+        mIntelligenceProficiency.resetValue(monster.intelligenceSavingThrowProficiency);
+        mIntelligenceAdvantage.resetValue(monster.intelligenceSavingThrowAdvantage);
+        mWisdomProficiency.resetValue(monster.wisdomSavingThrowProficiency);
+        mWisdomAdvantage.resetValue(monster.wisdomSavingThrowAdvantage);
+        mCharismaProficiency.resetValue(monster.charismaSavingThrowProficiency);
+        mCharismaAdvantage.resetValue(monster.charismaSavingThrowAdvantage);
 
         mHasChanges.setValue(false);
     }
@@ -163,10 +160,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setName(@NonNull String name) {
-        if (!Objects.equals(mName.getValue(), name)) {
-            mName.setValue(name);
-            mHasChanges.setValue(true);
-        }
+        mName.setValue(name);
     }
 
     public LiveData<UUID> getMonsterId() {
@@ -210,10 +204,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setSize(@NonNull String size) {
-        if (!Objects.equals(mSize.getValue(), size)) {
-            mSize.setValue(size);
-            mHasChanges.setValue(true);
-        }
+        mSize.setValue(size);
     }
 
     public LiveData<String> getType() {
@@ -221,10 +212,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setType(@NonNull String type) {
-        if (!Objects.equals(mType.getValue(), type)) {
-            mType.setValue(type);
-            mHasChanges.setValue(true);
-        }
+        mType.setValue(type);
     }
 
     public LiveData<String> getSubtype() {
@@ -232,10 +220,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setSubtype(@NonNull String subtype) {
-        if (!Objects.equals(mSubtype.getValue(), subtype)) {
-            mSubtype.setValue(subtype);
-            mHasChanges.setValue(true);
-        }
+        mSubtype.setValue(subtype);
     }
 
     public LiveData<String> getAlignment() {
@@ -243,10 +228,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setAlignment(@NonNull String alignment) {
-        if (!Objects.equals(mAlignment.getValue(), alignment)) {
-            mAlignment.setValue(alignment);
-            mHasChanges.setValue(true);
-        }
+        mAlignment.setValue(alignment);
     }
 
     public LiveData<String> getCustomHitPoints() {
@@ -254,18 +236,11 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCustomHitPoints(String customHitPoints) {
-        if (!Objects.equals(mCustomHitPoints.getValue(), customHitPoints)) {
-            mCustomHitPoints.setValue(customHitPoints);
-            mHasChanges.setValue(true);
-        }
+        mCustomHitPoints.setValue(customHitPoints);
     }
 
     public LiveData<Boolean> getHasChanges() {
         return mHasChanges;
-    }
-
-    public void setHasChanges(boolean hasChanges) {
-        mHasChanges.setValue(hasChanges);
     }
 
     public boolean hasChanges() {
@@ -277,10 +252,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setHitDice(int hitDice) {
-        if (!Objects.equals(mHitDice.getValue(), hitDice)) {
-            mHitDice.setValue(hitDice);
-            mHasChanges.setValue(true);
-        }
+        mHitDice.setValue(hitDice);
     }
 
     public void setHitDice(String hitDice) {
@@ -297,10 +269,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setNaturalArmorBonus(int naturalArmorBonus) {
-        if (!Objects.equals(mNaturalArmorBonus.getValue(), naturalArmorBonus)) {
-            mNaturalArmorBonus.setValue(naturalArmorBonus);
-            mHasChanges.setValue(true);
-        }
+        mNaturalArmorBonus.setValue(naturalArmorBonus);
     }
 
     public void setNaturalArmorBonus(String naturalArmorBonus) {
@@ -317,10 +286,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setHasCustomHitPoints(boolean hasCustomHitPoints) {
-        if (!Objects.equals(mHasCustomHitPoints.getValue(), hasCustomHitPoints)) {
-            mHasCustomHitPoints.setValue(hasCustomHitPoints);
-            mHasChanges.setValue(true);
-        }
+        mHasCustomHitPoints.setValue(hasCustomHitPoints);
     }
 
     public boolean getHasCustomHitPointsValueAsBoolean() {
@@ -332,11 +298,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setArmorType(ArmorType armorType) {
-        Logger.logDebug(String.format("Setting ArmorType to %s", armorType.displayName));
-        if (!Objects.equals(mArmorType.getValue(), armorType)) {
-            mArmorType.setValue(armorType);
-            mHasChanges.setValue(true);
-        }
+        mArmorType.setValue(armorType);
     }
 
     public LiveData<Boolean> getHasShield() {
@@ -344,10 +306,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setHasShield(boolean hasShield) {
-        if (!Objects.equals(mHasShield.getValue(), hasShield)) {
-            mHasShield.setValue(hasShield);
-            mHasChanges.setValue(true);
-        }
+        mHasShield.setValue(hasShield);
     }
 
     public boolean getHasShieldValueAsBoolean() {
@@ -359,10 +318,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setShieldBonus(int shieldBonus) {
-        if (!Objects.equals(mShieldBonus.getValue(), shieldBonus)) {
-            mShieldBonus.setValue(shieldBonus);
-            mHasChanges.setValue(true);
-        }
+        mShieldBonus.setValue(shieldBonus);
     }
 
     public void setShieldBonus(String shieldBonus) {
@@ -375,10 +331,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCustomArmor(String customArmor) {
-        if (!Objects.equals(mCustomArmor.getValue(), customArmor)) {
-            mCustomArmor.setValue(customArmor);
-            mHasChanges.setValue(true);
-        }
+        mCustomArmor.setValue(customArmor);
     }
 
     public String getShieldBonusValueAsString() {
@@ -390,10 +343,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setWalkSpeed(int walkSpeed) {
-        if (!Objects.equals(mWalkSpeed.getValue(), walkSpeed)) {
-            mWalkSpeed.setValue(walkSpeed);
-            mHasChanges.setValue(true);
-        }
+        mWalkSpeed.setValue(walkSpeed);
     }
 
     public void incrementWalkSpeed() {
@@ -409,10 +359,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setBurrowSpeed(int burrowSpeed) {
-        if (!Objects.equals(mBurrowSpeed.getValue(), burrowSpeed)) {
-            mBurrowSpeed.setValue(burrowSpeed);
-            mHasChanges.setValue(true);
-        }
+        mBurrowSpeed.setValue(burrowSpeed);
     }
 
     public LiveData<Integer> getClimbSpeed() {
@@ -420,10 +367,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setClimbSpeed(int climbSpeed) {
-        if (!Objects.equals(mClimbSpeed.getValue(), climbSpeed)) {
-            mClimbSpeed.setValue(climbSpeed);
-            mHasChanges.setValue(true);
-        }
+        mClimbSpeed.setValue(climbSpeed);
     }
 
     public LiveData<Integer> getFlySpeed() {
@@ -431,10 +375,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setFlySpeed(int flySpeed) {
-        if (!Objects.equals(mFlySpeed.getValue(), flySpeed)) {
-            mFlySpeed.setValue(flySpeed);
-            mHasChanges.setValue(true);
-        }
+        mFlySpeed.setValue(flySpeed);
     }
 
     public LiveData<Integer> getSwimSpeed() {
@@ -442,10 +383,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setSwimSpeed(int swimSpeed) {
-        if (!Objects.equals(mSwimSpeed.getValue(), swimSpeed)) {
-            mSwimSpeed.setValue(swimSpeed);
-            mHasChanges.setValue(true);
-        }
+        mSwimSpeed.setValue(swimSpeed);
     }
 
     public LiveData<Boolean> getCanHover() {
@@ -453,10 +391,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCanHover(boolean canHover) {
-        if (!Objects.equals(mCanHover.getValue(), canHover)) {
-            mCanHover.setValue(canHover);
-            mHasChanges.setValue(true);
-        }
+        mCanHover.setValue(canHover);
     }
 
     public LiveData<Boolean> getHasCustomSpeed() {
@@ -464,10 +399,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setHasCustomSpeed(boolean hasCustomSpeed) {
-        if (!Objects.equals(mHasCustomSpeed.getValue(), hasCustomSpeed)) {
-            mHasCustomSpeed.setValue(hasCustomSpeed);
-            mHasChanges.setValue(true);
-        }
+        mHasCustomSpeed.setValue(hasCustomSpeed);
     }
 
     public LiveData<String> getCustomSpeed() {
@@ -475,10 +407,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCustomSpeed(String customSpeed) {
-        if (!Objects.equals(mCustomSpeed.getValue(), customSpeed)) {
-            mCustomSpeed.setValue(customSpeed);
-            mHasChanges.setValue(true);
-        }
+        mCustomSpeed.setValue(customSpeed);
     }
 
     public void incrementBurrowSpeed() {
@@ -518,10 +447,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setStrength(int strength) {
-        if (!Objects.equals(mStrength.getValue(), strength)) {
-            mStrength.setValue(strength);
-            mHasChanges.setValue(true);
-        }
+        mStrength.setValue(strength);
     }
 
     public void incrementStrength() {
@@ -537,10 +463,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setDexterity(int dexterity) {
-        if (!Objects.equals(mDexterity.getValue(), dexterity)) {
-            mDexterity.setValue(dexterity);
-            mHasChanges.setValue(true);
-        }
+        mDexterity.setValue(dexterity);
     }
 
     public void incrementDexterity() {
@@ -556,10 +479,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setConstitution(int constitution) {
-        if (!Objects.equals(mConstitution.getValue(), constitution)) {
-            mConstitution.setValue(constitution);
-            mHasChanges.setValue(true);
-        }
+        mConstitution.setValue(constitution);
     }
 
     public void incrementConstitution() {
@@ -575,10 +495,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setIntelligence(int intelligence) {
-        if (!Objects.equals(mIntelligence.getValue(), intelligence)) {
-            mIntelligence.setValue(intelligence);
-            mHasChanges.setValue(true);
-        }
+        mIntelligence.setValue(intelligence);
     }
 
     public void incrementIntelligence() {
@@ -594,10 +511,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setWisdom(int wisdom) {
-        if (!Objects.equals(mWisdom.getValue(), wisdom)) {
-            mWisdom.setValue(wisdom);
-            mHasChanges.setValue(true);
-        }
+        mWisdom.setValue(wisdom);
     }
 
     public void incrementWisdom() {
@@ -613,10 +527,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCharisma(int charisma) {
-        if (!Objects.equals(mCharisma.getValue(), charisma)) {
-            mCharisma.setValue(charisma);
-            mHasChanges.setValue(true);
-        }
+        mCharisma.setValue(charisma);
     }
 
     public void incrementCharisma() {
@@ -632,10 +543,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setStrengthProficiency(ProficiencyType proficiency) {
-        if (!Objects.equals(mStrengthProficiency.getValue(), proficiency)) {
-            mStrengthProficiency.setValue(proficiency);
-            mHasChanges.setValue(true);
-        }
+        mStrengthProficiency.setValue(proficiency);
     }
 
     public LiveData<AdvantageType> getStrengthAdvantage() {
@@ -643,10 +551,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setStrengthAdvantage(AdvantageType advantage) {
-        if (!Objects.equals(mStrengthAdvantage.getValue(), advantage)) {
-            mStrengthAdvantage.setValue(advantage);
-            mHasChanges.setValue(true);
-        }
+        mStrengthAdvantage.setValue(advantage);
     }
 
     public LiveData<ProficiencyType> getDexterityProficiency() {
@@ -654,10 +559,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setDexterityProficiency(ProficiencyType proficiency) {
-        if (!Objects.equals(mDexterityProficiency.getValue(), proficiency)) {
-            mDexterityProficiency.setValue(proficiency);
-            mHasChanges.setValue(true);
-        }
+        mDexterityProficiency.setValue(proficiency);
     }
 
     public LiveData<AdvantageType> getDexterityAdvantage() {
@@ -665,10 +567,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setDexterityAdvantage(AdvantageType advantage) {
-        if (!Objects.equals(mDexterityAdvantage.getValue(), advantage)) {
-            mDexterityAdvantage.setValue(advantage);
-            mHasChanges.setValue(true);
-        }
+        mDexterityAdvantage.setValue(advantage);
     }
 
     public LiveData<ProficiencyType> getConstitutionProficiency() {
@@ -676,10 +575,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setConstitutionProficiency(ProficiencyType proficiency) {
-        if (!Objects.equals(mConstitutionProficiency.getValue(), proficiency)) {
-            mConstitutionProficiency.setValue(proficiency);
-            mHasChanges.setValue(true);
-        }
+        mConstitutionProficiency.setValue(proficiency);
     }
 
     public LiveData<AdvantageType> getConstitutionAdvantage() {
@@ -687,10 +583,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setConstitutionAdvantage(AdvantageType advantage) {
-        if (!Objects.equals(mConstitutionAdvantage.getValue(), advantage)) {
-            mConstitutionAdvantage.setValue(advantage);
-            mHasChanges.setValue(true);
-        }
+        mConstitutionAdvantage.setValue(advantage);
     }
 
     public LiveData<ProficiencyType> getIntelligenceProficiency() {
@@ -698,10 +591,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setIntelligenceProficiency(ProficiencyType proficiency) {
-        if (!Objects.equals(mIntelligenceProficiency.getValue(), proficiency)) {
-            mIntelligenceProficiency.setValue(proficiency);
-            mHasChanges.setValue(true);
-        }
+        mIntelligenceProficiency.setValue(proficiency);
     }
 
     public LiveData<AdvantageType> getIntelligenceAdvantage() {
@@ -709,10 +599,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setIntelligenceAdvantage(AdvantageType advantage) {
-        if (!Objects.equals(mIntelligenceAdvantage.getValue(), advantage)) {
-            mIntelligenceAdvantage.setValue(advantage);
-            mHasChanges.setValue(true);
-        }
+        mIntelligenceAdvantage.setValue(advantage);
     }
 
     public LiveData<ProficiencyType> getWisdomProficiency() {
@@ -720,10 +607,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setWisdomProficiency(ProficiencyType proficiency) {
-        if (!Objects.equals(mWisdomProficiency.getValue(), proficiency)) {
-            mWisdomProficiency.setValue(proficiency);
-            mHasChanges.setValue(true);
-        }
+        mWisdomProficiency.setValue(proficiency);
     }
 
     public LiveData<AdvantageType> getWisdomAdvantage() {
@@ -731,10 +615,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setWisdomAdvantage(AdvantageType advantage) {
-        if (!Objects.equals(mWisdomAdvantage.getValue(), advantage)) {
-            mWisdomAdvantage.setValue(advantage);
-            mHasChanges.setValue(true);
-        }
+        mWisdomAdvantage.setValue(advantage);
     }
 
     public LiveData<ProficiencyType> getCharismaProficiency() {
@@ -742,10 +623,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCharismaProficiency(ProficiencyType proficiency) {
-        if (!Objects.equals(mCharismaProficiency.getValue(), proficiency)) {
-            mCharismaProficiency.setValue(proficiency);
-            mHasChanges.setValue(true);
-        }
+        mCharismaProficiency.setValue(proficiency);
     }
 
     public LiveData<AdvantageType> getCharismaAdvantage() {
@@ -753,10 +631,7 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public void setCharismaAdvantage(AdvantageType advantage) {
-        if (!Objects.equals(mCharismaAdvantage.getValue(), advantage)) {
-            mCharismaAdvantage.setValue(advantage);
-            mHasChanges.setValue(true);
-        }
+        mCharismaAdvantage.setValue(advantage);
     }
 
     public Monster buildMonster() {
