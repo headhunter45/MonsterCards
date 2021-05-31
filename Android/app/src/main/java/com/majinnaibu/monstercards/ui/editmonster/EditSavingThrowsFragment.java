@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -14,21 +14,22 @@ import androidx.navigation.Navigation;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
-import com.majinnaibu.monstercards.ui.shared.MCFragment;
 
-public class EditSavingThrowsFragment extends MCFragment {
+public class EditSavingThrowsFragment extends Fragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mViewHolder;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_edit_saving_throws, container, false);
-        mViewHolder = new ViewHolder(root);
 
+        // Inflate the layout for this fragment
+        View root = inflater.inflate(R.layout.fragment_edit_saving_throws, container, false);
+
+        mViewHolder = new ViewHolder(root);
         mViewHolder.strengthProficiency.setValue(mViewModel.getStrengthProficiency().getValue());
         mViewHolder.strengthProficiency.setOnValueChangedListener(value -> mViewModel.setStrengthProficiency(value));
         mViewHolder.strengthAdvantage.setValue(mViewModel.getStrengthAdvantage().getValue());
@@ -76,7 +77,7 @@ public class EditSavingThrowsFragment extends MCFragment {
         AdvantagePicker charismaAdvantage;
         ProficiencyPicker charismaProficiency;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             strengthAdvantage = root.findViewById(R.id.strengthAdvantage);
             strengthProficiency = root.findViewById(R.id.strengthProficiency);
             dexterityAdvantage = root.findViewById(R.id.dexterityAdvantage);
