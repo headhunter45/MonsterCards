@@ -83,37 +83,32 @@ public class EditMonsterFragment extends MCFragment {
 
         mHolder.basicInfoButton.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditBasicInfoFragment();
-            View view = getView();
-            assert view != null;
-            Navigation.findNavController(view).navigate(action);
+            Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.armorButton.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditArmorFragment();
-            View view = getView();
-            assert view != null;
-            Navigation.findNavController(view).navigate(action);
+            Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.speedButton.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSpeedFragment();
-            View view = getView();
-            assert view != null;
-            Navigation.findNavController(view).navigate(action);
+            Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.abilityScoresButton.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditAbilityScoresFragment();
-            View view = getView();
-            assert view != null;
-            Navigation.findNavController(view).navigate(action);
+            Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.savingThrows.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSavingThrowsFragment();
-            View view = getView();
-            assert view != null;
-            Navigation.findNavController(view).navigate(action);
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.challengeRating.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditChallengeRatingFragment();
+            Navigation.findNavController(requireView()).navigate(action);
         });
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {

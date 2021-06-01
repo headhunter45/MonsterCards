@@ -87,6 +87,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editSavingThrowsFragment"
                 app:destination="@id/editSavingThrowsFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editChallengeRatingFragment"
+                app:destination="@id/editChallengeRatingFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -112,6 +115,11 @@
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSavingThrowsFragment"
             android:label="fragment_edit_saving_throws"
             tools:layout="@layout/fragment_edit_saving_throws" />
+        <fragment
+            android:id="@+id/editChallengeRatingFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditChallengeRatingFragment"
+            android:label="fragment_edit_challenge_rating"
+            tools:layout="@layout/fragment_edit_challenge_rating" />
     </navigation>
 
 </navigation>

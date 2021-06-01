@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -20,19 +21,20 @@ import androidx.navigation.Navigation;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.helpers.ArrayHelper;
-import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditChallengeRatingFragment extends MCFragment {
+public class EditChallengeRatingFragment extends Fragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
+
+        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_challenge_rating, container, false);
         mHolder = new ViewHolder(root);
 
@@ -82,7 +84,7 @@ public class EditChallengeRatingFragment extends MCFragment {
         final EditText customChallengeRatingDescription;
         final EditText customProficiencyBonus;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             challengeRating = root.findViewById(R.id.challengeRating);
             customChallengeRatingDescription = root.findViewById(R.id.customChallengeRatingDescription);
             customProficiencyBonus = root.findViewById(R.id.customProficiencyBonus);
