@@ -7,11 +7,17 @@ import androidx.lifecycle.ViewModel;
 
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
+import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.models.Skill;
+import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @SuppressWarnings({"ConstantConditions", "unused"})
@@ -60,6 +66,28 @@ public class EditMonsterViewModel extends ViewModel {
     private final ChangeTrackedLiveData<String> mCustomHitPoints;
     private final ChangeTrackedLiveData<String> mCustomArmor;
     private final ChangeTrackedLiveData<String> mCustomSpeed;
+    private final ChangeTrackedLiveData<ChallengeRating> mChallengeRating;
+    private final ChangeTrackedLiveData<String> mCustomChallengeRatingDescription;
+    private final ChangeTrackedLiveData<Integer> mCustomProficiencyBonus;
+    private final ChangeTrackedLiveData<Integer> mBlindsightRange;
+    private final ChangeTrackedLiveData<Boolean> mIsBlindBeyondBlindsightRange;
+    private final ChangeTrackedLiveData<Integer> mDarkvisionRange;
+    private final ChangeTrackedLiveData<Integer> mTremorsenseRange;
+    private final ChangeTrackedLiveData<Integer> mTruesightRange;
+    private final ChangeTrackedLiveData<Integer> mTelepathyRange;
+    private final ChangeTrackedLiveData<String> mUnderstandsButDescription;
+    private final ChangeTrackedLiveData<Set<Skill>> mSkills;
+    private final ChangeTrackedLiveData<Set<String>> mDamageImmunities;
+    private final ChangeTrackedLiveData<Set<String>> mDamageResistances;
+    private final ChangeTrackedLiveData<Set<String>> mDamageVulnerabilities;
+    private final ChangeTrackedLiveData<Set<String>> mConditionImmunities;
+    private final ChangeTrackedLiveData<Set<Language>> mLanguages;
+    private final ChangeTrackedLiveData<Set<Trait>> mAbilities;
+    private final ChangeTrackedLiveData<Set<Trait>> mActions;
+    private final ChangeTrackedLiveData<Set<Trait>> mReactions;
+    private final ChangeTrackedLiveData<Set<Trait>> mLairActions;
+    private final ChangeTrackedLiveData<Set<Trait>> mLegendaryActions;
+    private final ChangeTrackedLiveData<Set<Trait>> mRegionalActions;
 
     public EditMonsterViewModel() {
         mErrorMessage = new MutableLiveData<>("");
@@ -108,6 +136,28 @@ public class EditMonsterViewModel extends ViewModel {
         mWisdomAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
         mCharismaProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
         mCharismaAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
+        mChallengeRating = new ChangeTrackedLiveData<>(ChallengeRating.ONE_EIGHTH, onDirtied);
+        mCustomChallengeRatingDescription = new ChangeTrackedLiveData<>("", onDirtied);
+        mCustomProficiencyBonus = new ChangeTrackedLiveData<>(0, onDirtied);
+        mBlindsightRange = new ChangeTrackedLiveData<>(0, onDirtied);
+        mIsBlindBeyondBlindsightRange = new ChangeTrackedLiveData<>(false, onDirtied);
+        mDarkvisionRange = new ChangeTrackedLiveData<>(0, onDirtied);
+        mTremorsenseRange = new ChangeTrackedLiveData<>(0, onDirtied);
+        mTruesightRange = new ChangeTrackedLiveData<>(0, onDirtied);
+        mTelepathyRange = new ChangeTrackedLiveData<>(0, onDirtied);
+        mUnderstandsButDescription = new ChangeTrackedLiveData<>("", onDirtied);
+        mSkills = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mDamageImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mDamageResistances = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mConditionImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mLanguages = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mAbilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mReactions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mLairActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mLegendaryActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mRegionalActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
     }
 
     public void copyFromMonster(Monster monster) {
@@ -151,7 +201,28 @@ public class EditMonsterViewModel extends ViewModel {
         mWisdomAdvantage.resetValue(monster.wisdomSavingThrowAdvantage);
         mCharismaProficiency.resetValue(monster.charismaSavingThrowProficiency);
         mCharismaAdvantage.resetValue(monster.charismaSavingThrowAdvantage);
-
+        mChallengeRating.resetValue(monster.challengeRating);
+        mCustomChallengeRatingDescription.resetValue(monster.customChallengeRatingDescription);
+        mCustomProficiencyBonus.resetValue(monster.customProficiencyBonus);
+        mBlindsightRange.resetValue(monster.blindsightRange);
+        mIsBlindBeyondBlindsightRange.resetValue(monster.isBlindBeyondBlindsightRange);
+        mDarkvisionRange.resetValue(monster.darkvisionRange);
+        mTremorsenseRange.resetValue(monster.tremorsenseRange);
+        mTruesightRange.resetValue(monster.truesightRange);
+        mTelepathyRange.resetValue(monster.telepathyRange);
+        mUnderstandsButDescription.resetValue(monster.understandsButDescription);
+        mSkills.resetValue(monster.skills);
+        mDamageImmunities.resetValue(monster.damageImmunities);
+        mDamageResistances.resetValue(monster.damageResistances);
+        mDamageVulnerabilities.resetValue(monster.damageVulnerabilities);
+        mConditionImmunities.resetValue(monster.conditionImmunities);
+        mLanguages.resetValue(monster.languages);
+        mAbilities.resetValue(monster.abilities);
+        mActions.resetValue(monster.actions);
+        mReactions.resetValue(monster.reactions);
+        mLairActions.resetValue(monster.lairActions);
+        mLegendaryActions.resetValue(monster.legendaryActions);
+        mRegionalActions.resetValue(monster.regionalActions);
         mHasChanges.setValue(false);
     }
 
@@ -634,6 +705,102 @@ public class EditMonsterViewModel extends ViewModel {
         mCharismaAdvantage.setValue(advantage);
     }
 
+    public LiveData<ChallengeRating> getChallengeRating() {
+        return mChallengeRating;
+    }
+
+    public void setChallengeRating(ChallengeRating challengeRating) {
+        mChallengeRating.setValue(challengeRating);
+    }
+
+    public LiveData<String> getCustomChallengeRatingDescription() {
+        return mCustomChallengeRatingDescription;
+    }
+
+    public void setCustomChallengeRatingDescription(String customChallengeRatingDescription) {
+        mCustomChallengeRatingDescription.setValue(customChallengeRatingDescription);
+    }
+
+    public LiveData<Integer> getCustomProficiencyBonus() {
+        return mCustomProficiencyBonus;
+    }
+
+    public void setCustomProficiencyBonus(int proficiencyBonus) {
+        mCustomProficiencyBonus.setValue(proficiencyBonus);
+    }
+
+    public LiveData<Integer> getBlindsightRange() {
+        return mBlindsightRange;
+    }
+
+    public void setBlindsightRange(int blindsightRange) {
+        mBlindsightRange.setValue(blindsightRange);
+    }
+
+    public LiveData<Boolean> getIsBlindBeyondBlindsightRange() {
+        return mIsBlindBeyondBlindsightRange;
+    }
+
+    public void setIsBlindBeyondBlindsightRange(boolean isBlindBeyondBlindsightRange) {
+        mIsBlindBeyondBlindsightRange.setValue(isBlindBeyondBlindsightRange);
+    }
+
+    public LiveData<Integer> getDarkvisionRange() {
+        return mDarkvisionRange;
+    }
+
+    public void setDarkvisionRange(int darkvisionRange) {
+        mDarkvisionRange.setValue(darkvisionRange);
+    }
+
+    public LiveData<Integer> getTremorsenseRange() {
+        return mTremorsenseRange;
+    }
+
+    public void setTremorsenseRange(int tremorsenseRange) {
+        mTremorsenseRange.setValue(tremorsenseRange);
+    }
+
+    public LiveData<Integer> getTruesightRange() {
+        return mTruesightRange;
+    }
+
+    public void setTruesightRange(int truesightRange) {
+        mTruesightRange.setValue(truesightRange);
+    }
+
+    public LiveData<Integer> getTelepathyRange() {
+        return mTelepathyRange;
+    }
+
+    public void setTelepathyRange(int telepathyRange) {
+        mTelepathyRange.setValue(telepathyRange);
+    }
+
+    public LiveData<String> getUnderstandsButDescription() {
+        return mUnderstandsButDescription;
+    }
+
+    public void setUnderstandsButDescription(String understandsButDescription) {
+        mUnderstandsButDescription.setValue(understandsButDescription);
+    }
+
+    /*
+    // TODO: add getters and setters for
+        Senses
+        Skills
+        Damage Immunities
+        DamageResistances
+        DamageVulnerabilities
+        ConditionImmunities
+        Languages
+        Abilities
+        Actions
+        Reactions
+        LairActions
+        LegendaryActions
+        RegionalActions
+     */
     public Monster buildMonster() {
         Monster monster = new Monster();
 
@@ -676,6 +843,28 @@ public class EditMonsterViewModel extends ViewModel {
         monster.wisdomSavingThrowProficiency = mWisdomProficiency.getValue();
         monster.charismaSavingThrowAdvantage = mCharismaAdvantage.getValue();
         monster.charismaSavingThrowProficiency = mCharismaProficiency.getValue();
+        monster.challengeRating = mChallengeRating.getValue();
+        monster.customChallengeRatingDescription = mCustomChallengeRatingDescription.getValue();
+        monster.customProficiencyBonus = mCustomProficiencyBonus.getValue();
+        monster.blindsightRange = mBlindsightRange.getValue();
+        monster.isBlindBeyondBlindsightRange = mIsBlindBeyondBlindsightRange.getValue();
+        monster.darkvisionRange = mDarkvisionRange.getValue();
+        monster.tremorsenseRange = mTremorsenseRange.getValue();
+        monster.truesightRange = mTruesightRange.getValue();
+        monster.telepathyRange = mTelepathyRange.getValue();
+        monster.understandsButDescription = mUnderstandsButDescription.getValue();
+        monster.skills = mSkills.getValue();
+        monster.damageImmunities = mDamageImmunities.getValue();
+        monster.damageResistances = mDamageResistances.getValue();
+        monster.damageVulnerabilities = mDamageVulnerabilities.getValue();
+        monster.conditionImmunities = mConditionImmunities.getValue();
+        monster.languages = mLanguages.getValue();
+        monster.abilities = mAbilities.getValue();
+        monster.actions = mActions.getValue();
+        monster.reactions = mReactions.getValue();
+        monster.lairActions = mLairActions.getValue();
+        monster.legendaryActions = mLegendaryActions.getValue();
+        monster.regionalActions = mRegionalActions.getValue();
 
         return monster;
     }
