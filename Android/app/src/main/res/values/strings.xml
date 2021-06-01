@@ -28,7 +28,9 @@
     <string name="label_condition_immunities">Condition Immunities</string>
     <string name="label_constitution">Constitution</string>
     <string name="label_custom_armor">Custom Armor</string>
+    <string name="label_custom_challenge_rating_description">Custom CR</string>
     <string name="label_custom_hp">Custom HP</string>
+    <string name="label_custom_proficiency_bonus">Custom Proficiency Bonus</string>
     <string name="label_custom_speed">Custom Speed</string>
     <string name="label_damage_immunities">Damage Immunities</string>
     <string name="label_damage_resistances">Damage Resistances</string>

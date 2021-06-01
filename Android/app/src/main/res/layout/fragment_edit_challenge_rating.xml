@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.editmonster.EditBasicInfoFragment">
+    tools:context=".ui.editmonster.EditChallengeRatingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <Spinner
-            android:id="@+id/armorType"
+            android:id="@+id/challengeRating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -21,51 +21,28 @@
             android:layout_margin="@dimen/text_margin">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/naturalArmorBonus"
+                android:id="@+id/customChallengeRatingDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/label_natural_armor_bonus"
-                android:importantForAutofill="no"
-                android:inputType="numberSigned"
-                tools:text="+2" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/hasShield"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_has_a_shield"
-            android:textSize="20sp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/shieldBonus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/label_shield_bonus"
-                android:importantForAutofill="no"
-                android:inputType="numberSigned"
-                tools:text="4" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/customArmor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/label_custom_armor"
+                android:hint="@string/label_custom_challenge_rating_description"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 tools:text="John Doe" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customProficiencyBonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_custom_proficiency_bonus"
+                android:importantForAutofill="no"
+                android:inputType="numberSigned"
+                tools:text="+2" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </ScrollView>
