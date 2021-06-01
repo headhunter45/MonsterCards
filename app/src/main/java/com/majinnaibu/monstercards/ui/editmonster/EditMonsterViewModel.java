@@ -729,6 +729,15 @@ public class EditMonsterViewModel extends ViewModel {
         mCustomProficiencyBonus.setValue(proficiencyBonus);
     }
 
+    public void setCustomProficiencyBonus(String proficiencyBonus) {
+        Integer parsedValue = StringHelper.parseInt(proficiencyBonus);
+        this.setCustomProficiencyBonus(parsedValue != null ? parsedValue : 0);
+    }
+
+    public String getCustomProficiencyBonusValueAsString() {
+        return mCustomProficiencyBonus.getValue().toString();
+    }
+
     public LiveData<Integer> getBlindsightRange() {
         return mBlindsightRange;
     }
