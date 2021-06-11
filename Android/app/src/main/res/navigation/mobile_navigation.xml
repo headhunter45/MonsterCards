@@ -90,6 +90,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editChallengeRatingFragment"
                 app:destination="@id/editChallengeRatingFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editSkillsFragment"
+                app:destination="@id/editSkillsFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -120,6 +123,11 @@
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditChallengeRatingFragment"
             android:label="fragment_edit_challenge_rating"
             tools:layout="@layout/fragment_edit_challenge_rating" />
+        <fragment
+            android:id="@+id/editSkillsFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillsFragment"
+            android:label="fragment_edit_skills_list"
+            tools:layout="@layout/fragment_edit_skills_list" />
     </navigation>
 
 </navigation>
