@@ -3,9 +3,13 @@ package com.majinnaibu.monstercards.ui.editmonster;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
@@ -31,6 +35,7 @@ public class EditSkillsFragment extends Fragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
+        setHasOptionsMenu(true);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -41,5 +46,25 @@ public class EditSkillsFragment extends Fragment {
         }
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.edit_skills_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_action_add_skill) {
+            mViewModel.addNewSkill();
+            // TODO: navigate to editing the new skill
+//            NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterDetailViewModel.getId().getValue().toString());
+//            View view = getView();
+//            assert view != null;
+//            Navigation.findNavController(view).navigate(action);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
