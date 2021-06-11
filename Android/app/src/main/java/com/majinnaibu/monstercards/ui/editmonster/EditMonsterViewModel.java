@@ -896,4 +896,11 @@ public class EditMonsterViewModel extends ViewModel {
     public List<Skill> getSkillsArray() {
         return mSkills.getValue();
     }
+
+    public void addNewSkill() {
+        Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
+        ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
+        newSkills.add(newSkill);
+        mSkills.setValue(newSkills);
+    }
 }
