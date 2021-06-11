@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
@@ -16,7 +17,9 @@ import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -76,7 +79,7 @@ public class EditMonsterViewModel extends ViewModel {
     private final ChangeTrackedLiveData<Integer> mTruesightRange;
     private final ChangeTrackedLiveData<Integer> mTelepathyRange;
     private final ChangeTrackedLiveData<String> mUnderstandsButDescription;
-    private final ChangeTrackedLiveData<Set<Skill>> mSkills;
+    private final ChangeTrackedLiveData<List<Skill>> mSkills;
     private final ChangeTrackedLiveData<Set<String>> mDamageImmunities;
     private final ChangeTrackedLiveData<Set<String>> mDamageResistances;
     private final ChangeTrackedLiveData<Set<String>> mDamageVulnerabilities;
@@ -146,7 +149,7 @@ public class EditMonsterViewModel extends ViewModel {
         mTruesightRange = new ChangeTrackedLiveData<>(0, onDirtied);
         mTelepathyRange = new ChangeTrackedLiveData<>(0, onDirtied);
         mUnderstandsButDescription = new ChangeTrackedLiveData<>("", onDirtied);
-        mSkills = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
         mDamageImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
         mDamageResistances = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
         mDamageVulnerabilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
@@ -211,7 +214,15 @@ public class EditMonsterViewModel extends ViewModel {
         mTruesightRange.resetValue(monster.truesightRange);
         mTelepathyRange.resetValue(monster.telepathyRange);
         mUnderstandsButDescription.resetValue(monster.understandsButDescription);
-        mSkills.resetValue(monster.skills);
+
+        if (monster.skills.size() == 0) {
+            ArrayList<Skill> skills = new ArrayList<>();
+            skills.add(new Skill("Acrobatics", AbilityScore.STRENGTH));
+            skills.add(new Skill("Stealth", AbilityScore.DEXTERITY));
+            mSkills.resetValue(skills);
+        } else {
+            mSkills.resetValue(new ArrayList<>(monster.skills));
+        }
         mDamageImmunities.resetValue(monster.damageImmunities);
         mDamageResistances.resetValue(monster.damageResistances);
         mDamageVulnerabilities.resetValue(monster.damageVulnerabilities);
@@ -794,6 +805,10 @@ public class EditMonsterViewModel extends ViewModel {
         mUnderstandsButDescription.setValue(understandsButDescription);
     }
 
+    public LiveData<List<Skill>> getSkills() {
+        return mSkills;
+    }
+
     /*
     // TODO: add getters and setters for
         Senses
@@ -862,7 +877,7 @@ public class EditMonsterViewModel extends ViewModel {
         monster.truesightRange = mTruesightRange.getValue();
         monster.telepathyRange = mTelepathyRange.getValue();
         monster.understandsButDescription = mUnderstandsButDescription.getValue();
-        monster.skills = mSkills.getValue();
+        monster.skills = new HashSet<>(mSkills.getValue());
         monster.damageImmunities = mDamageImmunities.getValue();
         monster.damageResistances = mDamageResistances.getValue();
         monster.damageVulnerabilities = mDamageVulnerabilities.getValue();
@@ -876,5 +891,9 @@ public class EditMonsterViewModel extends ViewModel {
         monster.regionalActions = mRegionalActions.getValue();
 
         return monster;
+    }
+
+    public List<Skill> getSkillsArray() {
+        return mSkills.getValue();
     }
 }
