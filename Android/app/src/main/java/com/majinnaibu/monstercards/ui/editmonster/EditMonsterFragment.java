@@ -111,6 +111,11 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(requireView()).navigate(action);
         });
 
+        mHolder.skills.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSkillsFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
