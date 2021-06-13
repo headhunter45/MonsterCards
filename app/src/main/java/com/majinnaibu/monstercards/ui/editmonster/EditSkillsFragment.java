@@ -47,8 +47,10 @@ public class EditSkillsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
 
-        EditSkillsRecyclerViewAdapter adapter = new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray());
-        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> recyclerView.setAdapter(adapter));
+        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
+            EditSkillsRecyclerViewAdapter adapter = new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray(), null);
+            recyclerView.setAdapter(adapter);
+        });
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
