@@ -13,11 +13,13 @@ import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 
 /**
  * A fragment representing a list of Items.
@@ -54,6 +56,9 @@ public class EditSkillsFragment extends Fragment {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, mViewModel::removeSkill));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     private void setupAddSkillButton(@NonNull FloatingActionButton fab) {

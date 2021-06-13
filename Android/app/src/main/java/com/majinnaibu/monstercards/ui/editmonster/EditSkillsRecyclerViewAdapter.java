@@ -16,9 +16,11 @@ import java.util.List;
  */
 public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkillsRecyclerViewAdapter.ViewHolder> {
     private final List<Skill> mValues;
+    private final ItemCallback mOnDelete;
 
-    public EditSkillsRecyclerViewAdapter(List<Skill> items) {
+    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback onDelete) {
         mValues = items;
+        mOnDelete = onDelete;
     }
 
     @Override
@@ -35,6 +37,17 @@ public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkil
     @Override
     public int getItemCount() {
         return mValues.size();
+    }
+
+    public void removeItem(int position) {
+        if (mOnDelete != null) {
+            Skill skill = mValues.get(position);
+            mOnDelete.onItemCallback(skill);
+        }
+    }
+
+    public interface ItemCallback {
+        void onItemCallback(Skill skill);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
