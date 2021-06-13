@@ -18,6 +18,7 @@ import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -215,14 +216,13 @@ public class EditMonsterViewModel extends ViewModel {
         mTelepathyRange.resetValue(monster.telepathyRange);
         mUnderstandsButDescription.resetValue(monster.understandsButDescription);
 
-        if (monster.skills.size() == 0) {
-            ArrayList<Skill> skills = new ArrayList<>();
+        ArrayList<Skill> skills = new ArrayList<>(monster.skills);
+        if (skills.size() == 0) {
             skills.add(new Skill("Acrobatics", AbilityScore.STRENGTH));
             skills.add(new Skill("Stealth", AbilityScore.DEXTERITY));
-            mSkills.resetValue(skills);
-        } else {
-            mSkills.resetValue(new ArrayList<>(monster.skills));
         }
+        Collections.sort(skills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.resetValue(skills);
         mDamageImmunities.resetValue(monster.damageImmunities);
         mDamageResistances.resetValue(monster.damageResistances);
         mDamageVulnerabilities.resetValue(monster.damageVulnerabilities);
@@ -901,6 +901,8 @@ public class EditMonsterViewModel extends ViewModel {
         Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
         ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
         newSkills.add(newSkill);
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.setValue(newSkills);
         mSkills.setValue(newSkills);
     }
 }
