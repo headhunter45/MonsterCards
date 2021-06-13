@@ -1,5 +1,6 @@
 package com.majinnaibu.monstercards.ui.library;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,9 +47,11 @@ public class LibraryFragment extends MCFragment {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        Context context = requireContext();
         MonsterRepository repository = this.getMonsterRepository();
+
         MonsterListRecyclerViewAdapter adapter = new MonsterListRecyclerViewAdapter(
-                getContext(),
+                context,
                 repository.getMonsters(),
                 (monster) -> navigateToMonsterDetail(monster.id),
                 (monster) -> repository
@@ -66,7 +70,13 @@ public class LibraryFragment extends MCFragment {
                             }
                         }));
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(layoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(requireContext(), adapter::deleteItem));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
