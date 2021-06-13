@@ -1,5 +1,6 @@
 package com.majinnaibu.monstercards.ui.editmonster;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,8 +43,15 @@ public class EditSkillsFragment extends Fragment {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> recyclerView.setAdapter(new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray())));
+        Context context = requireContext();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(layoutManager);
+
+        EditSkillsRecyclerViewAdapter adapter = new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray());
+        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> recyclerView.setAdapter(adapter));
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
     }
 
     private void setupAddSkillButton(@NonNull FloatingActionButton fab) {
