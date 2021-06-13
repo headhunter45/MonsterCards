@@ -903,6 +903,12 @@ public class EditMonsterViewModel extends ViewModel {
         newSkills.add(newSkill);
         Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
         mSkills.setValue(newSkills);
+    }
+
+    public void removeSkill(int position) {
+        List<Skill> skills = mSkills.getValue();
+        ArrayList<Skill> newSkills = new ArrayList<>(skills);
+        newSkills.remove(position);
         mSkills.setValue(newSkills);
     }
 }
