@@ -2,11 +2,14 @@ package com.majinnaibu.monstercards.models;
 
 import android.annotation.SuppressLint;
 
+import androidx.annotation.Nullable;
+
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 @SuppressLint("DefaultLocale")
 public class Skill implements Comparator<Skill>, Comparable<Skill> {
@@ -66,4 +69,27 @@ public class Skill implements Comparator<Skill>, Comparable<Skill> {
         return o1.name.compareToIgnoreCase(o2.name);
     }
 
+    @Override
+    public boolean equals(@Nullable @org.jetbrains.annotations.Nullable Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Skill)) {
+            return false;
+        }
+        Skill otherSkill = (Skill) obj;
+        if (!Objects.equals(this.name, otherSkill.name)) {
+            return false;
+        }
+        if (this.abilityScore != otherSkill.abilityScore) {
+            return false;
+        }
+        if (this.advantageType != otherSkill.advantageType) {
+            return false;
+        }
+        if (this.proficiencyType != otherSkill.proficiencyType) {
+            return false;
+        }
+        return true;
+    }
 }
