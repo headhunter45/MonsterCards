@@ -127,7 +127,28 @@
             android:id="@+id/editSkillsFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillsFragment"
             android:label="fragment_edit_skills_list"
-            tools:layout="@layout/fragment_edit_skills_list" />
+            tools:layout="@layout/fragment_edit_skills_list">
+            <action
+                android:id="@+id/action_editSkillsFragment_to_editSkillFragment"
+                app:destination="@id/editSkillFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editSkillFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillFragment"
+            android:label="fragment_edit_skill"
+            tools:layout="@layout/fragment_edit_skill">
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="abilityScore"
+                app:argType="com.majinnaibu.monstercards.data.enums.AbilityScore" />
+            <argument
+                android:name="proficiency"
+                app:argType="com.majinnaibu.monstercards.data.enums.ProficiencyType" />
+            <argument
+                android:name="advantage"
+                app:argType="com.majinnaibu.monstercards.data.enums.AdvantageType" />
+        </fragment>
     </navigation>
-
 </navigation>

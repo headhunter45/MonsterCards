@@ -9,6 +9,7 @@ import android.widget.EditText;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -19,25 +20,24 @@ import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.ui.components.AbilityScorePicker;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
-import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditSkillFragment extends MCFragment {
+public class EditSkillFragment extends Fragment {
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditSkillViewModel mViewModel;
     private ViewHolder mHolder;
     private Skill mOldSkill;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditSkillViewModel.class);
         if (getArguments() != null) {
             EditSkillFragmentArgs args = EditSkillFragmentArgs.fromBundle(getArguments());
+            mViewModel.copyFromSkill(args.getName(), args.getAbilityScore(), args.getProficiency(), args.getAdvantage());
             mOldSkill = new Skill(args.getName(), args.getAbilityScore(), args.getAdvantage(), args.getProficiency());
-            mViewModel.copyFromSkill(mOldSkill);
         } else {
-            Logger.logWTF("EditSkillFragment needs arguments.");
+            Logger.logWTF("This should never happen. EditSkillFragment needs arguments.");
             mOldSkill = null;
         }
         super.onCreate(savedInstanceState);
@@ -49,7 +49,10 @@ public class EditSkillFragment extends MCFragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
+
+        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_skill, container, false);
+
         mHolder = new ViewHolder(root);
 
         mHolder.abilityScore.setValue(mViewModel.getAbilityScore().getValue());
@@ -77,19 +80,13 @@ public class EditSkillFragment extends MCFragment {
         return root;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mHolder.name.requestFocus();
-    }
-
     private static class ViewHolder {
         AbilityScorePicker abilityScore;
         AdvantagePicker advantage;
         ProficiencyPicker proficiency;
         EditText name;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             abilityScore = root.findViewById(R.id.abilityScore);
             advantage = root.findViewById(R.id.advantage);
             proficiency = root.findViewById(R.id.proficiency);
