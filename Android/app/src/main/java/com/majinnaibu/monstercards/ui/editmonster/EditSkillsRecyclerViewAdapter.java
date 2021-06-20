@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.majinnaibu.monstercards.databinding.FragmentEditSkillsListItemBinding;
 import com.majinnaibu.monstercards.models.Skill;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 /**
@@ -16,17 +18,16 @@ import java.util.List;
  */
 public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkillsRecyclerViewAdapter.ViewHolder> {
     private final List<Skill> mValues;
-    private final ItemCallback mOnDelete;
     private final ItemCallback mOnClick;
 
-    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback onClick, ItemCallback onDelete) {
+    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback onClick) {
         mValues = items;
         mOnClick = onClick;
-        mOnDelete = onDelete;
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         return new ViewHolder(FragmentEditSkillsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
@@ -46,18 +47,11 @@ public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkil
         return mValues.size();
     }
 
-    public void removeItem(int position) {
-        if (mOnDelete != null) {
-            Skill skill = mValues.get(position);
-            mOnDelete.onItemCallback(skill);
-        }
-    }
-
     public interface ItemCallback {
         void onItemCallback(Skill skill);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mContentView;
         public Skill mItem;
 
@@ -66,6 +60,7 @@ public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkil
             mContentView = binding.content;
         }
 
+        @NotNull
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";

@@ -67,7 +67,7 @@ public class EditSkillsFragment extends MCFragment {
                 } else {
                     Logger.logError("Can't navigate to EditSkill with a null skill");
                 }
-            }, null);
+            });
             recyclerView.setAdapter(adapter);
         });
 
