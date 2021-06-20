@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.Objects;
 
@@ -74,7 +73,6 @@ public class Stepper extends ConstraintLayout {
     public void setValue(int value) {
         int oldValue = this.mCurrentValue;
         int newValue = Math.min(mMaxValue, Math.max(mMinValue, value));
-        Logger.logDebug(String.format("Setting stepper value value: %d, oldValue: %d, newValue: %d", value, oldValue, newValue));
         if (newValue != oldValue) {
             this.mCurrentValue = newValue;
             if (mOnValueChangeListener != null) {

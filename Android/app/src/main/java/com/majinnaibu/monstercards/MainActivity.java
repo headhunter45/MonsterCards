@@ -13,14 +13,12 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.init.FlipperInitializer;
-import com.majinnaibu.monstercards.utils.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            Logger.logDebug("Home selected (in MainActivity)");
             getOnBackPressedDispatcher().onBackPressed();
             return true;
         }
