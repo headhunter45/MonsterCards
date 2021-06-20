@@ -30,12 +30,12 @@ public class EditSkillFragment extends MCFragment {
     private Skill mOldSkill;
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditSkillViewModel.class);
         if (getArguments() != null) {
             EditSkillFragmentArgs args = EditSkillFragmentArgs.fromBundle(getArguments());
-            mViewModel.copyFromSkill(args.getName(), args.getAbilityScore(), args.getProficiency(), args.getAdvantage());
             mOldSkill = new Skill(args.getName(), args.getAbilityScore(), args.getAdvantage(), args.getProficiency());
+            mViewModel.copyFromSkill(mOldSkill);
         } else {
             Logger.logWTF("This should never happen. EditSkillFragment needs arguments.");
             mOldSkill = null;

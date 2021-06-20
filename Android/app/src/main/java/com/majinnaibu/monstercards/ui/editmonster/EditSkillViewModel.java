@@ -29,29 +29,11 @@ public class EditSkillViewModel extends ViewModel {
         mSkill = new ChangeTrackedLiveData<>(makeSkill(), onDirtied);
     }
 
-    public EditSkillViewModel(Skill skill) {
-        mHasChanges = new MutableLiveData<>(false);
-        ChangeTrackedLiveData.OnValueDirtiedCallback onDirtied = () -> mHasChanges.setValue(true);
-
-        mAbilityScore = new ChangeTrackedLiveData<>(skill.abilityScore, onDirtied);
-        mAdvantageType = new ChangeTrackedLiveData<>(skill.advantageType, onDirtied);
-        mProficiencyType = new ChangeTrackedLiveData<>(skill.proficiencyType, onDirtied);
-        mName = new ChangeTrackedLiveData<>(skill.name, onDirtied);
-        mSkill = new ChangeTrackedLiveData<>(makeSkill(), onDirtied);
-    }
-
     public void copyFromSkill(Skill skill) {
         mAbilityScore.resetValue(skill.abilityScore);
         mAdvantageType.resetValue(skill.advantageType);
         mProficiencyType.resetValue(skill.proficiencyType);
         mName.resetValue(skill.name);
-    }
-
-    public void copyFromSkill(String name, AbilityScore abilityScore, ProficiencyType proficiency, AdvantageType advantage) {
-        mAbilityScore.resetValue(abilityScore);
-        mAdvantageType.resetValue(advantage);
-        mProficiencyType.resetValue(proficiency);
-        mName.resetValue(name);
     }
 
     public LiveData<Skill> getSkill() {
@@ -94,12 +76,9 @@ public class EditSkillViewModel extends ViewModel {
         mSkill.setValue(makeSkill());
     }
 
-    public LiveData<Boolean> getHasChanges() {
-        return mHasChanges;
-    }
-
     public boolean hasChanges() {
-        return mHasChanges.getValue();
+        Boolean value = mHasChanges.getValue();
+        return value != null && value;
     }
 
     private Skill makeSkill() {
