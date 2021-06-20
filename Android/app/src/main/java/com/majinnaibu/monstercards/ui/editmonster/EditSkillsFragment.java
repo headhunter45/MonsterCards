@@ -19,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
+import com.majinnaibu.monstercards.utils.Logger;
 
 /**
  * A fragment representing a list of Items.
@@ -28,6 +30,10 @@ import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 public class EditSkillsFragment extends Fragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
+
+    private void navigateToEditSkill(Skill skill) {
+        Logger.logUnimplementedFeature("Navigate to the edit skill fragment.");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +57,13 @@ public class EditSkillsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
-            EditSkillsRecyclerViewAdapter adapter = new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray(), null);
+            EditSkillsRecyclerViewAdapter adapter = new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray(), skill -> {
+                if (skill != null) {
+                    navigateToEditSkill(skill);
+                } else {
+                    Logger.logError("Can't navigate to EditSkill with a null skill");
+                }
+            }, null);
             recyclerView.setAdapter(adapter);
         });
 
@@ -64,12 +76,8 @@ public class EditSkillsFragment extends Fragment {
 
     private void setupAddSkillButton(@NonNull FloatingActionButton fab) {
         fab.setOnClickListener(view -> {
-            mViewModel.addNewSkill();
-            // TODO: navigate to editing the new skill
-//            NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterDetailViewModel.getId().getValue().toString());
-//            View view = getView();
-//            assert view != null;
-//            Navigation.findNavController(view).navigate(action);
+            Skill newSkill = mViewModel.addNewSkill();
+            navigateToEditSkill(newSkill);
         });
     }
 

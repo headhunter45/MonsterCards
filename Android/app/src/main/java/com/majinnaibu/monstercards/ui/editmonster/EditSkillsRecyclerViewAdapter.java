@@ -17,9 +17,11 @@ import java.util.List;
 public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkillsRecyclerViewAdapter.ViewHolder> {
     private final List<Skill> mValues;
     private final ItemCallback mOnDelete;
+    private final ItemCallback mOnClick;
 
-    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback onDelete) {
+    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback onClick, ItemCallback onDelete) {
         mValues = items;
+        mOnClick = onClick;
         mOnDelete = onDelete;
     }
 
@@ -32,6 +34,11 @@ public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkil
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).name);
+        holder.itemView.setOnClickListener(v -> {
+            if (mOnClick != null) {
+                mOnClick.onItemCallback(holder.mItem);
+            }
+        });
     }
 
     @Override
