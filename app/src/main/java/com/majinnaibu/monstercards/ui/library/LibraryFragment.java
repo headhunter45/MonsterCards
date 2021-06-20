@@ -61,7 +61,6 @@ public class LibraryFragment extends MCFragment {
                         .subscribe(new DisposableCompletableObserver() {
                             @Override
                             public void onComplete() {
-                                Logger.logDebug("deleted");
                             }
 
                             @Override
