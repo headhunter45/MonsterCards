@@ -57,7 +57,7 @@ public class EditSenseFragment extends MCFragment {
             @Override
             public void handleOnBackPressed() {
                 if (mViewModel.hasChanges()) {
-                    mEditMonsterViewModel.replaceSense(mViewModel.getDescription().getValue(), mOldSense);
+                    mEditMonsterViewModel.replaceSense(mOldSense, mViewModel.getDescription().getValue());
                 }
                 Navigation.findNavController(requireView()).navigateUp();
             }
