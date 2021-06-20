@@ -810,21 +810,10 @@ public class EditMonsterViewModel extends ViewModel {
         return mSkills;
     }
 
-    /*
-    // TODO: add getters and setters for
-        Senses
-        Damage Immunities
-        DamageResistances
-        DamageVulnerabilities
-        ConditionImmunities
-        Languages
-        Abilities
-        Actions
-        Reactions
-        LairActions
-        LegendaryActions
-        RegionalActions
-     */
+    // TODO: add getters and setters for lists of strings (Senses, Damage Immunities, Damage Resistances, Damage Vulnerabilities, and Condition Immunities)
+    // TODO: add getters and setters for Languages
+    // TODO: add getters and setters for traits (Abilities, Actions, Reactions, Lair Actions, Legendary Actions, and Regional Actions)
+
     public Monster buildMonster() {
         Monster monster = new Monster();
 
