@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context=".ui.components.AbilityScorePicker">
-    <!-- // TODO: style this control to look less awful by default -->
 
     <TextView
         android:id="@+id/label"
