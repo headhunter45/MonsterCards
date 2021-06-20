@@ -24,6 +24,7 @@ import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 /**
  * A fragment representing a list of Items.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class EditSkillsFragment extends Fragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
