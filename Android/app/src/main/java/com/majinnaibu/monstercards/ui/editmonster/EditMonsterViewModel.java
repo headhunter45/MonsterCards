@@ -19,10 +19,10 @@ import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 
 @SuppressWarnings({"ConstantConditions", "unused"})
@@ -78,17 +78,17 @@ public class EditMonsterViewModel extends ViewModel {
     private final ChangeTrackedLiveData<String> mUnderstandsButDescription;
     private final ChangeTrackedLiveData<List<Skill>> mSkills;
     private final ChangeTrackedLiveData<List<String>> mSenses;
-    private final ChangeTrackedLiveData<Set<String>> mDamageImmunities;
-    private final ChangeTrackedLiveData<Set<String>> mDamageResistances;
-    private final ChangeTrackedLiveData<Set<String>> mDamageVulnerabilities;
-    private final ChangeTrackedLiveData<Set<String>> mConditionImmunities;
-    private final ChangeTrackedLiveData<Set<Language>> mLanguages;
-    private final ChangeTrackedLiveData<Set<Trait>> mAbilities;
-    private final ChangeTrackedLiveData<Set<Trait>> mActions;
-    private final ChangeTrackedLiveData<Set<Trait>> mReactions;
-    private final ChangeTrackedLiveData<Set<Trait>> mLairActions;
-    private final ChangeTrackedLiveData<Set<Trait>> mLegendaryActions;
-    private final ChangeTrackedLiveData<Set<Trait>> mRegionalActions;
+    private final ChangeTrackedLiveData<List<String>> mDamageImmunities;
+    private final ChangeTrackedLiveData<List<String>> mDamageResistances;
+    private final ChangeTrackedLiveData<List<String>> mDamageVulnerabilities;
+    private final ChangeTrackedLiveData<List<String>> mConditionImmunities;
+    private final ChangeTrackedLiveData<List<Language>> mLanguages;
+    private final ChangeTrackedLiveData<List<Trait>> mAbilities;
+    private final ChangeTrackedLiveData<List<Trait>> mActions;
+    private final ChangeTrackedLiveData<List<Trait>> mReactions;
+    private final ChangeTrackedLiveData<List<Trait>> mLairActions;
+    private final ChangeTrackedLiveData<List<Trait>> mLegendaryActions;
+    private final ChangeTrackedLiveData<List<Trait>> mRegionalActions;
 
     public EditMonsterViewModel() {
         mErrorMessage = new MutableLiveData<>("");
@@ -144,17 +144,17 @@ public class EditMonsterViewModel extends ViewModel {
         mUnderstandsButDescription = new ChangeTrackedLiveData<>("", onDirtied);
         mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
         mSenses = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mDamageImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mDamageResistances = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mConditionImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mLanguages = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mAbilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mReactions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mLairActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mLegendaryActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mRegionalActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mDamageImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mDamageResistances = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mConditionImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mLanguages = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mAbilities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mReactions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mLairActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mLegendaryActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mRegionalActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
     }
 
     public void copyFromMonster(Monster monster) {
@@ -210,17 +210,27 @@ public class EditMonsterViewModel extends ViewModel {
         ArrayList<String> senses = new ArrayList<>(monster.senses);
         Collections.sort(senses, String::compareToIgnoreCase);
         mSenses.resetValue(senses);
-        mDamageImmunities.resetValue(monster.damageImmunities);
-        mDamageResistances.resetValue(monster.damageResistances);
-        mDamageVulnerabilities.resetValue(monster.damageVulnerabilities);
-        mConditionImmunities.resetValue(monster.conditionImmunities);
-        mLanguages.resetValue(monster.languages);
-        mAbilities.resetValue(monster.abilities);
-        mActions.resetValue(monster.actions);
-        mReactions.resetValue(monster.reactions);
-        mLairActions.resetValue(monster.lairActions);
-        mLegendaryActions.resetValue(monster.legendaryActions);
-        mRegionalActions.resetValue(monster.regionalActions);
+        ArrayList<String> damageImmunities = new ArrayList<>(monster.damageImmunities);
+        Collections.sort(damageImmunities, String::compareToIgnoreCase);
+        mDamageImmunities.resetValue(damageImmunities);
+        ArrayList<String> damageResistances = new ArrayList<>(monster.damageResistances);
+        Collections.sort(damageResistances, String::compareToIgnoreCase);
+        mDamageResistances.resetValue(damageResistances);
+        ArrayList<String> damageVulnerabilities = new ArrayList<>(monster.damageVulnerabilities);
+        Collections.sort(damageVulnerabilities, String::compareToIgnoreCase);
+        mDamageVulnerabilities.resetValue(damageVulnerabilities);
+        ArrayList<String> conditionImmunities = new ArrayList<>(monster.conditionImmunities);
+        Collections.sort(conditionImmunities, String::compareToIgnoreCase);
+        mConditionImmunities.resetValue(conditionImmunities);
+        ArrayList<Language> languages = new ArrayList<>(monster.languages);
+        Collections.sort(languages, (lang1, lang2) -> lang1.getName().compareToIgnoreCase(lang2.getName()));
+        mLanguages.resetValue(languages);
+        mAbilities.resetValue(new ArrayList<>(monster.abilities));
+        mActions.resetValue(new ArrayList<>(monster.actions));
+        mReactions.resetValue(new ArrayList<>(monster.reactions));
+        mLairActions.resetValue(new ArrayList<>(monster.lairActions));
+        mLegendaryActions.resetValue(new ArrayList<>(monster.legendaryActions));
+        mRegionalActions.resetValue(new ArrayList<>(monster.regionalActions));
         mHasChanges.setValue(false);
     }
 
@@ -807,44 +817,97 @@ public class EditMonsterViewModel extends ViewModel {
     }
 
     public String addNewSense() {
-        String newSense = "";
-        ArrayList<String> newSenses = new ArrayList<>(mSenses.getValue());
-        newSenses.add(newSense);
-        Collections.sort(newSenses, String::compareToIgnoreCase);
-        mSenses.setValue(newSenses);
-        return newSense;
+        return Helpers.addItemToList(mSenses, "", String::compareToIgnoreCase);
     }
 
     public void removeSense(int position) {
-        List<String> senses = mSenses.getValue();
-        ArrayList<String> newSenses = new ArrayList<>(senses);
-        newSenses.remove(position);
-        mSenses.setValue(newSenses);
+        Helpers.removeFromList(mSenses, position);
     }
 
-    public void replaceSense(String newSense, String oldSense) {
-        List<String> oldSenses = mSenses.getValue();
-        if (oldSenses == null) {
-            oldSenses = new ArrayList<>();
-        }
-        boolean hasReplaced = false;
-        ArrayList<String> newSenses = new ArrayList<>(oldSenses.size());
-        for (String sense : oldSenses) {
-            if (Objects.equals(sense, oldSense)) {
-                newSenses.add(newSense);
-                hasReplaced = true;
-            } else {
-                newSenses.add(sense);
-            }
-        }
-        if (!hasReplaced) {
-            newSenses.add(newSense);
-        }
-        Collections.sort(newSenses, String::compareToIgnoreCase);
-        mSenses.setValue(newSenses);
+    public void replaceSense(String oldSense, String newSense) {
+        Helpers.replaceItemInList(mSenses, oldSense, newSense, String::compareToIgnoreCase);
     }
 
-    // TODO: add getters and setters for lists of strings (Senses, Damage Immunities, Damage Resistances, Damage Vulnerabilities, and Condition Immunities)
+    public LiveData<List<String>> getDamageImmunities() {
+        return mDamageImmunities;
+    }
+
+    public List<String> getDamageImmunitiesArray() {
+        return mDamageImmunities.getValue();
+    }
+
+    public String addNewDamageImmunity() {
+        return Helpers.addStringToList("", mDamageImmunities);
+    }
+
+    public void removeDamageImmunity(int position) {
+        Helpers.removeFromList(mDamageImmunities, position);
+    }
+
+    public void replaceDamageImmunity(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mDamageImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getDamageResistances() {
+        return mDamageResistances;
+    }
+
+    public List<String> getDamageResistancesArray() {
+        return mDamageResistances.getValue();
+    }
+
+    public String addNewDamageResistance() {
+        return Helpers.addStringToList("", mDamageResistances);
+    }
+
+    public void removeDamageResistance(int position) {
+        Helpers.removeFromList(mDamageResistances, position);
+    }
+
+    public void replaceDamageResistance(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mDamageResistances, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getDamageVulnerabilities() {
+        return mDamageVulnerabilities;
+    }
+
+    public List<String> getDamageVulnerabilitiesArray() {
+        return mDamageVulnerabilities.getValue();
+    }
+
+    public String addNewDamageVulnerability() {
+        return Helpers.addStringToList("", mDamageVulnerabilities);
+    }
+
+    public void removeDamageVulnerability(int position) {
+        Helpers.removeFromList(mDamageVulnerabilities, position);
+    }
+
+    public void replaceDamageVulnerability(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mDamageVulnerabilities, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getConditionImmunities() {
+        return mConditionImmunities;
+    }
+
+    public List<String> getConditionImmunitiesArray() {
+        return mConditionImmunities.getValue();
+    }
+
+    public String addNewConditionImmunity() {
+        return Helpers.addStringToList("", mConditionImmunities);
+    }
+
+    public void removeConditionImmunity(int position) {
+        Helpers.removeFromList(mConditionImmunities, position);
+    }
+
+    public void replaceConditionImmunity(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mConditionImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
     // TODO: add getters and setters for Languages
     // TODO: add getters and setters for traits (Abilities, Actions, Reactions, Lair Actions, Legendary Actions, and Regional Actions)
 
@@ -897,19 +960,90 @@ public class EditMonsterViewModel extends ViewModel {
         monster.understandsButDescription = mUnderstandsButDescription.getValue();
         monster.skills = new HashSet<>(mSkills.getValue());
         monster.senses = new HashSet<>(mSenses.getValue());
-        monster.damageImmunities = mDamageImmunities.getValue();
-        monster.damageResistances = mDamageResistances.getValue();
-        monster.damageVulnerabilities = mDamageVulnerabilities.getValue();
-        monster.conditionImmunities = mConditionImmunities.getValue();
-        monster.languages = mLanguages.getValue();
-        monster.abilities = mAbilities.getValue();
-        monster.actions = mActions.getValue();
-        monster.reactions = mReactions.getValue();
-        monster.lairActions = mLairActions.getValue();
-        monster.legendaryActions = mLegendaryActions.getValue();
-        monster.regionalActions = mRegionalActions.getValue();
+        monster.damageImmunities = new HashSet<>(mDamageImmunities.getValue());
+        monster.damageResistances = new HashSet<>(mDamageResistances.getValue());
+        monster.damageVulnerabilities = new HashSet<>(mDamageVulnerabilities.getValue());
+        monster.conditionImmunities = new HashSet<>(mConditionImmunities.getValue());
+        monster.languages = new HashSet<>(mLanguages.getValue());
+        monster.abilities = new HashSet<>(mAbilities.getValue());
+        monster.actions = new HashSet<>(mActions.getValue());
+        monster.reactions = new HashSet<>(mReactions.getValue());
+        monster.lairActions = new HashSet<>(mLairActions.getValue());
+        monster.legendaryActions = new HashSet<>(mLegendaryActions.getValue());
+        monster.regionalActions = new HashSet<>(mRegionalActions.getValue());
 
         return monster;
     }
 
+    private static class Helpers {
+        static String addStringToList(String newString, MutableLiveData<List<String>> strings) {
+            return addItemToList(strings, newString, String::compareToIgnoreCase);
+        }
+
+        static <T> T addItemToList(MutableLiveData<List<T>> listData, T newItem, Comparator<? super T> comparator) {
+            ArrayList<T> newList = new ArrayList<>(listData.getValue());
+            newList.add(newItem);
+            if (comparator != null) {
+                Collections.sort(newList, comparator);
+            }
+            listData.setValue(newList);
+            return newItem;
+        }
+
+        static <T> void removeFromList(MutableLiveData<List<T>> listData, int position) {
+            List<T> oldList = listData.getValue();
+            ArrayList<T> newList = new ArrayList<>(oldList);
+            newList.remove(position);
+            listData.setValue(newList);
+        }
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, int position, T newItem, Comparator<? super T> comparator) {
+            List<T> oldList = listData.getValue();
+            if (oldList == null) {
+                oldList = new ArrayList<>();
+            }
+            int size = oldList.size();
+            boolean hasReplaced = false;
+            ArrayList<T> newList = new ArrayList<>(size);
+            for (int index = 0; index < size; index++) {
+                if (index == position) {
+                    newList.add(newItem);
+                    hasReplaced = true;
+                } else {
+                    newList.add(oldList.get(index));
+                }
+            }
+            if (!hasReplaced) {
+                newList.add(newItem);
+            }
+            if (comparator != null) {
+                Collections.sort(newList, comparator);
+            }
+            listData.setValue(newList);
+        }
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem, Comparator<? super T> comparator) {
+            List<T> oldList = listData.getValue();
+            if (oldList == null) {
+                oldList = new ArrayList<>();
+            }
+            boolean hasReplaced = false;
+            ArrayList<T> newList = new ArrayList<>(oldList.size());
+            for (T item : oldList) {
+                if (Objects.equals(item, oldItem)) {
+                    newList.add(newItem);
+                    hasReplaced = true;
+                } else {
+                    newList.add(item);
+                }
+            }
+            if (!hasReplaced) {
+                newList.add(newItem);
+            }
+            if (comparator != null) {
+                Collections.sort(newList, comparator);
+            }
+            listData.setValue(newList);
+        }
+    }
 }
