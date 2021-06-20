@@ -756,8 +756,92 @@ public class EditMonsterViewModel extends ViewModel {
         return mSkills;
     }
 
+    public List<Skill> getSkillsArray() {
+        return mSkills.getValue();
+    }
+
+    public Skill addNewSkill() {
+        Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
+        ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
+        newSkills.add(newSkill);
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.setValue(newSkills);
+        return newSkill;
+    }
+
+    public void removeSkill(int position) {
+        List<Skill> skills = mSkills.getValue();
+        ArrayList<Skill> newSkills = new ArrayList<>(skills);
+        newSkills.remove(position);
+        mSkills.setValue(newSkills);
+    }
+
+    public void replaceSkill(Skill newSkill, Skill oldSkill) {
+        List<Skill> oldSkills = mSkills.getValue();
+        if (oldSkills == null) {
+            oldSkills = new ArrayList<>();
+        }
+        boolean hasReplaced = false;
+        ArrayList<Skill> newSkills = new ArrayList<>(oldSkills.size());
+        for (Skill skill : oldSkills) {
+            if (Objects.equals(skill, oldSkill)) {
+                newSkills.add(newSkill);
+                hasReplaced = true;
+            } else {
+                newSkills.add(skill);
+            }
+        }
+        if (!hasReplaced) {
+            newSkills.add(newSkill);
+        }
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.setValue(newSkills);
+    }
+
+    public LiveData<List<String>> getSenses() {
+        return mSenses;
+    }
+
     public List<String> getSensesArray() {
         return mSenses.getValue();
+    }
+
+    public String addNewSense() {
+        String newSense = "";
+        ArrayList<String> newSenses = new ArrayList<>(mSenses.getValue());
+        newSenses.add(newSense);
+        Collections.sort(newSenses, String::compareToIgnoreCase);
+        mSenses.setValue(newSenses);
+        return newSense;
+    }
+
+    public void removeSense(int position) {
+        List<String> senses = mSenses.getValue();
+        ArrayList<String> newSenses = new ArrayList<>(senses);
+        newSenses.remove(position);
+        mSenses.setValue(newSenses);
+    }
+
+    public void replaceSense(String newSense, String oldSense) {
+        List<String> oldSenses = mSenses.getValue();
+        if (oldSenses == null) {
+            oldSenses = new ArrayList<>();
+        }
+        boolean hasReplaced = false;
+        ArrayList<String> newSenses = new ArrayList<>(oldSenses.size());
+        for (String sense : oldSenses) {
+            if (Objects.equals(sense, oldSense)) {
+                newSenses.add(newSense);
+                hasReplaced = true;
+            } else {
+                newSenses.add(sense);
+            }
+        }
+        if (!hasReplaced) {
+            newSenses.add(newSense);
+        }
+        Collections.sort(newSenses, String::compareToIgnoreCase);
+        mSenses.setValue(newSenses);
     }
 
     // TODO: add getters and setters for lists of strings (Senses, Damage Immunities, Damage Resistances, Damage Vulnerabilities, and Condition Immunities)
@@ -828,45 +912,4 @@ public class EditMonsterViewModel extends ViewModel {
         return monster;
     }
 
-    public List<Skill> getSkillsArray() {
-        return mSkills.getValue();
-    }
-
-    public Skill addNewSkill() {
-        Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
-        ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
-        newSkills.add(newSkill);
-        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
-        mSkills.setValue(newSkills);
-        return newSkill;
-    }
-
-    public void removeSkill(int position) {
-        List<Skill> skills = mSkills.getValue();
-        ArrayList<Skill> newSkills = new ArrayList<>(skills);
-        newSkills.remove(position);
-        mSkills.setValue(newSkills);
-    }
-
-    public void replaceSkill(Skill newSkill, Skill oldSkill) {
-        List<Skill> oldSkills = mSkills.getValue();
-        if (oldSkills == null) {
-            oldSkills = new ArrayList<>();
-        }
-        boolean hasReplaced = false;
-        ArrayList<Skill> newSkills = new ArrayList<>(oldSkills.size());
-        for (Skill skill : oldSkills) {
-            if (Objects.equals(skill, oldSkill)) {
-                newSkills.add(newSkill);
-                hasReplaced = true;
-            } else {
-                newSkills.add(skill);
-            }
-        }
-        if (!hasReplaced) {
-            newSkills.add(newSkill);
-        }
-        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
-        mSkills.setValue(newSkills);
-    }
 }
