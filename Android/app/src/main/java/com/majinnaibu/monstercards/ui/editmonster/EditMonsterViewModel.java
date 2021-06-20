@@ -908,8 +908,153 @@ public class EditMonsterViewModel extends ViewModel {
         Helpers.replaceItemInList(mConditionImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
     }
 
-    // TODO: add getters and setters for Languages
-    // TODO: add getters and setters for traits (Abilities, Actions, Reactions, Lair Actions, Legendary Actions, and Regional Actions)
+    public LiveData<List<Language>> getLanguages() {
+        return mLanguages;
+    }
+
+    public List<Language> getLanguagesArray() {
+        return mLanguages.getValue();
+    }
+
+    public Language addNewLanguage() {
+        Language newLanguage = new Language("", true);
+        return Helpers.addItemToList(mLanguages, newLanguage, Language::compareTo);
+    }
+
+    public void removeLanguage(int position) {
+        Helpers.removeFromList(mLanguages, position);
+    }
+
+    public void replaceLanguage(Language oldLanguage, Language newLanguage) {
+        Helpers.replaceItemInList(mLanguages, oldLanguage, newLanguage, Language::compareTo);
+    }
+
+    public LiveData<List<Trait>> getAbilities() {
+        return mAbilities;
+    }
+
+    public List<Trait> getAbilitiesArray() {
+        return mAbilities.getValue();
+    }
+
+    public Trait addNewAbility() {
+        Trait newAbility = new Trait("", "");
+        return Helpers.addItemToList(mAbilities, newAbility, Trait::compareTo);
+    }
+
+    public void removeAbility(int position) {
+        Helpers.removeFromList(mAbilities, position);
+    }
+
+    public void replaceAbility(Trait oldAbility, Trait newAbility) {
+        Helpers.replaceItemInList(mAbilities, oldAbility, newAbility);
+    }
+
+
+    public LiveData<List<Trait>> getActions() {
+        return mActions;
+    }
+
+    public List<Trait> getActionsArray() {
+        return mActions.getValue();
+    }
+
+    public Trait addNewAction() {
+        Trait newAction = new Trait("", "");
+        return Helpers.addItemToList(mActions, newAction, Trait::compareTo);
+    }
+
+    public void removeAction(int position) {
+        Helpers.removeFromList(mActions, position);
+    }
+
+    public void replaceAction(Trait oldAction, Trait newAction) {
+        Helpers.replaceItemInList(mActions, oldAction, newAction);
+    }
+
+    public LiveData<List<Trait>> getReactions() {
+        return mReactions;
+    }
+
+    public List<Trait> getReactionsArray() {
+        return mReactions.getValue();
+    }
+
+    public Trait addNewReaction() {
+        Trait newReaction = new Trait("", "");
+        return Helpers.addItemToList(mReactions, newReaction, Trait::compareTo);
+    }
+
+    public void removeReaction(int position) {
+        Helpers.removeFromList(mReactions, position);
+    }
+
+    public void replaceReaction(Trait oldReaction, Trait newReaction) {
+        Helpers.replaceItemInList(mReactions, oldReaction, newReaction);
+    }
+
+    public LiveData<List<Trait>> getLairActions() {
+        return mLairActions;
+    }
+
+    public List<Trait> getLairActionsArray() {
+        return mLairActions.getValue();
+    }
+
+    public Trait addNewLairAction() {
+        Trait newLairAction = new Trait("", "");
+        return Helpers.addItemToList(mLairActions, newLairAction, Trait::compareTo);
+    }
+
+    public void removeLairAction(int position) {
+        Helpers.removeFromList(mLairActions, position);
+    }
+
+    public void replaceLairAction(Trait oldLairAction, Trait newLairAction) {
+        Helpers.replaceItemInList(mLairActions, oldLairAction, newLairAction);
+    }
+
+    public LiveData<List<Trait>> getLegendaryActions() {
+        return mLegendaryActions;
+    }
+
+    public List<Trait> getLegendaryActionsArray() {
+        return mLegendaryActions.getValue();
+    }
+
+    public Trait addNewLegendaryAction() {
+        Trait newLegendaryAction = new Trait("", "");
+        return Helpers.addItemToList(mLegendaryActions, newLegendaryAction, Trait::compareTo);
+    }
+
+    public void removeLegendaryAction(int position) {
+        Helpers.removeFromList(mLegendaryActions, position);
+    }
+
+    public void replaceLegendaryAction(Trait oldLegendaryAction, Trait newLegendaryAction) {
+        Helpers.replaceItemInList(mLegendaryActions, oldLegendaryAction, newLegendaryAction);
+    }
+
+    public LiveData<List<Trait>> getRegionalActions() {
+        return mRegionalActions;
+    }
+
+    public List<Trait> getRegionalActionsArray() {
+        return mRegionalActions.getValue();
+    }
+
+    public Trait addNewRegionalAction() {
+        Trait newRegionalAction = new Trait("", "");
+        return Helpers.addItemToList(mRegionalActions, newRegionalAction, Trait::compareTo);
+    }
+
+    public void removeRegionalAction(int position) {
+        Helpers.removeFromList(mRegionalActions, position);
+    }
+
+    public void replaceRegionalAction(Trait oldRegionalAction, Trait newRegionalAction) {
+        Helpers.replaceItemInList(mRegionalActions, oldRegionalAction, newRegionalAction);
+    }
 
     public Monster buildMonster() {
         Monster monster = new Monster();
@@ -975,6 +1120,7 @@ public class EditMonsterViewModel extends ViewModel {
         return monster;
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static class Helpers {
         static String addStringToList(String newString, MutableLiveData<List<String>> strings) {
             return addItemToList(strings, newString, String::compareToIgnoreCase);
@@ -1022,6 +1168,10 @@ public class EditMonsterViewModel extends ViewModel {
             listData.setValue(newList);
         }
 
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, int position, T newItem) {
+            replaceItemInList(listData, position, newItem, null);
+        }
+
         static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem, Comparator<? super T> comparator) {
             List<T> oldList = listData.getValue();
             if (oldList == null) {
@@ -1044,6 +1194,10 @@ public class EditMonsterViewModel extends ViewModel {
                 Collections.sort(newList, comparator);
             }
             listData.setValue(newList);
+        }
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem) {
+            replaceItemInList(listData, oldItem, newItem, null);
         }
     }
 }
