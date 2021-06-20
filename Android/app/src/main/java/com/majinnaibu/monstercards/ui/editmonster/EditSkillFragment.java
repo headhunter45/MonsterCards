@@ -9,7 +9,6 @@ import android.widget.EditText;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -17,13 +16,14 @@ import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.models.Skill;
+import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.components.AbilityScorePicker;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditSkillFragment extends Fragment {
+public class EditSkillFragment extends MCFragment {
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditSkillViewModel mViewModel;
     private ViewHolder mHolder;

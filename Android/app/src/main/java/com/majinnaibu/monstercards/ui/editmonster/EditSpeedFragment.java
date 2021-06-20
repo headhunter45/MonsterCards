@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.components.Stepper;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditSpeedFragment extends Fragment {
+public class EditSpeedFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 

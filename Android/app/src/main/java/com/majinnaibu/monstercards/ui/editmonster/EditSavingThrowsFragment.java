@@ -5,17 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
 
-public class EditSavingThrowsFragment extends Fragment {
+public class EditSavingThrowsFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mViewHolder;
 

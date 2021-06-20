@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -21,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.models.Skill;
+import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
@@ -28,7 +28,7 @@ import com.majinnaibu.monstercards.utils.Logger;
  * A fragment representing a list of Items.
  */
 @SuppressWarnings("FieldCanBeLocal")
-public class EditSkillsFragment extends Fragment {
+public class EditSkillsFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 
