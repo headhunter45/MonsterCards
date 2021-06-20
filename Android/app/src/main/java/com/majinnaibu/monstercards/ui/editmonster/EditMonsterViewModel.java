@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -812,7 +813,6 @@ public class EditMonsterViewModel extends ViewModel {
     /*
     // TODO: add getters and setters for
         Senses
-        Skills
         Damage Immunities
         DamageResistances
         DamageVulnerabilities
@@ -897,18 +897,41 @@ public class EditMonsterViewModel extends ViewModel {
         return mSkills.getValue();
     }
 
-    public void addNewSkill() {
+    public Skill addNewSkill() {
         Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
         ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
         newSkills.add(newSkill);
         Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
         mSkills.setValue(newSkills);
+        return newSkill;
     }
 
     public void removeSkill(int position) {
         List<Skill> skills = mSkills.getValue();
         ArrayList<Skill> newSkills = new ArrayList<>(skills);
         newSkills.remove(position);
+        mSkills.setValue(newSkills);
+    }
+
+    public void replaceSkill(Skill newSkill, Skill oldSkill) {
+        List<Skill> oldSkills = mSkills.getValue();
+        if (oldSkills == null) {
+            oldSkills = new ArrayList<>();
+        }
+        boolean hasReplaced = false;
+        ArrayList<Skill> newSkills = new ArrayList<>(oldSkills.size());
+        for (Skill skill : oldSkills) {
+            if (Objects.equals(skill, oldSkill)) {
+                newSkills.add(newSkill);
+                hasReplaced = true;
+            } else {
+                newSkills.add(skill);
+            }
+        }
+        if (!hasReplaced) {
+            newSkills.add(newSkill);
+        }
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
         mSkills.setValue(newSkills);
     }
 }
