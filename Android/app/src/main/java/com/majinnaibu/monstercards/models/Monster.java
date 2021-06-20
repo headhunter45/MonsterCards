@@ -159,61 +159,49 @@ public class Monster {
     @ColumnInfo(name = "custom_proficiency_bonus", defaultValue = "0")
     public int customProficiencyBonus;
 
-    @ColumnInfo(name = "blindsight_range", defaultValue = "0")
-    public int blindsightRange;
-
-    @ColumnInfo(name = "is_blind_beyond_blindsight_range", defaultValue = "false")
-    public boolean isBlindBeyondBlindsightRange;
-
-    @ColumnInfo(name = "darkvision_range", defaultValue = "0")
-    public int darkvisionRange;
-
-    @ColumnInfo(name = "tremorsense_range", defaultValue = "0")
-    public int tremorsenseRange;
-
-    @ColumnInfo(name = "truesight_range", defaultValue = "0")
-    public int truesightRange;
-
     @ColumnInfo(name = "telepathy_range", defaultValue = "0")
     public int telepathyRange;
 
     @ColumnInfo(name = "understands_but_description", defaultValue = "")
     public String understandsButDescription;
 
-    @ColumnInfo(name = "skills")
+    @ColumnInfo(name = "senses", defaultValue = "[]")
+    public Set<String> senses;
+
+    @ColumnInfo(name = "skills", defaultValue = "[]")
     public Set<Skill> skills;
 
-    @ColumnInfo(name = "damage_immunities")
+    @ColumnInfo(name = "damage_immunities", defaultValue = "[]")
     public Set<String> damageImmunities;
 
-    @ColumnInfo(name = "damage_resistances")
+    @ColumnInfo(name = "damage_resistances", defaultValue = "[]")
     public Set<String> damageResistances;
 
-    @ColumnInfo(name = "damage_vulnerabilities")
+    @ColumnInfo(name = "damage_vulnerabilities", defaultValue = "[]")
     public Set<String> damageVulnerabilities;
 
-    @ColumnInfo(name = "condition_immunities")
+    @ColumnInfo(name = "condition_immunities", defaultValue = "[]")
     public Set<String> conditionImmunities;
 
-    @ColumnInfo(name = "languages")
+    @ColumnInfo(name = "languages", defaultValue = "[]")
     public Set<Language> languages;
 
-    @ColumnInfo(name = "abilities")
+    @ColumnInfo(name = "abilities", defaultValue = "[]")
     public Set<Trait> abilities;
 
-    @ColumnInfo(name = "actions")
+    @ColumnInfo(name = "actions", defaultValue = "[]")
     public Set<Trait> actions;
 
-    @ColumnInfo(name = "reactions")
+    @ColumnInfo(name = "reactions", defaultValue = "[]")
     public Set<Trait> reactions;
 
-    @ColumnInfo(name = "lair_actions")
+    @ColumnInfo(name = "lair_actions", defaultValue = "[]")
     public Set<Trait> lairActions;
 
-    @ColumnInfo(name = "legendary_actions")
+    @ColumnInfo(name = "legendary_actions", defaultValue = "[]")
     public Set<Trait> legendaryActions;
 
-    @ColumnInfo(name = "regional_actions")
+    @ColumnInfo(name = "regional_actions", defaultValue = "[]")
     public Set<Trait> regionalActions;
 
     public Monster() {
@@ -247,11 +235,6 @@ public class Monster {
         challengeRating = ChallengeRating.ONE;
         customChallengeRatingDescription = "";
         customProficiencyBonus = 0;
-        blindsightRange = 0;
-        isBlindBeyondBlindsightRange = false;
-        darkvisionRange = 0;
-        tremorsenseRange = 0;
-        truesightRange = 0;
         telepathyRange = 0;
         understandsButDescription = "";
         strengthSavingThrowAdvantage = AdvantageType.NONE;
@@ -269,6 +252,7 @@ public class Monster {
 
 
         skills = new HashSet<>();
+        senses = new HashSet<>();
         damageImmunities = new HashSet<>();
         damageResistances = new HashSet<>();
         damageVulnerabilities = new HashSet<>();
@@ -651,21 +635,8 @@ public class Monster {
     }
 
     public String getSensesDescription() {
-        ArrayList<String> parts = new ArrayList<>();
-        if (blindsightRange > 0) {
-            parts.add(String.format("blindsight %d ft.%s", blindsightRange, isBlindBeyondBlindsightRange ? " (blind beyond this radius)" : ""));
-        }
-        if (darkvisionRange > 0) {
-            parts.add(String.format("darkvision %d ft.", darkvisionRange));
-        }
-        if (tremorsenseRange > 0) {
-            parts.add(String.format("tremorsense %d ft.", tremorsenseRange));
-        }
-        if (truesightRange > 0) {
-            parts.add(String.format("truesight %d ft.", truesightRange));
-        }
+        ArrayList<String> parts = new ArrayList<>(senses);
         parts.add(String.format("passive Perception %d", 10 + getWisdomModifier()));
-
         return StringHelper.join(", ", parts);
     }
 
