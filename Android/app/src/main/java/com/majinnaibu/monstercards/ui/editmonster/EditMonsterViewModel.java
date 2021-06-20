@@ -18,8 +18,10 @@ import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -72,14 +74,10 @@ public class EditMonsterViewModel extends ViewModel {
     private final ChangeTrackedLiveData<ChallengeRating> mChallengeRating;
     private final ChangeTrackedLiveData<String> mCustomChallengeRatingDescription;
     private final ChangeTrackedLiveData<Integer> mCustomProficiencyBonus;
-    private final ChangeTrackedLiveData<Integer> mBlindsightRange;
-    private final ChangeTrackedLiveData<Boolean> mIsBlindBeyondBlindsightRange;
-    private final ChangeTrackedLiveData<Integer> mDarkvisionRange;
-    private final ChangeTrackedLiveData<Integer> mTremorsenseRange;
-    private final ChangeTrackedLiveData<Integer> mTruesightRange;
     private final ChangeTrackedLiveData<Integer> mTelepathyRange;
     private final ChangeTrackedLiveData<String> mUnderstandsButDescription;
     private final ChangeTrackedLiveData<List<Skill>> mSkills;
+    private final ChangeTrackedLiveData<List<String>> mSenses;
     private final ChangeTrackedLiveData<Set<String>> mDamageImmunities;
     private final ChangeTrackedLiveData<Set<String>> mDamageResistances;
     private final ChangeTrackedLiveData<Set<String>> mDamageVulnerabilities;
@@ -142,14 +140,10 @@ public class EditMonsterViewModel extends ViewModel {
         mChallengeRating = new ChangeTrackedLiveData<>(ChallengeRating.ONE_EIGHTH, onDirtied);
         mCustomChallengeRatingDescription = new ChangeTrackedLiveData<>("", onDirtied);
         mCustomProficiencyBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mBlindsightRange = new ChangeTrackedLiveData<>(0, onDirtied);
-        mIsBlindBeyondBlindsightRange = new ChangeTrackedLiveData<>(false, onDirtied);
-        mDarkvisionRange = new ChangeTrackedLiveData<>(0, onDirtied);
-        mTremorsenseRange = new ChangeTrackedLiveData<>(0, onDirtied);
-        mTruesightRange = new ChangeTrackedLiveData<>(0, onDirtied);
         mTelepathyRange = new ChangeTrackedLiveData<>(0, onDirtied);
         mUnderstandsButDescription = new ChangeTrackedLiveData<>("", onDirtied);
         mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mSenses = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
         mDamageImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
         mDamageResistances = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
         mDamageVulnerabilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
@@ -207,22 +201,15 @@ public class EditMonsterViewModel extends ViewModel {
         mChallengeRating.resetValue(monster.challengeRating);
         mCustomChallengeRatingDescription.resetValue(monster.customChallengeRatingDescription);
         mCustomProficiencyBonus.resetValue(monster.customProficiencyBonus);
-        mBlindsightRange.resetValue(monster.blindsightRange);
-        mIsBlindBeyondBlindsightRange.resetValue(monster.isBlindBeyondBlindsightRange);
-        mDarkvisionRange.resetValue(monster.darkvisionRange);
-        mTremorsenseRange.resetValue(monster.tremorsenseRange);
-        mTruesightRange.resetValue(monster.truesightRange);
         mTelepathyRange.resetValue(monster.telepathyRange);
         mUnderstandsButDescription.resetValue(monster.understandsButDescription);
 
-        if (monster.skills.size() == 0) {
-            ArrayList<Skill> skills = new ArrayList<>();
-            skills.add(new Skill("Acrobatics", AbilityScore.STRENGTH));
-            skills.add(new Skill("Stealth", AbilityScore.DEXTERITY));
-            mSkills.resetValue(skills);
-        } else {
-            mSkills.resetValue(new ArrayList<>(monster.skills));
-        }
+        ArrayList<Skill> skills = new ArrayList<>(monster.skills);
+        Collections.sort(skills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.resetValue(skills);
+        ArrayList<String> senses = new ArrayList<>(monster.senses);
+        Collections.sort(senses, String::compareToIgnoreCase);
+        mSenses.resetValue(senses);
         mDamageImmunities.resetValue(monster.damageImmunities);
         mDamageResistances.resetValue(monster.damageResistances);
         mDamageVulnerabilities.resetValue(monster.damageVulnerabilities);
@@ -749,46 +736,6 @@ public class EditMonsterViewModel extends ViewModel {
         return mCustomProficiencyBonus.getValue().toString();
     }
 
-    public LiveData<Integer> getBlindsightRange() {
-        return mBlindsightRange;
-    }
-
-    public void setBlindsightRange(int blindsightRange) {
-        mBlindsightRange.setValue(blindsightRange);
-    }
-
-    public LiveData<Boolean> getIsBlindBeyondBlindsightRange() {
-        return mIsBlindBeyondBlindsightRange;
-    }
-
-    public void setIsBlindBeyondBlindsightRange(boolean isBlindBeyondBlindsightRange) {
-        mIsBlindBeyondBlindsightRange.setValue(isBlindBeyondBlindsightRange);
-    }
-
-    public LiveData<Integer> getDarkvisionRange() {
-        return mDarkvisionRange;
-    }
-
-    public void setDarkvisionRange(int darkvisionRange) {
-        mDarkvisionRange.setValue(darkvisionRange);
-    }
-
-    public LiveData<Integer> getTremorsenseRange() {
-        return mTremorsenseRange;
-    }
-
-    public void setTremorsenseRange(int tremorsenseRange) {
-        mTremorsenseRange.setValue(tremorsenseRange);
-    }
-
-    public LiveData<Integer> getTruesightRange() {
-        return mTruesightRange;
-    }
-
-    public void setTruesightRange(int truesightRange) {
-        mTruesightRange.setValue(truesightRange);
-    }
-
     public LiveData<Integer> getTelepathyRange() {
         return mTelepathyRange;
     }
@@ -809,22 +756,14 @@ public class EditMonsterViewModel extends ViewModel {
         return mSkills;
     }
 
-    /*
-    // TODO: add getters and setters for
-        Senses
-        Skills
-        Damage Immunities
-        DamageResistances
-        DamageVulnerabilities
-        ConditionImmunities
-        Languages
-        Abilities
-        Actions
-        Reactions
-        LairActions
-        LegendaryActions
-        RegionalActions
-     */
+    public List<String> getSensesArray() {
+        return mSenses.getValue();
+    }
+
+    // TODO: add getters and setters for lists of strings (Senses, Damage Immunities, Damage Resistances, Damage Vulnerabilities, and Condition Immunities)
+    // TODO: add getters and setters for Languages
+    // TODO: add getters and setters for traits (Abilities, Actions, Reactions, Lair Actions, Legendary Actions, and Regional Actions)
+
     public Monster buildMonster() {
         Monster monster = new Monster();
 
@@ -870,14 +809,10 @@ public class EditMonsterViewModel extends ViewModel {
         monster.challengeRating = mChallengeRating.getValue();
         monster.customChallengeRatingDescription = mCustomChallengeRatingDescription.getValue();
         monster.customProficiencyBonus = mCustomProficiencyBonus.getValue();
-        monster.blindsightRange = mBlindsightRange.getValue();
-        monster.isBlindBeyondBlindsightRange = mIsBlindBeyondBlindsightRange.getValue();
-        monster.darkvisionRange = mDarkvisionRange.getValue();
-        monster.tremorsenseRange = mTremorsenseRange.getValue();
-        monster.truesightRange = mTruesightRange.getValue();
         monster.telepathyRange = mTelepathyRange.getValue();
         monster.understandsButDescription = mUnderstandsButDescription.getValue();
         monster.skills = new HashSet<>(mSkills.getValue());
+        monster.senses = new HashSet<>(mSenses.getValue());
         monster.damageImmunities = mDamageImmunities.getValue();
         monster.damageResistances = mDamageResistances.getValue();
         monster.damageVulnerabilities = mDamageVulnerabilities.getValue();
@@ -897,10 +832,41 @@ public class EditMonsterViewModel extends ViewModel {
         return mSkills.getValue();
     }
 
-    public void addNewSkill() {
+    public Skill addNewSkill() {
         Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
         ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
         newSkills.add(newSkill);
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.setValue(newSkills);
+        return newSkill;
+    }
+
+    public void removeSkill(int position) {
+        List<Skill> skills = mSkills.getValue();
+        ArrayList<Skill> newSkills = new ArrayList<>(skills);
+        newSkills.remove(position);
+        mSkills.setValue(newSkills);
+    }
+
+    public void replaceSkill(Skill newSkill, Skill oldSkill) {
+        List<Skill> oldSkills = mSkills.getValue();
+        if (oldSkills == null) {
+            oldSkills = new ArrayList<>();
+        }
+        boolean hasReplaced = false;
+        ArrayList<Skill> newSkills = new ArrayList<>(oldSkills.size());
+        for (Skill skill : oldSkills) {
+            if (Objects.equals(skill, oldSkill)) {
+                newSkills.add(newSkill);
+                hasReplaced = true;
+            } else {
+                newSkills.add(skill);
+            }
+        }
+        if (!hasReplaced) {
+            newSkills.add(newSkill);
+        }
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
         mSkills.setValue(newSkills);
     }
 }

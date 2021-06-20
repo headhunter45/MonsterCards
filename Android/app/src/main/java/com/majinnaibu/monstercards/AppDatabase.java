@@ -17,7 +17,7 @@ import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.MonsterFTS;
 
 @SuppressWarnings("unused")
-@Database(entities = {Monster.class, MonsterFTS.class}, version = 2)
+@Database(entities = {Monster.class, MonsterFTS.class}, version = 3)
 @TypeConverters({
         ArmorTypeConverter.class,
         ChallengeRatingConverter.class,
