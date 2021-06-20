@@ -93,6 +93,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editSkillsFragment"
                 app:destination="@id/editSkillsFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editSensesFragment"
+                app:destination="@id/editSensesFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -150,5 +153,10 @@
                 android:name="advantage"
                 app:argType="com.majinnaibu.monstercards.data.enums.AdvantageType" />
         </fragment>
+        <fragment
+            android:id="@+id/editSensesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSensesFragment"
+            android:label="fragment_edit_senses_list"
+            tools:layout="@layout/fragment_edit_senses_list" />
     </navigation>
 </navigation>
