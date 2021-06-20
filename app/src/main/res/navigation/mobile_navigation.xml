@@ -157,6 +157,19 @@
             android:id="@+id/editSensesFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSensesFragment"
             android:label="fragment_edit_senses_list"
-            tools:layout="@layout/fragment_edit_senses_list" />
+            tools:layout="@layout/fragment_edit_senses_list">
+            <action
+                android:id="@+id/action_editSensesFragment_to_editSenseFragment"
+                app:destination="@id/editSenseFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editSenseFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSenseFragment"
+            android:label="fragment_edit_sense"
+            tools:layout="@layout/fragment_edit_sense">
+            <argument
+                android:name="sense"
+                app:argType="string" />
+        </fragment>
     </navigation>
 </navigation>

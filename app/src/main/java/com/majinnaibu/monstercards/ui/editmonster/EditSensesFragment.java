@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -31,11 +32,10 @@ public class EditSensesFragment extends MCFragment {
     private ViewHolder mHolder;
 
     private void navigateToEditSense(String sense) {
-        Logger.logUnimplementedFeature("Navigate to edit sense fragment.");
-//        NavDirections action = EditSensesFragmentDirections.actionEditSensesFragmentToEditSenseFragment(sense);
-//        View view = getView();
-//        assert view != null;
-//        Navigation.findNavController(view).navigate(action);
+        NavDirections action = EditSensesFragmentDirections.actionEditSensesFragmentToEditSenseFragment(sense);
+        View view = getView();
+        assert view != null;
+        Navigation.findNavController(view).navigate(action);
     }
 
     @Override
