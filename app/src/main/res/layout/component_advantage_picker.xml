@@ -25,21 +25,21 @@
         app:layout_constraintTop_toBottomOf="@id/label">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/none"
+            android:id="@+id/hasNoAdvantage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/label_advantage_none" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/advantage"
+            android:id="@+id/hasAdvantage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/label_advantage_advantage" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/disadvantage"
+            android:id="@+id/hasDisadvantage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
