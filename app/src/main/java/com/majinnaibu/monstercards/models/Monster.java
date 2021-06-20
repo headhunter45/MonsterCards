@@ -266,6 +266,28 @@ public class Monster {
         regionalActions = new HashSet<>();
     }
 
+    public static int getAbilityModifierForScore(int score) {
+        return (int) Math.floor((score - 10) / 2.0);
+    }
+
+    private static int getHitDieForSize(String size) {
+        if ("tiny".equals(size)) {
+            return 4;
+        } else if ("small".equals(size)) {
+            return 6;
+        } else if ("medium".equals(size)) {
+            return 8;
+        } else if ("large".equals(size)) {
+            return 10;
+        } else if ("huge".equals(size)) {
+            return 12;
+        } else if ("gargantuan".equals(size)) {
+            return 20;
+        } else {
+            return 8;
+        }
+    }
+
     public String getMeta() {
         StringBuilder sb = new StringBuilder();
         boolean isFirstOutput = true;
@@ -319,10 +341,6 @@ public class Monster {
             default:
                 return 10;
         }
-    }
-
-    public static int getAbilityModifierForScore(int score) {
-        return (int) Math.floor((score - 10) / 2.0);
     }
 
     public int getAbilityModifier(AbilityScore abilityScore) {
@@ -474,24 +492,6 @@ public class Monster {
             // For monster style calculations use this
             int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
             return String.format("%d (%dd%d %+d)", hpTotal, hitDice, dieSize, conMod * hitDice);
-        }
-    }
-
-    private static int getHitDieForSize(String size) {
-        if ("tiny".equals(size)) {
-            return 4;
-        } else if ("small".equals(size)) {
-            return 6;
-        } else if ("medium".equals(size)) {
-            return 8;
-        } else if ("large".equals(size)) {
-            return 10;
-        } else if ("huge".equals(size)) {
-            return 12;
-        } else if ("gargantuan".equals(size)) {
-            return 20;
-        } else {
-            return 8;
         }
     }
 
