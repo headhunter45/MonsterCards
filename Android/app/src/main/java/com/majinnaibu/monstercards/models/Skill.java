@@ -49,7 +49,7 @@ public class Skill implements Comparator<Skill>, Comparable<Skill> {
 
         return String.format(
                 "%s%s %+d%s",
-                name.substring(0, 1),
+                name.charAt(0),
                 name.substring(1),
                 bonus,
                 advantageType == AdvantageType.ADVANTAGE ? " A" : advantageType == AdvantageType.DISADVANTAGE ? " D" : ""
