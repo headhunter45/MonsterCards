@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -32,7 +33,10 @@ public class EditSkillsFragment extends Fragment {
     private ViewHolder mHolder;
 
     private void navigateToEditSkill(Skill skill) {
-        Logger.logUnimplementedFeature("Navigate to the edit skill fragment.");
+        NavDirections action = EditSkillsFragmentDirections.actionEditSkillsFragmentToEditSkillFragment(skill.name, skill.abilityScore, skill.proficiencyType, skill.advantageType);
+        View view = getView();
+        assert view != null;
+        Navigation.findNavController(view).navigate(action);
     }
 
     @Override
