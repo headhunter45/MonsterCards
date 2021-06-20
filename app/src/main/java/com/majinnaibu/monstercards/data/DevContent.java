@@ -10,6 +10,7 @@ import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
 
+@SuppressWarnings("unused")
 public final class DevContent {
     public static Monster createSampleMonster() {
         Monster monster = new Monster();
@@ -80,11 +81,10 @@ public final class DevContent {
         // Condition Immunities
         monster.conditionImmunities.add("blinded");
         // Senses
-        monster.blindsightRange = 10;
-        monster.isBlindBeyondBlindsightRange = true;
-        monster.darkvisionRange = 20;
-        monster.tremorsenseRange = 30;
-        monster.truesightRange = 40;
+        monster.senses.add("blindsight 10 ft. (blind beyond this range)");
+        monster.senses.add("darkvision 20 ft.");
+        monster.senses.add("tremorsense 30 ft.");
+        monster.senses.add("truesight 40 ft.");
         monster.telepathyRange = 20;
         monster.understandsButDescription = "doesn't care";
         // Languages
