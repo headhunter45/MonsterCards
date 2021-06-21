@@ -96,6 +96,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editSensesFragment"
                 app:destination="@id/editSensesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editConditionImmunitiesFragment"
+                app:destination="@id/editConditionImmunitiesFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -169,6 +172,24 @@
             tools:layout="@layout/fragment_edit_sense">
             <argument
                 android:name="sense"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/editConditionImmunitiesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditConditionImmunitiesFragment"
+            android:label="fragment_edit_condition_immunities_list"
+            tools:layout="@layout/fragment_edit_condition_immunities_list">
+            <action
+                android:id="@+id/action_editConditionImmunitiesFragment_to_editConditionImmunity"
+                app:destination="@id/editConditionImmunity" />
+        </fragment>
+        <fragment
+            android:id="@+id/editConditionImmunity"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditConditionImmunityFragment"
+            android:label="fragment_edit_condition_immunity"
+            tools:layout="@layout/fragment_edit_condition_immunity">
+            <argument
+                android:name="condition"
                 app:argType="string" />
         </fragment>
     </navigation>
