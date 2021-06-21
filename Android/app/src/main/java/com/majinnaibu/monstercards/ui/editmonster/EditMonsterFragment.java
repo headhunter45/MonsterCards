@@ -20,8 +20,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.monster.MonsterDetailFragmentArgs;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.Objects;
@@ -32,7 +32,6 @@ import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-@SuppressWarnings("FieldCanBeLocal")
 public class EditMonsterFragment extends MCFragment {
 
     private EditMonsterViewModel mViewModel;

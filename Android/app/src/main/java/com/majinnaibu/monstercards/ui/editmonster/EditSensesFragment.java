@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -27,12 +26,12 @@ import com.majinnaibu.monstercards.utils.Logger;
 /**
  * A fragment representing a list of Items.
  */
-public class EditSkillsFragment extends MCFragment {
+public class EditSensesFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 
-    private void navigateToEditSkill(Skill skill) {
-        NavDirections action = EditSkillsFragmentDirections.actionEditSkillsFragmentToEditSkillFragment(skill.name, skill.abilityScore, skill.proficiencyType, skill.advantageType);
+    private void navigateToEditSense(String sense) {
+        NavDirections action = EditSensesFragmentDirections.actionEditSensesFragmentToEditSenseFragment(sense);
         View view = getView();
         assert view != null;
         Navigation.findNavController(view).navigate(action);
@@ -44,13 +43,10 @@ public class EditSkillsFragment extends MCFragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        View root = inflater.inflate(R.layout.fragment_edit_skills_list, container, false);
-
+        View root = inflater.inflate(R.layout.fragment_edit_senses_list, container, false);
         mHolder = new ViewHolder(root);
         setupRecyclerView(mHolder.list);
-        setupAddSkillButton(mHolder.addSkill);
-
+        setupAddSenseButton(mHolder.addSense);
         return root;
     }
 
@@ -59,12 +55,12 @@ public class EditSkillsFragment extends MCFragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
 
-        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> {
-            EditSkillsRecyclerViewAdapter adapter = new EditSkillsRecyclerViewAdapter(mViewModel.getSkillsArray(), skill -> {
-                if (skill != null) {
-                    navigateToEditSkill(skill);
+        mViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> {
+            EditSensesRecyclerViewAdapter adapter = new EditSensesRecyclerViewAdapter(mViewModel.getSensesArray(), sense -> {
+                if (sense != null) {
+                    navigateToEditSense(sense);
                 } else {
-                    Logger.logError("Can't navigate to EditSkill with a null skill");
+                    Logger.logError("Can't navigate to EditSense with a null sense");
                 }
             });
             recyclerView.setAdapter(adapter);
@@ -73,24 +69,24 @@ public class EditSkillsFragment extends MCFragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, mViewModel::removeSkill));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, mViewModel::removeSense));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
-    private void setupAddSkillButton(@NonNull FloatingActionButton fab) {
+    private void setupAddSenseButton(@NonNull FloatingActionButton fab) {
         fab.setOnClickListener(view -> {
-            Skill newSkill = mViewModel.addNewSkill();
-            navigateToEditSkill(newSkill);
+            String newSense = mViewModel.addNewSense();
+            navigateToEditSense(newSense);
         });
     }
 
     private static class ViewHolder {
         RecyclerView list;
-        FloatingActionButton addSkill;
+        FloatingActionButton addSense;
 
         ViewHolder(View root) {
-            this.list = root.findViewById(R.id.list);
-            this.addSkill = root.findViewById(R.id.add_skill);
+            list = root.findViewById(R.id.list);
+            addSense = root.findViewById(R.id.add_sense);
         }
     }
 }

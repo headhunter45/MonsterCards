@@ -3,7 +3,6 @@ package com.majinnaibu.monstercards.ui.editmonster;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
@@ -15,22 +14,22 @@ import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
+import com.majinnaibu.monstercards.ui.shared.ChangeTrackedViewModel;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 
 @SuppressWarnings({"ConstantConditions", "unused"})
-public class EditMonsterViewModel extends ViewModel {
+public class EditMonsterViewModel extends ChangeTrackedViewModel {
     private final ChangeTrackedLiveData<UUID> mMonsterId;
     private final MutableLiveData<Boolean> mHasError;
     private final MutableLiveData<Boolean> mHasLoaded;
-    private final MutableLiveData<Boolean> mHasChanges;
     private final ChangeTrackedLiveData<Boolean> mHasCustomHitPoints;
     private final ChangeTrackedLiveData<Boolean> mHasShield;
     private final ChangeTrackedLiveData<Boolean> mCanHover;
@@ -78,83 +77,82 @@ public class EditMonsterViewModel extends ViewModel {
     private final ChangeTrackedLiveData<String> mUnderstandsButDescription;
     private final ChangeTrackedLiveData<List<Skill>> mSkills;
     private final ChangeTrackedLiveData<List<String>> mSenses;
-    private final ChangeTrackedLiveData<Set<String>> mDamageImmunities;
-    private final ChangeTrackedLiveData<Set<String>> mDamageResistances;
-    private final ChangeTrackedLiveData<Set<String>> mDamageVulnerabilities;
-    private final ChangeTrackedLiveData<Set<String>> mConditionImmunities;
-    private final ChangeTrackedLiveData<Set<Language>> mLanguages;
-    private final ChangeTrackedLiveData<Set<Trait>> mAbilities;
-    private final ChangeTrackedLiveData<Set<Trait>> mActions;
-    private final ChangeTrackedLiveData<Set<Trait>> mReactions;
-    private final ChangeTrackedLiveData<Set<Trait>> mLairActions;
-    private final ChangeTrackedLiveData<Set<Trait>> mLegendaryActions;
-    private final ChangeTrackedLiveData<Set<Trait>> mRegionalActions;
+    private final ChangeTrackedLiveData<List<String>> mDamageImmunities;
+    private final ChangeTrackedLiveData<List<String>> mDamageResistances;
+    private final ChangeTrackedLiveData<List<String>> mDamageVulnerabilities;
+    private final ChangeTrackedLiveData<List<String>> mConditionImmunities;
+    private final ChangeTrackedLiveData<List<Language>> mLanguages;
+    private final ChangeTrackedLiveData<List<Trait>> mAbilities;
+    private final ChangeTrackedLiveData<List<Trait>> mActions;
+    private final ChangeTrackedLiveData<List<Trait>> mReactions;
+    private final ChangeTrackedLiveData<List<Trait>> mLairActions;
+    private final ChangeTrackedLiveData<List<Trait>> mLegendaryActions;
+    private final ChangeTrackedLiveData<List<Trait>> mRegionalActions;
 
     public EditMonsterViewModel() {
+        super();
         mErrorMessage = new MutableLiveData<>("");
         mHasError = new MutableLiveData<>(false);
         mHasLoaded = new MutableLiveData<>(false);
-        mHasChanges = new MutableLiveData<>(false);
-        ChangeTrackedLiveData.OnValueDirtiedCallback onDirtied = () -> mHasChanges.setValue(true);
 
-        mName = new ChangeTrackedLiveData<>("", onDirtied);
-        mMonsterId = new ChangeTrackedLiveData<>(UUID.randomUUID(), onDirtied);
-        mSize = new ChangeTrackedLiveData<>("", onDirtied);
-        mType = new ChangeTrackedLiveData<>("", onDirtied);
-        mSubtype = new ChangeTrackedLiveData<>("", onDirtied);
-        mAlignment = new ChangeTrackedLiveData<>("", onDirtied);
-        mCustomHitPoints = new ChangeTrackedLiveData<>("", onDirtied);
-        mHitDice = new ChangeTrackedLiveData<>(0, onDirtied);
-        mNaturalArmorBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mHasCustomHitPoints = new ChangeTrackedLiveData<>(false, onDirtied);
-        mArmorType = new ChangeTrackedLiveData<>(ArmorType.NONE, onDirtied);
-        mHasShield = new ChangeTrackedLiveData<>(false, onDirtied);
-        mShieldBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mCustomArmor = new ChangeTrackedLiveData<>("", onDirtied);
-        mWalkSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mBurrowSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mClimbSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mFlySpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mSwimSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mCanHover = new ChangeTrackedLiveData<>(false, onDirtied);
-        mHasCustomSpeed = new ChangeTrackedLiveData<>(false, onDirtied);
-        mCustomSpeed = new ChangeTrackedLiveData<>("", onDirtied);
-        mStrength = new ChangeTrackedLiveData<>(10, onDirtied);
-        mDexterity = new ChangeTrackedLiveData<>(10, onDirtied);
-        mConstitution = new ChangeTrackedLiveData<>(10, onDirtied);
-        mIntelligence = new ChangeTrackedLiveData<>(10, onDirtied);
-        mWisdom = new ChangeTrackedLiveData<>(10, onDirtied);
-        mCharisma = new ChangeTrackedLiveData<>(10, onDirtied);
-        mStrengthProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mStrengthAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mDexterityProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mDexterityAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mConstitutionProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mConstitutionAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mIntelligenceProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mIntelligenceAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mWisdomProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mWisdomAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mCharismaProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mCharismaAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mChallengeRating = new ChangeTrackedLiveData<>(ChallengeRating.ONE_EIGHTH, onDirtied);
-        mCustomChallengeRatingDescription = new ChangeTrackedLiveData<>("", onDirtied);
-        mCustomProficiencyBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mTelepathyRange = new ChangeTrackedLiveData<>(0, onDirtied);
-        mUnderstandsButDescription = new ChangeTrackedLiveData<>("", onDirtied);
-        mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mSenses = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mDamageImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mDamageResistances = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mConditionImmunities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mLanguages = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mAbilities = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mReactions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mLairActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mLegendaryActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
-        mRegionalActions = new ChangeTrackedLiveData<>(new HashSet<>(), onDirtied);
+        mName = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mMonsterId = new ChangeTrackedLiveData<>(UUID.randomUUID(), this::makeDirty);
+        mSize = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mType = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mSubtype = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mAlignment = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mCustomHitPoints = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mHitDice = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mNaturalArmorBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mHasCustomHitPoints = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mArmorType = new ChangeTrackedLiveData<>(ArmorType.NONE, this::makeDirty);
+        mHasShield = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mShieldBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mCustomArmor = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mWalkSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mBurrowSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mClimbSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mFlySpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mSwimSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mCanHover = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mHasCustomSpeed = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mCustomSpeed = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mStrength = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mDexterity = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mConstitution = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mIntelligence = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mWisdom = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mCharisma = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mStrengthProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mStrengthAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mDexterityProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mDexterityAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mConstitutionProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mConstitutionAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mIntelligenceProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mIntelligenceAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mWisdomProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mWisdomAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mCharismaProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mCharismaAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mChallengeRating = new ChangeTrackedLiveData<>(ChallengeRating.ONE_EIGHTH, this::makeDirty);
+        mCustomChallengeRatingDescription = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mCustomProficiencyBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mTelepathyRange = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mUnderstandsButDescription = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mSenses = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mDamageImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mDamageResistances = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mConditionImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mLanguages = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mAbilities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mReactions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mLairActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mLegendaryActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mRegionalActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
     }
 
     public void copyFromMonster(Monster monster) {
@@ -210,18 +208,28 @@ public class EditMonsterViewModel extends ViewModel {
         ArrayList<String> senses = new ArrayList<>(monster.senses);
         Collections.sort(senses, String::compareToIgnoreCase);
         mSenses.resetValue(senses);
-        mDamageImmunities.resetValue(monster.damageImmunities);
-        mDamageResistances.resetValue(monster.damageResistances);
-        mDamageVulnerabilities.resetValue(monster.damageVulnerabilities);
-        mConditionImmunities.resetValue(monster.conditionImmunities);
-        mLanguages.resetValue(monster.languages);
-        mAbilities.resetValue(monster.abilities);
-        mActions.resetValue(monster.actions);
-        mReactions.resetValue(monster.reactions);
-        mLairActions.resetValue(monster.lairActions);
-        mLegendaryActions.resetValue(monster.legendaryActions);
-        mRegionalActions.resetValue(monster.regionalActions);
-        mHasChanges.setValue(false);
+        ArrayList<String> damageImmunities = new ArrayList<>(monster.damageImmunities);
+        Collections.sort(damageImmunities, String::compareToIgnoreCase);
+        mDamageImmunities.resetValue(damageImmunities);
+        ArrayList<String> damageResistances = new ArrayList<>(monster.damageResistances);
+        Collections.sort(damageResistances, String::compareToIgnoreCase);
+        mDamageResistances.resetValue(damageResistances);
+        ArrayList<String> damageVulnerabilities = new ArrayList<>(monster.damageVulnerabilities);
+        Collections.sort(damageVulnerabilities, String::compareToIgnoreCase);
+        mDamageVulnerabilities.resetValue(damageVulnerabilities);
+        ArrayList<String> conditionImmunities = new ArrayList<>(monster.conditionImmunities);
+        Collections.sort(conditionImmunities, String::compareToIgnoreCase);
+        mConditionImmunities.resetValue(conditionImmunities);
+        ArrayList<Language> languages = new ArrayList<>(monster.languages);
+        Collections.sort(languages, (lang1, lang2) -> lang1.getName().compareToIgnoreCase(lang2.getName()));
+        mLanguages.resetValue(languages);
+        mAbilities.resetValue(new ArrayList<>(monster.abilities));
+        mActions.resetValue(new ArrayList<>(monster.actions));
+        mReactions.resetValue(new ArrayList<>(monster.reactions));
+        mLairActions.resetValue(new ArrayList<>(monster.lairActions));
+        mLegendaryActions.resetValue(new ArrayList<>(monster.legendaryActions));
+        mRegionalActions.resetValue(new ArrayList<>(monster.regionalActions));
+        makeClean();
     }
 
     public LiveData<String> getName() {
@@ -306,14 +314,6 @@ public class EditMonsterViewModel extends ViewModel {
 
     public void setCustomHitPoints(String customHitPoints) {
         mCustomHitPoints.setValue(customHitPoints);
-    }
-
-    public LiveData<Boolean> getHasChanges() {
-        return mHasChanges;
-    }
-
-    public boolean hasChanges() {
-        return mHasChanges.getValue();
     }
 
     public LiveData<Integer> getHitDice() {
@@ -756,13 +756,295 @@ public class EditMonsterViewModel extends ViewModel {
         return mSkills;
     }
 
+    public List<Skill> getSkillsArray() {
+        return mSkills.getValue();
+    }
+
+    public Skill addNewSkill() {
+        Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
+        ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
+        newSkills.add(newSkill);
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.setValue(newSkills);
+        return newSkill;
+    }
+
+    public void removeSkill(int position) {
+        List<Skill> skills = mSkills.getValue();
+        ArrayList<Skill> newSkills = new ArrayList<>(skills);
+        newSkills.remove(position);
+        mSkills.setValue(newSkills);
+    }
+
+    public void replaceSkill(Skill newSkill, Skill oldSkill) {
+        List<Skill> oldSkills = mSkills.getValue();
+        if (oldSkills == null) {
+            oldSkills = new ArrayList<>();
+        }
+        boolean hasReplaced = false;
+        ArrayList<Skill> newSkills = new ArrayList<>(oldSkills.size());
+        for (Skill skill : oldSkills) {
+            if (Objects.equals(skill, oldSkill)) {
+                newSkills.add(newSkill);
+                hasReplaced = true;
+            } else {
+                newSkills.add(skill);
+            }
+        }
+        if (!hasReplaced) {
+            newSkills.add(newSkill);
+        }
+        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        mSkills.setValue(newSkills);
+    }
+
+    public LiveData<List<String>> getSenses() {
+        return mSenses;
+    }
+
     public List<String> getSensesArray() {
         return mSenses.getValue();
     }
 
-    // TODO: add getters and setters for lists of strings (Senses, Damage Immunities, Damage Resistances, Damage Vulnerabilities, and Condition Immunities)
-    // TODO: add getters and setters for Languages
-    // TODO: add getters and setters for traits (Abilities, Actions, Reactions, Lair Actions, Legendary Actions, and Regional Actions)
+    public String addNewSense() {
+        return Helpers.addItemToList(mSenses, "", String::compareToIgnoreCase);
+    }
+
+    public void removeSense(int position) {
+        Helpers.removeFromList(mSenses, position);
+    }
+
+    public void replaceSense(String oldSense, String newSense) {
+        Helpers.replaceItemInList(mSenses, oldSense, newSense, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getDamageImmunities() {
+        return mDamageImmunities;
+    }
+
+    public List<String> getDamageImmunitiesArray() {
+        return mDamageImmunities.getValue();
+    }
+
+    public String addNewDamageImmunity() {
+        return Helpers.addStringToList("", mDamageImmunities);
+    }
+
+    public void removeDamageImmunity(int position) {
+        Helpers.removeFromList(mDamageImmunities, position);
+    }
+
+    public void replaceDamageImmunity(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mDamageImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getDamageResistances() {
+        return mDamageResistances;
+    }
+
+    public List<String> getDamageResistancesArray() {
+        return mDamageResistances.getValue();
+    }
+
+    public String addNewDamageResistance() {
+        return Helpers.addStringToList("", mDamageResistances);
+    }
+
+    public void removeDamageResistance(int position) {
+        Helpers.removeFromList(mDamageResistances, position);
+    }
+
+    public void replaceDamageResistance(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mDamageResistances, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getDamageVulnerabilities() {
+        return mDamageVulnerabilities;
+    }
+
+    public List<String> getDamageVulnerabilitiesArray() {
+        return mDamageVulnerabilities.getValue();
+    }
+
+    public String addNewDamageVulnerability() {
+        return Helpers.addStringToList("", mDamageVulnerabilities);
+    }
+
+    public void removeDamageVulnerability(int position) {
+        Helpers.removeFromList(mDamageVulnerabilities, position);
+    }
+
+    public void replaceDamageVulnerability(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mDamageVulnerabilities, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<String>> getConditionImmunities() {
+        return mConditionImmunities;
+    }
+
+    public List<String> getConditionImmunitiesArray() {
+        return mConditionImmunities.getValue();
+    }
+
+    public String addNewConditionImmunity() {
+        return Helpers.addStringToList("", mConditionImmunities);
+    }
+
+    public void removeConditionImmunity(int position) {
+        Helpers.removeFromList(mConditionImmunities, position);
+    }
+
+    public void replaceConditionImmunity(String oldDamageType, String newDamageType) {
+        Helpers.replaceItemInList(mConditionImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
+    }
+
+    public LiveData<List<Language>> getLanguages() {
+        return mLanguages;
+    }
+
+    public List<Language> getLanguagesArray() {
+        return mLanguages.getValue();
+    }
+
+    public Language addNewLanguage() {
+        Language newLanguage = new Language("", true);
+        return Helpers.addItemToList(mLanguages, newLanguage, Language::compareTo);
+    }
+
+    public void removeLanguage(int position) {
+        Helpers.removeFromList(mLanguages, position);
+    }
+
+    public void replaceLanguage(Language oldLanguage, Language newLanguage) {
+        Helpers.replaceItemInList(mLanguages, oldLanguage, newLanguage, Language::compareTo);
+    }
+
+    public LiveData<List<Trait>> getAbilities() {
+        return mAbilities;
+    }
+
+    public List<Trait> getAbilitiesArray() {
+        return mAbilities.getValue();
+    }
+
+    public Trait addNewAbility() {
+        Trait newAbility = new Trait("", "");
+        return Helpers.addItemToList(mAbilities, newAbility, Trait::compareTo);
+    }
+
+    public void removeAbility(int position) {
+        Helpers.removeFromList(mAbilities, position);
+    }
+
+    public void replaceAbility(Trait oldAbility, Trait newAbility) {
+        Helpers.replaceItemInList(mAbilities, oldAbility, newAbility);
+    }
+
+
+    public LiveData<List<Trait>> getActions() {
+        return mActions;
+    }
+
+    public List<Trait> getActionsArray() {
+        return mActions.getValue();
+    }
+
+    public Trait addNewAction() {
+        Trait newAction = new Trait("", "");
+        return Helpers.addItemToList(mActions, newAction, Trait::compareTo);
+    }
+
+    public void removeAction(int position) {
+        Helpers.removeFromList(mActions, position);
+    }
+
+    public void replaceAction(Trait oldAction, Trait newAction) {
+        Helpers.replaceItemInList(mActions, oldAction, newAction);
+    }
+
+    public LiveData<List<Trait>> getReactions() {
+        return mReactions;
+    }
+
+    public List<Trait> getReactionsArray() {
+        return mReactions.getValue();
+    }
+
+    public Trait addNewReaction() {
+        Trait newReaction = new Trait("", "");
+        return Helpers.addItemToList(mReactions, newReaction, Trait::compareTo);
+    }
+
+    public void removeReaction(int position) {
+        Helpers.removeFromList(mReactions, position);
+    }
+
+    public void replaceReaction(Trait oldReaction, Trait newReaction) {
+        Helpers.replaceItemInList(mReactions, oldReaction, newReaction);
+    }
+
+    public LiveData<List<Trait>> getLairActions() {
+        return mLairActions;
+    }
+
+    public List<Trait> getLairActionsArray() {
+        return mLairActions.getValue();
+    }
+
+    public Trait addNewLairAction() {
+        Trait newLairAction = new Trait("", "");
+        return Helpers.addItemToList(mLairActions, newLairAction, Trait::compareTo);
+    }
+
+    public void removeLairAction(int position) {
+        Helpers.removeFromList(mLairActions, position);
+    }
+
+    public void replaceLairAction(Trait oldLairAction, Trait newLairAction) {
+        Helpers.replaceItemInList(mLairActions, oldLairAction, newLairAction);
+    }
+
+    public LiveData<List<Trait>> getLegendaryActions() {
+        return mLegendaryActions;
+    }
+
+    public List<Trait> getLegendaryActionsArray() {
+        return mLegendaryActions.getValue();
+    }
+
+    public Trait addNewLegendaryAction() {
+        Trait newLegendaryAction = new Trait("", "");
+        return Helpers.addItemToList(mLegendaryActions, newLegendaryAction, Trait::compareTo);
+    }
+
+    public void removeLegendaryAction(int position) {
+        Helpers.removeFromList(mLegendaryActions, position);
+    }
+
+    public void replaceLegendaryAction(Trait oldLegendaryAction, Trait newLegendaryAction) {
+        Helpers.replaceItemInList(mLegendaryActions, oldLegendaryAction, newLegendaryAction);
+    }
+
+    public LiveData<List<Trait>> getRegionalActions() {
+        return mRegionalActions;
+    }
+
+    public List<Trait> getRegionalActionsArray() {
+        return mRegionalActions.getValue();
+    }
+
+    public Trait addNewRegionalAction() {
+        Trait newRegionalAction = new Trait("", "");
+        return Helpers.addItemToList(mRegionalActions, newRegionalAction, Trait::compareTo);
+    }
+
+    public void removeRegionalAction(int position) {
+        Helpers.removeFromList(mRegionalActions, position);
+    }
+
+    public void replaceRegionalAction(Trait oldRegionalAction, Trait newRegionalAction) {
+        Helpers.replaceItemInList(mRegionalActions, oldRegionalAction, newRegionalAction);
+    }
 
     public Monster buildMonster() {
         Monster monster = new Monster();
@@ -813,60 +1095,99 @@ public class EditMonsterViewModel extends ViewModel {
         monster.understandsButDescription = mUnderstandsButDescription.getValue();
         monster.skills = new HashSet<>(mSkills.getValue());
         monster.senses = new HashSet<>(mSenses.getValue());
-        monster.damageImmunities = mDamageImmunities.getValue();
-        monster.damageResistances = mDamageResistances.getValue();
-        monster.damageVulnerabilities = mDamageVulnerabilities.getValue();
-        monster.conditionImmunities = mConditionImmunities.getValue();
-        monster.languages = mLanguages.getValue();
-        monster.abilities = mAbilities.getValue();
-        monster.actions = mActions.getValue();
-        monster.reactions = mReactions.getValue();
-        monster.lairActions = mLairActions.getValue();
-        monster.legendaryActions = mLegendaryActions.getValue();
-        monster.regionalActions = mRegionalActions.getValue();
+        monster.damageImmunities = new HashSet<>(mDamageImmunities.getValue());
+        monster.damageResistances = new HashSet<>(mDamageResistances.getValue());
+        monster.damageVulnerabilities = new HashSet<>(mDamageVulnerabilities.getValue());
+        monster.conditionImmunities = new HashSet<>(mConditionImmunities.getValue());
+        monster.languages = new HashSet<>(mLanguages.getValue());
+        monster.abilities = new HashSet<>(mAbilities.getValue());
+        monster.actions = new HashSet<>(mActions.getValue());
+        monster.reactions = new HashSet<>(mReactions.getValue());
+        monster.lairActions = new HashSet<>(mLairActions.getValue());
+        monster.legendaryActions = new HashSet<>(mLegendaryActions.getValue());
+        monster.regionalActions = new HashSet<>(mRegionalActions.getValue());
 
         return monster;
     }
 
-    public List<Skill> getSkillsArray() {
-        return mSkills.getValue();
-    }
-
-    public Skill addNewSkill() {
-        Skill newSkill = new Skill("Unnamed Skill", AbilityScore.DEXTERITY);
-        ArrayList<Skill> newSkills = new ArrayList<>(mSkills.getValue());
-        newSkills.add(newSkill);
-        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
-        mSkills.setValue(newSkills);
-        return newSkill;
-    }
-
-    public void removeSkill(int position) {
-        List<Skill> skills = mSkills.getValue();
-        ArrayList<Skill> newSkills = new ArrayList<>(skills);
-        newSkills.remove(position);
-        mSkills.setValue(newSkills);
-    }
-
-    public void replaceSkill(Skill newSkill, Skill oldSkill) {
-        List<Skill> oldSkills = mSkills.getValue();
-        if (oldSkills == null) {
-            oldSkills = new ArrayList<>();
+    @SuppressWarnings("SameParameterValue")
+    private static class Helpers {
+        static String addStringToList(String newString, MutableLiveData<List<String>> strings) {
+            return addItemToList(strings, newString, String::compareToIgnoreCase);
         }
-        boolean hasReplaced = false;
-        ArrayList<Skill> newSkills = new ArrayList<>(oldSkills.size());
-        for (Skill skill : oldSkills) {
-            if (Objects.equals(skill, oldSkill)) {
-                newSkills.add(newSkill);
-                hasReplaced = true;
-            } else {
-                newSkills.add(skill);
+
+        static <T> T addItemToList(MutableLiveData<List<T>> listData, T newItem, Comparator<? super T> comparator) {
+            ArrayList<T> newList = new ArrayList<>(listData.getValue());
+            newList.add(newItem);
+            if (comparator != null) {
+                Collections.sort(newList, comparator);
             }
+            listData.setValue(newList);
+            return newItem;
         }
-        if (!hasReplaced) {
-            newSkills.add(newSkill);
+
+        static <T> void removeFromList(MutableLiveData<List<T>> listData, int position) {
+            List<T> oldList = listData.getValue();
+            ArrayList<T> newList = new ArrayList<>(oldList);
+            newList.remove(position);
+            listData.setValue(newList);
         }
-        Collections.sort(newSkills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
-        mSkills.setValue(newSkills);
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, int position, T newItem, Comparator<? super T> comparator) {
+            List<T> oldList = listData.getValue();
+            if (oldList == null) {
+                oldList = new ArrayList<>();
+            }
+            int size = oldList.size();
+            boolean hasReplaced = false;
+            ArrayList<T> newList = new ArrayList<>(size);
+            for (int index = 0; index < size; index++) {
+                if (index == position) {
+                    newList.add(newItem);
+                    hasReplaced = true;
+                } else {
+                    newList.add(oldList.get(index));
+                }
+            }
+            if (!hasReplaced) {
+                newList.add(newItem);
+            }
+            if (comparator != null) {
+                Collections.sort(newList, comparator);
+            }
+            listData.setValue(newList);
+        }
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, int position, T newItem) {
+            replaceItemInList(listData, position, newItem, null);
+        }
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem, Comparator<? super T> comparator) {
+            List<T> oldList = listData.getValue();
+            if (oldList == null) {
+                oldList = new ArrayList<>();
+            }
+            boolean hasReplaced = false;
+            ArrayList<T> newList = new ArrayList<>(oldList.size());
+            for (T item : oldList) {
+                if (Objects.equals(item, oldItem)) {
+                    newList.add(newItem);
+                    hasReplaced = true;
+                } else {
+                    newList.add(item);
+                }
+            }
+            if (!hasReplaced) {
+                newList.add(newItem);
+            }
+            if (comparator != null) {
+                Collections.sort(newList, comparator);
+            }
+            listData.setValue(newList);
+        }
+
+        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem) {
+            replaceItemInList(listData, oldItem, newItem, null);
+        }
     }
 }

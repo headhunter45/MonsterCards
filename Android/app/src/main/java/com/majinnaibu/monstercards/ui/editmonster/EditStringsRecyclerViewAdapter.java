@@ -4,30 +4,34 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.databinding.FragmentEditStringsListItemBinding;
+import com.majinnaibu.monstercards.databinding.FragmentEditConditionImmunitiesListItemBinding;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStringsRecyclerViewAdapter.ViewHolder> {
+/**
+ * {@link RecyclerView.Adapter} that can display a {@link String}.
+ */
+public class EditConditionImmunitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditConditionImmunitiesRecyclerViewAdapter.ViewHolder> {
     private final List<String> mValues;
     private final ItemCallback mOnClick;
 
-    public EditStringsRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
+    public EditConditionImmunitiesRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
         mValues = items;
         mOnClick = onClick;
     }
 
-    @NonNull
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentEditStringsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+        return new ViewHolder(FragmentEditConditionImmunitiesListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position));
         holder.itemView.setOnClickListener(v -> {
@@ -43,19 +47,19 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
     }
 
     public interface ItemCallback {
-        void onItemCallback(String value);
+        void onItemCallback(String condition);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mContentView;
         public String mItem;
 
-        public ViewHolder(@NonNull FragmentEditStringsListItemBinding binding) {
+        public ViewHolder(FragmentEditConditionImmunitiesListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
 
-        @NonNull
+        @NotNull
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";

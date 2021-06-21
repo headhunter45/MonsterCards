@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.ui.components.Stepper;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 
 public class EditAbilityScoresFragment extends Fragment {
     private final String ABILITY_SCORE_FORMAT = "%d (%+d)";

@@ -20,6 +20,7 @@ import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.ui.components.AbilityScorePicker;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
@@ -37,7 +38,7 @@ public class EditSkillFragment extends Fragment {
             mViewModel.copyFromSkill(args.getName(), args.getAbilityScore(), args.getProficiency(), args.getAdvantage());
             mOldSkill = new Skill(args.getName(), args.getAbilityScore(), args.getAdvantage(), args.getProficiency());
         } else {
-            Logger.logWTF("This should never happen. EditSkillFragment needs arguments.");
+            Logger.logWTF("EditSkillFragment needs arguments.");
             mOldSkill = null;
         }
         super.onCreate(savedInstanceState);
