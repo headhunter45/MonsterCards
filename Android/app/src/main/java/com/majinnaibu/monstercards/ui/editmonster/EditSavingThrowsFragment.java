@@ -11,9 +11,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 
 public class EditSavingThrowsFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;

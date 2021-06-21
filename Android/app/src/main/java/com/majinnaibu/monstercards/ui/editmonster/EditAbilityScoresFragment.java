@@ -11,8 +11,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.components.Stepper;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 
 public class EditAbilityScoresFragment extends MCFragment {
     private final String ABILITY_SCORE_FORMAT = "%d (%+d)";

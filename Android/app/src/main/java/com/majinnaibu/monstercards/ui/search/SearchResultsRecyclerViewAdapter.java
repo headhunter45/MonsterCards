@@ -13,6 +13,8 @@ import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,16 +22,11 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<SearchResultsRecyclerViewAdapter.ViewHolder> {
-    public interface ItemCallback {
-        void onItem(Monster monster);
-    }
-
     private final MonsterRepository mRepository;
+    private final ItemCallback mOnClickHandler;
     private String mSearchText;
     private List<Monster> mValues;
     private Disposable mSubscriptionHandler;
-    private final ItemCallback mOnClickHandler;
-
     public SearchResultsRecyclerViewAdapter(MonsterRepository repository,
                                             ItemCallback onClick) {
         mRepository = repository;
@@ -54,6 +51,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
                 throwable -> Logger.logError("Error performing search", throwable));
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -79,7 +77,11 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
         return mValues.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public interface ItemCallback {
+        void onItem(Monster monster);
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView mIdView;
         final TextView mContentView;
 

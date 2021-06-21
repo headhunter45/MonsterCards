@@ -19,14 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
 /**
  * A fragment representing a list of Items.
  */
-@SuppressWarnings("FieldCanBeLocal")
 public class EditSensesFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;

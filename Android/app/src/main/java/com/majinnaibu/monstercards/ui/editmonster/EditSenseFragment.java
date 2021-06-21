@@ -15,26 +15,25 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
-import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-@SuppressWarnings("FieldCanBeLocal")
 public class EditSenseFragment extends MCFragment {
     private EditMonsterViewModel mEditMonsterViewModel;
-    private EditSenseViewModel mViewModel;
+    private EditStringViewModel mViewModel;
     private ViewHolder mHolder;
     private String mOldSense;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        mViewModel = new ViewModelProvider(this).get(EditSenseViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(EditStringViewModel.class);
         if (getArguments() != null) {
             EditSenseFragmentArgs args = EditSenseFragmentArgs.fromBundle(getArguments());
             mOldSense = args.getSense();
-            mViewModel.reset(mOldSense);
+            mViewModel.resetValue(mOldSense);
         } else {
-            Logger.logWTF("This should never happen. EditSenseFragment needs arguments");
+            Logger.logWTF("EditSenseFragment needs arguments");
             mOldSense = null;
         }
         super.onCreate(savedInstanceState);
@@ -51,14 +50,14 @@ public class EditSenseFragment extends MCFragment {
 
         mHolder = new ViewHolder(root);
 
-        mHolder.description.setText(mViewModel.getDescription().getValue());
-        mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setDescription(s.toString())));
+        mHolder.description.setText(mViewModel.getValueAsString());
+        mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setValue(s.toString())));
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 if (mViewModel.hasChanges()) {
-                    mEditMonsterViewModel.replaceSense(mOldSense, mViewModel.getDescription().getValue());
+                    mEditMonsterViewModel.replaceSense(mOldSense, mViewModel.getValueAsString());
                 }
                 Navigation.findNavController(requireView()).navigateUp();
             }

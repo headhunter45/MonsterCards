@@ -26,7 +26,7 @@ public class EditConditionImmunitiesRecyclerViewAdapter extends RecyclerView.Ada
 
     @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         return new ViewHolder(FragmentEditConditionImmunitiesListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 

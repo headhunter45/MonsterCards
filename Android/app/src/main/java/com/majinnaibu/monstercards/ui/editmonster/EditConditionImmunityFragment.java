@@ -19,22 +19,21 @@ import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-@SuppressWarnings("FieldCanBeLocal")
 public class EditConditionImmunityFragment extends Fragment {
     private EditMonsterViewModel mEditMonsterViewModel;
-    private EditConditionImmunityViewModel mViewModel;
+    private EditStringViewModel mViewModel;
     private ViewHolder mHolder;
     private String mOldValue;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        mViewModel = new ViewModelProvider(this).get(EditConditionImmunityViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(EditStringViewModel.class);
         if (getArguments() != null) {
             EditConditionImmunityFragmentArgs args = EditConditionImmunityFragmentArgs.fromBundle(getArguments());
             mOldValue = args.getCondition();
-            mViewModel.reset(mOldValue);
+            mViewModel.resetValue(mOldValue);
         } else {
-            Logger.logWTF("This should never happen. EditConditionImmunityFragment needs arguments");
+            Logger.logWTF("EditConditionImmunityFragment needs arguments");
             mOldValue = null;
         }
 
@@ -49,14 +48,14 @@ public class EditConditionImmunityFragment extends Fragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_condition_immunity, container, false);
         mHolder = new ViewHolder(root);
-        mHolder.description.setText(mViewModel.getDescription().getValue());
-        mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setDescription(s.toString())));
+        mHolder.description.setText(mViewModel.getValueAsString());
+        mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setValue(s.toString())));
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 if (mViewModel.hasChanges()) {
-                    mEditMonsterViewModel.replaceConditionImmunity(mOldValue, mViewModel.getDescription().getValue());
+                    mEditMonsterViewModel.replaceConditionImmunity(mOldValue, mViewModel.getValueAsString());
                 }
                 Navigation.findNavController(requireView()).navigateUp();
             }

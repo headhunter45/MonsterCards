@@ -21,10 +21,9 @@ import androidx.navigation.Navigation;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.helpers.ArrayHelper;
-import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-@SuppressWarnings("FieldCanBeLocal")
 public class EditArmorFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;

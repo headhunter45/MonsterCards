@@ -16,10 +16,10 @@ import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.models.Skill;
-import com.majinnaibu.monstercards.ui.MCFragment;
 import com.majinnaibu.monstercards.ui.components.AbilityScorePicker;
 import com.majinnaibu.monstercards.ui.components.AdvantagePicker;
 import com.majinnaibu.monstercards.ui.components.ProficiencyPicker;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
@@ -37,7 +37,7 @@ public class EditSkillFragment extends MCFragment {
             mOldSkill = new Skill(args.getName(), args.getAbilityScore(), args.getAdvantage(), args.getProficiency());
             mViewModel.copyFromSkill(mOldSkill);
         } else {
-            Logger.logWTF("This should never happen. EditSkillFragment needs arguments.");
+            Logger.logWTF("EditSkillFragment needs arguments.");
             mOldSkill = null;
         }
         super.onCreate(savedInstanceState);

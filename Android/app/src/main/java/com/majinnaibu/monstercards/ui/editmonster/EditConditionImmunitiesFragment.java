@@ -29,7 +29,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A fragment representing a list of Items.
  */
-@SuppressWarnings("FieldCanBeLocal")
 public class EditConditionImmunitiesFragment extends Fragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
