@@ -102,6 +102,12 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editDamageResistancesFragment"
                 app:destination="@id/editDamageResistancesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editDamageVulnerabilitiesFragment"
+                app:destination="@id/editDamageVulnerabilitiesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editDamageImmunitiesFragment"
+                app:destination="@id/editDamageImmunitiesFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -212,6 +218,38 @@
             <argument
                 android:name="damageType"
                 app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/editDamageVulnerabilityFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageVulnerabilityFragment"
+            android:label="EditDamageVulnerabilityFragment">
+            <argument
+                android:name="damageType"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/editDamageImmunitiesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageImmunitiesFragment"
+            android:label="EditDamageImmunitiesFragment">
+            <action
+                android:id="@+id/action_editDamageImmunitiesFragment_to_editDamageImmunityFragment"
+                app:destination="@id/editDamageImmunityFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editDamageImmunityFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageImmunityFragment"
+            android:label="EditDamageImmunityFragment">
+            <argument
+                android:name="damageType"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/editDamageVulnerabilitiesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageVulnerabilitiesFragment"
+            android:label="EditDamageVulnerabilitiesFragment">
+            <action
+                android:id="@+id/action_editDamageVulnerabilitiesFragment_to_editDamageVulnerabilityFragment"
+                app:destination="@id/editDamageVulnerabilityFragment" />
         </fragment>
     </navigation>
 </navigation>

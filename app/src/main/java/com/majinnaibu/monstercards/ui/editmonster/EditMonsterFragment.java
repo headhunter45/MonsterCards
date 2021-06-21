@@ -125,8 +125,18 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(requireView()).navigate(action);
         });
 
+        mHolder.damageImmunities.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageImmunitiesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
         mHolder.damageResistances.setOnClickListener(v -> {
             NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageResistancesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.damageVulnerabilities.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageVulnerabilitiesFragment();
             Navigation.findNavController(requireView()).navigate(action);
         });
 
