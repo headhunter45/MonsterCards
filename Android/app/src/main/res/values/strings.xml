@@ -81,4 +81,6 @@
     <string name="title_search">Search</string>
     <string name="wisdom_abbreviation">WIS</string>
     <string name="label_description">Description</string>
+    <string name="label_damage_type">Damage Type</string>
+    <string name="add_damage_type">Add Damage Type</string>
 </resources>
