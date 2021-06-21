@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel;
 
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
-public class EditSenseViewModel extends ViewModel {
+public class EditConditionImmunityViewModel extends ViewModel {
     private final ChangeTrackedLiveData<String> mDescription;
     private final MutableLiveData<Boolean> mHasChanges;
 
-    public EditSenseViewModel() {
+    public EditConditionImmunityViewModel() {
         mHasChanges = new MutableLiveData<>(false);
         ChangeTrackedLiveData.OnValueDirtiedCallback onDirtied = () -> mHasChanges.setValue(true);
         mDescription = new ChangeTrackedLiveData<>("", onDirtied);
