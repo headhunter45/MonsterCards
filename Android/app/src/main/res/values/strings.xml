@@ -2,6 +2,7 @@
     <string name="action_add_monster">Add monster</string>
     <string name="action_add_sense">Add Sense</string>
     <string name="action_add_skill">Add Skill</string>
+    <string name="action_add_condition_immunity">Add Condition</string>
     <string name="action_edit">Edit</string>
     <string name="actions_label">Actions</string>
     <string name="app_name">MonsterCards</string>
