@@ -99,6 +99,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editConditionImmunitiesFragment"
                 app:destination="@id/editConditionImmunitiesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editDamageResistancesFragment"
+                app:destination="@id/editDamageResistancesFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -190,6 +193,24 @@
             tools:layout="@layout/fragment_edit_condition_immunity">
             <argument
                 android:name="condition"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/editDamageResistancesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageResistancesFragment"
+            android:label="fragment_edit_damage_resistances_list"
+            tools:layout="@layout/fragment_edit_damage_resistances_list">
+            <action
+                android:id="@+id/action_editDamageResistancesFragment_to_editDamageResistanceFragment"
+                app:destination="@id/editDamageResistanceFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editDamageResistanceFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageResistanceFragment"
+            android:label="fragment_edit_damage_resistance"
+            tools:layout="@layout/fragment_edit_damage_resistance">
+            <argument
+                android:name="damageType"
                 app:argType="string" />
         </fragment>
     </navigation>

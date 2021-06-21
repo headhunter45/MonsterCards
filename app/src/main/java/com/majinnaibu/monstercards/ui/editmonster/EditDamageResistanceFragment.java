@@ -19,22 +19,22 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditSenseFragment extends MCFragment {
+public class EditDamageResistanceFragment extends MCFragment {
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditStringViewModel mViewModel;
-    private ViewHolder mHolder;
-    private String mOldSense;
+    private EditDamageResistanceFragment.ViewHolder mHolder;
+    private String mOldDamageResistance;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditStringViewModel.class);
         if (getArguments() != null) {
-            EditSenseFragmentArgs args = EditSenseFragmentArgs.fromBundle(getArguments());
-            mOldSense = args.getSense();
-            mViewModel.resetValue(mOldSense);
+            EditDamageResistanceFragmentArgs args = EditDamageResistanceFragmentArgs.fromBundle(getArguments());
+            mOldDamageResistance = args.getDamageType();
+            mViewModel.resetValue(mOldDamageResistance);
         } else {
-            Logger.logWTF("EditSenseFragment needs arguments");
-            mOldSense = null;
+            Logger.logWTF("EditDamageResistanceFragment needs arguments");
+            mOldDamageResistance = null;
         }
         super.onCreate(savedInstanceState);
     }
@@ -46,18 +46,18 @@ public class EditSenseFragment extends MCFragment {
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
 
-        View root = inflater.inflate(R.layout.fragment_edit_sense, container, false);
+        View root = inflater.inflate(R.layout.fragment_edit_damage_resistance, container, false);
 
-        mHolder = new ViewHolder(root);
+        mHolder = new EditDamageResistanceFragment.ViewHolder(root);
 
-        mHolder.description.setText(mViewModel.getValueAsString());
-        mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setValue(s.toString())));
+        mHolder.value.setText(mViewModel.getValueAsString());
+        mHolder.value.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setValue(s.toString())));
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 if (mViewModel.hasChanges()) {
-                    mEditMonsterViewModel.replaceSense(mOldSense, mViewModel.getValueAsString());
+                    mEditMonsterViewModel.replaceDamageResistance(mOldDamageResistance, mViewModel.getValueAsString());
                 }
                 Navigation.findNavController(requireView()).navigateUp();
             }
@@ -67,10 +67,10 @@ public class EditSenseFragment extends MCFragment {
     }
 
     private static class ViewHolder {
-        EditText description;
+        EditText value;
 
         ViewHolder(View root) {
-            description = root.findViewById(R.id.name);
+            value = root.findViewById(R.id.value);
         }
     }
 }
