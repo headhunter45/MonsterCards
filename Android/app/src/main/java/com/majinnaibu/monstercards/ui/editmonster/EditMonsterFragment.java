@@ -125,6 +125,11 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(requireView()).navigate(action);
         });
 
+        mHolder.damageResistances.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageResistancesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
