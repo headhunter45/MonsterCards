@@ -3,7 +3,6 @@ package com.majinnaibu.monstercards.ui.editmonster;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
@@ -15,6 +14,7 @@ import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
+import com.majinnaibu.monstercards.ui.shared.ChangeTrackedViewModel;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
 
 import java.util.ArrayList;
@@ -26,11 +26,10 @@ import java.util.Objects;
 import java.util.UUID;
 
 @SuppressWarnings({"ConstantConditions", "unused"})
-public class EditMonsterViewModel extends ViewModel {
+public class EditMonsterViewModel extends ChangeTrackedViewModel {
     private final ChangeTrackedLiveData<UUID> mMonsterId;
     private final MutableLiveData<Boolean> mHasError;
     private final MutableLiveData<Boolean> mHasLoaded;
-    private final MutableLiveData<Boolean> mHasChanges;
     private final ChangeTrackedLiveData<Boolean> mHasCustomHitPoints;
     private final ChangeTrackedLiveData<Boolean> mHasShield;
     private final ChangeTrackedLiveData<Boolean> mCanHover;
@@ -91,70 +90,69 @@ public class EditMonsterViewModel extends ViewModel {
     private final ChangeTrackedLiveData<List<Trait>> mRegionalActions;
 
     public EditMonsterViewModel() {
+        super();
         mErrorMessage = new MutableLiveData<>("");
         mHasError = new MutableLiveData<>(false);
         mHasLoaded = new MutableLiveData<>(false);
-        mHasChanges = new MutableLiveData<>(false);
-        ChangeTrackedLiveData.OnValueDirtiedCallback onDirtied = () -> mHasChanges.setValue(true);
 
-        mName = new ChangeTrackedLiveData<>("", onDirtied);
-        mMonsterId = new ChangeTrackedLiveData<>(UUID.randomUUID(), onDirtied);
-        mSize = new ChangeTrackedLiveData<>("", onDirtied);
-        mType = new ChangeTrackedLiveData<>("", onDirtied);
-        mSubtype = new ChangeTrackedLiveData<>("", onDirtied);
-        mAlignment = new ChangeTrackedLiveData<>("", onDirtied);
-        mCustomHitPoints = new ChangeTrackedLiveData<>("", onDirtied);
-        mHitDice = new ChangeTrackedLiveData<>(0, onDirtied);
-        mNaturalArmorBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mHasCustomHitPoints = new ChangeTrackedLiveData<>(false, onDirtied);
-        mArmorType = new ChangeTrackedLiveData<>(ArmorType.NONE, onDirtied);
-        mHasShield = new ChangeTrackedLiveData<>(false, onDirtied);
-        mShieldBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mCustomArmor = new ChangeTrackedLiveData<>("", onDirtied);
-        mWalkSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mBurrowSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mClimbSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mFlySpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mSwimSpeed = new ChangeTrackedLiveData<>(0, onDirtied);
-        mCanHover = new ChangeTrackedLiveData<>(false, onDirtied);
-        mHasCustomSpeed = new ChangeTrackedLiveData<>(false, onDirtied);
-        mCustomSpeed = new ChangeTrackedLiveData<>("", onDirtied);
-        mStrength = new ChangeTrackedLiveData<>(10, onDirtied);
-        mDexterity = new ChangeTrackedLiveData<>(10, onDirtied);
-        mConstitution = new ChangeTrackedLiveData<>(10, onDirtied);
-        mIntelligence = new ChangeTrackedLiveData<>(10, onDirtied);
-        mWisdom = new ChangeTrackedLiveData<>(10, onDirtied);
-        mCharisma = new ChangeTrackedLiveData<>(10, onDirtied);
-        mStrengthProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mStrengthAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mDexterityProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mDexterityAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mConstitutionProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mConstitutionAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mIntelligenceProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mIntelligenceAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mWisdomProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mWisdomAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mCharismaProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, onDirtied);
-        mCharismaAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, onDirtied);
-        mChallengeRating = new ChangeTrackedLiveData<>(ChallengeRating.ONE_EIGHTH, onDirtied);
-        mCustomChallengeRatingDescription = new ChangeTrackedLiveData<>("", onDirtied);
-        mCustomProficiencyBonus = new ChangeTrackedLiveData<>(0, onDirtied);
-        mTelepathyRange = new ChangeTrackedLiveData<>(0, onDirtied);
-        mUnderstandsButDescription = new ChangeTrackedLiveData<>("", onDirtied);
-        mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mSenses = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mDamageImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mDamageResistances = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mConditionImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mLanguages = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mAbilities = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mReactions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mLairActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mLegendaryActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
-        mRegionalActions = new ChangeTrackedLiveData<>(new ArrayList<>(), onDirtied);
+        mName = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mMonsterId = new ChangeTrackedLiveData<>(UUID.randomUUID(), this::makeDirty);
+        mSize = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mType = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mSubtype = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mAlignment = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mCustomHitPoints = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mHitDice = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mNaturalArmorBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mHasCustomHitPoints = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mArmorType = new ChangeTrackedLiveData<>(ArmorType.NONE, this::makeDirty);
+        mHasShield = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mShieldBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mCustomArmor = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mWalkSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mBurrowSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mClimbSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mFlySpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mSwimSpeed = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mCanHover = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mHasCustomSpeed = new ChangeTrackedLiveData<>(false, this::makeDirty);
+        mCustomSpeed = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mStrength = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mDexterity = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mConstitution = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mIntelligence = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mWisdom = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mCharisma = new ChangeTrackedLiveData<>(10, this::makeDirty);
+        mStrengthProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mStrengthAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mDexterityProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mDexterityAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mConstitutionProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mConstitutionAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mIntelligenceProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mIntelligenceAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mWisdomProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mWisdomAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mCharismaProficiency = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
+        mCharismaAdvantage = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
+        mChallengeRating = new ChangeTrackedLiveData<>(ChallengeRating.ONE_EIGHTH, this::makeDirty);
+        mCustomChallengeRatingDescription = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mCustomProficiencyBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mTelepathyRange = new ChangeTrackedLiveData<>(0, this::makeDirty);
+        mUnderstandsButDescription = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mSkills = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mSenses = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mDamageImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mDamageResistances = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mDamageVulnerabilities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mConditionImmunities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mLanguages = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mAbilities = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mReactions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mLairActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mLegendaryActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
+        mRegionalActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
     }
 
     public void copyFromMonster(Monster monster) {
@@ -231,7 +229,7 @@ public class EditMonsterViewModel extends ViewModel {
         mLairActions.resetValue(new ArrayList<>(monster.lairActions));
         mLegendaryActions.resetValue(new ArrayList<>(monster.legendaryActions));
         mRegionalActions.resetValue(new ArrayList<>(monster.regionalActions));
-        mHasChanges.setValue(false);
+        makeClean();
     }
 
     public LiveData<String> getName() {
@@ -316,14 +314,6 @@ public class EditMonsterViewModel extends ViewModel {
 
     public void setCustomHitPoints(String customHitPoints) {
         mCustomHitPoints.setValue(customHitPoints);
-    }
-
-    public LiveData<Boolean> getHasChanges() {
-        return mHasChanges;
-    }
-
-    public boolean hasChanges() {
-        return mHasChanges.getValue();
     }
 
     public LiveData<Integer> getHitDice() {

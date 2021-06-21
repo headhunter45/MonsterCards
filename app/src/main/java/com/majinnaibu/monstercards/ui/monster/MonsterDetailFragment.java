@@ -26,7 +26,7 @@ import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.UUID;
@@ -241,10 +241,15 @@ public class MonsterDetailFragment extends MCFragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_action_edit_monster) {
-            NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterDetailViewModel.getId().getValue().toString());
-            View view = getView();
-            assert view != null;
-            Navigation.findNavController(view).navigate(action);
+            UUID monsterId = monsterDetailViewModel.getId().getValue();
+            if (monsterId != null) {
+                NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
+                View view = getView();
+                assert view != null;
+                Navigation.findNavController(view).navigate(action);
+            } else {
+                Logger.logWTF("monsterId cannot be null.");
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);

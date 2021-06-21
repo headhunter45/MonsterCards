@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.ui.MCFragment;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
