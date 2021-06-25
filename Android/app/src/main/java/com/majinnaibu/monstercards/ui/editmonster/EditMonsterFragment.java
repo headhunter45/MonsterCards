@@ -115,6 +115,36 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(requireView()).navigate(action);
         });
 
+        mHolder.senses.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSensesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.conditionImmunities.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditConditionImmunitiesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.damageImmunities.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageImmunitiesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.damageResistances.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageResistancesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.damageVulnerabilities.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageVulnerabilitiesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.languages.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditLanguagesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {

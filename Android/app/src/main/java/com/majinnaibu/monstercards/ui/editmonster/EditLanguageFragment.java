@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -44,11 +44,14 @@ public class EditLanguageFragment extends MCFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_edit_language, container, false);
+
+
         mHolder = new ViewHolder(root);
 
         mHolder.name.setText(mViewModel.getName().getValue());
@@ -70,17 +73,11 @@ public class EditLanguageFragment extends MCFragment {
         return root;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mHolder.name.requestFocus();
-    }
-
     private static class ViewHolder {
         EditText name;
-        SwitchCompat canSpeak;
+        CheckBox canSpeak;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             name = root.findViewById(R.id.name);
             canSpeak = root.findViewById(R.id.canSpeak);
         }

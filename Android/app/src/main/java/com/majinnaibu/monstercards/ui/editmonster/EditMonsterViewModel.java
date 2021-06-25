@@ -740,6 +740,10 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mTelepathyRange;
     }
 
+    public int getTelepathyRangeUnboxed() {
+        return Helpers.unboxInteger(mTelepathyRange.getValue(), 0);
+    }
+
     public void setTelepathyRange(int telepathyRange) {
         mTelepathyRange.setValue(telepathyRange);
     }
@@ -1188,6 +1192,13 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
 
         static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem) {
             replaceItemInList(listData, oldItem, newItem, null);
+        }
+
+        static int unboxInteger(Integer value, int defaultIfNull) {
+            if (value == null) {
+                return defaultIfNull;
+            }
+            return value;
         }
     }
 }

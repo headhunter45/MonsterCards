@@ -25,12 +25,11 @@
                 tools:text="Medicine" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <CheckBox
             android:id="@+id/canSpeak"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_can_speak_language"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+            android:text="@string/label_can_speak_language" />
+
     </LinearLayout>
 </ScrollView>
