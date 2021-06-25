@@ -25,6 +25,7 @@ public class EditDamageImmunitiesRecyclerViewAdapter extends RecyclerView.Adapte
         mOnClick = onClick;
     }
 
+
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
@@ -59,6 +60,7 @@ public class EditDamageImmunitiesRecyclerViewAdapter extends RecyclerView.Adapte
             super(binding.getRoot());
             mContentView = binding.content;
         }
+
 
         @NotNull
         @Override
