@@ -108,6 +108,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editDamageImmunitiesFragment"
                 app:destination="@id/editDamageImmunitiesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editLanguagesFragment"
+                app:destination="@id/editLanguagesFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -250,6 +253,27 @@
             <action
                 android:id="@+id/action_editDamageVulnerabilitiesFragment_to_editDamageVulnerabilityFragment"
                 app:destination="@id/editDamageVulnerabilityFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editLanguagesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguagesFragment"
+            android:label="fragment_edit_languages_list"
+            tools:layout="@layout/fragment_edit_languages_list">
+            <action
+                android:id="@+id/action_editLanguagesFragment_to_editLanguageFragment"
+                app:destination="@id/editLanguageFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editLanguageFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguageFragment"
+            android:label="fragment_edit_language"
+            tools:layout="@layout/fragment_edit_language">
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="canSpeak"
+                app:argType="boolean" />
         </fragment>
     </navigation>
 </navigation>

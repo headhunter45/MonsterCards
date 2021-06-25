@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- understands but textbox -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/understandsBut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_understands_but"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:text="pretends not to speak" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- TODO: add a divider here -->
+
+    <com.majinnaibu.monstercards.ui.components.Stepper
+        android:id="@+id/telepathy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        app:label="Telepathy"
+        app:maxValue="1000"
+        app:minValue="0"
+        app:stepAmount="5" />
+</LinearLayout>
