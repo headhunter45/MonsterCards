@@ -140,6 +140,11 @@ public class EditMonsterFragment extends MCFragment {
             Navigation.findNavController(requireView()).navigate(action);
         });
 
+        mHolder.languages.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditLanguagesFragment();
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {

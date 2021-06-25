@@ -2,6 +2,7 @@
     <string name="action_add_monster">Add monster</string>
     <string name="action_add_sense">Add Sense</string>
     <string name="action_add_skill">Add Skill</string>
+    <string name="action_add_language">Add Language</string>
     <string name="action_add_condition_immunity">Add Condition</string>
     <string name="action_edit">Edit</string>
     <string name="actions_label">Actions</string>
@@ -52,6 +53,7 @@
     <string name="label_legendary_actions">Legendary Actions</string>
     <string name="label_natural_armor_bonus">Natural Armor Bonus</string>
     <string name="label_name">Name</string>
+    <string name="label_understands_but">Understands But</string>
     <string name="label_proficiency">Proficiency</string>
     <string name="label_proficiency_expertise">Expertise</string>
     <string name="label_proficiency_none">None</string>
@@ -68,6 +70,7 @@
     <string name="label_strength">Strength</string>
     <string name="label_subtype">Subtype</string>
     <string name="label_swim_speed">Swim Speed</string>
+    <string name="label_telepathy">Telepathy</string>
     <string name="label_type">Type</string>
     <string name="label_wisdom">Wisdom</string>
     <string name="section_divider">section divider</string>
@@ -83,4 +86,5 @@
     <string name="label_description">Description</string>
     <string name="label_damage_type">Damage Type</string>
     <string name="add_damage_type">Add Damage Type</string>
+    <string name="label_can_speak_language">Can Speak</string>
 </resources>
