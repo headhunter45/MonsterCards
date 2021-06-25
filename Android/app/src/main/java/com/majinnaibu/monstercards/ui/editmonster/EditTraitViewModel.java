@@ -1,6 +1,5 @@
 package com.majinnaibu.monstercards.ui.editmonster;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -50,13 +49,12 @@ public class EditTraitViewModel extends ChangeTrackedViewModel {
         return mAbility.getValue();
     }
 
-    public void copyFromTrait(@NonNull Trait trait) {
+    public void copyFromTrait(Trait trait) {
         makeClean();
         mName.resetValue(trait.name);
         mDescription.resetValue(trait.description);
     }
 
-    @NonNull
     private Trait makeAbility() {
         return new Trait(mName.getValue(), mDescription.getValue());
     }
