@@ -1,6 +1,5 @@
 package com.majinnaibu.monstercards.ui.editmonster;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.majinnaibu.monstercards.models.Language;
@@ -19,7 +18,7 @@ public class EditLanguageViewModel extends ChangeTrackedViewModel {
         mLanguage = new ChangeTrackedLiveData<>(makeLanguage(), this::makeDirty);
     }
 
-    public void copyFromLanguage(@NonNull Language language) {
+    public void copyFromLanguage(Language language) {
         mName.resetValue(language.getName());
         mCanSpeak.resetValue(language.getSpeaks());
         makeClean();
@@ -59,7 +58,6 @@ public class EditLanguageViewModel extends ChangeTrackedViewModel {
         return getCanSpeakValue(false);
     }
 
-    @NonNull
     private Language makeLanguage() {
         Boolean boxedValue = mCanSpeak.getValue();
         boolean canSpeak = boxedValue != null && boxedValue;

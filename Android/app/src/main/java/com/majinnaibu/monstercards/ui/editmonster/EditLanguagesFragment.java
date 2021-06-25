@@ -26,22 +26,23 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
 public class EditLanguagesFragment extends MCFragment {
-    // TODO: Make the swipe to delete not happen for the header
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 
-    private void navigateToEditLanguage(@NonNull Language language) {
+    private void navigateToEditLanguage(Language language) {
         NavDirections action = EditLanguagesFragmentDirections.actionEditLanguagesFragmentToEditLanguageFragment(language.getName(), language.getSpeaks());
         Navigation.findNavController(requireView()).navigate(action);
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_edit_languages_list, container, false);
+
         mHolder = new ViewHolder(root);
         setupRecyclerView(mHolder.list);
         setupAddLanguageButton(mHolder.addLanguage);
@@ -74,11 +75,7 @@ public class EditLanguagesFragment extends MCFragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> {
-            if (position > 0) {
-                mViewModel.removeLanguage(position - 1);
-            }
-        }, null));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, mViewModel::removeLanguage));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
@@ -93,7 +90,7 @@ public class EditLanguagesFragment extends MCFragment {
         RecyclerView list;
         FloatingActionButton addLanguage;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             this.list = root.findViewById(R.id.list);
             this.addLanguage = root.findViewById(R.id.add_language);
         }
