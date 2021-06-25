@@ -32,9 +32,7 @@ public class EditDamageImmunitiesFragment extends MCFragment {
 
     private void navigateToEditDamageImmunity(String damageImmunity) {
         NavDirections action = EditDamageImmunitiesFragmentDirections.actionEditDamageImmunitiesFragmentToEditDamageImmunityFragment(damageImmunity);
-        View view = getView();
-        assert view != null;
-        Navigation.findNavController(view).navigate(action);
+        Navigation.findNavController(requireView()).navigate(action);
     }
 
     @Override

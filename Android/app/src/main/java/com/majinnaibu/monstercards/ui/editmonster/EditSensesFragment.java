@@ -32,9 +32,7 @@ public class EditSensesFragment extends MCFragment {
 
     private void navigateToEditSense(String sense) {
         NavDirections action = EditSensesFragmentDirections.actionEditSensesFragmentToEditSenseFragment(sense);
-        View view = getView();
-        assert view != null;
-        Navigation.findNavController(view).navigate(action);
+        Navigation.findNavController(requireView()).navigate(action);
     }
 
     @Override

@@ -116,8 +116,6 @@ public class LibraryFragment extends MCFragment {
 
     protected void navigateToMonsterDetail(UUID monsterId) {
         NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
-        View view = getView();
-        assert view != null;
-        Navigation.findNavController(view).navigate(action);
+        Navigation.findNavController(requireView()).navigate(action);
     }
 }

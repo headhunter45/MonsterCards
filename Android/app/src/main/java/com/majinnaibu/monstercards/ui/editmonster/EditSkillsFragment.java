@@ -33,9 +33,7 @@ public class EditSkillsFragment extends MCFragment {
 
     private void navigateToEditSkill(Skill skill) {
         NavDirections action = EditSkillsFragmentDirections.actionEditSkillsFragmentToEditSkillFragment(skill.name, skill.abilityScore, skill.proficiencyType, skill.advantageType);
-        View view = getView();
-        assert view != null;
-        Navigation.findNavController(view).navigate(action);
+        Navigation.findNavController(requireView()).navigate(action);
     }
 
     @Override
