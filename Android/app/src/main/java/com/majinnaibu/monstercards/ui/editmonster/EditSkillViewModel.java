@@ -21,7 +21,7 @@ public class EditSkillViewModel extends ChangeTrackedViewModel {
         mAbilityScore = new ChangeTrackedLiveData<>(AbilityScore.STRENGTH, this::makeDirty);
         mAdvantageType = new ChangeTrackedLiveData<>(AdvantageType.NONE, this::makeDirty);
         mProficiencyType = new ChangeTrackedLiveData<>(ProficiencyType.NONE, this::makeDirty);
-        mName = new ChangeTrackedLiveData<>("Unknown Skill", this::makeDirty);
+        mName = new ChangeTrackedLiveData<>("New Skill", this::makeDirty);
         mSkill = new ChangeTrackedLiveData<>(makeSkill(), this::makeDirty);
     }
 
@@ -30,6 +30,7 @@ public class EditSkillViewModel extends ChangeTrackedViewModel {
         mAdvantageType.resetValue(skill.advantageType);
         mProficiencyType.resetValue(skill.proficiencyType);
         mName.resetValue(skill.name);
+        makeClean();
     }
 
     public LiveData<Skill> getSkill() {
