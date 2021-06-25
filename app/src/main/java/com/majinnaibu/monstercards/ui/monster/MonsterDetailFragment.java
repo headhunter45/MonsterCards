@@ -244,9 +244,7 @@ public class MonsterDetailFragment extends MCFragment {
             UUID monsterId = monsterDetailViewModel.getId().getValue();
             if (monsterId != null) {
                 NavDirections action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
-                View view = getView();
-                assert view != null;
-                Navigation.findNavController(view).navigate(action);
+                Navigation.findNavController(requireView()).navigate(action);
             } else {
                 Logger.logWTF("monsterId cannot be null.");
             }

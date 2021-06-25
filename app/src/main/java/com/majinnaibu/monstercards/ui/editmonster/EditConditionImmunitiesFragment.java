@@ -35,9 +35,7 @@ public class EditConditionImmunitiesFragment extends Fragment {
 
     private void navigateToEditConditionImmunity(String condition) {
         NavDirections action = EditConditionImmunitiesFragmentDirections.actionEditConditionImmunitiesFragmentToEditConditionImmunity(condition);
-        View view = getView();
-        assert view != null;
-        Navigation.findNavController(view).navigate(action);
+        Navigation.findNavController(requireView()).navigate(action);
     }
 
     @Nullable
