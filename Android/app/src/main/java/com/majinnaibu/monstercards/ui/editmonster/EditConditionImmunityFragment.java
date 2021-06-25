@@ -9,17 +9,17 @@ import android.widget.EditText;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditConditionImmunityFragment extends Fragment {
+public class EditConditionImmunityFragment extends MCFragment {
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditStringViewModel mViewModel;
     private ViewHolder mHolder;
