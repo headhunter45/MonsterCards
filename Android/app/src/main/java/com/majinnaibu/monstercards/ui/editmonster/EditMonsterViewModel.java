@@ -203,7 +203,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mUnderstandsButDescription.resetValue(monster.understandsButDescription);
 
         ArrayList<Skill> skills = new ArrayList<>(monster.skills);
-        Collections.sort(skills, (skill1, skill2) -> skill1.name.compareToIgnoreCase(skill2.name));
+        Collections.sort(skills, Skill::compareTo);
         mSkills.resetValue(skills);
         ArrayList<String> senses = new ArrayList<>(monster.senses);
         Collections.sort(senses, String::compareToIgnoreCase);
@@ -221,7 +221,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         Collections.sort(conditionImmunities, String::compareToIgnoreCase);
         mConditionImmunities.resetValue(conditionImmunities);
         ArrayList<Language> languages = new ArrayList<>(monster.languages);
-        Collections.sort(languages, (lang1, lang2) -> lang1.getName().compareToIgnoreCase(lang2.getName()));
+        Collections.sort(languages, Language::compareTo);
         mLanguages.resetValue(languages);
         mAbilities.resetValue(new ArrayList<>(monster.abilities));
         mActions.resetValue(new ArrayList<>(monster.actions));
