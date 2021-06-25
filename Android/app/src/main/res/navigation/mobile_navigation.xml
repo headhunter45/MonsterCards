@@ -111,6 +111,9 @@
             <action
                 android:id="@+id/action_editMonsterFragment_to_editLanguagesFragment"
                 app:destination="@id/editLanguagesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editAbilitiesFragment"
+                app:destination="@id/editAbilitiesFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -274,6 +277,25 @@
             <argument
                 android:name="canSpeak"
                 app:argType="boolean" />
+        </fragment>
+        <fragment
+            android:id="@+id/editAbilitiesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditAbilitiesFragment"
+            android:label="EditAbilitiesFragment" >
+            <action
+                android:id="@+id/action_editAbilitiesFragment_to_editAbilityFragment"
+                app:destination="@id/editAbilityFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editAbilityFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditAbilityFragment"
+            android:label="EditAbilityFragment" >
+            <argument
+                android:name="description"
+                app:argType="string" />
+            <argument
+                android:name="name"
+                app:argType="string" />
         </fragment>
     </navigation>
 </navigation>
