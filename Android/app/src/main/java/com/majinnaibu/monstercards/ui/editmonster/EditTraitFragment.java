@@ -40,7 +40,6 @@ public class EditTraitFragment extends MCFragment {
             Logger.logWTF("EditTraitFragment needs arguments");
             mOldValue = null;
         }
-
         super.onCreate(savedInstanceState);
     }
 

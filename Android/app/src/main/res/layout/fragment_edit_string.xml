@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/text_margin"
     tools:context=".ui.editmonster.EditStringFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin">
+        android:hint="@string/label_description"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:text="blinded" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_description"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:text="blinded" />
-    </com.google.android.material.textfield.TextInputLayout>
-</ScrollView>
+</com.google.android.material.textfield.TextInputLayout>

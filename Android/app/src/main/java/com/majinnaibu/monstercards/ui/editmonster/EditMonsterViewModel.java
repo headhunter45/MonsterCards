@@ -9,6 +9,7 @@ import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
+import com.majinnaibu.monstercards.data.enums.StringType;
 import com.majinnaibu.monstercards.data.enums.TraitType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Language;
@@ -1004,7 +1005,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             case REGIONAL_ACTION:
                 return mRegionalActions;
             default:
-                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+                Logger.logUnimplementedFeature(String.format("Unrecognized TraitType: %s", type));
                 return null;
         }
     }
@@ -1030,7 +1031,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
                 Helpers.removeFromList(mRegionalActions, position);
                 break;
             default:
-                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+                Logger.logUnimplementedFeature(String.format("Unrecognized TraitType: %s", type));
+                break;
         }
     }
 
@@ -1055,7 +1057,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
                 Helpers.replaceItemInList(mRegionalActions, oldTrait, newTrait);
                 break;
             default:
-                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+                Logger.logUnimplementedFeature(String.format("Unrecognized TraitType: %s", type));
         }
     }
 
@@ -1075,8 +1077,90 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             case REGIONAL_ACTION:
                 return Helpers.addItemToList(mRegionalActions, newAction);
             default:
-                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+                Logger.logUnimplementedFeature(String.format("Unrecognized TraitType: %s", type));
                 return null;
+        }
+    }
+
+    public LiveData<List<String>> getStrings(StringType type) {
+        switch (type) {
+            case CONDITION_IMMUNITY:
+                return mConditionImmunities;
+            case DAMAGE_IMMUNITY:
+                return mDamageImmunities;
+            case DAMAGE_RESISTANCE:
+                return mDamageResistances;
+            case DAMAGE_VULNERABILITY:
+                return mDamageVulnerabilities;
+            case SENSE:
+                return mSenses;
+            default:
+                Logger.logUnimplementedFeature(String.format("Unrecognized StringType: %s", type));
+                return null;
+        }
+    }
+
+    public void removeString(StringType type, int position) {
+        switch (type) {
+            case CONDITION_IMMUNITY:
+                Helpers.removeFromList(mConditionImmunities, position);
+                break;
+            case DAMAGE_IMMUNITY:
+                Helpers.removeFromList(mDamageImmunities, position);
+                break;
+            case DAMAGE_RESISTANCE:
+                Helpers.removeFromList(mDamageResistances, position);
+                break;
+            case DAMAGE_VULNERABILITY:
+                Helpers.removeFromList(mDamageVulnerabilities, position);
+                break;
+            case SENSE:
+                Helpers.removeFromList(mSenses, position);
+                break;
+            default:
+                Logger.logUnimplementedFeature(String.format("Unrecognized StringType: %s", type));
+                break;
+        }
+    }
+
+    public String addNewString(StringType type) {
+        String newString = "";
+        switch (type) {
+            case CONDITION_IMMUNITY:
+                return Helpers.addItemToList(mConditionImmunities, newString);
+            case DAMAGE_IMMUNITY:
+                return Helpers.addItemToList(mDamageImmunities, newString);
+            case DAMAGE_RESISTANCE:
+                return Helpers.addItemToList(mDamageResistances, newString);
+            case DAMAGE_VULNERABILITY:
+                return Helpers.addItemToList(mDamageVulnerabilities, newString);
+            case SENSE:
+                return Helpers.addItemToList(mSenses, newString);
+            default:
+                Logger.logUnimplementedFeature(String.format("Unrecognized StringType: %s", type));
+                return null;
+        }
+    }
+
+    public void replaceString(StringType type, String oldValue, String newValue) {
+        switch (type) {
+            case CONDITION_IMMUNITY:
+                Helpers.replaceItemInList(mConditionImmunities, oldValue, newValue);
+                break;
+            case DAMAGE_IMMUNITY:
+                Helpers.replaceItemInList(mDamageImmunities, oldValue, newValue);
+                break;
+            case DAMAGE_RESISTANCE:
+                Helpers.replaceItemInList(mDamageResistances, oldValue, newValue);
+                break;
+            case DAMAGE_VULNERABILITY:
+                Helpers.replaceItemInList(mDamageVulnerabilities, oldValue, newValue);
+                break;
+            case SENSE:
+                Helpers.replaceItemInList(mSenses, oldValue, newValue);
+                break;
+            default:
+                Logger.logUnimplementedFeature(String.format("Unrecognized StringType: %s", type));
         }
     }
 

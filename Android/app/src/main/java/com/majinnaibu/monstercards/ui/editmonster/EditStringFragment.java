@@ -28,7 +28,7 @@ public class EditStringFragment extends MCFragment {
     private StringType mStringType;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditStringViewModel.class);
         if (getArguments() != null) {
             EditStringFragmentArgs args = EditStringFragmentArgs.fromBundle(getArguments());
@@ -43,6 +43,7 @@ public class EditStringFragment extends MCFragment {
     }
 
     @Nullable
+    @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
@@ -50,7 +51,6 @@ public class EditStringFragment extends MCFragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_string, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getTitleForStringType(mStringType));
 
         mHolder.description.setText(mViewModel.getValueAsString());
         mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setValue(s.toString())));
@@ -68,35 +68,14 @@ public class EditStringFragment extends MCFragment {
         return root;
     }
 
-    @NonNull
-    private String getTitleForStringType(@NonNull StringType type) {
-        switch (type) {
-            case CONDITION_IMMUNITY:
-                return getString(R.string.title_editConditionImmunity);
-            case DAMAGE_IMMUNITY:
-                return getString(R.string.title_editDamageImmunity);
-            case DAMAGE_RESISTANCE:
-                return getString(R.string.title_editDamageResistance);
-            case DAMAGE_VULNERABILITY:
-                return getString(R.string.title_editDamageVulnerability);
-            case SENSE:
-                return getString(R.string.title_editSense);
-            default:
-                return getString(R.string.title_editString);
-        }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mHolder.description.requestFocus();
-    }
 
     private static class ViewHolder {
         EditText description;
+        EditText name;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             description = root.findViewById(R.id.description);
+            name = root.findViewById(R.id.name);
         }
     }
 }

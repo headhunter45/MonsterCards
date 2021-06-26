@@ -26,6 +26,8 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class EditStringsFragment extends MCFragment {
@@ -34,7 +36,7 @@ public class EditStringsFragment extends MCFragment {
     private StringType mStringType;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         Bundle arguments = getArguments();
         if (arguments != null) {
             EditStringsFragmentArgs args = EditStringsFragmentArgs.fromBundle(arguments);
@@ -46,35 +48,17 @@ public class EditStringsFragment extends MCFragment {
     }
 
     @Nullable
+    @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_strings_list, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getTitleForStringType(mStringType));
         setupRecyclerView(mHolder.list);
         setupAddButton(mHolder.addItem);
         return root;
-    }
-
-    @NonNull
-    private String getTitleForStringType(StringType type) {
-        switch (type) {
-            case CONDITION_IMMUNITY:
-                return getString(R.string.title_editConditionImmunities);
-            case DAMAGE_IMMUNITY:
-                return getString(R.string.title_editDamageImmunities);
-            case DAMAGE_RESISTANCE:
-                return getString(R.string.title_editDamageResistances);
-            case DAMAGE_VULNERABILITY:
-                return getString(R.string.title_editDamageVulnerabilities);
-            case SENSE:
-                return getString(R.string.title_editSenses);
-            default:
-                return getString(R.string.title_editStrings);
-        }
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
@@ -99,7 +83,7 @@ public class EditStringsFragment extends MCFragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> mViewModel.removeString(mStringType, position), null));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, position -> mViewModel.removeString(mStringType, position)));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
@@ -121,7 +105,7 @@ public class EditStringsFragment extends MCFragment {
         RecyclerView list;
         FloatingActionButton addItem;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             list = root.findViewById(R.id.list);
             addItem = root.findViewById(R.id.add_item);
         }
