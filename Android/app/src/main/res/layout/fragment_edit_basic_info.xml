@@ -86,7 +86,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Hit Dice (int) -->
-
+        <!-- // TODO: Make this a stepper instead of a text field -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

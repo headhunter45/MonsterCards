@@ -21,6 +21,7 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
 public class EditStringFragment extends MCFragment {
+    // TODO: when this fragment is shown focus on the edit text and select it's contents
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditStringViewModel mViewModel;
     private ViewHolder mHolder;
