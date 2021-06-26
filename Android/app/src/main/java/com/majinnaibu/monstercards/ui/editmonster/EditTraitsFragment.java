@@ -27,17 +27,18 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class EditTraitsFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
     private TraitType mTraitType;
-    private EditTraitsRecyclerViewAdapter mAdapter;
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         if (getArguments() != null) {
             EditTraitsFragmentArgs args = EditTraitsFragmentArgs.fromBundle(getArguments());
             mTraitType = args.getTraitType();
@@ -48,37 +49,17 @@ public class EditTraitsFragment extends MCFragment {
     }
 
     @Nullable
+    @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_traits_list, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getTitleForTraitType(mTraitType));
         setupRecyclerView(mHolder.list);
         setupAddButton(mHolder.addTrait);
         return root;
-    }
-
-    @NonNull
-    private String getTitleForTraitType(TraitType type) {
-        switch (type) {
-            case ABILITY:
-                return getString(R.string.title_editAbilities);
-            case ACTION:
-                return getString(R.string.title_editActions);
-            case LAIR_ACTION:
-                return getString(R.string.title_editLairActions);
-            case LEGENDARY_ACTION:
-                return getString(R.string.title_editLegendaryActions);
-            case REACTIONS:
-                return getString(R.string.title_editReactions);
-            case REGIONAL_ACTION:
-                return getString(R.string.title_editRegionalActions);
-            default:
-                return getString(R.string.title_editTraits);
-        }
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
@@ -87,21 +68,22 @@ public class EditTraitsFragment extends MCFragment {
         recyclerView.setLayoutManager(layoutManager);
 
         LiveData<List<Trait>> traitData = mViewModel.getTraits(mTraitType);
-        mAdapter = new EditTraitsRecyclerViewAdapter(trait -> {
-            if (trait != null) {
-                navigateToEditTrait(trait);
-            } else {
-                Logger.logError("Can't navigate to EditTraitFragment with a null trait");
-            }
-        });
         if (traitData != null) {
-            traitData.observe(getViewLifecycleOwner(), traits -> mAdapter.submitList(traits));
+            traitData.observe(getViewLifecycleOwner(), traits -> {
+                EditTraitsRecyclerViewAdapter adapter = new EditTraitsRecyclerViewAdapter(traits, trait -> {
+                    if (trait != null) {
+                        navigateToEditTrait(trait);
+                    } else {
+                        Logger.logError("Can't navigate to EditTraitFragment with a null trait");
+                    }
+                });
+                recyclerView.setAdapter(adapter);
+            });
         }
-        recyclerView.setAdapter(mAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> mViewModel.removeTrait(mTraitType, position), (from, to) -> mViewModel.moveTrait(mTraitType, from, to)));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, position -> mViewModel.removeTrait(mTraitType, position)));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
@@ -114,7 +96,7 @@ public class EditTraitsFragment extends MCFragment {
         });
     }
 
-    protected void navigateToEditTrait(@NonNull Trait trait) {
+    protected void navigateToEditTrait(Trait trait) {
         NavDirections action = EditTraitsFragmentDirections.actionEditTraitListFragmentToEditTraitFragment(trait.description, trait.name, mTraitType);
         Navigation.findNavController(requireView()).navigate(action);
     }
@@ -123,7 +105,7 @@ public class EditTraitsFragment extends MCFragment {
         RecyclerView list;
         FloatingActionButton addTrait;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             list = root.findViewById(R.id.list);
             addTrait = root.findViewById(R.id.add_trait);
         }

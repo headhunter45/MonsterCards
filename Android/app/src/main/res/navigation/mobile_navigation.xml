@@ -196,7 +196,7 @@
         </fragment>
         <fragment
             android:id="@+id/editTraitListFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitListFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitsFragment"
             android:label="EditTraitListFragment">
             <action
                 android:id="@+id/action_editTraitListFragment_to_editTraitFragment"
