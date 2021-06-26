@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/text_margin"
-    tools:context=".ui.editmonster.EditConditionImmunityFragment">
+    tools:context=".ui.editmonster.EditStringFragment">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/description"

@@ -2,6 +2,7 @@
     <string name="action_add_ability">Add Ability</string>
     <string name="action_add_condition_immunity">Add Condition</string>
     <string name="action_add_damage_type">Add Damage Type</string>
+    <string name="action_add_item">Add Item</string>
     <string name="action_add_language">Add Language</string>
     <string name="action_add_monster">Add monster</string>
     <string name="action_add_sense">Add Sense</string>
