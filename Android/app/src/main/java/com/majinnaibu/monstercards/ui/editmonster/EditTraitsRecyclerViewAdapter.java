@@ -6,18 +6,18 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.databinding.FragmentEditAbilitiesListItemBinding;
+import com.majinnaibu.monstercards.databinding.FragmentEditTraitsListItemBinding;
 import com.majinnaibu.monstercards.models.Trait;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class EditAbilitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditAbilitiesRecyclerViewAdapter.ViewHolder> {
+public class EditTraitsRecyclerViewAdapter extends RecyclerView.Adapter<EditTraitsRecyclerViewAdapter.ViewHolder> {
     private final List<Trait> mValues;
     private final ItemCallback mOnClick;
 
-    public EditAbilitiesRecyclerViewAdapter(List<Trait> items, ItemCallback onClick) {
+    public EditTraitsRecyclerViewAdapter(List<Trait> items, ItemCallback onClick) {
         mValues = items;
         mOnClick = onClick;
     }
@@ -25,7 +25,7 @@ public class EditAbilitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditA
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentEditAbilitiesListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(FragmentEditTraitsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class EditAbilitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditA
         public final TextView mContentView;
         public Trait mItem;
 
-        public ViewHolder(FragmentEditAbilitiesListItemBinding binding) {
+        public ViewHolder(FragmentEditTraitsListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
@@ -62,6 +62,5 @@ public class EditAbilitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditA
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
         }
-
     }
 }
