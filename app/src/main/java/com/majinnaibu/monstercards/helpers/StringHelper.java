@@ -66,4 +66,9 @@ public final class StringHelper {
             return null;
         }
     }
+
+    public static boolean containsCaseInsensitive(String text, String search) {
+        // TODO: find a locale independent way to do this
+        return text.toLowerCase().contains(search.toLowerCase());
+    }
 }
