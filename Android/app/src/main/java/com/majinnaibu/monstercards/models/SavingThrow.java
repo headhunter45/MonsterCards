@@ -4,12 +4,13 @@ import java.util.Comparator;
 
 public class SavingThrow implements Comparator<SavingThrow>, Comparable<SavingThrow> {
 
+    private String mName;
+    private int mOrder;
+
     public SavingThrow(String name, int order) {
         mName = name;
         mOrder = order;
     }
-
-    private String mName;
 
     public String getName() {
         return mName;
@@ -18,8 +19,6 @@ public class SavingThrow implements Comparator<SavingThrow>, Comparable<SavingTh
     public void setName(String value) {
         mName = value;
     }
-
-    private int mOrder;
 
     public int getOrder() {
         return mOrder;

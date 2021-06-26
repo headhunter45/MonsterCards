@@ -27,6 +27,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     private String mSearchText;
     private List<Monster> mValues;
     private Disposable mSubscriptionHandler;
+
     public SearchResultsRecyclerViewAdapter(MonsterRepository repository,
                                             ItemCallback onClick) {
         mRepository = repository;

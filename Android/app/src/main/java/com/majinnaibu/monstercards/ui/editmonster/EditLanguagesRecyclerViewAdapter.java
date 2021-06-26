@@ -56,9 +56,9 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
             headerViewHolder.telepathy.setOnValueChangeListener(mOnTelepathyRangeChanged);
             headerViewHolder.understandsBut.setText(mUnderstandsBut);
             headerViewHolder.understandsBut.addTextChangedListener(mOnUnderstandsButChanged);
-        } else if(holder instanceof ItemViewHolder) {
-            ItemViewHolder itemViewHolder = (ItemViewHolder)holder;
-            itemViewHolder.mItem = mValues.get(position-1);
+        } else if (holder instanceof ItemViewHolder) {
+            ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
+            itemViewHolder.mItem = mValues.get(position - 1);
             itemViewHolder.mContentView.setText(itemViewHolder.mItem.getName());
             itemViewHolder.itemView.setOnClickListener(view -> {
                 if (mOnClick != null) {
@@ -70,7 +70,7 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 
     @Override
     public int getItemCount() {
-        return mValues.size() +1;
+        return mValues.size() + 1;
     }
 
     @Override

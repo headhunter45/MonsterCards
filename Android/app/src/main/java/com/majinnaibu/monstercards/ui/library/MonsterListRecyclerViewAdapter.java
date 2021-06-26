@@ -21,15 +21,9 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<MonsterListRecyclerViewAdapter.ViewHolder> {
-    public interface ItemCallback {
-        void onItemCallback(Monster monster);
-    }
-
-    private List<Monster> mValues;
     private final Context mContext;
     private final ItemCallback mOnDelete;
     private final ItemCallback mOnClick;
-    private Disposable mDisposable;
     private final Flowable<List<Monster>> mItemsObservable;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
@@ -40,6 +34,8 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
             }
         }
     };
+    private List<Monster> mValues;
+    private Disposable mDisposable;
 
     public MonsterListRecyclerViewAdapter(Context context,
                                           Flowable<List<Monster>> itemsObservable,
@@ -79,17 +75,6 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
         return mContext;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView mIdView;
-        final TextView mContentView;
-
-        ViewHolder(View view) {
-            super(view);
-            mIdView = view.findViewById(R.id.id_text);
-            mContentView = view.findViewById(R.id.content);
-        }
-    }
-
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -113,6 +98,21 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
         if (mOnDelete != null) {
             Monster monster = mValues.get(position);
             mOnDelete.onItemCallback(monster);
+        }
+    }
+
+    public interface ItemCallback {
+        void onItemCallback(Monster monster);
+    }
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView mIdView;
+        final TextView mContentView;
+
+        ViewHolder(View view) {
+            super(view);
+            mIdView = view.findViewById(R.id.id_text);
+            mContentView = view.findViewById(R.id.content);
         }
     }
 }
