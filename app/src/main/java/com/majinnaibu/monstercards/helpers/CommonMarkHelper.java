@@ -10,14 +10,6 @@ import org.commonmark.renderer.html.HtmlNodeRendererFactory;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 public final class CommonMarkHelper {
-    private static final class MyNodeRendererFactory implements HtmlNodeRendererFactory {
-
-        @Override
-        public NodeRenderer create(HtmlNodeRendererContext context) {
-            return null;
-        }
-    }
-
     public static String toHtml(String rawCommonMark) {
         Parser parser = Parser.builder().build();
         Node document = parser.parse(rawCommonMark);
@@ -34,5 +26,13 @@ public final class CommonMarkHelper {
         }
         HtmlRenderer renderer = HtmlRenderer.builder().build();
         return renderer.render(document);
+    }
+
+    private static final class MyNodeRendererFactory implements HtmlNodeRendererFactory {
+
+        @Override
+        public NodeRenderer create(HtmlNodeRendererContext context) {
+            return null;
+        }
     }
 }

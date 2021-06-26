@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class Logger {
     public static final String LOG_TAG = "MonsterCards";
-    
+
     public static void logUnimplementedMethod() {
         Exception ex = new Exception();
         StackTraceElement[] stackTrace = ex.getStackTrace();
