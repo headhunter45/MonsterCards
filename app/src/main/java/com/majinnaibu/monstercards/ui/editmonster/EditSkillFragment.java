@@ -24,7 +24,6 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
 public class EditSkillFragment extends MCFragment {
-    // TODO: when this view is shown select focus on the name edit text and select it's contents
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditSkillViewModel mViewModel;
     private ViewHolder mHolder;
@@ -50,11 +49,9 @@ public class EditSkillFragment extends MCFragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_skill, container, false);
-
         mHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_skill));
 
         mHolder.abilityScore.setValue(mViewModel.getAbilityScore().getValue());
         mHolder.abilityScore.setOnValueChangedListener(value -> mViewModel.setAbilityScore(value));
@@ -79,6 +76,12 @@ public class EditSkillFragment extends MCFragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mHolder.name.requestFocus();
     }
 
     private static class ViewHolder {

@@ -33,10 +33,9 @@ public class EditChallengeRatingFragment extends MCFragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_challenge_rating, container, false);
         mHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_challenge_rating));
 
         mHolder.challengeRating.setAdapter(new ArrayAdapter<ChallengeRating>(requireContext(), R.layout.dropdown_list_item, ChallengeRating.values()) {
             @NonNull

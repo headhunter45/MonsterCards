@@ -56,9 +56,27 @@ public class EditStringsFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_strings_list, container, false);
         mHolder = new ViewHolder(root);
+        setTitle(getTitleForStringType(mStringType));
         setupRecyclerView(mHolder.list);
         setupAddButton(mHolder.addItem);
         return root;
+    }
+
+    private String getTitleForStringType(StringType type) {
+        switch (type) {
+            case CONDITION_IMMUNITY:
+                return getString(R.string.title_edit_condition_immunities);
+            case DAMAGE_IMMUNITY:
+                return getString(R.string.title_edit_damage_immunities);
+            case DAMAGE_RESISTANCE:
+                return getString(R.string.title_edit_damage_resistances);
+            case DAMAGE_VULNERABILITY:
+                return getString(R.string.title_edit_damage_vulnerabilities);
+            case SENSE:
+                return getString(R.string.title_edit_senses);
+            default:
+                return "";
+        }
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {

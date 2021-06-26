@@ -332,6 +332,10 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         this.setHitDice(parsedHitDice != null ? parsedHitDice : 0);
     }
 
+    public int getHitDiceUnboxed() {
+        return Helpers.unboxInteger(mHitDice.getValue(), 1);
+    }
+
     public String getHitDiceValueAsString() {
         return mHitDice.getValue().toString();
     }
@@ -347,6 +351,10 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
     public void setNaturalArmorBonus(String naturalArmorBonus) {
         Integer parsedValue = StringHelper.parseInt(naturalArmorBonus);
         this.setNaturalArmorBonus(parsedValue != null ? parsedValue : 0);
+    }
+
+    public int getNaturalArmorBonusUnboxed() {
+        return Helpers.unboxInteger(mNaturalArmorBonus.getValue(), 0);
     }
 
     public String getNaturalArmorBonusValueAsString() {
@@ -396,6 +404,10 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
     public void setShieldBonus(String shieldBonus) {
         Integer parsedValue = StringHelper.parseInt(shieldBonus);
         this.setShieldBonus(parsedValue != null ? parsedValue : 0);
+    }
+
+    public int getShieldBonusUnboxed() {
+        return Helpers.unboxInteger(mShieldBonus.getValue(), 0);
     }
 
     public LiveData<String> getCustomArmor() {

@@ -63,7 +63,6 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Monster monster = mValues.get(position);
-        holder.mIdView.setText(monster.id.toString().substring(0, 6));
         holder.mContentView.setText(monster.name);
         holder.itemView.setTag(monster);
         holder.itemView.setOnClickListener(view -> {
@@ -83,12 +82,10 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView mIdView;
         final TextView mContentView;
 
         ViewHolder(View view) {
             super(view);
-            mIdView = view.findViewById(R.id.id_text);
             mContentView = view.findViewById(R.id.content);
         }
     }
