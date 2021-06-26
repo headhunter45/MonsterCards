@@ -80,7 +80,6 @@ public class AbilityScorePicker extends LinearLayout {
         mHolder.spinner.setSelection(ArrayHelper.indexOf(AbilityScore.values(), mSelectedValue));
 
         setValue(AbilityScore.STRENGTH);
-        // TODO: listen for changes on the component to update mSelectedValue;
     }
 
     public AbilityScorePicker(@NonNull Context context) {
