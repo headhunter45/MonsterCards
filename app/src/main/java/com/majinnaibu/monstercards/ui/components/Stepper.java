@@ -45,6 +45,7 @@ public class Stepper extends ConstraintLayout {
         mHolder = new ViewHolder(root);
 
         setValue(mCurrentValue);
+        updateDisplayedValue();
         mHolder.increment.setOnClickListener(v -> setValue(mCurrentValue + mStep));
         mHolder.decrement.setOnClickListener(v -> setValue(mCurrentValue - mStep));
 
@@ -78,11 +79,15 @@ public class Stepper extends ConstraintLayout {
             if (mOnValueChangeListener != null) {
                 mOnValueChangeListener.onChange(newValue, oldValue);
             }
-            if (mOnFormatValueCallback != null) {
-                mHolder.text.setText(mOnFormatValueCallback.onFormatValue(this.mCurrentValue));
-            } else {
-                mHolder.text.setText(String.valueOf(this.mCurrentValue));
-            }
+            updateDisplayedValue();
+        }
+    }
+
+    private void updateDisplayedValue() {
+        if (mOnFormatValueCallback != null) {
+            mHolder.text.setText(mOnFormatValueCallback.onFormatValue(this.mCurrentValue));
+        } else {
+            mHolder.text.setText(String.valueOf(this.mCurrentValue));
         }
     }
 
@@ -92,6 +97,7 @@ public class Stepper extends ConstraintLayout {
 
     public void setOnFormatValueCallback(OnFormatValueCallback callback) {
         mOnFormatValueCallback = callback;
+        updateDisplayedValue();
     }
 
     public int getStep() {
