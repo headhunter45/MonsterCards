@@ -6,30 +6,25 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.databinding.FragmentEditDamageImmunitiesListItemBinding;
+import com.majinnaibu.monstercards.databinding.FragmentEditStringsListItemBinding;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-/**
- * x
- * {@link RecyclerView.Adapter} that can display a {@link String}.
- */
-public class EditDamageImmunitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditDamageImmunitiesRecyclerViewAdapter.ViewHolder> {
+public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStringsRecyclerViewAdapter.ViewHolder> {
     private final List<String> mValues;
     private final ItemCallback mOnClick;
 
-    public EditDamageImmunitiesRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
+    public EditStringsRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
         mValues = items;
         mOnClick = onClick;
     }
 
-
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentEditDamageImmunitiesListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(FragmentEditStringsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -49,18 +44,17 @@ public class EditDamageImmunitiesRecyclerViewAdapter extends RecyclerView.Adapte
     }
 
     public interface ItemCallback {
-        void onItemCallback(String sense);
+        void onItemCallback(String value);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mContentView;
         public String mItem;
 
-        public ViewHolder(FragmentEditDamageImmunitiesListItemBinding binding) {
+        public ViewHolder(FragmentEditStringsListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
-
 
         @NotNull
         @Override
