@@ -3,8 +3,10 @@ package com.majinnaibu.monstercards.data;
 import androidx.annotation.NonNull;
 
 import com.majinnaibu.monstercards.AppDatabase;
+import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,7 +33,16 @@ public class MonsterRepository {
 
     public Flowable<List<Monster>> searchMonsters(String searchText) {
         return m_db.monsterDAO()
-                .search(searchText)
+                .getAll()
+                .map(monsters -> {
+                    ArrayList<Monster> filteredMonsters = new ArrayList<>();
+                    for (Monster monster : monsters) {
+                        if (Helpers.monsterMatchesSearch(monster, searchText)) {
+                            filteredMonsters.add(monster);
+                        }
+                    }
+                    return (List<Monster>) filteredMonsters;
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
@@ -67,5 +78,35 @@ public class MonsterRepository {
         Completable result = m_db.monsterDAO().save(monster);
         result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         return result;
+    }
+
+    private static class Helpers {
+        static boolean monsterMatchesSearch(Monster monster, String searchText) {
+            if (StringHelper.isNullOrEmpty(searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(monster.name, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(monster.size, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(monster.type, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(monster.subtype, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(monster.alignment, searchText)) {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
