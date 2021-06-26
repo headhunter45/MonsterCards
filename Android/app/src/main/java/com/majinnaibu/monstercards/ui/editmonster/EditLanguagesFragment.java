@@ -26,6 +26,7 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
 public class EditLanguagesFragment extends MCFragment {
+    // TODO: Make the swipe to delete not happen for the header
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 
