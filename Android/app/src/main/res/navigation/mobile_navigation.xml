@@ -112,8 +112,8 @@
                 android:id="@+id/action_editMonsterFragment_to_editLanguagesFragment"
                 app:destination="@id/editLanguagesFragment" />
             <action
-                android:id="@+id/action_editMonsterFragment_to_editAbilitiesFragment"
-                app:destination="@id/editAbilitiesFragment" />
+                android:id="@+id/action_editMonsterFragment_to_editTraitListFragment"
+                app:destination="@id/editTraitListFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -279,23 +279,29 @@
                 app:argType="boolean" />
         </fragment>
         <fragment
-            android:id="@+id/editAbilitiesFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditAbilitiesFragment"
-            android:label="EditAbilitiesFragment" >
-            <action
-                android:id="@+id/action_editAbilitiesFragment_to_editAbilityFragment"
-                app:destination="@id/editAbilityFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/editAbilityFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditAbilityFragment"
-            android:label="EditAbilityFragment" >
+            android:id="@+id/editTraitFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitFragment"
+            android:label="EditTraitFragment">
             <argument
                 android:name="description"
                 app:argType="string" />
             <argument
                 android:name="name"
                 app:argType="string" />
+            <argument
+                android:name="traitType"
+                app:argType="com.majinnaibu.monstercards.data.enums.TraitType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editTraitListFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitListFragment"
+            android:label="EditTraitListFragment">
+            <action
+                android:id="@+id/action_editTraitListFragment_to_editTraitFragment"
+                app:destination="@id/editTraitFragment" />
+            <argument
+                android:name="traitType"
+                app:argType="com.majinnaibu.monstercards.data.enums.TraitType" />
         </fragment>
     </navigation>
 </navigation>

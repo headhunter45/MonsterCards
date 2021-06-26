@@ -29,7 +29,7 @@ public class EditTraitFragment extends MCFragment {
     private TraitType mTraitType;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditTraitViewModel.class);
         if (getArguments() != null) {
             EditTraitFragmentArgs args = EditTraitFragmentArgs.fromBundle(getArguments());
@@ -40,11 +40,12 @@ public class EditTraitFragment extends MCFragment {
             Logger.logWTF("EditTraitFragment needs arguments");
             mOldValue = null;
         }
+
         super.onCreate(savedInstanceState);
     }
 
     @Nullable
-
+    @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
@@ -52,7 +53,6 @@ public class EditTraitFragment extends MCFragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_trait, container, false);
         mHolder = new EditTraitFragment.ViewHolder(root);
-        setTitle(getTitleForTraitType(mTraitType));
 
         mHolder.name.setText(mViewModel.getNameAsString());
         mHolder.name.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setName(s.toString())));
@@ -73,36 +73,11 @@ public class EditTraitFragment extends MCFragment {
         return root;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mHolder.name.requestFocus();
-    }
-
-    private String getTitleForTraitType(TraitType type) {
-        switch (type) {
-            case ABILITY:
-                return getString(R.string.title_editAbility);
-            case ACTION:
-                return getString(R.string.title_editAction);
-            case LAIR_ACTION:
-                return getString(R.string.title_editLairAction);
-            case LEGENDARY_ACTION:
-                return getString(R.string.title_editLegendaryAction);
-            case REACTIONS:
-                return getString(R.string.title_editReaction);
-            case REGIONAL_ACTION:
-                return getString(R.string.title_editRegionalAction);
-            default:
-                return getString(R.string.title_editTrait);
-        }
-    }
-
     private static class ViewHolder {
         EditText description;
         EditText name;
 
-        ViewHolder(@NonNull View root) {
+        ViewHolder(View root) {
             description = root.findViewById(R.id.description);
             name = root.findViewById(R.id.name);
         }

@@ -9,6 +9,7 @@ import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
+import com.majinnaibu.monstercards.data.enums.TraitType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
@@ -16,6 +17,7 @@ import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.ui.shared.ChangeTrackedViewModel;
 import com.majinnaibu.monstercards.utils.ChangeTrackedLiveData;
+import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -740,12 +742,12 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mTelepathyRange;
     }
 
-    public int getTelepathyRangeUnboxed() {
-        return Helpers.unboxInteger(mTelepathyRange.getValue(), 0);
-    }
-
     public void setTelepathyRange(int telepathyRange) {
         mTelepathyRange.setValue(telepathyRange);
+    }
+
+    public int getTelepathyRangeUnboxed() {
+        return Helpers.unboxInteger(mTelepathyRange.getValue(), 0);
     }
 
     public LiveData<String> getUnderstandsButDescription() {
@@ -923,133 +925,6 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         Helpers.replaceItemInList(mLanguages, oldLanguage, newLanguage, Language::compareTo);
     }
 
-    public LiveData<List<Trait>> getAbilities() {
-        return mAbilities;
-    }
-
-    public List<Trait> getAbilitiesArray() {
-        return mAbilities.getValue();
-    }
-
-    public Trait addNewAbility() {
-        Trait newAbility = new Trait("", "");
-        return Helpers.addItemToList(mAbilities, newAbility, Trait::compareTo);
-    }
-
-    public void removeAbility(int position) {
-        Helpers.removeFromList(mAbilities, position);
-    }
-
-    public void replaceAbility(Trait oldAbility, Trait newAbility) {
-        Helpers.replaceItemInList(mAbilities, oldAbility, newAbility);
-    }
-
-
-    public LiveData<List<Trait>> getActions() {
-        return mActions;
-    }
-
-    public List<Trait> getActionsArray() {
-        return mActions.getValue();
-    }
-
-    public Trait addNewAction() {
-        Trait newAction = new Trait("", "");
-        return Helpers.addItemToList(mActions, newAction, Trait::compareTo);
-    }
-
-    public void removeAction(int position) {
-        Helpers.removeFromList(mActions, position);
-    }
-
-    public void replaceAction(Trait oldAction, Trait newAction) {
-        Helpers.replaceItemInList(mActions, oldAction, newAction);
-    }
-
-    public LiveData<List<Trait>> getReactions() {
-        return mReactions;
-    }
-
-    public List<Trait> getReactionsArray() {
-        return mReactions.getValue();
-    }
-
-    public Trait addNewReaction() {
-        Trait newReaction = new Trait("", "");
-        return Helpers.addItemToList(mReactions, newReaction, Trait::compareTo);
-    }
-
-    public void removeReaction(int position) {
-        Helpers.removeFromList(mReactions, position);
-    }
-
-    public void replaceReaction(Trait oldReaction, Trait newReaction) {
-        Helpers.replaceItemInList(mReactions, oldReaction, newReaction);
-    }
-
-    public LiveData<List<Trait>> getLairActions() {
-        return mLairActions;
-    }
-
-    public List<Trait> getLairActionsArray() {
-        return mLairActions.getValue();
-    }
-
-    public Trait addNewLairAction() {
-        Trait newLairAction = new Trait("", "");
-        return Helpers.addItemToList(mLairActions, newLairAction, Trait::compareTo);
-    }
-
-    public void removeLairAction(int position) {
-        Helpers.removeFromList(mLairActions, position);
-    }
-
-    public void replaceLairAction(Trait oldLairAction, Trait newLairAction) {
-        Helpers.replaceItemInList(mLairActions, oldLairAction, newLairAction);
-    }
-
-    public LiveData<List<Trait>> getLegendaryActions() {
-        return mLegendaryActions;
-    }
-
-    public List<Trait> getLegendaryActionsArray() {
-        return mLegendaryActions.getValue();
-    }
-
-    public Trait addNewLegendaryAction() {
-        Trait newLegendaryAction = new Trait("", "");
-        return Helpers.addItemToList(mLegendaryActions, newLegendaryAction, Trait::compareTo);
-    }
-
-    public void removeLegendaryAction(int position) {
-        Helpers.removeFromList(mLegendaryActions, position);
-    }
-
-    public void replaceLegendaryAction(Trait oldLegendaryAction, Trait newLegendaryAction) {
-        Helpers.replaceItemInList(mLegendaryActions, oldLegendaryAction, newLegendaryAction);
-    }
-
-    public LiveData<List<Trait>> getRegionalActions() {
-        return mRegionalActions;
-    }
-
-    public List<Trait> getRegionalActionsArray() {
-        return mRegionalActions.getValue();
-    }
-
-    public Trait addNewRegionalAction() {
-        Trait newRegionalAction = new Trait("", "");
-        return Helpers.addItemToList(mRegionalActions, newRegionalAction, Trait::compareTo);
-    }
-
-    public void removeRegionalAction(int position) {
-        Helpers.removeFromList(mRegionalActions, position);
-    }
-
-    public void replaceRegionalAction(Trait oldRegionalAction, Trait newRegionalAction) {
-        Helpers.replaceItemInList(mRegionalActions, oldRegionalAction, newRegionalAction);
-    }
-
     public Monster buildMonster() {
         Monster monster = new Monster();
 
@@ -1114,10 +989,105 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return monster;
     }
 
+    public LiveData<List<Trait>> getTraits(TraitType type) {
+        switch (type) {
+            case ABILITY:
+                return mAbilities;
+            case ACTION:
+                return mActions;
+            case LAIR_ACTION:
+                return mLairActions;
+            case LEGENDARY_ACTION:
+                return mLegendaryActions;
+            case REACTIONS:
+                return mReactions;
+            case REGIONAL_ACTION:
+                return mRegionalActions;
+            default:
+                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+                return null;
+        }
+    }
+
+    public void removeTrait(TraitType type, int position) {
+        switch (type) {
+            case ABILITY:
+                Helpers.removeFromList(mAbilities, position);
+                break;
+            case ACTION:
+                Helpers.removeFromList(mActions, position);
+                break;
+            case LAIR_ACTION:
+                Helpers.removeFromList(mLairActions, position);
+                break;
+            case LEGENDARY_ACTION:
+                Helpers.removeFromList(mLegendaryActions, position);
+                break;
+            case REACTIONS:
+                Helpers.removeFromList(mReactions, position);
+                break;
+            case REGIONAL_ACTION:
+                Helpers.removeFromList(mRegionalActions, position);
+                break;
+            default:
+                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+        }
+    }
+
+    public void replaceTrait(TraitType type, Trait oldTrait, Trait newTrait) {
+        switch (type) {
+            case ABILITY:
+                Helpers.replaceItemInList(mAbilities, oldTrait, newTrait);
+                break;
+            case ACTION:
+                Helpers.replaceItemInList(mActions, oldTrait, newTrait);
+                break;
+            case LAIR_ACTION:
+                Helpers.replaceItemInList(mLairActions, oldTrait, newTrait);
+                break;
+            case LEGENDARY_ACTION:
+                Helpers.replaceItemInList(mLegendaryActions, oldTrait, newTrait);
+                break;
+            case REACTIONS:
+                Helpers.replaceItemInList(mReactions, oldTrait, newTrait);
+                break;
+            case REGIONAL_ACTION:
+                Helpers.replaceItemInList(mRegionalActions, oldTrait, newTrait);
+                break;
+            default:
+                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+        }
+    }
+
+    public Trait addNewTrait(TraitType type) {
+        Trait newAction = new Trait("", "");
+        switch (type) {
+            case ABILITY:
+                return Helpers.addItemToList(mAbilities, newAction);
+            case ACTION:
+                return Helpers.addItemToList(mActions, newAction);
+            case LAIR_ACTION:
+                return Helpers.addItemToList(mLairActions, newAction);
+            case LEGENDARY_ACTION:
+                return Helpers.addItemToList(mLegendaryActions, newAction);
+            case REACTIONS:
+                return Helpers.addItemToList(mReactions, newAction);
+            case REGIONAL_ACTION:
+                return Helpers.addItemToList(mRegionalActions, newAction);
+            default:
+                Logger.logWTF(String.format("Unrecognized TraitType: %s", type));
+                return null;
+        }
+    }
+
     @SuppressWarnings("SameParameterValue")
     private static class Helpers {
         static String addStringToList(String newString, MutableLiveData<List<String>> strings) {
             return addItemToList(strings, newString, String::compareToIgnoreCase);
+        }
+
+        static <T> T addItemToList(MutableLiveData<List<T>> listData, T newItem) {
+            return addItemToList(listData, newItem, null);
         }
 
         static <T> T addItemToList(MutableLiveData<List<T>> listData, T newItem, Comparator<? super T> comparator) {
@@ -1174,7 +1144,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             boolean hasReplaced = false;
             ArrayList<T> newList = new ArrayList<>(oldList.size());
             for (T item : oldList) {
-                if (Objects.equals(item, oldItem)) {
+                if (!hasReplaced && Objects.equals(item, oldItem)) {
                     newList.add(newItem);
                     hasReplaced = true;
                 } else {
