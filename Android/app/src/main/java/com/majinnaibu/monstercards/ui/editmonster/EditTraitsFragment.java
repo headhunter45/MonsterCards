@@ -31,8 +31,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-// TODO: rename to EditTraitsFragment
-public class EditTraitListFragment extends MCFragment {
+public class EditTraitsFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
     private TraitType mTraitType;
@@ -41,7 +40,7 @@ public class EditTraitListFragment extends MCFragment {
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         if (getArguments() != null) {
-            EditTraitListFragmentArgs args = EditTraitListFragmentArgs.fromBundle(getArguments());
+            EditTraitsFragmentArgs args = EditTraitsFragmentArgs.fromBundle(getArguments());
             mTraitType = args.getTraitType();
         } else {
             Logger.logWTF("EditTraitFragment needs arguments");
@@ -98,7 +97,7 @@ public class EditTraitListFragment extends MCFragment {
     }
 
     protected void navigateToEditTrait(Trait trait) {
-        NavDirections action = EditTraitListFragmentDirections.actionEditTraitListFragmentToEditTraitFragment(trait.description, trait.name, mTraitType);
+        NavDirections action = EditTraitsFragmentDirections.actionEditTraitListFragmentToEditTraitFragment(trait.description, trait.name, mTraitType);
         Navigation.findNavController(requireView()).navigate(action);
     }
 
