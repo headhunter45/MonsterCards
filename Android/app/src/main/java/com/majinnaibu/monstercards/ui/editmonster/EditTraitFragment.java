@@ -52,6 +52,7 @@ public class EditTraitFragment extends MCFragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_trait, container, false);
         mHolder = new EditTraitFragment.ViewHolder(root);
+        setTitle(getTitleForTraitType(mTraitType));
 
         mHolder.name.setText(mViewModel.getNameAsString());
         mHolder.name.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setName(s.toString())));
@@ -70,6 +71,31 @@ public class EditTraitFragment extends MCFragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mHolder.name.requestFocus();
+    }
+
+    private String getTitleForTraitType(TraitType type) {
+        switch (type) {
+            case ABILITY:
+                return getString(R.string.title_edit_ability);
+            case ACTION:
+                return getString(R.string.title_edit_action);
+            case LAIR_ACTION:
+                return getString(R.string.title_edit_lair_action);
+            case LEGENDARY_ACTION:
+                return getString(R.string.title_edit_legendary_action);
+            case REACTIONS:
+                return getString(R.string.title_edit_reaction);
+            case REGIONAL_ACTION:
+                return getString(R.string.title_edit_regional_action);
+            default:
+                return "";
+        }
     }
 
     private static class ViewHolder {

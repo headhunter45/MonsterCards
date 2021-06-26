@@ -25,11 +25,10 @@ public class EditSavingThrowsFragment extends MCFragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_saving_throws, container, false);
-
         mViewHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_saving_throws));
+
         mViewHolder.strengthProficiency.setValue(mViewModel.getStrengthProficiency().getValue());
         mViewHolder.strengthProficiency.setOnValueChangedListener(value -> mViewModel.setStrengthProficiency(value));
         mViewHolder.strengthAdvantage.setValue(mViewModel.getStrengthAdvantage().getValue());

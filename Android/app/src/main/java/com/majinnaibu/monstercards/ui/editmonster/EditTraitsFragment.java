@@ -57,9 +57,29 @@ public class EditTraitsFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_traits_list, container, false);
         mHolder = new ViewHolder(root);
+        setTitle(getTitleForTraitType(mTraitType));
         setupRecyclerView(mHolder.list);
         setupAddButton(mHolder.addTrait);
         return root;
+    }
+
+    private String getTitleForTraitType(TraitType type) {
+        switch (type) {
+            case ABILITY:
+                return getString(R.string.title_edit_abilities);
+            case ACTION:
+                return getString(R.string.title_edit_actions);
+            case LAIR_ACTION:
+                return getString(R.string.title_edit_lair_actions);
+            case LEGENDARY_ACTION:
+                return getString(R.string.title_edit_legendary_actions);
+            case REACTIONS:
+                return getString(R.string.title_edit_reactions);
+            case REGIONAL_ACTION:
+                return getString(R.string.title_edit_regional_actions);
+            default:
+                return "";
+        }
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
