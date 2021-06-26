@@ -18,16 +18,11 @@ import com.majinnaibu.monstercards.R;
 
 public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
 
-    public interface OnDeleteCallback {
-        void onDelete(int position);
-    }
-
     private final Drawable icon;
     private final ColorDrawable background;
     private final Paint clearPaint;
     private final OnDeleteCallback mOnDelete;
     private final Context mContext;
-
     public SwipeToDeleteCallback(Context context, OnDeleteCallback onDelete) {
         super(0, ItemTouchHelper.LEFT);
         mOnDelete = onDelete;
@@ -83,5 +78,9 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
         icon.draw(c);
 
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+    }
+
+    public interface OnDeleteCallback {
+        void onDelete(int position);
     }
 }

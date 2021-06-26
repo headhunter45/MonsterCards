@@ -13,16 +13,16 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class MonsterRepository {
 
-    private AppDatabase m_db;
+    private final AppDatabase m_db;
 
     public MonsterRepository(@NonNull AppDatabase db) {
         m_db = db;
     }
 
     public Flowable<List<Monster>> getMonsters() {
-
         return m_db.monsterDAO()
                 .getAll()
                 .subscribeOn(Schedulers.io())
