@@ -15,26 +15,29 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.data.enums.TraitType;
 import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditAbilityFragment extends MCFragment {
+public class EditTraitFragment extends MCFragment {
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditTraitViewModel mViewModel;
-    private ViewHolder mHolder;
+    private EditTraitFragment.ViewHolder mHolder;
     private Trait mOldValue;
+    private TraitType mTraitType;
 
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditTraitViewModel.class);
         if (getArguments() != null) {
-            EditAbilityFragmentArgs args = EditAbilityFragmentArgs.fromBundle(getArguments());
+            EditTraitFragmentArgs args = EditTraitFragmentArgs.fromBundle(getArguments());
             mOldValue = new Trait(args.getName(), args.getDescription());
             mViewModel.copyFromTrait(mOldValue);
+            mTraitType = args.getTraitType();
         } else {
-            Logger.logWTF("EditAbilityFragment needs arguments");
+            Logger.logWTF("EditTraitFragment needs arguments");
             mOldValue = null;
         }
 
@@ -49,7 +52,7 @@ public class EditAbilityFragment extends MCFragment {
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_trait, container, false);
-        mHolder = new ViewHolder(root);
+        mHolder = new EditTraitFragment.ViewHolder(root);
 
         mHolder.name.setText(mViewModel.getNameAsString());
         mHolder.name.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setName(s.toString())));
@@ -61,7 +64,7 @@ public class EditAbilityFragment extends MCFragment {
             @Override
             public void handleOnBackPressed() {
                 if (mViewModel.hasChanges()) {
-                    mEditMonsterViewModel.replaceAbility(mOldValue, mViewModel.getAbilityValue());
+                    mEditMonsterViewModel.replaceTrait(mTraitType, mOldValue, mViewModel.getAbilityValue());
                 }
                 Navigation.findNavController(requireView()).navigateUp();
             }

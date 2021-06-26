@@ -19,6 +19,7 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.data.enums.TraitType;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.monster.MonsterDetailFragmentArgs;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
@@ -146,9 +147,35 @@ public class EditMonsterFragment extends MCFragment {
         });
 
         mHolder.abilities.setOnClickListener(v -> {
-            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditAbilitiesFragment();
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditTraitListFragment(TraitType.ABILITY);
             Navigation.findNavController(requireView()).navigate(action);
         });
+
+        mHolder.actions.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditTraitListFragment(TraitType.ACTION);
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.lairActions.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditTraitListFragment(TraitType.LAIR_ACTION);
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.legendaryActions.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditTraitListFragment(TraitType.LEGENDARY_ACTION);
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.reactions.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditTraitListFragment(TraitType.REACTIONS);
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
+        mHolder.regionalActions.setOnClickListener(v -> {
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditTraitListFragment(TraitType.REGIONAL_ACTION);
+            Navigation.findNavController(requireView()).navigate(action);
+        });
+
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
