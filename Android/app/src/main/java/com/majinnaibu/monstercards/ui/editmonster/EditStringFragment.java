@@ -21,7 +21,6 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
 public class EditStringFragment extends MCFragment {
-    // TODO: when this fragment is shown focus on the edit text and select it's contents
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditStringViewModel mViewModel;
     private ViewHolder mHolder;
@@ -52,6 +51,7 @@ public class EditStringFragment extends MCFragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_string, container, false);
         mHolder = new ViewHolder(root);
+        setTitle(getTitleForStringType(mStringType));
 
         mHolder.description.setText(mViewModel.getValueAsString());
         mHolder.description.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setValue(s.toString())));
@@ -69,14 +69,34 @@ public class EditStringFragment extends MCFragment {
         return root;
     }
 
+    private String getTitleForStringType(StringType type) {
+        switch (type) {
+            case CONDITION_IMMUNITY:
+                return getString(R.string.title_edit_condition_immunity);
+            case DAMAGE_IMMUNITY:
+                return getString(R.string.title_edit_damage_immunity);
+            case DAMAGE_RESISTANCE:
+                return getString(R.string.title_edit_damage_resistance);
+            case DAMAGE_VULNERABILITY:
+                return getString(R.string.title_edit_damage_vulnerability);
+            case SENSE:
+                return getString(R.string.title_edit_sense);
+            default:
+                return "";
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mHolder.description.requestFocus();
+    }
 
     private static class ViewHolder {
         EditText description;
-        EditText name;
 
         ViewHolder(View root) {
             description = root.findViewById(R.id.description);
-            name = root.findViewById(R.id.name);
         }
     }
 }

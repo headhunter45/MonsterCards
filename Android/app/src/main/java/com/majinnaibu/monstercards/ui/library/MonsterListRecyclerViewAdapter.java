@@ -60,7 +60,6 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
     @Override
     public void onBindViewHolder(final @NonNull ViewHolder holder, int position) {
         Monster monster = mValues.get(position);
-        holder.mIdView.setText(monster.id.toString().substring(0, 6));
         holder.mContentView.setText(monster.name);
         holder.itemView.setTag(monster);
         holder.itemView.setOnClickListener(mOnClickListener);
@@ -106,12 +105,10 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView mIdView;
         final TextView mContentView;
 
         ViewHolder(View view) {
             super(view);
-            mIdView = view.findViewById(R.id.id_text);
             mContentView = view.findViewById(R.id.content);
         }
     }

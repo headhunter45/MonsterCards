@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.ui.components.Stepper;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
@@ -21,16 +22,21 @@ public class EditBasicInfoFragment extends MCFragment {
     private ViewHolder mHolder;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        mHolder.name.requestFocus();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_basic_info, container, false);
-
+        setTitle(getString(R.string.title_edit_basic_info));
         mHolder = new ViewHolder(root);
+
         mHolder.name.setText(mViewModel.getName().getValue());
         mHolder.name.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setName(s.toString())));
 
@@ -49,8 +55,8 @@ public class EditBasicInfoFragment extends MCFragment {
         mHolder.customHitPoints.setText(mViewModel.getCustomHitPoints().getValue());
         mHolder.customHitPoints.addTextChangedListener((new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setCustomHitPoints(s.toString()))));
 
-        mHolder.hitDice.setText(mViewModel.getHitDiceValueAsString());
-        mHolder.hitDice.addTextChangedListener((new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setHitDice(s.toString()))));
+        mHolder.hitDice.setValue(mViewModel.getHitDiceUnboxed());
+        mHolder.hitDice.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setHitDice(newValue));
 
         mHolder.hasCustomHitPoints.setChecked(mViewModel.getHasCustomHitPointsValueAsBoolean());
         mHolder.hasCustomHitPoints.setOnCheckedChangeListener((button, isChecked) -> mViewModel.setHasCustomHitPoints(isChecked));
@@ -65,7 +71,7 @@ public class EditBasicInfoFragment extends MCFragment {
         private final EditText subtype;
         private final EditText alignment;
         private final EditText customHitPoints;
-        private final EditText hitDice;
+        private final Stepper hitDice;
         private final SwitchMaterial hasCustomHitPoints;
 
         ViewHolder(View root) {
