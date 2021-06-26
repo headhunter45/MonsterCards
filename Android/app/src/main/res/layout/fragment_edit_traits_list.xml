@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.editmonster.EditTraitsFragment">
+    tools:context=".ui.editmonster.EditAbilitiesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/fragment_edit_traits_list_item" />
+        tools:listitem="@layout/fragment_edit_abilities_list_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_trait"
