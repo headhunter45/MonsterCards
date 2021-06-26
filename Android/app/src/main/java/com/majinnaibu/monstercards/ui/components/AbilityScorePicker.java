@@ -69,12 +69,12 @@ public class AbilityScorePicker extends LinearLayout {
         mHolder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mSelectedValue = (AbilityScore) parent.getItemAtPosition(position);
+                setValue((AbilityScore) parent.getItemAtPosition(position));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                mSelectedValue = AbilityScore.STRENGTH;
+                setValue(mSelectedValue = AbilityScore.STRENGTH);
             }
         });
         mHolder.spinner.setSelection(ArrayHelper.indexOf(AbilityScore.values(), mSelectedValue));
@@ -93,7 +93,8 @@ public class AbilityScorePicker extends LinearLayout {
 
     public void setValue(AbilityScore value) {
         if (value != mSelectedValue) {
-            mHolder.spinner.setSelection(ArrayHelper.indexOf(AbilityScore.values(), mSelectedValue));
+            mSelectedValue = value;
+            mHolder.spinner.setSelection(ArrayHelper.indexOf(AbilityScore.values(), value));
             if (mOnValueChangedListener != null) {
                 mOnValueChangedListener.onValueChanged(value);
             }
