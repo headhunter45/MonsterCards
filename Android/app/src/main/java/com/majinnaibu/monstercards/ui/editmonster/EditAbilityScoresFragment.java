@@ -30,11 +30,9 @@ public class EditAbilityScoresFragment extends Fragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_ability_scores, container, false);
-
         mHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_ability_scores));
 
         mViewModel.getStrength().observe(getViewLifecycleOwner(), value -> mHolder.strength.setValue(value));
         mHolder.strength.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setStrength(newValue));

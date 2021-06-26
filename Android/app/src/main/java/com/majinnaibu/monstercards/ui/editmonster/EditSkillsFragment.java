@@ -44,10 +44,9 @@ public class EditSkillsFragment extends MCFragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
         View root = inflater.inflate(R.layout.fragment_edit_skills_list, container, false);
-
         mHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_skills));
         setupRecyclerView(mHolder.list);
         setupAddSkillButton(mHolder.addSkill);
 

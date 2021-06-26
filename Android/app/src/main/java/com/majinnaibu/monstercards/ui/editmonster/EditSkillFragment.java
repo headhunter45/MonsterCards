@@ -9,7 +9,6 @@ import android.widget.EditText;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -24,19 +23,19 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
-public class EditSkillFragment extends Fragment {
+public class EditSkillFragment extends MCFragment {
     private EditMonsterViewModel mEditMonsterViewModel;
     private EditSkillViewModel mViewModel;
     private ViewHolder mHolder;
     private Skill mOldSkill;
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditSkillViewModel.class);
         if (getArguments() != null) {
             EditSkillFragmentArgs args = EditSkillFragmentArgs.fromBundle(getArguments());
-            mViewModel.copyFromSkill(args.getName(), args.getAbilityScore(), args.getProficiency(), args.getAdvantage());
             mOldSkill = new Skill(args.getName(), args.getAbilityScore(), args.getAdvantage(), args.getProficiency());
+            mViewModel.copyFromSkill(mOldSkill);
         } else {
             Logger.logWTF("EditSkillFragment needs arguments.");
             mOldSkill = null;
@@ -50,11 +49,9 @@ public class EditSkillFragment extends Fragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_skill, container, false);
-
         mHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_skill));
 
         mHolder.abilityScore.setValue(mViewModel.getAbilityScore().getValue());
         mHolder.abilityScore.setOnValueChangedListener(value -> mViewModel.setAbilityScore(value));
@@ -79,6 +76,12 @@ public class EditSkillFragment extends Fragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mHolder.name.requestFocus();
     }
 
     private static class ViewHolder {

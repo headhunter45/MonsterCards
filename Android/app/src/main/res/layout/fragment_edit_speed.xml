@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:text="@string/label_can_hover"
-            android:textSize="@dimen/text_h4_size" />
+            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/hasCustomSpeed"
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:text="@string/label_has_custom_speed"
-            android:textSize="@dimen/text_h4_size" />
+            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

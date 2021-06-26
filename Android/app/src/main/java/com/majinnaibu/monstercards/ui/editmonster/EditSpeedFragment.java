@@ -28,11 +28,9 @@ public class EditSpeedFragment extends Fragment {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
-
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_edit_speed, container, false);
-
         mHolder = new ViewHolder(root);
+        setTitle(getString(R.string.title_edit_speed));
 
         mHolder.baseSpeed.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setWalkSpeed(newValue));
         mHolder.baseSpeed.setOnFormatValueCallback(value -> String.format(getString(R.string.format_distance_in_feet), value));
