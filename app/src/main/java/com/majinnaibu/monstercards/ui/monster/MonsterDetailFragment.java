@@ -229,6 +229,8 @@ public class MonsterDetailFragment extends MCFragment {
             }
         });
 
+        // TODO: add lair actions, legendary actions, reactions, and regional actions
+
         return root;
     }
 
