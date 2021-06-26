@@ -19,6 +19,7 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.data.enums.StringType;
 import com.majinnaibu.monstercards.data.enums.TraitType;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.monster.MonsterDetailFragmentArgs;
@@ -117,27 +118,27 @@ public class EditMonsterFragment extends MCFragment {
         });
 
         mHolder.senses.setOnClickListener(v -> {
-            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditSensesFragment();
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditStringsFragment(StringType.SENSE);
             Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.conditionImmunities.setOnClickListener(v -> {
-            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditConditionImmunitiesFragment();
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditStringsFragment(StringType.CONDITION_IMMUNITY);
             Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.damageImmunities.setOnClickListener(v -> {
-            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageImmunitiesFragment();
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditStringsFragment(StringType.DAMAGE_IMMUNITY);
             Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.damageResistances.setOnClickListener(v -> {
-            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageResistancesFragment();
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditStringsFragment(StringType.DAMAGE_RESISTANCE);
             Navigation.findNavController(requireView()).navigate(action);
         });
 
         mHolder.damageVulnerabilities.setOnClickListener(v -> {
-            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditDamageVulnerabilitiesFragment();
+            NavDirections action = EditMonsterFragmentDirections.actionEditMonsterFragmentToEditStringsFragment(StringType.DAMAGE_VULNERABILITY);
             Navigation.findNavController(requireView()).navigate(action);
         });
 

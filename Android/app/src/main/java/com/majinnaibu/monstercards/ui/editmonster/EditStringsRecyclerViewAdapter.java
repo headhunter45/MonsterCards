@@ -6,20 +6,17 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.databinding.FragmentEditConditionImmunitiesListItemBinding;
+import com.majinnaibu.monstercards.databinding.FragmentEditStringsListItemBinding;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link String}.
- */
-public class EditConditionImmunitiesRecyclerViewAdapter extends RecyclerView.Adapter<EditConditionImmunitiesRecyclerViewAdapter.ViewHolder> {
+public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStringsRecyclerViewAdapter.ViewHolder> {
     private final List<String> mValues;
     private final ItemCallback mOnClick;
 
-    public EditConditionImmunitiesRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
+    public EditStringsRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
         mValues = items;
         mOnClick = onClick;
     }
@@ -27,7 +24,7 @@ public class EditConditionImmunitiesRecyclerViewAdapter extends RecyclerView.Ada
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentEditConditionImmunitiesListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(FragmentEditStringsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -47,14 +44,14 @@ public class EditConditionImmunitiesRecyclerViewAdapter extends RecyclerView.Ada
     }
 
     public interface ItemCallback {
-        void onItemCallback(String condition);
+        void onItemCallback(String value);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mContentView;
         public String mItem;
 
-        public ViewHolder(FragmentEditConditionImmunitiesListItemBinding binding) {
+        public ViewHolder(FragmentEditStringsListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }

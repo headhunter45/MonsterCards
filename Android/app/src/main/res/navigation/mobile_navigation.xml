@@ -94,26 +94,14 @@
                 android:id="@+id/action_editMonsterFragment_to_editSkillsFragment"
                 app:destination="@id/editSkillsFragment" />
             <action
-                android:id="@+id/action_editMonsterFragment_to_editSensesFragment"
-                app:destination="@id/editSensesFragment" />
-            <action
-                android:id="@+id/action_editMonsterFragment_to_editConditionImmunitiesFragment"
-                app:destination="@id/editConditionImmunitiesFragment" />
-            <action
-                android:id="@+id/action_editMonsterFragment_to_editDamageResistancesFragment"
-                app:destination="@id/editDamageResistancesFragment" />
-            <action
-                android:id="@+id/action_editMonsterFragment_to_editDamageVulnerabilitiesFragment"
-                app:destination="@id/editDamageVulnerabilitiesFragment" />
-            <action
-                android:id="@+id/action_editMonsterFragment_to_editDamageImmunitiesFragment"
-                app:destination="@id/editDamageImmunitiesFragment" />
-            <action
                 android:id="@+id/action_editMonsterFragment_to_editLanguagesFragment"
                 app:destination="@id/editLanguagesFragment" />
             <action
                 android:id="@+id/action_editMonsterFragment_to_editTraitListFragment"
                 app:destination="@id/editTraitListFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editStringsFragment"
+                app:destination="@id/editStringsFragment" />
         </fragment>
         <fragment
             android:id="@+id/editBasicInfoFragment"
@@ -172,92 +160,6 @@
                 app:argType="com.majinnaibu.monstercards.data.enums.AdvantageType" />
         </fragment>
         <fragment
-            android:id="@+id/editSensesFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSensesFragment"
-            android:label="fragment_edit_senses_list"
-            tools:layout="@layout/fragment_edit_senses_list">
-            <action
-                android:id="@+id/action_editSensesFragment_to_editSenseFragment"
-                app:destination="@id/editSenseFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/editSenseFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSenseFragment"
-            android:label="fragment_edit_sense"
-            tools:layout="@layout/fragment_edit_sense">
-            <argument
-                android:name="sense"
-                app:argType="string" />
-        </fragment>
-        <fragment
-            android:id="@+id/editConditionImmunitiesFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditConditionImmunitiesFragment"
-            android:label="fragment_edit_condition_immunities_list"
-            tools:layout="@layout/fragment_edit_condition_immunities_list">
-            <action
-                android:id="@+id/action_editConditionImmunitiesFragment_to_editConditionImmunity"
-                app:destination="@id/editConditionImmunity" />
-        </fragment>
-        <fragment
-            android:id="@+id/editConditionImmunity"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditConditionImmunityFragment"
-            android:label="fragment_edit_condition_immunity"
-            tools:layout="@layout/fragment_edit_condition_immunity">
-            <argument
-                android:name="condition"
-                app:argType="string" />
-        </fragment>
-        <fragment
-            android:id="@+id/editDamageResistancesFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageResistancesFragment"
-            android:label="fragment_edit_damage_resistances_list"
-            tools:layout="@layout/fragment_edit_damage_resistances_list">
-            <action
-                android:id="@+id/action_editDamageResistancesFragment_to_editDamageResistanceFragment"
-                app:destination="@id/editDamageResistanceFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/editDamageResistanceFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageResistanceFragment"
-            android:label="fragment_edit_damage_resistance"
-            tools:layout="@layout/fragment_edit_damage_resistance">
-            <argument
-                android:name="damageType"
-                app:argType="string" />
-        </fragment>
-        <fragment
-            android:id="@+id/editDamageVulnerabilityFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageVulnerabilityFragment"
-            android:label="EditDamageVulnerabilityFragment">
-            <argument
-                android:name="damageType"
-                app:argType="string" />
-        </fragment>
-        <fragment
-            android:id="@+id/editDamageImmunitiesFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageImmunitiesFragment"
-            android:label="EditDamageImmunitiesFragment">
-            <action
-                android:id="@+id/action_editDamageImmunitiesFragment_to_editDamageImmunityFragment"
-                app:destination="@id/editDamageImmunityFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/editDamageImmunityFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageImmunityFragment"
-            android:label="EditDamageImmunityFragment">
-            <argument
-                android:name="damageType"
-                app:argType="string" />
-        </fragment>
-        <fragment
-            android:id="@+id/editDamageVulnerabilitiesFragment"
-            android:name="com.majinnaibu.monstercards.ui.editmonster.EditDamageVulnerabilitiesFragment"
-            android:label="EditDamageVulnerabilitiesFragment">
-            <action
-                android:id="@+id/action_editDamageVulnerabilitiesFragment_to_editDamageVulnerabilityFragment"
-                app:destination="@id/editDamageVulnerabilityFragment" />
-        </fragment>
-        <fragment
             android:id="@+id/editLanguagesFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguagesFragment"
             android:label="fragment_edit_languages_list"
@@ -302,6 +204,28 @@
             <argument
                 android:name="traitType"
                 app:argType="com.majinnaibu.monstercards.data.enums.TraitType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editStringsFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditStringsFragment"
+            android:label="EditStringsFragment">
+            <action
+                android:id="@+id/action_editStringsFragment_to_editStringFragment"
+                app:destination="@id/editStringFragment" />
+            <argument
+                android:name="stringType"
+                app:argType="com.majinnaibu.monstercards.data.enums.StringType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editStringFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditStringFragment"
+            android:label="EditStringFragment">
+            <argument
+                android:name="stringType"
+                app:argType="com.majinnaibu.monstercards.data.enums.StringType" />
+            <argument
+                android:name="value"
+                app:argType="string" />
         </fragment>
     </navigation>
 </navigation>
