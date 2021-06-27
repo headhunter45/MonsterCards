@@ -76,7 +76,7 @@ public class LibraryFragment extends MCFragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(requireContext(), adapter::deleteItem));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(requireContext(), (position, direction) -> adapter.deleteItem(position), null));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 

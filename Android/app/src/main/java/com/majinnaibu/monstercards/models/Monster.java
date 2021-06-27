@@ -187,22 +187,22 @@ public class Monster {
     public Set<Language> languages;
 
     @ColumnInfo(name = "abilities", defaultValue = "[]")
-    public Set<Trait> abilities;
+    public List<Trait> abilities;
 
     @ColumnInfo(name = "actions", defaultValue = "[]")
-    public Set<Trait> actions;
+    public List<Trait> actions;
 
     @ColumnInfo(name = "reactions", defaultValue = "[]")
-    public Set<Trait> reactions;
+    public List<Trait> reactions;
 
     @ColumnInfo(name = "lair_actions", defaultValue = "[]")
-    public Set<Trait> lairActions;
+    public List<Trait> lairActions;
 
     @ColumnInfo(name = "legendary_actions", defaultValue = "[]")
-    public Set<Trait> legendaryActions;
+    public List<Trait> legendaryActions;
 
     @ColumnInfo(name = "regional_actions", defaultValue = "[]")
-    public Set<Trait> regionalActions;
+    public List<Trait> regionalActions;
 
     public Monster() {
         id = UUID.randomUUID();
@@ -258,12 +258,12 @@ public class Monster {
         damageVulnerabilities = new HashSet<>();
         conditionImmunities = new HashSet<>();
         languages = new HashSet<>();
-        abilities = new HashSet<>();
-        actions = new HashSet<>();
-        reactions = new HashSet<>();
-        lairActions = new HashSet<>();
-        legendaryActions = new HashSet<>();
-        regionalActions = new HashSet<>();
+        abilities = new ArrayList<>();
+        actions = new ArrayList<>();
+        reactions = new ArrayList<>();
+        lairActions = new ArrayList<>();
+        legendaryActions = new ArrayList<>();
+        regionalActions = new ArrayList<>();
     }
 
     public String getMeta() {

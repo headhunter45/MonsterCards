@@ -26,6 +26,7 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.TextChangedListener;
 
 public class EditLanguagesFragment extends MCFragment {
+    // TODO: Make the swipe to delete not happen for the header
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
 
@@ -74,7 +75,11 @@ public class EditLanguagesFragment extends MCFragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, mViewModel::removeLanguage));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> {
+            if (position > 0) {
+                mViewModel.removeLanguage(position - 1);
+            }
+        }, null));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
