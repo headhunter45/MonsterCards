@@ -181,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_regional_actions"
+            android:text="@string/label_regional_effects"
             android:textSize="@dimen/text_h4_size"
             app:drawableEndCompat="@drawable/ic_chevron_right_24" />
 
