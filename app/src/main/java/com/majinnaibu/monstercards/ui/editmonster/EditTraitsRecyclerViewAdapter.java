@@ -4,6 +4,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.FragmentEditTraitsListItemBinding;
@@ -11,14 +14,23 @@ import com.majinnaibu.monstercards.models.Trait;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraitsRecyclerViewAdapter.ViewHolder> {
+    private static final DiffUtil.ItemCallback<Trait> DIFF_CALLBACK = new DiffUtil.ItemCallback<Trait>() {
 
-public class EditTraitsRecyclerViewAdapter extends RecyclerView.Adapter<EditTraitsRecyclerViewAdapter.ViewHolder> {
-    private final List<Trait> mValues;
+        @Override
+        public boolean areItemsTheSame(@NonNull @NotNull Trait oldItem, @NonNull @NotNull Trait newItem) {
+            return oldItem.equals(newItem);
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull @NotNull Trait oldItem, @NonNull @NotNull Trait newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
     private final ItemCallback mOnClick;
 
-    public EditTraitsRecyclerViewAdapter(List<Trait> items, ItemCallback onClick) {
-        mValues = items;
+    protected EditTraitsRecyclerViewAdapter(ItemCallback onClick) {
+        super(DIFF_CALLBACK);
         mOnClick = onClick;
     }
 
@@ -30,18 +42,13 @@ public class EditTraitsRecyclerViewAdapter extends RecyclerView.Adapter<EditTrai
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mContentView.setText(mValues.get(position).name);
+        holder.mItem = getItem(position);
+        holder.mContentView.setText(holder.mItem.name);
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
                 mOnClick.onItemCallback(holder.mItem);
             }
         });
-    }
-
-    @Override
-    public int getItemCount() {
-        return mValues.size();
     }
 
     public interface ItemCallback {

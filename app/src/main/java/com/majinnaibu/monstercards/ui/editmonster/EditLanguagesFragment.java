@@ -75,11 +75,11 @@ public class EditLanguagesFragment extends MCFragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, position -> {
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> {
             if (position > 0) {
                 mViewModel.removeLanguage(position - 1);
             }
-        }));
+        }, null));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
