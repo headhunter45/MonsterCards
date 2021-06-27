@@ -9,7 +9,6 @@
     <string name="action_add_skill">Add Skill</string>
     <string name="action_add_trait">Add Trait</string>
     <string name="action_edit">Edit</string>
-    <string name="actions_label">Actions</string>
     <string name="app_name">MonsterCards</string>
     <string name="charisma_abbreviation">CHA</string>
     <string name="constitution_abbreviation">CON</string>
@@ -66,7 +65,7 @@
     <string name="label_proficiency_none">None</string>
     <string name="label_proficiency_proficient">Proficient</string>
     <string name="label_reactions">Reactions</string>
-    <string name="label_regional_actions">Regional Actions</string>
+    <string name="label_regional_effects">Regional Effects</string>
     <string name="label_saving_throws">Saving Throws</string>
     <string name="label_search_query">Query</string>
     <string name="label_senses">Senses</string>
