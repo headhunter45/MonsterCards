@@ -25,6 +25,7 @@
     <string name="label_advantage_none">None</string>
     <string name="label_alignment">Alignment</string>
     <string name="label_armor">Armor</string>
+    <string name="label_armor_class">Armor Class</string>
     <string name="label_base_speed">Base Speed</string>
     <string name="label_basic_info">Basic Info</string>
     <string name="label_burrow_speed">Burrow Speed</string>
@@ -52,6 +53,7 @@
     <string name="label_has_custom_speed">Has Custom Speed</string>
     <string name="label_has_a_shield">Has a Shield</string>
     <string name="label_hit_dice">Hit Dice</string>
+    <string name="label_hit_points">Hit Points</string>
     <string name="label_increment_field">+</string>
     <string name="label_intelligence">Intelligence</string>
     <string name="label_lair_actions">Lair Actions</string>
