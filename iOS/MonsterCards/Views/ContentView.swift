@@ -53,6 +53,12 @@ struct ContentView: View {
         
         let decoder = JSONDecoder()
         do {
+            let isAccessing = url.startAccessingSecurityScopedResource()
+            defer {
+                if (isAccessing) {
+                    url.stopAccessingSecurityScopedResource()
+                }
+            }
             let data = try Data(contentsOf: url)
             let monsterDTO = try decoder.decode(MonsterDTO.self, from: data)
             // TODO: check for some minimal set of properties to ensure this is the expected json schema
@@ -60,7 +66,7 @@ struct ContentView: View {
             // TODO: throw or set an err here and don't set isShowingImportDialog to true if the file didn't match any of our supported monster schemas.
             self.isShowingImportDialog = true
         } catch let error as NSError {
-            // TODO: handle this better
+            // TODO: show an error message to the user that we were unable to open the file and maybe why.
             print(error)
         }
     }
