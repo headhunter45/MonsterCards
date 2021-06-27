@@ -35,6 +35,7 @@ public class EditTraitsFragment extends MCFragment {
     private EditMonsterViewModel mViewModel;
     private ViewHolder mHolder;
     private TraitType mTraitType;
+    private EditTraitsRecyclerViewAdapter mAdapter;
 
 
     @Override
@@ -88,22 +89,21 @@ public class EditTraitsFragment extends MCFragment {
         recyclerView.setLayoutManager(layoutManager);
 
         LiveData<List<Trait>> traitData = mViewModel.getTraits(mTraitType);
+        mAdapter = new EditTraitsRecyclerViewAdapter(trait -> {
+            if (trait != null) {
+                navigateToEditTrait(trait);
+            } else {
+                Logger.logError("Can't navigate to EditTraitFragment with a null trait");
+            }
+        });
         if (traitData != null) {
-            traitData.observe(getViewLifecycleOwner(), traits -> {
-                EditTraitsRecyclerViewAdapter adapter = new EditTraitsRecyclerViewAdapter(traits, trait -> {
-                    if (trait != null) {
-                        navigateToEditTrait(trait);
-                    } else {
-                        Logger.logError("Can't navigate to EditTraitFragment with a null trait");
-                    }
-                });
-                recyclerView.setAdapter(adapter);
-            });
+            traitData.observe(getViewLifecycleOwner(), traits -> mAdapter.submitList(traits));
         }
+        recyclerView.setAdapter(mAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, position -> mViewModel.removeTrait(mTraitType, position)));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> mViewModel.removeTrait(mTraitType, position), (from, to) -> mViewModel.moveTrait(mTraitType, from, to)));
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 

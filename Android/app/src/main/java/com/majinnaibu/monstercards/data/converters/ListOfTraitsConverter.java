@@ -7,20 +7,20 @@ import com.google.gson.reflect.TypeToken;
 import com.majinnaibu.monstercards.models.Trait;
 
 import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-public class SetOfTraitConverter {
+public class ListOfTraitsConverter {
     @TypeConverter
-    public static String fromSetOfTrait(Set<Trait> traits) {
+    public static String fromListOfTraits(List<Trait> traits) {
         Gson gson = new Gson();
         return gson.toJson(traits);
     }
 
     @TypeConverter
-    public static Set<Trait> setOfTraitFromString(String string) {
+    public static List<Trait> listOfTraitsFromString(String string) {
         Gson gson = new Gson();
-        Type setType = new TypeToken<HashSet<Trait>>() {
+        Type setType = new TypeToken<ArrayList<Trait>>() {
         }.getType();
         return gson.fromJson(string, setType);
     }

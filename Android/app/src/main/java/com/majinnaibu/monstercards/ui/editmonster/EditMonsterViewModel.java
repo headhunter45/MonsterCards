@@ -992,12 +992,12 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         monster.damageVulnerabilities = new HashSet<>(mDamageVulnerabilities.getValue());
         monster.conditionImmunities = new HashSet<>(mConditionImmunities.getValue());
         monster.languages = new HashSet<>(mLanguages.getValue());
-        monster.abilities = new HashSet<>(mAbilities.getValue());
-        monster.actions = new HashSet<>(mActions.getValue());
-        monster.reactions = new HashSet<>(mReactions.getValue());
-        monster.lairActions = new HashSet<>(mLairActions.getValue());
-        monster.legendaryActions = new HashSet<>(mLegendaryActions.getValue());
-        monster.regionalActions = new HashSet<>(mRegionalActions.getValue());
+        monster.abilities = new ArrayList<>(mAbilities.getValue());
+        monster.actions = new ArrayList<>(mActions.getValue());
+        monster.reactions = new ArrayList<>(mReactions.getValue());
+        monster.lairActions = new ArrayList<>(mLairActions.getValue());
+        monster.legendaryActions = new ArrayList<>(mLegendaryActions.getValue());
+        monster.regionalActions = new ArrayList<>(mRegionalActions.getValue());
 
         return monster;
     }
@@ -1176,12 +1176,30 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    @SuppressWarnings("SameParameterValue")
-    private static class Helpers {
-        static String addStringToList(String newString, MutableLiveData<List<String>> strings) {
-            return addItemToList(strings, newString, String::compareToIgnoreCase);
+    public boolean moveTrait(TraitType type, int from, int to) {
+        switch (type) {
+            case ABILITY:
+                return Helpers.moveItemInList(mAbilities, from, to);
+            case ACTION:
+                return Helpers.moveItemInList(mActions, from, to);
+            case LAIR_ACTION:
+                return Helpers.moveItemInList(mLairActions, from, to);
+            case LEGENDARY_ACTION:
+                return Helpers.moveItemInList(mLegendaryActions, from, to);
+            case REACTIONS:
+                return Helpers.moveItemInList(mReactions, from, to);
+            case REGIONAL_ACTION:
+                return Helpers.moveItemInList(mRegionalActions, from, to);
+            default:
+                Logger.logUnimplementedFeature(String.format("Unrecognized TraitType: %s", type));
+                return false;
         }
 
+
+    }
+
+    @SuppressWarnings("SameParameterValue")
+    private static class Helpers {
         static <T> T addItemToList(MutableLiveData<List<T>> listData, T newItem) {
             return addItemToList(listData, newItem, null);
         }
@@ -1228,6 +1246,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             listData.setValue(newList);
         }
 
+        @SuppressWarnings("unused")
         static <T> void replaceItemInList(MutableLiveData<List<T>> listData, int position, T newItem) {
             replaceItemInList(listData, position, newItem, null);
         }
@@ -1265,6 +1284,24 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
                 return defaultIfNull;
             }
             return value;
+        }
+
+        static <T> boolean moveItemInList(ChangeTrackedLiveData<List<T>> listData, int from, int to) {
+            List<T> oldList = listData.getValue();
+            if (oldList == null) {
+                oldList = new ArrayList<>();
+            }
+            ArrayList<T> newList = new ArrayList<>(oldList);
+            T item = oldList.get(from);
+            if (from > to) {
+                from = from + 1;
+            } else if (to > from) {
+                to = to + 1;
+            }
+            newList.add(to, item);
+            newList.remove(from);
+            listData.setValue(newList);
+            return true;
         }
     }
 }
