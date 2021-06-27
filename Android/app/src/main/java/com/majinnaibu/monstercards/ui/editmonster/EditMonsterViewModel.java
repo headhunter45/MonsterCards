@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-@SuppressWarnings({"ConstantConditions", "unused"})
+@SuppressWarnings({"ConstantConditions"})
 public class EditMonsterViewModel extends ChangeTrackedViewModel {
     private final ChangeTrackedLiveData<UUID> mMonsterId;
     private final MutableLiveData<Boolean> mHasError;
@@ -247,10 +247,6 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mMonsterId;
     }
 
-    public LiveData<String> getErrorMessage() {
-        return mErrorMessage;
-    }
-
     public void setErrorMessage(@NonNull String errorMessage) {
         mErrorMessage.setValue(errorMessage);
     }
@@ -319,46 +315,20 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mCustomHitPoints.setValue(customHitPoints);
     }
 
-    public LiveData<Integer> getHitDice() {
-        return mHitDice;
-    }
-
     public void setHitDice(int hitDice) {
         mHitDice.setValue(hitDice);
-    }
-
-    public void setHitDice(String hitDice) {
-        Integer parsedHitDice = StringHelper.parseInt(hitDice);
-        this.setHitDice(parsedHitDice != null ? parsedHitDice : 0);
     }
 
     public int getHitDiceUnboxed() {
         return Helpers.unboxInteger(mHitDice.getValue(), 1);
     }
 
-    public String getHitDiceValueAsString() {
-        return mHitDice.getValue().toString();
-    }
-
-    public LiveData<Integer> getNaturalArmorBonus() {
-        return mNaturalArmorBonus;
-    }
-
     public void setNaturalArmorBonus(int naturalArmorBonus) {
         mNaturalArmorBonus.setValue(naturalArmorBonus);
     }
 
-    public void setNaturalArmorBonus(String naturalArmorBonus) {
-        Integer parsedValue = StringHelper.parseInt(naturalArmorBonus);
-        this.setNaturalArmorBonus(parsedValue != null ? parsedValue : 0);
-    }
-
     public int getNaturalArmorBonusUnboxed() {
         return Helpers.unboxInteger(mNaturalArmorBonus.getValue(), 0);
-    }
-
-    public String getNaturalArmorBonusValueAsString() {
-        return mNaturalArmorBonus.getValue().toString();
     }
 
     public LiveData<Boolean> getHasCustomHitPoints() {
@@ -381,10 +351,6 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mArmorType.setValue(armorType);
     }
 
-    public LiveData<Boolean> getHasShield() {
-        return mHasShield;
-    }
-
     public void setHasShield(boolean hasShield) {
         mHasShield.setValue(hasShield);
     }
@@ -393,17 +359,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mHasShield.getValue();
     }
 
-    public LiveData<Integer> getShieldBonus() {
-        return mShieldBonus;
-    }
-
     public void setShieldBonus(int shieldBonus) {
         mShieldBonus.setValue(shieldBonus);
-    }
-
-    public void setShieldBonus(String shieldBonus) {
-        Integer parsedValue = StringHelper.parseInt(shieldBonus);
-        this.setShieldBonus(parsedValue != null ? parsedValue : 0);
     }
 
     public int getShieldBonusUnboxed() {
@@ -428,14 +385,6 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
 
     public void setWalkSpeed(int walkSpeed) {
         mWalkSpeed.setValue(walkSpeed);
-    }
-
-    public void incrementWalkSpeed() {
-        setWalkSpeed(mWalkSpeed.getValue() + 5);
-    }
-
-    public void decrementWalkSpeed() {
-        setWalkSpeed(mWalkSpeed.getValue() - 5);
     }
 
     public LiveData<Integer> getBurrowSpeed() {
@@ -494,52 +443,12 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mCustomSpeed.setValue(customSpeed);
     }
 
-    public void incrementBurrowSpeed() {
-        setBurrowSpeed(mBurrowSpeed.getValue() + 5);
-    }
-
-    public void decrementBurrowSpeed() {
-        setBurrowSpeed(mBurrowSpeed.getValue() - 5);
-    }
-
-    public void incrementClimbSpeed() {
-        setClimbSpeed(mClimbSpeed.getValue() + 5);
-    }
-
-    public void decrementClimbSpeed() {
-        setClimbSpeed(mClimbSpeed.getValue() - 5);
-    }
-
-    public void incrementFlySpeed() {
-        setFlySpeed(mFlySpeed.getValue() + 5);
-    }
-
-    public void decrementFlySpeed() {
-        setFlySpeed(mFlySpeed.getValue() - 5);
-    }
-
-    public void incrementSwimSpeed() {
-        setSwimSpeed(mSwimSpeed.getValue() + 5);
-    }
-
-    public void decrementSwimSpeed() {
-        setSwimSpeed(mSwimSpeed.getValue() - 5);
-    }
-
     public LiveData<Integer> getStrength() {
         return mStrength;
     }
 
     public void setStrength(int strength) {
         mStrength.setValue(strength);
-    }
-
-    public void incrementStrength() {
-        setStrength(mStrength.getValue() + 1);
-    }
-
-    public void decrementStrength() {
-        setStrength(mStrength.getValue() - 1);
     }
 
     public LiveData<Integer> getDexterity() {
@@ -550,28 +459,12 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mDexterity.setValue(dexterity);
     }
 
-    public void incrementDexterity() {
-        setDexterity(mDexterity.getValue() + 1);
-    }
-
-    public void decrementDexterity() {
-        setDexterity(mDexterity.getValue() - 1);
-    }
-
     public LiveData<Integer> getConstitution() {
         return mConstitution;
     }
 
     public void setConstitution(int constitution) {
         mConstitution.setValue(constitution);
-    }
-
-    public void incrementConstitution() {
-        setConstitution(mConstitution.getValue() + 1);
-    }
-
-    public void decrementConstitution() {
-        setConstitution(mConstitution.getValue() - 1);
     }
 
     public LiveData<Integer> getIntelligence() {
@@ -582,14 +475,6 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mIntelligence.setValue(intelligence);
     }
 
-    public void incrementIntelligence() {
-        setIntelligence(mIntelligence.getValue() + 1);
-    }
-
-    public void decrementIntelligence() {
-        setIntelligence(mIntelligence.getValue() - 1);
-    }
-
     public LiveData<Integer> getWisdom() {
         return mWisdom;
     }
@@ -598,28 +483,12 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mWisdom.setValue(wisdom);
     }
 
-    public void incrementWisdom() {
-        setWisdom(mWisdom.getValue() + 1);
-    }
-
-    public void decrementWisdom() {
-        setWisdom(mWisdom.getValue() - 1);
-    }
-
     public LiveData<Integer> getCharisma() {
         return mCharisma;
     }
 
     public void setCharisma(int charisma) {
         mCharisma.setValue(charisma);
-    }
-
-    public void incrementCharisma() {
-        setCharisma(mCharisma.getValue() + 1);
-    }
-
-    public void decrementCharisma() {
-        setCharisma(mCharisma.getValue() - 1);
     }
 
     public LiveData<ProficiencyType> getStrengthProficiency() {
@@ -821,22 +690,6 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mSenses;
     }
 
-    public List<String> getSensesArray() {
-        return mSenses.getValue();
-    }
-
-    public String addNewSense() {
-        return Helpers.addItemToList(mSenses, "", String::compareToIgnoreCase);
-    }
-
-    public void removeSense(int position) {
-        Helpers.removeFromList(mSenses, position);
-    }
-
-    public void replaceSense(String oldSense, String newSense) {
-        Helpers.replaceItemInList(mSenses, oldSense, newSense, String::compareToIgnoreCase);
-    }
-
     public LiveData<List<String>> getDamageImmunities() {
         return mDamageImmunities;
     }
@@ -845,76 +698,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mDamageImmunities.getValue();
     }
 
-    public String addNewDamageImmunity() {
-        return Helpers.addStringToList("", mDamageImmunities);
-    }
-
-    public void removeDamageImmunity(int position) {
-        Helpers.removeFromList(mDamageImmunities, position);
-    }
-
-    public void replaceDamageImmunity(String oldDamageType, String newDamageType) {
-        Helpers.replaceItemInList(mDamageImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
-    }
-
     public LiveData<List<String>> getDamageResistances() {
         return mDamageResistances;
-    }
-
-    public List<String> getDamageResistancesArray() {
-        return mDamageResistances.getValue();
-    }
-
-    public String addNewDamageResistance() {
-        return Helpers.addStringToList("", mDamageResistances);
-    }
-
-    public void removeDamageResistance(int position) {
-        Helpers.removeFromList(mDamageResistances, position);
-    }
-
-    public void replaceDamageResistance(String oldDamageType, String newDamageType) {
-        Helpers.replaceItemInList(mDamageResistances, oldDamageType, newDamageType, String::compareToIgnoreCase);
-    }
-
-    public LiveData<List<String>> getDamageVulnerabilities() {
-        return mDamageVulnerabilities;
-    }
-
-    public List<String> getDamageVulnerabilitiesArray() {
-        return mDamageVulnerabilities.getValue();
-    }
-
-    public String addNewDamageVulnerability() {
-        return Helpers.addStringToList("", mDamageVulnerabilities);
-    }
-
-    public void removeDamageVulnerability(int position) {
-        Helpers.removeFromList(mDamageVulnerabilities, position);
-    }
-
-    public void replaceDamageVulnerability(String oldDamageType, String newDamageType) {
-        Helpers.replaceItemInList(mDamageVulnerabilities, oldDamageType, newDamageType, String::compareToIgnoreCase);
-    }
-
-    public LiveData<List<String>> getConditionImmunities() {
-        return mConditionImmunities;
-    }
-
-    public List<String> getConditionImmunitiesArray() {
-        return mConditionImmunities.getValue();
-    }
-
-    public String addNewConditionImmunity() {
-        return Helpers.addStringToList("", mConditionImmunities);
-    }
-
-    public void removeConditionImmunity(int position) {
-        Helpers.removeFromList(mConditionImmunities, position);
-    }
-
-    public void replaceConditionImmunity(String oldDamageType, String newDamageType) {
-        Helpers.replaceItemInList(mConditionImmunities, oldDamageType, newDamageType, String::compareToIgnoreCase);
     }
 
     public LiveData<List<Language>> getLanguages() {
