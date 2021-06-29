@@ -14,6 +14,8 @@ import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -266,28 +268,6 @@ public class Monster {
         regionalActions = new ArrayList<>();
     }
 
-    public static int getAbilityModifierForScore(int score) {
-        return (int) Math.floor((score - 10) / 2.0);
-    }
-
-    private static int getHitDieForSize(String size) {
-        if ("tiny".equals(size)) {
-            return 4;
-        } else if ("small".equals(size)) {
-            return 6;
-        } else if ("medium".equals(size)) {
-            return 8;
-        } else if ("large".equals(size)) {
-            return 10;
-        } else if ("huge".equals(size)) {
-            return 12;
-        } else if ("gargantuan".equals(size)) {
-            return 20;
-        } else {
-            return 8;
-        }
-    }
-
     public String getMeta() {
         StringBuilder sb = new StringBuilder();
         boolean isFirstOutput = true;
@@ -324,7 +304,7 @@ public class Monster {
         return sb.toString();
     }
 
-    public int getAbilityScore(AbilityScore abilityScore) {
+    public int getAbilityScore(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthScore;
@@ -343,7 +323,7 @@ public class Monster {
         }
     }
 
-    public int getAbilityModifier(AbilityScore abilityScore) {
+    public int getAbilityModifier(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return getStrengthModifier();
@@ -362,7 +342,7 @@ public class Monster {
         }
     }
 
-    public AdvantageType getSavingThrowAdvantageType(AbilityScore abilityScore) {
+    public AdvantageType getSavingThrowAdvantageType(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthSavingThrowAdvantage;
@@ -381,7 +361,7 @@ public class Monster {
         }
     }
 
-    public ProficiencyType getSavingThrowProficiencyType(AbilityScore abilityScore) {
+    public ProficiencyType getSavingThrowProficiencyType(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthSavingThrowProficiency;
@@ -401,27 +381,27 @@ public class Monster {
     }
 
     public int getStrengthModifier() {
-        return getAbilityModifierForScore(strengthScore);
+        return Helpers.getAbilityModifierForScore(strengthScore);
     }
 
     public int getDexterityModifier() {
-        return getAbilityModifierForScore(dexterityScore);
+        return Helpers.getAbilityModifierForScore(dexterityScore);
     }
 
     public int getConstitutionModifier() {
-        return getAbilityModifierForScore(constitutionScore);
+        return Helpers.getAbilityModifierForScore(constitutionScore);
     }
 
     public int getIntelligenceModifier() {
-        return getAbilityModifierForScore(intelligenceScore);
+        return Helpers.getAbilityModifierForScore(intelligenceScore);
     }
 
     public int getWisdomModifier() {
-        return getAbilityModifierForScore(wisdomScore);
+        return Helpers.getAbilityModifierForScore(wisdomScore);
     }
 
     public int getCharismaModifier() {
-        return getAbilityModifierForScore(charismaScore);
+        return Helpers.getAbilityModifierForScore(charismaScore);
     }
 
     public String getArmorClass() {
@@ -485,7 +465,7 @@ public class Monster {
         if (hasCustomHP) {
             return customHPDescription;
         } else {
-            int dieSize = getHitDieForSize(size);
+            int dieSize = Helpers.getHitDieForSize(size);
             int conMod = getConstitutionModifier();
             // For PC style calculations use this
             //int hpTotal = (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
@@ -566,7 +546,7 @@ public class Monster {
         }
     }
 
-    public int getProficiencyBonus(ProficiencyType proficiencyType) {
+    public int getProficiencyBonus(@NotNull ProficiencyType proficiencyType) {
         switch (proficiencyType) {
             case PROFICIENT:
                 return getProficiencyBonus();
@@ -710,7 +690,7 @@ public class Monster {
         return abilityDescriptions;
     }
 
-    public String getPlaceholderReplacedText(String rawText) {
+    public String getPlaceholderReplacedText(@NotNull String rawText) {
         return rawText
                 .replaceAll("\\[STR SAVE]", String.format("%+d", getSpellSaveDC(AbilityScore.STRENGTH)))
                 .replaceAll("\\[STR ATK]", String.format("%+d", getAttackBonus(AbilityScore.STRENGTH)))
@@ -772,5 +752,29 @@ public class Monster {
             actionDescriptions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.name, action.description)));
         }
         return actionDescriptions;
+    }
+
+    public static class Helpers {
+        public static int getAbilityModifierForScore(int score) {
+            return (int) Math.floor((score - 10) / 2.0);
+        }
+
+        public static int getHitDieForSize(String size) {
+            if ("tiny".equals(size)) {
+                return 4;
+            } else if ("small".equals(size)) {
+                return 6;
+            } else if ("medium".equals(size)) {
+                return 8;
+            } else if ("large".equals(size)) {
+                return 10;
+            } else if ("huge".equals(size)) {
+                return 12;
+            } else if ("gargantuan".equals(size)) {
+                return 20;
+            } else {
+                return 8;
+            }
+        }
     }
 }
