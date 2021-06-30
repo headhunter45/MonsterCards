@@ -9,6 +9,7 @@
     <string name="action_add_skill">Add Skill</string>
     <string name="action_add_trait">Add Trait</string>
     <string name="action_edit">Edit</string>
+    <string name="action_import_monster">Import Monster</string>
     <string name="app_name">MonsterCards</string>
     <string name="charisma_abbreviation">CHA</string>
     <string name="constitution_abbreviation">CON</string>

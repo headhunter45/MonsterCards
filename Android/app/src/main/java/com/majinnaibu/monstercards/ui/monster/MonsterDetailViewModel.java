@@ -180,6 +180,10 @@ public class MonsterDetailViewModel extends ViewModel {
         return mMonsterId;
     }
 
+    public Monster getMonster() {
+        return mMonster;
+    }
+
     public void setMonster(Monster monster) {
         mMonster = monster;
         mAbilities.setValue(mMonster.getAbilityDescriptions());
