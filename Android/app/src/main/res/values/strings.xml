@@ -9,7 +9,7 @@
     <string name="action_add_skill">Add Skill</string>
     <string name="action_add_trait">Add Trait</string>
     <string name="action_edit">Edit</string>
-    <string name="actions_label">Actions</string>
+    <string name="action_import_monster">Import Monster</string>
     <string name="app_name">MonsterCards</string>
     <string name="charisma_abbreviation">CHA</string>
     <string name="constitution_abbreviation">CON</string>
@@ -26,6 +26,7 @@
     <string name="label_advantage_none">None</string>
     <string name="label_alignment">Alignment</string>
     <string name="label_armor">Armor</string>
+    <string name="label_armor_class">Armor Class</string>
     <string name="label_base_speed">Base Speed</string>
     <string name="label_basic_info">Basic Info</string>
     <string name="label_burrow_speed">Burrow Speed</string>
@@ -53,6 +54,7 @@
     <string name="label_has_custom_speed">Has Custom Speed</string>
     <string name="label_has_a_shield">Has a Shield</string>
     <string name="label_hit_dice">Hit Dice</string>
+    <string name="label_hit_points">Hit Points</string>
     <string name="label_increment_field">+</string>
     <string name="label_intelligence">Intelligence</string>
     <string name="label_lair_actions">Lair Actions</string>
@@ -66,7 +68,7 @@
     <string name="label_proficiency_none">None</string>
     <string name="label_proficiency_proficient">Proficient</string>
     <string name="label_reactions">Reactions</string>
-    <string name="label_regional_actions">Regional Actions</string>
+    <string name="label_regional_effects">Regional Effects</string>
     <string name="label_saving_throws">Saving Throws</string>
     <string name="label_search_query">Query</string>
     <string name="label_senses">Senses</string>

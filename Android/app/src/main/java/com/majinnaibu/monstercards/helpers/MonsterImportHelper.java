@@ -1,7 +1,5 @@
 package com.majinnaibu.monstercards.helpers;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -17,16 +15,17 @@ import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 public class MonsterImportHelper {
-    @NonNull
     public static Monster fromJSON(String json) {
-        JsonObject rootDict = JsonParser.parseString(json).getAsJsonObject();
+        JsonParser parser = new JsonParser();
+        JsonObject rootDict = parser.parse(json).getAsJsonObject();
 
         Monster monster = new Monster();
         monster.name = Helpers.getString(rootDict, "name");
@@ -111,7 +110,7 @@ public class MonsterImportHelper {
             return getString(dict, name, "");
         }
 
-        public static String getString(@NonNull JsonObject dict, String name, String defaultValue) {
+        public static String getString(@NotNull JsonObject dict, String name, String defaultValue) {
             if (dict.has(name)) {
                 return dict.get(name).getAsString();
             }
@@ -123,19 +122,13 @@ public class MonsterImportHelper {
             return getInt(dict, name, 0);
         }
 
-        public static int getInt(@NonNull JsonObject dict, String name, int defaultValue) {
+        public static int getInt(@NotNull JsonObject dict, String name, int defaultValue) {
             if (dict.has(name)) {
                 JsonElement element = dict.get(name);
                 if (element.isJsonPrimitive()) {
-                    JsonPrimitive rawValue = element.getAsJsonPrimitive();
+                    JsonPrimitive rawValue = element.getAsJsonPrimitive();//dict.getAsJsonPrimitive(name);
                     if (rawValue.isNumber()) {
                         return rawValue.getAsInt();
-                    } else {
-                        try {
-                            return rawValue.getAsInt();
-                        } catch (Exception ex) {
-                            return defaultValue;
-                        }
                     }
                 }
             }
@@ -146,29 +139,22 @@ public class MonsterImportHelper {
             return getBool(dict, name, false);
         }
 
-        public static boolean getBool(@NonNull JsonObject dict, String name, boolean defaultValue) {
+        public static boolean getBool(@NotNull JsonObject dict, String name, boolean defaultValue) {
             if (dict.has(name)) {
                 JsonElement element = dict.get(name);
                 if (element.isJsonPrimitive()) {
                     JsonPrimitive rawValue = element.getAsJsonPrimitive();
                     if (rawValue.isBoolean()) {
                         return rawValue.getAsBoolean();
-                    } else {
-                        try {
-                            return rawValue.getAsBoolean();
-                        } catch (Exception ex) {
-                            return defaultValue;
-                        }
                     }
                 }
             }
             return defaultValue;
         }
 
-        @NonNull
+        @NotNull
         public static String formatDistance(String name, int distance) {
-            // TODO: consider moving this to a string resource so it can be localized
-            return String.format(Locale.getDefault(), "%s %d ft.", name, distance);
+            return String.format("%s %d ft.", name, distance);
         }
 
         public static void addSense(Monster monster, JsonObject root, String name) {
@@ -178,8 +164,8 @@ public class MonsterImportHelper {
             }
         }
 
-        @NonNull
-        public static List<Trait> getListOfTraits(@NonNull JsonObject dict, String name) {
+        @NotNull
+        public static List<Trait> getListOfTraits(@NotNull JsonObject dict, String name) {
             ArrayList<Trait> traits = new ArrayList<>();
             if (dict.has(name)) {
                 JsonElement arrayElement = dict.get(name);
@@ -191,7 +177,7 @@ public class MonsterImportHelper {
                         if (jsonElement.isJsonObject()) {
                             JsonObject jsonObject = jsonElement.getAsJsonObject();
                             String traitName = Helpers.getString(jsonObject, "name");
-                            String description = Helpers.getString(jsonObject, "desc");
+                            String description = Helpers.getString(jsonObject, "description");
                             Trait trait = new Trait(traitName, description);
                             traits.add(trait);
                         }
@@ -201,7 +187,7 @@ public class MonsterImportHelper {
             return traits;
         }
 
-        public static void addSavingThrows(Monster monster, @NonNull JsonObject root) {
+        public static void addSavingThrows(Monster monster, JsonObject root) {
             if (root.has("sthrows")) {
                 JsonElement arrayElement = root.get("sthrows");
                 if (arrayElement.isJsonArray()) {
@@ -231,8 +217,7 @@ public class MonsterImportHelper {
             }
         }
 
-        @NonNull
-        public static Set<Skill> getSetOfSkills(@NonNull JsonObject root) {
+        public static Set<Skill> getSetOfSkills(JsonObject root) {
             HashSet<Skill> skills = new HashSet<>();
             if (root.has("skills")) {
                 JsonElement arrayElement = root.get("skills");
@@ -256,13 +241,11 @@ public class MonsterImportHelper {
             return skills;
         }
 
-        @NonNull
         public static Set<String> getSetOfDamageTypes(JsonObject rootDict, String name) {
             return getSetOfDamageTypes(rootDict, name, null);
         }
 
-        @NonNull
-        public static Set<String> getSetOfDamageTypes(@NonNull JsonObject root, String name, String type) {
+        public static Set<String> getSetOfDamageTypes(JsonObject root, String name, String type) {
             HashSet<String> damageTypes = new HashSet<>();
             if (root.has(name)) {
                 JsonElement arrayElement = root.get(name);
@@ -285,8 +268,7 @@ public class MonsterImportHelper {
             return damageTypes;
         }
 
-        @NonNull
-        public static Set<Language> getSetOfLanguages(@NonNull JsonObject root, String name) {
+        public static Set<Language> getSetOfLanguages(JsonObject root, String name) {
             HashSet<Language> languages = new HashSet<>();
             if (root.has(name)) {
                 JsonElement arrayElement = root.get(name);

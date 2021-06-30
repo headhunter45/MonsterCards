@@ -12,155 +12,180 @@ import java.util.UUID;
 
 public class MonsterDetailViewModel extends ViewModel {
 
+    private final MutableLiveData<List<String>> mAbilities;
+    private final MutableLiveData<List<String>> mActions;
+    private final MutableLiveData<String> mArmorClass;
+    private final MutableLiveData<String> mChallenge;
+    private final MutableLiveData<String> mCharisma;
+    private final MutableLiveData<String> mConditionImmunities;
+    private final MutableLiveData<String> mConstitution;
+    private final MutableLiveData<String> mDamageResistances;
+    private final MutableLiveData<String> mDamageImmunities;
+    private final MutableLiveData<String> mDamageVulnerabilities;
+    private final MutableLiveData<String> mDexterity;
+    private final MutableLiveData<String> mHitPoints;
+    private final MutableLiveData<String> mIntelligence;
+    private final MutableLiveData<List<String>> mLairActions;
+    private final MutableLiveData<String> mLanguages;
+    private final MutableLiveData<List<String>> mLegendaryActions;
+    private final MutableLiveData<String> mMeta;
+    private final MutableLiveData<String> mName;
+    private final MutableLiveData<List<String>> mReactions;
+    private final MutableLiveData<List<String>> mRegionalEffects;
+    private final MutableLiveData<String> mSavingThrows;
+    private final MutableLiveData<String> mSenses;
+    private final MutableLiveData<String> mSkills;
+    private final MutableLiveData<String> mSpeed;
+    private final MutableLiveData<String> mStrength;
+    private final MutableLiveData<String> mWisdom;
+    private final MutableLiveData<UUID> mMonsterId;
+    private Monster mMonster;
+
     public MonsterDetailViewModel() {
         mMonster = null;
-        mAbilities = new MutableLiveData<>();
-        mAbilities.setValue(new ArrayList<String>());
-        mActions = new MutableLiveData<>();
-        mActions.setValue(new ArrayList<String>());
-        mArmorClass = new MutableLiveData<>();
-        mArmorClass.setValue("");
-        mChallenge = new MutableLiveData<>();
-        mChallenge.setValue("");
-        mCharisma = new MutableLiveData<>();
-        mCharisma.setValue("");
-        mConditionImmunities = new MutableLiveData<>();
-        mConditionImmunities.setValue("");
-        mConstitution = new MutableLiveData<>();
-        mConstitution.setValue("");
-        mDamageImmunities = new MutableLiveData<>();
-        mDamageImmunities.setValue("");
-        mDamageResistances = new MutableLiveData<>();
-        mDamageResistances.setValue("");
-        mDamageVulnerabilities = new MutableLiveData<>();
-        mDamageVulnerabilities.setValue("");
-        mDexterity = new MutableLiveData<>();
-        mDexterity.setValue("");
-        mHitPoints = new MutableLiveData<>();
-        mHitPoints.setValue("");
-        mIntelligence = new MutableLiveData<>();
-        mIntelligence.setValue("");
-        mLanguages = new MutableLiveData<>();
-        mLanguages.setValue("");
-        mMeta = new MutableLiveData<>();
-        mMeta.setValue("");
-        mName = new MutableLiveData<>();
-        mName.setValue("");
-        mSavingThrows = new MutableLiveData<>();
-        mSavingThrows.setValue("");
-        mSenses = new MutableLiveData<>();
-        mSenses.setValue("");
-        mSkills = new MutableLiveData<>();
-        mSkills.setValue("");
-        mSpeed = new MutableLiveData<>();
-        mSpeed.setValue("");
-        mStrength = new MutableLiveData<>();
-        mStrength.setValue("");
-        mWisdom = new MutableLiveData<>();
-        mWisdom.setValue("");
-        mMonsterId = new MutableLiveData<>();
-        mMonsterId.setValue(UUID.fromString("00000000-0000-0000-0000-000000000000"));
+        mAbilities = new MutableLiveData<>(new ArrayList<>());
+        mActions = new MutableLiveData<>(new ArrayList<>());
+        mArmorClass = new MutableLiveData<>("");
+        mChallenge = new MutableLiveData<>("");
+        mCharisma = new MutableLiveData<>("");
+        mConditionImmunities = new MutableLiveData<>("");
+        mConstitution = new MutableLiveData<>("");
+        mDamageImmunities = new MutableLiveData<>("");
+        mDamageResistances = new MutableLiveData<>("");
+        mDamageVulnerabilities = new MutableLiveData<>("");
+        mDexterity = new MutableLiveData<>("");
+        mHitPoints = new MutableLiveData<>("");
+        mIntelligence = new MutableLiveData<>("");
+        mLairActions = new MutableLiveData<>(new ArrayList<>());
+        mLanguages = new MutableLiveData<>("");
+        mLegendaryActions = new MutableLiveData<>(new ArrayList<>());
+        mMeta = new MutableLiveData<>("");
+        mName = new MutableLiveData<>("");
+        mReactions = new MutableLiveData<>(new ArrayList<>());
+        mRegionalEffects = new MutableLiveData<>(new ArrayList<>());
+        mSavingThrows = new MutableLiveData<>("");
+        mSenses = new MutableLiveData<>("");
+        mSkills = new MutableLiveData<>("");
+        mSpeed = new MutableLiveData<>("");
+        mStrength = new MutableLiveData<>("");
+        mWisdom = new MutableLiveData<>("");
+        mMonsterId = new MutableLiveData<>(UUID.fromString("00000000-0000-0000-0000-000000000000"));
     }
 
-    private MutableLiveData<List<String>> mAbilities;
     public LiveData<List<String>> getAbilities() {
         return mAbilities;
     }
-    private MutableLiveData<List<String>> mActions;
+
     public LiveData<List<String>> getActions() {
         return mActions;
     }
-    private MutableLiveData<String> mArmorClass;
+
+    public LiveData<List<String>> getReactions() {
+        return mReactions;
+    }
+
+    public LiveData<List<String>> getLegendaryActions() {
+        return mLegendaryActions;
+    }
+
+    public LiveData<List<String>> getLairActions() {
+        return mLairActions;
+    }
+
+    public LiveData<List<String>> getRegionalEffects() {
+        return mRegionalEffects;
+    }
+
     public LiveData<String> getArmorClass() {
         return mArmorClass;
     }
-    private MutableLiveData<String> mChallenge;
+
     public LiveData<String> getChallenge() {
         return mChallenge;
     }
-    private MutableLiveData<String> mCharisma;
+
     public LiveData<String> getCharisma() {
         return mCharisma;
     }
-    private MutableLiveData<String> mConditionImmunities;
+
     public LiveData<String> getConditionImmunities() {
         return mConditionImmunities;
     }
-    private MutableLiveData<String> mConstitution;
+
     public LiveData<String> getConstitution() {
         return mConstitution;
     }
-    private MutableLiveData<String> mDamageResistances;
+
     public LiveData<String> getDamageResistances() {
         return mDamageResistances;
     }
-    private MutableLiveData<String> mDamageImmunities;
+
     public LiveData<String> getDamageImmunities() {
         return mDamageImmunities;
     }
-    private MutableLiveData<String> mDamageVulnerabilities;
+
     public LiveData<String> getDamageVulnerabilities() {
         return mDamageVulnerabilities;
     }
-    private MutableLiveData<String> mDexterity;
+
     public LiveData<String> getDexterity() {
         return mDexterity;
     }
-    private MutableLiveData<String> mHitPoints;
+
     public LiveData<String> getHitPoints() {
         return mHitPoints;
     }
-    private MutableLiveData<String> mIntelligence;
+
     public LiveData<String> getIntelligence() {
         return mIntelligence;
     }
-    private MutableLiveData<String> mLanguages;
+
     public LiveData<String> getLanguages() {
         return mLanguages;
     }
-    private MutableLiveData<String> mMeta;
+
     public LiveData<String> getMeta() {
         return mMeta;
     }
-    private MutableLiveData<String> mName;
+
     public LiveData<String> getName() {
         return mName;
     }
-    private MutableLiveData<String> mSavingThrows;
+
     public LiveData<String> getSavingThrows() {
         return mSavingThrows;
     }
-    private MutableLiveData<String> mSenses;
+
     public LiveData<String> getSenses() {
         return mSenses;
     }
-    private MutableLiveData<String> mSkills;
+
     public LiveData<String> getSkills() {
         return mSkills;
     }
-    private MutableLiveData<String> mSpeed;
+
     public LiveData<String> getSpeed() {
         return mSpeed;
     }
-    private MutableLiveData<String> mStrength;
+
     public LiveData<String> getStrength() {
         return mStrength;
     }
-    private MutableLiveData<String> mWisdom;
+
     public LiveData<String> getWisdom() {
         return mWisdom;
     }
-
-    private final MutableLiveData<UUID> mMonsterId;
 
     public LiveData<UUID> getId() {
         return mMonsterId;
     }
 
-    private Monster mMonster;
+    public Monster getMonster() {
+        return mMonster;
+    }
+
     public void setMonster(Monster monster) {
         mMonster = monster;
-
         mAbilities.setValue(mMonster.getAbilityDescriptions());
         mActions.setValue(mMonster.getActionDescriptions());
         mArmorClass.setValue(mMonster.getArmorClass());
@@ -174,9 +199,14 @@ public class MonsterDetailViewModel extends ViewModel {
         mDexterity.setValue(monster.getDexterityDescription());
         mHitPoints.setValue(mMonster.getHitPoints());
         mIntelligence.setValue(monster.getIntelligenceDescription());
+        mLairActions.setValue(mMonster.getLairActionDescriptions());
         mLanguages.setValue(mMonster.getLanguagesDescription());
+        mLegendaryActions.setValue(mMonster.getLegendaryActionDescriptions());
         mMeta.setValue(mMonster.getMeta());
+        mMonsterId.setValue(mMonster.id);
         mName.setValue(mMonster.name);
+        mReactions.setValue(monster.getReactionDescriptions());
+        mRegionalEffects.setValue(monster.getRegionalActionDescriptions());
         mSavingThrows.setValue(monster.getSavingThrowsDescription());
         mSenses.setValue(monster.getSensesDescription());
         mSkills.setValue(monster.getSkillsDescription());
