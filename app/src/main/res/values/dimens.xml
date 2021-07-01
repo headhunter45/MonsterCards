@@ -3,5 +3,9 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_h4_size">20sp</dimen>
-
+    <dimen name="corner_radius">4dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_normal">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_huge">32dp</dimen>
 </resources>
