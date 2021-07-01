@@ -67,19 +67,19 @@ public class EditTraitsFragment extends MCFragment {
     private String getTitleForTraitType(TraitType type) {
         switch (type) {
             case ABILITY:
-                return getString(R.string.title_edit_abilities);
+                return getString(R.string.title_editAbilities);
             case ACTION:
-                return getString(R.string.title_edit_actions);
+                return getString(R.string.title_editActions);
             case LAIR_ACTION:
-                return getString(R.string.title_edit_lair_actions);
+                return getString(R.string.title_editLairActions);
             case LEGENDARY_ACTION:
-                return getString(R.string.title_edit_legendary_actions);
+                return getString(R.string.title_editLegendaryActions);
             case REACTIONS:
-                return getString(R.string.title_edit_reactions);
+                return getString(R.string.title_editReactions);
             case REGIONAL_ACTION:
-                return getString(R.string.title_edit_regional_actions);
+                return getString(R.string.title_editRegionalActions);
             default:
-                return "";
+                return getString(R.string.title_editTraits);
         }
     }
 

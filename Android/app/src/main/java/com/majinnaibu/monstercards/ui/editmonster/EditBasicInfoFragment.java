@@ -34,7 +34,6 @@ public class EditBasicInfoFragment extends MCFragment {
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_basic_info, container, false);
-        setTitle(getString(R.string.title_edit_basic_info));
         mHolder = new ViewHolder(root);
 
         mHolder.name.setText(mViewModel.getName().getValue());

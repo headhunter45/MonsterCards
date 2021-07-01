@@ -29,7 +29,6 @@ public class EditSpeedFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_speed, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_speed));
 
         mHolder.baseSpeed.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setWalkSpeed(newValue));
         mHolder.baseSpeed.setOnFormatValueCallback(value -> String.format(getString(R.string.format_distance_in_feet), value));

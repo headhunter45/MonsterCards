@@ -14,7 +14,6 @@
             android:id="@+id/action_navigation_search_to_navigation_monster"
             app:destination="@id/navigation_monster" />
     </fragment>
-
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.majinnaibu.monstercards.ui.dashboard.DashboardFragment"
@@ -24,7 +23,6 @@
             android:id="@+id/action_navigation_dashboard_to_navigation_monster"
             app:destination="@id/navigation_monster" />
     </fragment>
-
     <fragment
         android:id="@+id/navigation_collections"
         android:name="com.majinnaibu.monstercards.ui.collections.CollectionsFragment"
@@ -34,7 +32,6 @@
             android:id="@+id/action_navigation_collections_to_navigation_monster"
             app:destination="@id/navigation_monster" />
     </fragment>
-
     <fragment
         android:id="@+id/navigation_library"
         android:name="com.majinnaibu.monstercards.ui.library.LibraryFragment"
@@ -44,11 +41,10 @@
             android:id="@+id/action_navigation_library_to_navigation_monster"
             app:destination="@id/navigation_monster" />
     </fragment>
-
     <fragment
         android:id="@+id/navigation_monster"
         android:name="com.majinnaibu.monstercards.ui.monster.MonsterDetailFragment"
-        android:label="Monster"
+        android:label="@string/title_monsterDetails"
         tools:layout="@layout/fragment_monster">
         <argument
             android:name="monster_id"
@@ -67,7 +63,7 @@
         <fragment
             android:id="@+id/editMonsterFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditMonsterFragment"
-            android:label="Edit Monster"
+            android:label="@string/title_editMonster"
             tools:layout="@layout/fragment_edit_monster">
             <argument
                 android:name="monster_id"
@@ -106,36 +102,36 @@
         <fragment
             android:id="@+id/editBasicInfoFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditBasicInfoFragment"
-            android:label="fragment_edit_basic_info"
+            android:label="@string/title_editBasicInfo"
             tools:layout="@layout/fragment_edit_basic_info" />
         <fragment
             android:id="@+id/editArmorFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditArmorFragment"
-            android:label="fragment_edit_armor"
+            android:label="@string/title_editArmor"
             tools:layout="@layout/fragment_edit_armor" />
         <fragment
             android:id="@+id/editSpeedFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSpeedFragment"
-            android:label="fragment_edit_speed"
+            android:label="@string/title_editSpeed"
             tools:layout="@layout/fragment_edit_speed" />
         <fragment
             android:id="@+id/editAbilityScoresFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditAbilityScoresFragment"
-            android:label="EditAbilityScoresFragment" />
+            android:label="@string/title_editAbilityScores" />
         <fragment
             android:id="@+id/editSavingThrowsFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSavingThrowsFragment"
-            android:label="fragment_edit_saving_throws"
+            android:label="@string/title_editSavingThrows"
             tools:layout="@layout/fragment_edit_saving_throws" />
         <fragment
             android:id="@+id/editChallengeRatingFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditChallengeRatingFragment"
-            android:label="fragment_edit_challenge_rating"
+            android:label="@string/title_editChallengeRating"
             tools:layout="@layout/fragment_edit_challenge_rating" />
         <fragment
             android:id="@+id/editSkillsFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillsFragment"
-            android:label="fragment_edit_skills_list"
+            android:label="@string/title_editSkills"
             tools:layout="@layout/fragment_edit_skills_list">
             <action
                 android:id="@+id/action_editSkillsFragment_to_editSkillFragment"
@@ -144,7 +140,7 @@
         <fragment
             android:id="@+id/editSkillFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillFragment"
-            android:label="fragment_edit_skill"
+            android:label="@string/title_editSkill"
             tools:layout="@layout/fragment_edit_skill">
             <argument
                 android:name="name"
@@ -162,7 +158,7 @@
         <fragment
             android:id="@+id/editLanguagesFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguagesFragment"
-            android:label="fragment_edit_languages_list"
+            android:label="@string/title_editLanguages"
             tools:layout="@layout/fragment_edit_languages_list">
             <action
                 android:id="@+id/action_editLanguagesFragment_to_editLanguageFragment"
@@ -171,7 +167,7 @@
         <fragment
             android:id="@+id/editLanguageFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguageFragment"
-            android:label="fragment_edit_language"
+            android:label="@string/title_editLanguage"
             tools:layout="@layout/fragment_edit_language">
             <argument
                 android:name="name"
@@ -183,7 +179,7 @@
         <fragment
             android:id="@+id/editTraitFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitFragment"
-            android:label="EditTraitFragment">
+            android:label="@string/title_editTrait">
             <argument
                 android:name="description"
                 app:argType="string" />
@@ -197,7 +193,7 @@
         <fragment
             android:id="@+id/editTraitListFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitsFragment"
-            android:label="EditTraitListFragment">
+            android:label="@string/title_editTraits">
             <action
                 android:id="@+id/action_editTraitListFragment_to_editTraitFragment"
                 app:destination="@id/editTraitFragment" />
@@ -219,7 +215,7 @@
         <fragment
             android:id="@+id/editStringFragment"
             android:name="com.majinnaibu.monstercards.ui.editmonster.EditStringFragment"
-            android:label="EditStringFragment">
+            android:label="@string/title_editString">
             <argument
                 android:name="stringType"
                 app:argType="com.majinnaibu.monstercards.data.enums.StringType" />
