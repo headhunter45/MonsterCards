@@ -35,7 +35,6 @@ public class EditChallengeRatingFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_challenge_rating, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_challenge_rating));
 
         mHolder.challengeRating.setAdapter(new ArrayAdapter<ChallengeRating>(requireContext(), R.layout.dropdown_list_item, ChallengeRating.values()) {
             @NonNull

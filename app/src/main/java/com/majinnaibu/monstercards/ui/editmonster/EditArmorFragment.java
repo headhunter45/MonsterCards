@@ -37,7 +37,6 @@ public class EditArmorFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_armor, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_armor));
 
         mHolder.armorType.setAdapter(new ArrayAdapter<ArmorType>(requireContext(), R.layout.dropdown_list_item, ArmorType.values()) {
             @NonNull

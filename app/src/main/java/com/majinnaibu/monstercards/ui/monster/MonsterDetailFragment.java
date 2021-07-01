@@ -66,7 +66,10 @@ public class MonsterDetailFragment extends MCFragment {
         View root = inflater.inflate(R.layout.fragment_monster, container, false);
         mHolder = new ViewHolder(root);
 
-        mViewModel.getName().observe(getViewLifecycleOwner(), mHolder.name::setText);
+        mViewModel.getName().observe(getViewLifecycleOwner(), name -> {
+            mHolder.name.setText(name);
+            setTitle(getString(R.string.title_monsterDetails_fmt, name));
+        });
         mViewModel.getMeta().observe(getViewLifecycleOwner(), mHolder.meta::setText);
         mViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> setupLabeledTextView(mHolder.armorClass, armorText, R.string.label_armor_class));
         mViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> setupLabeledTextView(mHolder.hitPoints, hitPoints, R.string.label_hit_points));
