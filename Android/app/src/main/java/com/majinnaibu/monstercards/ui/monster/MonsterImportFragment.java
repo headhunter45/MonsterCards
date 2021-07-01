@@ -1,14 +1,15 @@
-package com.majinnaibu.monstercards;
+package com.majinnaibu.monstercards.ui.monster;
 
-import android.content.Intent;
+import android.content.Context;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,126 +18,74 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.majinnaibu.monstercards.MonsterCardsApplication;
+import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.MonsterImportHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
-import com.majinnaibu.monstercards.ui.monster.MonsterDetailViewModel;
+import com.majinnaibu.monstercards.ui.library.LibraryFragmentDirections;
+import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ImportMonsterActivity extends AppCompatActivity {
-
+public class MonsterImportFragment extends MCFragment {
     private ViewHolder mHolder;
+    private MonsterImportViewModel mViewModel;
 
-    private MonsterDetailViewModel mViewModel;
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Logger.logDebug("MonsterCards: loading monster for import");
+        Bundle arguments = getArguments();
+        assert arguments != null;
+        String json = MonsterImportFragmentArgs.fromBundle(arguments).getJson();
+        setHasOptionsMenu(true);
+        Monster monster = MonsterImportHelper.fromJSON(json);
+        mViewModel = new ViewModelProvider(this).get(MonsterImportViewModel.class);
+        mViewModel.setMonster(monster);
+        View root = inflater.inflate(R.layout.fragment_monster, container, false);
+        mHolder = new ViewHolder(root);
 
-    @Override
-    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_monster);
-        mHolder = new ViewHolder(findViewById(android.R.id.content));
-        mViewModel = new ViewModelProvider(this).get(MonsterDetailViewModel.class);
+        mViewModel.getName().observe(getViewLifecycleOwner(), mHolder.name::setText);
+        mViewModel.getMeta().observe(getViewLifecycleOwner(), mHolder.meta::setText);
+        mViewModel.getArmorClass().observe(getViewLifecycleOwner(), armorText -> setupLabeledTextView(mHolder.armorClass, armorText, R.string.label_armor_class));
+        mViewModel.getHitPoints().observe(getViewLifecycleOwner(), hitPoints -> setupLabeledTextView(mHolder.hitPoints, hitPoints, R.string.label_hit_points));
+        mViewModel.getSpeed().observe(getViewLifecycleOwner(), speed -> setupLabeledTextView(mHolder.speed, speed, R.string.label_speed));
+        mViewModel.getStrength().observe(getViewLifecycleOwner(), mHolder.strength::setText);
+        mViewModel.getDexterity().observe(getViewLifecycleOwner(), mHolder.dexterity::setText);
+        mViewModel.getConstitution().observe(getViewLifecycleOwner(), mHolder.constitution::setText);
+        mViewModel.getIntelligence().observe(getViewLifecycleOwner(), mHolder.intelligence::setText);
+        mViewModel.getWisdom().observe(getViewLifecycleOwner(), mHolder.wisdom::setText);
+        mViewModel.getCharisma().observe(getViewLifecycleOwner(), mHolder.charisma::setText);
+        mViewModel.getSavingThrows().observe(getViewLifecycleOwner(), savingThrows -> setupOptionalTextView(mHolder.savingThrows, savingThrows, R.string.label_saving_throws));
+        mViewModel.getSkills().observe(getViewLifecycleOwner(), skills -> setupOptionalTextView(mHolder.skills, skills, R.string.label_skills));
+        mViewModel.getDamageVulnerabilities().observe(getViewLifecycleOwner(), damageTypes -> setupOptionalTextView(mHolder.damageVulnerabilities, damageTypes, R.string.label_damage_vulnerabilities));
+        mViewModel.getDamageResistances().observe(getViewLifecycleOwner(), damageTypes -> setupOptionalTextView(mHolder.damageResistances, damageTypes, R.string.label_damage_resistances));
+        mViewModel.getDamageImmunities().observe(getViewLifecycleOwner(), damageTypes -> setupOptionalTextView(mHolder.damageImmunities, damageTypes, R.string.label_damage_immunities));
+        mViewModel.getConditionImmunities().observe(getViewLifecycleOwner(), conditionImmunities -> setupOptionalTextView(mHolder.conditionImmunities, conditionImmunities, R.string.label_condition_immunities));
+        mViewModel.getSenses().observe(getViewLifecycleOwner(), senses -> setupOptionalTextView(mHolder.senses, senses, R.string.label_senses));
+        mViewModel.getLanguages().observe(getViewLifecycleOwner(), languages -> setupOptionalTextView(mHolder.languages, languages, R.string.label_languages));
+        mViewModel.getChallenge().observe(getViewLifecycleOwner(), challengeRating -> setupLabeledTextView(mHolder.challenge, challengeRating, R.string.label_challenge_rating));
+        mViewModel.getAbilities().observe(getViewLifecycleOwner(), abilities -> setupTraitList(mHolder.abilities, abilities));
+        mViewModel.getActions().observe(getViewLifecycleOwner(), actions -> setupTraitList(mHolder.actions, actions, mHolder.actions_label, mHolder.actions_divider));
+        mViewModel.getReactions().observe(getViewLifecycleOwner(), reactions -> setupTraitList(mHolder.reactions, reactions, mHolder.reactions_label, mHolder.reactions_divider));
+        mViewModel.getRegionalEffects().observe(getViewLifecycleOwner(), regionalEffects -> setupTraitList(mHolder.regionalEffects, regionalEffects, mHolder.regionalEffects_label, mHolder.regionalEffects_divider));
+        mViewModel.getLairActions().observe(getViewLifecycleOwner(), lairActions -> setupTraitList(mHolder.lairActions, lairActions, mHolder.lairActions_label, mHolder.lairActions_divider));
+        mViewModel.getLegendaryActions().observe(getViewLifecycleOwner(), legendaryActions -> setupTraitList(mHolder.legendaryActions, legendaryActions, mHolder.legendaryActions_label, mHolder.legendaryActions_divider));
 
-        mViewModel.getName().observe(this, mHolder.name::setText);
-        mViewModel.getMeta().observe(this, mHolder.meta::setText);
-        mViewModel.getArmorClass().observe(this, armorText -> setupLabeledTextView(mHolder.armorClass, armorText, R.string.label_armor_class));
-        mViewModel.getHitPoints().observe(this, hitPoints -> setupLabeledTextView(mHolder.hitPoints, hitPoints, R.string.label_hit_points));
-        mViewModel.getSpeed().observe(this, speed -> setupLabeledTextView(mHolder.speed, speed, R.string.label_speed));
-        mViewModel.getStrength().observe(this, mHolder.strength::setText);
-        mViewModel.getDexterity().observe(this, mHolder.dexterity::setText);
-        mViewModel.getConstitution().observe(this, mHolder.constitution::setText);
-        mViewModel.getIntelligence().observe(this, mHolder.intelligence::setText);
-        mViewModel.getWisdom().observe(this, mHolder.wisdom::setText);
-        mViewModel.getCharisma().observe(this, mHolder.charisma::setText);
-        mViewModel.getSavingThrows().observe(this, savingThrows -> setupOptionalTextView(mHolder.savingThrows, savingThrows, R.string.label_saving_throws));
-        mViewModel.getSkills().observe(this, skills -> setupOptionalTextView(mHolder.skills, skills, R.string.label_skills));
-        mViewModel.getDamageVulnerabilities().observe(this, damageTypes -> setupOptionalTextView(mHolder.damageVulnerabilities, damageTypes, R.string.label_damage_vulnerabilities));
-        mViewModel.getDamageResistances().observe(this, damageTypes -> setupOptionalTextView(mHolder.damageResistances, damageTypes, R.string.label_damage_resistances));
-        mViewModel.getDamageImmunities().observe(this, damageTypes -> setupOptionalTextView(mHolder.damageImmunities, damageTypes, R.string.label_damage_immunities));
-        mViewModel.getConditionImmunities().observe(this, conditionImmunities -> setupOptionalTextView(mHolder.conditionImmunities, conditionImmunities, R.string.label_condition_immunities));
-        mViewModel.getSenses().observe(this, senses -> setupOptionalTextView(mHolder.senses, senses, R.string.label_senses));
-        mViewModel.getLanguages().observe(this, languages -> setupOptionalTextView(mHolder.languages, languages, R.string.label_languages));
-        mViewModel.getChallenge().observe(this, challengeRating -> setupLabeledTextView(mHolder.challenge, challengeRating, R.string.label_challenge_rating));
-        mViewModel.getAbilities().observe(this, abilities -> setupTraitList(mHolder.abilities, abilities));
-        mViewModel.getActions().observe(this, actions -> setupTraitList(mHolder.actions, actions, mHolder.actions_label, mHolder.actions_divider));
-        mViewModel.getReactions().observe(this, reactions -> setupTraitList(mHolder.reactions, reactions, mHolder.reactions_label, mHolder.reactions_divider));
-        mViewModel.getRegionalEffects().observe(this, regionalEffects -> setupTraitList(mHolder.regionalEffects, regionalEffects, mHolder.regionalEffects_label, mHolder.regionalEffects_divider));
-        mViewModel.getLairActions().observe(this, lairActions -> setupTraitList(mHolder.lairActions, lairActions, mHolder.lairActions_label, mHolder.lairActions_divider));
-        mViewModel.getLegendaryActions().observe(this, legendaryActions -> setupTraitList(mHolder.legendaryActions, legendaryActions, mHolder.legendaryActions_label, mHolder.legendaryActions_divider));
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Logger.logDebug("onCreateView");
-        Monster monster = readMonsterFromIntent(getIntent());
-        if (monster != null) {
-            mViewModel.setMonster(monster);
-        }
-    }
-
-    private Monster readMonsterFromIntent(Intent intent) {
-        String action = intent.getAction();
-        Bundle extras = intent.getExtras();
-        String type = intent.getType();
-        String json;
-        Uri uri = null;
-        if ("android.intent.action.SEND".equals(action) && "text/plain".equals(type)) {
-            uri = extras.getParcelable("android.intent.extra.STREAM");
-        } else if ("android.intent.action.VIEW".equals(action) && ("text/plain".equals(type) || "application/octet-stream".equals(type))) {
-            uri = intent.getData();
-        } else {
-            Logger.logError(String.format("unexpected launch configuration action: %s, type: %s, uri: %s", action, type, uri));
-        }
-        if (uri == null) {
-            return null;
-        }
-        json = readContentsOfUri(uri);
-        if (StringHelper.isNullOrEmpty(json)) {
-            return null;
-        }
-        return MonsterImportHelper.fromJSON(json);
-    }
-
-    private String readContentsOfUri(Uri uri) {
-        StringBuilder builder = new StringBuilder();
-        try (InputStream inputStream =
-                     getContentResolver().openInputStream(uri);
-             BufferedReader reader = new BufferedReader(
-                     new InputStreamReader(Objects.requireNonNull(inputStream)))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-            }
-        } catch (IOException e) {
-            Logger.logError("error reading file", e);
-            return null;
-        }
-        return builder.toString();
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
+        return root;
     }
 
     private void setupLabeledTextView(TextView view, String text, int titleId) {
@@ -167,14 +116,17 @@ public class ImportMonsterActivity extends AppCompatActivity {
 
     private void setupTraitList(@NonNull LinearLayout root, @NonNull List<String> traits, View label, View divider) {
         int visibility = traits.size() > 0 ? View.VISIBLE : View.GONE;
+        Context context = getContext();
         DisplayMetrics displayMetrics = null;
-        Resources resources = getResources();
-        if (resources != null) {
-            displayMetrics = resources.getDisplayMetrics();
+        if (context != null) {
+            Resources resources = context.getResources();
+            if (resources != null) {
+                displayMetrics = resources.getDisplayMetrics();
+            }
         }
         root.removeAllViews();
         for (String action : traits) {
-            TextView tvAction = new TextView(this);
+            TextView tvAction = new TextView(getContext());
             // TODO: Handle multiline block quotes specially so they stay multiline.
             // TODO: Replace QuoteSpans in the result of fromHtml with something like this https://stackoverflow.com/questions/7717567/how-to-style-blockquotes-in-android-textviews to make them indent as expected
             tvAction.setText(Html.fromHtml(CommonMarkHelper.toHtml(action)));
@@ -193,9 +145,9 @@ public class ImportMonsterActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-        getMenuInflater().inflate(R.menu.import_monster, menu);
-        return true;
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.import_monster, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -233,7 +185,14 @@ public class ImportMonsterActivity extends AppCompatActivity {
     }
 
     private void navigateToEditMonster(UUID monsterId) {
-        Logger.logUnimplementedFeature(String.format("navigate to editing the monster %s", monsterId));
+        NavController navController = Navigation.findNavController(requireView());
+        NavDirections action;
+        action = MonsterImportFragmentDirections.actionMonsterImportFragmentToNavigationLibrary();
+        navController.navigate(action);
+        action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
+        navController.navigate(action);
+        action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
+        navController.navigate(action);
     }
 
     private static class ViewHolder {
@@ -315,4 +274,5 @@ public class ImportMonsterActivity extends AppCompatActivity {
             regionalEffects_label = root.findViewById(R.id.regionalEffects_label);
         }
     }
+
 }

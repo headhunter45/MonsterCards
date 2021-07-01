@@ -228,4 +228,21 @@
                 app:argType="string" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/monsterImportFragment"
+        android:name="com.majinnaibu.monstercards.ui.monster.MonsterImportFragment"
+        android:label="@string/title_importMonster"
+        tools:layout="@layout/fragment_monster">
+        <argument
+            android:name="json"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_monsterImportFragment_to_navigation_library"
+            app:destination="@id/navigation_library"
+            app:popUpTo="@id/monsterImportFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_monsterImportFragment"
+        app:destination="@id/monsterImportFragment" />
 </navigation>
