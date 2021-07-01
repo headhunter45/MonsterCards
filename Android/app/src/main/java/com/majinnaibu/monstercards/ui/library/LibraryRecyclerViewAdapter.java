@@ -27,7 +27,7 @@ public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecy
     private final Flowable<List<Monster>> mItemsObservable;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
-        public void onClick(@NonNull View view) {
+        public void onClick(View view) {
             Monster monster = (Monster) view.getTag();
             if (mOnClick != null) {
                 mOnClick.onItemCallback(monster);
