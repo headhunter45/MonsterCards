@@ -1,18 +1,29 @@
 package com.majinnaibu.monstercards;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.init.FlipperInitializer;
+import com.majinnaibu.monstercards.utils.Logger;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,5 +59,59 @@ public class MainActivity extends AppCompatActivity {
         });
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+        onNewIntent(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        String json = readMonsterJSONFromIntent(intent);
+        if (!StringHelper.isNullOrEmpty(json)) {
+            NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            NavController navController = navHostFragment.getNavController();
+            NavDirections action = MobileNavigationDirections.actionGlobalMonsterImportFragment(json);
+            navController.navigate(action);
+        }
+    }
+
+    private String readMonsterJSONFromIntent(Intent intent) {
+        String action = intent.getAction();
+        Bundle extras = intent.getExtras();
+        String type = intent.getType();
+        String json;
+        Uri uri = null;
+        if ("android.intent.action.SEND".equals(action) && "text/plain".equals(type)) {
+            uri = extras.getParcelable("android.intent.extra.STREAM");
+        } else if ("android.intent.action.VIEW".equals(action) && ("text/plain".equals(type) || "application/octet-stream".equals(type))) {
+            uri = intent.getData();
+        } else {
+            Logger.logError(String.format("unexpected launch configuration action: %s, type: %s, uri: %s", action, type, uri));
+        }
+        if (uri == null) {
+            return null;
+        }
+        json = readContentsOfUri(uri);
+        if (StringHelper.isNullOrEmpty(json)) {
+            return null;
+        }
+        return json;
+    }
+
+    private String readContentsOfUri(Uri uri) {
+        StringBuilder builder = new StringBuilder();
+        try (InputStream inputStream =
+                     getContentResolver().openInputStream(uri);
+             BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(Objects.requireNonNull(inputStream)))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+            }
+        } catch (IOException e) {
+            Logger.logError("error reading file", e);
+            return null;
+        }
+        return builder.toString();
     }
 }

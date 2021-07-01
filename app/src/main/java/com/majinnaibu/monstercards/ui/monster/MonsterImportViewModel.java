@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class MonsterDetailViewModel extends ViewModel {
-
+public class MonsterImportViewModel extends ViewModel {
     private final MutableLiveData<List<String>> mAbilities;
     private final MutableLiveData<List<String>> mActions;
     private final MutableLiveData<String> mArmorClass;
@@ -41,7 +40,7 @@ public class MonsterDetailViewModel extends ViewModel {
     private final MutableLiveData<UUID> mMonsterId;
     private Monster mMonster;
 
-    public MonsterDetailViewModel() {
+    public MonsterImportViewModel() {
         mMonster = null;
         mAbilities = new MutableLiveData<>(new ArrayList<>());
         mActions = new MutableLiveData<>(new ArrayList<>());
@@ -178,6 +177,10 @@ public class MonsterDetailViewModel extends ViewModel {
 
     public LiveData<UUID> getId() {
         return mMonsterId;
+    }
+
+    public Monster getMonster() {
+        return mMonster;
     }
 
     public void setMonster(Monster monster) {
