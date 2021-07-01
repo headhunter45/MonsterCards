@@ -50,7 +50,6 @@ public class EditLanguageFragment extends MCFragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_language, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_language));
 
         mHolder.name.setText(mViewModel.getName().getValue());
         mHolder.name.addTextChangedListener(new TextChangedListener((TextChangedListener.OnTextChangedCallback) (s, start, before, count) -> mViewModel.setName(s.toString())));

@@ -44,7 +44,6 @@ public class EditSkillsFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_skills_list, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_skills));
         setupRecyclerView(mHolder.list);
         setupAddSkillButton(mHolder.addSkill);
 

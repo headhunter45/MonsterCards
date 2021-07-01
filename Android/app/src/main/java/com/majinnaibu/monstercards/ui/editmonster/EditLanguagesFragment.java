@@ -43,7 +43,6 @@ public class EditLanguagesFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_languages_list, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_languages));
         setupRecyclerView(mHolder.list);
         setupAddLanguageButton(mHolder.addLanguage);
 

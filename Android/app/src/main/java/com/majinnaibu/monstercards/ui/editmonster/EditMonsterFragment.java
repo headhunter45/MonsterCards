@@ -55,7 +55,7 @@ public class EditMonsterFragment extends MCFragment {
         View root = inflater.inflate(R.layout.fragment_edit_monster, container, false);
         mHolder = new ViewHolder(root);
 
-        setTitle(getString(R.string.title_edit_monster, getString(R.string.default_monster_name)));
+        setTitle(getString(R.string.title_editMonster_fmt, getString(R.string.default_monster_name)));
 
         // TODO: Show a loading spinner until we have the monster loaded.
         if (mViewModel.hasError() || !mViewModel.hasLoaded() || !Objects.equals(mViewModel.getMonsterId().getValue(), monsterId)) {
@@ -67,7 +67,7 @@ public class EditMonsterFragment extends MCFragment {
                             mViewModel.setHasLoaded(true);
                             mViewModel.setHasError(false);
                             mViewModel.copyFromMonster(monster);
-                            setTitle(getString(R.string.title_edit_monster, monster.name));
+                            setTitle(getString(R.string.title_editMonster_fmt, monster.name));
                             dispose();
                         }
 

@@ -31,7 +31,6 @@ public class EditAbilityScoresFragment extends MCFragment {
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_ability_scores, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_ability_scores));
 
         mViewModel.getStrength().observe(getViewLifecycleOwner(), value -> mHolder.strength.setValue(value));
         mHolder.strength.setOnValueChangeListener((newValue, oldValue) -> mViewModel.setStrength(newValue));

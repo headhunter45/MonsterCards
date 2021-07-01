@@ -72,17 +72,17 @@ public class EditStringFragment extends MCFragment {
     private String getTitleForStringType(StringType type) {
         switch (type) {
             case CONDITION_IMMUNITY:
-                return getString(R.string.title_edit_condition_immunity);
+                return getString(R.string.title_editConditionImmunity);
             case DAMAGE_IMMUNITY:
-                return getString(R.string.title_edit_damage_immunity);
+                return getString(R.string.title_editDamageImmunity);
             case DAMAGE_RESISTANCE:
-                return getString(R.string.title_edit_damage_resistance);
+                return getString(R.string.title_editDamageResistance);
             case DAMAGE_VULNERABILITY:
-                return getString(R.string.title_edit_damage_vulnerability);
+                return getString(R.string.title_editDamageVulnerability);
             case SENSE:
-                return getString(R.string.title_edit_sense);
+                return getString(R.string.title_editSense);
             default:
-                return "";
+                return getString(R.string.title_editString);
         }
     }
 

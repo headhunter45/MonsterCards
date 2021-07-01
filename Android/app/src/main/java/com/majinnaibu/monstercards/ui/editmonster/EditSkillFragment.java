@@ -51,7 +51,6 @@ public class EditSkillFragment extends MCFragment {
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit_skill, container, false);
         mHolder = new ViewHolder(root);
-        setTitle(getString(R.string.title_edit_skill));
 
         mHolder.abilityScore.setValue(mViewModel.getAbilityScore().getValue());
         mHolder.abilityScore.setOnValueChangedListener(value -> mViewModel.setAbilityScore(value));
