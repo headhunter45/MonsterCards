@@ -50,7 +50,7 @@ public class LibraryFragment extends MCFragment {
         Context context = requireContext();
         MonsterRepository repository = this.getMonsterRepository();
 
-        MonsterListRecyclerViewAdapter adapter = new MonsterListRecyclerViewAdapter(
+        LibraryRecyclerViewAdapter adapter = new LibraryRecyclerViewAdapter(
                 context,
                 repository.getMonsters(),
                 (monster) -> navigateToMonsterDetail(monster.id),
