@@ -177,7 +177,7 @@ public class MonsterImportHelper {
                         if (jsonElement.isJsonObject()) {
                             JsonObject jsonObject = jsonElement.getAsJsonObject();
                             String traitName = Helpers.getString(jsonObject, "name");
-                            String description = Helpers.getString(jsonObject, "description");
+                            String description = Helpers.getString(jsonObject, "desc");
                             Trait trait = new Trait(traitName, description);
                             traits.add(trait);
                         }
