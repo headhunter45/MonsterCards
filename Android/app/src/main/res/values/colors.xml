@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9B2818</color>
-    <color name="colorPrimaryDark">#661A10</color>
-    <!--    <color name="colorAccent">#188B9B</color>-->
+    <!-- From palette here https://material.io/resources/color/#!/?view.left=1&view.right=1&primary.color=9b2818&secondary.color=ea7e00 -->
+    <color name="colorPrimary">#9b2818</color>
+    <color name="colorPrimaryLight">#d25941</color>
+    <color name="colorPrimaryDark">#660000</color>
+    <color name="colorSecondary">#ea7e00</color>
+    <color name="colorSecondaryLight">#ffae41</color>
+    <color name="colorSecondaryDark">#b15000</color>
+    <color name="colorOnPrimary">#ffffff</color>
+    <color name="colorOnSecondary">#000000</color>
+    <color name="colorOnLight">#ffffff</color>
+    <color name="colorOnDark">#000000</color>
+
     <color name="colorAccent">#995500</color>
 
     <!-- fruit system colors -->
