@@ -20,7 +20,7 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<MonsterListRecyclerViewAdapter.ViewHolder> {
+public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecyclerViewAdapter.ViewHolder> {
     private final Context mContext;
     private final ItemCallback mOnDelete;
     private final ItemCallback mOnClick;
@@ -37,10 +37,10 @@ public class MonsterListRecyclerViewAdapter extends RecyclerView.Adapter<Monster
     private List<Monster> mValues;
     private Disposable mDisposable;
 
-    public MonsterListRecyclerViewAdapter(Context context,
-                                          Flowable<List<Monster>> itemsObservable,
-                                          ItemCallback onClick,
-                                          ItemCallback onDelete) {
+    public LibraryRecyclerViewAdapter(Context context,
+                                      Flowable<List<Monster>> itemsObservable,
+                                      ItemCallback onClick,
+                                      ItemCallback onDelete) {
         mItemsObservable = itemsObservable;
         mValues = new ArrayList<>();
         mContext = context;
