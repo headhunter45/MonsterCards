@@ -6,16 +6,17 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/text_margin"
     tools:context=".ui.components.ProficiencyPicker">
-    <!-- // TODO: style this control to look less awful by default -->
 
     <TextView
         android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/padding_small"
         android:text="@string/label_proficiency"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Proficiency" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/group"
@@ -29,21 +30,48 @@
             android:id="@+id/none"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_small"
+            android:layout_marginVertical="@dimen/padding_normal"
             android:layout_weight="1"
-            android:text="@string/label_proficiency_none" />
+            android:background="@drawable/radio_button_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:padding="@dimen/padding_normal"
+            android:text="@string/label_proficiency_none"
+            android:textAppearance="@android:style/TextAppearance.Material.Button"
+            android:textColor="@color/radio_button_text"
+            tools:checked="true" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/proficient"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_small"
+            android:layout_marginVertical="@dimen/padding_normal"
             android:layout_weight="1"
-            android:text="@string/label_proficiency_proficient" />
+            android:background="@drawable/radio_button_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:padding="@dimen/padding_normal"
+            android:text="@string/label_proficiency_proficient"
+            android:textAppearance="@android:style/TextAppearance.Material.Button"
+            android:textColor="@color/radio_button_text"
+            tools:checked="false" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/expertise"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_small"
+            android:layout_marginVertical="@dimen/padding_normal"
             android:layout_weight="1"
-            android:text="@string/label_proficiency_expertise" />
+            android:background="@drawable/radio_button_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:padding="@dimen/padding_normal"
+            android:text="@string/label_proficiency_expertise"
+            android:textAppearance="@android:style/TextAppearance.Material.Button"
+            android:textColor="@color/radio_button_text"
+            tools:checked="false" />
     </RadioGroup>
 </merge>
