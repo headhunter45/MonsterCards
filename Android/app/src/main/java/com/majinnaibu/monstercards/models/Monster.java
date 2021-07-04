@@ -13,6 +13,7 @@ import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.utils.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -461,6 +462,54 @@ public class Monster {
         }
     }
 
+    public int getArmorClassValue() {
+        boolean hasShield = shieldBonus != 0;
+        ArmorType armorType = this.armorType != null ? this.armorType : ArmorType.NONE;
+        switch (armorType) {
+            case NATURAL_ARMOR:
+                // 10 + dexMod + naturalArmorBonus + 2 for shieldBonus "16 (natural armor)" or "18 (natural armor, shield)"
+                return armorType.baseArmorClass + getDexterityModifier() + naturalArmorBonus + shieldBonus;
+            case MAGE_ARMOR:
+                // 10 + dexMod + 2 for shield + 3 for mage armor "15 (18 with mage armor)" or 17 (shield, 20 with mage armor)
+                return armorType.baseArmorClass + 3 + getDexterityModifier() + shieldBonus;
+            case NONE:
+                // 10 + dexMod + 2 for shieldBonus "15" or "17 (shield)"
+            case PADDED:
+                // 11 + dexMod + 2 for shield "18 (padded armor, shield)"
+            case LEATHER:
+                // 11 + dexMod + 2 for shield "18 (leather, shield)"
+            case STUDDED_LEATHER:
+                // 12 + dexMod +2 for shield "17 (studded leather)"
+                return armorType.baseArmorClass + getDexterityModifier() + shieldBonus;
+            case HIDE:
+                // 12 + Min(2, dexMod) + 2 for shield "12 (hide armor)"
+            case CHAIN_SHIRT:
+                // 13 + Min(2, dexMod) + 2 for shield "12 (chain shirt)"
+            case SCALE_MAIL:
+                // 14 + Min(2, dexMod) + 2 for shield "14 (scale mail)"
+            case BREASTPLATE:
+                // 14 + Min(2, dexMod) + 2 for shield "16 (breastplate)"
+            case HALF_PLATE:
+                // 15 + Min(2, dexMod) + 2 for shield "17 (half plate)"
+                return armorType.baseArmorClass + Math.min(2, getDexterityModifier()) + shieldBonus;
+            case RING_MAIL:
+                // 14 + 2 for shield "14 (ring mail)
+            case CHAIN_MAIL:
+                // 16 + 2 for shield "16 (chain mail)"
+            case SPLINT_MAIL:
+                // 17 + 2 for shield "17 (splint)"
+            case PLATE_MAIL:
+                // 18 + 2 for shield "18 (plate)"
+                return armorType.baseArmorClass + shieldBonus;
+            case OTHER:
+                // pure string value shield check does nothing just copies the string from otherArmorDesc
+                return 0;
+            default:
+                Logger.logUnimplementedFeature(String.format("Getting the armor class value with an unknown armor type %s", armorType));
+                return -1;
+        }
+    }
+
     public String getHitPoints() {
         if (hasCustomHP) {
             return customHPDescription;
@@ -472,6 +521,20 @@ public class Monster {
             // For monster style calculations use this
             int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
             return String.format("%d (%dd%d %+d)", hpTotal, hitDice, dieSize, conMod * hitDice);
+        }
+    }
+
+    public int getHitPointsValue() {
+        if (hasCustomHP) {
+            return 0;
+        } else {
+            int dieSize = Helpers.getHitDieForSize(size);
+            int conMod = getConstitutionModifier();
+            // For PC style calculations use this
+            //int hpTotal = (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
+            // For monster style calculations use this
+            int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
+            return hpTotal;
         }
     }
 
