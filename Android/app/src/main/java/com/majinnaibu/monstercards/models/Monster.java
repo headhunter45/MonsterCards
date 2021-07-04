@@ -13,6 +13,9 @@ import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.utils.Logger;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -302,7 +305,7 @@ public class Monster {
         return sb.toString();
     }
 
-    public int getAbilityScore(AbilityScore abilityScore) {
+    public int getAbilityScore(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthScore;
@@ -321,11 +324,7 @@ public class Monster {
         }
     }
 
-    public static int getAbilityModifierForScore(int score) {
-        return (int) Math.floor((score - 10) / 2.0);
-    }
-
-    public int getAbilityModifier(AbilityScore abilityScore) {
+    public int getAbilityModifier(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return getStrengthModifier();
@@ -344,7 +343,7 @@ public class Monster {
         }
     }
 
-    public AdvantageType getSavingThrowAdvantageType(AbilityScore abilityScore) {
+    public AdvantageType getSavingThrowAdvantageType(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthSavingThrowAdvantage;
@@ -363,7 +362,7 @@ public class Monster {
         }
     }
 
-    public ProficiencyType getSavingThrowProficiencyType(AbilityScore abilityScore) {
+    public ProficiencyType getSavingThrowProficiencyType(@NotNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthSavingThrowProficiency;
@@ -383,27 +382,27 @@ public class Monster {
     }
 
     public int getStrengthModifier() {
-        return getAbilityModifierForScore(strengthScore);
+        return Helpers.getAbilityModifierForScore(strengthScore);
     }
 
     public int getDexterityModifier() {
-        return getAbilityModifierForScore(dexterityScore);
+        return Helpers.getAbilityModifierForScore(dexterityScore);
     }
 
     public int getConstitutionModifier() {
-        return getAbilityModifierForScore(constitutionScore);
+        return Helpers.getAbilityModifierForScore(constitutionScore);
     }
 
     public int getIntelligenceModifier() {
-        return getAbilityModifierForScore(intelligenceScore);
+        return Helpers.getAbilityModifierForScore(intelligenceScore);
     }
 
     public int getWisdomModifier() {
-        return getAbilityModifierForScore(wisdomScore);
+        return Helpers.getAbilityModifierForScore(wisdomScore);
     }
 
     public int getCharismaModifier() {
-        return getAbilityModifierForScore(charismaScore);
+        return Helpers.getAbilityModifierForScore(charismaScore);
     }
 
     public String getArmorClass() {
@@ -463,11 +462,59 @@ public class Monster {
         }
     }
 
+    public int getArmorClassValue() {
+        boolean hasShield = shieldBonus != 0;
+        ArmorType armorType = this.armorType != null ? this.armorType : ArmorType.NONE;
+        switch (armorType) {
+            case NATURAL_ARMOR:
+                // 10 + dexMod + naturalArmorBonus + 2 for shieldBonus "16 (natural armor)" or "18 (natural armor, shield)"
+                return armorType.baseArmorClass + getDexterityModifier() + naturalArmorBonus + shieldBonus;
+            case MAGE_ARMOR:
+                // 10 + dexMod + 2 for shield + 3 for mage armor "15 (18 with mage armor)" or 17 (shield, 20 with mage armor)
+                return armorType.baseArmorClass + 3 + getDexterityModifier() + shieldBonus;
+            case NONE:
+                // 10 + dexMod + 2 for shieldBonus "15" or "17 (shield)"
+            case PADDED:
+                // 11 + dexMod + 2 for shield "18 (padded armor, shield)"
+            case LEATHER:
+                // 11 + dexMod + 2 for shield "18 (leather, shield)"
+            case STUDDED_LEATHER:
+                // 12 + dexMod +2 for shield "17 (studded leather)"
+                return armorType.baseArmorClass + getDexterityModifier() + shieldBonus;
+            case HIDE:
+                // 12 + Min(2, dexMod) + 2 for shield "12 (hide armor)"
+            case CHAIN_SHIRT:
+                // 13 + Min(2, dexMod) + 2 for shield "12 (chain shirt)"
+            case SCALE_MAIL:
+                // 14 + Min(2, dexMod) + 2 for shield "14 (scale mail)"
+            case BREASTPLATE:
+                // 14 + Min(2, dexMod) + 2 for shield "16 (breastplate)"
+            case HALF_PLATE:
+                // 15 + Min(2, dexMod) + 2 for shield "17 (half plate)"
+                return armorType.baseArmorClass + Math.min(2, getDexterityModifier()) + shieldBonus;
+            case RING_MAIL:
+                // 14 + 2 for shield "14 (ring mail)
+            case CHAIN_MAIL:
+                // 16 + 2 for shield "16 (chain mail)"
+            case SPLINT_MAIL:
+                // 17 + 2 for shield "17 (splint)"
+            case PLATE_MAIL:
+                // 18 + 2 for shield "18 (plate)"
+                return armorType.baseArmorClass + shieldBonus;
+            case OTHER:
+                // pure string value shield check does nothing just copies the string from otherArmorDesc
+                return 0;
+            default:
+                Logger.logUnimplementedFeature(String.format("Getting the armor class value with an unknown armor type %s", armorType));
+                return -1;
+        }
+    }
+
     public String getHitPoints() {
         if (hasCustomHP) {
             return customHPDescription;
         } else {
-            int dieSize = getHitDieForSize(size);
+            int dieSize = Helpers.getHitDieForSize(size);
             int conMod = getConstitutionModifier();
             // For PC style calculations use this
             //int hpTotal = (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
@@ -477,21 +524,17 @@ public class Monster {
         }
     }
 
-    private static int getHitDieForSize(String size) {
-        if ("tiny".equals(size)) {
-            return 4;
-        } else if ("small".equals(size)) {
-            return 6;
-        } else if ("medium".equals(size)) {
-            return 8;
-        } else if ("large".equals(size)) {
-            return 10;
-        } else if ("huge".equals(size)) {
-            return 12;
-        } else if ("gargantuan".equals(size)) {
-            return 20;
+    public int getHitPointsValue() {
+        if (hasCustomHP) {
+            return 0;
         } else {
-            return 8;
+            int dieSize = Helpers.getHitDieForSize(size);
+            int conMod = getConstitutionModifier();
+            // For PC style calculations use this
+            //int hpTotal = (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
+            // For monster style calculations use this
+            int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
+            return hpTotal;
         }
     }
 
@@ -566,7 +609,7 @@ public class Monster {
         }
     }
 
-    public int getProficiencyBonus(ProficiencyType proficiencyType) {
+    public int getProficiencyBonus(@NotNull ProficiencyType proficiencyType) {
         switch (proficiencyType) {
             case PROFICIENT:
                 return getProficiencyBonus();
@@ -710,7 +753,7 @@ public class Monster {
         return abilityDescriptions;
     }
 
-    public String getPlaceholderReplacedText(String rawText) {
+    public String getPlaceholderReplacedText(@NotNull String rawText) {
         return rawText
                 .replaceAll("\\[STR SAVE]", String.format("%+d", getSpellSaveDC(AbilityScore.STRENGTH)))
                 .replaceAll("\\[STR ATK]", String.format("%+d", getAttackBonus(AbilityScore.STRENGTH)))
@@ -772,5 +815,29 @@ public class Monster {
             actionDescriptions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.name, action.description)));
         }
         return actionDescriptions;
+    }
+
+    public static class Helpers {
+        public static int getAbilityModifierForScore(int score) {
+            return (int) Math.floor((score - 10) / 2.0);
+        }
+
+        public static int getHitDieForSize(String size) {
+            if ("tiny".equals(size)) {
+                return 4;
+            } else if ("small".equals(size)) {
+                return 6;
+            } else if ("medium".equals(size)) {
+                return 8;
+            } else if ("large".equals(size)) {
+                return 10;
+            } else if ("huge".equals(size)) {
+                return 12;
+            } else if ("gargantuan".equals(size)) {
+                return 20;
+            } else {
+                return 8;
+            }
+        }
     }
 }
