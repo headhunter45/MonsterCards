@@ -10,10 +10,10 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding_normal"
+        android:layout_margin="8dp"
         android:ellipsize="end"
         android:lines="1"
-        android:textSize="@dimen/monster_tile_name_text_size"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,10 +24,10 @@
         android:id="@+id/meta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding_normal"
+        android:layout_margin="8dp"
         android:ellipsize="end"
         android:lines="1"
-        android:textSize="@dimen/monster_tile_meta_text_size"
+        android:textSize="10sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:id="@+id/boxesRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding_normal"
+        android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meta">
@@ -46,8 +46,8 @@
         <include
             android:id="@+id/armorClass"
             layout="@layout/card_armor_class"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size" />
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
 
 
         <Space
@@ -58,8 +58,8 @@
         <include
             android:id="@+id/hitPoints"
             layout="@layout/card_hit_points"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size" />
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
 
         <Space
             android:layout_width="0dp"
@@ -69,8 +69,8 @@
         <include
             android:id="@+id/initiative"
             layout="@layout/card_initiative"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size" />
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
 
         <Space
             android:layout_width="0dp"
@@ -80,8 +80,8 @@
         <include
             android:id="@+id/challengeRating"
             layout="@layout/card_challenge_rating"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size" />
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
 
     </LinearLayout>
 
@@ -89,9 +89,9 @@
         android:id="@+id/action"
         layout="@layout/card_action"
         android:layout_width="0dp"
-        android:layout_height="@dimen/action_card_height"
-        android:layout_marginHorizontal="@dimen/padding_small"
-        android:layout_marginVertical="@dimen/padding_normal"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="8dp"
         android:baselineAligned="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
