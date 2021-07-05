@@ -3,6 +3,7 @@ package com.majinnaibu.monstercards.models;
 import android.annotation.SuppressLint;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -531,10 +532,9 @@ public class Monster {
             int dieSize = Helpers.getHitDieForSize(size);
             int conMod = getConstitutionModifier();
             // For PC style calculations use this
-            //int hpTotal = (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
+            //return (int) Math.max(1, Math.ceil(dieSize + conMod + (hitDice - 1) * ((dieSize + 1) / 2.0 + conMod)));
             // For monster style calculations use this
-            int hpTotal = (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
-            return hpTotal;
+            return (int) Math.max(1, Math.ceil(hitDice * ((dieSize + 1) / 2.0 + conMod)));
         }
     }
 
@@ -815,6 +815,235 @@ public class Monster {
             actionDescriptions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.name, action.description)));
         }
         return actionDescriptions;
+    }
+
+    @Override
+    public boolean equals(@Nullable @org.jetbrains.annotations.Nullable Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Monster)) {
+            return false;
+        }
+        Monster other = (Monster) obj;
+        if (!challengeRating.equals(other.challengeRating)) {
+            return false;
+        }
+        if (!understandsButDescription.equals(other.understandsButDescription)) {
+            return false;
+        }
+        if (!languages.equals(other.languages)) {
+            return false;
+        }
+        if (!damageVulnerabilities.equals(other.damageVulnerabilities)) {
+            return false;
+        }
+        if (!damageResistances.equals(other.damageResistances)) {
+            return false;
+        }
+        if (!damageImmunities.equals(other.damageImmunities)) {
+            return false;
+        }
+        if (!conditionImmunities.equals(other.conditionImmunities)) {
+            return false;
+        }
+        if (!charismaSavingThrowProficiency.equals(other.charismaSavingThrowProficiency)) {
+            return false;
+        }
+        if (!wisdomSavingThrowProficiency.equals(other.wisdomSavingThrowProficiency)) {
+            return false;
+        }
+        if (!intelligenceSavingThrowProficiency.equals(other.intelligenceSavingThrowProficiency)) {
+            return false;
+        }
+        if (constitutionSavingThrowProficiency.equals(other.constitutionSavingThrowProficiency)) {
+            return false;
+        }
+
+        if (dexteritySavingThrowProficiency.equals(other.dexteritySavingThrowProficiency)) {
+            return false;
+        }
+
+        if (strengthSavingThrowProficiency.equals(other.strengthSavingThrowProficiency)) {
+            return false;
+        }
+
+        if (legendaryActions.equals(other.legendaryActions)) {
+            return false;
+        }
+
+        if (customChallengeRatingDescription.equals(other.customChallengeRatingDescription)) {
+            return false;
+        }
+
+        if (customSpeedDescription.equals(other.customSpeedDescription)) {
+            return false;
+        }
+
+        if (customHPDescription.equals(other.customHPDescription)) {
+            return false;
+        }
+
+        if (otherArmorDescription.equals(other.otherArmorDescription)) {
+            return false;
+        }
+
+        if (alignment.equals(other.alignment)) {
+            return false;
+        }
+
+        if (subtype.equals(other.subtype)) {
+            return false;
+        }
+
+        if (abilities.equals(other.abilities)) {
+            return false;
+        }
+
+        if (actions.equals(other.actions)) {
+            return false;
+        }
+
+        if (armorType.equals(other.armorType)) {
+            return false;
+        }
+
+        if (charismaSavingThrowAdvantage.equals(other.charismaSavingThrowAdvantage)) {
+            return false;
+        }
+
+        if (constitutionSavingThrowAdvantage.equals(other.constitutionSavingThrowAdvantage)) {
+            return false;
+        }
+
+        if (dexteritySavingThrowAdvantage.equals(other.dexteritySavingThrowAdvantage)) {
+            return false;
+        }
+
+        if (hitDice == other.hitDice) {
+            return false;
+        }
+
+        if (id.equals(other.id)) {
+            return false;
+        }
+
+        if (intelligenceSavingThrowAdvantage.equals(other.intelligenceSavingThrowAdvantage)) {
+            return false;
+        }
+
+        if (lairActions.equals(other.lairActions)) {
+            return false;
+        }
+
+        if (name.equals(other.name)) {
+            return false;
+        }
+
+        if (reactions.equals(other.reactions)) {
+            return false;
+        }
+
+        if (regionalActions.equals(other.regionalActions)) {
+            return false;
+        }
+
+        if (senses.equals(other.senses)) {
+            return false;
+        }
+
+        if (shieldBonus == other.shieldBonus) {
+            return false;
+        }
+
+        if (size.equals(other.size)) {
+            return false;
+        }
+
+        if (skills.equals(other.skills)) {
+            return false;
+        }
+
+        if (strengthSavingThrowAdvantage.equals(other.strengthSavingThrowAdvantage)) {
+            return false;
+        }
+
+        if (strengthScore == other.strengthScore) {
+            return false;
+        }
+
+        if (type.equals(other.type)) {
+            return false;
+        }
+
+        if (wisdomSavingThrowAdvantage.equals(other.wisdomSavingThrowAdvantage)) {
+            return false;
+        }
+
+        if (wisdomScore == other.wisdomScore) {
+            return false;
+        }
+        if (customProficiencyBonus == other.customProficiencyBonus) {
+            return false;
+        }
+
+        if (telepathyRange == other.telepathyRange) {
+            return false;
+        }
+
+        if (intelligenceScore == other.intelligenceScore) {
+            return false;
+        }
+
+        if (constitutionScore == other.constitutionScore) {
+            return false;
+        }
+
+        if (dexterityScore == other.dexterityScore) {
+            return false;
+        }
+
+        if (hasCustomSpeed == other.hasCustomSpeed) {
+            return false;
+        }
+
+        if (hasCustomHP == other.hasCustomHP) {
+            return false;
+        }
+
+        if (swimSpeed == other.swimSpeed) {
+            return false;
+        }
+
+        if (flySpeed == other.flySpeed) {
+            return false;
+        }
+
+        if (climbSpeed == other.climbSpeed) {
+            return false;
+        }
+
+        if (burrowSpeed == other.burrowSpeed) {
+            return false;
+        }
+
+        if (walkSpeed == other.walkSpeed) {
+            return false;
+        }
+
+        if (naturalArmorBonus == other.naturalArmorBonus) {
+            return false;
+        }
+
+        if (canHover == other.canHover) {
+            return false;
+        }
+
+        if (charismaScore == other.charismaScore) {
+            return false;
+        }
+
+        return true;
     }
 
     public static class Helpers {
