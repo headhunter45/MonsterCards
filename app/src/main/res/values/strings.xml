@@ -27,12 +27,14 @@
     <string name="label_alignment">Alignment</string>
     <string name="label_armor">Armor</string>
     <string name="label_armor_class">Armor Class</string>
+    <string name="label_armorClass_icon">AC</string>
     <string name="label_base_speed">Base Speed</string>
     <string name="label_basic_info">Basic Info</string>
     <string name="label_burrow_speed">Burrow Speed</string>
     <string name="label_can_hover">Can Hover</string>
     <string name="label_can_speak_language">Can Speak</string>
     <string name="label_challenge_rating">Challenge Rating</string>
+    <string name="label_challengeRating_icon">CR</string>
     <string name="label_charisma">Charisma</string>
     <string name="label_climb_speed">Climb Speed</string>
     <string name="label_condition_immunities">Condition Immunities</string>
@@ -55,7 +57,9 @@
     <string name="label_has_a_shield">Has a Shield</string>
     <string name="label_hit_dice">Hit Dice</string>
     <string name="label_hit_points">Hit Points</string>
+    <string name="label_hitPoints_icon">HP</string>
     <string name="label_increment_field">+</string>
+    <string name="label_initiative_icon">INIT</string>
     <string name="label_intelligence">Intelligence</string>
     <string name="label_lair_actions">Lair Actions</string>
     <string name="label_languages">Languages</string>

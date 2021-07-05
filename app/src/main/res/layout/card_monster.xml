@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/text_margin"
+    android:layout_margin="@dimen/padding_normal"
     android:background="@drawable/rectangle_background">
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="20sp"
+        android:layout_margin="@dimen/padding_normal"
+        android:textSize="@dimen/monster_card_name_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +23,8 @@
         android:id="@+id/meta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="12sp"
+        android:layout_margin="@dimen/padding_normal"
+        android:textSize="@dimen/monster_card_meta_text_size"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +35,8 @@
         android:id="@+id/challengeRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="20sp"
+        android:layout_margin="@dimen/padding_normal"
+        android:textSize="@dimen/monster_card_name_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="CR 1/8" />
@@ -45,7 +45,7 @@
         android:id="@+id/boxesRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/padding_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meta">
@@ -53,8 +53,8 @@
         <include
             android:id="@+id/strength"
             layout="@layout/card_ability_score"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -64,8 +64,8 @@
         <include
             android:id="@+id/dexterity"
             layout="@layout/card_ability_score"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -75,8 +75,8 @@
         <include
             android:id="@+id/constitution"
             layout="@layout/card_ability_score"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -86,8 +86,8 @@
         <include
             android:id="@+id/intelligence"
             layout="@layout/card_ability_score"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -97,8 +97,8 @@
         <include
             android:id="@+id/wisdom"
             layout="@layout/card_ability_score"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -108,8 +108,8 @@
         <include
             android:id="@+id/charisma"
             layout="@layout/card_ability_score"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -119,8 +119,8 @@
         <include
             android:id="@+id/armorClass"
             layout="@layout/card_armor_class"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
 
         <Space
             android:layout_width="0dp"
@@ -130,15 +130,15 @@
         <include
             android:id="@+id/hitPoints"
             layout="@layout/card_hit_points"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="4dp"
-        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="@dimen/padding_small"
+        android:layout_marginVertical="@dimen/padding_normal"
         android:baselineAligned="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,24 +149,24 @@
             android:id="@+id/action1"
             layout="@layout/card_action"
             android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="@dimen/action_card_height"
+            android:layout_marginHorizontal="@dimen/padding_small"
             android:layout_weight="1" />
 
         <include
             android:id="@+id/action2"
             layout="@layout/card_action"
             android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="@dimen/action_card_height"
+            android:layout_marginHorizontal="@dimen/padding_small"
             android:layout_weight="1" />
 
         <include
             android:id="@+id/action3"
             layout="@layout/card_action"
             android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="@dimen/action_card_height"
+            android:layout_marginHorizontal="@dimen/padding_small"
             android:layout_weight="1" />
     </LinearLayout>
 
