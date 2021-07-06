@@ -4,11 +4,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.FragmentEditStringsListItemBinding;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -21,14 +20,14 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
         mOnClick = onClick;
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(FragmentEditStringsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position));
         holder.itemView.setOnClickListener(v -> {
@@ -51,12 +50,12 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
         public final TextView mContentView;
         public String mItem;
 
-        public ViewHolder(FragmentEditStringsListItemBinding binding) {
+        public ViewHolder(@NonNull FragmentEditStringsListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
 
-        @NotNull
+        @NonNull
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";

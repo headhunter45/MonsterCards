@@ -16,8 +16,6 @@ import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -306,7 +304,7 @@ public class Monster {
         return sb.toString();
     }
 
-    public int getAbilityScore(@NotNull AbilityScore abilityScore) {
+    public int getAbilityScore(@NonNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthScore;
@@ -325,7 +323,7 @@ public class Monster {
         }
     }
 
-    public int getAbilityModifier(@NotNull AbilityScore abilityScore) {
+    public int getAbilityModifier(@NonNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return getStrengthModifier();
@@ -344,7 +342,7 @@ public class Monster {
         }
     }
 
-    public AdvantageType getSavingThrowAdvantageType(@NotNull AbilityScore abilityScore) {
+    public AdvantageType getSavingThrowAdvantageType(@NonNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthSavingThrowAdvantage;
@@ -363,7 +361,7 @@ public class Monster {
         }
     }
 
-    public ProficiencyType getSavingThrowProficiencyType(@NotNull AbilityScore abilityScore) {
+    public ProficiencyType getSavingThrowProficiencyType(@NonNull AbilityScore abilityScore) {
         switch (abilityScore) {
             case STRENGTH:
                 return strengthSavingThrowProficiency;
@@ -609,7 +607,7 @@ public class Monster {
         }
     }
 
-    public int getProficiencyBonus(@NotNull ProficiencyType proficiencyType) {
+    public int getProficiencyBonus(@NonNull ProficiencyType proficiencyType) {
         switch (proficiencyType) {
             case PROFICIENT:
                 return getProficiencyBonus();
@@ -753,7 +751,7 @@ public class Monster {
         return abilityDescriptions;
     }
 
-    public String getPlaceholderReplacedText(@NotNull String rawText) {
+    public String getPlaceholderReplacedText(@NonNull String rawText) {
         return rawText
                 .replaceAll("\\[STR SAVE]", String.format("%+d", getSpellSaveDC(AbilityScore.STRENGTH)))
                 .replaceAll("\\[STR ATK]", String.format("%+d", getAttackBonus(AbilityScore.STRENGTH)))
@@ -818,7 +816,7 @@ public class Monster {
     }
 
     @Override
-    public boolean equals(@Nullable @org.jetbrains.annotations.Nullable Object obj) {
+    public boolean equals(@Nullable Object obj) {
         if (obj == null) {
             return false;
         }

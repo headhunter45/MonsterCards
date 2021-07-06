@@ -89,7 +89,7 @@ public class EditSkillFragment extends MCFragment {
         ProficiencyPicker proficiency;
         EditText name;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             abilityScore = root.findViewById(R.id.abilityScore);
             advantage = root.findViewById(R.id.advantage);
             proficiency = root.findViewById(R.id.proficiency);

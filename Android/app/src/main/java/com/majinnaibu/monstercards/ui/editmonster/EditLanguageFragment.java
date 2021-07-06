@@ -44,7 +44,7 @@ public class EditLanguageFragment extends MCFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mEditMonsterViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
@@ -80,7 +80,7 @@ public class EditLanguageFragment extends MCFragment {
         EditText name;
         SwitchCompat canSpeak;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             name = root.findViewById(R.id.name);
             canSpeak = root.findViewById(R.id.canSpeak);
         }

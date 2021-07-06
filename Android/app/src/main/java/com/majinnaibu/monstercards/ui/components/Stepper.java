@@ -17,6 +17,7 @@ import com.majinnaibu.monstercards.R;
 import java.util.Objects;
 
 
+@SuppressWarnings("unused")
 public class Stepper extends ConstraintLayout {
     private final ViewHolder mHolder;
     private int mCurrentValue;
@@ -138,7 +139,7 @@ public class Stepper extends ConstraintLayout {
         final Button increment;
         final Button decrement;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             text = root.findViewById(R.id.text);
             label = root.findViewById(R.id.label);
             increment = root.findViewById(R.id.increment);

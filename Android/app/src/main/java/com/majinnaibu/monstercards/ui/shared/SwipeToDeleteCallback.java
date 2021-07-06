@@ -25,7 +25,7 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
     private final OnMoveCallback mOnMove;
     private final Context mContext;
 
-    public SwipeToDeleteCallback(Context context, OnSwipeCallback onDelete, OnMoveCallback onMove) {
+    public SwipeToDeleteCallback(@NonNull Context context, OnSwipeCallback onDelete, OnMoveCallback onMove) {
         super(onMove == null ? 0 : ItemTouchHelper.UP | ItemTouchHelper.DOWN, onDelete == null ? 0 : ItemTouchHelper.LEFT);
         mOnDelete = onDelete;
         mOnMove = onMove;

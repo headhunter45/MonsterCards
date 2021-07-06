@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -20,7 +21,7 @@ public class EditSavingThrowsFragment extends MCFragment {
     private ViewHolder mViewHolder;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
@@ -75,7 +76,7 @@ public class EditSavingThrowsFragment extends MCFragment {
         AdvantagePicker charismaAdvantage;
         ProficiencyPicker charismaProficiency;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             strengthAdvantage = root.findViewById(R.id.strengthAdvantage);
             strengthProficiency = root.findViewById(R.id.strengthProficiency);
             dexterityAdvantage = root.findViewById(R.id.dexterityAdvantage);

@@ -1,5 +1,8 @@
 package com.majinnaibu.monstercards.helpers;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.Collection;
 
 @SuppressWarnings({"RedundantIfStatement"})
@@ -16,7 +19,8 @@ public final class StringHelper {
         return false;
     }
 
-    public static String join(String delimiter, Collection<String> strings) {
+    @NonNull
+    public static String join(String delimiter, @NonNull Collection<String> strings) {
         int length = strings.size();
         if (length < 1) {
             return "";
@@ -36,7 +40,7 @@ public final class StringHelper {
         }
     }
 
-    public static String oxfordJoin(String delimiter, String lastDelimiter, String onlyDelimiter, Collection<String> strings) {
+    public static String oxfordJoin(String delimiter, String lastDelimiter, String onlyDelimiter, @NonNull Collection<String> strings) {
         int length = strings.size();
         if (length < 1) {
             return "";
@@ -59,6 +63,7 @@ public final class StringHelper {
         }
     }
 
+    @Nullable
     public static Integer parseInt(String s) {
         try {
             return Integer.parseInt(s);
@@ -67,7 +72,7 @@ public final class StringHelper {
         }
     }
 
-    public static boolean containsCaseInsensitive(String text, String search) {
+    public static boolean containsCaseInsensitive(@NonNull String text, @NonNull String search) {
         // TODO: find a locale independent way to do this
         return text.toLowerCase().contains(search.toLowerCase());
     }
