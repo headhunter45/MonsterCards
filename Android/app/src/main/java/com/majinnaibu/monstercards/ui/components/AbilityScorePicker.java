@@ -35,11 +35,12 @@ public class AbilityScorePicker extends LinearLayout {
         // TODO: use this as default but allow setting via attribute
         mLabel = "Ability Score";
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Stepper, 0, 0);
-        String label = a.getString(R.styleable.Stepper_label);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AbilityScorePicker, 0, 0);
+        String label = a.getString(R.styleable.AbilityScorePicker_label);
         if (label != null) {
             mLabel = label;
         }
+        a.recycle();
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View root = inflater.inflate(R.layout.component_ability_score_picker, this, true);
@@ -124,7 +125,7 @@ public class AbilityScorePicker extends LinearLayout {
         private final Spinner spinner;
         private final TextView label;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             spinner = root.findViewById(R.id.spinner);
             label = root.findViewById(R.id.label);
         }

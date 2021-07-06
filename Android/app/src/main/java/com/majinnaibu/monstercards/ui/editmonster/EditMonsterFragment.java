@@ -247,7 +247,7 @@ public class EditMonsterFragment extends MCFragment {
         TextView lairActions;
         TextView regionalActions;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             basicInfoButton = root.findViewById(R.id.basicInfo);
             armorButton = root.findViewById(R.id.armor);
             speedButton = root.findViewById(R.id.speed);

@@ -1,5 +1,6 @@
 package com.majinnaibu.monstercards.ui.monster;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -183,7 +184,7 @@ public class MonsterImportViewModel extends ViewModel {
         return mMonster;
     }
 
-    public void setMonster(Monster monster) {
+    public void setMonster(@NonNull Monster monster) {
         mMonster = monster;
         mAbilities.setValue(mMonster.getAbilityDescriptions());
         mActions.setValue(mMonster.getActionDescriptions());

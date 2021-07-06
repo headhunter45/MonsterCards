@@ -28,7 +28,7 @@ public class EditChallengeRatingFragment extends MCFragment {
     private ViewHolder mHolder;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
@@ -82,7 +82,7 @@ public class EditChallengeRatingFragment extends MCFragment {
         final EditText customChallengeRatingDescription;
         final EditText customProficiencyBonus;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             challengeRating = root.findViewById(R.id.challengeRating);
             customChallengeRatingDescription = root.findViewById(R.id.customChallengeRatingDescription);
             customProficiencyBonus = root.findViewById(R.id.customProficiencyBonus);

@@ -27,8 +27,6 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class EditTraitsFragment extends MCFragment {
@@ -39,7 +37,7 @@ public class EditTraitsFragment extends MCFragment {
 
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         if (getArguments() != null) {
             EditTraitsFragmentArgs args = EditTraitsFragmentArgs.fromBundle(getArguments());
             mTraitType = args.getTraitType();
@@ -50,9 +48,8 @@ public class EditTraitsFragment extends MCFragment {
     }
 
     @Nullable
-    @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
@@ -64,6 +61,7 @@ public class EditTraitsFragment extends MCFragment {
         return root;
     }
 
+    @NonNull
     private String getTitleForTraitType(TraitType type) {
         switch (type) {
             case ABILITY:
@@ -116,7 +114,7 @@ public class EditTraitsFragment extends MCFragment {
         });
     }
 
-    protected void navigateToEditTrait(Trait trait) {
+    protected void navigateToEditTrait(@NonNull Trait trait) {
         NavDirections action = EditTraitsFragmentDirections.actionEditTraitListFragmentToEditTraitFragment(trait.description, trait.name, mTraitType);
         Navigation.findNavController(requireView()).navigate(action);
     }
@@ -125,7 +123,7 @@ public class EditTraitsFragment extends MCFragment {
         RecyclerView list;
         FloatingActionButton addTrait;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             list = root.findViewById(R.id.list);
             addTrait = root.findViewById(R.id.add_trait);
         }

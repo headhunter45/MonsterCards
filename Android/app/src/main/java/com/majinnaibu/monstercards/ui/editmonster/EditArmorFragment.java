@@ -30,7 +30,7 @@ public class EditArmorFragment extends MCFragment {
     private ViewHolder mHolder;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
@@ -93,7 +93,7 @@ public class EditArmorFragment extends MCFragment {
         private final Stepper shieldBonus;
         private final EditText customArmor;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             armorType = root.findViewById(R.id.armorType);
             naturalArmorBonus = root.findViewById(R.id.naturalArmorBonus);
             hasShield = root.findViewById(R.id.hasShield);

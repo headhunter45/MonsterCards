@@ -30,7 +30,7 @@ public class Trait implements Comparator<Trait>, Comparable<Trait> {
     }
 
     @Override
-    public boolean equals(@Nullable @org.jetbrains.annotations.Nullable Object obj) {
+    public boolean equals(@Nullable Object obj) {
         if (obj == null) {
             return false;
         }

@@ -158,7 +158,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mRegionalActions = new ChangeTrackedLiveData<>(new ArrayList<>(), this::makeDirty);
     }
 
-    public void copyFromMonster(Monster monster) {
+    public void copyFromMonster(@NonNull Monster monster) {
         mMonsterId.resetValue(monster.id);
         mName.resetValue(monster.name);
         mSize.resetValue(monster.size);
@@ -787,7 +787,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return monster;
     }
 
-    public LiveData<List<Trait>> getTraits(TraitType type) {
+    public LiveData<List<Trait>> getTraits(@NonNull TraitType type) {
         switch (type) {
             case ABILITY:
                 return mAbilities;
@@ -807,7 +807,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public void removeTrait(TraitType type, int position) {
+    public void removeTrait(@NonNull TraitType type, int position) {
         switch (type) {
             case ABILITY:
                 Helpers.removeFromList(mAbilities, position);
@@ -833,7 +833,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public void replaceTrait(TraitType type, Trait oldTrait, Trait newTrait) {
+    public void replaceTrait(@NonNull TraitType type, Trait oldTrait, Trait newTrait) {
         switch (type) {
             case ABILITY:
                 Helpers.replaceItemInList(mAbilities, oldTrait, newTrait);
@@ -858,7 +858,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public Trait addNewTrait(TraitType type) {
+    public Trait addNewTrait(@NonNull TraitType type) {
         Trait newAction = new Trait("", "");
         switch (type) {
             case ABILITY:
@@ -879,7 +879,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public LiveData<List<String>> getStrings(StringType type) {
+    public LiveData<List<String>> getStrings(@NonNull StringType type) {
         switch (type) {
             case CONDITION_IMMUNITY:
                 return mConditionImmunities;
@@ -897,7 +897,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public void removeString(StringType type, int position) {
+    public void removeString(@NonNull StringType type, int position) {
         switch (type) {
             case CONDITION_IMMUNITY:
                 Helpers.removeFromList(mConditionImmunities, position);
@@ -920,7 +920,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public String addNewString(StringType type) {
+    public String addNewString(@NonNull StringType type) {
         String newString = "";
         switch (type) {
             case CONDITION_IMMUNITY:
@@ -939,7 +939,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public void replaceString(StringType type, String oldValue, String newValue) {
+    public void replaceString(@NonNull StringType type, String oldValue, String newValue) {
         switch (type) {
             case CONDITION_IMMUNITY:
                 Helpers.replaceItemInList(mConditionImmunities, oldValue, newValue);
@@ -961,7 +961,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         }
     }
 
-    public boolean moveTrait(TraitType type, int from, int to) {
+    public boolean moveTrait(@NonNull TraitType type, int from, int to) {
         switch (type) {
             case ABILITY:
                 return Helpers.moveItemInList(mAbilities, from, to);
@@ -989,7 +989,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             return addItemToList(listData, newItem, null);
         }
 
-        static <T> T addItemToList(MutableLiveData<List<T>> listData, T newItem, Comparator<? super T> comparator) {
+        static <T> T addItemToList(@NonNull MutableLiveData<List<T>> listData, T newItem, Comparator<? super T> comparator) {
             ArrayList<T> newList = new ArrayList<>(listData.getValue());
             newList.add(newItem);
             if (comparator != null) {
@@ -999,14 +999,14 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             return newItem;
         }
 
-        static <T> void removeFromList(MutableLiveData<List<T>> listData, int position) {
+        static <T> void removeFromList(@NonNull MutableLiveData<List<T>> listData, int position) {
             List<T> oldList = listData.getValue();
             ArrayList<T> newList = new ArrayList<>(oldList);
             newList.remove(position);
             listData.setValue(newList);
         }
 
-        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, int position, T newItem, Comparator<? super T> comparator) {
+        static <T> void replaceItemInList(@NonNull MutableLiveData<List<T>> listData, int position, T newItem, Comparator<? super T> comparator) {
             List<T> oldList = listData.getValue();
             if (oldList == null) {
                 oldList = new ArrayList<>();
@@ -1036,7 +1036,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             replaceItemInList(listData, position, newItem, null);
         }
 
-        static <T> void replaceItemInList(MutableLiveData<List<T>> listData, T oldItem, T newItem, Comparator<? super T> comparator) {
+        static <T> void replaceItemInList(@NonNull MutableLiveData<List<T>> listData, T oldItem, T newItem, Comparator<? super T> comparator) {
             List<T> oldList = listData.getValue();
             if (oldList == null) {
                 oldList = new ArrayList<>();
@@ -1071,7 +1071,7 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
             return value;
         }
 
-        static <T> boolean moveItemInList(ChangeTrackedLiveData<List<T>> listData, int from, int to) {
+        static <T> boolean moveItemInList(@NonNull ChangeTrackedLiveData<List<T>> listData, int from, int to) {
             List<T> oldList = listData.getValue();
             if (oldList == null) {
                 oldList = new ArrayList<>();

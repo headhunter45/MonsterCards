@@ -29,7 +29,7 @@ public class EditTraitFragment extends MCFragment {
     private TraitType mTraitType;
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditTraitViewModel.class);
         if (getArguments() != null) {
             EditTraitFragmentArgs args = EditTraitFragmentArgs.fromBundle(getArguments());
@@ -44,7 +44,7 @@ public class EditTraitFragment extends MCFragment {
     }
 
     @Nullable
-    @org.jetbrains.annotations.Nullable
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
@@ -102,7 +102,7 @@ public class EditTraitFragment extends MCFragment {
         EditText description;
         EditText name;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             description = root.findViewById(R.id.description);
             name = root.findViewById(R.id.name);
         }

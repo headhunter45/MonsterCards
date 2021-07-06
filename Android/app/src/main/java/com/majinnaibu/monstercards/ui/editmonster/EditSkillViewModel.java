@@ -1,5 +1,6 @@
 package com.majinnaibu.monstercards.ui.editmonster;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
@@ -25,7 +26,7 @@ public class EditSkillViewModel extends ChangeTrackedViewModel {
         mSkill = new ChangeTrackedLiveData<>(makeSkill(), this::makeDirty);
     }
 
-    public void copyFromSkill(Skill skill) {
+    public void copyFromSkill(@NonNull Skill skill) {
         mAbilityScore.resetValue(skill.abilityScore);
         mAdvantageType.resetValue(skill.advantageType);
         mProficiencyType.resetValue(skill.proficiencyType);
@@ -73,6 +74,7 @@ public class EditSkillViewModel extends ChangeTrackedViewModel {
         mSkill.setValue(makeSkill());
     }
 
+    @NonNull
     private Skill makeSkill() {
         return new Skill(mName.getValue(), mAbilityScore.getValue(), mAdvantageType.getValue(), mProficiencyType.getValue());
     }

@@ -4,9 +4,6 @@ import org.commonmark.node.Document;
 import org.commonmark.node.Node;
 import org.commonmark.node.Paragraph;
 import org.commonmark.parser.Parser;
-import org.commonmark.renderer.NodeRenderer;
-import org.commonmark.renderer.html.HtmlNodeRendererContext;
-import org.commonmark.renderer.html.HtmlNodeRendererFactory;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 public final class CommonMarkHelper {
@@ -26,13 +23,5 @@ public final class CommonMarkHelper {
         }
         HtmlRenderer renderer = HtmlRenderer.builder().build();
         return renderer.render(document);
-    }
-
-    private static final class MyNodeRendererFactory implements HtmlNodeRendererFactory {
-
-        @Override
-        public NodeRenderer create(HtmlNodeRendererContext context) {
-            return null;
-        }
     }
 }

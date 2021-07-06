@@ -1,5 +1,7 @@
 package com.majinnaibu.monstercards.data;
 
+import androidx.annotation.NonNull;
+
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
@@ -12,6 +14,7 @@ import com.majinnaibu.monstercards.models.Trait;
 
 @SuppressWarnings("unused")
 public final class DevContent {
+    @NonNull
     public static Monster createSampleMonster() {
         Monster monster = new Monster();
         // Name

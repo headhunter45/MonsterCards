@@ -34,6 +34,7 @@
     <string name="label_can_hover">Can Hover</string>
     <string name="label_can_speak_language">Can Speak</string>
     <string name="label_challenge_rating">Challenge Rating</string>
+    <string name="label_challenge_rating_with_value">CR %s</string>
     <string name="label_challengeRating_icon">CR</string>
     <string name="label_charisma">Charisma</string>
     <string name="label_climb_speed">Climb Speed</string>

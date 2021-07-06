@@ -88,7 +88,7 @@ public class AdvantagePicker extends ConstraintLayout {
         final MaterialRadioButton advantage;
         final MaterialRadioButton disadvantage;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             group = root.findViewById(R.id.group);
             none = root.findViewById(R.id.hasNoAdvantage);
             advantage = root.findViewById(R.id.hasAdvantage);

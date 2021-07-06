@@ -3,7 +3,7 @@ package com.majinnaibu.monstercards.data.enums;
 public enum ProficiencyType {
     NONE("none", "None", ""),
     PROFICIENT("proficient", "Proficient", "P"),
-    EXPERTISE("experties", "Expertise", "Ex"),
+    EXPERTISE("expertise", "Expertise", "Ex"),
     ;
 
     public final String displayName;

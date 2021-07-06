@@ -114,7 +114,7 @@ public class LibraryFragment extends MCFragment {
         });
     }
 
-    protected void navigateToMonsterDetail(UUID monsterId) {
+    protected void navigateToMonsterDetail(@NonNull UUID monsterId) {
         NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
         Navigation.findNavController(requireView()).navigate(action);
     }
