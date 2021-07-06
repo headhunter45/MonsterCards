@@ -88,7 +88,7 @@ public class MonsterImportFragment extends MCFragment {
         return root;
     }
 
-    private void setupLabeledTextView(TextView view, String text, int titleId) {
+    private void setupLabeledTextView(@NonNull TextView view, String text, int titleId) {
         String title = getString(titleId);
         String fullText = String.format("<b>%s</b> %s", title, text);
         view.setText(Html.fromHtml(fullText));
@@ -184,7 +184,7 @@ public class MonsterImportFragment extends MCFragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private void navigateToEditMonster(UUID monsterId) {
+    private void navigateToEditMonster(@NonNull UUID monsterId) {
         NavController navController = Navigation.findNavController(requireView());
         NavDirections action;
         action = MonsterImportFragmentDirections.actionMonsterImportFragmentToNavigationLibrary();
@@ -234,7 +234,7 @@ public class MonsterImportFragment extends MCFragment {
         final TextView regionalEffects_label;
         final ImageView regionalEffects_divider;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             this.root = root;
             name = root.findViewById(R.id.name);
             meta = root.findViewById(R.id.meta);

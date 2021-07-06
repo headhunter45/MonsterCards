@@ -99,7 +99,7 @@ public class MonsterDetailFragment extends MCFragment {
         return root;
     }
 
-    private void setupLabeledTextView(TextView view, String text, int titleId) {
+    private void setupLabeledTextView(@NonNull TextView view, String text, int titleId) {
         String title = getString(titleId);
         String fullText = String.format("<b>%s</b> %s", title, text);
         view.setText(Html.fromHtml(fullText));
@@ -214,7 +214,7 @@ public class MonsterDetailFragment extends MCFragment {
         final TextView regionalEffects_label;
         final ImageView regionalEffects_divider;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             name = root.findViewById(R.id.name);
             meta = root.findViewById(R.id.meta);
             armorClass = root.findViewById(R.id.armorClass);

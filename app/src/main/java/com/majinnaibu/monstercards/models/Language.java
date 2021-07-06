@@ -1,5 +1,6 @@
 package com.majinnaibu.monstercards.models;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Comparator;
@@ -43,7 +44,7 @@ public class Language implements Comparator<Language>, Comparable<Language> {
     }
 
     @Override
-    public int compare(Language o1, Language o2) {
+    public int compare(@NonNull Language o1, Language o2) {
         if (o1.mSpeaks && !o2.mSpeaks) {
             return -1;
         }
@@ -54,7 +55,7 @@ public class Language implements Comparator<Language>, Comparable<Language> {
     }
 
     @Override
-    public boolean equals(@Nullable @org.jetbrains.annotations.Nullable Object obj) {
+    public boolean equals(@Nullable Object obj) {
         if (obj == null) {
             return false;
         }

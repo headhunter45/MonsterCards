@@ -88,7 +88,7 @@ public class ProficiencyPicker extends ConstraintLayout {
         final MaterialRadioButton proficient;
         final MaterialRadioButton expertise;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             group = root.findViewById(R.id.group);
             none = root.findViewById(R.id.none);
             proficient = root.findViewById(R.id.proficient);

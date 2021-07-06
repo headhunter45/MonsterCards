@@ -47,7 +47,7 @@ public class MonsterRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Flowable<Monster> getMonster(UUID monsterId) {
+    public Flowable<Monster> getMonster(@NonNull UUID monsterId) {
         return m_db.monsterDAO()
                 .loadAllByIds(new String[]{monsterId.toString()})
                 .map(

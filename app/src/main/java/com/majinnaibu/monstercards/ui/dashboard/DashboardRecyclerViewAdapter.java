@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
@@ -21,17 +22,17 @@ import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import org.jetbrains.annotations.NotNull;
+import java.util.Locale;
 
 public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, DashboardRecyclerViewAdapter.ViewHolder> {
     private static final DiffUtil.ItemCallback<Monster> DIFF_CALLBACK = new DiffUtil.ItemCallback<Monster>() {
         @Override
-        public boolean areItemsTheSame(@NonNull @NotNull Monster oldItem, @NonNull @NotNull Monster newItem) {
+        public boolean areItemsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
             return oldItem.id.equals(newItem.id);
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull @NotNull Monster oldItem, @NonNull @NotNull Monster newItem) {
+        public boolean areContentsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
             return oldItem.equals(newItem);
         }
     };
@@ -43,14 +44,13 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
     }
 
     @NonNull
-    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(CardMonsterBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Logger.logUnimplementedMethod();
         Monster monster = getItem(position);
         holder.monster = monster;
@@ -88,7 +88,7 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
 
         holder.armorClass.setText(String.valueOf(monster.getArmorClassValue()));
         holder.hitPoints.setText(String.valueOf(monster.getHitPointsValue()));
-        holder.challengeRating.setText("CR " + Helpers.getChallengeRatingAbbreviation(monster.challengeRating));
+        holder.challengeRating.setText(holder.challengeRating.getResources().getString(R.string.label_challenge_rating_with_value, Helpers.getChallengeRatingAbbreviation(monster.challengeRating)));
 
         int numActions = monster.actions.size();
         if (numActions > 0) {
@@ -170,7 +170,7 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
         public final TextView challengeRating;
         public Monster monster;
 
-        public ViewHolder(CardMonsterBinding binding) {
+        public ViewHolder(@NonNull CardMonsterBinding binding) {
             super(binding.getRoot());
             name = binding.name;
             meta = binding.meta;
@@ -214,11 +214,13 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
     }
 
     public static class Helpers {
+        @NonNull
         public static String getModifierString(int value) {
-            return String.format("%+d", value);
+            return String.format(Locale.getDefault(), "%+d", value);
         }
 
-        public static String getAbilityScoreAbbreviation(AbilityScore abilityScore) {
+        @NonNull
+        public static String getAbilityScoreAbbreviation(@NonNull AbilityScore abilityScore) {
             switch (abilityScore) {
                 case STRENGTH:
                     return "S";
@@ -238,7 +240,8 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
             }
         }
 
-        public static String getChallengeRatingAbbreviation(ChallengeRating challengeRating) {
+        @NonNull
+        public static String getChallengeRatingAbbreviation(@NonNull ChallengeRating challengeRating) {
             Logger.logUnimplementedMethod();
             switch (challengeRating) {
                 case CUSTOM:
@@ -317,7 +320,8 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
             }
         }
 
-        public static String getProficiencyAbbreviation(ProficiencyType proficiency) {
+        @NonNull
+        public static String getProficiencyAbbreviation(@NonNull ProficiencyType proficiency) {
             switch (proficiency) {
                 case NONE:
                     return "";
@@ -331,7 +335,8 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
             }
         }
 
-        public static String getAdvantageAbbreviation(AdvantageType advantage) {
+        @NonNull
+        public static String getAdvantageAbbreviation(@NonNull AdvantageType advantage) {
             switch (advantage) {
                 case NONE:
                     return "";

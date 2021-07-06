@@ -26,8 +26,6 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class EditStringsFragment extends MCFragment {
@@ -36,7 +34,7 @@ public class EditStringsFragment extends MCFragment {
     private StringType mStringType;
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         Bundle arguments = getArguments();
         if (arguments != null) {
             EditStringsFragmentArgs args = EditStringsFragmentArgs.fromBundle(arguments);
@@ -48,9 +46,8 @@ public class EditStringsFragment extends MCFragment {
     }
 
     @Nullable
-    @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
@@ -62,6 +59,7 @@ public class EditStringsFragment extends MCFragment {
         return root;
     }
 
+    @NonNull
     private String getTitleForStringType(StringType type) {
         switch (type) {
             case CONDITION_IMMUNITY:
@@ -123,7 +121,7 @@ public class EditStringsFragment extends MCFragment {
         RecyclerView list;
         FloatingActionButton addItem;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             list = root.findViewById(R.id.list);
             addItem = root.findViewById(R.id.add_item);
         }

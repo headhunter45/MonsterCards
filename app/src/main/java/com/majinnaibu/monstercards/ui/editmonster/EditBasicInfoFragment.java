@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
@@ -28,7 +29,7 @@ public class EditBasicInfoFragment extends MCFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
@@ -73,7 +74,7 @@ public class EditBasicInfoFragment extends MCFragment {
         private final Stepper hitDice;
         private final SwitchMaterial hasCustomHitPoints;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             name = root.findViewById(R.id.name);
             size = root.findViewById(R.id.size);
             type = root.findViewById(R.id.type);

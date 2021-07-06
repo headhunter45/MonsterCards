@@ -28,7 +28,7 @@ public class EditStringFragment extends MCFragment {
     private StringType mStringType;
 
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(EditStringViewModel.class);
         if (getArguments() != null) {
             EditStringFragmentArgs args = EditStringFragmentArgs.fromBundle(getArguments());
@@ -43,7 +43,6 @@ public class EditStringFragment extends MCFragment {
     }
 
     @Nullable
-    @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
@@ -69,7 +68,8 @@ public class EditStringFragment extends MCFragment {
         return root;
     }
 
-    private String getTitleForStringType(StringType type) {
+    @NonNull
+    private String getTitleForStringType(@NonNull StringType type) {
         switch (type) {
             case CONDITION_IMMUNITY:
                 return getString(R.string.title_editConditionImmunity);
@@ -95,7 +95,7 @@ public class EditStringFragment extends MCFragment {
     private static class ViewHolder {
         EditText description;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             description = root.findViewById(R.id.description);
         }
     }

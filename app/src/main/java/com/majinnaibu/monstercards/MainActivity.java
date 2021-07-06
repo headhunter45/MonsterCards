@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
@@ -54,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
-        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            FlipperInitializer.sendNavigationEvent(controller, destination, arguments);
-        });
+        navController.addOnDestinationChangedListener(FlipperInitializer::sendNavigationEvent);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         onNewIntent(getIntent());
@@ -68,14 +67,15 @@ public class MainActivity extends AppCompatActivity {
 
         String json = readMonsterJSONFromIntent(intent);
         if (!StringHelper.isNullOrEmpty(json)) {
-            NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
             NavController navController = navHostFragment.getNavController();
             NavDirections action = MobileNavigationDirections.actionGlobalMonsterImportFragment(json);
             navController.navigate(action);
         }
     }
 
-    private String readMonsterJSONFromIntent(Intent intent) {
+    @Nullable
+    private String readMonsterJSONFromIntent(@NonNull Intent intent) {
         String action = intent.getAction();
         Bundle extras = intent.getExtras();
         String type = intent.getType();
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         } else if ("android.intent.action.VIEW".equals(action) && ("text/plain".equals(type) || "application/octet-stream".equals(type))) {
             uri = intent.getData();
         } else {
-            Logger.logError(String.format("unexpected launch configuration action: %s, type: %s, uri: %s", action, type, uri));
+            Logger.logError(String.format("unexpected launch configuration action: %s, type: %s", action, type));
         }
         if (uri == null) {
             return null;
@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         return json;
     }
 
+    @Nullable
     private String readContentsOfUri(Uri uri) {
         StringBuilder builder = new StringBuilder();
         try (InputStream inputStream =
