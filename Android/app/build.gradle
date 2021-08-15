@@ -13,13 +13,13 @@ def appCenterEnvSecret = System.getenv('APPCENTER_SECRET')
 def appCenterSecret = appCenterLocalSecret != null ? appCenterLocalSecret : appCenterEnvSecret != null ? appCenterEnvSecret : ""
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "com.majinnaibu.monstercards"
         minSdkVersion 22
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         buildConfigField "String", "APPCENTER_SECRET", "\"${appCenterSecret}\""
@@ -83,7 +83,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Room DB
-    implementation "io.reactivex.rxjava3:rxjava:3.0.0"
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.0'
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
     implementation "androidx.room:room-runtime:2.3.0"
     annotationProcessor "androidx.room:room-compiler:2.3.0"
@@ -91,15 +91,15 @@ dependencies {
     //testImplementation "androidx.room:room-testing:2.3.0"
 
     // AppCenter
-    debugImplementation "com.microsoft.appcenter:appcenter-analytics:3.3.3"
-    debugImplementation "com.microsoft.appcenter:appcenter-crashes:3.3.3"
+    debugImplementation 'com.microsoft.appcenter:appcenter-analytics:4.2.0'
+    debugImplementation 'com.microsoft.appcenter:appcenter-crashes:4.2.0'
 
     // Flipper
-    debugImplementation "com.facebook.flipper:flipper:0.87.0"
+    debugImplementation 'com.facebook.flipper:flipper:0.102.0'
     debugImplementation "com.facebook.soloader:soloader:0.10.1"
-    releaseImplementation "com.facebook.flipper:flipper-noop:0.87.0"
+    releaseImplementation 'com.facebook.flipper:flipper-noop:0.102.0'
 
     // Other 3rd Party
-    implementation 'com.atlassian.commonmark:commonmark:0.15.2'
-    implementation "com.google.code.gson:gson:2.8.6"
+    implementation 'com.atlassian.commonmark:commonmark:0.17.0'
+    implementation 'com.google.code.gson:gson:2.8.7'
 }
