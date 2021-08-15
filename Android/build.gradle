@@ -20,6 +20,12 @@ allprojects {
         // maven { url "https://oss.jfrog.org/libs-snapshot" }
         // maven { url 'http://repo1.maven.org/maven2' }
     }
+    // Temporary workaround until room 2.4.0 is released https://issuetracker.google.com/issues/174695268?pli=1#comment10
+    configurations.configureEach {
+        resolutionStrategy {
+            force 'org.xerial:sqlite-jdbc:3.34.0'
+        }
+    }
 }
 
 task clean(type: Delete) {
