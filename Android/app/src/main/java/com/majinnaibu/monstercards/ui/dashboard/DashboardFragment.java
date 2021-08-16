@@ -20,7 +20,6 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.List;
-import java.util.Locale;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -38,6 +37,7 @@ public class DashboardFragment extends MCFragment {
 
         setupRecyclerView(mHolder.list);
 
+        // TODO: subscribe better
         getMonsterRepository()
                 .getMonsters()
                 .subscribeOn(Schedulers.io())
@@ -49,7 +49,6 @@ public class DashboardFragment extends MCFragment {
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         int columnCount = Math.max(1, getResources().getConfiguration().screenWidthDp / 396);
-        Logger.logWTF(String.format(Locale.US, "Setting column count to %d", columnCount));
         Context context = requireContext();
         GridLayoutManager layoutManager = new GridLayoutManager(context, columnCount);
         recyclerView.setLayoutManager(layoutManager);
