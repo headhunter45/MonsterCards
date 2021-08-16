@@ -1,8 +1,11 @@
 package com.majinnaibu.monstercards;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -21,6 +24,7 @@ import com.majinnaibu.monstercards.init.FlipperInitializer;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -81,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
         String type = intent.getType();
         String json;
         Uri uri = null;
-        if ("android.intent.action.SEND".equals(action) && "text/plain".equals(type)) {
+        if ("android.intent.action.MAIN".equals(action)) {
+            return null;
+        } else if ("android.intent.action.SEND".equals(action) && "text/plain".equals(type)) {
             uri = extras.getParcelable("android.intent.extra.STREAM");
         } else if ("android.intent.action.VIEW".equals(action) && ("text/plain".equals(type) || "application/octet-stream".equals(type))) {
             uri = intent.getData();
@@ -101,10 +107,10 @@ public class MainActivity extends AppCompatActivity {
     @Nullable
     private String readContentsOfUri(Uri uri) {
         StringBuilder builder = new StringBuilder();
-        try (InputStream inputStream =
-                     getContentResolver().openInputStream(uri);
-             BufferedReader reader = new BufferedReader(
-                     new InputStreamReader(Objects.requireNonNull(inputStream)))) {
+        try (
+                InputStream inputStream = openInputStream(uri);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)))
+        ) {
             String line;
             while ((line = reader.readLine()) != null) {
                 builder.append(line);
@@ -114,5 +120,37 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
         return builder.toString();
+    }
+
+    private boolean isVirtualFile(Uri uri) {
+        if (!DocumentsContract.isDocumentUri(this, uri)) {
+            return false;
+        }
+
+        Cursor cursor = getContentResolver().query(
+                uri,
+                new String[]{DocumentsContract.Document.COLUMN_FLAGS},
+                null, null, null);
+
+        int flags = 0;
+        if (cursor.moveToFirst()) {
+            flags = cursor.getInt(0);
+        }
+        cursor.close();
+
+        return (flags & DocumentsContract.Document.FLAG_VIRTUAL_DOCUMENT) != 0;
+    }
+
+    private InputStream openInputStream(Uri uri) throws IOException {
+        ContentResolver resolver = getContentResolver();
+        if (isVirtualFile(uri)) {
+            String[] openableMimeTypes = resolver.getStreamTypes(uri, "*/*");
+            if (openableMimeTypes == null || openableMimeTypes.length <= 0) {
+                throw new FileNotFoundException();
+            }
+            return resolver.openTypedAssetFileDescriptor(uri, openableMimeTypes[0], null).createInputStream();
+        } else {
+            return resolver.openInputStream(uri);
+        }
     }
 }
