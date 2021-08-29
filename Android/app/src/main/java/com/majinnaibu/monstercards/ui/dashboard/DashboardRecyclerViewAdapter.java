@@ -28,12 +28,12 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
     private static final DiffUtil.ItemCallback<Monster> DIFF_CALLBACK = new DiffUtil.ItemCallback<Monster>() {
         @Override
         public boolean areItemsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
-            return oldItem.id.equals(newItem.id);
+            return Monster.areItemsTheSame(oldItem, newItem);
         }
 
         @Override
         public boolean areContentsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
-            return oldItem.equals(newItem);
+            return Monster.areContentsTheSame(oldItem, newItem);
         }
     };
     private final ItemCallback mOnClick;

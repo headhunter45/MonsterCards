@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -266,6 +267,69 @@ public class Monster {
         lairActions = new ArrayList<>();
         legendaryActions = new ArrayList<>();
         regionalActions = new ArrayList<>();
+    }
+
+    public static boolean areItemsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
+        return Objects.equals(oldItem.id, newItem.id);
+    }
+
+    public static boolean areContentsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
+        return Objects.equals(oldItem.abilities, newItem.abilities) &&
+                Objects.equals(oldItem.actions, newItem.actions) &&
+                Objects.equals(oldItem.alignment, newItem.alignment) &&
+                Objects.equals(oldItem.armorType, newItem.armorType) &&
+                Objects.equals(oldItem.burrowSpeed, newItem.burrowSpeed) &&
+                Objects.equals(oldItem.canHover, newItem.canHover) &&
+                Objects.equals(oldItem.challengeRating, newItem.challengeRating) &&
+                Objects.equals(oldItem.charismaSavingThrowAdvantage, newItem.charismaSavingThrowAdvantage) &&
+                Objects.equals(oldItem.charismaSavingThrowProficiency, newItem.charismaSavingThrowProficiency) &&
+                Objects.equals(oldItem.charismaScore, newItem.charismaScore) &&
+                Objects.equals(oldItem.climbSpeed, newItem.climbSpeed) &&
+                Objects.equals(oldItem.conditionImmunities, newItem.conditionImmunities) &&
+                Objects.equals(oldItem.constitutionSavingThrowAdvantage, newItem.constitutionSavingThrowAdvantage) &&
+                Objects.equals(oldItem.constitutionSavingThrowProficiency, newItem.constitutionSavingThrowProficiency) &&
+                Objects.equals(oldItem.constitutionScore, newItem.constitutionScore) &&
+                Objects.equals(oldItem.customChallengeRatingDescription, newItem.customChallengeRatingDescription) &&
+                Objects.equals(oldItem.customHPDescription, newItem.customHPDescription) &&
+                Objects.equals(oldItem.customProficiencyBonus, newItem.customProficiencyBonus) &&
+                Objects.equals(oldItem.customSpeedDescription, newItem.customSpeedDescription) &&
+                Objects.equals(oldItem.damageImmunities, newItem.damageImmunities) &&
+                Objects.equals(oldItem.damageResistances, newItem.damageResistances) &&
+                Objects.equals(oldItem.damageVulnerabilities, newItem.damageVulnerabilities) &&
+                Objects.equals(oldItem.dexteritySavingThrowAdvantage, newItem.dexteritySavingThrowAdvantage) &&
+                Objects.equals(oldItem.dexteritySavingThrowProficiency, newItem.dexteritySavingThrowProficiency) &&
+                Objects.equals(oldItem.dexterityScore, newItem.dexterityScore) &&
+                Objects.equals(oldItem.flySpeed, newItem.flySpeed) &&
+                Objects.equals(oldItem.hasCustomHP, newItem.hasCustomHP) &&
+                Objects.equals(oldItem.hasCustomSpeed, newItem.hasCustomSpeed) &&
+                Objects.equals(oldItem.hitDice, newItem.hitDice) &&
+                Objects.equals(oldItem.intelligenceSavingThrowAdvantage, newItem.intelligenceSavingThrowAdvantage) &&
+                Objects.equals(oldItem.intelligenceSavingThrowProficiency, newItem.intelligenceSavingThrowProficiency) &&
+                Objects.equals(oldItem.intelligenceScore, newItem.intelligenceScore) &&
+                Objects.equals(oldItem.lairActions, newItem.lairActions) &&
+                Objects.equals(oldItem.languages, newItem.languages) &&
+                Objects.equals(oldItem.legendaryActions, newItem.legendaryActions) &&
+                Objects.equals(oldItem.name, newItem.name) &&
+                Objects.equals(oldItem.naturalArmorBonus, newItem.naturalArmorBonus) &&
+                Objects.equals(oldItem.otherArmorDescription, newItem.otherArmorDescription) &&
+                Objects.equals(oldItem.reactions, newItem.reactions) &&
+                Objects.equals(oldItem.regionalActions, newItem.regionalActions) &&
+                Objects.equals(oldItem.senses, newItem.senses) &&
+                Objects.equals(oldItem.shieldBonus, newItem.shieldBonus) &&
+                Objects.equals(oldItem.size, newItem.size) &&
+                Objects.equals(oldItem.skills, newItem.skills) &&
+                Objects.equals(oldItem.strengthSavingThrowAdvantage, newItem.strengthSavingThrowAdvantage) &&
+                Objects.equals(oldItem.strengthSavingThrowProficiency, newItem.strengthSavingThrowProficiency) &&
+                Objects.equals(oldItem.strengthScore, newItem.strengthScore) &&
+                Objects.equals(oldItem.subtype, newItem.subtype) &&
+                Objects.equals(oldItem.swimSpeed, newItem.swimSpeed) &&
+                Objects.equals(oldItem.telepathyRange, newItem.telepathyRange) &&
+                Objects.equals(oldItem.type, newItem.type) &&
+                Objects.equals(oldItem.understandsButDescription, newItem.understandsButDescription) &&
+                Objects.equals(oldItem.wisdomSavingThrowAdvantage, newItem.wisdomSavingThrowAdvantage) &&
+                Objects.equals(oldItem.wisdomSavingThrowProficiency, newItem.wisdomSavingThrowProficiency) &&
+                Objects.equals(oldItem.wisdomScore, newItem.wisdomScore) &&
+                Objects.equals(oldItem.walkSpeed, newItem.walkSpeed);
     }
 
     public String getMeta() {
