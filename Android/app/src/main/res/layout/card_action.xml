@@ -35,6 +35,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name"
         tools:text="Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 14 (2d8 + 5) bludgeoning damage." />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

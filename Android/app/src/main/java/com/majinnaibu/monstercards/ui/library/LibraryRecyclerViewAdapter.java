@@ -37,7 +37,7 @@ public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecy
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.monster_list_content, parent, false);
+                .inflate(R.layout.simple_list_item, parent, false);
         return new ViewHolder(view);
     }
 

@@ -15,7 +15,7 @@
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".MonsterListFragment"
-        tools:listitem="@layout/monster_list_content" />
+        tools:listitem="@layout/simple_list_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
