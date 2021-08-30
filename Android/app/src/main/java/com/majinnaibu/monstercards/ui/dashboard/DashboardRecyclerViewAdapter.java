@@ -51,7 +51,6 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Logger.logUnimplementedMethod();
         Monster monster = getItem(position);
         holder.monster = monster;
         holder.name.setText(monster.name);
@@ -242,7 +241,6 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
 
         @NonNull
         public static String getChallengeRatingAbbreviation(@NonNull ChallengeRating challengeRating) {
-            Logger.logUnimplementedMethod();
             switch (challengeRating) {
                 case CUSTOM:
                     return "*";

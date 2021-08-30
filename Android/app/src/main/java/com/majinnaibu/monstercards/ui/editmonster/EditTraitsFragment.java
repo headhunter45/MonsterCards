@@ -35,7 +35,6 @@ public class EditTraitsFragment extends MCFragment {
     private TraitType mTraitType;
     private EditTraitsRecyclerViewAdapter mAdapter;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         if (getArguments() != null) {
@@ -47,9 +46,8 @@ public class EditTraitsFragment extends MCFragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
