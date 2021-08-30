@@ -184,6 +184,5 @@
             android:text="@string/label_regional_effects"
             android:textSize="@dimen/text_h4_size"
             app:drawableEndCompat="@drawable/ic_chevron_right_24" />
-
     </LinearLayout>
 </ScrollView>
