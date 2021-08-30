@@ -9,22 +9,20 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.databinding.FragmentEditTraitsListItemBinding;
+import com.majinnaibu.monstercards.databinding.SimpleListItemBinding;
 import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.ItemCallback;
-
-import org.jetbrains.annotations.NotNull;
 
 public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraitsRecyclerViewAdapter.ViewHolder> {
     private static final DiffUtil.ItemCallback<Trait> DIFF_CALLBACK = new DiffUtil.ItemCallback<Trait>() {
 
         @Override
-        public boolean areItemsTheSame(@NonNull @NotNull Trait oldItem, @NonNull @NotNull Trait newItem) {
+        public boolean areItemsTheSame(@NonNull Trait oldItem, @NonNull Trait newItem) {
             return oldItem.equals(newItem);
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull @NotNull Trait oldItem, @NonNull @NotNull Trait newItem) {
+        public boolean areContentsTheSame(@NonNull Trait oldItem, @NonNull Trait newItem) {
             return oldItem.equals(newItem);
         }
     };
@@ -35,14 +33,14 @@ public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraits
         mOnClick = onClick;
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentEditTraitsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(SimpleListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = getItem(position);
         holder.mContentView.setText(holder.mItem.name);
         holder.itemView.setOnClickListener(v -> {
@@ -56,12 +54,12 @@ public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraits
         public final TextView mContentView;
         public Trait mItem;
 
-        public ViewHolder(FragmentEditTraitsListItemBinding binding) {
+        public ViewHolder(@NonNull SimpleListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
 
-        @NotNull
+        @NonNull
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";

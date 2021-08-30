@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.FragmentEditLanguagesListHeaderBinding;
-import com.majinnaibu.monstercards.databinding.FragmentEditLanguagesListItemBinding;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.ui.components.Stepper;
 import com.majinnaibu.monstercards.utils.ItemCallback;
@@ -45,7 +44,7 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         if (viewType == HEADER_VIEW_TYPE) {
             return new HeaderViewHolder(FragmentEditLanguagesListHeaderBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
         }
-        return new ItemViewHolder(FragmentEditLanguagesListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ItemViewHolder(com.majinnaibu.monstercards.databinding.SimpleListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -97,7 +96,7 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
         public final TextView mContentView;
         public Language mItem;
 
-        public ItemViewHolder(@NonNull FragmentEditLanguagesListItemBinding binding) {
+        public ItemViewHolder(@NonNull com.majinnaibu.monstercards.databinding.SimpleListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
