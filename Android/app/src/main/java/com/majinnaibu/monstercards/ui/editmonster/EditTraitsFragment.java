@@ -27,8 +27,6 @@ import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class EditTraitsFragment extends MCFragment {
@@ -37,9 +35,8 @@ public class EditTraitsFragment extends MCFragment {
     private TraitType mTraitType;
     private EditTraitsRecyclerViewAdapter mAdapter;
 
-
     @Override
-    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         if (getArguments() != null) {
             EditTraitsFragmentArgs args = EditTraitsFragmentArgs.fromBundle(getArguments());
             mTraitType = args.getTraitType();
@@ -49,10 +46,8 @@ public class EditTraitsFragment extends MCFragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
-    @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.edit_monster_navigation);
         mViewModel = new ViewModelProvider(backStackEntry).get(EditMonsterViewModel.class);
@@ -64,22 +59,23 @@ public class EditTraitsFragment extends MCFragment {
         return root;
     }
 
+    @NonNull
     private String getTitleForTraitType(TraitType type) {
         switch (type) {
             case ABILITY:
-                return getString(R.string.title_edit_abilities);
+                return getString(R.string.title_editAbilities);
             case ACTION:
-                return getString(R.string.title_edit_actions);
+                return getString(R.string.title_editActions);
             case LAIR_ACTION:
-                return getString(R.string.title_edit_lair_actions);
+                return getString(R.string.title_editLairActions);
             case LEGENDARY_ACTION:
-                return getString(R.string.title_edit_legendary_actions);
+                return getString(R.string.title_editLegendaryActions);
             case REACTIONS:
-                return getString(R.string.title_edit_reactions);
+                return getString(R.string.title_editReactions);
             case REGIONAL_ACTION:
-                return getString(R.string.title_edit_regional_actions);
+                return getString(R.string.title_editRegionalActions);
             default:
-                return "";
+                return getString(R.string.title_editTraits);
         }
     }
 
@@ -116,7 +112,7 @@ public class EditTraitsFragment extends MCFragment {
         });
     }
 
-    protected void navigateToEditTrait(Trait trait) {
+    protected void navigateToEditTrait(@NonNull Trait trait) {
         NavDirections action = EditTraitsFragmentDirections.actionEditTraitListFragmentToEditTraitFragment(trait.description, trait.name, mTraitType);
         Navigation.findNavController(requireView()).navigate(action);
     }
@@ -125,7 +121,7 @@ public class EditTraitsFragment extends MCFragment {
         RecyclerView list;
         FloatingActionButton addTrait;
 
-        ViewHolder(View root) {
+        ViewHolder(@NonNull View root) {
             list = root.findViewById(R.id.list);
             addTrait = root.findViewById(R.id.add_trait);
         }
