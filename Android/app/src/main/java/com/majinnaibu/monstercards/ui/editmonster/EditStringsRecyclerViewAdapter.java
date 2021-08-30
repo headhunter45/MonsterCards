@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.databinding.FragmentEditStringsListItemBinding;
+import com.majinnaibu.monstercards.databinding.SimpleListItemBinding;
 import com.majinnaibu.monstercards.utils.ItemCallback;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentEditStringsListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(SimpleListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
         public final TextView mContentView;
         public String mItem;
 
-        public ViewHolder(@NonNull FragmentEditStringsListItemBinding binding) {
+        public ViewHolder(@NonNull SimpleListItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
