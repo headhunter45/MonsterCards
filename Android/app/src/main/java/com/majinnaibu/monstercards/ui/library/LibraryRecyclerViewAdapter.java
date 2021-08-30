@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 
 public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecyclerViewAdapter.ViewHolder> {
     private static final DiffUtil.ItemCallback<Monster> DIFF_CALLBACK = new DiffUtil.ItemCallback<Monster>() {
@@ -25,9 +26,9 @@ public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecy
             return Monster.areContentsTheSame(oldItem, newItem);
         }
     };
-    private final ItemCallback mOnClick;
+    private final ItemCallback<Monster> mOnClick;
 
-    public LibraryRecyclerViewAdapter(ItemCallback onClick) {
+    public LibraryRecyclerViewAdapter(ItemCallback<Monster> onClick) {
         super(DIFF_CALLBACK);
         mOnClick = onClick;
     }
@@ -48,13 +49,9 @@ public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecy
         holder.itemView.setTag(monster);
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
-                mOnClick.onItemCallback(holder.item);
+                mOnClick.onItem(holder.item);
             }
         });
-    }
-
-    public interface ItemCallback {
-        void onItemCallback(Monster monster);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

@@ -20,6 +20,7 @@ import com.majinnaibu.monstercards.databinding.CardMonsterBinding;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Trait;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.Locale;
@@ -36,9 +37,9 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
             return Monster.areContentsTheSame(oldItem, newItem);
         }
     };
-    private final ItemCallback mOnClick;
+    private final ItemCallback<Monster> mOnClick;
 
-    protected DashboardRecyclerViewAdapter(ItemCallback onClick) {
+    protected DashboardRecyclerViewAdapter(ItemCallback<Monster> onClick) {
         super(DIFF_CALLBACK);
         mOnClick = onClick;
     }
@@ -119,13 +120,9 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
 
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
-                mOnClick.onItemCallback(holder.monster);
+                mOnClick.onItem(holder.monster);
             }
         });
-    }
-
-    public interface ItemCallback {
-        void onItemCallback(Monster monster);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import org.jetbrains.annotations.NotNull;
@@ -23,12 +24,12 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<SearchResultsRecyclerViewAdapter.ViewHolder> {
     private final MonsterRepository mRepository;
-    private final ItemCallback mOnClickHandler;
+    private final ItemCallback<Monster> mOnClickHandler;
     private String mSearchText;
     private List<Monster> mValues;
     private Disposable mSubscriptionHandler;
     public SearchResultsRecyclerViewAdapter(MonsterRepository repository,
-                                            ItemCallback onClick) {
+                                            ItemCallback<Monster> onClick) {
         mRepository = repository;
         mSearchText = "";
         mValues = new ArrayList<>();
@@ -74,10 +75,6 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     @Override
     public int getItemCount() {
         return mValues.size();
-    }
-
-    public interface ItemCallback {
-        void onItem(Monster monster);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
