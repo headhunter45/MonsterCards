@@ -1,52 +1,35 @@
 package com.majinnaibu.monstercards.ui.library;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.models.Monster;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-
-public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecyclerViewAdapter.ViewHolder> {
-    private final Context mContext;
-    private final ItemCallback mOnDelete;
-    private final ItemCallback mOnClick;
-    private final Flowable<List<Monster>> mItemsObservable;
-    private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
+public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecyclerViewAdapter.ViewHolder> {
+    private static final DiffUtil.ItemCallback<Monster> DIFF_CALLBACK = new DiffUtil.ItemCallback<Monster>() {
         @Override
-        public void onClick(@NonNull View view) {
-            Monster monster = (Monster) view.getTag();
-            if (mOnClick != null) {
-                mOnClick.onItemCallback(monster);
-            }
+        public boolean areItemsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
+            return Monster.areItemsTheSame(oldItem, newItem);
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
+            return Monster.areContentsTheSame(oldItem, newItem);
         }
     };
-    private List<Monster> mValues;
-    private Disposable mDisposable;
+    private final ItemCallback mOnClick;
 
-    public LibraryRecyclerViewAdapter(Context context,
-                                      Flowable<List<Monster>> itemsObservable,
-                                      ItemCallback onClick,
-                                      ItemCallback onDelete) {
-        mItemsObservable = itemsObservable;
-        mValues = new ArrayList<>();
-        mContext = context;
-        mOnDelete = onDelete;
+    public LibraryRecyclerViewAdapter(ItemCallback onClick) {
+        super(DIFF_CALLBACK);
         mOnClick = onClick;
-        mDisposable = null;
     }
 
     @Override
@@ -59,45 +42,15 @@ public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecy
 
     @Override
     public void onBindViewHolder(final @NonNull ViewHolder holder, int position) {
-        Monster monster = mValues.get(position);
-        holder.mContentView.setText(monster.name);
+        Monster monster = getItem(position);
+        holder.item = monster;
+        holder.contentView.setText(monster.name);
         holder.itemView.setTag(monster);
-        holder.itemView.setOnClickListener(mOnClickListener);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mValues.size();
-    }
-
-    public Context getContext() {
-        return mContext;
-    }
-
-    @Override
-    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
-        // TODO: consider moving this subscription out of the adapter and make the subscriber call setItems on the adapter
-        mDisposable = mItemsObservable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(monsters -> {
-                    mValues = monsters;
-                    notifyDataSetChanged();
-                });
-    }
-
-    @Override
-    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
-        super.onDetachedFromRecyclerView(recyclerView);
-        mDisposable.dispose();
-    }
-
-    public void deleteItem(int position) {
-        if (mOnDelete != null) {
-            Monster monster = mValues.get(position);
-            mOnDelete.onItemCallback(monster);
-        }
+        holder.itemView.setOnClickListener(v -> {
+            if (mOnClick != null) {
+                mOnClick.onItemCallback(holder.item);
+            }
+        });
     }
 
     public interface ItemCallback {
@@ -105,11 +58,12 @@ public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecy
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView mContentView;
+        final TextView contentView;
+        Monster item;
 
         ViewHolder(View view) {
             super(view);
-            mContentView = view.findViewById(R.id.content);
+            contentView = view.findViewById(R.id.content);
         }
     }
 }
