@@ -8,14 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.FragmentEditStringsListItemBinding;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 
 import java.util.List;
 
 public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStringsRecyclerViewAdapter.ViewHolder> {
     private final List<String> mValues;
-    private final ItemCallback mOnClick;
+    private final ItemCallback<String> mOnClick;
 
-    public EditStringsRecyclerViewAdapter(List<String> items, ItemCallback onClick) {
+    public EditStringsRecyclerViewAdapter(List<String> items, ItemCallback<String> onClick) {
         mValues = items;
         mOnClick = onClick;
     }
@@ -32,7 +33,7 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
         holder.mContentView.setText(mValues.get(position));
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
-                mOnClick.onItemCallback(holder.mItem);
+                mOnClick.onItem(holder.mItem);
             }
         });
     }
@@ -40,10 +41,6 @@ public class EditStringsRecyclerViewAdapter extends RecyclerView.Adapter<EditStr
     @Override
     public int getItemCount() {
         return mValues.size();
-    }
-
-    public interface ItemCallback {
-        void onItemCallback(String value);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

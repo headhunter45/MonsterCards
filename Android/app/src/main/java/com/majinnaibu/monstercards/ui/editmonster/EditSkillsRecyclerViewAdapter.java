@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.FragmentEditSkillsListItemBinding;
 import com.majinnaibu.monstercards.models.Skill;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 
 import java.util.List;
 
@@ -17,9 +18,9 @@ import java.util.List;
  */
 public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkillsRecyclerViewAdapter.ViewHolder> {
     private final List<Skill> mValues;
-    private final ItemCallback mOnClick;
+    private final ItemCallback<Skill> mOnClick;
 
-    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback onClick) {
+    public EditSkillsRecyclerViewAdapter(List<Skill> items, ItemCallback<Skill> onClick) {
         mValues = items;
         mOnClick = onClick;
     }
@@ -36,7 +37,7 @@ public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkil
         holder.mContentView.setText(mValues.get(position).name);
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
-                mOnClick.onItemCallback(holder.mItem);
+                mOnClick.onItem(holder.mItem);
             }
         });
     }
@@ -44,10 +45,6 @@ public class EditSkillsRecyclerViewAdapter extends RecyclerView.Adapter<EditSkil
     @Override
     public int getItemCount() {
         return mValues.size();
-    }
-
-    public interface ItemCallback {
-        void onItemCallback(Skill skill);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

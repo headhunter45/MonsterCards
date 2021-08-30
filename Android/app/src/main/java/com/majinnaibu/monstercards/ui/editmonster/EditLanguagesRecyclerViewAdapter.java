@@ -13,13 +13,14 @@ import com.majinnaibu.monstercards.databinding.FragmentEditLanguagesListHeaderBi
 import com.majinnaibu.monstercards.databinding.FragmentEditLanguagesListItemBinding;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.ui.components.Stepper;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 
 import java.util.List;
 import java.util.Locale;
 
 public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final List<Language> mValues;
-    private final ItemCallback mOnClick;
+    private final ItemCallback<Language> mOnClick;
     private final int mTelepathyRange;
     private final String mUnderstandsBut;
     private final Stepper.OnValueChangeListener mOnTelepathyRangeChanged;
@@ -29,7 +30,7 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
     private final int ITEM_VIEW_TYPE = 2;
     private final String DISTANCE_IN_FEET_FORMAT = "%d ft.";
 
-    public EditLanguagesRecyclerViewAdapter(List<Language> items, ItemCallback onClick, int telepathyRange, Stepper.OnValueChangeListener telepathyRangeChangedListener, String understandsBut, TextWatcher understandsButChangedListener) {
+    public EditLanguagesRecyclerViewAdapter(List<Language> items, ItemCallback<Language> onClick, int telepathyRange, Stepper.OnValueChangeListener telepathyRangeChangedListener, String understandsBut, TextWatcher understandsButChangedListener) {
         mValues = items;
         mOnClick = onClick;
         mTelepathyRange = telepathyRange;
@@ -62,7 +63,7 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
             itemViewHolder.mContentView.setText(itemViewHolder.mItem.getName());
             itemViewHolder.itemView.setOnClickListener(view -> {
                 if (mOnClick != null) {
-                    mOnClick.onItemCallback(itemViewHolder.mItem);
+                    mOnClick.onItem(itemViewHolder.mItem);
                 }
             });
         }
@@ -79,10 +80,6 @@ public class EditLanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
             return HEADER_VIEW_TYPE;
         }
         return ITEM_VIEW_TYPE;
-    }
-
-    public interface ItemCallback {
-        void onItemCallback(Language language);
     }
 
     public static class HeaderViewHolder extends RecyclerView.ViewHolder {

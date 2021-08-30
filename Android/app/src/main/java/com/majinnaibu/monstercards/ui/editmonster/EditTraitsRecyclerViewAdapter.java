@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.FragmentEditTraitsListItemBinding;
 import com.majinnaibu.monstercards.models.Trait;
+import com.majinnaibu.monstercards.utils.ItemCallback;
 
 public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraitsRecyclerViewAdapter.ViewHolder> {
     private static final DiffUtil.ItemCallback<Trait> DIFF_CALLBACK = new DiffUtil.ItemCallback<Trait>() {
@@ -25,9 +26,9 @@ public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraits
             return oldItem.equals(newItem);
         }
     };
-    private final ItemCallback mOnClick;
+    private final ItemCallback<Trait> mOnClick;
 
-    protected EditTraitsRecyclerViewAdapter(ItemCallback onClick) {
+    protected EditTraitsRecyclerViewAdapter(ItemCallback<Trait> onClick) {
         super(DIFF_CALLBACK);
         mOnClick = onClick;
     }
@@ -44,13 +45,9 @@ public class EditTraitsRecyclerViewAdapter extends ListAdapter<Trait, EditTraits
         holder.mContentView.setText(holder.mItem.name);
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
-                mOnClick.onItemCallback(holder.mItem);
+                mOnClick.onItem(holder.mItem);
             }
         });
-    }
-
-    public interface ItemCallback {
-        void onItemCallback(Trait trait);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
