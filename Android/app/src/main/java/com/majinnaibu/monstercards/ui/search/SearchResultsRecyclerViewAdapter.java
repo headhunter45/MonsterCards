@@ -2,18 +2,17 @@ package com.majinnaibu.monstercards.ui.search;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.databinding.SimpleListItemBinding;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.ui.shared.SimpleListItemViewHolder;
 import com.majinnaibu.monstercards.utils.ItemCallback;
 
-public class SearchResultsRecyclerViewAdapter extends ListAdapter<Monster, SearchResultsRecyclerViewAdapter.ViewHolder> {
+public class SearchResultsRecyclerViewAdapter extends ListAdapter<Monster, SimpleListItemViewHolder<Monster>> {
     private static final DiffUtil.ItemCallback<Monster> DIFF_CALLBACK = new DiffUtil.ItemCallback<Monster>() {
         @Override
         public boolean areItemsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
@@ -34,13 +33,13 @@ public class SearchResultsRecyclerViewAdapter extends ListAdapter<Monster, Searc
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SimpleListItemViewHolder<Monster> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         SimpleListItemBinding binding = SimpleListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new ViewHolder(binding);
+        return new SimpleListItemViewHolder<>(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final SimpleListItemViewHolder<Monster> holder, int position) {
         Monster monster = getItem(position);
         holder.item = monster;
         holder.contentView.setText(monster.name);
@@ -49,15 +48,5 @@ public class SearchResultsRecyclerViewAdapter extends ListAdapter<Monster, Searc
                 mOnClick.onItem(holder.item);
             }
         });
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView contentView;
-        Monster item;
-
-        ViewHolder(SimpleListItemBinding binding) {
-            super(binding.getRoot());
-            contentView = binding.content;
-        }
     }
 }
