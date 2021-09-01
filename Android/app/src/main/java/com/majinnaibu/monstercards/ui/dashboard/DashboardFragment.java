@@ -21,15 +21,12 @@ import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-import io.reactivex.rxjava3.subscribers.DisposableSubscriber;
-
 public class DashboardFragment extends MCFragment {
     private DashboardViewModel mViewModel;
     private ViewHolder mHolder;
     private DashboardRecyclerViewAdapter mAdapter;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
@@ -37,25 +34,6 @@ public class DashboardFragment extends MCFragment {
         mHolder = new ViewHolder(root);
 
         setupRecyclerView(mHolder.list);
-
-        getMonsterRepository()
-                .getMonsters()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableSubscriber<List<Monster>>() {
-                    @Override
-                    public void onNext(List<Monster> monsters) {
-                        mViewModel.setMonsters(monsters);
-                    }
-
-                    @Override
-                    public void onError(Throwable t) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                    }
-                });
 
         return root;
     }
