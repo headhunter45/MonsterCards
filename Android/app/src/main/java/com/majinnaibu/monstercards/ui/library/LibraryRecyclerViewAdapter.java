@@ -1,7 +1,6 @@
 package com.majinnaibu.monstercards.ui.library;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.majinnaibu.monstercards.R;
+import com.majinnaibu.monstercards.databinding.SimpleListItemBinding;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.ItemCallback;
 
@@ -36,9 +35,8 @@ public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecy
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.simple_list_item, parent, false);
-        return new ViewHolder(view);
+        SimpleListItemBinding binding = SimpleListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new ViewHolder(binding);
     }
 
     @Override
@@ -58,9 +56,9 @@ public class LibraryRecyclerViewAdapter extends ListAdapter<Monster, LibraryRecy
         final TextView contentView;
         Monster item;
 
-        ViewHolder(View view) {
-            super(view);
-            contentView = view.findViewById(R.id.content);
+        ViewHolder(SimpleListItemBinding binding) {
+            super(binding.getRoot());
+            contentView = binding.content;
         }
     }
 }
