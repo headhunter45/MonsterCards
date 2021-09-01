@@ -23,9 +23,9 @@ import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import io.reactivex.rxjava3.subscribers.DisposableSubscriber;
 
 public class DashboardFragment extends MCFragment {
-    private static final String MODIFIER_FORMAT = "%+d";
     private DashboardViewModel mViewModel;
     private ViewHolder mHolder;
     private DashboardRecyclerViewAdapter mAdapter;
@@ -42,16 +42,26 @@ public class DashboardFragment extends MCFragment {
                 .getMonsters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(monsters -> {
-                    mViewModel.setMonsters(monsters);
+                .subscribe(new DisposableSubscriber<List<Monster>>() {
+                    @Override
+                    public void onNext(List<Monster> monsters) {
+                        mViewModel.setMonsters(monsters);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
                 });
 
         return root;
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        int columnCount = Math.max(1, (int) Math.floor(getResources().getConfiguration().screenWidthDp / 396));
-        Logger.logWTF(String.format("Setting column count to %d", columnCount));
+        int columnCount = Math.max(1, getResources().getConfiguration().screenWidthDp / 396);
         Context context = requireContext();
         GridLayoutManager layoutManager = new GridLayoutManager(context, columnCount);
         recyclerView.setLayoutManager(layoutManager);
