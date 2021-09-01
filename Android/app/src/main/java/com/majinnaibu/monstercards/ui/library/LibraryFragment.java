@@ -105,7 +105,7 @@ public class LibraryFragment extends MCFragment {
 
     protected void navigateToMonsterDetail(Monster monster) {
         if (monster != null) {
-            NavDirections action = (NavDirections) LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monster.id.toString());
+            NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monster.id.toString());
             Navigation.findNavController(requireView()).navigate(action);
         } else {
             Logger.logError("Can't navigate to MonsterDetail without a monster.");
