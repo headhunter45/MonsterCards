@@ -23,6 +23,7 @@ import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import io.reactivex.rxjava3.subscribers.DisposableSubscriber;
 
 public class DashboardFragment extends MCFragment {
     private DashboardViewModel mViewModel;
@@ -37,12 +38,24 @@ public class DashboardFragment extends MCFragment {
 
         setupRecyclerView(mHolder.list);
 
-        // TODO: subscribe better
         getMonsterRepository()
                 .getMonsters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(monsters -> mViewModel.setMonsters(monsters));
+                .subscribe(new DisposableSubscriber<List<Monster>>() {
+                    @Override
+                    public void onNext(List<Monster> monsters) {
+                        mViewModel.setMonsters(monsters);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
 
         return root;
     }
