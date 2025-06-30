@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.majinnaibu.monstercards.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.majinnaibu.monstercards.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_collections"
+        android:name="com.majinnaibu.monstercards.ui.collections.CollectionsFragment"
+        android:label="@string/title_collections"
+        tools:layout="@layout/fragment_collections">
+        <action
+            android:id="@+id/action_navigation_collections_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.majinnaibu.monstercards.ui.library.LibraryFragment"
+        android:label="@string/title_library"
+        tools:layout="@layout/fragment_library">
+        <action
+            android:id="@+id/action_navigation_library_to_navigation_monster"
+            app:destination="@id/navigation_monster" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_monster"
+        android:name="com.majinnaibu.monstercards.ui.monster.MonsterDetailFragment"
+        android:label="@string/title_monsterDetails"
+        tools:layout="@layout/fragment_monster">
+        <argument
+            android:name="monster_id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_monster_to_editMonsterFragment"
+            app:destination="@id/edit_monster_navigation" />
+    </fragment>
+    <navigation
+        android:id="@+id/edit_monster_navigation"
+        app:startDestination="@id/editMonsterFragment">
+        <argument
+            android:name="monster_id"
+            app:argType="string" />
+
+        <fragment
+            android:id="@+id/editMonsterFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditMonsterFragment"
+            android:label="@string/title_editMonster"
+            tools:layout="@layout/fragment_edit_monster">
+            <argument
+                android:name="monster_id"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editBasicInfoFragment"
+                app:destination="@id/editBasicInfoFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editArmorFragment"
+                app:destination="@id/editArmorFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editSpeedFragment"
+                app:destination="@id/editSpeedFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editAbilityScoresFragment"
+                app:destination="@id/editAbilityScoresFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editSavingThrowsFragment"
+                app:destination="@id/editSavingThrowsFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editChallengeRatingFragment"
+                app:destination="@id/editChallengeRatingFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editSkillsFragment"
+                app:destination="@id/editSkillsFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editLanguagesFragment"
+                app:destination="@id/editLanguagesFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editTraitListFragment"
+                app:destination="@id/editTraitListFragment" />
+            <action
+                android:id="@+id/action_editMonsterFragment_to_editStringsFragment"
+                app:destination="@id/editStringsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editBasicInfoFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditBasicInfoFragment"
+            android:label="@string/title_editBasicInfo"
+            tools:layout="@layout/fragment_edit_basic_info" />
+        <fragment
+            android:id="@+id/editArmorFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditArmorFragment"
+            android:label="@string/title_editArmor"
+            tools:layout="@layout/fragment_edit_armor" />
+        <fragment
+            android:id="@+id/editSpeedFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSpeedFragment"
+            android:label="@string/title_editSpeed"
+            tools:layout="@layout/fragment_edit_speed" />
+        <fragment
+            android:id="@+id/editAbilityScoresFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditAbilityScoresFragment"
+            android:label="@string/title_editAbilityScores" />
+        <fragment
+            android:id="@+id/editSavingThrowsFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSavingThrowsFragment"
+            android:label="@string/title_editSavingThrows"
+            tools:layout="@layout/fragment_edit_saving_throws" />
+        <fragment
+            android:id="@+id/editChallengeRatingFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditChallengeRatingFragment"
+            android:label="@string/title_editChallengeRating"
+            tools:layout="@layout/fragment_edit_challenge_rating" />
+        <fragment
+            android:id="@+id/editSkillsFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillsFragment"
+            android:label="@string/title_editSkills"
+            tools:layout="@layout/fragment_edit_skills_list">
+            <action
+                android:id="@+id/action_editSkillsFragment_to_editSkillFragment"
+                app:destination="@id/editSkillFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editSkillFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditSkillFragment"
+            android:label="@string/title_editSkill"
+            tools:layout="@layout/fragment_edit_skill">
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="abilityScore"
+                app:argType="com.majinnaibu.monstercards.data.enums.AbilityScore" />
+            <argument
+                android:name="proficiency"
+                app:argType="com.majinnaibu.monstercards.data.enums.ProficiencyType" />
+            <argument
+                android:name="advantage"
+                app:argType="com.majinnaibu.monstercards.data.enums.AdvantageType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editLanguagesFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguagesFragment"
+            android:label="@string/title_editLanguages"
+            tools:layout="@layout/fragment_edit_languages_list">
+            <action
+                android:id="@+id/action_editLanguagesFragment_to_editLanguageFragment"
+                app:destination="@id/editLanguageFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editLanguageFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditLanguageFragment"
+            android:label="@string/title_editLanguage"
+            tools:layout="@layout/fragment_edit_language">
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="canSpeak"
+                app:argType="boolean" />
+        </fragment>
+        <fragment
+            android:id="@+id/editTraitFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitFragment"
+            android:label="@string/title_editTrait">
+            <argument
+                android:name="description"
+                app:argType="string" />
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="traitType"
+                app:argType="com.majinnaibu.monstercards.data.enums.TraitType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editTraitListFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditTraitsFragment"
+            android:label="@string/title_editTraits">
+            <action
+                android:id="@+id/action_editTraitListFragment_to_editTraitFragment"
+                app:destination="@id/editTraitFragment" />
+            <argument
+                android:name="traitType"
+                app:argType="com.majinnaibu.monstercards.data.enums.TraitType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editStringsFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditStringsFragment"
+            android:label="EditStringsFragment">
+            <action
+                android:id="@+id/action_editStringsFragment_to_editStringFragment"
+                app:destination="@id/editStringFragment" />
+            <argument
+                android:name="stringType"
+                app:argType="com.majinnaibu.monstercards.data.enums.StringType" />
+        </fragment>
+        <fragment
+            android:id="@+id/editStringFragment"
+            android:name="com.majinnaibu.monstercards.ui.editmonster.EditStringFragment"
+            android:label="@string/title_editString">
+            <argument
+                android:name="stringType"
+                app:argType="com.majinnaibu.monstercards.data.enums.StringType" />
+            <argument
+                android:name="value"
+                app:argType="string" />
+        </fragment>
+    </navigation>
+    <fragment
+        android:id="@+id/monsterImportFragment"
+        android:name="com.majinnaibu.monstercards.ui.monster.MonsterImportFragment"
+        android:label="@string/title_importMonster"
+        tools:layout="@layout/fragment_monster">
+        <argument
+            android:name="json"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_monsterImportFragment_to_navigation_library"
+            app:destination="@id/navigation_library"
+            app:popUpTo="@id/monsterImportFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_monsterImportFragment"
+        app:destination="@id/monsterImportFragment" />
+</navigation>

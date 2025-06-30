@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.editmonster.EditBasicInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/armorType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/naturalArmorBonus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_natural_armor_bonus"
+            app:maxValue="99"
+            app:minValue="0"
+            app:stepAmount="1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/hasShield"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/label_has_a_shield"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/shieldBonus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_shield_bonus"
+            app:maxValue="99"
+            app:minValue="0"
+            app:stepAmount="1" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customArmor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_custom_armor"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:text="John Doe" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+</ScrollView>
