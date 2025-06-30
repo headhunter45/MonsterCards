@@ -1,0 +1,483 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "7c3c3ed79c7002102e7af7cfd21c23e0",
+    "entities": [
+      {
+        "tableName": "monsters",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL DEFAULT '', `size` TEXT NOT NULL DEFAULT '', `type` TEXT NOT NULL DEFAULT '', `subtype` TEXT NOT NULL DEFAULT '', `alignment` TEXT NOT NULL DEFAULT '', `strength_score` INTEGER NOT NULL DEFAULT 10, `strength_saving_throw_advantage` TEXT DEFAULT 'none', `strength_saving_throw_proficiency` TEXT DEFAULT 'none', `dexterity_score` INTEGER NOT NULL DEFAULT 10, `dexterity_saving_throw_advantage` TEXT DEFAULT 'none', `dexterity_saving_throw_proficiency` TEXT DEFAULT 'none', `constitution_score` INTEGER NOT NULL DEFAULT 10, `constitution_saving_throw_advantage` TEXT DEFAULT 'none', `constitution_saving_throw_proficiency` TEXT DEFAULT 'none', `intelligence_score` INTEGER NOT NULL DEFAULT 10, `intelligence_saving_throw_advantage` TEXT DEFAULT 'none', `intelligence_saving_throw_proficiency` TEXT DEFAULT 'none', `wisdom_score` INTEGER NOT NULL DEFAULT 10, `wisdom_saving_throw_advantage` TEXT DEFAULT 'none', `wisdom_saving_throw_proficiency` TEXT DEFAULT 'none', `charisma_score` INTEGER NOT NULL DEFAULT 10, `charisma_saving_throw_advantage` TEXT DEFAULT 'none', `charisma_saving_throw_proficiency` TEXT DEFAULT 'none', `armor_type` TEXT DEFAULT 'none', `shield_bonus` INTEGER NOT NULL DEFAULT 0, `natural_armor_bonus` INTEGER NOT NULL DEFAULT 0, `other_armor_description` TEXT DEFAULT '', `hit_dice` INTEGER NOT NULL DEFAULT 1, `has_custom_hit_points` INTEGER NOT NULL, `custom_hit_points_description` TEXT DEFAULT '', `walk_speed` INTEGER NOT NULL DEFAULT 0, `burrow_speed` INTEGER NOT NULL DEFAULT 0, `climb_speed` INTEGER NOT NULL DEFAULT 0, `fly_speed` INTEGER NOT NULL DEFAULT 0, `can_hover` INTEGER NOT NULL DEFAULT false, `swim_speed` INTEGER NOT NULL DEFAULT 0, `has_custom_speed` INTEGER NOT NULL DEFAULT false, `custom_speed_description` TEXT, `challenge_rating` TEXT DEFAULT '1', `custom_challenge_rating_description` TEXT DEFAULT '', `custom_proficiency_bonus` INTEGER NOT NULL DEFAULT 0, `telepathy_range` INTEGER NOT NULL DEFAULT 0, `understands_but_description` TEXT DEFAULT '', `senses` TEXT DEFAULT '[]', `skills` TEXT DEFAULT '[]', `damage_immunities` TEXT DEFAULT '[]', `damage_resistances` TEXT DEFAULT '[]', `damage_vulnerabilities` TEXT DEFAULT '[]', `condition_immunities` TEXT DEFAULT '[]', `languages` TEXT DEFAULT '[]', `abilities` TEXT DEFAULT '[]', `actions` TEXT DEFAULT '[]', `reactions` TEXT DEFAULT '[]', `lair_actions` TEXT DEFAULT '[]', `legendary_actions` TEXT DEFAULT '[]', `regional_actions` TEXT DEFAULT '[]', PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "subtype",
+            "columnName": "subtype",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "alignment",
+            "columnName": "alignment",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "strengthScore",
+            "columnName": "strength_score",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "strengthSavingThrowAdvantage",
+            "columnName": "strength_saving_throw_advantage",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "strengthSavingThrowProficiency",
+            "columnName": "strength_saving_throw_proficiency",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "dexterityScore",
+            "columnName": "dexterity_score",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "dexteritySavingThrowAdvantage",
+            "columnName": "dexterity_saving_throw_advantage",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "dexteritySavingThrowProficiency",
+            "columnName": "dexterity_saving_throw_proficiency",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "constitutionScore",
+            "columnName": "constitution_score",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "constitutionSavingThrowAdvantage",
+            "columnName": "constitution_saving_throw_advantage",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "constitutionSavingThrowProficiency",
+            "columnName": "constitution_saving_throw_proficiency",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "intelligenceScore",
+            "columnName": "intelligence_score",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "intelligenceSavingThrowAdvantage",
+            "columnName": "intelligence_saving_throw_advantage",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "intelligenceSavingThrowProficiency",
+            "columnName": "intelligence_saving_throw_proficiency",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "wisdomScore",
+            "columnName": "wisdom_score",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "wisdomSavingThrowAdvantage",
+            "columnName": "wisdom_saving_throw_advantage",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "wisdomSavingThrowProficiency",
+            "columnName": "wisdom_saving_throw_proficiency",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "charismaScore",
+            "columnName": "charisma_score",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "10"
+          },
+          {
+            "fieldPath": "charismaSavingThrowAdvantage",
+            "columnName": "charisma_saving_throw_advantage",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "charismaSavingThrowProficiency",
+            "columnName": "charisma_saving_throw_proficiency",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "armorType",
+            "columnName": "armor_type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'none'"
+          },
+          {
+            "fieldPath": "shieldBonus",
+            "columnName": "shield_bonus",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "naturalArmorBonus",
+            "columnName": "natural_armor_bonus",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "otherArmorDescription",
+            "columnName": "other_armor_description",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "hitDice",
+            "columnName": "hit_dice",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "hasCustomHP",
+            "columnName": "has_custom_hit_points",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "customHPDescription",
+            "columnName": "custom_hit_points_description",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "walkSpeed",
+            "columnName": "walk_speed",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "burrowSpeed",
+            "columnName": "burrow_speed",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "climbSpeed",
+            "columnName": "climb_speed",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "flySpeed",
+            "columnName": "fly_speed",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "canHover",
+            "columnName": "can_hover",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "false"
+          },
+          {
+            "fieldPath": "swimSpeed",
+            "columnName": "swim_speed",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "hasCustomSpeed",
+            "columnName": "has_custom_speed",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "false"
+          },
+          {
+            "fieldPath": "customSpeedDescription",
+            "columnName": "custom_speed_description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "challengeRating",
+            "columnName": "challenge_rating",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'1'"
+          },
+          {
+            "fieldPath": "customChallengeRatingDescription",
+            "columnName": "custom_challenge_rating_description",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "customProficiencyBonus",
+            "columnName": "custom_proficiency_bonus",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "telepathyRange",
+            "columnName": "telepathy_range",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "understandsButDescription",
+            "columnName": "understands_but_description",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "senses",
+            "columnName": "senses",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "skills",
+            "columnName": "skills",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "damageImmunities",
+            "columnName": "damage_immunities",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "damageResistances",
+            "columnName": "damage_resistances",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "damageVulnerabilities",
+            "columnName": "damage_vulnerabilities",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "conditionImmunities",
+            "columnName": "condition_immunities",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "languages",
+            "columnName": "languages",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "abilities",
+            "columnName": "abilities",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "actions",
+            "columnName": "actions",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "reactions",
+            "columnName": "reactions",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "lairActions",
+            "columnName": "lair_actions",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "legendaryActions",
+            "columnName": "legendary_actions",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "regionalActions",
+            "columnName": "regional_actions",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "ftsVersion": "FTS4",
+        "ftsOptions": {
+          "tokenizer": "simple",
+          "tokenizerArgs": [],
+          "contentTable": "monsters",
+          "languageIdColumnName": "",
+          "matchInfo": "FTS4",
+          "notIndexedColumns": [],
+          "prefixSizes": [],
+          "preferredOrder": "ASC"
+        },
+        "contentSyncTriggers": [
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_monsters_fts_BEFORE_UPDATE BEFORE UPDATE ON `monsters` BEGIN DELETE FROM `monsters_fts` WHERE `docid`=OLD.`rowid`; END",
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_monsters_fts_BEFORE_DELETE BEFORE DELETE ON `monsters` BEGIN DELETE FROM `monsters_fts` WHERE `docid`=OLD.`rowid`; END",
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_monsters_fts_AFTER_UPDATE AFTER UPDATE ON `monsters` BEGIN INSERT INTO `monsters_fts`(`docid`, `name`, `size`, `type`, `subtype`, `alignment`) VALUES (NEW.`rowid`, NEW.`name`, NEW.`size`, NEW.`type`, NEW.`subtype`, NEW.`alignment`); END",
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_monsters_fts_AFTER_INSERT AFTER INSERT ON `monsters` BEGIN INSERT INTO `monsters_fts`(`docid`, `name`, `size`, `type`, `subtype`, `alignment`) VALUES (NEW.`rowid`, NEW.`name`, NEW.`size`, NEW.`type`, NEW.`subtype`, NEW.`alignment`); END"
+        ],
+        "tableName": "monsters_fts",
+        "createSql": "CREATE VIRTUAL TABLE IF NOT EXISTS `${TABLE_NAME}` USING FTS4(`name` TEXT, `size` TEXT, `type` TEXT, `subtype` TEXT, `alignment` TEXT, content=`monsters`)",
+        "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subtype",
+            "columnName": "subtype",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alignment",
+            "columnName": "alignment",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7c3c3ed79c7002102e7af7cfd21c23e0')"
+    ]
+  }
+}

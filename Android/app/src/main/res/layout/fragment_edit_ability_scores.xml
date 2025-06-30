@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.editmonster.EditBasicInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/strength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_strength"
+            app:maxValue="99"
+            app:minValue="1"
+            app:stepAmount="1" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/dexterity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_dexterity"
+            app:maxValue="99"
+            app:minValue="1"
+            app:stepAmount="1" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/constitution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_constitution"
+            app:maxValue="99"
+            app:minValue="1"
+            app:stepAmount="1" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/intelligence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_intelligence"
+            app:maxValue="99"
+            app:minValue="1"
+            app:stepAmount="1" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/wisdom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_wisdom"
+            app:maxValue="99"
+            app:minValue="1"
+            app:stepAmount="1" />
+
+        <com.majinnaibu.monstercards.ui.components.Stepper
+            android:id="@+id/charisma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            app:label="@string/label_charisma"
+            app:maxValue="99"
+            app:minValue="1"
+            app:stepAmount="1" />
+    </LinearLayout>
+</ScrollView>
