@@ -1,0 +1,12 @@
+.linklist {
+    list-style-type: none;
+}
+
+.linklist li {
+    display: inline-block;
+}
+
+.inner {
+    width: auto;
+    max-width: 800px;
+}
