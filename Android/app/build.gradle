@@ -11,22 +11,23 @@ if (propertiesFile.exists()) {
 def appCenterLocalSecret = properties.getProperty('appCenter.localSecret')
 def appCenterEnvSecret = System.getenv('APPCENTER_SECRET')
 def appCenterSecret = appCenterLocalSecret != null ? appCenterLocalSecret : appCenterEnvSecret != null ? appCenterEnvSecret : ""
-def appCenterSdkVersion = '3.3.0'
-def nav_version = '2.3.5'
-def room_version = '2.3.0'
-def rxjava_version = '3.0.0'
-def flipper_version = '0.87.0'
-def soloader_version = '0.10.1'
-def gson_version = '2.8.6'
+def appCenterSdkVersion = '5.0.4'
+def nav_version = '2.9.8'
+def room_version = '2.8.4'
+def rxjava_version = '3.1.8'
+def rxandroid_version = '3.0.2'
+def flipper_version = '0.230.0'
+def soloader_version = '0.11.0'
+def gson_version = '2.11.0'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.3'
+    namespace "com.majinnaibu.monstercards"
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.majinnaibu.monstercards"
-        minSdkVersion 22
-        targetSdkVersion 30
+        minSdkVersion 23
+        targetSdk 35
         versionCode 1
         versionName "1.0"
         buildConfigField "String", "APPCENTER_SECRET", "\"${appCenterSecret}\""
@@ -57,11 +58,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
 }
 
@@ -88,7 +90,7 @@ dependencies {
 
     // Room DB
     implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
-    implementation "io.reactivex.rxjava3:rxandroid:$rxjava_version"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxandroid_version"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava3:$room_version"
