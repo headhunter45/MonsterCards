@@ -152,4 +152,14 @@
     <string name="no_collections_available">No collections available. Create one first!</string>
     <string name="format_monster_count_one">1 monster</string>
     <string name="format_monster_count_other">%d monsters</string>
+    <string name="action_add_to_dashboard">Add to Dashboard</string>
+    <string name="action_add_collection_to_dashboard">Add Collection to Dashboard</string>
+    <string name="action_add_single_monster">Add Monster</string>
+    <string name="action_add_collection_option">Add Collection</string>
+    <string name="action_clear_dashboard">Clear Dashboard</string>
+    <string name="dialog_add_to_dashboard">Add to Dashboard</string>
+    <string name="snackbar_added_to_dashboard">Added %1$s to Dashboard</string>
+    <string name="snackbar_collection_added_to_dashboard">Added collection %1$s to Dashboard</string>
+    <string name="snackbar_dashboard_cleared">Dashboard cleared</string>
+    <string name="no_monsters_available">No monsters available in library. Create one first!</string>
 </resources>

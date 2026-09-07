@@ -44,6 +44,14 @@ public class MonsterCardsApplication extends Application {
             database.execSQL("CREATE INDEX IF NOT EXISTS `index_collection_monsters_monster_id` ON `collection_monsters` (`monster_id`)");
         }
     };
+    private static final Migration MIGRATION_4_5 = new Migration(4, 5) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `dashboard_monsters` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `monster_id` TEXT NOT NULL, `ordinal` INTEGER NOT NULL DEFAULT 0, FOREIGN KEY(`monster_id`) REFERENCES `monsters`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
+            database.execSQL("CREATE INDEX IF NOT EXISTS `index_dashboard_monsters_monster_id` ON `dashboard_monsters` (`monster_id`)");
+            database.execSQL("INSERT INTO dashboard_monsters(monster_id, ordinal) SELECT id, 0 FROM monsters");
+        }
+    };
     private MonsterRepository m_monsterLibraryRepository;
 
 
@@ -66,6 +74,7 @@ public class MonsterCardsApplication extends Application {
                 .addMigrations(MIGRATION_1_2)
                 .addMigrations(MIGRATION_2_3)
                 .addMigrations(MIGRATION_3_4)
+                .addMigrations(MIGRATION_4_5)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();

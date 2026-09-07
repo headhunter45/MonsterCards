@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_action_add_to_collection"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="@string/action_add_to_collection"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/menu_action_edit_monster"
+        android:title="@string/action_edit"
+        app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_action_edit_monster"
-        android:icon="@drawable/ic_edit_24"
-        android:title="@string/action_edit"
-        app:showAsAction="always" />
+        android:id="@+id/menu_action_add_to_collection"
+        android:title="@string/action_add_to_collection"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_action_add_to_dashboard"
+        android:title="@string/action_add_to_dashboard"
+        app:showAsAction="never" />
 </menu>
