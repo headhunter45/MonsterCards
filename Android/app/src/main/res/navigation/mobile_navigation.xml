@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_search_to_navigation_monster"
             app:destination="@id/navigation_monster" />
+        <action
+            android:id="@+id/action_navigation_search_to_collectionDetailFragment"
+            app:destination="@id/collectionDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_dashboard"
