@@ -8,6 +8,7 @@ import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.CollectionMonster;
 import com.majinnaibu.monstercards.models.CollectionWithCount;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.models.SearchResultItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,43 @@ public class MonsterRepository {
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<List<SearchResultItem>> searchAll(String searchText) {
+        Flowable<List<Monster>> monstersFlowable = m_db.monsterDAO()
+                .getAll()
+                .map(monsters -> {
+                    ArrayList<Monster> filteredMonsters = new ArrayList<>();
+                    for (Monster monster : monsters) {
+                        if (Helpers.monsterMatchesSearch(monster, searchText)) {
+                            filteredMonsters.add(monster);
+                        }
+                    }
+                    return (List<Monster>) filteredMonsters;
+                });
+
+        Flowable<List<Collection>> collectionsFlowable = m_db.collectionDAO()
+                .getAll()
+                .map(collections -> {
+                    ArrayList<Collection> filteredCollections = new ArrayList<>();
+                    for (Collection collection : collections) {
+                        if (StringHelper.isNullOrEmpty(searchText) || StringHelper.containsCaseInsensitive(collection.name, searchText)) {
+                            filteredCollections.add(collection);
+                        }
+                    }
+                    return (List<Collection>) filteredCollections;
+                });
+
+        return Flowable.combineLatest(monstersFlowable, collectionsFlowable, (monsters, collections) -> {
+            ArrayList<SearchResultItem> results = new ArrayList<>();
+            for (Monster monster : monsters) {
+                results.add(new SearchResultItem(monster));
+            }
+            for (Collection collection : collections) {
+                results.add(new SearchResultItem(collection));
+            }
+            return (List<SearchResultItem>) results;
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     public Flowable<Monster> getMonster(@NonNull UUID monsterId) {

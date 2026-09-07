@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.models.SearchResultItem;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 
 public class SearchFragment extends MCFragment {
@@ -22,7 +25,17 @@ public class SearchFragment extends MCFragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_search, container, false);
         MonsterRepository repository = this.getMonsterRepository();
-        SearchResultsRecyclerViewAdapter adapter = new SearchResultsRecyclerViewAdapter(repository, null);
+        SearchResultsRecyclerViewAdapter adapter = new SearchResultsRecyclerViewAdapter(repository, item -> {
+            if (item != null) {
+                if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
+                    NavDirections action = SearchFragmentDirections.actionNavigationSearchToNavigationMonster(item.monster.id.toString());
+                    Navigation.findNavController(requireView()).navigate(action);
+                } else if (item.type == SearchResultItem.Type.COLLECTION && item.collection != null) {
+                    NavDirections action = SearchFragmentDirections.actionNavigationSearchToCollectionDetailFragment(item.collection.id.toString());
+                    Navigation.findNavController(requireView()).navigate(action);
+                }
+            }
+        });
         final RecyclerView recyclerView = root.findViewById(R.id.monster_list);
         assert recyclerView != null;
         setupRecyclerView(recyclerView, adapter);
