@@ -9,7 +9,6 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.majinnaibu.monstercards.data.MonsterRepository;
-import com.majinnaibu.monstercards.init.FlipperInitializer;
 
 public class MonsterCardsApplication extends Application {
 
@@ -52,8 +51,6 @@ public class MonsterCardsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Required initialization logic here!
-
-        FlipperInitializer.init(this);
 
         //                .fallbackToDestructiveMigration()
         AppDatabase m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")

@@ -52,9 +52,6 @@
 
             <nav-graph android:value="@navigation/mobile_navigation" />
         </activity>
-        <activity
-            android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
-            android:exported="true" />
     </application>
 
 </manifest>
