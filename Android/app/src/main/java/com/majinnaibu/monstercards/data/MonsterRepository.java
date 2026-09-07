@@ -7,6 +7,7 @@ import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.CollectionMonster;
 import com.majinnaibu.monstercards.models.CollectionWithCount;
+import com.majinnaibu.monstercards.models.DashboardMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SearchResultItem;
 
@@ -193,6 +194,68 @@ public class MonsterRepository {
 
     public Completable updateCollectionMonsters(List<CollectionMonster> collectionMonsters) {
         Completable result = m_db.collectionDAO().updateCollectionMonsters(collectionMonsters);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Flowable<List<Monster>> getDashboardMonsters() {
+        return m_db.dashboardDAO()
+                .getDashboardMonsters()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<List<DashboardMonster>> getDashboardMonsterEntries() {
+        return m_db.dashboardDAO()
+                .getDashboardMonsterEntries()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable addMonsterToDashboard(@NonNull UUID monsterId) {
+        DashboardMonster entry = new DashboardMonster(monsterId, 0);
+        Completable result = m_db.dashboardDAO().addMonsterToDashboard(entry);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable addCollectionToDashboard(@NonNull UUID collectionId) {
+        return m_db.collectionDAO().getMonstersForCollection(collectionId.toString())
+                .firstOrError()
+                .flatMapCompletable(monsters -> {
+                    if (monsters.isEmpty()) {
+                        return Completable.complete();
+                    }
+                    DashboardMonster[] entries = new DashboardMonster[monsters.size()];
+                    for (int i = 0; i < monsters.size(); i++) {
+                        entries[i] = new DashboardMonster(monsters.get(i).id, i);
+                    }
+                    return m_db.dashboardDAO().addMonsterToDashboard(entries);
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable removeMonsterFromDashboard(@NonNull UUID monsterId) {
+        Completable result = m_db.dashboardDAO().removeMonsterFromDashboard(monsterId.toString());
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable removeDashboardMonsterById(long id) {
+        Completable result = m_db.dashboardDAO().removeDashboardMonsterById(id);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable clearDashboard() {
+        Completable result = m_db.dashboardDAO().clearDashboard();
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable updateDashboardMonsters(List<DashboardMonster> items) {
+        Completable result = m_db.dashboardDAO().updateDashboardMonsters(items);
         result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         return result;
     }

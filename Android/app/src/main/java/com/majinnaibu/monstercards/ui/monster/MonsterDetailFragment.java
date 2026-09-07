@@ -181,8 +181,29 @@ public class MonsterDetailFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_add_to_collection) {
             showAddToCollectionDialog();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_add_to_dashboard) {
+            addCurrentMonsterToDashboard();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addCurrentMonsterToDashboard() {
+        UUID monsterId = mViewModel.getId().getValue();
+        if (monsterId == null) {
+            return;
+        }
+        MonsterRepository repository = getMonsterRepository();
+        repository.addMonsterToDashboard(monsterId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+                    View view = getView();
+                    if (view != null) {
+                        String monsterName = mViewModel.getName().getValue();
+                        Snackbar.make(view, getString(R.string.snackbar_added_to_dashboard, monsterName), Snackbar.LENGTH_LONG).show();
+                    }
+                }, Logger::logError);
     }
 
     private void showAddToCollectionDialog() {

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -44,6 +47,7 @@ public class CollectionDetailFragment extends MCFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View root = inflater.inflate(R.layout.fragment_collection_detail, container, false);
 
         Bundle arguments = getArguments();
@@ -170,6 +174,36 @@ public class CollectionDetailFragment extends MCFragment {
     private void navigateToMonsterDetail(@NonNull UUID monsterId) {
         NavDirections action = CollectionDetailFragmentDirections.actionCollectionDetailFragmentToNavigationMonster(monsterId.toString());
         Navigation.findNavController(requireView()).navigate(action);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.collection_detail_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_action_add_collection_to_dashboard) {
+            addCollectionToDashboard();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void addCollectionToDashboard() {
+        MonsterRepository repository = getMonsterRepository();
+        mDisposables.add(repository.addCollectionToDashboard(mCollectionId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+                    View view = getView();
+                    if (view != null) {
+                        Collection collection = mViewModel.getCollection().getValue();
+                        String collectionName = collection != null ? collection.name : "";
+                        Snackbar.make(view, getString(R.string.snackbar_collection_added_to_dashboard, collectionName), Snackbar.LENGTH_LONG).show();
+                    }
+                }, Logger::logError));
     }
 
     @Override

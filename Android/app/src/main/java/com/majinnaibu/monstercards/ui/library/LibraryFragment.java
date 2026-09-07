@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -19,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.ui.monster.MonsterDetailFragmentDirections;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -92,23 +94,16 @@ public class LibraryFragment extends MCFragment {
                             new DisposableCompletableObserver() {
                                 @Override
                                 public void onComplete() {
-                                    View view = getView();
-                                    assert view != null;
-                                    Snackbar.make(
-                                            view,
-                                            getString(R.string.snackbar_monster_created, monster.name),
-                                            Snackbar.LENGTH_LONG)
-                                            .setAction("Action", (_view) -> navigateToMonsterDetail(monster.id))
-                                            .show();
+                                    navigateToEditMonster(monster.id);
                                 }
 
                                 @Override
                                 public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
                                     Logger.logError("Error creating monster", e);
                                     View view = getView();
-                                    assert view != null;
-                                    Snackbar.make(view, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
+                                    if (view != null) {
+                                        Snackbar.make(view, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG).show();
+                                    }
                                 }
                             });
         });
@@ -117,5 +112,13 @@ public class LibraryFragment extends MCFragment {
     protected void navigateToMonsterDetail(@NonNull UUID monsterId) {
         NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
         Navigation.findNavController(requireView()).navigate(action);
+    }
+
+    protected void navigateToEditMonster(@NonNull UUID monsterId) {
+        NavController navController = Navigation.findNavController(requireView());
+        NavDirections action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
+        navController.navigate(action);
+        action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
+        navController.navigate(action);
     }
 }
