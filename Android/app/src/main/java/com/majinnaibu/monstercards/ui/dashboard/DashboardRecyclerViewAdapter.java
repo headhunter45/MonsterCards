@@ -38,7 +38,7 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
     };
     private final ItemCallback mOnClick;
 
-    protected DashboardRecyclerViewAdapter(ItemCallback onClick) {
+    public DashboardRecyclerViewAdapter(ItemCallback onClick) {
         super(DIFF_CALLBACK);
         mOnClick = onClick;
     }

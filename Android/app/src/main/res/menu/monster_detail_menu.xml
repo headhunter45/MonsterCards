@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_action_add_to_collection"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/action_add_to_collection"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_action_edit_monster"
         android:icon="@drawable/ic_edit_24"
         android:title="@string/action_edit"

@@ -1,5 +1,7 @@
 <resources>
     <string name="action_add_ability">Add Ability</string>
+    <string name="action_add_collection">Add collection</string>
+    <string name="action_add_to_collection">Add to Collection</string>
     <string name="action_add_condition_immunity">Add Condition</string>
     <string name="action_add_damage_type">Add Damage Type</string>
     <string name="action_add_item">Add Item</string>
@@ -137,4 +139,17 @@
     <string name="title_monsterDetails_fmt">%1$s Details</string>
     <string name="title_search">Search</string>
     <string name="wisdom_abbreviation">WIS</string>
+    <string name="title_new_collection">New Collection</string>
+    <string name="title_collection_details">Collection Details</string>
+    <string name="title_select_collection">Select Collection</string>
+    <string name="label_collection_name">Collection Name</string>
+    <string name="label_collection_description">Description (optional)</string>
+    <string name="dialog_create">Create</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="snackbar_collection_created">Collection %1$s created</string>
+    <string name="snackbar_monster_added_to_collection">Added %1$s to %2$s</string>
+    <string name="snackbar_failed_to_create_collection">Failed to create collection</string>
+    <string name="no_collections_available">No collections available. Create one first!</string>
+    <string name="format_monster_count_one">1 monster</string>
+    <string name="format_monster_count_other">%d monsters</string>
 </resources>

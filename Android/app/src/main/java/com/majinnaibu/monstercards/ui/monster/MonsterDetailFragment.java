@@ -18,14 +18,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -33,7 +36,10 @@ import com.majinnaibu.monstercards.utils.Logger;
 import java.util.List;
 import java.util.UUID;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MonsterDetailFragment extends MCFragment {
     private ViewHolder mHolder;
@@ -172,8 +178,81 @@ public class MonsterDetailFragment extends MCFragment {
                 Logger.logWTF("monsterId cannot be null.");
             }
             return true;
+        } else if (item.getItemId() == R.id.menu_action_add_to_collection) {
+            showAddToCollectionDialog();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showAddToCollectionDialog() {
+        UUID monsterId = mViewModel.getId().getValue();
+        if (monsterId == null) {
+            return;
+        }
+        MonsterRepository repository = getMonsterRepository();
+        repository.getCollections()
+                .firstOrError()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableSingleObserver<List<Collection>>() {
+                    @Override
+                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Collection> collections) {
+                        if (collections.isEmpty()) {
+                            View view = getView();
+                            if (view != null) {
+                                Snackbar.make(view, getString(R.string.no_collections_available), Snackbar.LENGTH_LONG).show();
+                            }
+                            dispose();
+                            return;
+                        }
+                        String[] collectionNames = new String[collections.size()];
+                        for (int i = 0; i < collections.size(); i++) {
+                            collectionNames[i] = collections.get(i).name;
+                        }
+                        new AlertDialog.Builder(requireContext())
+                                .setTitle(R.string.title_select_collection)
+                                .setItems(collectionNames, (dialog, which) -> {
+                                    Collection selectedCollection = collections.get(which);
+                                    addMonsterToCollection(selectedCollection, monsterId);
+                                })
+                                .setNegativeButton(R.string.dialog_cancel, null)
+                                .show();
+                        dispose();
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Logger.logError(e);
+                        dispose();
+                    }
+                });
+    }
+
+    private void addMonsterToCollection(@NonNull Collection collection, @NonNull UUID monsterId) {
+        MonsterRepository repository = getMonsterRepository();
+        repository.addMonsterToCollection(collection.id, monsterId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableCompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                        View view = getView();
+                        if (view != null) {
+                            String monsterName = mViewModel.getName().getValue();
+                            Snackbar.make(
+                                    view,
+                                    getString(R.string.snackbar_monster_added_to_collection, monsterName, collection.name),
+                                    Snackbar.LENGTH_LONG)
+                                    .show();
+                        }
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Logger.logError(e);
+                    }
+                });
     }
 
     private static class ViewHolder {
