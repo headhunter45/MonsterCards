@@ -35,6 +35,15 @@ public class MonsterCardsApplication extends Application {
             database.execSQL("ALTER TABLE new_monsters RENAME TO monsters");
         }
     };
+    private static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `collections` (`id` TEXT NOT NULL, `name` TEXT NOT NULL DEFAULT '', `description` TEXT NOT NULL DEFAULT '', PRIMARY KEY(`id`))");
+            database.execSQL("CREATE TABLE IF NOT EXISTS `collection_monsters` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `collection_id` TEXT NOT NULL, `monster_id` TEXT NOT NULL, `ordinal` INTEGER NOT NULL DEFAULT 0, FOREIGN KEY(`collection_id`) REFERENCES `collections`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE, FOREIGN KEY(`monster_id`) REFERENCES `monsters`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
+            database.execSQL("CREATE INDEX IF NOT EXISTS `index_collection_monsters_collection_id` ON `collection_monsters` (`collection_id`)");
+            database.execSQL("CREATE INDEX IF NOT EXISTS `index_collection_monsters_monster_id` ON `collection_monsters` (`monster_id`)");
+        }
+    };
     private MonsterRepository m_monsterLibraryRepository;
 
 
@@ -56,6 +65,7 @@ public class MonsterCardsApplication extends Application {
         AppDatabase m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
                 .addMigrations(MIGRATION_1_2)
                 .addMigrations(MIGRATION_2_3)
+                .addMigrations(MIGRATION_3_4)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();

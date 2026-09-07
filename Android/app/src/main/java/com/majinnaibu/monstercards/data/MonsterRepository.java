@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 
 import com.majinnaibu.monstercards.AppDatabase;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.models.Collection;
+import com.majinnaibu.monstercards.models.CollectionMonster;
+import com.majinnaibu.monstercards.models.CollectionWithCount;
 import com.majinnaibu.monstercards.models.Monster;
 
 import java.util.ArrayList;
@@ -76,6 +79,82 @@ public class MonsterRepository {
 
     public Completable saveMonster(Monster monster) {
         Completable result = m_db.monsterDAO().save(monster);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Flowable<List<Collection>> getCollections() {
+        return m_db.collectionDAO()
+                .getAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<List<CollectionWithCount>> getCollectionsWithCount() {
+        return m_db.collectionDAO()
+                .getCollectionsWithCount()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<Collection> getCollection(@NonNull UUID collectionId) {
+        return m_db.collectionDAO()
+                .getById(collectionId.toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable saveCollection(Collection collection) {
+        Completable result = m_db.collectionDAO().save(collection);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable deleteCollection(Collection collection) {
+        Completable result = m_db.collectionDAO().delete(collection);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Flowable<List<Monster>> getMonstersForCollection(@NonNull UUID collectionId) {
+        return m_db.collectionDAO()
+                .getMonstersForCollection(collectionId.toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<List<CollectionMonster>> getCollectionMonstersForCollection(@NonNull UUID collectionId) {
+        return m_db.collectionDAO()
+                .getCollectionMonstersForCollection(collectionId.toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable addMonsterToCollection(@NonNull UUID collectionId, @NonNull UUID monsterId) {
+        return addMonsterToCollection(collectionId, monsterId, 0);
+    }
+
+    public Completable addMonsterToCollection(@NonNull UUID collectionId, @NonNull UUID monsterId, int ordinal) {
+        CollectionMonster collectionMonster = new CollectionMonster(collectionId, monsterId, ordinal);
+        Completable result = m_db.collectionDAO().addMonsterToCollection(collectionMonster);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable removeMonsterFromCollection(@NonNull UUID collectionId, @NonNull UUID monsterId) {
+        Completable result = m_db.collectionDAO().removeMonsterFromCollection(collectionId.toString(), monsterId.toString());
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable removeCollectionMonsterById(long junctionId) {
+        Completable result = m_db.collectionDAO().removeCollectionMonsterById(junctionId);
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Completable updateCollectionMonsters(List<CollectionMonster> collectionMonsters) {
+        Completable result = m_db.collectionDAO().updateCollectionMonsters(collectionMonsters);
         result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         return result;
     }
