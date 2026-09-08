@@ -36,8 +36,8 @@ public class TetraCubeMonsterImporter implements EntityImporter<Monster> {
                 return false;
             }
             JsonObject rootDict = element.getAsJsonObject();
-            return rootDict.has("hitDice") || rootDict.has("armorName") || rootDict.has("strPoints")
-                    || rootDict.has("bonusActions") || rootDict.has("isLegendary") || rootDict.has("isMythic")
+            return rootDict.has("armorName") || rootDict.has("strPoints")
+                    || rootDict.has("isLegendary") || rootDict.has("isMythic")
                     || rootDict.has("legendariesDescription");
         } catch (Exception e) {
             return false;

@@ -16,8 +16,13 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.widget.Toast;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
+import com.majinnaibu.monstercards.helpers.MonsterImportHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.utils.Logger;
 
@@ -27,6 +32,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Locale;
 import java.util.Objects;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,13 +75,55 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
+        if (intent == null) {
+            return;
+        }
+        String action = intent.getAction();
+        Bundle extras = intent.getExtras();
+
+        if ("android.intent.action.SEND".equals(action) && extras != null) {
+            CharSequence sharedText = extras.getCharSequence(Intent.EXTRA_TEXT);
+            if (sharedText != null) {
+                String textStr = sharedText.toString().trim();
+                DnDBeyondImporter dndImporter = new DnDBeyondImporter();
+                if (dndImporter.canImport(textStr)) {
+                    importMonsterFromInputAndNavigate(textStr);
+                    return;
+                }
+            }
+        } else if ("android.intent.action.VIEW".equals(action)) {
+            Uri dataUri = intent.getData();
+            if (dataUri != null) {
+                String dataStr = dataUri.toString().trim();
+                DnDBeyondImporter dndImporter = new DnDBeyondImporter();
+                if (dndImporter.canImport(dataStr)) {
+                    importMonsterFromInputAndNavigate(dataStr);
+                    return;
+                }
+            }
+        }
+
         String json = readMonsterJSONFromIntent(intent);
         if (!StringHelper.isNullOrEmpty(json)) {
-            NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
-            NavController navController = navHostFragment.getNavController();
-            NavDirections action = MobileNavigationDirections.actionGlobalMonsterImportFragment(json);
-            navController.navigate(action);
+            importMonsterFromInputAndNavigate(json);
         }
+    }
+
+    public void importMonsterFromInputAndNavigate(@NonNull String input) {
+        Toast.makeText(this, R.string.toast_importing_url, Toast.LENGTH_SHORT).show();
+        Single.fromCallable(() -> MonsterImportHelper.fromJSON(input))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(monster -> {
+                    String serializedJson = new Gson().toJson(monster);
+                    NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
+                    NavController navController = navHostFragment.getNavController();
+                    NavDirections navAction = MobileNavigationDirections.actionGlobalMonsterImportFragment(serializedJson);
+                    navController.navigate(navAction);
+                }, throwable -> {
+                    Logger.logError("Failed to import monster from input", throwable);
+                    Toast.makeText(this, R.string.failed_to_import_url, Toast.LENGTH_LONG).show();
+                });
     }
 
     @Nullable
