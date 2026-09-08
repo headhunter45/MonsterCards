@@ -162,3 +162,16 @@ Extend the generic sharing feature with specialized, direct sharing channels (to
 - **Sub-Step 7.1 (NFC Sharing)**: Share monster data directly between devices via NFC (NDEF records / Android Beam).
 - **Sub-Step 7.2 (Bluetooth / Wi-Fi Direct)**: Share monster files directly between nearby Android devices via Bluetooth / Wi-Fi.
 - **Sub-Step 7.3 (Web URL with Embedded Payload)**: Generate a shareable Web URL containing compressed/base64-encoded monster JSON data.
+
+---
+
+## 3. Implementation Checklist & Status
+
+- [x] **Step 0**: Restrict app intent filters in `AndroidManifest.xml` (`.monster` & `.monster.txt`) and add runtime filename validation in `MainActivity.java`.
+- [ ] **Step 1**: Refactor import & conversion code into a shared `EntityImporter<T>` interface and `TetraCubeMonsterImporter` class.
+- [ ] **Step 2**: Update Tetra-cube importer class to support the newest Tetra-cube format (`bonusActions`, `mythics`, `blind`, intro descriptions).
+- [ ] **Step 3**: Import from D&D Beyond URL (`https://www.dndbeyond.com/characters/49074997` fetching from character service endpoint `character/v2/character/49074997`).
+- [ ] **Step 4**: Export to internal format described by Open5e document (`Open5eExporter`).
+- [ ] **Step 5**: Import from internal format described by Open5e document (`Open5eImporter`).
+- [ ] **Step 6**: Generic Android Share button feature (`ACTION_SEND`).
+- [ ] **Step 7**: Specific share targets (7.1 NFC, 7.2 Bluetooth, 7.3 Embedded Web URL).
