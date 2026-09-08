@@ -162,12 +162,13 @@ public class MonsterImportFragment extends MCFragment {
                 repository.addMonster(monster).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Snackbar.make(
-                                mHolder.root,
-                                getString(R.string.snackbar_monster_created, monster.name),
-                                Snackbar.LENGTH_LONG)
-                                .setAction("Action", (_view) -> navigateToEditMonster(monster.id))
-                                .show();
+                        if (getView() != null) {
+                            NavController navController = Navigation.findNavController(requireView());
+                            NavDirections toLibraryAction = MonsterImportFragmentDirections.actionMonsterImportFragmentToNavigationLibrary();
+                            navController.navigate(toLibraryAction);
+                            NavDirections toMonsterDetailAction = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monster.id.toString());
+                            navController.navigate(toMonsterDetailAction);
+                        }
                     }
 
                     @Override
@@ -182,17 +183,6 @@ public class MonsterImportFragment extends MCFragment {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void navigateToEditMonster(@NonNull UUID monsterId) {
-        NavController navController = Navigation.findNavController(requireView());
-        NavDirections action;
-        action = MonsterImportFragmentDirections.actionMonsterImportFragmentToNavigationLibrary();
-        navController.navigate(action);
-        action = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
-        navController.navigate(action);
-        action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
-        navController.navigate(action);
     }
 
     private static class ViewHolder {
