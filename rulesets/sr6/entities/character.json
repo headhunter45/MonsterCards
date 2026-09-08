@@ -1,0 +1,326 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "character",
+  "name": "Shadowrunner Character",
+  "description": "A 6th Edition Shadowrunner character with attributes, skills, condition monitors, qualities, augmentations, and combat statistics.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "default_template": "character_sheet",
+  "allowed_templates": [
+    "character_sheet",
+    "dossier_sheet"
+  ],
+  "schema": {
+    "type": "object",
+    "required": ["alias", "metatype", "attributes"],
+    "properties": {
+      "alias": {
+        "type": "string",
+        "description": "Runner handle / street name."
+      },
+      "real_name": {
+        "type": "string",
+        "description": "Legal name or character identity."
+      },
+      "player": {
+        "type": "string",
+        "description": "Player name."
+      },
+      "notes": {
+        "type": "string",
+        "description": "General character notes or mission memo."
+      },
+      "metatype": {
+        "type": "string",
+        "enum": ["Human", "Elf", "Dwarf", "Ork", "Troll"],
+        "description": "Character metatype."
+      },
+      "ethnicity": {
+        "type": "string",
+        "description": "Ethnic or cultural background."
+      },
+      "age": {
+        "type": ["integer", "string"],
+        "description": "Character age in years."
+      },
+      "sex": {
+        "type": "string",
+        "description": "Biological sex / gender."
+      },
+      "height": {
+        "type": "string",
+        "description": "Height (e.g. '2.4 m' or '6 ft 2 in')."
+      },
+      "weight": {
+        "type": "string",
+        "description": "Weight (e.g. '310 kg')."
+      },
+      "reputation": {
+        "type": ["integer", "string"],
+        "default": 0,
+        "description": "Street reputation."
+      },
+      "heat": {
+        "type": ["integer", "string"],
+        "default": 0,
+        "description": "Law enforcement attention level."
+      },
+      "karma": {
+        "type": ["integer", "string"],
+        "default": 0,
+        "description": "Current unspent Karma."
+      },
+      "total_karma": {
+        "type": ["integer", "string"],
+        "default": 0,
+        "description": "Career total Karma earned."
+      },
+      "misc": {
+        "type": "string",
+        "description": "Miscellaneous character notes."
+      },
+      "attributes": {
+        "type": "object",
+        "description": "Character core attributes.",
+        "properties": {
+          "body": { "type": ["integer", "object"], "description": "Body attribute." },
+          "agility": { "type": ["integer", "object"], "description": "Agility attribute." },
+          "reaction": { "type": ["integer", "object"], "description": "Reaction attribute." },
+          "strength": { "type": ["integer", "object"], "description": "Strength attribute." },
+          "willpower": { "type": ["integer", "object"], "description": "Willpower attribute." },
+          "logic": { "type": ["integer", "object"], "description": "Logic attribute." },
+          "intuition": { "type": ["integer", "object"], "description": "Intuition attribute." },
+          "charisma": { "type": ["integer", "object"], "description": "Charisma attribute." },
+          "edge": { "type": ["integer", "object"], "description": "Edge attribute rating." },
+          "essence": { "type": ["number", "object"], "default": 6.0, "description": "Remaining Essence." },
+          "magic": { "type": ["integer", "object"], "description": "Magic rating (if awakened)." },
+          "resonance": { "type": ["integer", "object"], "description": "Resonance rating (if technomancer)." },
+          "edge_points": { "type": ["integer", "object"], "default": 0, "description": "Current edge points pool." }
+        }
+      },
+      "combat_info": {
+        "type": "object",
+        "description": "Derived combat statistics.",
+        "properties": {
+          "initiative": { "type": "string", "description": "Physical initiative formula (e.g. '10 + 1D6')." },
+          "matrix_initiative": { "type": "string", "description": "Matrix initiative formula." },
+          "astral_initiative": { "type": "string", "description": "Astral initiative formula." },
+          "defense_rating": { "type": ["integer", "string", "object"], "description": "Defense Rating (Body + Armor)." },
+          "unarmed_ar": { "type": ["integer", "string", "object"], "description": "Unarmed Attack Rating." },
+          "composure": { "type": ["integer", "string", "object"], "description": "Composure (Willpower + Charisma)." },
+          "judge_intentions": { "type": ["integer", "string", "object"], "description": "Judge Intentions (Intuition + Charisma)." },
+          "memory": { "type": ["integer", "string", "object"], "description": "Memory (Logic + Willpower)." },
+          "lift_carry": { "type": ["integer", "string", "object"], "description": "Lift/Carry (Body + Willpower)." },
+          "movement": { "type": "string", "description": "Movement rates (Walking/Running/Sprint)." }
+        }
+      },
+      "condition_monitor": {
+        "type": "object",
+        "description": "Physical and Stun damage tracks.",
+        "properties": {
+          "physical_damage": { "type": "integer", "default": 0 },
+          "physical_boxes": { "type": "integer", "description": "Calculated total physical boxes (8 + ceil(body/2))." },
+          "stun_damage": { "type": "integer", "default": 0 },
+          "stun_boxes": { "type": "integer", "description": "Calculated total stun boxes (8 + ceil(willpower/2))." },
+          "overflow": { "type": "integer", "default": 0 }
+        }
+      },
+      "skills": {
+        "type": "array",
+        "description": "List of character skills.",
+        "items": {
+          "type": "object",
+          "required": ["name", "rating", "attribute"],
+          "properties": {
+            "name": { "type": "string" },
+            "rating": { "type": "integer", "minimum": 1, "maximum": 12 },
+            "attribute": { "type": "string" },
+            "specialization": { "type": "string" },
+            "expertise": { "type": "string" },
+            "type": { "type": "string", "enum": ["Action", "Knowledge", "Language"], "default": "Action" },
+            "dice_pool": { "type": "integer" }
+          }
+        }
+      },
+      "qualities": {
+        "type": "array",
+        "description": "Positive and negative character qualities.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string", "enum": ["Positive", "Negative"] },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "currency_and_ids": {
+        "type": "object",
+        "description": "Lifestyles, IDs, licenses, and nuyen.",
+        "properties": {
+          "nuyen": { "type": ["integer", "string"], "default": 0 },
+          "primary_lifestyle": { "type": "string" },
+          "licenses": { "type": "string" },
+          "fake_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "rating": { "type": "integer" },
+                "lifestyle": { "type": "string" },
+                "funds": { "type": "string" },
+                "licenses": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "contacts": {
+        "type": "array",
+        "description": "Shadow contacts network.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "connection": { "type": "integer", "minimum": 1, "maximum": 6 },
+            "loyalty": { "type": "integer", "minimum": 1, "maximum": 6 },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "primary_armor": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "rating": { "type": ["integer", "string"] },
+          "notes": { "type": "string" }
+        }
+      },
+      "primary_ranged_weapon": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "dv": { "type": "string" },
+          "mode": { "type": "string" },
+          "attack_rating": {
+            "type": "object",
+            "properties": {
+              "close": { "type": ["integer", "string"] },
+              "near": { "type": ["integer", "string"] },
+              "far": { "type": ["integer", "string"] },
+              "extreme": { "type": ["integer", "string"] }
+            }
+          },
+          "ammo": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      },
+      "primary_melee_weapon": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "dv": { "type": "string" },
+          "close": { "type": ["integer", "string"] },
+          "notes": { "type": "string" }
+        }
+      },
+      "ranged_weapons": {
+        "type": "array",
+        "items": { "$ref": "#/properties/primary_ranged_weapon" }
+      },
+      "melee_weapons": {
+        "type": "array",
+        "items": { "$ref": "#/properties/primary_melee_weapon" }
+      },
+      "armor": {
+        "type": "array",
+        "items": { "$ref": "#/properties/primary_armor" }
+      },
+      "matrix_stats": {
+        "type": "object",
+        "properties": {
+          "device_name": { "type": "string" },
+          "device_rating": { "type": ["integer", "string"] },
+          "attack": { "type": ["integer", "string"] },
+          "sleaze": { "type": ["integer", "string"] },
+          "data_processing": { "type": ["integer", "string"] },
+          "firewall": { "type": ["integer", "string"] },
+          "programs": { "type": "array", "items": { "type": "string" } },
+          "matrix_damage": { "type": "integer", "default": 0 }
+        }
+      },
+      "augmentations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "rating": { "type": ["integer", "string"] },
+            "notes": { "type": "string" },
+            "essence": { "type": "number" }
+          }
+        }
+      },
+      "vehicles": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "handling": { "type": "string" },
+            "acceleration": { "type": "string" },
+            "speed_interval": { "type": "string" },
+            "top_speed": { "type": "string" },
+            "body": { "type": ["integer", "string"] },
+            "armor": { "type": ["integer", "string"] },
+            "pilot": { "type": ["integer", "string"] },
+            "sensor": { "type": ["integer", "string"] },
+            "seats": { "type": ["integer", "string"] },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "gear": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "rating": { "type": ["integer", "string"] },
+            "quantity": { "type": "integer", "default": 1 },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "spells": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "category": { "type": "string", "enum": ["S", "P", "R", "CF"], "description": "Spell, Preparation, Ritual, Complex Form" },
+            "type_target": { "type": "string" },
+            "range": { "type": "string" },
+            "duration": { "type": "string" },
+            "drain": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "adept_powers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "level": { "type": ["integer", "string"] },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

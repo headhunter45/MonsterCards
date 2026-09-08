@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "armor",
+  "name": "Armor",
+  "description": "Armor entity extending base item schema with AC base, dex cap, strength requirement, and stealth penalties.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "armor_category", "ac_base"],
+    "allOf": [
+      {
+        "$ref": "item.json#/schema"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "armor_category": {
+            "type": "string",
+            "enum": ["light", "medium", "heavy"],
+            "description": "Classification of armor determining weight class and dexterity application."
+          },
+          "ac_base": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Base Armor Class provided by this armor (e.g. 11 for Leather, 14 for Breastplate, 18 for Plate)."
+          },
+          "ac_modifier": {
+            "type": "integer",
+            "description": "Armor Class modifier over the base 10 (e.g. +1 for Leather, +4 for Breastplate, +8 for Plate)."
+          },
+          "dex_cap": {
+            "type": ["integer", "null"],
+            "description": "Maximum dexterity modifier bonus allowed. null = uncapped (light armor), 2 = medium armor cap (+2), 0 = heavy armor (no dex bonus)."
+          },
+          "strength_requirement": {
+            "type": ["integer", "null"],
+            "description": "Minimum Strength score needed to wear without speed penalty. null or 0 if none."
+          },
+          "stealth_disadvantage": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether wearing this armor imposes disadvantage on Dexterity (Stealth) checks."
+          }
+        }
+      }
+    ]
+  },
+  "default_values": {
+    "weight": 10,
+    "quantity": 1,
+    "equipped": false,
+    "rarity": "common",
+    "stealth_disadvantage": false,
+    "strength_requirement": null
+  }
+}

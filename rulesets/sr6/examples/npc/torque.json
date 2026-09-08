@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "11df7705-3c2f-4744-a4c7-f6278a1f8ada",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "Torque",
+  "description": "Spikes Leader / Male Troll Gang Leader from the SR6 Beginner Box.",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "Torque",
+    "archetype": "Spikes Leader / Male Troll Gang Leader",
+    "metatype": "Troll",
+    "notes": "As a gang leader, he hates elves and really hates the Ancients, which means he has a special loathing for Green Phoenix. He became a leader because he knows how to make deals to get what he wants.",
+    "quote": "“Look, just shut up and help me find an elf to punch.”",
+    "hook": "He became a leader because he knows how to make deals to get what he wants.",
+    "attributes": {
+      "body": 5,
+      "agility": 6,
+      "reaction": 5,
+      "strength": 8,
+      "willpower": 4,
+      "logic": 2,
+      "intuition": 4,
+      "charisma": 3,
+      "edge": 2,
+      "essence": 1.7
+    },
+    "combat_info": {
+      "initiative": "9 + 1D6",
+      "defense_rating": 7,
+      "condition_monitor": 13
+    },
+    "skills": [
+      {
+        "name": "Close Combat",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 11
+      },
+      {
+        "name": "Firearms",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 11
+      },
+      {
+        "name": "Piloting",
+        "rating": 5,
+        "attribute": "Reaction",
+        "dice_pool": 10
+      },
+      {
+        "name": "Influence",
+        "rating": 5,
+        "attribute": "Charisma",
+        "dice_pool": 8
+      },
+      {
+        "name": "Perception",
+        "rating": 4,
+        "attribute": "Intuition",
+        "dice_pool": 8
+      }
+    ],
+    "gear": [
+      {
+        "name": "Gang Leather",
+        "rating": "+1 DR"
+      },
+      {
+        "name": "Sony Emperor commlink",
+        "rating": 2
+      },
+      {
+        "name": "Harley-Davidson Scorpion motorcycle"
+      },
+      {
+        "name": "Bike Chain"
+      },
+      {
+        "name": "Defiance T-250 Shotgun"
+      }
+    ],
+    "primary_ranged_weapon": {
+      "name": "Defiance T-250",
+      "dv": "4P",
+      "mode": "SA",
+      "attack_rating": {
+        "close": 7,
+        "near": 10,
+        "far": 6
+      }
+    },
+    "primary_melee_weapon": {
+      "name": "Bike Chain",
+      "dv": "2S",
+      "close": 4
+    },
+    "primary_armor": {
+      "name": "Gang Leather",
+      "rating": "+1"
+    }
+  }
+}

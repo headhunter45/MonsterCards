@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "f07b3b06-516b-46af-a1a9-26fece3ecb3c",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Flamestrike",
+  "description": "A classic fire explosion in their faces.",
+  "properties": {
+    "name": "Flamestrike",
+    "category": "Spell",
+    "spell_type": "Combat (Direct)",
+    "type_target": "P",
+    "range": "LOS",
+    "duration": "I",
+    "drain": "5",
+    "damage": "P, Special (Fire)",
+    "rules": "Roll Sorcery + Magic vs. Defense/Resistance.",
+    "notes": "A classic fire explosion in their faces."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "6d0383c0-e204-4980-818e-fd6e71e9cac8",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Defiance T-250",
+  "description": "A street howitzer, this semi-auto shotgun is available in normal or short-barreled versions.",
+  "properties": {
+    "name": "Defiance T-250",
+    "dv": "4P",
+    "mode": "SA",
+    "attack_rating": {
+      "close": 7,
+      "near": 10,
+      "far": 6
+    },
+    "extras": "None",
+    "notes": "A street howitzer, this semi-auto shotgun is available in normal or short-barreled versions."
+  }
+}

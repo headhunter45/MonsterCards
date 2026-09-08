@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "803382f0-8ede-4945-a0a1-6851a6a45648",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Bike Chain",
+  "description": "Go gangs love to pull the old equipment off their scrap bikes and smack people with it.",
+  "properties": {
+    "name": "Bike Chain",
+    "dv": "2S",
+    "mode": "NA",
+    "attack_rating": {
+      "close": 4
+    },
+    "extras": "None",
+    "notes": "Go gangs love to pull the old equipment off their scrap bikes and smack people with it."
+  }
+}

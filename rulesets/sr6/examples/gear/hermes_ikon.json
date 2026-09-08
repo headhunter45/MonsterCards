@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "46eb16b3-8048-418b-8260-fab94623cf78",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Hermes Ikon",
+  "description": "A commlink for people who have money to spend on keeping their personal data safe.",
+  "properties": {
+    "filename": "hermes_ikon",
+    "name": "Hermes Ikon",
+    "category": "Commlink",
+    "device_rating": 5,
+    "attributes_df": "3/0",
+    "active_program_slots": 2,
+    "notes": "A commlink for people who have money to spend on keeping their personal data safe."
+  }
+}

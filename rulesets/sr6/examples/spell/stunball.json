@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "b1560955-0e61-4b75-a5fd-4e66da356f42",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Stunball",
+  "description": "Knocks out a whole room full of potential speed bumps.",
+  "properties": {
+    "name": "Stunball",
+    "category": "Spell",
+    "spell_type": "Combat (Indirect)",
+    "type_target": "M",
+    "range": "LOS (A)",
+    "duration": "I",
+    "drain": "4",
+    "damage": "S",
+    "rules": "",
+    "notes": "Knocks out a whole room full of potential speed bumps."
+  }
+}

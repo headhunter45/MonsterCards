@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "b894742f-ccbe-4636-9fbb-bb6ee6af0556",
+  "ruleset_id": "sr6",
+  "entity_type": "vehicle",
+  "display_name": "Steel Lynx",
+  "description": "This is what people mean when they refer to a “killing machine.”",
+  "properties": {
+    "filename": "steel_lynx",
+    "name": "Steel Lynx",
+    "category": "Drone",
+    "handling": "3/5",
+    "acceleration": "15",
+    "speed_interval": "15",
+    "top_speed": "80",
+    "body": 10,
+    "armor": 16,
+    "pilot": 4,
+    "sensor": 4,
+    "notes": "This is what people mean when they refer to a “killing machine.”"
+  }
+}

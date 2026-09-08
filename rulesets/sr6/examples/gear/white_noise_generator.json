@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "4cf564fe-5b8b-4c26-a063-ce692d263b02",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "White Noise Generator",
+  "description": "Creates a field of random noise that inhibits audio surveillance.",
+  "properties": {
+    "filename": "white_noise_generator",
+    "name": "White Noise Generator",
+    "category": "Security",
+    "device_rating": 3,
+    "rules": "All Perception tests to overhear a conversation within 3m receive a -DR modifier.",
+    "notes": "Creates a field of random noise that inhibits audio surveillance."
+  }
+}

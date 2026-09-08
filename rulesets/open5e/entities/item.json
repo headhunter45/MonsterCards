@@ -1,0 +1,100 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "item",
+  "name": "Item / Gear",
+  "description": "Base entity schema for generic items, equipment, and gear in 5e.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name of the item."
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the item."
+      },
+      "cost": {
+        "description": "The market value or cost of the item.",
+        "type": "object",
+        "properties": {
+          "quantity": { "type": "number", "minimum": 0 },
+          "unit": {
+            "type": "string",
+            "enum": ["cp", "sp", "ep", "gp", "pp"],
+            "default": "gp"
+          }
+        }
+      },
+      "weight": {
+        "type": "number",
+        "minimum": 0,
+        "description": "Weight in pounds (lbs)."
+      },
+      "rarity": {
+        "type": "string",
+        "enum": [
+          "common",
+          "uncommon",
+          "rare",
+          "very rare",
+          "legendary",
+          "artifact"
+        ],
+        "default": "common"
+      },
+      "attunement": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether this item requires attunement."
+      },
+      "equipped": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether this item is currently equipped or worn."
+      },
+      "quantity": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 1,
+        "description": "Number of copies carried in inventory."
+      },
+      "grants_modifiers": {
+        "type": "array",
+        "description": "Modifiers applied to the character when this item is equipped.",
+        "items": {
+          "type": "object",
+          "required": ["target", "value"],
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "The property path modified on the wearer (e.g. 'armor_class', 'saving_throws.all')."
+            },
+            "value": {
+              "type": ["number", "string"],
+              "description": "Modifier bonus value or expression."
+            },
+            "type": {
+              "type": "string",
+              "description": "Modifier type (e.g. 'bonus', 'base', 'override', 'advantage')."
+            },
+            "source": {
+              "type": "string",
+              "description": "Name or origin of the bonus."
+            }
+          }
+        }
+      }
+    }
+  },
+  "default_values": {
+    "weight": 0,
+    "quantity": 1,
+    "equipped": false,
+    "rarity": "common",
+    "attunement": false
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "8f3b2049-3f04-4c17-91de-84bb41e7399a",
+  "ruleset_id": "sr6",
+  "entity_type": "character",
+  "display_name": "Frostburn",
+  "description": "Ork Combat Mage from the official Shadowrun 6th World Beginner Box.",
+  "template_id": "character_sheet",
+  "properties": {
+    "alias": "Frostburn",
+    "real_name": "Kendra Maguire",
+    "player": "Catalyst Pregen",
+    "notes": "Ork Combat Mage specializing in fire, ice, protective illusions, and healing.",
+    "metatype": "Ork",
+    "ethnicity": "White",
+    "age": 25,
+    "sex": "Female",
+    "height": "2 m",
+    "weight": "115 kg",
+    "reputation": 2,
+    "heat": 0,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Former NeoNET corporate security magical operative.",
+    "attributes": {
+      "body": 4,
+      "agility": 4,
+      "reaction": 2,
+      "strength": 3,
+      "willpower": 7,
+      "logic": 5,
+      "intuition": 1,
+      "charisma": 3,
+      "edge": 2,
+      "essence": 6.0,
+      "magic": 6,
+      "edge_points": 2
+    },
+    "combat_info": {
+      "initiative": "3 + 1D6",
+      "matrix_initiative": "3 + 1D6",
+      "astral_initiative": "7 + 2D6",
+      "defense_rating": 7,
+      "unarmed_ar": 4,
+      "composure": 10,
+      "judge_intentions": 4,
+      "memory": 12,
+      "lift_carry": 7,
+      "movement": "5/10/+1"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 10,
+      "stun_damage": 0,
+      "stun_boxes": 12,
+      "overflow": 0
+    },
+    "skills": [
+      {
+        "name": "Sorcery",
+        "rating": 6,
+        "attribute": "Magic",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Firearms",
+        "rating": 3,
+        "attribute": "Agility",
+        "dice_pool": 7,
+        "type": "Action"
+      },
+      {
+        "name": "Close Combat",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Astral",
+        "rating": 3,
+        "attribute": "Intuition",
+        "dice_pool": 4,
+        "type": "Action"
+      },
+      {
+        "name": "Perception",
+        "rating": 3,
+        "attribute": "Intuition",
+        "dice_pool": 4,
+        "type": "Action"
+      },
+      {
+        "name": "Athletics",
+        "rating": 1,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Stealth",
+        "rating": 1,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Magical Security",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Security Procedures",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Seattle Underground",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      }
+    ],
+    "qualities": [
+      {
+        "name": "Built Tough",
+        "type": "Positive",
+        "notes": "+1 Physical damage track box."
+      },
+      {
+        "name": "Low-light Vision",
+        "type": "Positive",
+        "notes": "Natural ork low-light perception."
+      },
+      {
+        "name": "Dependents",
+        "type": "Negative",
+        "notes": "Supports her family in Redmond."
+      },
+      {
+        "name": "SINner",
+        "type": "Negative",
+        "notes": "Corporate SIN from former employment with NeoNET."
+      },
+      {
+        "name": "Socially Awkward",
+        "type": "Negative",
+        "notes": "Direct, blunt, and exasperated demeanor."
+      }
+    ],
+    "currency_and_ids": {
+      "nuyen": 3500,
+      "primary_lifestyle": "Low (prepaid)",
+      "licenses": "Concealed Carry, Registered Awakened Practitioner",
+      "fake_ids": [
+        {
+          "name": "Evelyn Graves",
+          "rating": 3,
+          "lifestyle": "Low",
+          "funds": "3,500¥",
+          "licenses": "Firearms, Mage License"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Brimstone",
+        "loyalty": 3,
+        "connection": 3,
+        "notes": "Elf combat mage, former NeoNET coworker and fellow runner."
+      },
+      {
+        "name": "Harrison Kellerman",
+        "loyalty": 2,
+        "connection": 4,
+        "notes": "Talismonger and owner of the Io Pan! lore store in Downtown Seattle."
+      },
+      {
+        "name": "Jules Maguire",
+        "loyalty": 4,
+        "connection": 2,
+        "notes": "Ork rigger, Frostburn's older brother and Cascade Ork smuggler."
+      }
+    ],
+    "primary_armor": {
+      "name": "Lined coat",
+      "rating": "+3",
+      "notes": "+3 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "Walther Palm Pistol",
+      "dv": "2P",
+      "mode": "BF",
+      "attack_rating": { "close": 12, "near": 7, "far": "—", "extreme": "—" },
+      "ammo": "2(b)",
+      "notes": "Hold-out pistol"
+    },
+    "primary_melee_weapon": {
+      "name": "Extendible baton",
+      "dv": "2S",
+      "close": 5,
+      "notes": "Club"
+    },
+    "ranged_weapons": [
+      {
+        "name": "Walther Palm Pistol",
+        "dv": "2P",
+        "mode": "BF",
+        "attack_rating": { "close": 12, "near": 7, "far": "—", "extreme": "—" },
+        "ammo": "2(b)",
+        "notes": "Double-barreled hold-out"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Extendible baton",
+        "dv": "2S",
+        "close": 5,
+        "notes": "Concealable club"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Lined coat",
+        "rating": "+3",
+        "notes": "+3 DR bonus"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Renraku Sensei commlink",
+      "device_rating": 3,
+      "attack": 0,
+      "sleaze": 0,
+      "data_processing": 2,
+      "firewall": 0,
+      "programs": [],
+      "matrix_damage": 0
+    },
+    "augmentations": [],
+    "vehicles": [],
+    "gear": [
+      { "name": "Lined coat", "rating": 3, "quantity": 1 },
+      { "name": "Renraku Sensei commlink", "rating": 3, "quantity": 1 },
+      { "name": "Certified credstick", "quantity": 1, "notes": "3,500¥" },
+      { "name": "Walther Palm Pistol ammo box", "quantity": 20 }
+    ],
+    "spells": [
+      {
+        "name": "Fireball",
+        "category": "S",
+        "type_target": "Physical",
+        "range": "LOS (Area)",
+        "duration": "Instant",
+        "drain": "5",
+        "notes": "Elemental fire damage area effect"
+      },
+      {
+        "name": "Flamestrike",
+        "category": "S",
+        "type_target": "Physical",
+        "range": "LOS",
+        "duration": "Instant",
+        "drain": "4",
+        "notes": "Single-target direct flame bolt"
+      },
+      {
+        "name": "Ice Spear",
+        "category": "S",
+        "type_target": "Physical",
+        "range": "LOS",
+        "duration": "Instant",
+        "drain": "4",
+        "notes": "Piercing elemental cold damage"
+      },
+      {
+        "name": "Heal",
+        "category": "S",
+        "type_target": "Essence",
+        "range": "Touch",
+        "duration": "Permanent",
+        "drain": "3",
+        "notes": "Repairs physical damage boxes"
+      },
+      {
+        "name": "Combat Sense",
+        "category": "S",
+        "type_target": "Mana",
+        "range": "Touch",
+        "duration": "Sustained",
+        "drain": "3",
+        "notes": "Adds defense dice and awareness"
+      },
+      {
+        "name": "Improved Invisibility",
+        "category": "S",
+        "type_target": "Physical",
+        "range": "Touch",
+        "duration": "Sustained",
+        "drain": "4",
+        "notes": "Cloaks target from visual & technological detection"
+      },
+      {
+        "name": "Levitate",
+        "category": "S",
+        "type_target": "Physical",
+        "range": "LOS",
+        "duration": "Sustained",
+        "drain": "4",
+        "notes": "Telekinetically lifts objects or persons"
+      },
+      {
+        "name": "Mana Barrier",
+        "category": "S",
+        "type_target": "Mana",
+        "range": "LOS (Area)",
+        "duration": "Sustained",
+        "drain": "4",
+        "notes": "Blocks astral forms and hostile spells"
+      }
+    ],
+    "adept_powers": []
+  }
+}

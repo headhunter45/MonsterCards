@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{#if properties.alias}}{{properties.alias}}{{else}}{{display_name}}{{/if}} | SR6 Runner Picker</title>
+  <link rel="stylesheet" href="/rulesets/sr6/templates/character_picker.css">
+</head>
+<body>
+
+<div class="picker-card-wrapper">
+  <div class="picker-card entity-{{entity_type}}" data-uuid="{{uuid}}" data-entity-type="{{entity_type}}">
+    
+    <!-- Card Header -->
+    <div class="card-header">
+      <div class="header-identity">
+        <div class="title-row">
+          <span class="runner-name">{{#if properties.alias}}{{properties.alias}}{{else}}{{display_name}}{{/if}}</span>
+          {{#if properties.metatype}}
+            <span class="metatype-tag">{{properties.metatype}}</span>
+          {{/if}}
+        </div>
+        {{#if properties.archetype}}
+          <span class="runner-archetype">{{properties.archetype}}</span>
+        {{else if properties.pitch}}
+          <span class="runner-archetype">{{properties.pitch}}</span>
+        {{/if}}
+      </div>
+
+      <!-- Entity Type Badge -->
+      <div>
+        {{#if (eq entity_type "dossier")}}
+          <span class="entity-badge badge-dossier">Dossier</span>
+        {{else if (eq entity_type "npc")}}
+          <span class="entity-badge badge-npc">NPC</span>
+        {{else}}
+          <span class="entity-badge badge-character">Character</span>
+        {{/if}}
+      </div>
+    </div>
+
+    <!-- Attributes Bar -->
+    {{#if properties.attributes}}
+    <div class="attributes-bar">
+      <div class="attr-cell">
+        <span class="attr-label">BOD</span>
+        <span class="attr-val">{{properties.attributes.body}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">AGI</span>
+        <span class="attr-val">{{properties.attributes.agility}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">REA</span>
+        <span class="attr-val">{{properties.attributes.reaction}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">STR</span>
+        <span class="attr-val">{{properties.attributes.strength}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">WIL</span>
+        <span class="attr-val">{{properties.attributes.willpower}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">LOG</span>
+        <span class="attr-val">{{properties.attributes.logic}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">INT</span>
+        <span class="attr-val">{{properties.attributes.intuition}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">CHA</span>
+        <span class="attr-val">{{properties.attributes.charisma}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">EDG</span>
+        <span class="attr-val">{{#if properties.attributes.edge}}{{properties.attributes.edge}}{{else}}—{{/if}}</span>
+      </div>
+      <div class="attr-cell">
+        <span class="attr-label">ESS</span>
+        <span class="attr-val">{{#if properties.attributes.essence}}{{properties.attributes.essence}}{{else}}6.0{{/if}}</span>
+      </div>
+      {{#if properties.attributes.magic}}
+      <div class="attr-cell">
+        <span class="attr-label">MAG</span>
+        <span class="attr-val">{{properties.attributes.magic}}</span>
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    <!-- Combat Vitals -->
+    <div class="vitals-row">
+      <div class="vital-chip">
+        <span class="vital-label">Initiative</span>
+        <span class="vital-value">{{#if properties.combat_info.initiative}}{{properties.combat_info.initiative}}{{else}}—{{/if}}</span>
+      </div>
+      <div class="vital-chip">
+        <span class="vital-label">Defense</span>
+        <span class="vital-value">DR {{#if properties.combat_info.defense_rating}}{{properties.combat_info.defense_rating}}{{else}}—{{/if}}</span>
+      </div>
+      <div class="vital-chip">
+        <span class="vital-label">Condition Track</span>
+        <span class="vital-value">
+          {{#if properties.combat_info.condition_monitor}}
+            {{properties.combat_info.condition_monitor}} Boxes
+          {{else if properties.condition_monitor}}
+            {{properties.condition_monitor.physical_boxes}}P / {{properties.condition_monitor.stun_boxes}}S
+          {{else}}
+            —
+          {{/if}}
+        </span>
+      </div>
+    </div>
+
+    <!-- Quote or Hook -->
+    {{#if properties.hook}}
+      <div class="hook-box">
+        <strong>Hook:</strong> {{properties.hook}}
+      </div>
+    {{else if properties.quote}}
+      <div class="quote-box">
+        {{properties.quote}}
+      </div>
+    {{/if}}
+
+    <!-- Skills & Gear Tags Preview -->
+    <div class="tags-row">
+      {{#if properties.primary_ranged_weapon}}
+        <span class="pill-item">🔫 {{properties.primary_ranged_weapon.name}}</span>
+      {{/if}}
+      {{#if properties.primary_melee_weapon}}
+        <span class="pill-item">⚔️ {{properties.primary_melee_weapon.name}}</span>
+      {{/if}}
+      {{#if properties.primary_armor}}
+        <span class="pill-item">🛡️ {{properties.primary_armor.name}}</span>
+      {{/if}}
+      {{#each properties.skills}}
+        {{#if (lt @index 3)}}
+          <span class="pill-item">★ {{name}} {{rating}}</span>
+        {{/if}}
+      {{/each}}
+      {{#each properties.gear}}
+        {{#if (lt @index 2)}}
+          <span class="pill-item">📦 {{name}}</span>
+        {{/if}}
+      {{/each}}
+    </div>
+
+    <!-- Card Footer / Selection Action -->
+    <div class="card-footer">
+      <div class="selection-info">
+        UUID: <small><code>{{uuid}}</code></small>
+      </div>
+      <button type="button" class="select-btn" onclick="alert('Selected: {{properties.alias}}')">
+        Select {{#if (eq entity_type "npc")}}NPC{{else}}Runner{{/if}}
+      </button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

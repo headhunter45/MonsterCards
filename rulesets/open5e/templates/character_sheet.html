@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/open5e/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Character Sheet</title>
+  <link rel="stylesheet" href="character_sheet.css">
+</head>
+<body class="sheet-page-wrapper">
+  <div class="character-sheet-container">
+    
+    <!-- Top Header Banner -->
+    <header class="sheet-header">
+      <div class="header-name-box">
+        <h1 class="character-name">{{display_name}}</h1>
+        <label class="header-label">CHARACTER NAME</label>
+      </div>
+      <div class="header-details-grid">
+        <div class="detail-cell">
+          <div class="detail-val">{{properties.class}}{{#if properties.subclass}} ({{properties.subclass}}){{/if}} {{properties.level}}</div>
+          <label class="header-label">CLASS &amp; LEVEL</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{#if properties.background}}{{properties.background}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">BACKGROUND</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{#if properties.player_name}}{{properties.player_name}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">PLAYER NAME</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{properties.race}}</div>
+          <label class="header-label">RACE</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{properties.alignment}}</div>
+          <label class="header-label">ALIGNMENT</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{#if properties.experience_points}}{{properties.experience_points}}{{else}}0{{/if}} XP</div>
+          <label class="header-label">EXPERIENCE POINTS</label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main 3-Column Body -->
+    <main class="sheet-main-grid">
+      
+      <!-- ================= LEFT COLUMN ================= -->
+      <section class="sheet-col col-left">
+        
+        <div class="abilities-and-skills-row">
+          <!-- 6 Ability Score Boxes -->
+          <div class="abilities-stack">
+            <!-- STR -->
+            <div class="ability-box">
+              <span class="ab-title">STRENGTH</span>
+              <span class="ab-modifier">{{modText properties.abilities.strength}}</span>
+              <div class="ab-score-pill">{{val properties.abilities.strength}}</div>
+            </div>
+            <!-- DEX -->
+            <div class="ability-box">
+              <span class="ab-title">DEXTERITY</span>
+              <span class="ab-modifier">{{modText properties.abilities.dexterity}}</span>
+              <div class="ab-score-pill">{{val properties.abilities.dexterity}}</div>
+            </div>
+            <!-- CON -->
+            <div class="ability-box">
+              <span class="ab-title">CONSTITUTION</span>
+              <span class="ab-modifier">{{modText properties.abilities.constitution}}</span>
+              <div class="ab-score-pill">{{val properties.abilities.constitution}}</div>
+            </div>
+            <!-- INT -->
+            <div class="ability-box">
+              <span class="ab-title">INTELLIGENCE</span>
+              <span class="ab-modifier">{{modText properties.abilities.intelligence}}</span>
+              <div class="ab-score-pill">{{val properties.abilities.intelligence}}</div>
+            </div>
+            <!-- WIS -->
+            <div class="ability-box">
+              <span class="ab-title">WISDOM</span>
+              <span class="ab-modifier">{{modText properties.abilities.wisdom}}</span>
+              <div class="ab-score-pill">{{val properties.abilities.wisdom}}</div>
+            </div>
+            <!-- CHA -->
+            <div class="ability-box">
+              <span class="ab-title">CHARISMA</span>
+              <span class="ab-modifier">{{modText properties.abilities.charisma}}</span>
+              <div class="ab-score-pill">{{val properties.abilities.charisma}}</div>
+            </div>
+          </div>
+
+          <!-- Proficiency, Inspiration, Saves & Skills -->
+          <div class="skills-and-saves-stack">
+            
+            <!-- Inspiration & Proficiency Bonus -->
+            <div class="top-stat-pill">
+              <span class="pill-checkbox {{#if properties.inspiration}}checked{{/if}}"></span>
+              <span class="pill-label">INSPIRATION</span>
+            </div>
+            <div class="top-stat-pill">
+              <span class="pill-value">+{{calcProf properties.level properties.cr}}</span>
+              <span class="pill-label">PROFICIENCY BONUS</span>
+            </div>
+
+            <!-- Saving Throws Box -->
+            <div class="section-box saves-box">
+              <ul class="prof-list">
+                <li class="prof-item">
+                  <span class="dot {{#if (hasSave properties.saving_throws 'str')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{saveBonus properties 'strength'}}</span>
+                  <span class="prof-name">Strength</span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (hasSave properties.saving_throws 'dex')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{saveBonus properties 'dexterity'}}</span>
+                  <span class="prof-name">Dexterity</span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (hasSave properties.saving_throws 'con')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{saveBonus properties 'constitution'}}</span>
+                  <span class="prof-name">Constitution</span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (hasSave properties.saving_throws 'int')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{saveBonus properties 'intelligence'}}</span>
+                  <span class="prof-name">Intelligence</span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (hasSave properties.saving_throws 'wis')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{saveBonus properties 'wisdom'}}</span>
+                  <span class="prof-name">Wisdom</span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (hasSave properties.saving_throws 'cha')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{saveBonus properties 'charisma'}}</span>
+                  <span class="prof-name">Charisma</span>
+                </li>
+              </ul>
+              <div class="box-bottom-label">SAVING THROWS</div>
+            </div>
+
+            <!-- Skills Box (Alphabetical 18 Skills) -->
+            <div class="section-box skills-box">
+              <ul class="prof-list">
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'acrobatics')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'acrobatics' 'dexterity'}}</span>
+                  <span class="prof-name">Acrobatics <small class="skill-attr">(Dex)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'animal_handling')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'animal_handling' 'wisdom'}}</span>
+                  <span class="prof-name">Animal Handling <small class="skill-attr">(Wis)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'arcana')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'arcana' 'intelligence'}}</span>
+                  <span class="prof-name">Arcana <small class="skill-attr">(Int)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'athletics')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'athletics' 'strength'}}</span>
+                  <span class="prof-name">Athletics <small class="skill-attr">(Str)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'deception')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'deception' 'charisma'}}</span>
+                  <span class="prof-name">Deception <small class="skill-attr">(Cha)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'history')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'history' 'intelligence'}}</span>
+                  <span class="prof-name">History <small class="skill-attr">(Int)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'insight')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'insight' 'wisdom'}}</span>
+                  <span class="prof-name">Insight <small class="skill-attr">(Wis)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'intimidation')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'intimidation' 'charisma'}}</span>
+                  <span class="prof-name">Intimidation <small class="skill-attr">(Cha)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'investigation')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'investigation' 'intelligence'}}</span>
+                  <span class="prof-name">Investigation <small class="skill-attr">(Int)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'medicine')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'medicine' 'wisdom'}}</span>
+                  <span class="prof-name">Medicine <small class="skill-attr">(Wis)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'nature')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'nature' 'intelligence'}}</span>
+                  <span class="prof-name">Nature <small class="skill-attr">(Int)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'perception')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'perception' 'wisdom'}}</span>
+                  <span class="prof-name">Perception <small class="skill-attr">(Wis)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'performance')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'performance' 'charisma'}}</span>
+                  <span class="prof-name">Performance <small class="skill-attr">(Cha)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'persuasion')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'persuasion' 'charisma'}}</span>
+                  <span class="prof-name">Persuasion <small class="skill-attr">(Cha)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'religion')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'religion' 'intelligence'}}</span>
+                  <span class="prof-name">Religion <small class="skill-attr">(Int)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'sleight_of_hand')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'sleight_of_hand' 'dexterity'}}</span>
+                  <span class="prof-name">Sleight of Hand <small class="skill-attr">(Dex)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'stealth')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'stealth' 'dexterity'}}</span>
+                  <span class="prof-name">Stealth <small class="skill-attr">(Dex)</small></span>
+                </li>
+                <li class="prof-item">
+                  <span class="dot {{#if (isSkillProf properties.skills 'survival')}}filled{{/if}}"></span>
+                  <span class="prof-bonus">{{skillBonus properties 'survival' 'wisdom'}}</span>
+                  <span class="prof-name">Survival <small class="skill-attr">(Wis)</small></span>
+                </li>
+              </ul>
+              <div class="box-bottom-label">SKILLS</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Passive Perception Box -->
+        <div class="passive-perception-box">
+          <span class="passive-score">{{passivePerception properties}}</span>
+          <span class="passive-label">PASSIVE WISDOM (PERCEPTION)</span>
+        </div>
+
+        <!-- Other Proficiencies & Languages Box -->
+        <div class="section-box proficiencies-box">
+          <div class="prof-block-content">
+            {{#if properties.other_proficiencies_and_languages.armor}}
+              <div class="prof-line"><strong>Armor:</strong> {{join properties.other_proficiencies_and_languages.armor}}</div>
+            {{/if}}
+            {{#if properties.other_proficiencies_and_languages.weapons}}
+              <div class="prof-line"><strong>Weapons:</strong> {{join properties.other_proficiencies_and_languages.weapons}}</div>
+            {{/if}}
+            {{#if properties.other_proficiencies_and_languages.tools}}
+              <div class="prof-line"><strong>Tools:</strong> {{join properties.other_proficiencies_and_languages.tools}}</div>
+            {{/if}}
+            {{#if properties.languages}}
+              <div class="prof-line"><strong>Languages:</strong> {{join properties.languages}}</div>
+            {{else if properties.other_proficiencies_and_languages.languages}}
+              <div class="prof-line"><strong>Languages:</strong> {{join properties.other_proficiencies_and_languages.languages}}</div>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">OTHER PROFICIENCIES &amp; LANGUAGES</div>
+        </div>
+
+      </section>
+
+      <!-- ================= MIDDLE COLUMN ================= -->
+      <section class="sheet-col col-middle">
+        
+        <!-- Combat Top Row: AC, Initiative, Speed -->
+        <div class="combat-top-row">
+          <div class="combat-badge badge-ac">
+            <span class="badge-value">{{val properties.armor_class}}</span>
+            <span class="badge-label">ARMOR CLASS</span>
+          </div>
+          <div class="combat-badge badge-init">
+            <span class="badge-value">{{#if properties.initiative}}{{modSign properties.initiative}}{{else}}{{modText properties.abilities.dexterity}}{{/if}}</span>
+            <span class="badge-label">INITIATIVE</span>
+          </div>
+          <div class="combat-badge badge-speed">
+            <span class="badge-value">{{#if properties.speed}}{{properties.speed}} ft.{{else}}30 ft.{{/if}}</span>
+            <span class="badge-label">SPEED</span>
+          </div>
+        </div>
+
+        <!-- Current Hit Points -->
+        <div class="section-box hp-box">
+          <div class="hp-max-line">
+            Hit Point Maximum: <strong>{{properties.hit_points.max}}</strong>
+          </div>
+          <div class="hp-current-val">
+            {{properties.hit_points.current}}
+          </div>
+          <div class="box-bottom-label">CURRENT HIT POINTS</div>
+        </div>
+
+        <!-- Temporary Hit Points -->
+        <div class="section-box temp-hp-box">
+          <div class="temp-hp-val">
+            {{#if properties.hit_points.temp}}{{properties.hit_points.temp}}{{else}}--{{/if}}
+          </div>
+          <div class="box-bottom-label">TEMPORARY HIT POINTS</div>
+        </div>
+
+        <!-- Hit Dice & Death Saves Row -->
+        <div class="hd-and-death-row">
+          <!-- Hit Dice -->
+          <div class="section-box half-box hd-box">
+            <div class="hd-total-line">Total: {{#if properties.hit_dice.total}}{{properties.hit_dice.total}}{{else}}{{properties.level}}{{/if}}</div>
+            <div class="hd-current-val">
+              {{#if properties.hit_dice.dice}}{{properties.hit_dice.dice}}{{else if properties.hit_points.hit_dice}}{{properties.hit_points.hit_dice}}{{else}}1d10{{/if}}
+            </div>
+            <div class="box-bottom-label">HIT DICE</div>
+          </div>
+
+          <!-- Death Saves -->
+          <div class="section-box half-box death-saves-box">
+            <div class="death-save-line">
+              <span class="ds-title">SUCCESSES</span>
+              <span class="ds-bubbles">
+                <span class="bubble {{#if (gte properties.death_saves.successes 1)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (gte properties.death_saves.successes 2)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (gte properties.death_saves.successes 3)}}filled{{/if}}"></span>
+              </span>
+            </div>
+            <div class="death-save-line">
+              <span class="ds-title">FAILURES</span>
+              <span class="ds-bubbles">
+                <span class="bubble {{#if (gte properties.death_saves.failures 1)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (gte properties.death_saves.failures 2)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (gte properties.death_saves.failures 3)}}filled{{/if}}"></span>
+              </span>
+            </div>
+            <div class="box-bottom-label">DEATH SAVES</div>
+          </div>
+        </div>
+
+        <!-- Attacks & Spellcasting -->
+        <div class="section-box attacks-box">
+          <table class="attacks-table">
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>ATK BONUS</th>
+                <th>DAMAGE/TYPE</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#if properties.attacks}}
+                {{#each properties.attacks}}
+                <tr>
+                  <td class="atk-name">{{this.name}}</td>
+                  <td class="atk-bonus">{{#if this.atk_bonus}}{{this.atk_bonus}}{{else}}+0{{/if}}</td>
+                  <td class="atk-damage">{{this.damage}} {{this.damage_type}}</td>
+                </tr>
+                {{/each}}
+              {{else if properties.actions}}
+                {{#each properties.actions}}
+                <tr>
+                  <td class="atk-name">{{this.name}}</td>
+                  <td class="atk-bonus">+5</td>
+                  <td class="atk-damage">{{this.desc}}</td>
+                </tr>
+                {{/each}}
+              {{else}}
+                <tr><td colspan="3" class="empty-hint">No attacks equipped</td></tr>
+              {{/if}}
+            </tbody>
+          </table>
+
+          {{#if properties.actions}}
+          <div class="attack-notes">
+            {{#each properties.actions}}
+              <p class="attack-note-item"><em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}</p>
+            {{/each}}
+          </div>
+          {{/if}}
+
+          <div class="box-bottom-label">ATTACKS &amp; SPELLCASTING</div>
+        </div>
+
+        <!-- Equipment & Coins -->
+        <div class="section-box equipment-box">
+          <div class="equipment-layout">
+            <!-- Coins Column -->
+            <div class="coins-stack">
+              <div class="coin-row">
+                <span class="coin-tag">CP</span>
+                <span class="coin-val">{{#if properties.currency.cp}}{{properties.currency.cp}}{{else}}0{{/if}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">SP</span>
+                <span class="coin-val">{{#if properties.currency.sp}}{{properties.currency.sp}}{{else}}0{{/if}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">EP</span>
+                <span class="coin-val">{{#if properties.currency.ep}}{{properties.currency.ep}}{{else}}0{{/if}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">GP</span>
+                <span class="coin-val">{{#if properties.currency.gp}}{{properties.currency.gp}}{{else}}0{{/if}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">PP</span>
+                <span class="coin-val">{{#if properties.currency.pp}}{{properties.currency.pp}}{{else}}0{{/if}}</span>
+              </div>
+            </div>
+
+            <!-- Equipment List -->
+            <div class="items-list-container">
+              <ul class="items-list">
+                {{#each properties.inventory}}
+                <li class="item-row">
+                  <span class="item-name">{{this.name}}{{#if this.equipped}} <small class="equipped-tag">(E)</small>{{/if}}</span>
+                  <span class="item-meta">x{{this.quantity}}{{#if this.weight}} &bull; {{this.weight}} lb{{/if}}</span>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+          <div class="box-bottom-label">EQUIPMENT</div>
+        </div>
+
+      </section>
+
+      <!-- ================= RIGHT COLUMN ================= -->
+      <section class="sheet-col col-right">
+        
+        <!-- Personality Traits -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.personality_traits}}
+              <p>{{formatText properties.personality_traits}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">PERSONALITY TRAITS</div>
+        </div>
+
+        <!-- Ideals -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.ideals}}
+              <p>{{formatText properties.ideals}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">IDEALS</div>
+        </div>
+
+        <!-- Bonds -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.bonds}}
+              <p>{{formatText properties.bonds}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">BONDS</div>
+        </div>
+
+        <!-- Flaws -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.flaws}}
+              <p>{{formatText properties.flaws}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">FLAWS</div>
+        </div>
+
+        <!-- Features & Traits (Large Box) -->
+        <div class="section-box features-box">
+          <div class="features-content">
+            {{#if properties.features_and_traits}}
+              {{#each properties.features_and_traits}}
+              <div class="feature-item">
+                <strong class="feature-name">{{this.name}}</strong>
+                <p class="feature-desc">{{formatText this.desc}}</p>
+              </div>
+              {{/each}}
+            {{else if properties.traits}}
+              {{#each properties.traits}}
+              <div class="feature-item">
+                <strong class="feature-name">{{this.name}}</strong>
+                <p class="feature-desc">{{formatText this.desc}}</p>
+              </div>
+              {{/each}}
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">FEATURES &amp; TRAITS</div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

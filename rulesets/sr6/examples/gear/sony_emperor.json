@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "edc2ae00-5a28-4fb7-a312-bb08e19c2ace",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Sony Emperor",
+  "description": "Popular because it’s cheap and not the worst, this commlink works with few frills.",
+  "properties": {
+    "filename": "sony_emperor",
+    "name": "Sony Emperor",
+    "category": "Commlink",
+    "device_rating": 2,
+    "attributes_df": "1/1",
+    "active_program_slots": 1,
+    "notes": "Popular because it’s cheap and not the worst, this commlink works with few frills."
+  }
+}

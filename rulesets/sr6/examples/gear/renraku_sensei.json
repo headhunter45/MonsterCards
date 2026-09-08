@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "8e6c3af8-1816-407f-a39e-62af989576cc",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Renraku Sensei",
+  "description": "Middle managers and teenagers with money like the Sensei for giving a sense of status.",
+  "properties": {
+    "filename": "renraku_sensei",
+    "name": "Renraku Sensei",
+    "category": "Commlink",
+    "device_rating": 3,
+    "attributes_df": "2/0",
+    "active_program_slots": 1,
+    "notes": "Middle managers and teenagers with money like the Sensei for giving a sense of status."
+  }
+}

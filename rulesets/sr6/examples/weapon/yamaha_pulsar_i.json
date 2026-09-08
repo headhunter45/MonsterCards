@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "c6f3d100-246f-474c-aa97-f6c9e4d633ef",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Yamaha Pulsar I",
+  "description": "Uses wireless capacitors, meaning increased range compared to wired tasers.",
+  "properties": {
+    "name": "Yamaha Pulsar I",
+    "dv": "4S (e)",
+    "mode": "SS",
+    "attack_rating": {
+      "close": 9,
+      "near": 9
+    },
+    "extras": "max range, 50 meters",
+    "notes": "Uses wireless capacitors, meaning increased range compared to wired tasers."
+  }
+}

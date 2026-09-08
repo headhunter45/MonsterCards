@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "0c3cd5a4-294c-4fda-867f-d5c3b01db5e9",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "Ancients",
+  "description": "Go-Gang / Elf Gangers from the SR6 Beginner Box.",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "Ancients",
+    "archetype": "Go-Gang / Elf Gangers",
+    "metatype": "Elf",
+    "notes": "Vicious elves who use the speed of their racing bikes to strike with viper-like speed and lethality. They all rock the neon green encircled A on their jackets.",
+    "quote": "“Our blood gives us pride. Yours will bring you shame.”",
+    "hook": "Fiercely territorial, the Ancients cause trouble for any intruders and trespassers.",
+    "attributes": {
+      "body": 2,
+      "agility": 4,
+      "reaction": 3,
+      "strength": 2,
+      "willpower": 2,
+      "logic": 2,
+      "intuition": 2,
+      "charisma": 3,
+      "edge": 0,
+      "essence": 6
+    },
+    "combat_info": {
+      "initiative": "5 + 1D6",
+      "defense_rating": 3,
+      "condition_monitor": 9
+    },
+    "skills": [
+      {
+        "name": "Piloting",
+        "rating": 7,
+        "attribute": "Reaction",
+        "dice_pool": 10
+      },
+      {
+        "name": "Close Combat",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 9
+      },
+      {
+        "name": "Firearms",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 9
+      },
+      {
+        "name": "Influence",
+        "rating": 5,
+        "attribute": "Charisma",
+        "dice_pool": 8
+      },
+      {
+        "name": "Perception",
+        "rating": 4,
+        "attribute": "Intuition",
+        "dice_pool": 6
+      }
+    ],
+    "gear": [
+      {
+        "name": "Gang leather",
+        "rating": "+1 DR"
+      },
+      {
+        "name": "Sony Emperor commlink",
+        "rating": 2
+      },
+      {
+        "name": "Yamaha Rapier motorcycle"
+      },
+      {
+        "name": "Katana"
+      },
+      {
+        "name": "Uzi V submachine gun"
+      }
+    ],
+    "primary_ranged_weapon": {
+      "name": "Uzi V",
+      "dv": "3P",
+      "mode": "SA/BF",
+      "attack_rating": {
+        "close": 8,
+        "near": 8,
+        "far": 7
+      }
+    },
+    "primary_melee_weapon": {
+      "name": "Katana",
+      "dv": "4P",
+      "close": 10
+    },
+    "primary_armor": {
+      "name": "Gang leather",
+      "rating": "+1"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "npc",
+  "name": "Non-Player Character / Gang",
+  "description": "SR6 NPCs, gang members, syndicate leaders, and corporate operatives compatible with character and dossier sheets.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "default_template": "character_picker",
+  "allowed_templates": ["character_picker", "character_sheet"],
+  "schema": {
+    "type": "object",
+    "required": ["alias"],
+    "properties": {
+      "alias": {
+        "type": "string",
+        "description": "NPC name, handle, or gang designation."
+      },
+      "real_name": {
+        "type": "string",
+        "description": "Legal name or true identity if known."
+      },
+      "archetype": {
+        "type": "string",
+        "description": "Role, title, or affiliation (e.g., 'Human Female Government Operative', 'Dwarf Gangers')."
+      },
+      "metatype": {
+        "type": "string",
+        "description": "Metatype (Human, Elf, Dwarf, Ork, Troll, etc.)."
+      },
+      "ethnicity": {
+        "type": "string",
+        "description": "Ethnicity or cultural background."
+      },
+      "quote": {
+        "type": "string",
+        "description": "Characteristic quote or battle cry."
+      },
+      "hook": {
+        "type": "string",
+        "description": "Gamemaster plot hook or motivation."
+      },
+      "notes": {
+        "type": "string",
+        "description": "Narrative background and roleplay guidance."
+      },
+      "attributes": {
+        "type": "object",
+        "description": "Core NPC attributes.",
+        "properties": {
+          "body": { "type": ["integer", "object"] },
+          "agility": { "type": ["integer", "object"] },
+          "reaction": { "type": ["integer", "object"] },
+          "strength": { "type": ["integer", "object"] },
+          "willpower": { "type": ["integer", "object"] },
+          "logic": { "type": ["integer", "object"] },
+          "intuition": { "type": ["integer", "object"] },
+          "charisma": { "type": ["integer", "object"] },
+          "edge": { "type": ["integer", "string", "object"] },
+          "essence": { "type": ["number", "object"] },
+          "magic": { "type": ["integer", "object"] }
+        }
+      },
+      "combat_info": {
+        "type": "object",
+        "description": "Quick-reference combat stats.",
+        "properties": {
+          "initiative": {
+            "type": "string",
+            "description": "Initiative score formula (e.g. '6 + 1D6')."
+          },
+          "defense_rating": {
+            "type": ["integer", "string", "object"],
+            "description": "Defense rating."
+          },
+          "condition_monitor": {
+            "type": ["integer", "string", "object"],
+            "description": "Condition monitor boxes."
+          },
+          "unarmed_ar": { "type": ["integer", "string", "object"] }
+        }
+      },
+      "skills": {
+        "type": "array",
+        "description": "List of active skills and ratings.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "rating": { "type": ["integer", "string"] },
+            "attribute": { "type": "string" },
+            "dice_pool": { "type": ["integer", "string"] }
+          }
+        }
+      },
+      "gear": {
+        "type": "array",
+        "description": "Equipment, armor, and commlinks carried.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "rating": { "type": ["integer", "string"] },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "weapons": {
+        "type": "array",
+        "description": "Weapons equipped.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "dv": { "type": "string" },
+            "mode": { "type": "string" },
+            "attack_rating": { "type": ["integer", "string", "object"] },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "weapon",
+  "name": "Weapon",
+  "description": "5e Weapon entity definition inheriting from base item, specifying damage dice, damage type, and weapon properties.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "allOf": [
+      {
+        "$ref": "item.json#/schema"
+      },
+      {
+        "type": "object",
+        "required": ["damage_dice", "damage_type"],
+        "properties": {
+          "weapon_category": {
+            "type": "string",
+            "enum": ["simple", "martial"]
+          },
+          "weapon_range": {
+            "type": "string",
+            "enum": ["melee", "ranged"],
+            "default": "melee"
+          },
+          "damage_dice": {
+            "type": "string",
+            "description": "Damage formula e.g. 1d6, 1d8, 2d6."
+          },
+          "damage_type": {
+            "type": "string",
+            "enum": ["bludgeoning", "piercing", "slashing"]
+          },
+          "properties": {
+            "type": "array",
+            "description": "Standard 5e weapon properties.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ammunition",
+                "finesse",
+                "heavy",
+                "light",
+                "loading",
+                "range",
+                "reach",
+                "special",
+                "thrown",
+                "two-handed",
+                "versatile"
+              ]
+            }
+          },
+          "range_normal": {
+            "type": ["integer", "null"],
+            "description": "Standard effective range in feet."
+          },
+          "range_long": {
+            "type": ["integer", "null"],
+            "description": "Long range with disadvantage in feet."
+          },
+          "versatile_dice": {
+            "type": ["string", "null"],
+            "description": "Two-handed damage dice when used versatile (e.g. 1d10 for a longsword)."
+          }
+        }
+      }
+    ]
+  },
+  "default_values": {
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 2.0,
+    "weapon_category": "simple",
+    "weapon_range": "melee",
+    "damage_dice": "1d6",
+    "damage_type": "slashing",
+    "properties": []
+  }
+}

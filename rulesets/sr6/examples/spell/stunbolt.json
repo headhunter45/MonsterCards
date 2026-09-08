@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "bd72b9ba-8888-4a20-a8c5-b68cb79dadcf",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Stunbolt",
+  "description": "Channels mana in a way that hurts, but only to stun.",
+  "properties": {
+    "name": "Stunbolt",
+    "category": "Spell",
+    "spell_type": "Combat (Direct)",
+    "type_target": "M",
+    "range": "LOS",
+    "duration": "I",
+    "drain": "3",
+    "damage": "S",
+    "rules": "",
+    "notes": "Channels mana in a way that hurts, but only to stun."
+  }
+}

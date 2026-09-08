@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "82936168-8bdb-47d8-af83-f3bfdc74ac1a",
+  "ruleset_id": "sr6",
+  "entity_type": "vehicle",
+  "display_name": "MCT-Nissan Roto-Drone",
+  "description": "MCT-Nissan got this right so long ago, they have never changed it much.",
+  "properties": {
+    "filename": "mct_nissan_roto_drone",
+    "name": "MCT-Nissan Roto-Drone",
+    "category": "Drone",
+    "handling": "3",
+    "acceleration": "20",
+    "speed_interval": "30",
+    "top_speed": "160",
+    "body": 5,
+    "armor": 6,
+    "pilot": 3,
+    "sensor": 2,
+    "notes": "MCT-Nissan got this right so long ago, they have never changed it much."
+  }
+}

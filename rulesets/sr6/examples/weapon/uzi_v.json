@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "e23a7a67-8a63-4c58-bc25-2bf852727539",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Uzi V",
+  "description": "The latest model Uzi is a big market entry for Spinrad Global.",
+  "properties": {
+    "name": "Uzi V",
+    "dv": "3P",
+    "mode": "SA/BF",
+    "attack_rating": {
+      "close": 8,
+      "near": 8,
+      "far": 7
+    },
+    "extras": "None",
+    "notes": "The latest model Uzi is a big market entry for Spinrad Global."
+  }
+}

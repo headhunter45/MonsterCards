@@ -1,0 +1,394 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "98dc54b1-8b02-44df-91ea-72e8fa440a33",
+  "ruleset_id": "sr6",
+  "entity_type": "dossier",
+  "display_name": "Zipfile (Dwarf Decker Dossier)",
+  "description": "Full 4-page narrative dossier for Zipfile, Dwarf Decker from the SR6 Beginner Box.",
+  "template_id": "dossier_sheet",
+  "properties": {
+    "alias": "Zipfile",
+    "real_name": "Zipfile",
+    "player": "Catalyst Pregen",
+    "archetype": "Dwarf Decker",
+    "quote": "\"How can you support a system that pays us to destroy itself?\" / \"Eish! That IC is wiz!\" / \"(triumphant vuvuzela noise)\"",
+    "pitch": "Play this character if you like illicit hacking and weaponizing people's devices against them.",
+    "metatype": "Dwarf",
+    "ethnicity": "Bantu",
+    "age": 23,
+    "sex": "Female",
+    "height": "1.1 m",
+    "weight": "36 kg",
+    "reputation": 2,
+    "heat": 0,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Azanian neo-anarchist activist and urban brawl fan with a custom Renraku Kitsune deck.",
+    "notes": "Dwarf Decker and virtual saboteur specializing in host penetration, device spoofing, and matrix surveillance.",
+    "background": "Zipfile grew up in the urban brawl hotspot of Emfuleni, part of Azania's Pretoria-Witwatersrand-Vaal Metroplex. As a young girl, she loved the excitement, the chaos, the adrenaline-junkie rush that came with watching the local brawlers every weekend. It almost made her forget how she used to live in one of the buildings inside that urban arena, until Ares had evicted her family from their home and turned Emfuleni into an international spectacle. As a teenager, Zipfile lost both of her parents when DeBeers-Omnitech literally worked them to death in one of their mines. The shock and bitterness over their deaths led Zipfile and her younger brother to join a neo-anarchist cell in PWV. The neo-anarchists saw potential in her and sent her off to one of their training camps, where she learned how to use her cyberdeck to disrupt the system. Zipfile ultimately left Azania, though, when a conflict between neo-anarchist groups turned violent and most of her former runner team got killed. She met Ms. Myth through a fellow decker who was an urban brawl fan, and she uses her nuyen from those jobs to support both the neo-anarchist cause and the brother she left in Azania.",
+    "preferred_tactics": "Zipfile has never been one for the subtle approach. She delights in acting as a virtual saboteur, throwing wrenches in the corps' Matrix machinery until it collapses under its own weight. As far as she's concerned, disrupting systems is a metaphor for disrupting the system, and she considers tagging corporate hosts with virtual graffiti a vital component of her neo-anarchist outreach. She doesn't just want to beat the 'tools of the establishment' at their own game: she wants to make sure they know who beat them. Zipfile isn't completely lacking in discretion though. She knows her team will only succeed if they support each other, so she will (grudgingly) pass on chances to make the corps look bad if doing so would jeopardize the run or her teammates. Due to her love for urban brawl, Zipfile has gone out of her way to make sure she's a passable runner-and-gunner in addition to her Matrix expertise. She's pestered Rude into helping her improve her marksmanship, and she regularly takes her Ruger Super Warhawk on runs, although she has yet to fire it in anger (outside of a Miracle Shooter game, anyway).",
+    "roleplaying_tips": "What Zipfile lacks in physical stature, she makes up for in personality and presence. She's outgoing, bombastic, and more cheerful than anyone not perpetually stoned has any right to be. She's also a walking encyclopedia of random facts, which is how she got her runner handle; a fellow decker christened her Zipfile because she's 'a lot of data in a compressed package.' Zipfile is also the most principled member of the team. She doesn't hesitate to preach about the virtues of neo-anarchism and doesn't always take kindly to people questioning her beliefs. She's equally apt to argue with her fellow neo-anarchists though, since she's willing to take nuyen from the system to fund her efforts to bring it down. Zipfile's zeal for her cause is rooted in one of the rarest qualities in the shadows: caring. She cares about her teammates, her fellow neo-anarchists, her brother in Azania, and the people of the world in general. She's been on the receiving end of the worst that corps and governments can inflict on people, and she truly believes that her ideals are the best way to solve that problem. Finally, although she's not big on nations—governments are part of the system, too—Zipfile takes pride in her heritage. When people ask her about her accent or verbal tics like the omnipresent eish, she'll gladly tell them that she's Xhosa, and she can often be spotted wearing merch from the PWV Imikhonto urban brawl team (and feeling guilty for giving in to her consumer urges).",
+    "vital_contacts": [
+      {
+        "name": "Arclight",
+        "role": "Combat Mage / Coordinator",
+        "description": "Combat mage and coordinator for the Black Star neo-anarchist shadowrunner collective."
+      },
+      {
+        "name": "Casey Connors",
+        "role": "Tech Bar Owner",
+        "description": "Owner of the Cathode Glow e-sports bar and tech museum in Tacoma."
+      },
+      {
+        "name": "Jules Maguire",
+        "role": "Cascade Ork Smuggler",
+        "description": "Cascade Ork smuggler and fixer connection."
+      }
+    ],
+    "favorite_hangouts": [
+      {
+        "name": "Dawn of Atlantis",
+        "location": "Matrix Node",
+        "description": "A Matrix-based fantasy RPG set in 'historical' Atlantis."
+      },
+      {
+        "name": "The Cathode Glow",
+        "location": "Tacoma",
+        "description": "An e-sports bar and tech museum in Tacoma."
+      },
+      {
+        "name": "The Sports Bar",
+        "location": "Downtown Seattle",
+        "description": "A lively sports bar in Downtown Seattle."
+      }
+    ],
+    "favorite_downtime_activities": [
+      "Attending neo-anarchist events",
+      "Playing Matrix games, especially Dawn of Atlantis and Miracle Shooter",
+      "Watching urban brawl"
+    ],
+    "sample_actions": [
+      {
+        "action": "Hack Host / Gain Access",
+        "action_type": "Major",
+        "dice_pool": 12,
+        "notes": "Cracking 6 + Logic 6 (Illegal, opposed vs. Firewall + Willpower)"
+      },
+      {
+        "action": "Crack File Protection",
+        "action_type": "Major",
+        "dice_pool": 14,
+        "notes": "Cracking 6 + Logic 6 + Decryption 2 (Removes encryption/protection)"
+      },
+      {
+        "action": "Matrix Perception / Scan Node",
+        "action_type": "Minor",
+        "dice_pool": 12,
+        "notes": "Electronics 6 + Intuition 6 (Inspect icons, hosts, and hidden personas)"
+      },
+      {
+        "action": "Spoof Command (Elevators / Systems)",
+        "action_type": "Major",
+        "dice_pool": 12,
+        "notes": "Cracking 6 + Logic 6 (Send false instructions to connected devices)"
+      },
+      {
+        "action": "Snoop Communications Feed",
+        "action_type": "Major",
+        "dice_pool": 12,
+        "notes": "Cracking 6 + Logic 6 (Overclock program adds +1 Edge)"
+      },
+      {
+        "action": "Data Spike Attack",
+        "action_type": "Major",
+        "dice_pool": 12,
+        "notes": "Cracking 6 + Logic 6 (Attack rating 6, inflicts Matrix damage)"
+      },
+      {
+        "action": "Heavy Pistol Shot (Ruger Warhawk)",
+        "action_type": "Major",
+        "dice_pool": 5,
+        "notes": "Firearms 2 + Agility 3 (SS mode, DV 4P)"
+      },
+      {
+        "action": "Spot Ambush / Physical Perception",
+        "action_type": "Minor",
+        "dice_pool": 9,
+        "notes": "Perception 3 + Intuition 6 (Thermographic Vision)"
+      }
+    ],
+    "edge_boosts": [
+      {
+        "cost": 1,
+        "name": "Reroll one die",
+        "description": "Reroll any one die from your roll that failed to score a hit (Post)."
+      },
+      {
+        "cost": 1,
+        "name": "Add 3 to Initiative",
+        "description": "Add +3 to your Initiative Score for the combat turn (Any)."
+      },
+      {
+        "cost": 2,
+        "name": "+1 to single die",
+        "description": "Add +1 to any single die result, turning a 4 into a 5 (hit) (Post)."
+      },
+      {
+        "cost": 2,
+        "name": "Give ally 1 Edge",
+        "description": "Pass 1 Edge point to an allied runner (Any)."
+      },
+      {
+        "cost": 2,
+        "name": "Negate 1 Edge of foe",
+        "description": "Negate 1 point of Edge held by an opponent (Pre)."
+      },
+      {
+        "cost": 3,
+        "name": "Buy automatic hit",
+        "description": "Add 1 automatic hit to test result (Any)."
+      },
+      {
+        "cost": 3,
+        "name": "Heal Stun Damage",
+        "description": "Immediately clear 1 box from your stun damage track."
+      },
+      {
+        "cost": 4,
+        "name": "Add Edge to Pool",
+        "description": "Add full Edge attribute (+4) to dice pool and 6s explode (Pre)."
+      }
+    ],
+    "attributes": {
+      "body": 5,
+      "agility": 3,
+      "reaction": 4,
+      "strength": 4,
+      "willpower": 6,
+      "logic": 6,
+      "intuition": 6,
+      "charisma": 3,
+      "edge": 4,
+      "essence": 3.7,
+      "magic": 0,
+      "edge_points": 4
+    },
+    "combat_info": {
+      "initiative": "10 + 1D6",
+      "matrix_initiative": "12 + 1D6",
+      "astral_initiative": "—",
+      "defense_rating": 8,
+      "unarmed_ar": 4,
+      "composure": 9,
+      "judge_intentions": 9,
+      "memory": 12,
+      "lift_carry": 9,
+      "movement": "5/10/+1"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 11,
+      "stun_damage": 0,
+      "stun_boxes": 11,
+      "overflow": 0
+    },
+    "skills": [
+      {
+        "name": "Cracking",
+        "rating": 6,
+        "attribute": "Logic",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Electronics",
+        "rating": 6,
+        "attribute": "Logic",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Engineering",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Action"
+      },
+      {
+        "name": "Perception",
+        "rating": 3,
+        "attribute": "Intuition",
+        "dice_pool": 9,
+        "type": "Action"
+      },
+      {
+        "name": "Firearms",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Close Combat",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Cyberdeck Models",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Knowledge"
+      },
+      {
+        "name": "German Expressionist Cinema",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Matrix Security",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Knowledge"
+      }
+    ],
+    "qualities": [
+      {
+        "name": "Gearhead",
+        "type": "Positive",
+        "notes": "May spend Edge on Repair tests and during downtime repairs."
+      },
+      {
+        "name": "Guts",
+        "type": "Positive",
+        "notes": "+2 dice pool bonus on tests resisting fear and intimidation."
+      },
+      {
+        "name": "Thermographic Vision",
+        "type": "Positive",
+        "notes": "Natural dwarf heat-signature vision."
+      }
+    ],
+    "currency_and_ids": {
+      "nuyen": 3500,
+      "primary_lifestyle": "Low (1 month prepaid)",
+      "licenses": "Concealed Carry (Heavy Pistol), Cyberdeck Operator License",
+      "fake_ids": [
+        {
+          "name": "Nandi Mandela",
+          "rating": 3,
+          "lifestyle": "Low",
+          "funds": "3,500¥",
+          "licenses": "Heavy Pistol, Hardware Tech"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Arclight",
+        "loyalty": 3,
+        "connection": 4,
+        "notes": "Combat mage and coordinator for the Black Star neo-anarchist shadowrunner collective."
+      },
+      {
+        "name": "Casey Connors",
+        "loyalty": 2,
+        "connection": 3,
+        "notes": "Owner of the Cathode Glow e-sports bar and tech museum in Tacoma."
+      },
+      {
+        "name": "Jules Maguire",
+        "loyalty": 2,
+        "connection": 2,
+        "notes": "Cascade Ork smuggler."
+      }
+    ],
+    "primary_armor": {
+      "name": "Armor vest",
+      "rating": "+3",
+      "notes": "+3 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "Ruger Super Warhawk",
+      "dv": "4P",
+      "mode": "SS",
+      "attack_rating": { "close": 8, "near": 11, "far": 8, "extreme": "—" },
+      "ammo": "6(cy)",
+      "notes": "Heavy cylinder revolver"
+    },
+    "primary_melee_weapon": {
+      "name": "Unarmed Strike",
+      "dv": "2S",
+      "close": 4,
+      "notes": "Natural"
+    },
+    "ranged_weapons": [
+      {
+        "name": "Ruger Super Warhawk (Heavy Pistol)",
+        "dv": "4P",
+        "mode": "SS",
+        "attack_rating": { "close": 8, "near": 11, "far": 8, "extreme": "—" },
+        "ammo": "6(cy)",
+        "notes": "Heavy revolver"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Unarmed Strike",
+        "dv": "2S",
+        "close": 4,
+        "notes": "Natural"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Armor vest",
+        "rating": "+3",
+        "notes": "+3 DR bonus"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Renraku Kitsune cyberdeck",
+      "device_rating": 4,
+      "attack": 6,
+      "sleaze": 7,
+      "data_processing": 4,
+      "firewall": 4,
+      "programs": ["Decryption", "Exploit", "Overclock"],
+      "matrix_damage": 0
+    },
+    "augmentations": [
+      {
+        "name": "Cyberjack MPI",
+        "rating": 4,
+        "notes": "7/6, +2 Matrix initiative",
+        "essence": 2.3
+      }
+    ],
+    "vehicles": [],
+    "gear": [
+      { "name": "Armor vest", "rating": 3, "quantity": 1 },
+      {
+        "name": "Renraku Kitsune cyberdeck",
+        "rating": 4,
+        "quantity": 1,
+        "notes": "DR 4, 7/6, 8 slots"
+      },
+      {
+        "name": "Hermes Ikon commlink",
+        "rating": 5,
+        "quantity": 1,
+        "notes": "DR 5, 3/0"
+      },
+      { "name": "Certified credstick", "quantity": 1, "notes": "3,500¥" },
+      { "name": "Heavy pistol ammo box (Ruger)", "quantity": 30 }
+    ],
+    "spells": [],
+    "adept_powers": []
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "4c8524d7-0f8c-4f76-9d32-bb9a25032b49",
+  "ruleset_id": "sr6",
+  "entity_type": "character",
+  "display_name": "Emu",
+  "description": "Human Rigger from the official Shadowrun 6th World Beginner Box.",
+  "template_id": "character_sheet",
+  "properties": {
+    "alias": "Emu",
+    "real_name": "Emu",
+    "player": "Catalyst Pregen",
+    "notes": "Human Rigger with a vehicle control rig, drone fleet, and heavy Mafia debt.",
+    "metatype": "Human",
+    "ethnicity": "Aboriginal Australian (Wiradjuri)",
+    "age": 23,
+    "sex": "Female",
+    "height": "1.65 m",
+    "weight": "57 kg",
+    "reputation": 2,
+    "heat": 0,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Former merc drone pilot; owes 200,000¥ to the Ciarniello Mafia.",
+    "attributes": {
+      "body": 2,
+      "agility": 2,
+      "reaction": 4,
+      "strength": 2,
+      "willpower": 4,
+      "logic": 4,
+      "intuition": 6,
+      "charisma": 3,
+      "edge": 5,
+      "essence": 3.6,
+      "magic": 0,
+      "edge_points": 5
+    },
+    "combat_info": {
+      "initiative": "10 + 1D6",
+      "matrix_initiative": "10 + 1D6",
+      "astral_initiative": "—",
+      "defense_rating": 6,
+      "unarmed_ar": 6,
+      "composure": 7,
+      "judge_intentions": 10,
+      "memory": 10,
+      "lift_carry": 6,
+      "movement": "5/10/15"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 9,
+      "stun_damage": 0,
+      "stun_boxes": 10,
+      "overflow": 0
+    },
+    "skills": [
+      {
+        "name": "Piloting",
+        "rating": 7,
+        "attribute": "Reaction",
+        "specialization": "Groundcraft",
+        "dice_pool": 13,
+        "type": "Action"
+      },
+      {
+        "name": "Engineering",
+        "rating": 6,
+        "attribute": "Logic",
+        "specialization": "Gunnery",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Perception",
+        "rating": 3,
+        "attribute": "Intuition",
+        "dice_pool": 9,
+        "type": "Action"
+      },
+      {
+        "name": "Firearms",
+        "rating": 3,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Electronics",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Con",
+        "rating": 2,
+        "attribute": "Charisma",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Influence",
+        "rating": 2,
+        "attribute": "Charisma",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Stealth",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 4,
+        "type": "Action"
+      },
+      {
+        "name": "Biotech",
+        "rating": 1,
+        "attribute": "Logic",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Close Combat",
+        "rating": 1,
+        "attribute": "Agility",
+        "dice_pool": 3,
+        "type": "Action"
+      },
+      {
+        "name": "Seattle Metroplex Geography",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 6,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Smuggling Routes",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 6,
+        "type": "Knowledge"
+      }
+    ],
+    "qualities": [
+      {
+        "name": "Addiction (Cigarettes)",
+        "type": "Negative",
+        "notes": "Level 3 addiction; penalty if in withdrawal."
+      },
+      {
+        "name": "Gearhead",
+        "type": "Positive",
+        "notes": "May spend Edge on repair tests and vehicle handling."
+      },
+      {
+        "name": "In Debt",
+        "type": "Negative",
+        "notes": "Ciarniello Mafia: 200,000¥ debt, 8,000¥/month interest."
+      },
+      {
+        "name": "Juryrigger",
+        "type": "Positive",
+        "notes": "Gains bonus Edge point on Juryrigging tests."
+      },
+      {
+        "name": "SINner",
+        "type": "Negative",
+        "notes": "Standard national/system SIN; extra scrutiny and trace exposure."
+      }
+    ],
+    "currency_and_ids": {
+      "nuyen": 265,
+      "primary_lifestyle": "Low (3 months prepaid)",
+      "licenses": "Concealed Carry (Assault Rifle), Drone Rigging, Cyberware",
+      "fake_ids": [
+        {
+          "name": "Kylie Mason",
+          "rating": 3,
+          "lifestyle": "Low",
+          "funds": "265¥",
+          "licenses": "Firearms, Cyberware, RCC"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Giovanni Valenti",
+        "loyalty": 2,
+        "connection": 3,
+        "notes": "Drone and vehicle fixer, owner of Gio's Garage in Everett."
+      },
+      {
+        "name": "Lenny",
+        "loyalty": 3,
+        "connection": 2,
+        "notes": "Underground safehouse fixer."
+      },
+      {
+        "name": "Steve Draper",
+        "loyalty": 1,
+        "connection": 3,
+        "notes": "Knight Errant dispatcher on the take."
+      },
+      {
+        "name": "Tomaso di Stefano",
+        "loyalty": 2,
+        "connection": 2,
+        "notes": "Ciarniello Mafia loan shark ('Tommy D') and occasional Mr. Johnson."
+      }
+    ],
+    "primary_armor": {
+      "name": "Armor jacket",
+      "rating": "+4",
+      "notes": "+4 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "FN HAR Assault Rifle",
+      "dv": "5P",
+      "mode": "SA/BF/FA",
+      "attack_rating": { "close": 3, "near": 11, "far": 6, "extreme": 1 },
+      "ammo": "35(c)",
+      "notes": "w/ gas-vent system, laser sight"
+    },
+    "primary_melee_weapon": {
+      "name": "Unarmed Strike",
+      "dv": "2S",
+      "close": 2,
+      "notes": "Natural"
+    },
+    "ranged_weapons": [
+      {
+        "name": "FN HAR Assault Rifle",
+        "dv": "5P",
+        "mode": "SA/BF/FA",
+        "attack_rating": { "close": 3, "near": 11, "far": 6, "extreme": 1 },
+        "ammo": "35(c)",
+        "notes": "w/ gas-vent system, laser sight"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Unarmed Strike",
+        "dv": "2S",
+        "close": 2,
+        "notes": "Natural"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Armor jacket",
+        "rating": "+4",
+        "notes": "+4 DR bonus"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Maersk Spider RCC",
+      "device_rating": 4,
+      "attack": 0,
+      "sleaze": 0,
+      "data_processing": 4,
+      "firewall": 5,
+      "programs": ["Encryption", "Signal Scrubber", "Toolbox"],
+      "matrix_damage": 0
+    },
+    "augmentations": [
+      {
+        "name": "Control Rig",
+        "rating": 2,
+        "notes": "Grants +2 dice pool bonus and +1 Edge on vehicle skill tests when jumped in.",
+        "essence": 2.0
+      },
+      {
+        "name": "Cybereyes",
+        "rating": 3,
+        "notes": "w/ flare compensation, image link, low-light vision, smartlink, thermographic vision",
+        "essence": 0.4
+      },
+      {
+        "name": "Reflex Recorder",
+        "rating": 1,
+        "notes": "Piloting skill (+1 bonus rating)",
+        "essence": 0.1
+      }
+    ],
+    "vehicles": [
+      {
+        "name": "GMC Commodore",
+        "handling": "4/3",
+        "accel": "14",
+        "speed": "120/160",
+        "armor": 8,
+        "body": 10,
+        "pilot": 2,
+        "sensor": 2,
+        "notes": "Sports sedan w/ 2 weapon mounts (Mossberg CMDT shotguns, 250 rds)"
+      },
+      {
+        "name": "GMC Bulldog",
+        "handling": "3/2",
+        "accel": "10",
+        "speed": "90/130",
+        "armor": 12,
+        "body": 16,
+        "pilot": 2,
+        "sensor": 2,
+        "notes": "Step-van rigger mobile workshop"
+      },
+      {
+        "name": "Lockheed Optic-X2",
+        "handling": "4",
+        "accel": "12",
+        "speed": "80",
+        "armor": 2,
+        "body": 3,
+        "pilot": 4,
+        "sensor": 4,
+        "notes": "Stealth recon drone w/ R6 Clearsight, R6 Stealth autosofts"
+      },
+      {
+        "name": "MCT-Nissan Roto-Drone (x3)",
+        "handling": "4",
+        "accel": "8",
+        "speed": "70",
+        "armor": 6,
+        "body": 6,
+        "pilot": 3,
+        "sensor": 3,
+        "notes": "Combat drone w/ weapon mount (Ingram Smartgun XI), R6 Maneuver, R6 Targeting autosofts"
+      },
+      {
+        "name": "MCT Hornet (x4)",
+        "handling": "3",
+        "accel": "5",
+        "speed": "30",
+        "armor": 0,
+        "body": 1,
+        "pilot": 2,
+        "sensor": 2,
+        "notes": "Micro indoor recon drone w/ R6 Stealth autosoft"
+      },
+      {
+        "name": "Horizon Flying Eye (x3)",
+        "handling": "3",
+        "accel": "6",
+        "speed": "40",
+        "armor": 1,
+        "body": 1,
+        "pilot": 2,
+        "sensor": 2,
+        "notes": "Micro surveillance drone w/ smoke grenade upgrade, R6 Maneuver autosoft"
+      }
+    ],
+    "gear": [
+      { "name": "Armor jacket", "rating": 4, "quantity": 1 },
+      { "name": "Automotive mechanic shop", "quantity": 1 },
+      {
+        "name": "Maersk Spider RCC",
+        "rating": 4,
+        "quantity": 1,
+        "notes": "DR 4, D/F 4/5"
+      },
+      {
+        "name": "Renraku Sensei commlink",
+        "rating": 3,
+        "quantity": 1,
+        "notes": "DR 3, D/F 2/0"
+      },
+      { "name": "Rating 3 Targeting Autosoft (HK 227)", "quantity": 1 },
+      { "name": "Certified credstick", "quantity": 1, "notes": "265¥" },
+      { "name": "FN HAR ammo box", "quantity": 175 }
+    ],
+    "spells": [],
+    "adept_powers": []
+  }
+}

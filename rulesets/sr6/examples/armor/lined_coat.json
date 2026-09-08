@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "e8f060d0-99eb-4592-81b5-6a6583549cc4",
+  "ruleset_id": "sr6",
+  "entity_type": "armor",
+  "display_name": "Lined Coat",
+  "description": "This duster has been consistently popular on the mean streets of the world’s sprawls for fifty years.",
+  "properties": {
+    "name": "Lined Coat",
+    "rating": "+3 DR",
+    "notes": "This duster has been consistently popular on the mean streets of the world’s sprawls for fifty years."
+  }
+}

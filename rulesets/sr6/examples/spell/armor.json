@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "5eea3b01-8139-44b7-9f75-48b83e37cb78",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Armor",
+  "description": "Hardens the body of the target to absorb damage.",
+  "properties": {
+    "name": "Armor",
+    "category": "Spell",
+    "spell_type": "Manipulation",
+    "type_target": "P",
+    "range": "T",
+    "duration": "S",
+    "drain": "3",
+    "damage": "—",
+    "rules": "Add net hits to target’s Defense Rating and Body for Damage Resistance tests.",
+    "notes": "Hardens the body of the target to absorb damage."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "spell",
+  "name": "Spell / Complex Form",
+  "description": "SR6 Hermetic and shamanic spells, preparations, rituals, and technomancer complex forms.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "category", "drain"],
+    "properties": {
+      "name": { "type": "string" },
+      "category": { "type": "string", "enum": ["Spell", "Preparation", "Ritual", "Complex Form"], "default": "Spell" },
+      "type_target": { "type": "string", "description": "Physical, Mana, Device, Persona, etc." },
+      "range": { "type": "string", "description": "Touch, LOS, Area, etc." },
+      "duration": { "type": "string", "description": "Instant, Sustained, Permanent." },
+      "drain": { "type": ["integer", "string"], "description": "Drain or Fading value (e.g. '3' or 'DV 4')." },
+      "notes": { "type": "string" }
+    }
+  }
+}

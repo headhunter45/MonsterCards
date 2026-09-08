@@ -1,0 +1,306 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "4c8f3824-3453-48bf-9a0e-a4c336b3bcf2",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Arannis",
+  "description": "Elven Ranger exploring ancient ruins.",
+  "version": "1.0.0",
+  "created_at": "2026-09-06T14:00:00Z",
+  "updated_at": "2026-09-06T18:00:00Z",
+  "tags": ["pc", "ranger", "elf"],
+  "properties": {
+    "player_name": "Tom",
+    "class_levels": {
+      "ranger": {
+        "name": "Ranger",
+        "level": 3,
+        "subclass": "Hunter",
+        "description": "Hunter archetype with Colossus Slayer"
+      }
+    },
+    "race": "Elf",
+    "size": "medium",
+    "type": "Humanoid",
+    "subtype": "Elf",
+    "background": "Outlander",
+    "alignment": "Chaotic Good",
+    "experience_points": 900,
+    "inspiration": true,
+    "proficiency_bonus": 2,
+    "initiative": 3,
+    "speed": 35,
+    "speed_desc": "35 ft.",
+    "hit_points": {
+      "current": 24,
+      "max": 24,
+      "formula": "3d10 + 6",
+      "temp": 0
+    },
+    "hit_dice": {
+      "total": 3,
+      "current": 3,
+      "dice": "1d10"
+    },
+    "death_saves": {
+      "successes": 0,
+      "failures": 0
+    },
+    "saving_throws": ["Strength +3", "Dexterity +5"],
+    "advantages": ["wis"],
+    "skills": ["Athletics +3", "Perception +5", "Stealth +5", "Survival +5"],
+    "passive_perception": 15,
+    "senses": "darkvision 60 ft., passive Perception 15",
+    "languages": ["Common", "Elvish", "Sylvan"],
+    "other_proficiencies_and_languages": {
+      "armor": ["Light armor", "Medium armor", "Shields"],
+      "weapons": ["Simple weapons", "Martial weapons"],
+      "tools": ["Herbalism kit", "Flute"],
+      "languages": ["Common", "Elvish", "Sylvan"]
+    },
+    "attacks": [
+      {
+        "name": "Longbow",
+        "atk_bonus": "+7",
+        "damage": "1d8 + 3",
+        "damage_type": "Piercing",
+        "range": "150/600 ft."
+      },
+      {
+        "name": "Shortsword",
+        "atk_bonus": "+5",
+        "damage": "1d6 + 3",
+        "damage_type": "Piercing",
+        "range": "5 ft."
+      }
+    ],
+    "currency": {
+      "cp": 15,
+      "sp": 40,
+      "ep": 0,
+      "gp": 25,
+      "pp": 0
+    },
+    "personality_traits": "I feel far more comfortable among the ancient trees and wild beasts than in bustling cities.",
+    "ideals": "Nature: The natural world is more important than the constructs of civilization.",
+    "bonds": "An ancient ruined shrine in the northern forest holds a secret I have sworn to protect.",
+    "flaws": "I am slow to trust others and prefer solitude even in times of danger.",
+    "features_and_traits": [
+      {
+        "name": "Favored Enemy (Undead)",
+        "source": "Ranger 1",
+        "desc": "You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them."
+      },
+      {
+        "name": "Natural Explorer (Forest)",
+        "source": "Ranger 1",
+        "desc": "When making an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill you're proficient in."
+      },
+      {
+        "name": "Colossus Slayer",
+        "source": "Hunter Archetype",
+        "desc": "Your tenacity can wear down the most potent foes. Once per turn when you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's below its hit point maximum."
+      }
+    ],
+    "spellcasting": {
+      "class": "Ranger",
+      "ability": "WISDOM",
+      "save_dc": 13,
+      "attack_bonus": 5,
+      "cantrips": [],
+      "slots": {
+        "1": {
+          "total": 3,
+          "expended": 1
+        }
+      },
+      "spells": [
+        {
+          "name": "Hunter's Mark",
+          "level": 1,
+          "prepared": true,
+          "desc": "You choose a creature you can see within range and mystically mark it as your quarry."
+        },
+        {
+          "name": "Cure Wounds",
+          "level": 1,
+          "prepared": true,
+          "desc": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier."
+        }
+      ]
+    },
+    "traits": [
+      {
+        "name": "Fey Ancestry",
+        "desc": "Arannis has advantage on saving throws against being charmed, and magic cannot put her to sleep."
+      },
+      {
+        "name": "Natural Explorer",
+        "desc": "Difficult terrain does not slow Arannis's group while traveling."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Longbow",
+        "desc": "_Ranged Weapon Attack:_ +7 to hit, range 150/600 ft., one target. _Hit:_ 7 (1d8 + 3) piercing damage."
+      },
+      {
+        "name": "Shortsword",
+        "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 6 (1d6 + 3) piercing damage."
+      }
+    ],
+    "equipped_armor": {
+      "id": "armor_leather",
+      "name": "Leather Armor",
+      "armor_category": "light",
+      "ac_base": 11,
+      "ac_modifier": 1,
+      "dex_cap": null,
+      "stealth_disadvantage": false,
+      "strength_requirement": null
+    },
+    "equipped_shield": null,
+    "armor_class": {
+      "value": 15,
+      "base": 10,
+      "expr": "base + sum(modifiers)",
+      "modifiers": [
+        {
+          "source": "Leather Armor",
+          "value": 1,
+          "type": "armor"
+        },
+        {
+          "source": "Dexterity Modifier",
+          "value": 3,
+          "type": "ability"
+        },
+        {
+          "source": "Ring of Protection +1",
+          "value": 1,
+          "type": "bonus",
+          "active": true
+        }
+      ]
+    },
+    "abilities": {
+      "strength": {
+        "display_name": "Strength",
+        "short_name": "Str",
+        "value": 12,
+        "modifier": 1,
+        "proficiency": true,
+        "saving_throw": 3
+      },
+      "dexterity": {
+        "display_name": "Dexterity",
+        "short_name": "Dex",
+        "value": 16,
+        "base": 14,
+        "modifier": 3,
+        "proficiency": true,
+        "saving_throw": 5,
+        "modifiers": [
+          {
+            "source": "Elven Agility",
+            "value": 2,
+            "type": "bonus"
+          }
+        ]
+      },
+      "constitution": {
+        "display_name": "Constitution",
+        "short_name": "Con",
+        "value": 14,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "intelligence": {
+        "display_name": "Intelligence",
+        "short_name": "Int",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      },
+      "wisdom": {
+        "display_name": "Wisdom",
+        "short_name": "Wis",
+        "value": 15,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2,
+        "advantage": "Fey Ancestry (charm saves)"
+      },
+      "charisma": {
+        "display_name": "Charisma",
+        "short_name": "Cha",
+        "value": 8,
+        "modifier": -1,
+        "proficiency": false,
+        "saving_throw": -1
+      }
+    },
+    "inventory": [
+      {
+        "id": "armor_leather",
+        "entity_ref": "entities/armor.json",
+        "name": "Leather Armor",
+        "quantity": 1,
+        "weight": 10.0,
+        "equipped": true,
+        "ac_base": 11,
+        "dex_cap": null
+      },
+      {
+        "id": "ring_protection",
+        "entity_ref": "entities/item.json",
+        "name": "Ring of Protection +1",
+        "quantity": 1,
+        "weight": 0.1,
+        "equipped": true,
+        "grants_modifiers": [
+          {
+            "target": "armor_class",
+            "value": 1,
+            "type": "bonus",
+            "source": "Ring of Protection +1"
+          }
+        ]
+      },
+      {
+        "id": "longbow",
+        "entity_ref": "entities/weapon.json",
+        "name": "Longbow",
+        "quantity": 1,
+        "weight": 2.0,
+        "equipped": true
+      },
+      {
+        "id": "shortsword",
+        "entity_ref": "entities/weapon.json",
+        "name": "Shortsword",
+        "quantity": 1,
+        "weight": 2.0,
+        "equipped": true
+      },
+      {
+        "id": "arrow",
+        "entity_ref": "entities/item.json",
+        "name": "Arrow",
+        "quantity": 20,
+        "weight": 1.0,
+        "equipped": false
+      },
+      {
+        "id": "potion_healing",
+        "entity_ref": "entities/item.json",
+        "name": "Potion of Healing",
+        "quantity": 2,
+        "weight": 1.0,
+        "equipped": false
+      }
+    ]
+  }
+}

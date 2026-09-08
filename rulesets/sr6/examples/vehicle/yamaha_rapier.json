@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "d139efa9-ad6d-47a7-82dd-aa2340478131",
+  "ruleset_id": "sr6",
+  "entity_type": "vehicle",
+  "display_name": "Yamaha Rapier",
+  "description": "A classic racing bike seen beneath the hoops of go-gangers and corp brats alike.",
+  "properties": {
+    "filename": "yamaha_rapier",
+    "name": "Yamaha Rapier",
+    "category": "Groundcraft",
+    "handling": "3/6",
+    "acceleration": "27",
+    "speed_interval": "25",
+    "top_speed": "250",
+    "body": 5,
+    "armor": 2,
+    "pilot": 1,
+    "sensor": 1,
+    "seats": 2,
+    "notes": "A classic racing bike seen beneath the hoops of go-gangers and corp brats alike."
+  }
+}

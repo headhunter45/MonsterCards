@@ -1,0 +1,88 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "9cb52fc9-c235-4d16-bafa-581bfc8c5ce5",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "Erika Hoffman",
+  "description": "Human Female Government Operative from the SR6 Beginner Box.",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "Erika Hoffman",
+    "real_name": "Erika Hoffman",
+    "archetype": "Human Female Government Operative",
+    "metatype": "Human",
+    "ethnicity": "UCAS White",
+    "notes": "Erika Hoffman has been working for the UCAS government since before she could walk; her politician parents groomed her for political success from birth.",
+    "quote": "“It’s an insane world, so keep it on the other side of your limo.”",
+    "hook": "Hoffman has access to resources and needs help. What more do you need?",
+    "attributes": {
+      "body": 2,
+      "agility": 3,
+      "reaction": 3,
+      "strength": 2,
+      "willpower": 4,
+      "logic": 3,
+      "intuition": 3,
+      "charisma": 6,
+      "edge": 4,
+      "essence": 6
+    },
+    "combat_info": {
+      "initiative": "6 + 1D6",
+      "defense_rating": 4,
+      "condition_monitor": 10
+    },
+    "skills": [
+      {
+        "name": "Influence",
+        "rating": 10,
+        "attribute": "Charisma",
+        "dice_pool": 16
+      },
+      {
+        "name": "Close Combat",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 8
+      },
+      {
+        "name": "Firearms",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 8
+      },
+      {
+        "name": "Perception",
+        "rating": 5,
+        "attribute": "Intuition",
+        "dice_pool": 8
+      }
+    ],
+    "gear": [
+      {
+        "name": "Armor clothing",
+        "rating": 2
+      },
+      {
+        "name": "Sony Emperor commlink",
+        "rating": 2
+      },
+      {
+        "name": "Yamaha Pulsar I taser"
+      }
+    ],
+    "primary_ranged_weapon": {
+      "name": "Yamaha Pulsar I",
+      "dv": "4S (e)",
+      "mode": "SS",
+      "attack_rating": {
+        "close": 9,
+        "near": 9
+      }
+    },
+    "primary_armor": {
+      "name": "Armor clothing",
+      "rating": "+2"
+    }
+  }
+}

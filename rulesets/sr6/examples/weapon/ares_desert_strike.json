@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "efaeb2c4-a522-4e53-9511-2add148fa7de",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Ares Desert Strike",
+  "description": "The Desert Strike for the Desert Wars is the tagline today.",
+  "properties": {
+    "name": "Ares Desert Strike",
+    "dv": "5P",
+    "mode": "SA",
+    "attack_rating": {
+      "close": 3,
+      "near": 10,
+      "far": 10,
+      "extreme": 10
+    },
+    "extras": "detachable imaging scope, shock pad",
+    "notes": "The Desert Strike for the Desert Wars is the tagline today."
+  }
+}

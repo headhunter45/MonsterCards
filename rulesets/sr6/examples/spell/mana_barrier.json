@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "aa17822b-96be-47d4-ad43-aec50fc947f4",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Mana Barrier",
+  "description": "Want a spirit-free room? A mana barrier is the way to go.",
+  "properties": {
+    "name": "Mana Barrier",
+    "category": "Spell",
+    "spell_type": "Manipulation",
+    "type_target": "M",
+    "range": "LOS (A)",
+    "duration": "S",
+    "drain": "5",
+    "damage": "—",
+    "rules": "Blocks spirits, spells, and astrally projecting mages. Hits equal Barrier Rating.",
+    "notes": "Want a spirit-free room? A mana barrier is the way to go."
+  }
+}

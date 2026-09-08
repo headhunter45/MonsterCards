@@ -28,6 +28,7 @@ import com.majinnaibu.monstercards.MainActivity;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
+import com.majinnaibu.monstercards.importers.Open5eImporter;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.monster.MonsterDetailFragmentDirections;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
@@ -88,9 +89,12 @@ public class LibraryFragment extends MCFragment {
             ClipData clip = clipboard.getPrimaryClip();
             if (clip != null && clip.getItemCount() > 0) {
                 CharSequence clipText = clip.getItemAt(0).getText();
-                if (clipText != null && new DnDBeyondImporter().canImport(clipText.toString())) {
-                    input.setText(clipText.toString().trim());
-                    input.selectAll();
+                if (clipText != null) {
+                    String clipStr = clipText.toString().trim();
+                    if (new DnDBeyondImporter().canImport(clipStr) || new Open5eImporter().canImport(clipStr)) {
+                        input.setText(clipStr);
+                        input.selectAll();
+                    }
                 }
             }
         }

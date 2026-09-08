@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/sr6/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{#if properties.alias}}{{properties.alias}}{{else if display_name}}{{display_name}}{{else}}Shadowrunner{{/if}} - Runner Dossier</title>
+  <link rel="stylesheet" href="character_sheet.css">
+  <link rel="stylesheet" href="dossier_sheet.css">
+</head>
+<body class="sr6-sheet-body dossier-body">
+
+  <!-- DOSSIER PAGE 1: COVER SPLASH -->
+  <div class="sr6-page dossier-cover-page">
+    <header class="dossier-cover-header">
+      <img src="assets/_dev_sr6_logo.png" alt="Shadowrun" class="dossier-logo">
+      <div class="dossier-tag">SHADOWRUNNER DOSSIER</div>
+    </header>
+
+    <div class="cover-hero-banner">
+      <h1 class="hero-name">{{#if properties.alias}}{{properties.alias}}{{else}}{{display_name}}{{/if}}</h1>
+      <h2 class="hero-archetype">{{properties.archetype}}</h2>
+      
+      {{#if properties.quote}}
+      <blockquote class="hero-quote">
+        {{properties.quote}}
+      </blockquote>
+      {{/if}}
+    </div>
+
+    <div class="cover-pitch-card">
+      <h3 class="pitch-title">WHY PLAY THIS RUNNER?</h3>
+      <p class="pitch-body">{{properties.pitch}}</p>
+    </div>
+
+    <div class="cover-quickstart-guide">
+      <h3>READ THIS FIRST</h3>
+      <p>All you need to read are these pages, and with your GM, you can dive right into the shadows! Review your core stats, roll your dice pools, and unleash havoc across the sprawl.</p>
+      <div class="quickstart-pills">
+        <span class="pill">Metatype: <strong>{{properties.metatype}}</strong></span>
+        <span class="pill">Initiative: <strong>{{properties.combat_info.initiative}}</strong></span>
+        <span class="pill">Defense Rating: <strong>{{properties.combat_info.defense_rating}}</strong></span>
+        <span class="pill">Primary DV: <strong>{{properties.primary_ranged_weapon.dv}}</strong></span>
+      </div>
+    </div>
+
+    <footer class="sr6-page-footer">
+      &copy; 2019-20 The Topps Company, Inc. Shadowrun is a registered trademark of The Topps Company, Inc. Permission given to copy for personal use.
+    </footer>
+  </div>
+
+  <!-- DOSSIER PAGES 2 & 3: THE RUNNER'S DATA & COMBAT RECORD -->
+  <!-- (Embeds the full 2-page character sheet layout) -->
+  <div class="sr6-page page-1">
+    <header class="sr6-header">
+      <div class="header-logo-area">
+        <img src="assets/_dev_sr6_logo.png" alt="Shadowrun" class="sr6-logo-img">
+      </div>
+      <div class="header-fields">
+        <div class="header-field-line">
+          <span class="field-label">CHARACTER</span>
+          <span class="field-value">{{#if properties.alias}}{{properties.alias}}{{else}}{{display_name}}{{/if}}</span>
+        </div>
+        <div class="header-field-line">
+          <span class="field-label">PLAYER</span>
+          <span class="field-value">{{properties.player}}</span>
+        </div>
+        <div class="header-field-line">
+          <span class="field-label">NOTES</span>
+          <span class="field-value">{{properties.notes}}</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Top Row: Personal Data & Core Combat Info -->
+    <div class="sr6-row row-top">
+      <section class="sr6-card personal-data-card">
+        <h3 class="card-title">PERSONAL DATA</h3>
+        <div class="card-content">
+          <div class="data-row line-alias">
+            <span class="sub-label">NAME/PRIMARY ALIAS</span>
+            <span class="val">{{#if properties.alias}}{{properties.alias}}{{else}}{{display_name}}{{/if}}{{#if properties.real_name}} ({{properties.real_name}}){{/if}}</span>
+          </div>
+          <div class="data-grid grid-2-col">
+            <div class="data-item"><span class="sub-label">Metatype</span> <span class="val">{{properties.metatype}}</span></div>
+            <div class="data-item"><span class="sub-label">Ethnicity</span> <span class="val">{{properties.ethnicity}}</span></div>
+          </div>
+          <div class="data-grid grid-4-col">
+            <div class="data-item"><span class="sub-label">Age</span> <span class="val">{{properties.age}}</span></div>
+            <div class="data-item"><span class="sub-label">Sex</span> <span class="val">{{properties.sex}}</span></div>
+            <div class="data-item"><span class="sub-label">Height</span> <span class="val">{{properties.height}}</span></div>
+            <div class="data-item"><span class="sub-label">Weight</span> <span class="val">{{properties.weight}}</span></div>
+          </div>
+          <div class="data-grid grid-2-col">
+            <div class="data-item"><span class="sub-label">Reputation</span> <span class="val">{{properties.reputation}}</span></div>
+            <div class="data-item"><span class="sub-label">Heat</span> <span class="val">{{properties.heat}}</span></div>
+          </div>
+          <div class="data-grid grid-3-col">
+            <div class="data-item"><span class="sub-label">Karma</span> <span class="val">{{properties.karma}}</span></div>
+            <div class="data-item"><span class="sub-label">Total Karma</span> <span class="val">{{properties.total_karma}}</span></div>
+            <div class="data-item"><span class="sub-label">Misc</span> <span class="val">{{properties.misc}}</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sr6-card combat-info-card">
+        <h3 class="card-title">CORE COMBAT INFO</h3>
+        <div class="card-content">
+          <div class="combat-armor-row">
+            <span class="sub-label">Primary Armor</span>
+            <span class="val">{{properties.primary_armor.name}}</span>
+            <span class="sub-label rtg-label">Rating</span>
+            <span class="val rtg-val">{{properties.primary_armor.rating}}</span>
+          </div>
+          <div class="combat-weapon-block">
+            <div class="weapon-header">
+              <span class="sub-label">Primary Ranged Weapon</span>
+              <span class="val">{{properties.primary_ranged_weapon.name}}</span>
+            </div>
+            <div class="weapon-stats-strip">
+              <span class="ws-item"><span class="sub-label">DV</span> <span class="val">{{properties.primary_ranged_weapon.dv}}</span></span>
+              <span class="ws-item"><span class="sub-label">Mode</span> <span class="val">{{properties.primary_ranged_weapon.mode}}</span></span>
+              <span class="ws-item"><span class="sub-label">Close</span> <span class="val">{{properties.primary_ranged_weapon.attack_rating.close}}</span></span>
+              <span class="ws-item"><span class="sub-label">Near</span> <span class="val">{{properties.primary_ranged_weapon.attack_rating.near}}</span></span>
+              <span class="ws-item"><span class="sub-label">Far</span> <span class="val">{{properties.primary_ranged_weapon.attack_rating.far}}</span></span>
+              <span class="ws-item"><span class="sub-label">Extreme</span> <span class="val">{{properties.primary_ranged_weapon.attack_rating.extreme}}</span></span>
+              <span class="ws-item"><span class="sub-label">Ammo</span> <span class="val">{{properties.primary_ranged_weapon.ammo}}</span></span>
+            </div>
+          </div>
+          <div class="combat-weapon-block">
+            <div class="weapon-header">
+              <span class="sub-label">Primary Melee Weapon</span>
+              <span class="val">{{properties.primary_melee_weapon.name}}</span>
+            </div>
+            <div class="weapon-stats-strip">
+              <span class="ws-item"><span class="sub-label">DV</span> <span class="val">{{properties.primary_melee_weapon.dv}}</span></span>
+              <span class="ws-item"><span class="sub-label">Close</span> <span class="val">{{properties.primary_melee_weapon.close}}</span></span>
+            </div>
+          </div>
+          <div class="data-grid grid-2-col combat-defense-strip">
+            <div class="data-item"><span class="sub-label">Unarmed AR</span> <span class="val">{{properties.combat_info.unarmed_ar}}</span></div>
+            <div class="data-item"><span class="sub-label">Defense Rating</span> <span class="val bold-highlight">{{properties.combat_info.defense_rating}}</span></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Middle Row: Attributes & Condition Monitor -->
+    <div class="sr6-row row-mid">
+      <section class="sr6-card attributes-card">
+        <h3 class="card-title">ATTRIBUTES</h3>
+        <div class="card-content attributes-grid">
+          <div class="attr-sub-col">
+            <div class="attr-line"><span class="attr-name">Body</span> <span class="attr-val">{{attr properties.attributes "body"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Agility</span> <span class="attr-val">{{attr properties.attributes "agility"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Reaction</span> <span class="attr-val">{{attr properties.attributes "reaction"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Strength</span> <span class="attr-val">{{attr properties.attributes "strength"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Willpower</span> <span class="attr-val">{{attr properties.attributes "willpower"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Logic</span> <span class="attr-val">{{attr properties.attributes "logic"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Intuition</span> <span class="attr-val">{{attr properties.attributes "intuition"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Charisma</span> <span class="attr-val">{{attr properties.attributes "charisma"}}</span></div>
+            <div class="attr-line"><span class="attr-name">Edge</span> <span class="attr-val">{{attr properties.attributes "edge"}}</span></div>
+            <div class="edge-tracker-row">
+              <span class="sub-label">Edge Points</span>
+              <div class="edge-boxes">
+                {{#edgePointsBoxes (attr properties.attributes "edge") properties.attributes.edge_points}}
+                  <span class="edge-box {{#if filled}}filled{{/if}} {{#if disabled}}disabled{{/if}}"></span>
+                {{/edgePointsBoxes}}
+              </div>
+            </div>
+            <div class="attr-line"><span class="attr-name">Unarmed AR</span> <span class="attr-val">{{properties.combat_info.unarmed_ar}}</span></div>
+          </div>
+          <div class="attr-sub-col">
+            <div class="attr-line"><span class="attr-name">Essence</span> <span class="attr-val">{{properties.attributes.essence}}</span></div>
+            <div class="attr-line"><span class="attr-name">Magic/Resonance</span> <span class="attr-val">{{#if properties.attributes.magic}}{{properties.attributes.magic}}{{else if properties.attributes.resonance}}{{properties.attributes.resonance}}{{else}}—{{/if}}</span></div>
+            <div class="attr-line highlight-accent"><span class="attr-name">Initiative</span> <span class="attr-val">{{properties.combat_info.initiative}}</span></div>
+            <div class="attr-line"><span class="attr-name">Matrix Initiative</span> <span class="attr-val">{{properties.combat_info.matrix_initiative}}</span></div>
+            <div class="attr-line"><span class="attr-name">Astral Initiative</span> <span class="attr-val">{{properties.combat_info.astral_initiative}}</span></div>
+            <div class="attr-line"><span class="attr-name">Composure</span> <span class="attr-val">{{properties.combat_info.composure}}</span></div>
+            <div class="attr-line"><span class="attr-name">Judge Intentions</span> <span class="attr-val">{{properties.combat_info.judge_intentions}}</span></div>
+            <div class="attr-line"><span class="attr-name">Memory</span> <span class="attr-val">{{properties.combat_info.memory}}</span></div>
+            <div class="attr-line"><span class="attr-name">Lift/Carry</span> <span class="attr-val">{{properties.combat_info.lift_carry}}</span></div>
+            <div class="attr-line"><span class="attr-name">Movement</span> <span class="attr-val">{{properties.combat_info.movement}}</span></div>
+            <div class="attr-line highlight-accent"><span class="attr-name">Defense Rating</span> <span class="attr-val">{{properties.combat_info.defense_rating}}</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sr6-card condition-monitor-card">
+        <h3 class="card-title">CONDITION MONITOR</h3>
+        <div class="card-content monitor-tracks-wrapper">
+          <div class="track-column">
+            <div class="track-title">Physical Damage Track</div>
+            <div class="track-grid">
+              {{#conditionMonitorRows (calcPhysicalBoxes (attr properties.attributes "body")) properties.condition_monitor.physical_damage 18}}
+              <div class="monitor-row">
+                <div class="row-boxes">
+                  {{#each boxes}}
+                  <div class="damage-box {{#if filled}}damage-filled{{/if}} {{#if blackedOut}}box-blacked-out{{/if}}"><div class="inner-box"></div></div>
+                  {{/each}}
+                </div>
+                <div class="penalty-tag">{{penalty}}</div>
+              </div>
+              {{/conditionMonitorRows}}
+            </div>
+            <div class="track-footnote">8 + (Body &divide; 2, round up) boxes; black out extra boxes.</div>
+          </div>
+          <div class="track-column">
+            <div class="track-title">Stun Damage Track</div>
+            <div class="track-grid">
+              {{#conditionMonitorRows (calcStunBoxes (attr properties.attributes "willpower")) properties.condition_monitor.stun_damage 12}}
+              <div class="monitor-row">
+                <div class="row-boxes">
+                  {{#each boxes}}
+                  <div class="damage-box {{#if filled}}damage-filled{{/if}} {{#if blackedOut}}box-blacked-out{{/if}}"><div class="inner-box"></div></div>
+                  {{/each}}
+                </div>
+                <div class="penalty-tag">{{penalty}}</div>
+              </div>
+              {{/conditionMonitorRows}}
+            </div>
+            <div class="track-footnote">8 + (Will &divide; 2, round up) boxes; black out extra boxes.</div>
+          </div>
+        </div>
+        <div class="monitor-cumulative-rule">
+          For every 3 boxes of damage on any track, take &minus;1 Dice Pool modifier; modifiers are cumulative across tracks.
+        </div>
+      </section>
+    </div>
+
+    <!-- Skills & Qualities -->
+    <div class="sr6-row row-lower">
+      <section class="sr6-card skills-card">
+        <h3 class="card-title">SKILLS</h3>
+        <div class="card-content skills-table-wrap">
+          <table class="skills-table">
+            <thead>
+              <tr><th>Skill</th><th>RNK</th><th>ATT</th><th>DP</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+              {{#each properties.skills}}
+              <tr>
+                <td><strong>{{this.name}}</strong>{{#if this.specialization}} <span class="skill-spec">({{this.specialization}})</span>{{/if}}</td>
+                <td>{{this.rating}}</td>
+                <td>{{this.attribute}}</td>
+                <td class="col-dp">{{#if this.dice_pool}}{{this.dice_pool}}{{else}}{{calcDicePool this ../properties.attributes}}{{/if}}</td>
+                <td>{{this.type}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="sr6-card qualities-card">
+        <h3 class="card-title">QUALITIES</h3>
+        <div class="card-content qualities-table-wrap">
+          <table class="qualities-table">
+            <thead><tr><th>Quality</th><th>Notes</th><th>Type</th></tr></thead>
+            <tbody>
+              {{#each properties.qualities}}
+              <tr>
+                <td><strong>{{this.name}}</strong></td>
+                <td>{{this.notes}}</td>
+                <td><span class="quality-badge {{this.type}}">{{this.type}}</span></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Currency & Contacts -->
+    <div class="sr6-row row-bottom">
+      <section class="sr6-card currency-card">
+        <h3 class="card-title">IDS / LIFESTYLES / CURRENCY</h3>
+        <div class="card-content">
+          <div class="data-grid grid-2-col">
+            <div class="data-item"><span class="sub-label">Primary Lifestyle</span> <span class="val">{{properties.currency_and_ids.primary_lifestyle}}</span></div>
+            <div class="data-item"><span class="sub-label">Nuyen</span> <span class="val bold-highlight">{{formatNuyen properties.currency_and_ids.nuyen}}</span></div>
+          </div>
+          <div class="data-item full-line"><span class="sub-label">Licenses</span> <span class="val">{{properties.currency_and_ids.licenses}}</span></div>
+        </div>
+      </section>
+      <section class="sr6-card contacts-card">
+        <h3 class="card-title">CONTACTS</h3>
+        <div class="card-content contacts-table-wrap">
+          <table class="contacts-table">
+            <thead><tr><th>Name</th><th>Loyalty</th><th>Connection</th><th>Notes</th></tr></thead>
+            <tbody>
+              {{#each properties.contacts}}
+              <tr>
+                <td><strong>{{this.name}}</strong></td>
+                <td>{{this.loyalty}}</td>
+                <td>{{this.connection}}</td>
+                <td>{{this.notes}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <footer class="sr6-page-footer">
+      &copy; 2019-20 The Topps Company, Inc. Shadowrun is a registered trademark of The Topps Company, Inc.
+    </footer>
+  </div>
+
+  <!-- DOSSIER PAGE 4: PROFILE, TACTICS & SAMPLE ACTIONS -->
+  <div class="sr6-page dossier-profile-page">
+    <header class="dossier-profile-header">
+      <h2 class="profile-title">{{#if properties.alias}}{{properties.alias}}{{else}}{{display_name}}{{/if}} // RUNNER PROFILE</h2>
+      <div class="profile-subtitle">{{properties.archetype}}</div>
+    </header>
+
+    <div class="dossier-grid-layout">
+      
+      <!-- Left Narrative Column -->
+      <div class="profile-col narrative-col">
+        
+        <!-- Background -->
+        <section class="dossier-section">
+          <h3 class="dossier-sec-title">BACKGROUND</h3>
+          <p class="narrative-text">{{properties.background}}</p>
+        </section>
+
+        <!-- Preferred Tactics -->
+        <section class="dossier-section">
+          <h3 class="dossier-sec-title">PREFERRED TACTICS</h3>
+          <p class="narrative-text">{{properties.preferred_tactics}}</p>
+        </section>
+
+        <!-- Roleplaying Tips -->
+        <section class="dossier-section">
+          <h3 class="dossier-sec-title">ROLEPLAYING TIPS</h3>
+          <p class="narrative-text">{{properties.roleplaying_tips}}</p>
+        </section>
+
+      </div>
+
+      <!-- Right Tactical Column -->
+      <div class="profile-col tactical-col">
+        
+        <!-- Tailored Sample Actions Table -->
+        <section class="dossier-section sample-actions-section">
+          <h3 class="dossier-sec-title">SAMPLE ACTIONS & DICE POOLS</h3>
+          <table class="sample-actions-table">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Type</th>
+                <th>DP</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each properties.sample_actions}}
+              <tr>
+                <td><strong>{{this.action}}</strong></td>
+                <td><span class="action-pill {{this.action_type}}">{{this.action_type}}</span></td>
+                <td class="col-dp">{{this.dice_pool}}</td>
+                <td><small>{{this.notes}}</small></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Vital Contacts -->
+        <section class="dossier-section">
+          <h3 class="dossier-sec-title">VITAL CONTACTS</h3>
+          <ul class="contacts-detail-list">
+            {{#each properties.vital_contacts}}
+            <li>
+              <strong>{{this.name}}</strong> &mdash; <em>{{this.role}}</em>: {{this.description}}
+            </li>
+            {{/each}}
+          </ul>
+        </section>
+
+        <!-- Favorite Hangouts & Downtime -->
+        <div class="hangouts-downtime-grid">
+          <section class="dossier-section">
+            <h3 class="dossier-sec-title">FAVORITE HANGOUTS</h3>
+            <ul class="hangout-list">
+              {{#each properties.favorite_hangouts}}
+              <li><strong>{{this.name}}</strong> ({{this.location}}): {{this.description}}</li>
+              {{/each}}
+            </ul>
+          </section>
+
+          <section class="dossier-section">
+            <h3 class="dossier-sec-title">DOWNTIME ACTIVITIES</h3>
+            <ul class="downtime-list">
+              {{#each properties.favorite_downtime_activities}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </section>
+        </div>
+
+        <!-- Edge Boosts -->
+        {{#if properties.edge_boosts}}
+        <section class="dossier-section edge-boosts-section">
+          <h3 class="dossier-sec-title">RECOMMENDED EDGE BOOSTS</h3>
+          <div class="edge-boosts-grid">
+            {{#each properties.edge_boosts}}
+            <div class="edge-boost-pill">
+              <span class="edge-cost">{{this.cost}} Edge</span>
+              <span class="edge-name">{{this.name}}</span>
+              <small>{{this.description}}</small>
+            </div>
+            {{/each}}
+          </div>
+        </section>
+        {{/if}}
+
+      </div>
+
+    </div>
+
+    <footer class="sr6-page-footer">
+      &copy; 2019-20 The Topps Company, Inc. Shadowrun is a registered trademark of The Topps Company, Inc.
+    </footer>
+  </div>
+
+</body>
+</html>

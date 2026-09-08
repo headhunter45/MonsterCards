@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "6174631f-599b-4678-8779-4da6fe1bb454",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Renraku Kitsune",
+  "description": "Get where you’re not supposed to be...and do it with style!",
+  "properties": {
+    "filename": "renraku_kitsune",
+    "name": "Renraku Kitsune",
+    "category": "Cyberdeck",
+    "device_rating": 4,
+    "attack": 7,
+    "sleaze": 6,
+    "program_slots": 8,
+    "notes": "Get where you’re not supposed to be...and do it with style!"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "943e28cb-9469-45c0-b526-7f8f6c309f33",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Detect Life",
+  "description": "Points sentient beings out hiding in rubble, forests, or buildings.",
+  "properties": {
+    "name": "Detect Life",
+    "category": "Spell",
+    "spell_type": "Detection",
+    "type_target": "M",
+    "range": "T",
+    "duration": "S",
+    "drain": "3",
+    "damage": "—",
+    "rules": "",
+    "notes": "Points sentient beings out hiding in rubble, forests, or buildings."
+  }
+}

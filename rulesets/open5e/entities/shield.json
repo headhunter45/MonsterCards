@@ -1,0 +1,45 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "shield",
+  "name": "Shield",
+  "description": "Shield entity extending base item schema with AC bonus and strength/stealth properties.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "ac_bonus"],
+    "allOf": [
+      {
+        "$ref": "item.json#/schema"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "ac_bonus": {
+            "type": "integer",
+            "default": 2,
+            "description": "Armor Class bonus granted by wielding this shield (standard 5e shield is +2)."
+          },
+          "strength_requirement": {
+            "type": ["integer", "null"],
+            "description": "Minimum Strength score required to use without penalty."
+          },
+          "stealth_disadvantage": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether wielding this shield imposes disadvantage on Dexterity (Stealth) checks."
+          }
+        }
+      }
+    ]
+  },
+  "default_values": {
+    "ac_bonus": 2,
+    "weight": 6,
+    "quantity": 1,
+    "equipped": false,
+    "rarity": "common",
+    "stealth_disadvantage": false,
+    "strength_requirement": null
+  }
+}

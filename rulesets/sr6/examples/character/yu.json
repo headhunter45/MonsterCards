@@ -1,0 +1,264 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "7a83d9b1-0943-4e89-a2a1-e40d0f287113",
+  "ruleset_id": "sr6",
+  "entity_type": "character",
+  "display_name": "Yu",
+  "description": "Elf Covert Ops Specialist and Face from the official Shadowrun 6th World Beginner Box.",
+  "template_id": "character_sheet",
+  "properties": {
+    "alias": "Yu",
+    "real_name": "Yu",
+    "player": "Catalyst Pregen",
+    "notes": "Elf Covert Ops Specialist and Face with high agility, charisma, and stealth skills.",
+    "metatype": "Elf",
+    "ethnicity": "Cantonese",
+    "age": 28,
+    "sex": "Male",
+    "height": "1.8 m",
+    "weight": "77 kg",
+    "reputation": 2,
+    "heat": 0,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Red Dragon / Octagon Triad affiliate; former thief and enforcer in Hong Kong.",
+    "attributes": {
+      "body": 3,
+      "agility": 6,
+      "reaction": 4,
+      "strength": 3,
+      "willpower": 5,
+      "logic": 5,
+      "intuition": 5,
+      "charisma": 8,
+      "edge": 2,
+      "essence": 6.0,
+      "magic": 0,
+      "edge_points": 2
+    },
+    "combat_info": {
+      "initiative": "9 + 1D6",
+      "matrix_initiative": "9 + 1D6",
+      "astral_initiative": "—",
+      "defense_rating": 6,
+      "unarmed_ar": 6,
+      "composure": 13,
+      "judge_intentions": 13,
+      "memory": 10,
+      "lift_carry": 6,
+      "movement": "5/10/+1"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 10,
+      "stun_damage": 0,
+      "stun_boxes": 11,
+      "overflow": 0
+    },
+    "skills": [
+      {
+        "name": "Con",
+        "rating": 6,
+        "attribute": "Charisma",
+        "dice_pool": 14,
+        "type": "Action"
+      },
+      {
+        "name": "Influence",
+        "rating": 6,
+        "attribute": "Charisma",
+        "dice_pool": 14,
+        "type": "Action"
+      },
+      {
+        "name": "Stealth",
+        "rating": 6,
+        "attribute": "Agility",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Close Combat",
+        "rating": 4,
+        "attribute": "Agility",
+        "dice_pool": 10,
+        "type": "Action"
+      },
+      {
+        "name": "Firearms",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 8,
+        "type": "Action"
+      },
+      {
+        "name": "Perception",
+        "rating": 2,
+        "attribute": "Intuition",
+        "dice_pool": 7,
+        "type": "Action"
+      },
+      {
+        "name": "Piloting",
+        "rating": 2,
+        "attribute": "Reaction",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Biotech",
+        "rating": 1,
+        "attribute": "Logic",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Outdoors",
+        "rating": 1,
+        "attribute": "Intuition",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Architecture",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Close-up Magic",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Wildlife",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      }
+    ],
+    "qualities": [
+      {
+        "name": "Catlike",
+        "type": "Positive",
+        "notes": "+1 dice pool bonus on stealth and acrobatics tests."
+      },
+      {
+        "name": "Double-Jointed",
+        "type": "Positive",
+        "notes": "+1 dice pool bonus on escape and contortion tests."
+      },
+      {
+        "name": "Low-Light Vision",
+        "type": "Positive",
+        "notes": "Natural elf low-light perception."
+      }
+    ],
+    "currency_and_ids": {
+      "nuyen": 3500,
+      "primary_lifestyle": "Low (1 month prepaid)",
+      "licenses": "Concealed Carry (Light Pistol)",
+      "fake_ids": [
+        {
+          "name": "Raymond Chang",
+          "rating": 4,
+          "lifestyle": "Low",
+          "funds": "3,500¥",
+          "licenses": "Firearms, Security Tech"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Billy Shen",
+        "loyalty": 2,
+        "connection": 4,
+        "notes": "Octagon Triad lieutenant, enforcer, and arms dealer."
+      },
+      {
+        "name": "Four-Finger Wong",
+        "loyalty": 3,
+        "connection": 3,
+        "notes": "Cyber-surgeon and underground street doc."
+      },
+      {
+        "name": "Mia",
+        "loyalty": 3,
+        "connection": 2,
+        "notes": "Part-time fixer and waitress at Peaceable Kingdom."
+      }
+    ],
+    "primary_armor": {
+      "name": "Lined coat",
+      "rating": "+3",
+      "notes": "+3 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "Ares Light Fire 75",
+      "dv": "2P",
+      "mode": "SA",
+      "attack_rating": { "close": 10, "near": 7, "far": 6, "extreme": "—" },
+      "ammo": "16(c)",
+      "notes": "w/ silencer, smartgun"
+    },
+    "primary_melee_weapon": {
+      "name": "Extendible baton",
+      "dv": "3S",
+      "close": 6,
+      "notes": "Club"
+    },
+    "ranged_weapons": [
+      {
+        "name": "Ares Light Fire 75 (Light Pistol)",
+        "dv": "2P",
+        "mode": "SA",
+        "attack_rating": { "close": 10, "near": 7, "far": 6, "extreme": "—" },
+        "ammo": "16(c)",
+        "notes": "w/ silencer, smartgun"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Extendible baton",
+        "dv": "3S",
+        "close": 6,
+        "notes": "Club"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Lined coat",
+        "rating": "+3",
+        "notes": "+3 DR bonus"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Erika Elite commlink",
+      "device_rating": 4,
+      "attack": 0,
+      "sleaze": 0,
+      "data_processing": 2,
+      "firewall": 1,
+      "programs": [],
+      "matrix_damage": 0
+    },
+    "augmentations": [],
+    "vehicles": [],
+    "gear": [
+      { "name": "Lined coat", "rating": 3, "quantity": 1 },
+      { "name": "Erika Elite commlink", "rating": 4, "quantity": 1 },
+      { "name": "Disguise kit", "quantity": 1 },
+      { "name": "First Aid Kit", "rating": 3, "quantity": 1 },
+      { "name": "Passkey", "rating": 4, "quantity": 1 },
+      { "name": "Contacts", "quantity": 1, "notes": "w/ smartlink" },
+      { "name": "Certified credstick", "quantity": 1, "notes": "3,500¥" },
+      { "name": "Spare ammo clips (Ares Light Fire 75)", "quantity": 3 }
+    ],
+    "spells": [],
+    "adept_powers": []
+  }
+}

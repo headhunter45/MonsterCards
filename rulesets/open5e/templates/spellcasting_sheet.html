@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/open5e/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Spellcasting Sheet</title>
+  <link rel="stylesheet" href="spellcasting_sheet.css">
+</head>
+<body class="sheet-page-wrapper">
+  <div class="spellcasting-sheet-container">
+    
+    <!-- Top Spellcasting Header -->
+    <header class="spell-header">
+      <div class="spell-header-class-box">
+        <h1 class="spell-class-name">
+          {{#if properties.spellcasting.class}}
+            {{properties.spellcasting.class}}
+          {{else if properties.class}}
+            {{properties.class}}
+          {{else}}
+            Spellcaster
+          {{/if}}
+        </h1>
+        <label class="spell-header-label">SPELLCASTING CLASS</label>
+      </div>
+
+      <div class="spell-header-stats-grid">
+        <div class="spell-stat-cell">
+          <span class="spell-stat-val">
+            {{#if properties.spellcasting.ability}}
+              {{properties.spellcasting.ability}}
+            {{else}}
+              WISDOM
+            {{/if}}
+          </span>
+          <label class="spell-header-label">SPELLCASTING ABILITY</label>
+        </div>
+
+        <div class="spell-stat-cell">
+          <span class="spell-stat-val">
+            {{#if properties.spellcasting.save_dc}}
+              {{properties.spellcasting.save_dc}}
+            {{else}}
+              13
+            {{/if}}
+          </span>
+          <label class="spell-header-label">SPELL SAVE DC</label>
+        </div>
+
+        <div class="spell-stat-cell">
+          <span class="spell-stat-val">
+            {{#if properties.spellcasting.attack_bonus}}
+              {{modSign properties.spellcasting.attack_bonus}}
+            {{else}}
+              +5
+            {{/if}}
+          </span>
+          <label class="spell-header-label">SPELL ATTACK BONUS</label>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3-Column Spells Grid -->
+    <main class="spells-main-grid">
+      
+      <!-- ================= COLUMN 1: Cantrips, Level 1, Level 2 ================= -->
+      <section class="spells-column">
+        
+        <!-- Cantrips (Level 0) -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">0</span>
+            <span class="level-title">CANTRIPS</span>
+          </div>
+          <ul class="spell-items-list">
+            {{#if properties.spellcasting.cantrips}}
+              {{#each properties.spellcasting.cantrips}}
+              <li class="spell-item-row">
+                <span class="spell-prep-circle invisible"></span>
+                <span class="spell-name">{{#if this.name}}{{this.name}}{{else}}{{this}}{{/if}}</span>
+              </li>
+              {{/each}}
+            {{else}}
+              <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/if}}
+          </ul>
+        </div>
+
+        <!-- Level 1 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">1</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 1}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 1}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 1)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Level 2 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">2</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 2}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 2}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 2)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- ================= COLUMN 2: Level 3, Level 4, Level 5 ================= -->
+      <section class="spells-column">
+        
+        <!-- Level 3 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">3</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 3}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 3}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 3)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Level 4 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">4</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 4}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 4}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 4)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Level 5 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">5</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 5}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 5}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 5)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- ================= COLUMN 3: Level 6, 7, 8, 9 ================= -->
+      <section class="spells-column">
+        
+        <!-- Level 6 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">6</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 6}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 6}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 6)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Level 7 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">7</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 7}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 7}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 7)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Level 8 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">8</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 8}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 8}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 8)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Level 9 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header has-slots">
+            <span class="level-num">9</span>
+            <div class="slot-counters">
+              <span class="slot-field">Total: <strong>{{slotTotal ../properties.spellcasting.slots 9}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{slotExpended ../properties.spellcasting.slots 9}}</strong></span>
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#each (filterSpells properties.spellcasting.spells 9)}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

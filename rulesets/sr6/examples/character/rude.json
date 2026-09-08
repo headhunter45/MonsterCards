@@ -1,0 +1,204 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "e97b91d2-06c5-4d7a-b5a9-467362974eb1",
+  "ruleset_id": "sr6",
+  "entity_type": "character",
+  "display_name": "Rude",
+  "description": "Troll Street Samurai from the official Shadowrun 6th World Beginner Box.",
+  "template_id": "character_sheet",
+  "properties": {
+    "alias": "Rude",
+    "real_name": "Unknown (\"Rudiarius\")",
+    "player": "Catalyst Pregen",
+    "notes": "Street Samurai meat shield with amnesia and a vicious combat streak.",
+    "metatype": "Troll",
+    "ethnicity": "White",
+    "age": 29,
+    "sex": "Male",
+    "height": "2.4 m",
+    "weight": "310 kg",
+    "reputation": 3,
+    "heat": 1,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Carries an ancient wooden gladiator practice sword.",
+    "attributes": {
+      "body": 7,
+      "agility": 5,
+      "reaction": 6,
+      "strength": 6,
+      "willpower": 4,
+      "logic": 4,
+      "intuition": 4,
+      "charisma": 2,
+      "edge": 5,
+      "essence": 5.5,
+      "edge_points": 5
+    },
+    "combat_info": {
+      "initiative": "10 + 1D6",
+      "matrix_initiative": "10 + 1D6",
+      "astral_initiative": "—",
+      "defense_rating": 11,
+      "unarmed_ar": 7,
+      "composure": 6,
+      "judge_intentions": 6,
+      "memory": 8,
+      "lift_carry": 11,
+      "movement": "5/10/+1"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 12,
+      "stun_damage": 0,
+      "stun_boxes": 10,
+      "overflow": 0
+    },
+    "skills": [
+      { "name": "Firearms", "rating": 6, "attribute": "Agility", "dice_pool": 12, "type": "Action" },
+      { "name": "Close Combat", "rating": 3, "attribute": "Agility", "dice_pool": 9, "type": "Action" },
+      { "name": "Athletics", "rating": 3, "attribute": "Agility", "dice_pool": 9, "type": "Action" },
+      { "name": "Perception", "rating": 3, "attribute": "Intuition", "dice_pool": 7, "type": "Action" },
+      { "name": "Engineering", "rating": 2, "attribute": "Logic", "specialization": "Lockpicking", "dice_pool": 6, "type": "Action" },
+      { "name": "Influence", "rating": 2, "attribute": "Charisma", "dice_pool": 4, "type": "Action" },
+      { "name": "Exotic Weapons", "rating": 3, "attribute": "Agility", "specialization": "Grapple Gun", "dice_pool": 9, "type": "Action" },
+      { "name": "Exotic Weapons", "rating": 4, "attribute": "Agility", "specialization": "Grapple Launcher", "dice_pool": 9, "type": "Action" },
+      { "name": "Firearms Manufacturers", "rating": 2, "attribute": "Logic", "dice_pool": 6, "type": "Knowledge" },
+      { "name": "Security Systems", "rating": 2, "attribute": "Logic", "dice_pool": 6, "type": "Knowledge" },
+      { "name": "Urban Brawl Teams", "rating": 2, "attribute": "Logic", "dice_pool": 6, "type": "Knowledge" }
+    ],
+    "qualities": [
+      { "name": "Built Tough", "type": "Positive", "notes": "+1 Physical condition monitor box." },
+      { "name": "Dermal Deposits", "type": "Positive", "notes": "+1 natural Armor/Defense Rating." },
+      { "name": "High Pain Tolerance", "type": "Positive", "notes": "Reduces wound modifiers by 1." },
+      { "name": "Thermographic Vision", "type": "Positive", "notes": "Natural troll heat-signature vision." },
+      { "name": "Socially Awkward", "type": "Negative", "notes": "Blunt and lacking empathy due to amnesia." }
+    ],
+    "currency_and_ids": {
+      "nuyen": 3500,
+      "primary_lifestyle": "Low (1 month prepaid)",
+      "licenses": "Concealed Carry (Heavy Pistol, Sniper Rifle)",
+      "fake_ids": [
+        {
+          "name": "Marcus Vance",
+          "rating": 3,
+          "lifestyle": "Low",
+          "funds": "3,500¥",
+          "licenses": "Driver's, Concealed Carry"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Billy Shen",
+        "loyalty": 2,
+        "connection": 4,
+        "notes": "Octagon Triad lieutenant, enforcer, and arms dealer."
+      },
+      {
+        "name": "Four-Finger Wong",
+        "loyalty": 3,
+        "connection": 3,
+        "notes": "Cyber-surgeon and underground street doc."
+      },
+      {
+        "name": "Mia",
+        "loyalty": 3,
+        "connection": 2,
+        "notes": "Part-time fixer and waitress at Peaceable Kingdom."
+      }
+    ],
+    "primary_armor": {
+      "name": "Armor jacket",
+      "rating": "+2",
+      "notes": "+2 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "Ares Desert Strike",
+      "dv": "5P",
+      "mode": "SA",
+      "attack_rating": {
+        "close": 3,
+        "near": 10,
+        "far": 10,
+        "extreme": 10
+      },
+      "ammo": "14(c)",
+      "notes": "Sniper rifle w/ imaging scope, shock pad"
+    },
+    "primary_melee_weapon": {
+      "name": "Sword",
+      "dv": "3P",
+      "close": 9,
+      "notes": "Blade"
+    },
+    "ranged_weapons": [
+      {
+        "name": "Ares Desert Strike (Sniper Rifle)",
+        "dv": "5P",
+        "mode": "SA",
+        "attack_rating": { "close": 3, "near": 10, "far": 10, "extreme": 10 },
+        "ammo": "14(c)",
+        "notes": "w/ imaging scope, shock pad"
+      },
+      {
+        "name": "Ares Predator VI (Heavy Pistol)",
+        "dv": "4P",
+        "mode": "SA",
+        "attack_rating": { "close": 9, "near": 9, "far": 7, "extreme": "—" },
+        "ammo": "15(c)",
+        "notes": "w/ smartlink"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Sword (Blade)",
+        "dv": "3P",
+        "close": 9,
+        "notes": "Monofilament edge"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Armor jacket",
+        "rating": "+2",
+        "notes": "Provides +2 DR"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Sony Emperor commlink",
+      "device_rating": 2,
+      "attack": 0,
+      "sleaze": 0,
+      "data_processing": 1,
+      "firewall": 1,
+      "programs": [],
+      "matrix_damage": 0
+    },
+    "augmentations": [
+      {
+        "name": "Cybereyes",
+        "rating": 2,
+        "notes": "w/ smartlink, low-light vision",
+        "essence": 0.2
+      },
+      {
+        "name": "Reaction enhancers",
+        "rating": 1,
+        "notes": "+1 REA, +1 Initiative",
+        "essence": 0.3
+      }
+    ],
+    "vehicles": [],
+    "gear": [
+      { "name": "Armor jacket", "rating": 2, "quantity": 1 },
+      { "name": "Sony Emperor commlink", "rating": 2, "quantity": 1 },
+      { "name": "Grapple gun", "quantity": 1, "notes": "w/ 100m stealth rope" },
+      { "name": "Certified credstick", "quantity": 1, "notes": "Contains 3,500¥" },
+      { "name": "Spare ammo clips (Ares Predator)", "quantity": 3 },
+      { "name": "Spare ammo clips (Ares Desert Strike)", "quantity": 2 }
+    ],
+    "spells": [],
+    "adept_powers": []
+  }
+}

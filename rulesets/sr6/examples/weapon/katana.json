@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "2ed0ed2c-4acb-4e1a-b168-e2f636511438",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Katana",
+  "description": "The iconic two-handed sword of the samurai is standard issue for trid shadowrunners.",
+  "properties": {
+    "name": "Katana",
+    "dv": "4P",
+    "mode": "NA",
+    "attack_rating": {
+      "close": 10
+    },
+    "extras": "None",
+    "notes": "The iconic two-handed sword of the samurai is standard issue for trid shadowrunners."
+  }
+}

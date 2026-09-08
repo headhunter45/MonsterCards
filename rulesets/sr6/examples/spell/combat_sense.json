@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "d3665eea-eb14-4f47-ad01-5f1745145cf0",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Combat Sense",
+  "description": "Heightened awareness of possible dangers and ability to react faster.",
+  "properties": {
+    "name": "Combat Sense",
+    "category": "Spell",
+    "spell_type": "Detection",
+    "type_target": "M",
+    "range": "T",
+    "duration": "S",
+    "drain": "3",
+    "damage": "—",
+    "rules": "Net hits on Spellcasting test added to target’s dice pool for Surprise tests.",
+    "notes": "Heightened awareness of possible dangers and ability to react faster."
+  }
+}

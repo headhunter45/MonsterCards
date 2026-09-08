@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "e8027c8e-c25c-49a4-b8f8-f680b49ac492",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Decryption",
+  "description": "Files all over the Matrix are encrypted; this program helps break that protection.",
+  "properties": {
+    "filename": "decryption",
+    "name": "Decryption",
+    "category": "Program",
+    "rules": "+2 dice on Crack File Action.",
+    "notes": "Files all over the Matrix are encrypted; this program helps break that protection."
+  }
+}
