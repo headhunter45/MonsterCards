@@ -162,11 +162,13 @@
     <string name="snackbar_collection_added_to_dashboard">Added collection %1$s to Dashboard</string>
     <string name="snackbar_dashboard_cleared">Dashboard cleared</string>
     <string name="no_monsters_available">No monsters available in library. Create one first!</string>
-    <string name="action_import_from_url">Import Entity / Character...</string>
+    <string name="action_import_from_url">Import URL...</string>
     <string name="dialog_import_url_title">Import Entity or Character</string>
     <string name="dialog_import_url_message">Enter or paste a D&amp;D Beyond URL, Character ID, or Open5e JSON payload:</string>
     <string name="dialog_import_url_hint">e.g. D&amp;D Beyond URL or Open5e JSON</string>
     <string name="dialog_import">Import</string>
     <string name="toast_importing_url">Importing entity...</string>
     <string name="failed_to_import_url">Failed to import entity. Please check the URL, ID, or JSON format.</string>
+    <string name="action_share_monster">Share / Export Monster (.card)</string>
+    <string name="failed_to_share_monster">Failed to share monster</string>
 </resources>
