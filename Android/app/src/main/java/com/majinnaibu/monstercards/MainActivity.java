@@ -1,8 +1,10 @@
 package com.majinnaibu.monstercards;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,24 +79,59 @@ public class MainActivity extends AppCompatActivity {
     private String readMonsterJSONFromIntent(@NonNull Intent intent) {
         String action = intent.getAction();
         Bundle extras = intent.getExtras();
-        String type = intent.getType();
-        String json;
         Uri uri = null;
-        if ("android.intent.action.SEND".equals(action) && "text/plain".equals(type)) {
-            uri = extras.getParcelable("android.intent.extra.STREAM");
-        } else if ("android.intent.action.VIEW".equals(action) && ("text/plain".equals(type) || "application/octet-stream".equals(type))) {
+        if ("android.intent.action.SEND".equals(action)) {
+            if (extras != null) {
+                uri = extras.getParcelable(Intent.EXTRA_STREAM);
+            }
+        } else if ("android.intent.action.VIEW".equals(action) || "android.intent.action.EDIT".equals(action)) {
             uri = intent.getData();
         } else {
-            Logger.logError(String.format("unexpected launch configuration action: %s, type: %s", action, type));
+            Logger.logError(String.format("unexpected launch configuration action: %s", action));
         }
-        if (uri == null) {
+
+        if (uri == null || !isMonsterFile(uri)) {
+            if (uri != null) {
+                Logger.logError("Ignored file because extension is not .monster or .monster.txt: " + uri);
+            }
             return null;
         }
-        json = readContentsOfUri(uri);
+
+        String json = readContentsOfUri(uri);
         if (StringHelper.isNullOrEmpty(json)) {
             return null;
         }
         return json;
+    }
+
+    private boolean isMonsterFile(@NonNull Uri uri) {
+        String fileName = getFileNameFromUri(uri);
+        if (fileName == null) {
+            return false;
+        }
+        String lowerName = fileName.toLowerCase(Locale.ROOT);
+        return lowerName.endsWith(".monster") || lowerName.endsWith(".monster.txt");
+    }
+
+    @Nullable
+    private String getFileNameFromUri(@NonNull Uri uri) {
+        String displayName = null;
+        if ("content".equals(uri.getScheme())) {
+            try (Cursor cursor = getContentResolver().query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null)) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    int nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (nameIndex != -1) {
+                        displayName = cursor.getString(nameIndex);
+                    }
+                }
+            } catch (Exception e) {
+                Logger.logError("Error querying display name from content URI", e);
+            }
+        }
+        if (displayName == null) {
+            displayName = uri.getPath();
+        }
+        return displayName;
     }
 
     @Nullable

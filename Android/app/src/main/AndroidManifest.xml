@@ -22,32 +22,40 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- Intent filter for viewing/opening content:// URIs with binary/octet-stream MIME type (.monster) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+
+            <!-- Intent filter for file:// URIs ending in .monster or .monster.txt -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" android:host="*" />
+                <data android:pathPattern=".*\\.monster" />
+                <data android:pathPattern=".*\\.monster\\.txt" />
+            </intent-filter>
+
+            <!-- Intent filter for explicitly sharing files/text to Monster Cards -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.EDIT" />
-                <action android:name="android.intent.action.PICK" />
-                <action android:name="android.intent.action.INSERT" />
-                <action android:name="android.intent.action.INSERT_OR_EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data
-                    android:mimeType="text/plain"
-                    android:scheme="content" />
-                <data
-                    android:mimeType="application/octet-stream"
-                    android:scheme="content" />
-                <data
-                    android:mimeType="text/plain"
-                    android:scheme="file" />
+                <data android:mimeType="application/octet-stream" />
             </intent-filter>
 
             <nav-graph android:value="@navigation/mobile_navigation" />
