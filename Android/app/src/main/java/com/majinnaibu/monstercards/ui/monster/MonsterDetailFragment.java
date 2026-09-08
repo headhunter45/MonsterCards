@@ -1,8 +1,16 @@
 package com.majinnaibu.monstercards.ui.monster;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.core.content.FileProvider;
+import com.majinnaibu.monstercards.exporters.Open5eExporter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.DisplayMetrics;
@@ -184,8 +192,54 @@ public class MonsterDetailFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_add_to_dashboard) {
             addCurrentMonsterToDashboard();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_share_monster) {
+            shareCurrentMonster();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void shareCurrentMonster() {
+        Monster monster = mViewModel.getMonster();
+        if (monster == null) {
+            return;
+        }
+
+        try {
+            Open5eExporter exporter = new Open5eExporter();
+            String jsonCard = exporter.exportMonster(monster);
+
+            Context context = requireContext();
+            String safeName = (monster.name != null && !monster.name.trim().isEmpty())
+                    ? monster.name.replaceAll("[^a-zA-Z0-9._-]", "_")
+                    : "monster";
+            File file = new File(context.getCacheDir(), safeName + ".card");
+
+            try (FileOutputStream out = new FileOutputStream(file)) {
+                out.write(jsonCard.getBytes(StandardCharsets.UTF_8));
+            }
+
+            Uri uri = FileProvider.getUriForFile(
+                    context,
+                    context.getPackageName() + ".fileprovider",
+                    file
+            );
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("application/octet-stream");
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, jsonCard);
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, monster.name);
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.action_share_monster)));
+        } catch (Exception e) {
+            Logger.logError("Failed to share monster", e);
+            View view = getView();
+            if (view != null) {
+                Snackbar.make(view, R.string.failed_to_share_monster, Snackbar.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void addCurrentMonsterToDashboard() {

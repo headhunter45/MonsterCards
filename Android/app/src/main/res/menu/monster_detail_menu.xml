@@ -4,8 +4,15 @@
 
     <item
         android:id="@+id/menu_action_edit_monster"
+        android:icon="@drawable/ic_edit_24"
         android:title="@string/action_edit"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_action_share_monster"
+        android:icon="@drawable/ic_share_24"
+        android:title="@string/action_share_monster"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_action_add_to_collection"

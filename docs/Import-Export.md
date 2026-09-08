@@ -250,7 +250,7 @@ Extend the generic sharing feature with specialized, direct sharing channels (to
 - [x] **Step 3**: Import from D&D Beyond URL (`https://www.dndbeyond.com/characters/49074997` fetching from v5 character service endpoint).
 - [x] **Step 4**: Export to internal format described by Open5e document (`Open5eExporter`).
 - [x] **Step 5**: Import from internal format described by Open5e document (`Open5eImporter`).
-- [ ] **Step 6**: Generic Android Share button feature (`ACTION_SEND`).
+- [x] **Step 6**: Generic Android Share button feature (`ACTION_SEND`).
 - [ ] **Step 7**: Specific share targets (7.1 NFC, 7.2 Bluetooth, 7.3 Embedded Web URL).
 
 ---
@@ -260,8 +260,8 @@ Extend the generic sharing feature with specialized, direct sharing channels (to
 ### 4.1 Schema Architecture Considerations
 - **Unified Action Entity / Type Column**:
   - Instead of maintaining separate `List<Trait>` columns for each category (`actions`, `reactions`, `legendaryActions`, `lairActions`, `regionalActions`, etc.), a unified `monster_actions` table (or model list) with an `action_type` column (`ABILITY`, `ACTION`, `BONUS_ACTION`, `REACTION`, `LEGENDARY_ACTION`, `MYTHIC_ACTION`, `LAIR_ACTION`, `REGIONAL_EFFECT`) simplifies Room DB queries and enables a single reusable editor UI component.
-- **Section Intro & End Note Metadata**:
-  - Store section-level intro text and end notes (e.g. `legendaryActionsDescription`, `lairActionsDescription`, `lairActionsEndNote`, `regionalActionsDescription`, `regionalActionsEndNote`, `mythicActionsDescription`) as dedicated metadata fields on the `Monster` entity rather than as artificial action traits.
+  - **Section Intro & End Note Metadata**:  
+    - Store section-level intro text and end notes (e.g. `legendaryActionsDescription`, `lairActionsDescription`, `lairActionsEndNote`, `regionalActionsDescription`, `regionalActionsEndNote`, `mythicActionsDescription`) as dedicated metadata fields on the `Monster` entity rather than as artificial action traits.
 
 ### 4.2 Markdown & Content Formatting Support
 - **Supported Markdown Syntax**:
