@@ -206,6 +206,33 @@ public class Monster {
     @ColumnInfo(name = "regional_actions", defaultValue = "[]")
     public List<Trait> regionalActions;
 
+    @ColumnInfo(name = "source_url", defaultValue = "")
+    public String sourceUrl;
+
+    @ColumnInfo(name = "bonus_actions", defaultValue = "[]")
+    public List<Trait> bonusActions;
+
+    @ColumnInfo(name = "mythic_actions", defaultValue = "[]")
+    public List<Trait> mythicActions;
+
+    @ColumnInfo(name = "legendary_actions_description", defaultValue = "")
+    public String legendaryActionsDescription;
+
+    @ColumnInfo(name = "lair_actions_description", defaultValue = "")
+    public String lairActionsDescription;
+
+    @ColumnInfo(name = "lair_actions_end_note", defaultValue = "")
+    public String lairActionsEndNote;
+
+    @ColumnInfo(name = "regional_actions_description", defaultValue = "")
+    public String regionalActionsDescription;
+
+    @ColumnInfo(name = "regional_actions_end_note", defaultValue = "")
+    public String regionalActionsEndNote;
+
+    @ColumnInfo(name = "mythic_actions_description", defaultValue = "")
+    public String mythicActionsDescription;
+
     public Monster() {
         id = UUID.randomUUID();
         name = "";
@@ -266,6 +293,15 @@ public class Monster {
         lairActions = new ArrayList<>();
         legendaryActions = new ArrayList<>();
         regionalActions = new ArrayList<>();
+        bonusActions = new ArrayList<>();
+        mythicActions = new ArrayList<>();
+        sourceUrl = "";
+        legendaryActionsDescription = "";
+        lairActionsDescription = "";
+        lairActionsEndNote = "";
+        regionalActionsDescription = "";
+        regionalActionsEndNote = "";
+        mythicActionsDescription = "";
     }
 
     public String getMeta() {
@@ -778,6 +814,22 @@ public class Monster {
     public List<String> getActionDescriptions() {
         ArrayList<String> actionDescriptions = new ArrayList<>();
         for (Trait action : actions) {
+            actionDescriptions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.name, action.description)));
+        }
+        return actionDescriptions;
+    }
+
+    public List<String> getBonusActionDescriptions() {
+        ArrayList<String> actionDescriptions = new ArrayList<>();
+        for (Trait action : bonusActions) {
+            actionDescriptions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.name, action.description)));
+        }
+        return actionDescriptions;
+    }
+
+    public List<String> getMythicActionDescriptions() {
+        ArrayList<String> actionDescriptions = new ArrayList<>();
+        for (Trait action : mythicActions) {
             actionDescriptions.add(getPlaceholderReplacedText(String.format("__%s__ %s", action.name, action.description)));
         }
         return actionDescriptions;

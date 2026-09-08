@@ -52,6 +52,20 @@ public class MonsterCardsApplication extends Application {
             database.execSQL("INSERT INTO dashboard_monsters(monster_id, ordinal) SELECT id, 0 FROM monsters");
         }
     };
+    private static final Migration MIGRATION_5_6 = new Migration(5, 6) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `source_url` TEXT DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `bonus_actions` TEXT DEFAULT '[]'");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `mythic_actions` TEXT DEFAULT '[]'");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `legendary_actions_description` TEXT DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `lair_actions_description` TEXT DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `lair_actions_end_note` TEXT DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `regional_actions_description` TEXT DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `regional_actions_end_note` TEXT DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `mythic_actions_description` TEXT DEFAULT ''");
+        }
+    };
     private MonsterRepository m_monsterLibraryRepository;
 
 
@@ -75,6 +89,7 @@ public class MonsterCardsApplication extends Application {
                 .addMigrations(MIGRATION_2_3)
                 .addMigrations(MIGRATION_3_4)
                 .addMigrations(MIGRATION_4_5)
+                .addMigrations(MIGRATION_5_6)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();
