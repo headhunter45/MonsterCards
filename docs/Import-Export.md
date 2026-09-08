@@ -168,7 +168,7 @@ Extend the generic sharing feature with specialized, direct sharing channels (to
 ## 3. Implementation Checklist & Status
 
 - [x] **Step 0**: Restrict app intent filters in `AndroidManifest.xml` (`.monster` & `.monster.txt`) and add runtime filename validation in `MainActivity.java`.
-- [ ] **Step 1**: Refactor import & conversion code into a shared `EntityImporter<T>` interface and `TetraCubeMonsterImporter` class.
+- [x] **Step 1**: Refactor import & conversion code into a shared `EntityImporter<T>` interface and `TetraCubeMonsterImporter` class.
 - [ ] **Step 2**: Update Tetra-cube importer class to support the newest Tetra-cube format (`bonusActions`, `mythics`, `blind`, intro descriptions).
 - [ ] **Step 3**: Import from D&D Beyond URL (`https://www.dndbeyond.com/characters/49074997` fetching from character service endpoint `character/v2/character/49074997`).
 - [ ] **Step 4**: Export to internal format described by Open5e document (`Open5eExporter`).
