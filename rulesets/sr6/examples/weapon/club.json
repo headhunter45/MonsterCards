@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "596ee4fd-b8c4-45e6-9058-7a91cd3be89e",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Club",
+  "description": "An axe handle, baseball bat, crowbar, tire iron, wrench, or two-by-four.",
+  "properties": {
+    "name": "Club",
+    "dv": "3S",
+    "mode": "NA",
+    "attack_rating": {
+      "close": 6
+    },
+    "extras": "None",
+    "notes": "An axe handle, baseball bat, crowbar, tire iron, wrench, or two-by-four."
+  }
+}

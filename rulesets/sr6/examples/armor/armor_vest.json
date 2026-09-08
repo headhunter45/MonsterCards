@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "02fd452c-d12f-483b-b0c8-0d7a3c03d6cd",
+  "ruleset_id": "sr6",
+  "entity_type": "armor",
+  "display_name": "Armor Vest",
+  "description": "A flexible-wrap vest designed to be worn under regular clothing without displaying bulk.",
+  "properties": {
+    "name": "Armor Vest",
+    "rating": "+3 DR",
+    "notes": "A flexible-wrap vest designed to be worn under regular clothing without displaying bulk."
+  }
+}

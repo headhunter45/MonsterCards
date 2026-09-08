@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "a631687e-cabd-46b7-bb4e-0567ce368310",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Erika Elite",
+  "description": "The elegant design and smooth functionality make this commlink live up to its name.",
+  "properties": {
+    "filename": "erika_elite",
+    "name": "Erika Elite",
+    "category": "Commlink",
+    "device_rating": 4,
+    "attributes_df": "2/1",
+    "active_program_slots": 2,
+    "notes": "The elegant design and smooth functionality make this commlink live up to its name."
+  }
+}

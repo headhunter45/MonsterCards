@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "fd0a9d2b-8440-4c2e-b1f4-7c0bf563f877",
+  "ruleset_id": "sr6",
+  "entity_type": "gear",
+  "display_name": "Overclock",
+  "description": "Amp up a machine past manufacturer limits to get a dangerous job done.",
+  "properties": {
+    "filename": "overclock",
+    "name": "Overclock",
+    "category": "Program",
+    "rules": "Add two dice to a Matrix action. Adds to Overwatch Score as do defense hits.",
+    "notes": "Amp up a machine past manufacturer limits to get a dangerous job done."
+  }
+}

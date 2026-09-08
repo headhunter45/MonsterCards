@@ -1,0 +1,47 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "gear",
+  "name": "Gear / Equipment",
+  "description": "SR6 Adventuring gear, electronics, tools, commlinks, cyberdecks, and programs.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name"],
+    "properties": {
+      "name": { "type": "string" },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Gear",
+          "Commlink",
+          "Cyberdeck",
+          "Program",
+          "Electronics",
+          "Tool",
+          "Medical",
+          "Security",
+          "Other"
+        ]
+      },
+      "rating": { "type": ["integer", "string"] },
+      "device_rating": { "type": ["integer", "string"] },
+      "attributes_df": {
+        "type": "string",
+        "description": "Data Processing / Firewall ratings (e.g. '2/1')."
+      },
+      "active_program_slots": { "type": "integer" },
+      "attack": { "type": ["integer", "string"] },
+      "sleaze": { "type": ["integer", "string"] },
+      "programs": { "type": "array", "items": { "type": "string" } },
+      "rules": {
+        "type": "string",
+        "description": "Game mechanics and rules effect."
+      },
+      "quantity": { "type": "integer", "default": 1 },
+      "availability": { "type": ["integer", "string"] },
+      "cost": { "type": ["integer", "string"] },
+      "notes": { "type": "string" }
+    }
+  }
+}

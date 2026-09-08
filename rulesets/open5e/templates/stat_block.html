@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Stat Block</title>
+  <link rel="stylesheet" href="stat_block.css">
+</head>
+<body class="stat-block-wrapper">
+  <div class="stat-block">
+    <!-- Header -->
+    <header class="sb-header">
+      <h1 class="sb-name">{{display_name}}</h1>
+      <div class="sb-type">
+        {{#if properties.size}}{{properties.size}}{{else}}Medium{{/if}}
+        {{#if properties.type}}{{properties.type}}{{else}}Humanoid{{/if}}{{#if properties.subtype}} ({{properties.subtype}}){{/if}},
+        {{#if properties.alignment}}{{properties.alignment}}{{else}}unaligned{{/if}}
+      </div>
+    </header>
+
+    <div class="red-bar"></div>
+
+    <!-- Core Vitals -->
+    <div class="sb-vitals">
+      <div class="vital-row">
+        <strong>Armor Class</strong> {{val properties.armor_class}}{{#if properties.armor_description}} ({{properties.armor_description}}){{/if}}
+      </div>
+      <div class="vital-row">
+        <strong>Hit Points</strong>
+        {{#if properties.hit_points.current}}
+          {{properties.hit_points.current}}
+        {{else if properties.hit_points.max}}
+          {{properties.hit_points.max}}
+        {{else}}
+          {{val properties.hit_points}}
+        {{/if}}
+        {{#if properties.hit_points.formula}}
+          ({{properties.hit_points.formula}})
+        {{else if properties.hit_points.hit_dice}}
+          ({{properties.hit_points.hit_dice}})
+        {{/if}}
+      </div>
+      <div class="vital-row">
+        <strong>Speed</strong>
+        {{#if properties.speed_desc}}
+          {{properties.speed_desc}}
+        {{else if properties.speed}}
+          {{properties.speed}} ft.
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="red-bar"></div>
+
+    <!-- Ability Scores Table -->
+    <div class="sb-abilities">
+      <div class="sb-ability">
+        <span class="ab-label">STR</span>
+        <span class="ab-val">{{val properties.abilities.strength}} ({{modText properties.abilities.strength}})</span>
+      </div>
+      <div class="sb-ability">
+        <span class="ab-label">DEX</span>
+        <span class="ab-val">{{val properties.abilities.dexterity}} ({{modText properties.abilities.dexterity}})</span>
+      </div>
+      <div class="sb-ability">
+        <span class="ab-label">CON</span>
+        <span class="ab-val">{{val properties.abilities.constitution}} ({{modText properties.abilities.constitution}})</span>
+      </div>
+      <div class="sb-ability">
+        <span class="ab-label">INT</span>
+        <span class="ab-val">{{val properties.abilities.intelligence}} ({{modText properties.abilities.intelligence}})</span>
+      </div>
+      <div class="sb-ability">
+        <span class="ab-label">WIS</span>
+        <span class="ab-val">{{val properties.abilities.wisdom}} ({{modText properties.abilities.wisdom}})</span>
+      </div>
+      <div class="sb-ability">
+        <span class="ab-label">CHA</span>
+        <span class="ab-val">{{val properties.abilities.charisma}} ({{modText properties.abilities.charisma}})</span>
+      </div>
+    </div>
+
+    <div class="red-bar"></div>
+
+    <!-- Optional Monster Meta -->
+    <div class="sb-meta">
+      {{#if properties.saving_throws}}
+      <div class="meta-row">
+        <strong>Saving Throws</strong> {{join properties.saving_throws}}
+      </div>
+      {{/if}}
+
+      {{#if properties.skills}}
+      <div class="meta-row">
+        <strong>Skills</strong> {{join properties.skills}}
+      </div>
+      {{/if}}
+
+      {{#if properties.damage_vulnerabilities}}
+      <div class="meta-row">
+        <strong>Damage Vulnerabilities</strong> {{join properties.damage_vulnerabilities}}
+      </div>
+      {{/if}}
+
+      {{#if properties.damage_resistances}}
+      <div class="meta-row">
+        <strong>Damage Resistances</strong> {{join properties.damage_resistances}}
+      </div>
+      {{/if}}
+
+      {{#if properties.damage_immunities}}
+      <div class="meta-row">
+        <strong>Damage Immunities</strong> {{join properties.damage_immunities}}
+      </div>
+      {{/if}}
+
+      {{#if properties.condition_immunities}}
+      <div class="meta-row">
+        <strong>Condition Immunities</strong> {{join properties.condition_immunities}}
+      </div>
+      {{/if}}
+
+      {{#if properties.senses}}
+      <div class="meta-row">
+        <strong>Senses</strong> {{properties.senses}}
+      </div>
+      {{/if}}
+
+      {{#if properties.languages}}
+      <div class="meta-row">
+        <strong>Languages</strong> {{join properties.languages}}
+      </div>
+      {{/if}}
+
+      {{#if properties.challenge_rating}}
+      <div class="meta-row">
+        <strong>Challenge</strong> {{properties.challenge_rating}}
+      </div>
+      {{else if properties.cr}}
+      <div class="meta-row">
+        <strong>Challenge</strong> {{properties.cr}}{{#if properties.xp}} ({{properties.xp}} XP){{/if}}
+      </div>
+      {{/if}}
+
+      {{#if properties.proficiency_bonus}}
+      <div class="meta-row">
+        <strong>Proficiency Bonus</strong> +{{properties.proficiency_bonus}}
+      </div>
+      {{else if (calcProf properties.level properties.cr)}}
+      <div class="meta-row">
+        <strong>Proficiency Bonus</strong> +{{calcProf properties.level properties.cr}}
+      </div>
+      {{/if}}
+    </div>
+
+    <!-- Special Traits / Features -->
+    {{#if properties.traits}}
+    <div class="sb-traits">
+      {{#each properties.traits}}
+      <div class="trait-block">
+        <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    <!-- Actions Section -->
+    {{#if properties.actions}}
+    <section class="sb-section">
+      <h2 class="section-title">Actions</h2>
+      <div class="section-divider"></div>
+      {{#each properties.actions}}
+      <div class="action-block">
+        <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+      </div>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    <!-- Bonus Actions Section -->
+    {{#if properties.bonus_actions}}
+    <section class="sb-section">
+      <h2 class="section-title">Bonus Actions</h2>
+      <div class="section-divider"></div>
+      {{#each properties.bonus_actions}}
+      <div class="action-block">
+        <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+      </div>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    <!-- Reactions Section -->
+    {{#if properties.reactions}}
+    <section class="sb-section">
+      <h2 class="section-title">Reactions</h2>
+      <div class="section-divider"></div>
+      {{#each properties.reactions}}
+      <div class="action-block">
+        <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+      </div>
+      {{/each}}
+    </section>
+    {{/if}}
+
+    <!-- Legendary Actions Section -->
+    {{#if properties.legendary_actions}}
+    <section class="sb-section">
+      <h2 class="section-title">Legendary Actions</h2>
+      <div class="section-divider"></div>
+      {{#if properties.legendary_actions.description}}
+      <p class="legendary-preamble">{{formatText properties.legendary_actions.description}}</p>
+      {{else if properties.legendariesDescription}}
+      <p class="legendary-preamble">{{formatText properties.legendariesDescription}}</p>
+      {{/if}}
+
+      {{#if properties.legendary_actions.actions}}
+        {{#each properties.legendary_actions.actions}}
+        <div class="action-block">
+          <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{else if properties.legendaries}}
+        {{#each properties.legendaries}}
+        <div class="action-block">
+          <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{/if}}
+    </section>
+    {{/if}}
+  </div>
+</body>
+</html>

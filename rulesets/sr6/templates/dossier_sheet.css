@@ -1,0 +1,308 @@
+/* Shadowrunner Dossier Stylesheet - Extends character_sheet.css */
+
+.dossier-cover-page {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff url('assets/_dev_sr6_circuit_bg.png') repeat-y;
+  background-size: 100% auto;
+}
+
+.dossier-cover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--sr6-magenta);
+  padding-bottom: 12px;
+}
+
+.dossier-logo {
+  max-width: 280px;
+  height: auto;
+}
+
+.dossier-tag {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: var(--sr6-magenta);
+  background: var(--sr6-magenta-light);
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--sr6-magenta);
+}
+
+.cover-hero-banner {
+  background: rgba(24, 23, 23, 0.96);
+  color: #ffffff;
+  padding: 24px 28px;
+  border-radius: 8px;
+  border-left: 6px solid var(--sr6-magenta);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.hero-name {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.hero-archetype {
+  margin: 4px 0 16px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #e652a8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero-quote {
+  margin: 0;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #dddddd;
+  border-left: 3px solid var(--sr6-magenta);
+  padding-left: 12px;
+}
+
+.cover-pitch-card {
+  background: var(--sr6-bg-card);
+  border: 1.5px solid var(--sr6-border-pink);
+  border-radius: 6px;
+  padding: 16px 20px;
+}
+
+.pitch-title {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--sr6-magenta);
+  letter-spacing: 0.5px;
+}
+
+.pitch-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #222;
+  font-weight: 500;
+}
+
+.cover-quickstart-guide {
+  background: #fdfafd;
+  border: 1px solid #dcbdd8;
+  border-radius: 6px;
+  padding: 16px 20px;
+}
+
+.cover-quickstart-guide h3 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 900;
+  color: #111;
+}
+
+.cover-quickstart-guide p {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.quickstart-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quickstart-pills .pill {
+  background: #ffffff;
+  border: 1px solid var(--sr6-magenta);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  color: #222;
+}
+
+.quickstart-pills .pill strong {
+  color: var(--sr6-magenta);
+}
+
+/* Page 4 Profile Layout */
+.dossier-profile-header {
+  border-bottom: 2px solid var(--sr6-magenta);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.profile-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--sr6-magenta);
+  letter-spacing: 0.5px;
+}
+
+.profile-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.dossier-grid-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+}
+
+.profile-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dossier-section {
+  background: var(--sr6-bg-card);
+  border: 1.5px solid var(--sr6-border-pink);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.dossier-sec-title {
+  margin: 0 0 6px 0;
+  font-size: 11.5px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--sr6-magenta);
+  text-transform: uppercase;
+  border-bottom: 1px solid #ebd7e7;
+  padding-bottom: 2px;
+}
+
+.narrative-text {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #222;
+  text-align: justify;
+}
+
+/* Sample Actions Table */
+.sample-actions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+
+.sample-actions-table th {
+  background: #f7eef5;
+  border-bottom: 1.5px solid var(--sr6-magenta);
+  padding: 3px 4px;
+  text-align: left;
+  font-size: 9.5px;
+  font-weight: 800;
+}
+
+.sample-actions-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.action-pill {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.action-pill.Major {
+  background: #fde8e8;
+  color: #a81c1c;
+}
+
+.action-pill.Minor {
+  background: #e8f0fe;
+  color: #1a56db;
+}
+
+.action-pill.Free {
+  background: #e6f7ea;
+  color: #1b6329;
+}
+
+/* Vital Contacts List */
+.contacts-detail-list, .hangout-list, .downtime-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #222;
+}
+
+.contacts-detail-list li, .hangout-list li, .downtime-list li {
+  margin-bottom: 4px;
+}
+
+.hangouts-downtime-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* Edge Boosts */
+.edge-boosts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edge-boost-pill {
+  background: #faf6f9;
+  border: 1px solid #ebd7e7;
+  border-radius: 4px;
+  padding: 4px 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 10.5px;
+}
+
+.edge-cost {
+  font-size: 9.5px;
+  font-weight: 900;
+  color: #ffffff;
+  background: var(--sr6-magenta);
+  padding: 1px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.edge-name {
+  font-weight: 700;
+  color: #111;
+}
+
+.edge-boost-pill small {
+  color: #555;
+  margin-left: auto;
+}
+
+@media print {
+  .dossier-cover-page {
+    page-break-after: always;
+  }
+  .dossier-profile-page {
+    page-break-after: avoid;
+  }
+}
+

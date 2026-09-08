@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "b8c27f0b-b5f4-4f4c-a26c-2e146a2c8ea2",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Sword",
+  "description": "A heavy blade on a one-handed grip that comes in a variety of styles.",
+  "properties": {
+    "name": "Sword",
+    "dv": "3P",
+    "mode": "NA",
+    "attack_rating": {
+      "close": 9
+    },
+    "extras": "None",
+    "notes": "A heavy blade on a one-handed grip that comes in a variety of styles."
+  }
+}

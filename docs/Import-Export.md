@@ -4,9 +4,19 @@ This document outlines the modular architecture and step-by-step technical roadm
 
 ---
 
-## 1. Modular Importer Architecture
+## 1. File Formats & Importer Architecture
 
-To keep import/export code clean and maintainable, all format parsers implement a shared interface:
+Monster Cards separates canonical native formats from third-party import sources:
+
+1. **Universal Native Format (`.card` / `.card.txt`)**:
+   - Our native file format utilizing the **Universal 2-Tier Envelope Specification** (`$schema`, `uuid`, `ruleset_id`, `entity_type`, `display_name`, `template_id`, `properties`).
+   - Uses the **Open5e Ruleset** (`ruleset_id: "open5e"`) which matches our app's 5e monster and character needs ([`entities/character.json`](file:///Users/tom/Projects/TTRPG/CharacterDataFiles/rulesets/open5e/entities/character.json)).
+   - Supported for both **Export** and **Native Import**.
+2. **Third-Party Import-Only Formats**:
+   - `.monster` / `.monster.txt`: Tetra-cube generator stat block JSON format (Import-only).
+   - D&D Beyond URLs / API payloads: D&D Beyond character web service format (Import-only).
+
+All format parsers implement a shared interface:
 
 ```java
 public interface EntityImporter<T> {
@@ -72,12 +82,12 @@ The output of any `EntityImporter` is an in-memory domain model (such as `Monste
 
 ---
 
-### Step 0: Restrict File Extension Intent Filters
+### Step 0: File Extension Intent Filters (.monster & .card)
 
-Restrict the Android app so it reacts **only** to `.monster` and `.monster.txt` files instead of all generic `.txt` files.
+Restrict the Android app so it reacts to supported stat block file extensions (`.monster`, `.monster.txt` for Tetra-cube format; `.card`, `.card.txt` for internal Open5e card format) instead of all generic `.txt` files.
 
 1. **`AndroidManifest.xml`**:
-   Add `android:pathPattern` and `android:pathSuffix` constraints (`.monster` and `.monster.txt`) to the `<intent-filter>` for `MainActivity`.
+   Add `android:pathPattern` constraints (`.monster`, `.monster.txt`, `.card`, `.card.txt`) to the `<intent-filter>` for `MainActivity`.
 2. **`MainActivity.java`**:
    Implement runtime display name validation querying `OpenableColumns.DISPLAY_NAME` via `ContentResolver` to filter out non-monster files passed via `content://` URIs.
 
@@ -193,6 +203,13 @@ The Open5e ruleset is part of a modular, versioned ruleset framework located at 
 - **Payload Mapping**:
   - Maps `Monster` fields to Open5e character properties in `properties` object conforming to [`entities/character.json`](file:///Users/tom/Projects/TTRPG/CharacterDataFiles/rulesets/open5e/entities/character.json).
 
+#### Open5e vs. Monster Cards Database Schema Comparison & Final Mappings
+- **Database Storage Architecture (Room SQLite vs. Open5e JSON)**:
+  - **Ability Scores**: Kept as flat integer columns in Room (`strength_score`, `dexterity_score`, etc.) for maximum query performance. When exporting to Open5e JSON, `Open5eExporter` packages these into a `properties.abilities` JSON object `{ "strength": 12, ... }`. Modifiers are calculated dynamically using `floor((score - 10) / 2)`.
+  - **Variable-Length Lists (`traits`, `actions`, `skills`, `languages`)**: Stored as text columns using Room `@TypeConverter` JSON converters. In Open5e JSON export, traits and actions are formatted as `{ "name": "...", "desc": "..." }` arrays.
+  - **PC Identity Fields**: Added PC identity columns (`player_name`, `background`, `personality_traits`, `ideals`, `bonds`, `flaws`, `age`, `height`, `weight`, `eyes`, `skin`, `hair`, `appearance`, `backstory`, `allies_and_organizations`) directly to `Monster.java` (`Database version 7`, `MIGRATION_6_7`).
+  - **Omitted PC Fields**: `currency`, `inventory`, `death_saves`, and `spellcasting.slots` are ignored/omitted in monster stat block exports.
+
 ---
 
 ### Step 5: Import from Custom Internal Format (Open5e Specification)
@@ -230,9 +247,9 @@ Extend the generic sharing feature with specialized, direct sharing channels (to
 - [x] **Step 0**: Restrict app intent filters in `AndroidManifest.xml` (`.monster` & `.monster.txt`) and add runtime filename validation in `MainActivity.java`.
 - [x] **Step 1**: Refactor import & conversion code into a shared `EntityImporter<T>` interface and `TetraCubeMonsterImporter` class.
 - [x] **Step 2**: Update Tetra-cube importer class to support the newest Tetra-cube format (`bonusActions`, `mythics`, `blind`, intro descriptions).
-- [ ] **Step 3**: Import from D&D Beyond URL (`https://www.dndbeyond.com/characters/49074997` fetching from character service endpoint `character/v2/character/49074997`).
-- [ ] **Step 4**: Export to internal format described by Open5e document (`Open5eExporter`).
-- [ ] **Step 5**: Import from internal format described by Open5e document (`Open5eImporter`).
+- [x] **Step 3**: Import from D&D Beyond URL (`https://www.dndbeyond.com/characters/49074997` fetching from v5 character service endpoint).
+- [x] **Step 4**: Export to internal format described by Open5e document (`Open5eExporter`).
+- [x] **Step 5**: Import from internal format described by Open5e document (`Open5eImporter`).
 - [ ] **Step 6**: Generic Android Share button feature (`ACTION_SEND`).
 - [ ] **Step 7**: Specific share targets (7.1 NFC, 7.2 Bluetooth, 7.3 Embedded Web URL).
 

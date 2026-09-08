@@ -1,0 +1,127 @@
+{
+  "$schema": "../../schema/manifest.json",
+  "id": "open5e",
+  "uuid": "7a35e4d2-f67b-4890-a292-6a7593c72b21",
+  "name": "Open5e (D&D 5th Edition SRD)",
+  "version": "1.0.0",
+  "description": "5th Edition System Reference Document ruleset providing entity schemas and sheet templates.",
+  "license": "OGL 1.0a",
+  "author": {
+    "name": "Open5e Community",
+    "url": "https://open5e.com"
+  },
+  "entities": [
+    {
+      "id": "character",
+      "name": "Player Character",
+      "description": "A player character with attributes, proficiencies, classes, equipment, and spells.",
+      "schema": "entities/character.json",
+      "default_template": "character_sheet",
+      "templates": [
+        "character_sheet",
+        "character_sheet_alt",
+        "spellcasting_sheet",
+        "stat_block",
+        "character_card",
+        "character_list_item"
+      ]
+    },
+    {
+      "id": "item",
+      "name": "Item / Gear",
+      "description": "Generic items, equipment, adventuring gear, and magical items.",
+      "schema": "entities/item.json"
+    },
+    {
+      "id": "weapon",
+      "name": "Weapon",
+      "description": "Simple and martial melee and ranged weapons.",
+      "schema": "entities/weapon.json"
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "description": "Wearable armor with base AC, dex caps, and strength/stealth rules.",
+      "schema": "entities/armor.json"
+    },
+    {
+      "id": "shield",
+      "name": "Shield",
+      "description": "Equippable shields providing armor class bonuses.",
+      "schema": "entities/shield.json"
+    },
+    {
+      "id": "spell",
+      "name": "Spell",
+      "description": "5e Spells with level, school, casting time, range, and components.",
+      "schema": "entities/spell.json"
+    }
+  ],
+  "templates": [
+    {
+      "id": "character_sheet",
+      "name": "Standard Character Sheet",
+      "description": "Full interactive 5e character sheet matching the official 3-column print layout.",
+      "entity_types": ["character"],
+      "mode": "sheet",
+      "engine": "html",
+      "html": "templates/character_sheet.html",
+      "css": ["templates/character_sheet.css"],
+      "js": ["templates/character_sheet.js"]
+    },
+    {
+      "id": "character_sheet_alt",
+      "name": "Alternative Character Sheet",
+      "description": "5e character sheet with saving throws and skills grouped by ability score.",
+      "entity_types": ["character"],
+      "mode": "sheet",
+      "engine": "html",
+      "html": "templates/character_sheet_alt.html",
+      "css": ["templates/character_sheet_alt.css"]
+    },
+    {
+      "id": "spellcasting_sheet",
+      "name": "Spellcasting Sheet",
+      "description": "Dedicated 5e spellcasting sheet with cantrips, spell slots 1-9, and spell save DC.",
+      "entity_types": ["character"],
+      "mode": "sheet",
+      "engine": "html",
+      "html": "templates/spellcasting_sheet.html",
+      "css": ["templates/spellcasting_sheet.css"]
+    },
+    {
+      "id": "stat_block",
+      "name": "Creature Stat Block",
+      "description": "Monster manual style stat block with full actions, traits, and combat statistics.",
+      "entity_types": ["character"],
+      "mode": "view",
+      "engine": "html",
+      "html": "templates/stat_block.html",
+      "css": ["templates/stat_block.css"]
+    },
+    {
+      "id": "character_card",
+      "name": "NPC Character Card",
+      "description": "Compact NPC card with 8 stat boxes and quick action summaries.",
+      "entity_types": ["character"],
+      "mode": "card",
+      "engine": "html",
+      "html": "templates/character_card.html",
+      "css": ["templates/character_card.css"]
+    },
+    {
+      "id": "character_list_item",
+      "name": "Character List Item",
+      "description": "Uniform fixed-height quick-reference list item card with non-wrapping horizontal action row.",
+      "entity_types": ["character"],
+      "mode": "card",
+      "engine": "html",
+      "html": "templates/character_list_item.html",
+      "css": ["templates/character_list_item.css"]
+    }
+  ],
+  "assets": {
+    "path": "assets",
+    "images": []
+  }
+}

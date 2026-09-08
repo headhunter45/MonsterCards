@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
 import com.majinnaibu.monstercards.importers.EntityImporter;
 import com.majinnaibu.monstercards.importers.MonsterJsonImporter;
+import com.majinnaibu.monstercards.importers.Open5eImporter;
 import com.majinnaibu.monstercards.importers.TetraCubeMonsterImporter;
 import com.majinnaibu.monstercards.models.Monster;
 
@@ -16,6 +17,7 @@ public class MonsterImportHelper {
 
     static {
         IMPORTERS.add(new MonsterJsonImporter());
+        IMPORTERS.add(new Open5eImporter());
         IMPORTERS.add(new TetraCubeMonsterImporter());
         IMPORTERS.add(new DnDBeyondImporter());
     }

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "5642493b-c5d6-4fb7-815d-19452ad00e8f",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Ice Spear",
+  "description": "Piercing sub-zero temperature extreme.",
+  "properties": {
+    "name": "Ice Spear",
+    "category": "Spell",
+    "spell_type": "Combat (Direct)",
+    "type_target": "P",
+    "range": "LOS",
+    "duration": "I",
+    "drain": "5",
+    "damage": "P, Special (Cold)",
+    "rules": "",
+    "notes": "Piercing sub-zero temperature extreme."
+  }
+}

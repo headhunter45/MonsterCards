@@ -1,0 +1,95 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "0adfaf3c-bf19-4f21-a73f-e7918af1fd4a",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "Rusted Stilettos",
+  "description": "Ork Gangers from Glow City (SR6 Beginner Box).",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "Rusted Stilettos",
+    "archetype": "Ork Gangers",
+    "metatype": "Ork",
+    "notes": "The twisted Rusted Stilettos have spent too much time near Glow City, site of a nuclear reactor meltdown. The ones who’ve survived are terrifyingly deformed, and deadly.",
+    "quote": "“Beauty isn’t real. We are.”",
+    "hook": "Twisted and mutated, this gang serves a dragon, making them inscrutable to mere mortals.",
+    "attributes": {
+      "body": 5,
+      "agility": 2,
+      "reaction": 2,
+      "strength": 5,
+      "willpower": 2,
+      "logic": 2,
+      "intuition": 2,
+      "charisma": 2,
+      "edge": 1,
+      "essence": 6
+    },
+    "combat_info": {
+      "initiative": "4 + 1D6",
+      "defense_rating": 7,
+      "condition_monitor": 11
+    },
+    "skills": [
+      {
+        "name": "Close Combat",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 7
+      },
+      {
+        "name": "Firearms",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 7
+      },
+      {
+        "name": "Influence",
+        "rating": 5,
+        "attribute": "Charisma",
+        "dice_pool": 7
+      },
+      {
+        "name": "Perception",
+        "rating": 4,
+        "attribute": "Intuition",
+        "dice_pool": 6
+      }
+    ],
+    "gear": [
+      {
+        "name": "Gang Leather",
+        "rating": "+1 DR"
+      },
+      {
+        "name": "Sony Emperor commlink",
+        "rating": 2
+      },
+      {
+        "name": "Knife"
+      },
+      {
+        "name": "Browning Ultra Power heavy pistol"
+      }
+    ],
+    "primary_ranged_weapon": {
+      "name": "Browning Ultra Power",
+      "dv": "3P",
+      "mode": "SA",
+      "attack_rating": {
+        "close": 10,
+        "near": 9,
+        "far": 6
+      }
+    },
+    "primary_melee_weapon": {
+      "name": "Knife",
+      "dv": "2P",
+      "close": 6
+    },
+    "primary_armor": {
+      "name": "Gang Leather",
+      "rating": "+1"
+    }
+  }
+}

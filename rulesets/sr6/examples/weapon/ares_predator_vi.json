@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "f108cf3f-8245-4453-a5dd-f9fb0584081d",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Ares Predator VI",
+  "description": "The Predator VI is genuine innovation built into some classic styling.",
+  "properties": {
+    "name": "Ares Predator VI",
+    "dv": "4P",
+    "mode": "SA",
+    "attack_rating": {
+      "close": 9,
+      "near": 9,
+      "far": 7
+    },
+    "extras": "smartgun",
+    "notes": "The Predator VI is genuine innovation built into some classic styling."
+  }
+}

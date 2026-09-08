@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/open5e/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - List Item</title>
+  <link rel="stylesheet" href="character_list_item.css">
+</head>
+<body class="list-item-page-wrapper">
+  <div class="npc-list-card">
+    
+    <!-- Header: Name & Challenge/Level -->
+    <div class="card-top">
+      <h2 class="card-name">{{display_name}}</h2>
+      <div class="card-cr">
+        {{#if properties.challenge_rating}}
+          CR {{properties.challenge_rating}}
+        {{else if properties.cr}}
+          CR {{properties.cr}}
+        {{else if properties.level}}
+          LVL {{properties.level}}
+        {{else}}
+          CR 1
+        {{/if}}
+      </div>
+    </div>
+
+    <!-- Subtitle: Size, Type, Subtype, Alignment -->
+    <div class="card-subtitle">
+      {{#if properties.size}}{{properties.size}}{{else}}medium{{/if}}
+      {{#if properties.type}}{{properties.type}}{{else}}Humanoid{{/if}}{{#if properties.subtype}} ({{properties.subtype}}){{else if properties.race}} ({{properties.race}}){{/if}},
+      {{#if properties.alignment}}{{properties.alignment}}{{else}}unaligned{{/if}}
+    </div>
+
+    <!-- 8 Stat Boxes Row: S, D, C, I, W, Ch, AC, HP -->
+    <div class="stat-boxes-row">
+      <!-- STR -->
+      <div class="stat-box">
+        <span class="badge-advantage">{{advBadge properties "str"}}</span>
+        <span class="badge-proficiency">{{profBadge properties.saving_throws "str"}}</span>
+        <span class="stat-mod">{{modText properties.abilities.strength}}</span>
+        <span class="stat-code">S</span>
+      </div>
+
+      <!-- DEX -->
+      <div class="stat-box">
+        <span class="badge-advantage">{{advBadge properties "dex"}}</span>
+        <span class="badge-proficiency">{{profBadge properties.saving_throws "dex"}}</span>
+        <span class="stat-mod">{{modText properties.abilities.dexterity}}</span>
+        <span class="stat-code">D</span>
+      </div>
+
+      <!-- CON -->
+      <div class="stat-box">
+        <span class="badge-advantage">{{advBadge properties "con"}}</span>
+        <span class="badge-proficiency">{{profBadge properties.saving_throws "con"}}</span>
+        <span class="stat-mod">{{modText properties.abilities.constitution}}</span>
+        <span class="stat-code">C</span>
+      </div>
+
+      <!-- INT -->
+      <div class="stat-box">
+        <span class="badge-advantage">{{advBadge properties "int"}}</span>
+        <span class="badge-proficiency">{{profBadge properties.saving_throws "int"}}</span>
+        <span class="stat-mod">{{modText properties.abilities.intelligence}}</span>
+        <span class="stat-code">I</span>
+      </div>
+
+      <!-- WIS -->
+      <div class="stat-box">
+        <span class="badge-advantage">{{advBadge properties "wis"}}</span>
+        <span class="badge-proficiency">{{profBadge properties.saving_throws "wis"}}</span>
+        <span class="stat-mod">{{modText properties.abilities.wisdom}}</span>
+        <span class="stat-code">W</span>
+      </div>
+
+      <!-- CHA -->
+      <div class="stat-box">
+        <span class="badge-advantage">{{advBadge properties "cha"}}</span>
+        <span class="badge-proficiency">{{profBadge properties.saving_throws "cha"}}</span>
+        <span class="stat-mod">{{modText properties.abilities.charisma}}</span>
+        <span class="stat-code">Ch</span>
+      </div>
+
+      <!-- AC -->
+      <div class="stat-box">
+        <span class="stat-mod">{{val properties.armor_class}}</span>
+        <span class="stat-code">AC</span>
+      </div>
+
+      <!-- HP -->
+      <div class="stat-box">
+        <span class="stat-mod">
+          {{#if properties.hit_points.current}}
+            {{properties.hit_points.current}}
+          {{else if properties.hit_points.max}}
+            {{properties.hit_points.max}}
+          {{else}}
+            {{val properties.hit_points}}
+          {{/if}}
+        </span>
+        <span class="stat-code">HP</span>
+      </div>
+    </div>
+
+    <!-- Actions Row: Single Non-Wrapping Row with Horizontal Scroll -->
+    <div class="action-row-container">
+      {{#if properties.actions}}
+      <div class="action-boxes-row">
+        {{#each properties.actions}}
+        <div class="action-card-box">
+          <div class="action-box-title">{{this.name}}</div>
+          <div class="action-box-desc">{{formatText this.desc}}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{else}}
+      <div class="no-actions-box">
+        <span class="no-actions-text">&mdash; No listed actions &mdash;</span>
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+</body>
+</html>

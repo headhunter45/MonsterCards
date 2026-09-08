@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "405ac1d8-d948-4f61-80c6-5736c4d53054",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Knife",
+  "description": "A catch-all term for a variety of different deadly fighting blades.",
+  "properties": {
+    "name": "Knife",
+    "dv": "2P",
+    "mode": "NA",
+    "attack_rating": {
+      "close": 6,
+      "near": 1
+    },
+    "extras": "max range, 20 meters",
+    "notes": "A catch-all term for a variety of different deadly fighting blades."
+  }
+}

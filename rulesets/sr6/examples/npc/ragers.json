@@ -1,0 +1,89 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "f13179e7-3180-41da-b079-eb92bd4eae4c",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "Ragers",
+  "description": "Dwarf Gangers from the SR6 Beginner Box.",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "Ragers",
+    "archetype": "Dwarf Gangers",
+    "metatype": "Dwarf",
+    "notes": "Gang members are fiercely loyal to each other and fight in groups, pulling fallen comrades out of trouble if need be. They also respect strength when used correctly.",
+    "quote": "“RRRAAAAAARRRRRGGGGGHHHHHHH!”",
+    "hook": "Forces of chaos who roam the streets and are ready for a fight at all times.",
+    "attributes": {
+      "body": 4,
+      "agility": 2,
+      "reaction": 2,
+      "strength": 5,
+      "willpower": 3,
+      "logic": 2,
+      "intuition": 2,
+      "charisma": 2,
+      "edge": 1,
+      "essence": 6
+    },
+    "combat_info": {
+      "initiative": "4 + 1D6",
+      "defense_rating": 4,
+      "condition_monitor": 10
+    },
+    "skills": [
+      {
+        "name": "Close Combat",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 7
+      },
+      {
+        "name": "Firearms",
+        "rating": 5,
+        "attribute": "Agility",
+        "dice_pool": 7
+      },
+      {
+        "name": "Perception",
+        "rating": 4,
+        "attribute": "Intuition",
+        "dice_pool": 6
+      }
+    ],
+    "gear": [
+      {
+        "name": "Gang Leather",
+        "rating": "+1 DR"
+      },
+      {
+        "name": "Sony Emperor commlink",
+        "rating": 2
+      },
+      {
+        "name": "Club"
+      },
+      {
+        "name": "Defiance T-250 shotgun"
+      }
+    ],
+    "primary_ranged_weapon": {
+      "name": "Defiance T-250",
+      "dv": "4P",
+      "mode": "SA",
+      "attack_rating": {
+        "close": 7,
+        "near": 10,
+        "far": 6
+      }
+    },
+    "primary_melee_weapon": {
+      "name": "Club",
+      "dv": "3S",
+      "close": 6
+    },
+    "primary_armor": {
+      "name": "Gang Leather",
+      "rating": "+1"
+    }
+  }
+}

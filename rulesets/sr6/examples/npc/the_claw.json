@@ -1,0 +1,83 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "f7c985b7-d3ed-41e8-af58-8ba870d215da",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "The Claw",
+  "description": "Rusted Stilettos Leader / Male Troll Ganger from the SR6 Beginner Box.",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "The Claw",
+    "archetype": "Rusted Stilettos Leader / Male Troll Ganger",
+    "metatype": "Troll",
+    "notes": "A twisted troll who gained a name from the mutation of his right hand into something resembling a crab’s claw. He uses it as a weapon, but the visual is what’s terrifying.",
+    "quote": "“Your face could be fixed. My claw is ready. Let’s operate.”",
+    "hook": "The Claw is a dragon-worshipping fanatic, making him dangerous and unpredictable.",
+    "attributes": {
+      "body": 7,
+      "agility": 3,
+      "reaction": 3,
+      "strength": 6,
+      "willpower": 2,
+      "logic": 2,
+      "intuition": 2,
+      "charisma": 2,
+      "edge": 4,
+      "essence": 2,
+      "magic": 6
+    },
+    "combat_info": {
+      "initiative": "5 + 1D6",
+      "defense_rating": 8,
+      "condition_monitor": 14
+    },
+    "skills": [
+      {
+        "name": "Close Combat",
+        "rating": 9,
+        "attribute": "Agility",
+        "dice_pool": 12
+      },
+      {
+        "name": "Firearms",
+        "rating": 6,
+        "attribute": "Agility",
+        "dice_pool": 9
+      },
+      {
+        "name": "Influence",
+        "rating": 8,
+        "attribute": "Charisma",
+        "dice_pool": 10
+      },
+      {
+        "name": "Perception",
+        "rating": 5,
+        "attribute": "Intuition",
+        "dice_pool": 7
+      }
+    ],
+    "gear": [
+      {
+        "name": "Gang Leather",
+        "rating": "+1 DR"
+      },
+      {
+        "name": "Sony Emperor commlink",
+        "rating": 2
+      },
+      {
+        "name": "Claw Weapon (DV 4P, AR 8)"
+      }
+    ],
+    "primary_melee_weapon": {
+      "name": "Crab Claw Mutation",
+      "dv": "4P",
+      "close": 8
+    },
+    "primary_armor": {
+      "name": "Gang Leather",
+      "rating": "+1"
+    }
+  }
+}

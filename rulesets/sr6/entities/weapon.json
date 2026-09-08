@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "weapon",
+  "name": "Weapon",
+  "description": "SR6 Ranged and Melee weapons with DV, firing modes, attack ratings across range bands, and ammo.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "category", "dv"],
+    "properties": {
+      "name": { "type": "string" },
+      "category": {
+        "type": "string",
+        "enum": ["Hold-out", "Light Pistol", "Heavy Pistol", "Machine Pistol", "SMG", "Shotgun", "Rifle", "Sniper Rifle", "Assault Cannon", "Blade", "Club", "Unarmed", "Exotic"]
+      },
+      "type": { "type": "string", "enum": ["ranged", "melee"], "default": "ranged" },
+      "dv": { "type": "string", "description": "Damage Value (e.g. '4P', '3S')." },
+      "mode": { "type": "string", "description": "Firing mode (SS, SA, BF, FA)." },
+      "attack_rating": {
+        "type": "object",
+        "properties": {
+          "close": { "type": ["integer", "string"] },
+          "near": { "type": ["integer", "string"] },
+          "far": { "type": ["integer", "string"] },
+          "extreme": { "type": ["integer", "string"] }
+        }
+      },
+      "ammo": { "type": "string", "description": "Capacity and reload type (e.g. '15(c)')." },
+      "accessories": { "type": "array", "items": { "type": "string" } },
+      "notes": { "type": "string" }
+    }
+  }
+}

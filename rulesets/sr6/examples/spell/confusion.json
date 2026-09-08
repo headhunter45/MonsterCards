@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "82974286-ee99-4c81-8de9-b9aa55b49e92",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Confusion",
+  "description": "Hits target with a swirl of images and emotions leaving them disoriented.",
+  "properties": {
+    "name": "Confusion",
+    "category": "Spell",
+    "spell_type": "Illusion",
+    "type_target": "M",
+    "range": "LOS",
+    "duration": "S",
+    "drain": "4",
+    "damage": "—",
+    "rules": "Target suffers dice pool penalty equal to net hits on all non-resistance tests.",
+    "notes": "Hits target with a swirl of images and emotions leaving them disoriented."
+  }
+}

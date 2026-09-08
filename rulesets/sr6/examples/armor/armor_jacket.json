@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "38836c23-969a-4885-b881-029de2531415",
+  "ruleset_id": "sr6",
+  "entity_type": "armor",
+  "display_name": "Armor Jacket",
+  "description": "Available in many styles, it offers good protection without catching too much attention.",
+  "properties": {
+    "name": "Armor Jacket",
+    "rating": "+4 DR",
+    "notes": "Available in many styles, it offers good protection without catching too much attention."
+  }
+}

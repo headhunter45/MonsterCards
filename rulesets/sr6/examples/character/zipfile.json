@@ -1,0 +1,257 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "e812d4a5-671c-4b52-9b2f-3d6118bfa934",
+  "ruleset_id": "sr6",
+  "entity_type": "character",
+  "display_name": "Zipfile",
+  "description": "Dwarf Decker from the official Shadowrun 6th World Beginner Box.",
+  "template_id": "character_sheet",
+  "properties": {
+    "alias": "Zipfile",
+    "real_name": "Zipfile",
+    "player": "Catalyst Pregen",
+    "notes": "Dwarf Decker specializing in illicit host penetration, device control, and Matrix sabotage.",
+    "metatype": "Dwarf",
+    "ethnicity": "Bantu",
+    "age": 23,
+    "sex": "Female",
+    "height": "1.1 m",
+    "weight": "36 kg",
+    "reputation": 2,
+    "heat": 0,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Azanian neo-anarchist activist and urban brawl fan.",
+    "attributes": {
+      "body": 5,
+      "agility": 3,
+      "reaction": 4,
+      "strength": 4,
+      "willpower": 6,
+      "logic": 6,
+      "intuition": 6,
+      "charisma": 3,
+      "edge": 4,
+      "essence": 3.7,
+      "magic": 0,
+      "edge_points": 4
+    },
+    "combat_info": {
+      "initiative": "10 + 1D6",
+      "matrix_initiative": "12 + 1D6",
+      "astral_initiative": "—",
+      "defense_rating": 8,
+      "unarmed_ar": 4,
+      "composure": 9,
+      "judge_intentions": 9,
+      "memory": 12,
+      "lift_carry": 9,
+      "movement": "5/10/+1"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 11,
+      "stun_damage": 0,
+      "stun_boxes": 11,
+      "overflow": 0
+    },
+    "skills": [
+      {
+        "name": "Cracking",
+        "rating": 6,
+        "attribute": "Logic",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Electronics",
+        "rating": 6,
+        "attribute": "Logic",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Engineering",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Action"
+      },
+      {
+        "name": "Perception",
+        "rating": 3,
+        "attribute": "Intuition",
+        "dice_pool": 9,
+        "type": "Action"
+      },
+      {
+        "name": "Firearms",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Close Combat",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 5,
+        "type": "Action"
+      },
+      {
+        "name": "Cyberdeck Models",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Knowledge"
+      },
+      {
+        "name": "German Expressionist Cinema",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Matrix Security",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 8,
+        "type": "Knowledge"
+      }
+    ],
+    "qualities": [
+      {
+        "name": "Gearhead",
+        "type": "Positive",
+        "notes": "May spend Edge on Repair tests and during downtime repairs."
+      },
+      {
+        "name": "Guts",
+        "type": "Positive",
+        "notes": "+2 dice pool bonus on tests resisting fear and intimidation."
+      },
+      {
+        "name": "Thermographic Vision",
+        "type": "Positive",
+        "notes": "Natural dwarf heat-signature vision."
+      }
+    ],
+    "currency_and_ids": {
+      "nuyen": 3500,
+      "primary_lifestyle": "Low (1 month prepaid)",
+      "licenses": "Concealed Carry (Heavy Pistol), Cyberdeck Operator License",
+      "fake_ids": [
+        {
+          "name": "Nandi Mandela",
+          "rating": 3,
+          "lifestyle": "Low",
+          "funds": "3,500¥",
+          "licenses": "Heavy Pistol, Hardware Tech"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Arclight",
+        "loyalty": 3,
+        "connection": 4,
+        "notes": "Combat mage and coordinator for the Black Star neo-anarchist shadowrunner collective."
+      },
+      {
+        "name": "Casey Connors",
+        "loyalty": 2,
+        "connection": 3,
+        "notes": "Owner of the Cathode Glow e-sports bar and tech museum in Tacoma."
+      },
+      {
+        "name": "Jules Maguire",
+        "loyalty": 2,
+        "connection": 2,
+        "notes": "Cascade Ork smuggler."
+      }
+    ],
+    "primary_armor": {
+      "name": "Armor vest",
+      "rating": "+3",
+      "notes": "+3 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "Ruger Super Warhawk",
+      "dv": "4P",
+      "mode": "SS",
+      "attack_rating": { "close": 8, "near": 11, "far": 8, "extreme": "—" },
+      "ammo": "6(cy)",
+      "notes": "Heavy cylinder revolver"
+    },
+    "primary_melee_weapon": {
+      "name": "Unarmed Strike",
+      "dv": "2S",
+      "close": 4,
+      "notes": "Fist / kick"
+    },
+    "ranged_weapons": [
+      {
+        "name": "Ruger Super Warhawk (Heavy Pistol)",
+        "dv": "4P",
+        "mode": "SS",
+        "attack_rating": { "close": 8, "near": 11, "far": 8, "extreme": "—" },
+        "ammo": "6(cy)",
+        "notes": "Heavy revolver"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Unarmed Strike",
+        "dv": "2S",
+        "close": 4,
+        "notes": "Natural"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Armor vest",
+        "rating": "+3",
+        "notes": "+3 DR bonus"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Renraku Kitsune cyberdeck",
+      "device_rating": 4,
+      "attack": 6,
+      "sleaze": 7,
+      "data_processing": 4,
+      "firewall": 4,
+      "programs": ["Decryption", "Exploit", "Overclock"],
+      "matrix_damage": 0
+    },
+    "augmentations": [
+      {
+        "name": "Cyberjack MPI",
+        "rating": 4,
+        "notes": "7/6, +2 Matrix initiative",
+        "essence": 2.3
+      }
+    ],
+    "vehicles": [],
+    "gear": [
+      { "name": "Armor vest", "rating": 3, "quantity": 1 },
+      {
+        "name": "Renraku Kitsune cyberdeck",
+        "rating": 4,
+        "quantity": 1,
+        "notes": "DR 4, 7/6, 8 slots"
+      },
+      {
+        "name": "Hermes Ikon commlink",
+        "rating": 5,
+        "quantity": 1,
+        "notes": "DR 5, 3/0"
+      },
+      { "name": "Certified credstick", "quantity": 1, "notes": "3,500¥" },
+      { "name": "Heavy pistol ammo box (Ruger)", "quantity": 30 }
+    ],
+    "spells": [],
+    "adept_powers": []
+  }
+}

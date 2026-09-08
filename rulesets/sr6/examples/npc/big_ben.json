@@ -1,0 +1,96 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "72a0806c-4ba5-4ea3-87d9-04e6dd5f3648",
+  "ruleset_id": "sr6",
+  "entity_type": "npc",
+  "display_name": "Big Ben",
+  "description": "Ragers Leader / Male Ork Ganger from the SR6 Beginner Box.",
+  "template_id": "character_picker",
+  "properties": {
+    "alias": "Big Ben",
+    "real_name": "Ben Jones",
+    "archetype": "Ragers Leader / Male Ork Ganger",
+    "metatype": "Ork",
+    "notes": "Ben Jones grew up tough. He was Big Ben by the time he was ten. He came to join the Ragers because half his family was already in, and he made his way up the ranks fast.",
+    "quote": "“If you’re not pissed off at the world, then you’re not RRAARRGGHH!”",
+    "hook": "Big Ben balances chaos with prudence, never taking a fight he’ll definitely lose.",
+    "attributes": {
+      "body": 7,
+      "agility": 4,
+      "reaction": 4,
+      "strength": 6,
+      "willpower": 3,
+      "logic": 3,
+      "intuition": 3,
+      "charisma": 4,
+      "edge": 2,
+      "essence": 6
+    },
+    "combat_info": {
+      "initiative": "7 + 1D6",
+      "defense_rating": 7,
+      "condition_monitor": 13
+    },
+    "skills": [
+      {
+        "name": "Close Combat",
+        "rating": 10,
+        "attribute": "Agility",
+        "dice_pool": 14
+      },
+      {
+        "name": "Firearms",
+        "rating": 8,
+        "attribute": "Agility",
+        "dice_pool": 12
+      },
+      {
+        "name": "Influence",
+        "rating": 8,
+        "attribute": "Charisma",
+        "dice_pool": 12
+      },
+      {
+        "name": "Perception",
+        "rating": 7,
+        "attribute": "Intuition",
+        "dice_pool": 10
+      }
+    ],
+    "gear": [
+      {
+        "name": "Gang Leather",
+        "rating": "+1 DR"
+      },
+      {
+        "name": "Erika Elite commlink",
+        "rating": 4
+      },
+      {
+        "name": "Bike Chain"
+      },
+      {
+        "name": "Defiance T-250 shotgun"
+      }
+    ],
+    "primary_ranged_weapon": {
+      "name": "Defiance T-250",
+      "dv": "4P",
+      "mode": "SA",
+      "attack_rating": {
+        "close": 7,
+        "near": 10,
+        "far": 6
+      }
+    },
+    "primary_melee_weapon": {
+      "name": "Bike Chain",
+      "dv": "2S",
+      "close": 4
+    },
+    "primary_armor": {
+      "name": "Gang Leather",
+      "rating": "+1"
+    }
+  }
+}

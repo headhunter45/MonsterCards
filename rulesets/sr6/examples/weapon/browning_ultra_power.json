@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "4acd41df-6fd2-471d-a099-3322da21c056",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Browning Ultra Power",
+  "description": "Cheaper than the Predator and offers a built-in top-mounted laser sight.",
+  "properties": {
+    "name": "Browning Ultra Power",
+    "dv": "3P",
+    "mode": "SA",
+    "attack_rating": {
+      "close": 10,
+      "near": 9,
+      "far": 6
+    },
+    "extras": "laser sight",
+    "notes": "Cheaper than the Predator and offers a built-in top-mounted laser sight."
+  }
+}

@@ -233,6 +233,66 @@ public class Monster {
     @ColumnInfo(name = "mythic_actions_description", defaultValue = "")
     public String mythicActionsDescription;
 
+    @NonNull
+    @ColumnInfo(name = "player_name", defaultValue = "")
+    public String playerName;
+
+    @NonNull
+    @ColumnInfo(name = "background", defaultValue = "")
+    public String background;
+
+    @NonNull
+    @ColumnInfo(name = "personality_traits", defaultValue = "")
+    public String personalityTraits;
+
+    @NonNull
+    @ColumnInfo(name = "ideals", defaultValue = "")
+    public String ideals;
+
+    @NonNull
+    @ColumnInfo(name = "bonds", defaultValue = "")
+    public String bonds;
+
+    @NonNull
+    @ColumnInfo(name = "flaws", defaultValue = "")
+    public String flaws;
+
+    @NonNull
+    @ColumnInfo(name = "age", defaultValue = "")
+    public String age;
+
+    @NonNull
+    @ColumnInfo(name = "height", defaultValue = "")
+    public String height;
+
+    @NonNull
+    @ColumnInfo(name = "weight", defaultValue = "")
+    public String weight;
+
+    @NonNull
+    @ColumnInfo(name = "eyes", defaultValue = "")
+    public String eyes;
+
+    @NonNull
+    @ColumnInfo(name = "skin", defaultValue = "")
+    public String skin;
+
+    @NonNull
+    @ColumnInfo(name = "hair", defaultValue = "")
+    public String hair;
+
+    @NonNull
+    @ColumnInfo(name = "appearance", defaultValue = "")
+    public String appearance;
+
+    @NonNull
+    @ColumnInfo(name = "backstory", defaultValue = "")
+    public String backstory;
+
+    @NonNull
+    @ColumnInfo(name = "allies_and_organizations", defaultValue = "")
+    public String alliesAndOrganizations;
+
     public Monster() {
         id = UUID.randomUUID();
         name = "";
@@ -278,6 +338,21 @@ public class Monster {
         wisdomSavingThrowProficiency = ProficiencyType.NONE;
         charismaSavingThrowAdvantage = AdvantageType.NONE;
         charismaSavingThrowProficiency = ProficiencyType.NONE;
+        playerName = "";
+        background = "";
+        personalityTraits = "";
+        ideals = "";
+        bonds = "";
+        flaws = "";
+        age = "";
+        height = "";
+        weight = "";
+        eyes = "";
+        skin = "";
+        hair = "";
+        appearance = "";
+        backstory = "";
+        alliesAndOrganizations = "";
 
 
         skills = new HashSet<>();

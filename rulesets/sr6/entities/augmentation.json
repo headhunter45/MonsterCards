@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "augmentation",
+  "name": "Augmentation",
+  "description": "SR6 Cyberware and Bioware implants with essence cost, grade, and enhancements.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "essence"],
+    "properties": {
+      "name": { "type": "string" },
+      "category": { "type": "string", "enum": ["Cyberware", "Bioware", "Nanoware", "Geneware"], "default": "Cyberware" },
+      "grade": { "type": "string", "enum": ["Standard", "Alphaware", "Betaware", "Deltaware", "Used"], "default": "Standard" },
+      "rating": { "type": ["integer", "string"] },
+      "essence": { "type": "number", "description": "Essence loss." },
+      "capacity_cost": { "type": "integer" },
+      "notes": { "type": "string" }
+    }
+  }
+}

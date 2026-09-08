@@ -1,0 +1,401 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "43e2f491-b3b1-4c6e-827d-99572d4cfbe1",
+  "ruleset_id": "sr6",
+  "entity_type": "dossier",
+  "display_name": "Yu (Elf Covert Ops Specialist / Face Dossier)",
+  "description": "Full 4-page narrative dossier for Yu, Elf Covert Ops Specialist and Face from the SR6 Beginner Box.",
+  "template_id": "dossier_sheet",
+  "properties": {
+    "alias": "Yu",
+    "real_name": "Yu",
+    "player": "Catalyst Pregen",
+    "archetype": "Elf Covert Ops / Face",
+    "quote": "\"They can't hit what they can't see.\" / \"My team can handle the tough jobs, Mr. Johnson. The question is, are you willing to pay a premium price for premium work?\" / \"(roguish grin)\"",
+    "pitch": "Play this character if deception, sneakiness, charm, and guile are your weapons of choice!",
+    "metatype": "Elf",
+    "ethnicity": "Cantonese",
+    "age": 28,
+    "sex": "Male",
+    "height": "1.8 m",
+    "weight": "77 kg",
+    "reputation": 2,
+    "heat": 0,
+    "karma": 0,
+    "total_karma": 0,
+    "misc": "Red Dragon Triad affiliate; expert pickpocket, lockpick, and con artist.",
+    "notes": "Elf Covert Ops Specialist and Face adept at infiltration, disguise, charm, and fast-talking.",
+    "background": "Once upon a time, Yu was a corp kid from the Canton Confederation, living a life of relative abundance. He always assumed he'd end up a wageslave like his parents, until the Second Matrix Crash erased his family's identities and sent the corp they worked for into bankruptcy. Mere months later, Yu's parents were killed by Black Chrysanthemum Triad members demanding protection fees they couldn't pay, and ten-year-old Yu fled from Foshan to Hong Kong. He ended up as a member of a pickpocket gang, then joined the Red Dragon Triad as a thief and enforcer. Yu probably would've spent the rest of his life with the Red Dragons, but one of his Triad brothers got wrapped up in better-than-life chips and went on a frenzy, and Yu was forced to kill him in self-defense. The Triad bosses knew it wasn't Yu's fault, but they couldn't let the killing go unanswered, so they shipped him off to an allied syndicate in Seattle. There, Yu met Billy Shen, and Billy passed his name along to Ms. Myth when the troll fixer was putting her new crew together.",
+    "preferred_tactics": "Making trouble without being seen is Yu's bread and butter. The skills he acquired as a thief—moving silently, picking locks, placing and palming items without being seen—have served him well in the shadows. He prefers to be completely invisible when possible, but he's gotten pretty good at using disguises if the situation calls for it. Since meeting Ms. Myth, Yu has seen the value in being able to get what he wants through charm as well as deception. He's turning his natural elven charisma toward being the team's face and often takes the lead in negotiating with prospective employers who approach them for jobs. Ms. Myth sometimes ropes him into helping with her corporate infiltrations, now that she is looking after a new crew along with her old crew of Sledge, Coydog, Hardpoint, and Gentry. Yu's not afraid to use violence when he needs to, but he does try to keep the body count to a minimum—partly because he knows wageslaves are people too, and partly because he'd rather have those wageslaves' bosses go after them for letting their guard down than come after him to avenge their fallen comrade. He prefers not to 'fight' so much as 'ambush,' and if he finds himself in open combat, he'll do his best to stay behind cover and plink away with whatever firearm he has handy.",
+    "roleplaying_tips": "Yu has two distinct personalities: on the job, and off. Off the job, he's an overgrown teenager who hangs out with his friends, plays sports, sleeps around, experiments with drugs, and uses his charm to get out of trouble. He sees his fellow Red Dragon Triad members and their affiliates, like the Octagon Triad, as family and is loyal to them to a fault. He won't take a run that goes against the Red Dragons' interests, but he's upfront about it and tries to make sure his refusal won't screw the team over somehow. On the other hand, when he doesn't have to worry about the Red Dragons, Yu extends the same loyalty to his shadowrunner comrades as he does to his Triad family. He won't willingly turn on them for anything, and if one team member has a problem, he's always willing to help—for as long as they're willing to endure his barrages of terrible puns, anyway. On the job, Yu's a chameleon. He can be as charming or as cold as he needs to be, and he'll work with just about anyone—and do so with a smile—regardless of their background. The only people he refuses to deal with are BTL dealers and organleggers, because of how those two trades have wreaked havoc on his life. He takes a certain joy in tearing them down.",
+    "vital_contacts": [
+      {
+        "name": "Billy Shen",
+        "role": "Octagon Triad Lieutenant",
+        "description": "Octagon Triad lieutenant, enforcer, and arms dealer."
+      },
+      {
+        "name": "Four-Finger Wong",
+        "role": "Cyber-Surgeon",
+        "description": "Underground street doc and cyber-surgeon."
+      },
+      {
+        "name": "Mia",
+        "role": "Part-Time Fixer",
+        "description": "Waitress at Peaceable Kingdom and part-time fixer."
+      }
+    ],
+    "favorite_hangouts": [
+      {
+        "name": "Peaceable Kingdom",
+        "location": "Tacoma",
+        "description": "A Chinese restaurant in Tacoma."
+      },
+      {
+        "name": "The Sports Bar",
+        "location": "Downtown Seattle",
+        "description": "A bustling sports bar in Downtown Seattle."
+      },
+      {
+        "name": "Vigilant Iron Schooling House",
+        "location": "Redmond",
+        "description": "A martial arts studio in Redmond."
+      }
+    ],
+    "favorite_downtime_activities": [
+      "Hanging out with his fellow Triad members",
+      "Playing and watching basketball",
+      "Studying martial arts"
+    ],
+    "sample_actions": [
+      {
+        "action": "Fast-Talk / Con Mark",
+        "action_type": "Major",
+        "dice_pool": 14,
+        "notes": "Con 6 + Charisma 8 (Opposed vs. target Willpower + Intuition)"
+      },
+      {
+        "action": "Negotiation / Influence Mr. Johnson",
+        "action_type": "Major",
+        "dice_pool": 14,
+        "notes": "Influence 6 + Charisma 8"
+      },
+      {
+        "action": "Sneak Past Guards / Infiltrate",
+        "action_type": "Major",
+        "dice_pool": 12,
+        "notes": "Stealth 6 + Agility 6 (Opposed vs. Perception + Intuition)"
+      },
+      {
+        "action": "Palming / Sleight of Hand",
+        "action_type": "Major",
+        "dice_pool": 12,
+        "notes": "Stealth 6 + Agility 6"
+      },
+      {
+        "action": "Ambush Baton Strike",
+        "action_type": "Major",
+        "dice_pool": 10,
+        "notes": "Close Combat 4 + Agility 6 (DV 3S, net hits add to damage)"
+      },
+      {
+        "action": "Silenced Pistol Shot (Ares Light Fire)",
+        "action_type": "Major",
+        "dice_pool": 8,
+        "notes": "Firearms 2 + Agility 6 (SA mode, DV 2P, smartlink contacts)"
+      },
+      {
+        "action": "Disguise Identity",
+        "action_type": "Major",
+        "dice_pool": 11,
+        "notes": "Stealth 6 + Intuition 5 (Threshold for observers to see through)"
+      },
+      {
+        "action": "Maglock Bypass (Passkey)",
+        "action_type": "Major",
+        "dice_pool": 4,
+        "notes": "Passkey Rating 4 vs. Maglock Rating"
+      }
+    ],
+    "edge_boosts": [
+      {
+        "cost": 1,
+        "name": "Reroll one die",
+        "description": "Reroll any one die from your roll that failed to score a hit (Post)."
+      },
+      {
+        "cost": 1,
+        "name": "Add 3 to Initiative",
+        "description": "Add +3 to your Initiative Score for the combat turn (Any)."
+      },
+      {
+        "cost": 2,
+        "name": "+1 to single die",
+        "description": "Add +1 to any single die result, turning a 4 into a 5 (hit) (Post)."
+      },
+      {
+        "cost": 2,
+        "name": "Give ally 1 Edge",
+        "description": "Pass 1 Edge point to an allied runner (Any)."
+      },
+      {
+        "cost": 2,
+        "name": "Negate 1 Edge of foe",
+        "description": "Negate 1 point of Edge held by an opponent (Pre)."
+      },
+      {
+        "cost": 3,
+        "name": "Buy automatic hit",
+        "description": "Add 1 automatic hit to test result (Any)."
+      },
+      {
+        "cost": 3,
+        "name": "Heal Stun Damage",
+        "description": "Immediately clear 1 box from your stun damage track."
+      },
+      {
+        "cost": 4,
+        "name": "Add Edge to Pool",
+        "description": "Add full Edge attribute (+2) to dice pool and 6s explode (Pre)."
+      }
+    ],
+    "attributes": {
+      "body": 3,
+      "agility": 6,
+      "reaction": 4,
+      "strength": 3,
+      "willpower": 5,
+      "logic": 5,
+      "intuition": 5,
+      "charisma": 8,
+      "edge": 2,
+      "essence": 6.0,
+      "magic": 0,
+      "edge_points": 2
+    },
+    "combat_info": {
+      "initiative": "9 + 1D6",
+      "matrix_initiative": "9 + 1D6",
+      "astral_initiative": "—",
+      "defense_rating": 6,
+      "unarmed_ar": 6,
+      "composure": 13,
+      "judge_intentions": 13,
+      "memory": 10,
+      "lift_carry": 6,
+      "movement": "5/10/+1"
+    },
+    "condition_monitor": {
+      "physical_damage": 0,
+      "physical_boxes": 10,
+      "stun_damage": 0,
+      "stun_boxes": 11,
+      "overflow": 0
+    },
+    "skills": [
+      {
+        "name": "Con",
+        "rating": 6,
+        "attribute": "Charisma",
+        "dice_pool": 14,
+        "type": "Action"
+      },
+      {
+        "name": "Influence",
+        "rating": 6,
+        "attribute": "Charisma",
+        "dice_pool": 14,
+        "type": "Action"
+      },
+      {
+        "name": "Stealth",
+        "rating": 6,
+        "attribute": "Agility",
+        "dice_pool": 12,
+        "type": "Action"
+      },
+      {
+        "name": "Close Combat",
+        "rating": 4,
+        "attribute": "Agility",
+        "dice_pool": 10,
+        "type": "Action"
+      },
+      {
+        "name": "Firearms",
+        "rating": 2,
+        "attribute": "Agility",
+        "dice_pool": 8,
+        "type": "Action"
+      },
+      {
+        "name": "Perception",
+        "rating": 2,
+        "attribute": "Intuition",
+        "dice_pool": 7,
+        "type": "Action"
+      },
+      {
+        "name": "Piloting",
+        "rating": 2,
+        "attribute": "Reaction",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Biotech",
+        "rating": 1,
+        "attribute": "Logic",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Outdoors",
+        "rating": 1,
+        "attribute": "Intuition",
+        "dice_pool": 6,
+        "type": "Action"
+      },
+      {
+        "name": "Architecture",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Close-up Magic",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      },
+      {
+        "name": "Wildlife",
+        "rating": 2,
+        "attribute": "Logic",
+        "dice_pool": 7,
+        "type": "Knowledge"
+      }
+    ],
+    "qualities": [
+      {
+        "name": "Catlike",
+        "type": "Positive",
+        "notes": "+1 dice pool bonus on stealth and acrobatics tests."
+      },
+      {
+        "name": "Double-Jointed",
+        "type": "Positive",
+        "notes": "+1 dice pool bonus on escape and contortion tests."
+      },
+      {
+        "name": "Low-Light Vision",
+        "type": "Positive",
+        "notes": "Natural elf low-light perception."
+      }
+    ],
+    "currency_and_ids": {
+      "nuyen": 3500,
+      "primary_lifestyle": "Low (1 month prepaid)",
+      "licenses": "Concealed Carry (Light Pistol)",
+      "fake_ids": [
+        {
+          "name": "Raymond Chang",
+          "rating": 4,
+          "lifestyle": "Low",
+          "funds": "3,500¥",
+          "licenses": "Firearms, Security Tech"
+        }
+      ]
+    },
+    "contacts": [
+      {
+        "name": "Billy Shen",
+        "loyalty": 2,
+        "connection": 4,
+        "notes": "Octagon Triad lieutenant, enforcer, and arms dealer."
+      },
+      {
+        "name": "Four-Finger Wong",
+        "loyalty": 3,
+        "connection": 3,
+        "notes": "Cyber-surgeon and underground street doc."
+      },
+      {
+        "name": "Mia",
+        "loyalty": 3,
+        "connection": 2,
+        "notes": "Part-time fixer and waitress at Peaceable Kingdom."
+      }
+    ],
+    "primary_armor": {
+      "name": "Lined coat",
+      "rating": "+3",
+      "notes": "+3 Defense Rating bonus"
+    },
+    "primary_ranged_weapon": {
+      "name": "Ares Light Fire 75",
+      "dv": "2P",
+      "mode": "SA",
+      "attack_rating": { "close": 10, "near": 7, "far": 6, "extreme": "—" },
+      "ammo": "16(c)",
+      "notes": "w/ silencer, smartgun"
+    },
+    "primary_melee_weapon": {
+      "name": "Extendible baton",
+      "dv": "3S",
+      "close": 6,
+      "notes": "Club"
+    },
+    "ranged_weapons": [
+      {
+        "name": "Ares Light Fire 75 (Light Pistol)",
+        "dv": "2P",
+        "mode": "SA",
+        "attack_rating": { "close": 10, "near": 7, "far": 6, "extreme": "—" },
+        "ammo": "16(c)",
+        "notes": "w/ silencer, smartgun"
+      }
+    ],
+    "melee_weapons": [
+      {
+        "name": "Extendible baton",
+        "dv": "3S",
+        "close": 6,
+        "notes": "Club"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Lined coat",
+        "rating": "+3",
+        "notes": "+3 DR bonus"
+      }
+    ],
+    "matrix_stats": {
+      "device_name": "Erika Elite commlink",
+      "device_rating": 4,
+      "attack": 0,
+      "sleaze": 0,
+      "data_processing": 2,
+      "firewall": 1,
+      "programs": [],
+      "matrix_damage": 0
+    },
+    "augmentations": [],
+    "vehicles": [],
+    "gear": [
+      { "name": "Lined coat", "rating": 3, "quantity": 1 },
+      { "name": "Erika Elite commlink", "rating": 4, "quantity": 1 },
+      { "name": "Disguise kit", "quantity": 1 },
+      { "name": "First Aid Kit", "rating": 3, "quantity": 1 },
+      { "name": "Passkey", "rating": 4, "quantity": 1 },
+      { "name": "Contacts", "quantity": 1, "notes": "w/ smartlink" },
+      { "name": "Certified credstick", "quantity": 1, "notes": "3,500¥" },
+      { "name": "Spare ammo clips (Ares Light Fire 75)", "quantity": 3 }
+    ],
+    "spells": [],
+    "adept_powers": []
+  }
+}

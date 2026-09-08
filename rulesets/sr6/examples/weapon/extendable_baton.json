@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "8db99eff-97ee-48ed-b742-08f307409bd7",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Extendable Baton",
+  "description": "Can be extended with a wrist flick or a wireless signal.",
+  "properties": {
+    "name": "Extendable Baton",
+    "dv": "2S",
+    "mode": "NA",
+    "attack_rating": {
+      "close": 5
+    },
+    "extras": "None",
+    "notes": "Can be extended with a wrist flick or a wireless signal."
+  }
+}

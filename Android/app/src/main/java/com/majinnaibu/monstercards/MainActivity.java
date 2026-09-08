@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (uri == null || !isMonsterFile(uri)) {
             if (uri != null) {
-                Logger.logError("Ignored file because extension is not .monster or .monster.txt: " + uri);
+                Logger.logError("Ignored file because extension is not supported (.monster, .card): " + uri);
             }
             return null;
         }
@@ -161,7 +161,8 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         String lowerName = fileName.toLowerCase(Locale.ROOT);
-        return lowerName.endsWith(".monster") || lowerName.endsWith(".monster.txt");
+        return lowerName.endsWith(".monster") || lowerName.endsWith(".monster.txt")
+                || lowerName.endsWith(".card") || lowerName.endsWith(".card.txt");
     }
 
     @Nullable

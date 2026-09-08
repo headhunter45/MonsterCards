@@ -66,6 +66,35 @@ public class MonsterCardsApplication extends Application {
             database.execSQL("ALTER TABLE monsters ADD COLUMN `mythic_actions_description` TEXT DEFAULT ''");
         }
     };
+    private static final Migration MIGRATION_6_7 = new Migration(6, 7) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `player_name` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `background` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `personality_traits` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `ideals` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `bonds` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `flaws` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `age` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `height` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `weight` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `eyes` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `skin` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `hair` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `appearance` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `backstory` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `allies_and_organizations` TEXT NOT NULL DEFAULT ''");
+        }
+    };
+    private static final Migration MIGRATION_7_8 = new Migration(7, 8) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `new_monsters` (`id` TEXT NOT NULL, `name` TEXT NOT NULL DEFAULT '', `size` TEXT NOT NULL DEFAULT '', `type` TEXT NOT NULL DEFAULT '', `subtype` TEXT NOT NULL DEFAULT '', `alignment` TEXT NOT NULL DEFAULT '', `strength_score` INTEGER NOT NULL DEFAULT 10, `strength_saving_throw_advantage` TEXT DEFAULT 'none', `strength_saving_throw_proficiency` TEXT DEFAULT 'none', `dexterity_score` INTEGER NOT NULL DEFAULT 10, `dexterity_saving_throw_advantage` TEXT DEFAULT 'none', `dexterity_saving_throw_proficiency` TEXT DEFAULT 'none', `constitution_score` INTEGER NOT NULL DEFAULT 10, `constitution_saving_throw_advantage` TEXT DEFAULT 'none', `constitution_saving_throw_proficiency` TEXT DEFAULT 'none', `intelligence_score` INTEGER NOT NULL DEFAULT 10, `intelligence_saving_throw_advantage` TEXT DEFAULT 'none', `intelligence_saving_throw_proficiency` TEXT DEFAULT 'none', `wisdom_score` INTEGER NOT NULL DEFAULT 10, `wisdom_saving_throw_advantage` TEXT DEFAULT 'none', `wisdom_saving_throw_proficiency` TEXT DEFAULT 'none', `charisma_score` INTEGER NOT NULL DEFAULT 10, `charisma_saving_throw_advantage` TEXT DEFAULT 'none', `charisma_saving_throw_proficiency` TEXT DEFAULT 'none', `armor_type` TEXT DEFAULT 'none', `shield_bonus` INTEGER NOT NULL DEFAULT 0, `natural_armor_bonus` INTEGER NOT NULL DEFAULT 0, `other_armor_description` TEXT DEFAULT '', `hit_dice` INTEGER NOT NULL DEFAULT 1, `has_custom_hit_points` INTEGER NOT NULL, `custom_hit_points_description` TEXT DEFAULT '', `walk_speed` INTEGER NOT NULL DEFAULT 0, `burrow_speed` INTEGER NOT NULL DEFAULT 0, `climb_speed` INTEGER NOT NULL DEFAULT 0, `fly_speed` INTEGER NOT NULL DEFAULT 0, `can_hover` INTEGER NOT NULL DEFAULT false, `swim_speed` INTEGER NOT NULL DEFAULT 0, `has_custom_speed` INTEGER NOT NULL DEFAULT false, `custom_speed_description` TEXT, `challenge_rating` TEXT DEFAULT '1', `custom_challenge_rating_description` TEXT DEFAULT '', `custom_proficiency_bonus` INTEGER NOT NULL DEFAULT 0, `telepathy_range` INTEGER NOT NULL DEFAULT 0, `understands_but_description` TEXT DEFAULT '', `senses` TEXT DEFAULT '[]', `skills` TEXT DEFAULT '[]', `damage_immunities` TEXT DEFAULT '[]', `damage_resistances` TEXT DEFAULT '[]', `damage_vulnerabilities` TEXT DEFAULT '[]', `condition_immunities` TEXT DEFAULT '[]', `languages` TEXT DEFAULT '[]', `abilities` TEXT DEFAULT '[]', `actions` TEXT DEFAULT '[]', `reactions` TEXT DEFAULT '[]', `lair_actions` TEXT DEFAULT '[]', `legendary_actions` TEXT DEFAULT '[]', `regional_actions` TEXT DEFAULT '[]', `source_url` TEXT DEFAULT '', `bonus_actions` TEXT DEFAULT '[]', `mythic_actions` TEXT DEFAULT '[]', `legendary_actions_description` TEXT DEFAULT '', `lair_actions_description` TEXT DEFAULT '', `lair_actions_end_note` TEXT DEFAULT '', `regional_actions_description` TEXT DEFAULT '', `regional_actions_end_note` TEXT DEFAULT '', `mythic_actions_description` TEXT DEFAULT '', `player_name` TEXT NOT NULL DEFAULT '', `background` TEXT NOT NULL DEFAULT '', `personality_traits` TEXT NOT NULL DEFAULT '', `ideals` TEXT NOT NULL DEFAULT '', `bonds` TEXT NOT NULL DEFAULT '', `flaws` TEXT NOT NULL DEFAULT '', `age` TEXT NOT NULL DEFAULT '', `height` TEXT NOT NULL DEFAULT '', `weight` TEXT NOT NULL DEFAULT '', `eyes` TEXT NOT NULL DEFAULT '', `skin` TEXT NOT NULL DEFAULT '', `hair` TEXT NOT NULL DEFAULT '', `appearance` TEXT NOT NULL DEFAULT '', `backstory` TEXT NOT NULL DEFAULT '', `allies_and_organizations` TEXT NOT NULL DEFAULT '', PRIMARY KEY(`id`))");
+            database.execSQL("INSERT INTO `new_monsters` SELECT id, name, size, type, subtype, alignment, strength_score, strength_saving_throw_advantage, strength_saving_throw_proficiency, dexterity_score, dexterity_saving_throw_advantage, dexterity_saving_throw_proficiency, constitution_score, constitution_saving_throw_advantage, constitution_saving_throw_proficiency, intelligence_score, intelligence_saving_throw_advantage, intelligence_saving_throw_proficiency, wisdom_score, wisdom_saving_throw_advantage, wisdom_saving_throw_proficiency, charisma_score, charisma_saving_throw_advantage, charisma_saving_throw_proficiency, armor_type, shield_bonus, natural_armor_bonus, other_armor_description, hit_dice, has_custom_hit_points, custom_hit_points_description, walk_speed, burrow_speed, climb_speed, fly_speed, can_hover, swim_speed, has_custom_speed, custom_speed_description, challenge_rating, custom_challenge_rating_description, custom_proficiency_bonus, telepathy_range, understands_but_description, senses, skills, damage_immunities, damage_resistances, damage_vulnerabilities, condition_immunities, languages, abilities, actions, reactions, lair_actions, legendary_actions, regional_actions, source_url, bonus_actions, mythic_actions, legendary_actions_description, lair_actions_description, lair_actions_end_note, regional_actions_description, regional_actions_end_note, mythic_actions_description, COALESCE(player_name, ''), COALESCE(background, ''), COALESCE(personality_traits, ''), COALESCE(ideals, ''), COALESCE(bonds, ''), COALESCE(flaws, ''), COALESCE(age, ''), COALESCE(height, ''), COALESCE(weight, ''), COALESCE(eyes, ''), COALESCE(skin, ''), COALESCE(hair, ''), COALESCE(appearance, ''), COALESCE(backstory, ''), COALESCE(allies_and_organizations, '') FROM `monsters`");
+            database.execSQL("DROP TABLE `monsters`");
+            database.execSQL("ALTER TABLE `new_monsters` RENAME TO `monsters`");
+        }
+    };
     private MonsterRepository m_monsterLibraryRepository;
 
 
@@ -90,6 +119,8 @@ public class MonsterCardsApplication extends Application {
                 .addMigrations(MIGRATION_3_4)
                 .addMigrations(MIGRATION_4_5)
                 .addMigrations(MIGRATION_5_6)
+                .addMigrations(MIGRATION_6_7)
+                .addMigrations(MIGRATION_7_8)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();

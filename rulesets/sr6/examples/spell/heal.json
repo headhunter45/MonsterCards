@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "b7678c78-b961-412d-a422-be1054fe9a5a",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Heal",
+  "description": "Quickest and most effective way to repair bullet wounds.",
+  "properties": {
+    "name": "Heal",
+    "category": "Spell",
+    "spell_type": "Health",
+    "type_target": "P",
+    "range": "T",
+    "duration": "P",
+    "drain": "3",
+    "damage": "—",
+    "rules": "Roll Sorcery + Magic with threshold (5 - Essence). Heals 1 box Stun or Physical per net hit.",
+    "notes": "Quickest and most effective way to repair bullet wounds."
+  }
+}

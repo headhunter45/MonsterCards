@@ -1,0 +1,633 @@
+/* Shadowrun 6th World (SR6) Character Sheet Styles */
+:root {
+  --sr6-magenta: #950C6B;
+  --sr6-magenta-dark: #700650;
+  --sr6-magenta-light: #fbeaf5;
+  --sr6-border-pink: #A60067;
+  --sr6-text-dark: #181717;
+  --sr6-text-muted: #555555;
+  --sr6-bg-page: #e8e7ec;
+  --sr6-bg-card: rgba(255, 255, 255, 0.96);
+  --sr6-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.sr6-sheet-body {
+  margin: 0;
+  padding: 20px 10px;
+  background-color: var(--sr6-bg-page);
+  font-family: var(--sr6-font-family);
+  color: var(--sr6-text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Page Container - Matches 8.5 x 11 in Aspect Ratio */
+.sr6-page {
+  width: 100%;
+  max-width: 960px;
+  background: #ffffff;
+  background-image: url('assets/_dev_sr6_circuit_bg.png');
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+/* Header Banner */
+.sr6-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--sr6-magenta);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.header-logo-area {
+  flex: 0 0 420px;
+  max-width: 50%;
+}
+
+.sr6-logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.header-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 20px;
+}
+
+.header-field-line {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1.5px solid #222;
+  padding-bottom: 1px;
+}
+
+.header-field-line .field-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  width: 90px;
+  color: #111;
+}
+
+.header-field-line .field-value {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  padding-left: 6px;
+  min-height: 18px;
+}
+
+/* Rows & Grid System */
+.sr6-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.row-top {
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.row-mid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.row-lower {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.row-bottom {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Page 2 Rows */
+.p2-row-weapons {
+  grid-template-columns: 1.35fr 0.65fr;
+}
+
+.p2-row-armor-matrix {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.p2-row-aug-veh {
+  grid-template-columns: 1fr 1fr;
+}
+
+.p2-row-gear-magic {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+.magic-powers-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card Styling */
+.sr6-card {
+  background: var(--sr6-bg-card);
+  border: 1.5px solid var(--sr6-border-pink);
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: var(--sr6-magenta);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--sr6-magenta);
+  padding-bottom: 2px;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11.5px;
+}
+
+/* Data Items & Labels */
+.sub-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.val {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #111;
+}
+
+.bold-highlight {
+  font-weight: 800;
+  color: var(--sr6-magenta);
+}
+
+.data-row {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2px;
+}
+
+.data-grid {
+  display: grid;
+  gap: 6px;
+}
+
+.grid-2-col { grid-template-columns: 1fr 1fr; }
+.grid-3-col { grid-template-columns: 1fr 1fr 1fr; }
+.grid-4-col { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.data-item {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2px;
+}
+
+.full-line {
+  grid-column: 1 / -1;
+}
+
+/* Core Combat Info */
+.combat-armor-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3px;
+}
+
+.combat-armor-row .rtg-label {
+  margin-left: auto;
+}
+
+.combat-armor-row .rtg-val {
+  font-weight: 800;
+  color: var(--sr6-magenta);
+}
+
+.combat-weapon-block {
+  background: #fdfafd;
+  border: 1px solid #e0cbe0;
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+.weapon-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+
+.weapon-stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 10.5px;
+}
+
+.ws-item {
+  display: flex;
+  gap: 3px;
+  align-items: baseline;
+}
+
+.combat-defense-strip {
+  margin-top: auto;
+  padding-top: 4px;
+  border-top: 1.5px solid var(--sr6-magenta);
+}
+
+/* Attributes Card */
+.attributes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.attr-sub-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.attr-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #ddd;
+  padding: 2px 2px;
+}
+
+.attr-line.highlight-accent {
+  background: var(--sr6-magenta-light);
+  border-bottom: 1.5px solid var(--sr6-magenta);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.attr-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #222;
+}
+
+.attr-val {
+  font-size: 12px;
+  font-weight: 800;
+  color: #111;
+}
+
+.attr-line.highlight-accent .attr-val {
+  color: var(--sr6-magenta);
+  font-size: 12.5px;
+}
+
+/* Edge Points Tracker */
+.edge-tracker-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 2px;
+  border-bottom: 1px solid #ddd;
+}
+
+.edge-boxes {
+  display: flex;
+  gap: 3px;
+}
+
+.edge-box {
+  width: 11px;
+  height: 11px;
+  border: 1.2px solid #222;
+  border-radius: 1px;
+  background: #ffffff;
+}
+
+.edge-box.filled {
+  background: var(--sr6-magenta);
+  border-color: var(--sr6-magenta-dark);
+}
+
+.edge-box.disabled {
+  background: #bbb;
+  border-color: #888;
+}
+
+/* Condition Monitor */
+.monitor-tracks-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.track-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.track-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--sr6-text-dark);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.track-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.monitor-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.row-boxes {
+  display: flex;
+  gap: 3px;
+}
+
+.damage-box {
+  width: 20px;
+  height: 20px;
+  border: 1.4px solid #222;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.damage-box.box-blacked-out {
+  background: #222222;
+  border-color: #111111;
+}
+
+.damage-box.damage-filled {
+  background: #ffd6e8;
+  position: relative;
+}
+
+.damage-box.damage-filled::after {
+  content: "✕";
+  color: var(--sr6-magenta);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.penalty-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #111;
+  width: 18px;
+  text-align: right;
+}
+
+.track-footnote {
+  font-size: 8.5px;
+  color: var(--sr6-text-muted);
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.15;
+}
+
+.monitor-cumulative-rule {
+  font-size: 8.5px;
+  color: #222;
+  background: #fdf3f8;
+  border: 1px solid #eecad9;
+  border-radius: 3px;
+  padding: 4px 6px;
+  margin-top: 6px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* Tables (Skills, Qualities, Contacts, Weapons, etc.) */
+.skills-table, .qualities-table, .contacts-table, .weapons-table, .sheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+
+.skills-table th, .qualities-table th, .contacts-table th, .weapons-table th, .sheet-table th {
+  background: #f5f0f4;
+  border-bottom: 1.5px solid var(--sr6-magenta);
+  padding: 3px 4px;
+  text-align: left;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #222;
+}
+
+.skills-table td, .qualities-table td, .contacts-table td, .weapons-table td, .sheet-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid #e8e8e8;
+  vertical-align: middle;
+}
+
+.col-rnk, .col-att, .col-dp, .col-cloy, .col-ccon {
+  text-align: center;
+}
+
+.col-dp {
+  font-weight: 800;
+  color: var(--sr6-magenta);
+}
+
+.skill-spec {
+  font-size: 9.5px;
+  color: var(--sr6-magenta);
+  font-weight: normal;
+  margin-left: 2px;
+}
+
+.quality-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.quality-badge.Positive {
+  background: #e6f7ea;
+  color: #1b6329;
+}
+
+.quality-badge.Negative {
+  background: #fde8e8;
+  color: #a81c1c;
+}
+
+/* Matrix Stats Card */
+.matrix-ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  background: #fbf5fa;
+  padding: 4px 6px;
+  border-radius: 3px;
+  border: 1px solid #ebd7e7;
+}
+
+.mstat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mstat-item .sub-label {
+  font-size: 8.5px;
+}
+
+.mstat-item .val {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--sr6-magenta);
+}
+
+.matrix-devices-line, .matrix-programs-line {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.matrix-monitor-strip {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.matrix-boxes {
+  display: flex;
+  gap: 3px;
+}
+
+.matrix-box {
+  flex: 1;
+  height: 18px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  background: #ffffff;
+}
+
+.matrix-box.damage-filled {
+  background: var(--sr6-magenta);
+  color: #ffffff;
+}
+
+/* Vehicles & Drones */
+.vehicle-block {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.empty-placeholder {
+  font-size: 10px;
+  font-style: italic;
+  color: #888;
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* Page Footer */
+.sr6-page-footer {
+  font-size: 8px;
+  color: #777;
+  text-align: center;
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid #ddd;
+}
+
+/* Print Handling */
+@media print {
+  body.sr6-sheet-body {
+    padding: 0;
+    background: none;
+  }
+
+  .sr6-page {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+    padding: 12mm 14mm;
+    page-break-after: always;
+  }
+
+  .sr6-page.page-2 {
+    page-break-after: avoid;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sr6-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .header-logo-area {
+    max-width: 100%;
+  }
+
+  .sr6-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header-fields {
+    width: 100%;
+    padding-left: 0;
+  }
+}

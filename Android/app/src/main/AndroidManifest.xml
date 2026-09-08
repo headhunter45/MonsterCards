@@ -35,7 +35,7 @@
                 <data android:mimeType="application/octet-stream" />
             </intent-filter>
 
-            <!-- Intent filter for file:// URIs ending in .monster or .monster.txt -->
+            <!-- Intent filter for file:// URIs ending in .monster, .monster.txt, .card, or .card.txt -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
@@ -46,6 +46,8 @@
                 <data android:scheme="file" android:host="*" />
                 <data android:pathPattern=".*\\.monster" />
                 <data android:pathPattern=".*\\.monster\\.txt" />
+                <data android:pathPattern=".*\\.card" />
+                <data android:pathPattern=".*\\.card\\.txt" />
             </intent-filter>
 
             <!-- Intent filter for explicitly sharing files/text to Monster Cards -->

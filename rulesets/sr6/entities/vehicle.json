@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "vehicle",
+  "name": "Vehicle / Drone",
+  "description": "SR6 Ground vehicles, aircraft, watercraft, and rigger drones.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "handling", "body", "armor"],
+    "properties": {
+      "name": { "type": "string" },
+      "category": { "type": "string", "enum": ["Drone", "Groundcraft", "Hovercraft", "Watercraft", "Aircraft"] },
+      "handling": { "type": "string" },
+      "acceleration": { "type": "string" },
+      "speed_interval": { "type": "string" },
+      "top_speed": { "type": "string" },
+      "body": { "type": ["integer", "string"] },
+      "armor": { "type": ["integer", "string"] },
+      "pilot": { "type": ["integer", "string"] },
+      "sensor": { "type": ["integer", "string"] },
+      "seats": { "type": ["integer", "string"] },
+      "mod_slots": { "type": "integer" },
+      "sensor_array": { "type": "array", "items": { "type": "string" } },
+      "notes": { "type": "string" }
+    }
+  }
+}

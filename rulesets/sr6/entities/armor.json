@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "armor",
+  "name": "Armor",
+  "description": "SR6 Wearable armor and protective gear providing Defense Rating bonuses.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "rating"],
+    "properties": {
+      "name": { "type": "string" },
+      "rating": { "type": ["integer", "string"], "description": "Armor rating bonus added to Defense Rating (e.g. 2, 4)." },
+      "social_modifier": { "type": "integer", "default": 0 },
+      "capacity": { "type": "integer", "default": 0 },
+      "notes": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "../../../../schema/entity.json",
+  "uuid": "b8a91c34-d07f-4f8a-92c1-d41a8a91e404",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Adult Black Dragon",
+  "description": "Huge dragon, chaotic evil.",
+  "version": "1.0.0",
+  "template_id": "stat_block",
+  "tags": ["monster", "dragon", "legendary", "cr-14"],
+  "properties": {
+    "size": "huge",
+    "type": "Dragon",
+    "alignment": "chaotic evil",
+    "armor_class": 19,
+    "armor_description": "natural armor",
+    "hit_points": {
+      "current": 196,
+      "max": 196,
+      "formula": "17d12 + 85",
+      "hit_dice": "17d12"
+    },
+    "speed": 40,
+    "speed_desc": "40 ft., fly 80 ft., swim 40 ft.",
+    "challenge_rating": "14 (11,500 XP)",
+    "cr": "14",
+    "abilities": {
+      "strength": 23,
+      "dexterity": 14,
+      "constitution": 21,
+      "intelligence": 14,
+      "wisdom": 13,
+      "charisma": 17
+    },
+    "saving_throws": [
+      "Dexterity +7",
+      "Constitution +10",
+      "Wisdom +6",
+      "Charisma +8"
+    ],
+    "skills": ["perception +16", "stealth +11"],
+    "damage_immunities": ["acid"],
+    "senses": "darkvision 120 ft., blindsight 60 ft., passive Perception 11",
+    "languages": ["Common", "Draconic"],
+    "traits": [
+      {
+        "name": "Amphibious",
+        "desc": "The dragon can breathe air and water."
+      },
+      {
+        "name": "Legendary Resistance (3/Day)",
+        "desc": "If the dragon fails a saving throw, it can choose to succeed instead."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Multiattack",
+        "desc": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws."
+      },
+      {
+        "name": "Bite",
+        "desc": "_Melee Weapon Attack:_ +11 to hit, reach 10 ft., one target. _Hit:_ 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage."
+      },
+      {
+        "name": "Claw",
+        "desc": "_Melee Weapon Attack:_ +11 to hit, reach 5 ft., one target. _Hit:_ 13 (2d6 + 6) slashing damage."
+      },
+      {
+        "name": "Tail",
+        "desc": "_Melee Weapon Attack:_ +11 to hit, reach 15 ft., one target. _Hit:_ 15 (2d8 + 6) bludgeoning damage."
+      },
+      {
+        "name": "Frightful Presence",
+        "desc": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+      },
+      {
+        "name": "Acid Breath (Recharge 5-6)",
+        "desc": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one."
+      }
+    ],
+    "legendary_actions": {
+      "description": "The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.",
+      "actions": [
+        {
+          "name": "Detect",
+          "desc": "The dragon makes a Wisdom (Perception) check."
+        },
+        {
+          "name": "Tail Attack",
+          "desc": "The dragon makes a tail attack."
+        },
+        {
+          "name": "Wing Attack (Costs 2 Actions)",
+          "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
+        }
+      ]
+    }
+  }
+}

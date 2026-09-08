@@ -1,0 +1,375 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "character",
+  "name": "Player Character",
+  "description": "5e Player Character entity with ability scores, proficiencies, hit points, and inventory.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "default_template": "character_sheet",
+  "allowed_templates": [
+    "character_sheet",
+    "character_sheet_alt",
+    "spellcasting_sheet",
+    "stat_block",
+    "character_card",
+    "character_list_item"
+  ],
+  "schema": {
+    "type": "object",
+    "required": ["level", "abilities", "hit_points"],
+    "properties": {
+      "level": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 20,
+        "description": "Total character level."
+      },
+      "class": {
+        "type": "string",
+        "description": "Primary class of the character."
+      },
+      "race": {
+        "type": "string",
+        "description": "Character race / species."
+      },
+      "background": {
+        "type": "string",
+        "description": "Character background."
+      },
+      "alignment": {
+        "type": "string",
+        "description": "Ethical and moral alignment."
+      },
+      "experience_points": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "armor_class": {
+        "type": ["integer", "object"],
+        "description": "Armor class value or extended property with shield/dex/item modifiers."
+      },
+      "equipped_armor": {
+        "type": ["object", "null"],
+        "description": "Currently equipped body armor item snapshot or reference. null if unarmored.",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "armor_category": {
+            "type": "string",
+            "enum": ["light", "medium", "heavy"]
+          },
+          "ac_base": { "type": "integer" },
+          "dex_cap": { "type": ["integer", "null"] },
+          "stealth_disadvantage": { "type": "boolean" },
+          "strength_requirement": { "type": ["integer", "null"] }
+        }
+      },
+      "equipped_shield": {
+        "type": ["object", "null"],
+        "description": "Currently equipped shield item snapshot or reference. null if no shield is equipped.",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "ac_bonus": { "type": "integer", "default": 2 },
+          "stealth_disadvantage": { "type": "boolean" },
+          "strength_requirement": { "type": ["integer", "null"] }
+        }
+      },
+      "speed": {
+        "type": "integer",
+        "description": "Base walking speed in feet."
+      },
+      "hit_points": {
+        "type": "object",
+        "required": ["current", "max"],
+        "properties": {
+          "current": { "type": "integer" },
+          "max": { "type": "integer" },
+          "temp": { "type": "integer", "default": 0 }
+        }
+      },
+      "abilities": {
+        "type": "object",
+        "description": "Core 5e ability scores.",
+        "required": [
+          "strength",
+          "dexterity",
+          "constitution",
+          "intelligence",
+          "wisdom",
+          "charisma"
+        ],
+        "properties": {
+          "strength": { "type": ["integer", "object"] },
+          "dexterity": { "type": ["integer", "object"] },
+          "constitution": { "type": ["integer", "object"] },
+          "intelligence": { "type": ["integer", "object"] },
+          "wisdom": { "type": ["integer", "object"] },
+          "charisma": { "type": ["integer", "object"] }
+        }
+      },
+      "player_name": {
+        "type": "string",
+        "description": "Name of the player controlling this character."
+      },
+      "subclass": {
+        "type": "string",
+        "description": "Character archetype or subclass (e.g. Hunter, Champion, Evoker)."
+      },
+      "inspiration": {
+        "type": ["boolean", "integer"],
+        "default": false,
+        "description": "Heroic inspiration state or count."
+      },
+      "initiative": {
+        "type": ["integer", "object"],
+        "description": "Initiative modifier (typically dexterity modifier plus bonuses)."
+      },
+      "hit_dice": {
+        "type": "object",
+        "properties": {
+          "total": { "type": ["integer", "string"] },
+          "current": { "type": ["integer", "string"] },
+          "dice": { "type": "string" }
+        }
+      },
+      "death_saves": {
+        "type": "object",
+        "properties": {
+          "successes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3,
+            "default": 0
+          },
+          "failures": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3,
+            "default": 0
+          }
+        }
+      },
+      "saving_throws": {
+        "type": ["array", "object"],
+        "description": "Saving throw proficiencies and bonuses."
+      },
+      "skills": {
+        "type": ["array", "object"],
+        "description": "Skill proficiencies and bonuses across the 18 standard 5e skills."
+      },
+      "passive_perception": {
+        "type": ["integer", "object"],
+        "description": "Passive Wisdom (Perception) score: typically 10 + perception bonus."
+      },
+      "other_proficiencies_and_languages": {
+        "type": "object",
+        "properties": {
+          "armor": { "type": "array", "items": { "type": "string" } },
+          "weapons": { "type": "array", "items": { "type": "string" } },
+          "tools": { "type": "array", "items": { "type": "string" } },
+          "languages": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "attacks": {
+        "type": "array",
+        "description": "Weapons and spell attacks for the Attacks & Spellcasting section.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "atk_bonus": { "type": ["string", "integer"] },
+            "damage": { "type": "string" },
+            "damage_type": { "type": "string" },
+            "range": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "currency": {
+        "type": "object",
+        "properties": {
+          "cp": { "type": "integer", "default": 0 },
+          "sp": { "type": "integer", "default": 0 },
+          "ep": { "type": "integer", "default": 0 },
+          "gp": { "type": "integer", "default": 0 },
+          "pp": { "type": "integer", "default": 0 }
+        }
+      },
+      "personality_traits": { "type": ["string", "array"] },
+      "ideals": { "type": ["string", "array"] },
+      "bonds": { "type": ["string", "array"] },
+      "flaws": { "type": ["string", "array"] },
+      "features_and_traits": {
+        "type": "array",
+        "description": "Class, racial, and background features.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "source": { "type": "string" },
+            "desc": { "type": "string" }
+          }
+        }
+      },
+      "character_details": {
+        "type": "object",
+        "properties": {
+          "age": { "type": ["integer", "string"] },
+          "height": { "type": "string" },
+          "weight": { "type": "string" },
+          "eyes": { "type": "string" },
+          "skin": { "type": "string" },
+          "hair": { "type": "string" },
+          "appearance": { "type": "string" },
+          "backstory": { "type": "string" },
+          "allies_and_organizations": { "type": ["string", "array"] },
+          "treasure": { "type": ["string", "array"] }
+        }
+      },
+      "spellcasting": {
+        "type": "object",
+        "properties": {
+          "class": { "type": "string" },
+          "ability": { "type": "string" },
+          "save_dc": { "type": ["integer", "object"] },
+          "attack_bonus": { "type": ["integer", "object"] },
+          "cantrips": {
+            "type": "array",
+            "items": { "type": ["string", "object"] }
+          },
+          "slots": {
+            "type": "object",
+            "description": "Spell slot counts per spell level 1-9.",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "total": { "type": "integer" },
+                "expended": { "type": "integer", "default": 0 }
+              }
+            }
+          },
+          "spells": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "properties": {
+                "name": { "type": "string" },
+                "level": { "type": "integer", "minimum": 0, "maximum": 9 },
+                "prepared": { "type": "boolean", "default": false },
+                "desc": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "inventory": {
+        "type": "array",
+        "description": "List of carried items.",
+        "items": {
+          "type": "object",
+          "required": ["id", "name"],
+          "properties": {
+            "id": { "type": "string" },
+            "entity_ref": {
+              "type": "string",
+              "description": "Optional relative path or identifier of the base item entity."
+            },
+            "name": { "type": "string" },
+            "quantity": { "type": "integer", "default": 1 },
+            "weight": { "type": "number", "default": 0 },
+            "equipped": { "type": "boolean", "default": false },
+            "ac_base": { "type": "integer" },
+            "dex_cap": { "type": ["integer", "null"] },
+            "ac_bonus": { "type": "integer" },
+            "grants_modifiers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "target": { "type": "string" },
+                  "value": { "type": ["number", "string"] },
+                  "type": { "type": "string" },
+                  "source": { "type": "string" }
+                }
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "calculated_properties": {
+    "armor_class": {
+      "expr": "10 + (equipped_armor ? (equipped_armor.ac_modifier !== undefined ? equipped_armor.ac_modifier : equipped_armor.ac_base - 10) : 0) + (equipped_armor && equipped_armor.dex_cap !== null ? (equipped_armor.dex_cap === 0 ? min(0, abilities.dexterity.modifier) : min(equipped_armor.dex_cap, abilities.dexterity.modifier)) : abilities.dexterity.modifier) + (equipped_shield ? equipped_shield.ac_bonus : 0) + sum(filter(armor_class.modifiers, m => m.active && m.type !== 'armor' && m.type !== 'ability'))",
+      "type": "integer",
+      "dependencies": [
+        "equipped_armor",
+        "equipped_shield",
+        "abilities.dexterity.modifier",
+        "armor_class.modifiers"
+      ],
+      "description": "5e Armor Class calculation: base 10 + armor modifier (e.g. +1 for leather, +8 for plate) + dexterity modifier (capped by armor; heavy armor caps positive dex to 0 but allows negative penalties) + shield bonus + active external modifiers."
+    },
+    "proficiency_bonus": {
+      "expr": "floor((level - 1) / 4) + 2",
+      "type": "integer",
+      "dependencies": ["level"],
+      "description": "Standard 5e proficiency bonus calculation."
+    },
+    "ability_modifiers.strength": {
+      "expr": "floor((abilities.strength - 10) / 2)",
+      "type": "integer",
+      "dependencies": ["abilities.strength"]
+    },
+    "ability_modifiers.dexterity": {
+      "expr": "floor((abilities.dexterity - 10) / 2)",
+      "type": "integer",
+      "dependencies": ["abilities.dexterity"]
+    },
+    "ability_modifiers.constitution": {
+      "expr": "floor((abilities.constitution - 10) / 2)",
+      "type": "integer",
+      "dependencies": ["abilities.constitution"]
+    },
+    "ability_modifiers.intelligence": {
+      "expr": "floor((abilities.intelligence - 10) / 2)",
+      "type": "integer",
+      "dependencies": ["abilities.intelligence"]
+    },
+    "ability_modifiers.wisdom": {
+      "expr": "floor((abilities.wisdom - 10) / 2)",
+      "type": "integer",
+      "dependencies": ["abilities.wisdom"]
+    },
+    "ability_modifiers.charisma": {
+      "expr": "floor((abilities.charisma - 10) / 2)",
+      "type": "integer",
+      "dependencies": ["abilities.charisma"]
+    }
+  },
+  "default_values": {
+    "level": 1,
+    "equipped_armor": null,
+    "equipped_shield": null,
+    "abilities": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 10,
+      "charisma": 10
+    },
+    "hit_points": {
+      "current": 10,
+      "max": 10,
+      "temp": 0
+    },
+    "speed": 30,
+    "inventory": []
+  }
+}

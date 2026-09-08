@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "b2b57542-0a55-4cd9-b0fd-d16a5eb44477",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Levitate",
+  "description": "Defying gravity and moving people or cargo with your mind.",
+  "properties": {
+    "name": "Levitate",
+    "category": "Spell",
+    "spell_type": "Manipulation",
+    "type_target": "P",
+    "range": "LOS",
+    "duration": "S",
+    "drain": "6",
+    "damage": "—",
+    "rules": "50 kg per hit. Move target at caster’s Magic rating in meters/turn (Minor Action).",
+    "notes": "Defying gravity and moving people or cargo with your mind."
+  }
+}

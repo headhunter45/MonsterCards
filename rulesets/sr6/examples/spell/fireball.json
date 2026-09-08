@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "56a68e73-c248-40e6-974c-ad4a7e1d203a",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Fireball",
+  "description": "Every runner fears that tiny speck of fire hurtling their way.",
+  "properties": {
+    "name": "Fireball",
+    "category": "Spell",
+    "spell_type": "Combat (Indirect)",
+    "type_target": "P",
+    "range": "LOS (A)",
+    "duration": "I",
+    "drain": "6",
+    "damage": "P, Special (Fire)",
+    "rules": "Area-effect fire storm engulfing all targets in radius.",
+    "notes": "Every runner fears that tiny speck of fire hurtling their way."
+  }
+}

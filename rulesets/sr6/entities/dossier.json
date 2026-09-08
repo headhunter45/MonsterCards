@@ -1,0 +1,97 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "dossier",
+  "name": "Shadowrunner Dossier",
+  "description": "A comprehensive 4-page runner dossier combining full character statistics with narrative background, roleplaying tips, tactical guidelines, and tailored action pools.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "default_template": "dossier_sheet",
+  "allowed_templates": [
+    "dossier_sheet",
+    "character_sheet"
+  ],
+  "schema": {
+    "type": "object",
+    "required": ["alias", "metatype", "archetype", "attributes"],
+    "properties": {
+      "archetype": {
+        "type": "string",
+        "description": "Character archetype (e.g. 'Troll Street Samurai', 'Combat Mage', 'Elven Decker')."
+      },
+      "quote": {
+        "type": "string",
+        "description": "Introductory runner quote or catchphrase."
+      },
+      "pitch": {
+        "type": "string",
+        "description": "Summary pitch for playing this runner."
+      },
+      "background": {
+        "type": "string",
+        "description": "Full narrative life history and background story."
+      },
+      "preferred_tactics": {
+        "type": "string",
+        "description": "Combat style, weapon preferences, and tactical guidelines."
+      },
+      "roleplaying_tips": {
+        "type": "string",
+        "description": "Roleplaying advice, personality traits, and interpersonal dynamics."
+      },
+      "vital_contacts": {
+        "type": "array",
+        "description": "Key narrative contacts with detailed descriptions.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "role": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      },
+      "favorite_hangouts": {
+        "type": "array",
+        "description": "Locations the runner frequents in the sprawl.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "location": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      },
+      "favorite_downtime_activities": {
+        "type": "array",
+        "description": "Hobbies and off-run pastimes.",
+        "items": { "type": "string" }
+      },
+      "sample_actions": {
+        "type": "array",
+        "description": "Tailored sample actions with pre-computed dice pools.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "action": { "type": "string" },
+            "action_type": { "type": "string", "enum": ["Minor", "Major", "Free"] },
+            "dice_pool": { "type": "integer" },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      "edge_boosts": {
+        "type": "array",
+        "description": "Recommended edge boosts and tactical options.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "cost": { "type": "integer" },
+            "name": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

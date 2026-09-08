@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "b83f97be-f970-409b-85f3-7d0612d047e3",
+  "ruleset_id": "sr6",
+  "entity_type": "vehicle",
+  "display_name": "Harley-Davidson Scorpion",
+  "description": "The typical heavy-bodied, chromed road hog, with some armor and a whole lot of attitude.",
+  "properties": {
+    "filename": "harley_davidson_scorpion",
+    "name": "Harley-Davidson Scorpion",
+    "category": "Groundcraft",
+    "handling": "3/5",
+    "acceleration": "16",
+    "speed_interval": "30",
+    "top_speed": "200",
+    "body": 7,
+    "armor": 6,
+    "pilot": 1,
+    "sensor": 1,
+    "seats": 2,
+    "notes": "The typical heavy-bodied, chromed road hog, with some armor and a whole lot of attitude."
+  }
+}

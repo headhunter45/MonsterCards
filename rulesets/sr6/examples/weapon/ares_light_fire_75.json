@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "16bcf531-339b-4ae5-9efb-cd7a82e71bfd",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Ares Light Fire 75",
+  "description": "The Light Fire Series is designed for special operators.",
+  "properties": {
+    "name": "Ares Light Fire 75",
+    "dv": "2P",
+    "mode": "SA",
+    "attack_rating": {
+      "close": 10,
+      "near": 7,
+      "far": 6
+    },
+    "extras": "barrel-mounted silencer, laser sight, smartgun",
+    "notes": "The Light Fire Series is designed for special operators."
+  }
+}

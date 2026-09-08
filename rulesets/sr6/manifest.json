@@ -1,0 +1,117 @@
+{
+  "$schema": "../../schema/manifest.json",
+  "id": "sr6",
+  "uuid": "3f80c10b-8d54-4a47-a89c-d9cb773b06e0",
+  "name": "Shadowrun Sixth World (SR6)",
+  "version": "1.0.0",
+  "description": "6th Edition Shadowrun ruleset providing entity schemas, official fillable character sheet, runner dossiers, and NPC roster.",
+  "license": "Proprietary / Fan Use (Topps / Catalyst Game Labs)",
+  "author": {
+    "name": "Catalyst Game Labs",
+    "url": "https://www.shadowrunsixthworld.com"
+  },
+  "entities": [
+    {
+      "id": "character",
+      "name": "Shadowrunner Character",
+      "description": "A 6th Edition Shadowrunner with attributes, skills, condition monitors, qualities, augmentations, and gear.",
+      "schema": "entities/character.json",
+      "default_template": "character_sheet",
+      "templates": ["character_sheet", "character_picker"]
+    },
+    {
+      "id": "dossier",
+      "name": "Shadowrunner Dossier",
+      "description": "A comprehensive 4-page runner dossier containing full character data plus narrative background, roleplaying tips, tactics, and sample actions.",
+      "schema": "entities/dossier.json",
+      "default_template": "dossier_sheet",
+      "templates": ["dossier_sheet", "character_sheet", "character_picker"]
+    },
+    {
+      "id": "npc",
+      "name": "Non-Player Character / Gang",
+      "description": "Street contacts, gang members, syndicate leaders, and corporate operatives compatible with character sheets.",
+      "schema": "entities/npc.json",
+      "default_template": "character_picker",
+      "templates": ["character_picker", "character_sheet"]
+    },
+    {
+      "id": "weapon",
+      "name": "Weapon",
+      "description": "Melee and ranged weaponry with Damage Value (DV), firing modes, attack ratings across range bands, and ammo.",
+      "schema": "entities/weapon.json"
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "description": "Protective gear and armored clothing providing Defense Rating bonuses and social mods.",
+      "schema": "entities/armor.json"
+    },
+    {
+      "id": "augmentation",
+      "name": "Augmentation",
+      "description": "Cyberware and bioware implants with grade, rating, essence cost, and tactical enhancements.",
+      "schema": "entities/augmentation.json"
+    },
+    {
+      "id": "vehicle",
+      "name": "Vehicle / Drone",
+      "description": "Rigged vehicles and drones with handling, acceleration, top speed, body, armor, sensor, and pilot ratings.",
+      "schema": "entities/vehicle.json"
+    },
+    {
+      "id": "gear",
+      "name": "Gear / Item",
+      "description": "Everyday shadowrunner equipment, tools, commlinks, cyberdecks, and programs.",
+      "schema": "entities/gear.json"
+    },
+    {
+      "id": "spell",
+      "name": "Spell / Complex Form",
+      "description": "Hermetic and shamanic spells, rituals, preparations, and technomancer complex forms.",
+      "schema": "entities/spell.json"
+    },
+    {
+      "id": "corporation",
+      "name": "Megacorporation",
+      "description": "AAA and AA megacorporations from the Corporate Court with ranking, slogans, leadership, and divisions.",
+      "schema": "entities/corporation.json"
+    }
+  ],
+  "templates": [
+    {
+      "id": "character_sheet",
+      "name": "Official Character Sheet",
+      "description": "Authentic 2-page fillable character sheet matching SR6-Character-Sheet-Fillable.pdf.",
+      "entity_types": ["character", "dossier", "npc"],
+      "mode": "sheet",
+      "engine": "html",
+      "html": "templates/character_sheet.html",
+      "css": ["templates/character_sheet.css"]
+    },
+    {
+      "id": "dossier_sheet",
+      "name": "Shadowrunner Dossier",
+      "description": "Comprehensive 4-page runner dossier matching the official Beginner Box Dossier format.",
+      "entity_types": ["dossier", "character"],
+      "mode": "sheet",
+      "engine": "html",
+      "html": "templates/dossier_sheet.html",
+      "css": ["templates/dossier_sheet.css"]
+    },
+    {
+      "id": "character_picker",
+      "name": "Character / NPC List Picker",
+      "description": "Minimal quick-reference card for picking a character, dossier, or NPC from a list with entity badge and vitals.",
+      "entity_types": ["character", "dossier", "npc"],
+      "mode": "card",
+      "engine": "html",
+      "html": "templates/character_picker.html",
+      "css": ["templates/character_picker.css"]
+    }
+  ],
+  "assets": {
+    "path": "templates/assets",
+    "images": ["_dev_sr6_logo.png", "_dev_sr6_circuit_bg.png"]
+  }
+}

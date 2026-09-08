@@ -20,7 +20,7 @@ import com.majinnaibu.monstercards.models.DashboardMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.MonsterFTS;
 
-@Database(entities = {Monster.class, MonsterFTS.class, Collection.class, CollectionMonster.class, DashboardMonster.class}, version = 6)
+@Database(entities = {Monster.class, MonsterFTS.class, Collection.class, CollectionMonster.class, DashboardMonster.class}, version = 8)
 @TypeConverters({
         ArmorTypeConverter.class,
         ChallengeRatingConverter.class,

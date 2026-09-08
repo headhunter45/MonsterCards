@@ -1,0 +1,245 @@
+/* Character List Item Template - Uniform Fixed Height with Non-Wrapping Horizontal Actions */
+:root {
+  --card-border: #922610;
+  --card-title: #922610;
+  --box-border: #222222;
+  --bg-page: #f4f6f8;
+  --bg-card: #ffffff;
+  --bg-box: #ffffff;
+  --text-main: #111111;
+  --text-muted: #666666;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.list-item-page-wrapper {
+  margin: 0;
+  padding: 16px;
+  background-color: var(--bg-page);
+  font-family: var(--font-sans);
+  display: flex;
+  justify-content: center;
+}
+
+/* Card has fixed height so all list cards are identical height */
+.npc-list-card {
+  width: 100%;
+  max-width: 580px;
+  height: 236px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--card-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+.card-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-title);
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-cr {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.card-subtitle {
+  font-style: italic;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 2px 0 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+/* 8 Stat Boxes */
+.stat-boxes-row {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.stat-box {
+  flex: 1;
+  position: relative;
+  border: 1.2px solid var(--box-border);
+  border-radius: 2px;
+  padding: 4px 1px 3px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  background: var(--bg-box);
+  box-sizing: border-box;
+}
+
+.badge-advantage {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-size: 8px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+.badge-proficiency {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: 8px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+.stat-mod {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.stat-code {
+  font-size: 9px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+/* Actions Row: Single Non-Wrapping Row with Horizontal Scrolling */
+.action-row-container {
+  flex: 1;
+  display: flex;
+  min-height: 0; /* Allows container to shrink inside flex parent */
+  overflow: hidden;
+}
+
+.action-boxes-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+}
+
+.action-boxes-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.action-boxes-row::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.action-boxes-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Individual Action Card */
+.action-card-box {
+  flex: 0 0 170px;
+  max-width: 240px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  padding: 6px 8px;
+  background: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* When only 1 action exists (e.g. Acolyte Club), expand full width */
+.action-boxes-row > .action-card-box:only-child {
+  flex: 1 0 100%;
+  max-width: 100%;
+}
+
+.action-box-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.action-box-desc {
+  font-size: 10.5px;
+  line-height: 1.25;
+  color: #444;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+/* Empty State (e.g. Unnamed Monster) */
+.no-actions-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #ccc;
+  border-radius: 2px;
+  background: #fafafa;
+}
+
+.no-actions-text {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 440px) {
+  .list-item-page-wrapper {
+    padding: 6px;
+  }
+  .stat-boxes-row {
+    gap: 3px;
+  }
+  .stat-mod {
+    font-size: 12px;
+  }
+  .action-card-box {
+    flex: 0 0 145px;
+  }
+}
+

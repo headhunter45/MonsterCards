@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "deee47e3-7521-4bce-afac-79246287c964",
+  "ruleset_id": "sr6",
+  "entity_type": "weapon",
+  "display_name": "Ruger Super Warhawk",
+  "description": "Shiny and chromed and makes holes the size of a troll’s fist straight out of the box.",
+  "properties": {
+    "name": "Ruger Super Warhawk",
+    "dv": "4P",
+    "mode": "SA",
+    "attack_rating": {
+      "close": 8,
+      "near": 11,
+      "far": 8
+    },
+    "extras": "None",
+    "notes": "Shiny and chromed and makes holes the size of a troll’s fist straight out of the box."
+  }
+}

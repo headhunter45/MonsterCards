@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/entity.json",
+  "uuid": "f6a83d72-b94e-4e5c-a5c2-f39b6b52d202",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Acolyte",
+  "description": "Medium humanoid (any race), any alignment.",
+  "version": "1.0.0",
+  "template_id": "stat_block",
+  "tags": ["npc", "humanoid", "spellcaster", "cr-1/4"],
+  "properties": {
+    "size": "medium",
+    "type": "Humanoid",
+    "subtype": "any race",
+    "alignment": "any alignment",
+    "armor_class": 10,
+    "hit_points": {
+      "current": 9,
+      "max": 9,
+      "formula": "2d8 + 0",
+      "hit_dice": "2d8"
+    },
+    "speed": 30,
+    "speed_desc": "30 ft.",
+    "challenge_rating": "1/4 (50 XP)",
+    "cr": "1/4",
+    "abilities": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 14,
+      "charisma": 11
+    },
+    "skills": ["medicine +4", "religion +2"],
+    "senses": "passive Perception 12",
+    "languages": ["any one language (usually Common)"],
+    "traits": [
+      {
+        "name": "Spellcasting",
+        "desc": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n* Cantrips (at will): _light, sacred flame, thaumaturgy_\n* 1st level (3 slots): _bless, cure wounds, sanctuary_"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Club",
+        "desc": "_Melee Weapon Attack:_ +2 to hit, reach 5 ft., one target. _Hit:_ 2 (1d4) bludgeoning damage."
+      }
+    ]
+  }
+}

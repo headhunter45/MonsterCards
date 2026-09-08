@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../schema/entity-definition.json",
+  "id": "corporation",
+  "name": "Megacorporation",
+  "description": "SR6 Corporate Court ranked megacorporation profile with extraterritorial status, slogans, and leadership.",
+  "ruleset_id": "sr6",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "status"],
+    "properties": {
+      "name": { "type": "string" },
+      "short_name": { "type": "string" },
+      "status": { "type": "string", "enum": ["AAA", "AA", "A"], "default": "AAA" },
+      "court_ranking_2080": { "type": "integer", "minimum": 1, "maximum": 10 },
+      "slogan": { "type": "string" },
+      "corporate_type": { "type": "string", "enum": ["Public Corporation", "Private Corporation"] },
+      "world_headquarters": { "type": "string" },
+      "leadership": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      },
+      "major_divisions": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "notes": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "ab5dce99-4a91-49cd-a839-f15ffdf48a7f",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Improved Invisibility",
+  "description": "Fades from view, becoming transparent.",
+  "properties": {
+    "name": "Improved Invisibility",
+    "category": "Spell",
+    "spell_type": "Illusion",
+    "type_target": "P",
+    "range": "T",
+    "duration": "S",
+    "drain": "4",
+    "damage": "—",
+    "rules": "Net hits become threshold on tests to see character. Works against tech and living eyes.",
+    "notes": "Fades from view, becoming transparent."
+  }
+}

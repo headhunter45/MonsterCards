@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "58e68112-353b-41a5-87bc-fef36c069fd7",
+  "ruleset_id": "sr6",
+  "entity_type": "vehicle",
+  "display_name": "Ford Americar",
+  "description": "Nothing special to look at, but will get you from here to there with no one giving a second glance.",
+  "properties": {
+    "filename": "ford_americar",
+    "name": "Ford Americar",
+    "category": "Groundcraft",
+    "handling": "4/5",
+    "acceleration": "9",
+    "speed_interval": "20",
+    "top_speed": "160",
+    "body": 11,
+    "armor": 4,
+    "pilot": 1,
+    "sensor": 2,
+    "seats": 4,
+    "notes": "Nothing special to look at, but will get you from here to there with no one giving a second glance."
+  }
+}

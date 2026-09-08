@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/entity.json",
+  "uuid": "73270407-036d-4975-8832-be7d6a4104fa",
+  "ruleset_id": "sr6",
+  "entity_type": "spell",
+  "display_name": "Increase Attribute",
+  "description": "Strengthens, speeds, or enlightens the target.",
+  "properties": {
+    "name": "Increase Attribute",
+    "category": "Spell",
+    "spell_type": "Health",
+    "type_target": "P",
+    "range": "T",
+    "duration": "S",
+    "drain": "3",
+    "damage": "—",
+    "rules": "Roll Sorcery + Magic (5 - Essence). Increase selected attribute by 1 per net hit.",
+    "notes": "Strengthens, speeds, or enlightens the target."
+  }
+}
