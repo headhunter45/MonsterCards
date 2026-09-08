@@ -36,7 +36,9 @@ public class TetraCubeMonsterImporter implements EntityImporter<Monster> {
                 return false;
             }
             JsonObject rootDict = element.getAsJsonObject();
-            return rootDict.has("hitDice") || rootDict.has("armorName") || rootDict.has("strPoints");
+            return rootDict.has("hitDice") || rootDict.has("armorName") || rootDict.has("strPoints")
+                    || rootDict.has("bonusActions") || rootDict.has("isLegendary") || rootDict.has("isMythic")
+                    || rootDict.has("legendariesDescription");
         } catch (Exception e) {
             return false;
         }
@@ -85,10 +87,46 @@ public class TetraCubeMonsterImporter implements EntityImporter<Monster> {
 
         monster.abilities = getListOfTraits(rootDict, "abilities");
         monster.actions = getListOfTraits(rootDict, "actions");
+        monster.bonusActions = getListOfTraits(rootDict, "bonusActions");
         monster.reactions = getListOfTraits(rootDict, "reactions");
         monster.legendaryActions = getListOfTraits(rootDict, "legendaries");
+        monster.mythicActions = getListOfTraits(rootDict, "mythics");
         monster.lairActions = getListOfTraits(rootDict, "lairs");
         monster.regionalActions = getListOfTraits(rootDict, "regionals");
+
+        monster.legendaryActionsDescription = getString(rootDict, "legendariesDescription");
+        if (!monster.legendaryActionsDescription.isEmpty()) {
+            monster.legendaryActions.add(0, new Trait("Legendary Actions", monster.legendaryActionsDescription));
+        }
+
+        monster.mythicActionsDescription = getString(rootDict, "mythicDescription");
+        if (!monster.mythicActionsDescription.isEmpty() || !monster.mythicActions.isEmpty()) {
+            if (!monster.mythicActionsDescription.isEmpty()) {
+                monster.legendaryActions.add(new Trait("Mythic Actions", monster.mythicActionsDescription));
+            }
+            for (Trait mythic : monster.mythicActions) {
+                String traitName = mythic.name;
+                if (!traitName.toLowerCase(Locale.ROOT).startsWith("mythic action")) {
+                    traitName = "Mythic Action: " + traitName;
+                }
+                monster.legendaryActions.add(new Trait(traitName, mythic.description));
+            }
+        }
+
+        monster.lairActionsDescription = getString(rootDict, "lairDescription");
+        monster.lairActionsEndNote = getString(rootDict, "lairDescriptionEnd");
+        String fullLairDesc = combineDescriptions(monster.lairActionsDescription, monster.lairActionsEndNote);
+        if (!fullLairDesc.isEmpty()) {
+            monster.lairActions.add(0, new Trait("Lair Actions", fullLairDesc));
+        }
+
+        monster.regionalActionsDescription = getString(rootDict, "regionalDescription");
+        monster.regionalActionsEndNote = getString(rootDict, "regionalDescriptionEnd");
+        String fullRegionalDesc = combineDescriptions(monster.regionalActionsDescription, monster.regionalActionsEndNote);
+        if (!fullRegionalDesc.isEmpty()) {
+            monster.regionalActions.add(0, new Trait("Regional Effects", fullRegionalDesc));
+        }
+
         addSavingThrows(monster, rootDict);
         monster.skills = getSetOfSkills(rootDict);
         monster.damageImmunities = getSetOfDamageTypes(rootDict, "damageTypes", "i");
@@ -102,6 +140,17 @@ public class TetraCubeMonsterImporter implements EntityImporter<Monster> {
         monster.understandsButDescription = getString(rootDict, "understandsBut");
 
         return monster;
+    }
+
+    @NonNull
+    private static String combineDescriptions(String desc1, String desc2) {
+        if (!desc1.isEmpty() && !desc2.isEmpty()) {
+            return desc1 + "\n\n" + desc2;
+        } else if (!desc1.isEmpty()) {
+            return desc1;
+        } else {
+            return desc2;
+        }
     }
 
     private static String getString(JsonObject dict, String name) {
@@ -169,7 +218,11 @@ public class TetraCubeMonsterImporter implements EntityImporter<Monster> {
     private static void addSense(Monster monster, JsonObject root, String name) {
         int distance = getInt(root, name);
         if (distance > 0) {
-            monster.senses.add(formatDistance(name, distance));
+            String senseStr = formatDistance(name, distance);
+            if ("blindsight".equals(name) && getBool(root, "blind")) {
+                senseStr += " (blind beyond this radius)";
+            }
+            monster.senses.add(senseStr);
         }
     }
 
