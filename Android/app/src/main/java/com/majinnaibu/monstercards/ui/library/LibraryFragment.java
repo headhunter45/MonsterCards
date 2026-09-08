@@ -1,12 +1,19 @@
 package com.majinnaibu.monstercards.ui.library;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -17,8 +24,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.majinnaibu.monstercards.MainActivity;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.monster.MonsterDetailFragmentDirections;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
@@ -35,6 +44,7 @@ public class LibraryFragment extends MCFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View root = inflater.inflate(R.layout.fragment_library, container, false);
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
@@ -46,6 +56,59 @@ public class LibraryFragment extends MCFragment {
         setupRecyclerView(recyclerView);
 
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.library_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_action_import_from_url) {
+            showImportUrlDialog();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showImportUrlDialog() {
+        Context context = requireContext();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.dialog_import_url_title);
+        builder.setMessage(R.string.dialog_import_url_message);
+
+        final EditText input = new EditText(context);
+        input.setHint(R.string.dialog_import_url_hint);
+        input.setSingleLine(true);
+
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard != null && clipboard.hasPrimaryClip()) {
+            ClipData clip = clipboard.getPrimaryClip();
+            if (clip != null && clip.getItemCount() > 0) {
+                CharSequence clipText = clip.getItemAt(0).getText();
+                if (clipText != null && new DnDBeyondImporter().canImport(clipText.toString())) {
+                    input.setText(clipText.toString().trim());
+                    input.selectAll();
+                }
+            }
+        }
+
+        builder.setView(input);
+
+        builder.setPositiveButton(R.string.dialog_import, (dialog, which) -> {
+            String urlOrId = input.getText().toString().trim();
+            if (!urlOrId.isEmpty()) {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).importMonsterFromInputAndNavigate(urlOrId);
+                }
+            }
+        });
+
+        builder.setNegativeButton(R.string.dialog_cancel, (dialog, which) -> dialog.cancel());
+
+        builder.show();
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
