@@ -187,8 +187,26 @@ public class CollectionDetailFragment extends MCFragment {
         if (item.getItemId() == R.id.menu_action_add_collection_to_dashboard) {
             addCollectionToDashboard();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_export_collection) {
+            exportCollection();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void exportCollection() {
+        Collection collection = mViewModel.getCollection().getValue();
+        List<Monster> monsters = mViewModel.getMonsters().getValue();
+        if (collection != null) {
+            String json = new com.majinnaibu.monstercards.exporters.BinderExporter().exportBinder(
+                    collection.name,
+                    monsters != null ? monsters : new java.util.ArrayList<>()
+            );
+            String collectionName = (collection.name != null && !collection.name.trim().isEmpty())
+                    ? collection.name.trim()
+                    : "collection";
+            exportToFile(collectionName + ".binder", json);
+        }
     }
 
     private void addCollectionToDashboard() {

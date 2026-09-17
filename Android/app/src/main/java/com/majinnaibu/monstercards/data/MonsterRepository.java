@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.majinnaibu.monstercards.AppDatabase;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.models.BinderExport;
 import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.CollectionMonster;
 import com.majinnaibu.monstercards.models.CollectionWithCount;
@@ -12,7 +13,9 @@ import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SearchResultItem;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -258,6 +261,67 @@ public class MonsterRepository {
         Completable result = m_db.dashboardDAO().updateDashboardMonsters(items);
         result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         return result;
+    }
+
+    public Completable importBinder(@NonNull BinderExport binder) {
+        return Completable.fromAction(() -> {
+            if (binder.collections == null || binder.collections.isEmpty()) {
+                return;
+            }
+
+            for (BinderExport.CollectionExport colExport : binder.collections) {
+                if (colExport.cards == null || colExport.cards.isEmpty()) {
+                    continue;
+                }
+
+                List<Monster> monstersToSave = new ArrayList<>();
+                for (Monster card : colExport.cards) {
+                    if (card.id == null) {
+                        card.id = UUID.randomUUID();
+                    }
+                    monstersToSave.add(card);
+                }
+                m_db.monsterDAO().save(monstersToSave.toArray(new Monster[0])).blockingAwait();
+
+                String colName = colExport.name != null ? colExport.name.trim() : "";
+                if (!colName.isEmpty()) {
+                    List<Collection> existingCols = m_db.collectionDAO().getAll().first(new ArrayList<>()).blockingGet();
+                    Collection targetCollection = null;
+                    for (Collection existing : existingCols) {
+                        if (existing.name != null && existing.name.equalsIgnoreCase(colName)) {
+                            targetCollection = existing;
+                            break;
+                        }
+                    }
+
+                    UUID targetCollectionId;
+                    if (targetCollection != null) {
+                        targetCollectionId = targetCollection.id;
+                    } else {
+                        Collection newCol = new Collection();
+                        newCol.id = UUID.randomUUID();
+                        newCol.name = colName;
+                        m_db.collectionDAO().save(newCol).blockingAwait();
+                        targetCollectionId = newCol.id;
+                    }
+
+                    List<Monster> colMonsters = m_db.collectionDAO().getMonstersForCollection(targetCollectionId.toString())
+                            .first(new ArrayList<>()).blockingGet();
+                    Set<UUID> existingMonsterIds = new HashSet<>();
+                    for (Monster m : colMonsters) {
+                        existingMonsterIds.add(m.id);
+                    }
+
+                    int ordinal = colMonsters.size();
+                    for (Monster monster : monstersToSave) {
+                        if (!existingMonsterIds.contains(monster.id)) {
+                            m_db.collectionDAO().addMonsterToCollection(new CollectionMonster(targetCollectionId, monster.id, ordinal++)).blockingAwait();
+                            existingMonsterIds.add(monster.id);
+                        }
+                    }
+                }
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     private static class Helpers {

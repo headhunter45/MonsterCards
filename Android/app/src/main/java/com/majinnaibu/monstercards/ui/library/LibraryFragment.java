@@ -70,8 +70,23 @@ public class LibraryFragment extends MCFragment {
         if (item.getItemId() == R.id.menu_action_import_from_url) {
             showImportUrlDialog();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_export_library) {
+            exportLibrary();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void exportLibrary() {
+        getMonsterRepository().getMonsters()
+                .firstOrError()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(monsters -> {
+                    String json = new com.majinnaibu.monstercards.exporters.BinderExporter().exportBinder("", monsters);
+                    String fileName = getString(R.string.default_filename_library) + ".binder";
+                    exportToFile(fileName, json);
+                }, Logger::logError);
     }
 
     private void showImportUrlDialog() {

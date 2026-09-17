@@ -6,4 +6,9 @@
         android:id="@+id/menu_action_import_from_url"
         android:title="@string/action_import_from_url"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_action_export_library"
+        android:title="@string/action_export_library"
+        app:showAsAction="never" />
 </menu>

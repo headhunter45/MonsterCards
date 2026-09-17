@@ -22,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.majinnaibu.monstercards.helpers.MonsterImportHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
+import com.majinnaibu.monstercards.importers.BinderImporter;
 import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -110,6 +111,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void importMonsterFromInputAndNavigate(@NonNull String input) {
+        BinderImporter binderImporter = new BinderImporter();
+        if (binderImporter.canImport(input)) {
+            Toast.makeText(this, R.string.toast_importing_url, Toast.LENGTH_SHORT).show();
+            Single.fromCallable(() -> binderImporter.parse(input))
+                    .flatMapCompletable(binder -> ((MonsterCardsApplication) getApplication()).getMonsterRepository().importBinder(binder))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(() -> {
+                        Toast.makeText(this, R.string.snackbar_import_binder_success, Toast.LENGTH_LONG).show();
+                        NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
+                        NavController navController = navHostFragment.getNavController();
+                        navController.navigate(R.id.navigation_library);
+                    }, throwable -> {
+                        Logger.logError("Failed to import binder from input", throwable);
+                        Toast.makeText(this, R.string.failed_to_import_url, Toast.LENGTH_LONG).show();
+                    });
+            return;
+        }
+
         Toast.makeText(this, R.string.toast_importing_url, Toast.LENGTH_SHORT).show();
         Single.fromCallable(() -> MonsterImportHelper.fromJSON(input))
                 .subscribeOn(Schedulers.io())
@@ -143,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (uri == null || !isMonsterFile(uri)) {
             if (uri != null) {
-                Logger.logError("Ignored file because extension is not supported (.monster, .card): " + uri);
+                Logger.logError("Ignored file because extension is not supported (.monster, .card, .binder): " + uri);
             }
             return null;
         }
@@ -162,7 +182,8 @@ public class MainActivity extends AppCompatActivity {
         }
         String lowerName = fileName.toLowerCase(Locale.ROOT);
         return lowerName.endsWith(".monster") || lowerName.endsWith(".monster.txt")
-                || lowerName.endsWith(".card") || lowerName.endsWith(".card.txt");
+                || lowerName.endsWith(".card") || lowerName.endsWith(".card.txt")
+                || lowerName.endsWith(".binder") || lowerName.endsWith(".binder.txt");
     }
 
     @Nullable
