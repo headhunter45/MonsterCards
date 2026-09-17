@@ -3,187 +3,545 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="?android:attr/dividerVertical"
-        android:dividerPadding="@dimen/text_margin"
         android:orientation="vertical"
-        android:showDividers="middle"
         tools:context=".ui.editmonster.EditMonsterFragment">
 
-        <TextView
-            android:id="@+id/basicInfo"
+        <!-- Card 1: Basic Info & Challenge Rating -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBasicInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_basic_info"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
 
-        <TextView
-            android:id="@+id/armor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_armor"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/speed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_speed"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                <RelativeLayout
+                    android:id="@+id/headerBasicInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
 
-        <TextView
-            android:id="@+id/abilityScores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_ability_scores"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/titleBasicInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Basic Info &amp; Challenge Rating"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/savingThrows"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_saving_throws"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/summaryBasicInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleBasicInfo"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_toStartOf="@+id/chevronBasicInfo"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="14sp"
+                        tools:text="Goblin — Small humanoid, CR 1/4" />
 
-        <TextView
-            android:id="@+id/skills"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_skills"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <ImageView
+                        android:id="@+id/chevronBasicInfo"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="Expand/Collapse"
+                        android:src="@drawable/ic_expand_more_24" />
+                </RelativeLayout>
 
-        <TextView
-            android:id="@+id/conditionImmunities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_condition_immunities"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                <LinearLayout
+                    android:id="@+id/bodyBasicInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:attr/dividerVertical"
+                    android:dividerPadding="8dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:visibility="gone">
 
-        <TextView
-            android:id="@+id/damageImmunities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_damage_immunities"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/basicInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_basic_info"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
 
-        <TextView
-            android:id="@+id/damageResistances"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_damage_resistances"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/challengeRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_challenge_rating"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:id="@+id/damageVulnerabilities"
+        <!-- Card 2: Armor, Speed & Ability Scores -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCombatAbilities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_damage_vulnerabilities"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
 
-        <TextView
-            android:id="@+id/senses"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_senses"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/languages"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_languages"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                <RelativeLayout
+                    android:id="@+id/headerCombatAbilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
 
-        <TextView
-            android:id="@+id/challengeRating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_challenge_rating"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/titleCombatAbilities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Armor, Speed &amp; Ability Scores"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/abilities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_abilities"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/summaryCombatAbilities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCombatAbilities"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_toStartOf="@+id/chevronCombatAbilities"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="14sp"
+                        tools:text="STR 8 | DEX 14 | CON 10 | INT 10 | WIS 14 | CHA 15" />
 
-        <TextView
-            android:id="@+id/actions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_actions"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <ImageView
+                        android:id="@+id/chevronCombatAbilities"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="Expand/Collapse"
+                        android:src="@drawable/ic_expand_more_24" />
+                </RelativeLayout>
 
-        <TextView
-            android:id="@+id/reactions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_reactions"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                <LinearLayout
+                    android:id="@+id/bodyCombatAbilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:attr/dividerVertical"
+                    android:dividerPadding="8dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:visibility="gone">
 
-        <TextView
-            android:id="@+id/legendaryActions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_legendary_actions"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/armor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_armor"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
 
-        <TextView
-            android:id="@+id/lairActions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_lair_actions"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                    <TextView
+                        android:id="@+id/speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_speed"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
 
-        <TextView
-            android:id="@+id/regionalActions"
+                    <TextView
+                        android:id="@+id/abilityScores"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_ability_scores"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card 3: Saves, Skills & Languages -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSavesSkillsLanguages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/label_regional_effects"
-            android:textSize="@dimen/text_h4_size"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/headerSavesSkillsLanguages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/titleSavesSkillsLanguages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Saves, Skills &amp; Languages"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/summarySavesSkillsLanguages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleSavesSkillsLanguages"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_toStartOf="@+id/chevronSavesSkillsLanguages"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="14sp"
+                        tools:text="3 Saves, 2 Skills, Common &amp; Goblin" />
+
+                    <ImageView
+                        android:id="@+id/chevronSavesSkillsLanguages"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="Expand/Collapse"
+                        android:src="@drawable/ic_expand_more_24" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/bodySavesSkillsLanguages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:attr/dividerVertical"
+                    android:dividerPadding="8dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/savingThrows"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_saving_throws"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/skills"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_skills"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/senses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_senses"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/languages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_languages"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card 4: Defenses & Immunities -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardDefenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/headerDefenses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/titleDefenses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Defenses &amp; Immunities"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/summaryDefenses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleDefenses"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_toStartOf="@+id/chevronDefenses"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="14sp"
+                        tools:text="Poison Immunity, Fire Resistance" />
+
+                    <ImageView
+                        android:id="@+id/chevronDefenses"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="Expand/Collapse"
+                        android:src="@drawable/ic_expand_more_24" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/bodyDefenses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:attr/dividerVertical"
+                    android:dividerPadding="8dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/conditionImmunities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_condition_immunities"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/damageImmunities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_damage_immunities"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/damageResistances"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_damage_resistances"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/damageVulnerabilities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_damage_vulnerabilities"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card 5: Abilities, Actions & Traits -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTraitsActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/headerTraitsActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/titleTraitsActions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Abilities, Actions &amp; Traits"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/summaryTraitsActions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleTraitsActions"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_toStartOf="@+id/chevronTraitsActions"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="14sp"
+                        tools:text="2 Abilities, 2 Actions, 1 Reaction" />
+
+                    <ImageView
+                        android:id="@+id/chevronTraitsActions"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="Expand/Collapse"
+                        android:src="@drawable/ic_expand_more_24" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/bodyTraitsActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:attr/dividerVertical"
+                    android:dividerPadding="8dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/abilities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_abilities"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/actions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_actions"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/reactions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_reactions"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/legendaryActions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_legendary_actions"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/lairActions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_lair_actions"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+
+                    <TextView
+                        android:id="@+id/regionalActions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="16dp"
+                        android:text="@string/label_regional_effects"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/ic_chevron_right_24" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>
