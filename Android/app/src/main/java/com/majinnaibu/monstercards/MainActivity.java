@@ -58,19 +58,10 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
         super.onCreate(savedInstanceState);
         AppCenterInitializer.init(getApplication());
         setContentView(R.layout.activity_main);
-
-        View container = findViewById(R.id.container);
-        if (container != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(container, (v, windowInsets) -> {
-                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                v.setPadding(insets.left, insets.top, insets.right, 0);
-                return windowInsets;
-            });
-        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

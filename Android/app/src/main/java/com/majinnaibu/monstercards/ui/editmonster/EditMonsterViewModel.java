@@ -702,6 +702,38 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         return mDamageResistances;
     }
 
+    public LiveData<List<String>> getDamageVulnerabilities() {
+        return mDamageVulnerabilities;
+    }
+
+    public LiveData<List<String>> getConditionImmunities() {
+        return mConditionImmunities;
+    }
+
+    public LiveData<List<Trait>> getAbilities() {
+        return mAbilities;
+    }
+
+    public LiveData<List<Trait>> getActions() {
+        return mActions;
+    }
+
+    public LiveData<List<Trait>> getReactions() {
+        return mReactions;
+    }
+
+    public LiveData<List<Trait>> getLairActions() {
+        return mLairActions;
+    }
+
+    public LiveData<List<Trait>> getLegendaryActions() {
+        return mLegendaryActions;
+    }
+
+    public LiveData<List<Trait>> getRegionalActions() {
+        return mRegionalActions;
+    }
+
     public LiveData<List<Language>> getLanguages() {
         return mLanguages;
     }
