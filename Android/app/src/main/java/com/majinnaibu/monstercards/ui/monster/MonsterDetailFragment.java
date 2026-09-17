@@ -195,8 +195,23 @@ public class MonsterDetailFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_share_monster) {
             shareCurrentMonster();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_export_card) {
+            exportCurrentMonsterCard();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void exportCurrentMonsterCard() {
+        Monster monster = mViewModel.getMonster();
+        if (monster == null) {
+            return;
+        }
+        String jsonCard = new com.majinnaibu.monstercards.exporters.MonsterCardExporter().exportCard(monster);
+        String safeName = (monster.name != null && !monster.name.trim().isEmpty())
+                ? monster.name.trim()
+                : "monster";
+        exportToFile(safeName + ".card", jsonCard);
     }
 
     private void shareCurrentMonster() {

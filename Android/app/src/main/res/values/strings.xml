@@ -171,4 +171,13 @@
     <string name="failed_to_import_url">Failed to import entity. Please check the URL, ID, or JSON format.</string>
     <string name="action_share_monster">Share / Export Monster (.card)</string>
     <string name="failed_to_share_monster">Failed to share monster</string>
+    <string name="action_export_card">Export Card</string>
+    <string name="action_export_collection">Export Collection</string>
+    <string name="action_export_library">Export Library</string>
+    <string name="action_export_dashboard">Export Dashboard</string>
+    <string name="snackbar_export_success">Exported to %1$s</string>
+    <string name="snackbar_export_failed">Failed to export file</string>
+    <string name="snackbar_import_binder_success">Imported binder successfully</string>
+    <string name="default_filename_library">MonsterCards Library</string>
+    <string name="default_filename_dashboard">MonsterCards Dashboard</string>
 </resources>

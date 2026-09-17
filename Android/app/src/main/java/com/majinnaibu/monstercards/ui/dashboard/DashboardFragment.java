@@ -274,8 +274,23 @@ public class DashboardFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_clear_dashboard) {
             clearDashboard();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_export_dashboard) {
+            exportDashboard();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void exportDashboard() {
+        mDisposables.add(getMonsterRepository().getDashboardMonsters()
+                .firstOrError()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(monsters -> {
+                    String json = new com.majinnaibu.monstercards.exporters.BinderExporter().exportBinder("", monsters);
+                    String fileName = getString(R.string.default_filename_dashboard) + ".binder";
+                    exportToFile(fileName, json);
+                }, Logger::logError));
     }
 
     @Override

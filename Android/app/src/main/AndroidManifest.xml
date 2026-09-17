@@ -48,6 +48,8 @@
                 <data android:pathPattern=".*\\.monster\\.txt" />
                 <data android:pathPattern=".*\\.card" />
                 <data android:pathPattern=".*\\.card\\.txt" />
+                <data android:pathPattern=".*\\.binder" />
+                <data android:pathPattern=".*\\.binder\\.txt" />
             </intent-filter>
 
             <!-- Intent filter for explicitly sharing files/text to Monster Cards -->

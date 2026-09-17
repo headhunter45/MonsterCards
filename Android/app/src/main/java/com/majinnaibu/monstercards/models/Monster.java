@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
@@ -28,6 +29,9 @@ import java.util.UUID;
 @SuppressLint("DefaultLocale")
 @SuppressWarnings("unused")
 public class Monster {
+
+    @Ignore
+    public int schemaVersion = 1;
 
     @PrimaryKey
     @NonNull

@@ -6,4 +6,9 @@
         android:id="@+id/menu_action_add_collection_to_dashboard"
         android:title="@string/action_add_collection_to_dashboard"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_action_export_collection"
+        android:title="@string/action_export_collection"
+        app:showAsAction="never" />
 </menu>

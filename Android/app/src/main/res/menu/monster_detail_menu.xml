@@ -23,4 +23,9 @@
         android:id="@+id/menu_action_add_to_dashboard"
         android:title="@string/action_add_to_dashboard"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_action_export_card"
+        android:title="@string/action_export_card"
+        app:showAsAction="never" />
 </menu>
