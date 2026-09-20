@@ -208,6 +208,13 @@ public class MonsterRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Flowable<List<com.majinnaibu.monstercards.models.DashboardMonsterWithMonster>> getDashboardMonstersWithMonster() {
+        return m_db.dashboardDAO()
+                .getDashboardMonstersWithMonster()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Flowable<List<DashboardMonster>> getDashboardMonsterEntries() {
         return m_db.dashboardDAO()
                 .getDashboardMonsterEntries()

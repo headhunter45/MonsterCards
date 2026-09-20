@@ -20,13 +20,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.ui.shared.SwipeToDeleteCallback;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
 import java.util.UUID;
 
@@ -150,10 +150,7 @@ public class CollectionsFragment extends MCFragment {
                     public void onComplete() {
                         View view = getView();
                         if (view != null) {
-                            Snackbar.make(
-                                    view,
-                                    getString(R.string.snackbar_collection_created, collection.name),
-                                    Snackbar.LENGTH_LONG)
+                            SnackbarHelper.makeLong(view, getString(R.string.snackbar_collection_created, collection.name))
                                     .setAction("View", v -> navigateToCollectionDetail(collection.id))
                                     .show();
                         }
@@ -164,7 +161,7 @@ public class CollectionsFragment extends MCFragment {
                         Logger.logError("Error creating collection", e);
                         View view = getView();
                         if (view != null) {
-                            Snackbar.make(view, getString(R.string.snackbar_failed_to_create_collection), Snackbar.LENGTH_LONG).show();
+                            SnackbarHelper.showLong(view, getString(R.string.snackbar_failed_to_create_collection));
                         }
                     }
                 });

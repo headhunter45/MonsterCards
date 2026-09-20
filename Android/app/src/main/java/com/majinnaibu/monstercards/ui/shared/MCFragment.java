@@ -19,11 +19,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.MonsterCardsApplication;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -87,7 +87,7 @@ public class MCFragment extends Fragment {
             Logger.logError("Failed to launch document creation picker", e);
             View view = getView();
             if (view != null) {
-                Snackbar.make(view, R.string.snackbar_export_failed, Snackbar.LENGTH_LONG).show();
+                SnackbarHelper.showLong(view, R.string.snackbar_export_failed);
             }
         }
     }
@@ -103,14 +103,14 @@ public class MCFragment extends Fragment {
                 if (view != null) {
                     String fileName = getFileNameFromUri(context, uri);
                     String message = getString(R.string.snackbar_export_success, fileName);
-                    Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
+                    SnackbarHelper.showLong(view, message);
                 }
             }
         } catch (Exception e) {
             Logger.logError("Failed to write export content to URI", e);
             View view = getView();
             if (view != null) {
-                Snackbar.make(view, R.string.snackbar_export_failed, Snackbar.LENGTH_LONG).show();
+                SnackbarHelper.showLong(view, R.string.snackbar_export_failed);
             }
         }
     }

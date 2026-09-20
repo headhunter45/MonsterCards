@@ -3,9 +3,11 @@ package com.majinnaibu.monstercards.data;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.majinnaibu.monstercards.models.DashboardMonster;
+import com.majinnaibu.monstercards.models.DashboardMonsterWithMonster;
 import com.majinnaibu.monstercards.models.Monster;
 
 import java.util.List;
@@ -19,6 +21,10 @@ public interface DashboardDAO {
     @Query("SELECT monsters.* FROM monsters INNER JOIN dashboard_monsters ON monsters.id = dashboard_monsters.monster_id ORDER BY dashboard_monsters.ordinal ASC, dashboard_monsters.id ASC")
     Flowable<List<Monster>> getDashboardMonsters();
 
+    @Transaction
+    @Query("SELECT * FROM dashboard_monsters ORDER BY ordinal ASC, id ASC")
+    Flowable<List<DashboardMonsterWithMonster>> getDashboardMonstersWithMonster();
+
     @Query("SELECT * FROM dashboard_monsters ORDER BY ordinal ASC, id ASC")
     Flowable<List<DashboardMonster>> getDashboardMonsterEntries();
 
@@ -28,8 +34,11 @@ public interface DashboardDAO {
     @Query("DELETE FROM dashboard_monsters WHERE id = :id")
     Completable removeDashboardMonsterById(long id);
 
-    @Query("DELETE FROM dashboard_monsters WHERE monster_id = :monsterId")
+    @Query("DELETE FROM dashboard_monsters WHERE id = (SELECT id FROM dashboard_monsters WHERE monster_id = :monsterId LIMIT 1)")
     Completable removeMonsterFromDashboard(String monsterId);
+
+    @Query("DELETE FROM dashboard_monsters WHERE monster_id = :monsterId")
+    Completable removeAllMonstersFromDashboard(String monsterId);
 
     @Query("DELETE FROM dashboard_monsters")
     Completable clearDashboard();

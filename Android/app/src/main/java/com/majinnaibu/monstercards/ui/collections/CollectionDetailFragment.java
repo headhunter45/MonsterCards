@@ -21,15 +21,18 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Collection;
+import com.majinnaibu.monstercards.models.DashboardMonster;
+import com.majinnaibu.monstercards.models.DashboardMonsterWithMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.dashboard.DashboardRecyclerViewAdapter;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -80,7 +83,15 @@ public class CollectionDetailFragment extends MCFragment {
 
         mViewModel.getMonsters().observe(getViewLifecycleOwner(), monsters -> {
             if (mAdapter != null) {
-                mAdapter.submitList(monsters);
+                List<DashboardMonsterWithMonster> items = new ArrayList<>();
+                if (monsters != null) {
+                    for (int i = 0; i < monsters.size(); i++) {
+                        DashboardMonster dm = new DashboardMonster(monsters.get(i).id, i);
+                        dm.id = i + 1;
+                        items.add(new DashboardMonsterWithMonster(dm, monsters.get(i)));
+                    }
+                }
+                mAdapter.submitList(items);
             }
         });
 
@@ -113,9 +124,9 @@ public class CollectionDetailFragment extends MCFragment {
         GridLayoutManager layoutManager = new GridLayoutManager(context, columnCount);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new DashboardRecyclerViewAdapter(monster -> {
-            if (monster != null) {
-                navigateToMonsterDetail(monster.id);
+        mAdapter = new DashboardRecyclerViewAdapter(item -> {
+            if (item != null && item.monster != null) {
+                navigateToMonsterDetail(item.monster.id);
             } else {
                 Logger.logError("Can't navigate to MonsterDetailFragment with a null monster");
             }
@@ -133,7 +144,7 @@ public class CollectionDetailFragment extends MCFragment {
                     if (monsters.isEmpty()) {
                         View view = getView();
                         if (view != null) {
-                            Snackbar.make(view, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG).show();
+                            SnackbarHelper.showLong(view, getString(R.string.snackbar_failed_to_create_monster));
                         }
                         return;
                     }
@@ -162,11 +173,7 @@ public class CollectionDetailFragment extends MCFragment {
                     if (view != null) {
                         Collection collection = mViewModel.getCollection().getValue();
                         String collectionName = collection != null ? collection.name : "";
-                        Snackbar.make(
-                                view,
-                                getString(R.string.snackbar_monster_added_to_collection, monster.name, collectionName),
-                                Snackbar.LENGTH_LONG)
-                                .show();
+                        SnackbarHelper.showLong(view, getString(R.string.snackbar_monster_added_to_collection, monster.name, collectionName));
                     }
                 }, Logger::logError));
     }
@@ -219,7 +226,7 @@ public class CollectionDetailFragment extends MCFragment {
                     if (view != null) {
                         Collection collection = mViewModel.getCollection().getValue();
                         String collectionName = collection != null ? collection.name : "";
-                        Snackbar.make(view, getString(R.string.snackbar_collection_added_to_dashboard, collectionName), Snackbar.LENGTH_LONG).show();
+                        SnackbarHelper.showLong(view, getString(R.string.snackbar_collection_added_to_dashboard, collectionName));
                     }
                 }, Logger::logError));
     }

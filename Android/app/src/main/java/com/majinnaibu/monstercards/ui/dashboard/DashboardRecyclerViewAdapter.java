@@ -18,29 +18,44 @@ import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.databinding.CardMonsterBinding;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
+import com.majinnaibu.monstercards.models.DashboardMonsterWithMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.Trait;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.Locale;
 
-public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, DashboardRecyclerViewAdapter.ViewHolder> {
-    private static final DiffUtil.ItemCallback<Monster> DIFF_CALLBACK = new DiffUtil.ItemCallback<Monster>() {
+public class DashboardRecyclerViewAdapter extends ListAdapter<DashboardMonsterWithMonster, DashboardRecyclerViewAdapter.ViewHolder> {
+    private static final DiffUtil.ItemCallback<DashboardMonsterWithMonster> DIFF_CALLBACK = new DiffUtil.ItemCallback<DashboardMonsterWithMonster>() {
         @Override
-        public boolean areItemsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
-            return oldItem.id.equals(newItem.id);
+        public boolean areItemsTheSame(@NonNull DashboardMonsterWithMonster oldItem, @NonNull DashboardMonsterWithMonster newItem) {
+            if (oldItem.dashboardEntry != null && newItem.dashboardEntry != null) {
+                return oldItem.dashboardEntry.id == newItem.dashboardEntry.id;
+            }
+            return oldItem.monster.id.equals(newItem.monster.id);
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull Monster oldItem, @NonNull Monster newItem) {
-            return oldItem.equals(newItem);
+        public boolean areContentsTheSame(@NonNull DashboardMonsterWithMonster oldItem, @NonNull DashboardMonsterWithMonster newItem) {
+            if (oldItem.dashboardEntry != null && newItem.dashboardEntry != null) {
+                return oldItem.dashboardEntry.id == newItem.dashboardEntry.id
+                        && oldItem.dashboardEntry.ordinal == newItem.dashboardEntry.ordinal
+                        && (oldItem.monster != null && oldItem.monster.equals(newItem.monster));
+            }
+            return (oldItem.monster != null && oldItem.monster.equals(newItem.monster));
         }
     };
     private final ItemCallback mOnClick;
+    private final ItemCallback mOnLongClick;
 
-    public DashboardRecyclerViewAdapter(ItemCallback onClick) {
+    public DashboardRecyclerViewAdapter(ItemCallback onClick, ItemCallback onLongClick) {
         super(DIFF_CALLBACK);
         mOnClick = onClick;
+        mOnLongClick = onLongClick;
+    }
+
+    public DashboardRecyclerViewAdapter(ItemCallback onClick) {
+        this(onClick, null);
     }
 
     @NonNull
@@ -52,7 +67,9 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Logger.logUnimplementedMethod();
-        Monster monster = getItem(position);
+        DashboardMonsterWithMonster item = getItem(position);
+        Monster monster = item.monster;
+        holder.item = item;
         holder.monster = monster;
         holder.name.setText(monster.name);
         holder.meta.setText(monster.getMeta());
@@ -120,16 +137,25 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<Monster, Dashboard
 
         holder.itemView.setOnClickListener(v -> {
             if (mOnClick != null) {
-                mOnClick.onItemCallback(holder.monster);
+                mOnClick.onItemCallback(holder.item);
             }
+        });
+
+        holder.itemView.setOnLongClickListener(v -> {
+            if (mOnLongClick != null) {
+                mOnLongClick.onItemCallback(holder.item);
+                return true;
+            }
+            return false;
         });
     }
 
     public interface ItemCallback {
-        void onItemCallback(Monster monster);
+        void onItemCallback(DashboardMonsterWithMonster item);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        public DashboardMonsterWithMonster item;
         public final TextView name;
         public final TextView meta;
         public final View action1Group;

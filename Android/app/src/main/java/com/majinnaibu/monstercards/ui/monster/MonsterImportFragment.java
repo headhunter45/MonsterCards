@@ -23,7 +23,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.MonsterCardsApplication;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
@@ -34,6 +33,7 @@ import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.library.LibraryFragmentDirections;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
 import java.util.List;
 import java.util.UUID;
@@ -174,7 +174,7 @@ public class MonsterImportFragment extends MCFragment {
                     @Override
                     public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
                         Logger.logError("Error creating monster", e);
-                        Snackbar.make(mHolder.root, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG).show();
+                        SnackbarHelper.showLong(mHolder.root, getString(R.string.snackbar_failed_to_create_monster));
                     }
                 });
             } else {
