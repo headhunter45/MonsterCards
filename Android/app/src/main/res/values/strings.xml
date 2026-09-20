@@ -188,4 +188,14 @@
     <string name="empty_library_title">Your Library is Empty</string>
     <string name="empty_library_subtitle">Create new monster cards or import them from D&amp;D Beyond or Open5e.</string>
     <string name="app_title_splash">Monster Cards</string>
+
+    <string name="action_remove_single_monster">Remove Monster...</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_view_details">View Details</string>
+    <string name="action_remove_from_dashboard">Remove from Dashboard</string>
+    <string name="snackbar_removed_from_dashboard">Removed %1$s from Dashboard</string>
+    <string name="snackbar_dashboard_already_empty">Dashboard is already empty</string>
+    <string name="dialog_remove_from_dashboard_title">Remove %1$s?</string>
+    <string name="dialog_remove_from_dashboard_message">Remove %1$s from your dashboard?</string>
 </resources>

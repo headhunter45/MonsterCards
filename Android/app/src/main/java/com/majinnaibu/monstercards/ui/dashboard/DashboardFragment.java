@@ -21,13 +21,13 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ public class DashboardFragment extends MCFragment {
 
     private void loadDashboardMonsters() {
         MonsterRepository repository = getMonsterRepository();
-        mDisposables.add(repository.getDashboardMonsters()
+        mDisposables.add(repository.getDashboardMonstersWithMonster()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(monsters -> mViewModel.setMonsters(monsters), Logger::logError));
@@ -82,14 +82,21 @@ public class DashboardFragment extends MCFragment {
         GridLayoutManager layoutManager = new GridLayoutManager(context, columnCount);
         recyclerView.setLayoutManager(layoutManager);
 
-        LiveData<List<Monster>> monsterData = mViewModel.getMonsters();
-        mAdapter = new DashboardRecyclerViewAdapter(monster -> {
-            if (monster != null) {
-                navigateToMonsterDetail(monster);
-            } else {
-                Logger.logError("Can't navigate to MonsterDetailFragment with a null monster");
-            }
-        });
+        LiveData<List<com.majinnaibu.monstercards.models.DashboardMonsterWithMonster>> monsterData = mViewModel.getMonsters();
+        mAdapter = new DashboardRecyclerViewAdapter(
+                item -> {
+                    if (item != null && item.monster != null) {
+                        navigateToMonsterDetail(item.monster);
+                    } else {
+                        Logger.logError("Can't navigate to MonsterDetailFragment with a null monster");
+                    }
+                },
+                item -> {
+                    if (item != null) {
+                        showCardOptionsMenu(item);
+                    }
+                }
+        );
         if (monsterData != null) {
             monsterData.observe(getViewLifecycleOwner(), monsters -> {
                 mAdapter.submitList(monsters);
@@ -113,9 +120,9 @@ public class DashboardFragment extends MCFragment {
                 int fromPos = viewHolder.getAdapterPosition();
                 int toPos = target.getAdapterPosition();
                 if (fromPos != RecyclerView.NO_POSITION && toPos != RecyclerView.NO_POSITION) {
-                    List<Monster> currentList = new ArrayList<>(mAdapter.getCurrentList());
+                    List<com.majinnaibu.monstercards.models.DashboardMonsterWithMonster> currentList = new ArrayList<>(mAdapter.getCurrentList());
                     if (fromPos < currentList.size() && toPos < currentList.size()) {
-                        Monster moved = currentList.remove(fromPos);
+                        com.majinnaibu.monstercards.models.DashboardMonsterWithMonster moved = currentList.remove(fromPos);
                         currentList.add(toPos, moved);
                         mAdapter.submitList(currentList);
                     }
@@ -127,10 +134,10 @@ public class DashboardFragment extends MCFragment {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    List<Monster> currentList = mAdapter.getCurrentList();
+                    List<com.majinnaibu.monstercards.models.DashboardMonsterWithMonster> currentList = mAdapter.getCurrentList();
                     if (position < currentList.size()) {
-                        Monster monster = currentList.get(position);
-                        removeMonsterFromDashboard(monster);
+                        com.majinnaibu.monstercards.models.DashboardMonsterWithMonster item = currentList.get(position);
+                        removeDashboardMonsterEntry(item);
                     }
                 }
             }
@@ -142,6 +149,7 @@ public class DashboardFragment extends MCFragment {
         String[] options = new String[]{
                 getString(R.string.action_add_single_monster),
                 getString(R.string.action_add_collection_option),
+                getString(R.string.action_remove_single_monster),
                 getString(R.string.action_clear_dashboard)
         };
         new AlertDialog.Builder(requireContext())
@@ -152,11 +160,75 @@ public class DashboardFragment extends MCFragment {
                     } else if (which == 1) {
                         showAddCollectionPicker();
                     } else if (which == 2) {
+                        showRemoveMonsterPicker();
+                    } else if (which == 3) {
                         clearDashboard();
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)
                 .show();
+    }
+
+    private void showRemoveMonsterPicker() {
+        MonsterRepository repository = getMonsterRepository();
+        mDisposables.add(repository.getDashboardMonsters()
+                .firstOrError()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(monsters -> {
+                    if (monsters.isEmpty()) {
+                        View view = getView();
+                        if (view != null) {
+                            SnackbarHelper.showLong(view, getString(R.string.snackbar_dashboard_already_empty));
+                        }
+                        return;
+                    }
+                    String[] names = new String[monsters.size()];
+                    for (int i = 0; i < monsters.size(); i++) {
+                        names[i] = monsters.get(i).name;
+                    }
+                    new AlertDialog.Builder(requireContext())
+                            .setTitle(R.string.action_remove_single_monster)
+                            .setItems(names, (dialog, which) -> {
+                                Monster selected = monsters.get(which);
+                                removeMonsterFromDashboard(selected);
+                            })
+                            .setNegativeButton(R.string.dialog_cancel, null)
+                            .show();
+                }, Logger::logError));
+    }
+
+    private void showCardOptionsMenu(@NonNull com.majinnaibu.monstercards.models.DashboardMonsterWithMonster item) {
+        String[] options = new String[]{
+                getString(R.string.action_view_details),
+                getString(R.string.action_remove_from_dashboard)
+        };
+        new AlertDialog.Builder(requireContext())
+                .setTitle(item.monster.name)
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        navigateToMonsterDetail(item.monster);
+                    } else if (which == 1) {
+                        removeDashboardMonsterEntry(item);
+                    }
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
+    }
+
+    private void removeDashboardMonsterEntry(@NonNull com.majinnaibu.monstercards.models.DashboardMonsterWithMonster item) {
+        MonsterRepository repository = getMonsterRepository();
+        mDisposables.add(repository.removeDashboardMonsterById(item.dashboardEntry.id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+                    View view = getView();
+                    if (view != null) {
+                        SnackbarHelper.makeLong(view, getString(R.string.snackbar_removed_from_dashboard, item.monster.name))
+                                .setAction(R.string.action_undo, v -> addMonsterToDashboard(item.monster))
+                                .show();
+                    }
+                }, Logger::logError));
     }
 
     private void showAddMonsterPicker() {
@@ -169,7 +241,7 @@ public class DashboardFragment extends MCFragment {
                     if (monsters.isEmpty()) {
                         View view = getView();
                         if (view != null) {
-                            Snackbar.make(view, getString(R.string.no_monsters_available), Snackbar.LENGTH_LONG).show();
+                            SnackbarHelper.showLong(view, getString(R.string.no_monsters_available));
                         }
                         return;
                     }
@@ -198,7 +270,7 @@ public class DashboardFragment extends MCFragment {
                     if (collections.isEmpty()) {
                         View view = getView();
                         if (view != null) {
-                            Snackbar.make(view, getString(R.string.no_collections_available), Snackbar.LENGTH_LONG).show();
+                            SnackbarHelper.showLong(view, getString(R.string.no_collections_available));
                         }
                         return;
                     }
@@ -225,7 +297,7 @@ public class DashboardFragment extends MCFragment {
                 .subscribe(() -> {
                     View view = getView();
                     if (view != null) {
-                        Snackbar.make(view, getString(R.string.snackbar_added_to_dashboard, monster.name), Snackbar.LENGTH_LONG).show();
+                        SnackbarHelper.showLong(view, getString(R.string.snackbar_added_to_dashboard, monster.name));
                     }
                 }, Logger::logError));
     }
@@ -238,7 +310,7 @@ public class DashboardFragment extends MCFragment {
                 .subscribe(() -> {
                     View view = getView();
                     if (view != null) {
-                        Snackbar.make(view, getString(R.string.snackbar_collection_added_to_dashboard, collection.name), Snackbar.LENGTH_LONG).show();
+                        SnackbarHelper.showLong(view, getString(R.string.snackbar_collection_added_to_dashboard, collection.name));
                     }
                 }, Logger::logError));
     }
@@ -248,7 +320,14 @@ public class DashboardFragment extends MCFragment {
         mDisposables.add(repository.removeMonsterFromDashboard(monster.id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(() -> {}, Logger::logError));
+                .subscribe(() -> {
+                    View view = getView();
+                    if (view != null) {
+                        SnackbarHelper.makeLong(view, getString(R.string.snackbar_removed_from_dashboard, monster.name))
+                                .setAction(R.string.action_undo, v -> addMonsterToDashboard(monster))
+                                .show();
+                    }
+                }, Logger::logError));
     }
 
     private void clearDashboard() {
@@ -259,7 +338,7 @@ public class DashboardFragment extends MCFragment {
                 .subscribe(() -> {
                     View view = getView();
                     if (view != null) {
-                        Snackbar.make(view, getString(R.string.snackbar_dashboard_cleared), Snackbar.LENGTH_LONG).show();
+                        SnackbarHelper.showLong(view, getString(R.string.snackbar_dashboard_cleared));
                     }
                 }, Logger::logError));
     }
@@ -282,6 +361,9 @@ public class DashboardFragment extends MCFragment {
             return true;
         } else if (item.getItemId() == R.id.menu_action_add_collection_option) {
             showAddCollectionPicker();
+            return true;
+        } else if (item.getItemId() == R.id.menu_action_remove_single_monster) {
+            showRemoveMonsterPicker();
             return true;
         } else if (item.getItemId() == R.id.menu_action_clear_dashboard) {
             clearDashboard();

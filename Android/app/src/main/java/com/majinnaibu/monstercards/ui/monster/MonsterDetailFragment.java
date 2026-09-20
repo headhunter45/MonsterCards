@@ -31,7 +31,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.helpers.CommonMarkHelper;
@@ -40,6 +39,7 @@ import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
 import java.util.List;
 import java.util.UUID;
@@ -252,7 +252,7 @@ public class MonsterDetailFragment extends MCFragment {
             Logger.logError("Failed to share monster", e);
             View view = getView();
             if (view != null) {
-                Snackbar.make(view, R.string.failed_to_share_monster, Snackbar.LENGTH_LONG).show();
+                SnackbarHelper.showLong(view, R.string.failed_to_share_monster);
             }
         }
     }
@@ -270,7 +270,7 @@ public class MonsterDetailFragment extends MCFragment {
                     View view = getView();
                     if (view != null) {
                         String monsterName = mViewModel.getName().getValue();
-                        Snackbar.make(view, getString(R.string.snackbar_added_to_dashboard, monsterName), Snackbar.LENGTH_LONG).show();
+                        SnackbarHelper.showLong(view, getString(R.string.snackbar_added_to_dashboard, monsterName));
                     }
                 }, Logger::logError);
     }
@@ -291,7 +291,7 @@ public class MonsterDetailFragment extends MCFragment {
                         if (collections.isEmpty()) {
                             View view = getView();
                             if (view != null) {
-                                Snackbar.make(view, getString(R.string.no_collections_available), Snackbar.LENGTH_LONG).show();
+                                SnackbarHelper.showLong(view, getString(R.string.no_collections_available));
                             }
                             dispose();
                             return;
@@ -330,11 +330,7 @@ public class MonsterDetailFragment extends MCFragment {
                         View view = getView();
                         if (view != null) {
                             String monsterName = mViewModel.getName().getValue();
-                            Snackbar.make(
-                                    view,
-                                    getString(R.string.snackbar_monster_added_to_collection, monsterName, collection.name),
-                                    Snackbar.LENGTH_LONG)
-                                    .show();
+                            SnackbarHelper.showLong(view, getString(R.string.snackbar_monster_added_to_collection, monsterName, collection.name));
                         }
                     }
 
