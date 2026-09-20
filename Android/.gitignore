@@ -1,20 +1,15 @@
-.artifacts
-.gradle
-.idea/appInsightsSettings.xml
-.idea/caches
-.idea/compiler.xml
-.idea/deploymentTargetSelector.xml
-.idea/deviceManager.xml
-.idea/gradle.xml
-.idea/markdown.xml
-.idea/migrations.xml
-.idea/planningMode.xml
-.idea/studiobot.xml
-.idea/workspace.xml
-.DS_Store
-.externalNativeBuild
-.cxx
-*.iml
-build
-captures
+# Build outputs
+build/
+app/build/
+.externalNativeBuild/
+.cxx/
+captures/
 local.properties
+*.iml
+
+# Android / Gradle caches
+.gradle/
+.artifacts/
+
+# System
+.DS_Store
