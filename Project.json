@@ -1,0 +1,39 @@
+{
+  "id": "monster-cards",
+  "title": "MonsterCards",
+  "description": "Cross-platform mobile app for creating, storing, importing, and sharing 5e-compatible monster stat blocks.",
+  "docId": "MonsterCards",
+  "image": {
+    "url": "PROMPT: Polished cross-platform tabletop RPG companion app artwork for MonsterCards, showing a collection of fantasy monster stat cards arranged on a clean mobile interface with a dragon, goblin, and armored adventurer portraits, subtle 5e-inspired parchment and ink details, one iPhone and one Android phone, vivid red, teal, gold, and charcoal palette, crisp editorial product illustration, no readable text, no brand logos, no watermark, wide landscape composition suitable for a project thumbnail.",
+    "alt": "Fantasy monster stat cards displayed on iPhone and Android devices",
+    "prompt": "Polished cross-platform tabletop RPG companion app artwork for MonsterCards, showing a collection of fantasy monster stat cards arranged on a clean mobile interface with a dragon, goblin, and armored adventurer portraits, subtle 5e-inspired parchment and ink details, one iPhone and one Android phone, vivid red, teal, gold, and charcoal palette, crisp editorial product illustration, no readable text, no brand logos, no watermark, wide landscape composition suitable for a project thumbnail.",
+    "width": 0,
+    "height": 0,
+    "backgroundClassName": "bg-surface"
+  },
+  "url": "/projects/monster-cards",
+  "tags": ["open-source"],
+  "source": {
+    "type": "github",
+    "url": "https://github.com/headhunter45/MonsterCards"
+  },
+  "feedback": {
+    "url": ""
+  },
+  "features": [
+    "Create and store 5e-compatible monster stat blocks",
+    "Import Tetra-Cube monster files",
+    "Import D&D Beyond character data",
+    "iCloud library synchronization on iOS",
+    "Universal Open5e-based card format"
+  ],
+  "technology": [
+    "Swift",
+    "Java",
+    "AndroidX",
+    "Room",
+    "RxJava",
+    "Gson",
+    "iCloud"
+  ]
+}
