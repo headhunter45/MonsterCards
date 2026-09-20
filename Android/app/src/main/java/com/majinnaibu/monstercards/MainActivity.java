@@ -58,12 +58,33 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         super.onCreate(savedInstanceState);
         AppCenterInitializer.init(getApplication());
         setContentView(R.layout.activity_main);
 
+        com.google.android.material.appbar.MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+
+        View appBarLayout = findViewById(R.id.app_bar_layout);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+
+        View container = findViewById(R.id.container);
+        if (container != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(container, (v, windowInsets) -> {
+                Insets systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                if (appBarLayout != null) {
+                    appBarLayout.setPadding(0, systemBars.top, 0, 0);
+                }
+                if (navView != null) {
+                    navView.setPadding(0, 0, 0, systemBars.bottom);
+                }
+                return windowInsets;
+            });
+        }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

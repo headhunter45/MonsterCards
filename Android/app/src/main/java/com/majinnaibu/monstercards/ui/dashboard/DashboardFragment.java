@@ -57,6 +57,9 @@ public class DashboardFragment extends MCFragment {
         if (fab != null) {
             fab.setOnClickListener(v -> showAddToDashboardOptionsDialog());
         }
+        if (mHolder.emptyStateButton != null) {
+            mHolder.emptyStateButton.setOnClickListener(v -> showAddToDashboardOptionsDialog());
+        }
 
         setupRecyclerView(mHolder.list);
         loadDashboardMonsters();
@@ -88,7 +91,16 @@ public class DashboardFragment extends MCFragment {
             }
         });
         if (monsterData != null) {
-            monsterData.observe(getViewLifecycleOwner(), monsters -> mAdapter.submitList(monsters));
+            monsterData.observe(getViewLifecycleOwner(), monsters -> {
+                mAdapter.submitList(monsters);
+                boolean isEmpty = (monsters == null || monsters.isEmpty());
+                if (mHolder.emptyState != null) {
+                    mHolder.emptyState.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+                }
+                if (mHolder.list != null) {
+                    mHolder.list.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+                }
+            });
         }
         recyclerView.setAdapter(mAdapter);
 
@@ -301,9 +313,13 @@ public class DashboardFragment extends MCFragment {
 
     private static class ViewHolder {
         final RecyclerView list;
+        final View emptyState;
+        final View emptyStateButton;
 
         ViewHolder(View root) {
             list = root.findViewById(R.id.list);
+            emptyState = root.findViewById(R.id.empty_state);
+            emptyStateButton = root.findViewById(R.id.empty_state_button);
         }
     }
 }

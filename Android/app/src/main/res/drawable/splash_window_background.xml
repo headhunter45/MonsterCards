@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Solid dark red background -->
+    <item android:drawable="@color/colorPrimaryDark" />
+
+    <!-- Centered logo + Spindle's End font text -->
+    <item
+        android:width="280dp"
+        android:height="280dp"
+        android:drawable="@drawable/ic_splash_combined"
+        android:gravity="center" />
+</layer-list>
