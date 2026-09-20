@@ -148,9 +148,7 @@ public class DashboardFragment extends MCFragment {
     private void showAddToDashboardOptionsDialog() {
         String[] options = new String[]{
                 getString(R.string.action_add_single_monster),
-                getString(R.string.action_add_collection_option),
-                getString(R.string.action_remove_single_monster),
-                getString(R.string.action_clear_dashboard)
+                getString(R.string.action_add_collection_option)
         };
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.dialog_add_to_dashboard)
@@ -159,10 +157,6 @@ public class DashboardFragment extends MCFragment {
                         showAddMonsterPicker();
                     } else if (which == 1) {
                         showAddCollectionPicker();
-                    } else if (which == 2) {
-                        showRemoveMonsterPicker();
-                    } else if (which == 3) {
-                        clearDashboard();
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)
