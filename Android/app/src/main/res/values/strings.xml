@@ -180,4 +180,12 @@
     <string name="snackbar_import_binder_success">Imported binder successfully</string>
     <string name="default_filename_library">MonsterCards Library</string>
     <string name="default_filename_dashboard">MonsterCards Dashboard</string>
+
+    <string name="empty_dashboard_title">Dashboard is Empty</string>
+    <string name="empty_dashboard_subtitle">Pin monster cards or collections here for quick reference during your tabletop sessions.</string>
+    <string name="empty_collections_title">No Collections Yet</string>
+    <string name="empty_collections_subtitle">Organize your monsters into custom campaign or encounter collections.</string>
+    <string name="empty_library_title">Your Library is Empty</string>
+    <string name="empty_library_subtitle">Create new monster cards or import them from D&amp;D Beyond or Open5e.</string>
+    <string name="app_title_splash">Monster Cards</string>
 </resources>

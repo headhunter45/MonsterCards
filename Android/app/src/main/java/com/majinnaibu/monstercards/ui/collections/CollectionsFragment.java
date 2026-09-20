@@ -31,10 +31,12 @@ import com.majinnaibu.monstercards.utils.Logger;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class CollectionsFragment extends MCFragment {
+    private final CompositeDisposable mDisposables = new CompositeDisposable();
 
     @Nullable
     @Override
@@ -48,17 +50,34 @@ public class CollectionsFragment extends MCFragment {
             fab.setOnClickListener(v -> showCreateCollectionDialog());
         }
 
+        View emptyState = root.findViewById(R.id.empty_state);
+        View emptyStateButton = root.findViewById(R.id.empty_state_button);
+        if (emptyStateButton != null) {
+            emptyStateButton.setOnClickListener(v -> showCreateCollectionDialog());
+        }
+
         RecyclerView recyclerView = root.findViewById(R.id.collection_list);
         if (recyclerView != null) {
-            setupRecyclerView(recyclerView);
+            setupRecyclerView(recyclerView, emptyState);
         }
 
         return root;
     }
 
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView, @Nullable View emptyState) {
         Context context = requireContext();
         MonsterRepository repository = getMonsterRepository();
+
+        mDisposables.add(repository.getCollectionsWithCount()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(collections -> {
+                    boolean isEmpty = (collections == null || collections.isEmpty());
+                    if (emptyState != null) {
+                        emptyState.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+                    }
+                    recyclerView.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+                }, Logger::logError));
 
         CollectionsRecyclerViewAdapter adapter = new CollectionsRecyclerViewAdapter(
                 context,
@@ -154,5 +173,11 @@ public class CollectionsFragment extends MCFragment {
     private void navigateToCollectionDetail(@NonNull UUID collectionId) {
         NavDirections action = CollectionsFragmentDirections.actionNavigationCollectionsToCollectionDetailFragment(collectionId.toString());
         Navigation.findNavController(requireView()).navigate(action);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mDisposables.clear();
     }
 }

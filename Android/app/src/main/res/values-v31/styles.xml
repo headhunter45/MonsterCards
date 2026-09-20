@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
+    <!-- Base application theme for Android 12+ (API 31+). -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -11,11 +12,14 @@
         <item name="colorOnSecondary">#000000</item>
 
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
+
+        <!-- Android 12+ Splash Screen API -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="android:windowSplashScreenBackground">@color/colorPrimaryDark</item>
     </style>
 
-    <!-- Instant starting theme displaying logo on launch -->
     <style name="Theme.App.Starting" parent="AppTheme">
-        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="android:windowSplashScreenBackground">@color/colorPrimaryDark</item>
     </style>
-
 </resources>

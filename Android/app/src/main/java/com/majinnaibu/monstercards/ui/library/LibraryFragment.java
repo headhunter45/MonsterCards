@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
@@ -38,10 +39,12 @@ import com.majinnaibu.monstercards.utils.Logger;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class LibraryFragment extends MCFragment {
+    private final CompositeDisposable mDisposables = new CompositeDisposable();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,9 +55,15 @@ public class LibraryFragment extends MCFragment {
         assert fab != null;
         setupAddMonsterButton(fab);
 
+        View emptyState = root.findViewById(R.id.empty_state);
+        View emptyStateButton = root.findViewById(R.id.empty_state_button);
+        if (emptyStateButton != null) {
+            emptyStateButton.setOnClickListener(v -> createNewMonster());
+        }
+
         final RecyclerView recyclerView = root.findViewById(R.id.monster_list);
         assert recyclerView != null;
-        setupRecyclerView(recyclerView);
+        setupRecyclerView(recyclerView, emptyState);
 
         return root;
     }
@@ -130,9 +139,20 @@ public class LibraryFragment extends MCFragment {
         builder.show();
     }
 
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView, @Nullable View emptyState) {
         Context context = requireContext();
         MonsterRepository repository = this.getMonsterRepository();
+
+        mDisposables.add(repository.getMonsters()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(monsters -> {
+                    boolean isEmpty = (monsters == null || monsters.isEmpty());
+                    if (emptyState != null) {
+                        emptyState.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+                    }
+                    recyclerView.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+                }, Logger::logError));
 
         LibraryRecyclerViewAdapter adapter = new LibraryRecyclerViewAdapter(
                 context,
@@ -165,30 +185,31 @@ public class LibraryFragment extends MCFragment {
     }
 
     private void setupAddMonsterButton(@NonNull FloatingActionButton fab) {
-        fab.setOnClickListener(view -> {
-            Monster monster = new Monster();
-            monster.name = getString(R.string.default_monster_name);
-            MonsterRepository repository = this.getMonsterRepository();
-            repository.addMonster(monster)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                            new DisposableCompletableObserver() {
-                                @Override
-                                public void onComplete() {
-                                    navigateToEditMonster(monster.id);
-                                }
+        fab.setOnClickListener(view -> createNewMonster());
+    }
 
-                                @Override
-                                public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                                    Logger.logError("Error creating monster", e);
-                                    View view = getView();
-                                    if (view != null) {
-                                        Snackbar.make(view, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-        });
+    private void createNewMonster() {
+        Monster monster = new Monster();
+        monster.name = getString(R.string.default_monster_name);
+        MonsterRepository repository = this.getMonsterRepository();
+        mDisposables.add(repository.addMonster(monster)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableCompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                        navigateToEditMonster(monster.id);
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Logger.logError("Error creating monster", e);
+                        View view = getView();
+                        if (view != null) {
+                            Snackbar.make(view, getString(R.string.snackbar_failed_to_create_monster), Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+                }));
     }
 
     protected void navigateToMonsterDetail(@NonNull UUID monsterId) {
@@ -202,5 +223,11 @@ public class LibraryFragment extends MCFragment {
         navController.navigate(action);
         action = MonsterDetailFragmentDirections.actionNavigationMonsterToEditMonsterFragment(monsterId.toString());
         navController.navigate(action);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mDisposables.clear();
     }
 }
