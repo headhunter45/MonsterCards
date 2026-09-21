@@ -10,6 +10,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -33,7 +34,7 @@ import com.majinnaibu.monstercards.importers.GitRepoImporterService;
 import com.majinnaibu.monstercards.importers.Open5eApiWrapper;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.models.BinderExport;
-import com.majinnaibu.monstercards.models.GitRepositorySource;
+import com.majinnaibu.monstercards.models.ImportSource;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.SnackbarHelper;
@@ -53,10 +54,12 @@ import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+import java.util.concurrent.Callable;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Disposable mOpen5eImportDisposable;
-    private Disposable mGitImportDisposable;
+    private Disposable mImportDisposable;
+    private ImportSource mCurrentImportSource;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -212,83 +215,73 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void importAllFromOpen5e() {
-        if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
-            ToastHelper.showShort(this, "Open5e import already running");
+    public void startImportFromSource(ImportSource source) {
+        if (mImportDisposable != null && !mImportDisposable.isDisposed()) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.dialog_import_already_running_title)
+                    .setMessage(getString(R.string.dialog_import_already_running_message, mCurrentImportSource != null ? mCurrentImportSource.projectName : ""))
+                    .setPositiveButton(R.string.action_cancel_current, (dialog, which) -> {
+                        mImportDisposable.dispose();
+                        executeImportFromSource(source);
+                    })
+                    .setNegativeButton(R.string.dialog_cancel, null)
+                    .show();
             return;
         }
+        executeImportFromSource(source);
+    }
 
+    private void executeImportFromSource(ImportSource source) {
+        mCurrentImportSource = source;
         View rootView = findViewById(android.R.id.content);
-        Snackbar snackbar = SnackbarHelper.makeIndefinite(rootView, R.string.snackbar_importing_open5e);
+        Snackbar snackbar = SnackbarHelper.makeIndefinite(rootView, getString(R.string.snackbar_importing_source, source.projectName));
         snackbar.setAction(R.string.action_cancel, v -> {
-            if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
-                mOpen5eImportDisposable.dispose();
-                SnackbarHelper.showLong(rootView, R.string.snackbar_open5e_import_cancelled);
+            if (mImportDisposable != null && !mImportDisposable.isDisposed()) {
+                mImportDisposable.dispose();
+                SnackbarHelper.showLong(rootView, getString(R.string.snackbar_import_source_cancelled, source.projectName));
             }
         });
         snackbar.show();
 
-        mOpen5eImportDisposable = Single.fromCallable(() -> {
-            int totalImported = 0;
-            String nextUrl = null;
-            do {
-                if (mOpen5eImportDisposable != null && mOpen5eImportDisposable.isDisposed()) {
-                    break;
-                }
-                Open5eApiWrapper.Open5ePageResult page = Open5eApiWrapper.fetchPage(nextUrl);
-                for (Monster monster : page.monsters) {
-                    if (mOpen5eImportDisposable != null && mOpen5eImportDisposable.isDisposed()) {
-                        break;
+        Callable<Integer> importTask;
+        if (source.importType == ImportSource.ImportType.OPEN5E_API) {
+            importTask = () -> {
+                int totalImported = 0;
+                String nextUrl = null;
+                do {
+                    if (mImportDisposable != null && mImportDisposable.isDisposed()) break;
+                    Open5eApiWrapper.Open5ePageResult page = Open5eApiWrapper.fetchPage(nextUrl);
+                    for (Monster monster : page.monsters) {
+                        if (mImportDisposable != null && mImportDisposable.isDisposed()) break;
+                        try {
+                            ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                    .saveMonster(monster)
+                                    .blockingAwait();
+                            totalImported++;
+                        } catch (Exception e) {
+                            Logger.logError("Failed to save monster to database", e);
+                            runOnUiThread(() -> ToastHelper.showShort(MainActivity.this, "An error occurred while saving a monster."));
+                        }
                     }
-                    try {
-                        ((MonsterCardsApplication) getApplication()).getMonsterRepository()
-                                .saveMonster(monster)
-                                .blockingAwait();
-                        totalImported++;
-                    } catch (Exception e) {
-                        Logger.logError("Failed to save monster to database", e);
-                        runOnUiThread(() -> ToastHelper.showShort(MainActivity.this, "An error occurred while saving a monster."));
-                    }
-                }
-                nextUrl = page.nextUrl;
-            } while (nextUrl != null && !nextUrl.isEmpty());
-            return totalImported;
-        })
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(result -> {
-            snackbar.dismiss();
-            SnackbarHelper.showLong(rootView, R.string.snackbar_open5e_import_complete);
-        }, throwable -> {
-            snackbar.dismiss();
-            Logger.logError("Failed to import all Open5e monsters", throwable);
-            SnackbarHelper.showLong(rootView, R.string.snackbar_open5e_import_failed);
-        });
-    }
-
-    public void importFromGitRepository(@NonNull GitRepositorySource source) {
-        if (mGitImportDisposable != null && !mGitImportDisposable.isDisposed()) {
-            ToastHelper.showShort(this, "A GitHub import is already running.");
-            return;
+                    nextUrl = page.nextUrl;
+                } while (nextUrl != null && !nextUrl.isEmpty());
+                return totalImported;
+            };
+        } else {
+            importTask = () -> GitRepoImporterService.importFromGitRepository(getApplicationContext(), source, () -> mImportDisposable != null && mImportDisposable.isDisposed());
         }
 
-        View rootView = findViewById(android.R.id.content);
-        Snackbar snackbar = SnackbarHelper.makeIndefinite(rootView, R.string.snackbar_importing_github);
-        snackbar.show();
-
-        mGitImportDisposable = Single.fromCallable(() -> 
-            GitRepoImporterService.importFromGitRepository(getApplicationContext(), source)
-        )
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(resultCount -> {
-            snackbar.dismiss();
-            SnackbarHelper.showLong(rootView, getString(R.string.snackbar_github_import_complete, resultCount, source.projectName));
-        }, throwable -> {
-            snackbar.dismiss();
-            Logger.logError("Failed to import from GitHub repository: " + source.projectName, throwable);
-            SnackbarHelper.showLong(rootView, R.string.snackbar_github_import_failed);
-        });
+        mImportDisposable = Single.fromCallable(importTask)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(resultCount -> {
+                    snackbar.dismiss();
+                    SnackbarHelper.showLong(rootView, getString(R.string.snackbar_import_source_complete, resultCount, source.projectName));
+                }, throwable -> {
+                    snackbar.dismiss();
+                    Logger.logError("Failed to import from source: " + source.projectName, throwable);
+                    SnackbarHelper.showLong(rootView, getString(R.string.snackbar_import_source_failed, source.projectName));
+                });
     }
 
     public void importMultipleFilesFromUris(@NonNull List<Uri> uris) {
@@ -464,11 +457,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
-            mOpen5eImportDisposable.dispose();
-        }
-        if (mGitImportDisposable != null && !mGitImportDisposable.isDisposed()) {
-            mGitImportDisposable.dispose();
+        if (mImportDisposable != null && !mImportDisposable.isDisposed()) {
+            mImportDisposable.dispose();
         }
     }
 }

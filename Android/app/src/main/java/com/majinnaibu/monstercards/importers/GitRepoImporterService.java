@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.majinnaibu.monstercards.MonsterCardsApplication;
 import com.majinnaibu.monstercards.data.MonsterRepository;
-import com.majinnaibu.monstercards.models.GitRepositorySource;
+import com.majinnaibu.monstercards.models.ImportSource;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 
@@ -24,23 +24,28 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.function.BooleanSupplier;
 
 public class GitRepoImporterService {
 
-    public static int importFromGitRepository(Context context, GitRepositorySource source) throws Exception {
+    public static int importFromGitRepository(Context context, ImportSource source, BooleanSupplier isCancelled) throws Exception {
         int totalImported = 0;
         
         File tempZip = File.createTempFile("repo_download", ".zip", context.getCacheDir());
         File extractDir = new File(context.getCacheDir(), "repo_extracted_" + System.currentTimeMillis());
         
         try {
-            downloadZip(source.downloadUrl, tempZip);
+            downloadZip(source.downloadUrl, tempZip, isCancelled);
+            
+            if (isCancelled.getAsBoolean()) return 0;
             
             if (!extractDir.exists()) {
                 extractDir.mkdirs();
             }
             
-            unzipAndFilter(tempZip, extractDir, source.fileExtension);
+            unzipAndFilter(tempZip, extractDir, source.fileExtension, isCancelled);
+            
+            if (isCancelled.getAsBoolean()) return 0;
             
             // Instantiate Importer dynamically
             Class<?> clazz = Class.forName(source.importerClassName);
@@ -50,7 +55,7 @@ public class GitRepoImporterService {
             MonsterRepository repository = ((MonsterCardsApplication) context.getApplicationContext()).getMonsterRepository();
             
             // Process files
-            totalImported = processDirectory(extractDir, importer, repository);
+            totalImported = processDirectory(extractDir, importer, repository, isCancelled);
 
         } finally {
             deleteFileOrDir(tempZip);
@@ -60,7 +65,7 @@ public class GitRepoImporterService {
         return totalImported;
     }
 
-    private static void downloadZip(String urlStr, File dest) throws IOException {
+    private static void downloadZip(String urlStr, File dest, BooleanSupplier isCancelled) throws IOException {
         URL url = new URL(urlStr);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -86,27 +91,29 @@ public class GitRepoImporterService {
             byte[] buffer = new byte[8192];
             int count;
             while ((count = in.read(buffer)) != -1) {
+                if (isCancelled.getAsBoolean()) break;
                 out.write(buffer, 0, count);
             }
         }
     }
 
-    private static void unzipAndFilter(File zipFile, File extractDir, String filterExtension) throws IOException {
+    private static void unzipAndFilter(File zipFile, File extractDir, String filterExtension, BooleanSupplier isCancelled) throws IOException {
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
+                if (isCancelled.getAsBoolean()) break;
                 if (!entry.isDirectory()) {
                     String name = entry.getName();
                     if (filterExtension == null || name.endsWith(filterExtension)) {
                         File outFile = new File(extractDir, new File(name).getName());
                         if (outFile.exists()) {
-                            // in case there are multiple files with same name in different folders
                             outFile = new File(extractDir, System.currentTimeMillis() + "_" + new File(name).getName());
                         }
                         try (FileOutputStream fos = new FileOutputStream(outFile)) {
                             byte[] buffer = new byte[8192];
                             int count;
                             while ((count = zis.read(buffer)) != -1) {
+                                if (isCancelled.getAsBoolean()) break;
                                 fos.write(buffer, 0, count);
                             }
                         }
@@ -117,12 +124,13 @@ public class GitRepoImporterService {
         }
     }
 
-    private static int processDirectory(File dir, EntityImporter<Monster> importer, MonsterRepository repository) {
+    private static int processDirectory(File dir, EntityImporter<Monster> importer, MonsterRepository repository, BooleanSupplier isCancelled) {
         int importedCount = 0;
         File[] files = dir.listFiles();
         if (files == null) return 0;
         
         for (File file : files) {
+            if (isCancelled.getAsBoolean()) break;
             if (file.isFile()) {
                 String content = readFileContent(file);
                 if (content != null && importer.canImport(content)) {
