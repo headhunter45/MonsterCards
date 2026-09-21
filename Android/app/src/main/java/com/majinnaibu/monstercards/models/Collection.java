@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
@@ -30,6 +31,7 @@ public class Collection {
         this.description = "";
     }
 
+    @Ignore
     public Collection(@NonNull String name, @NonNull String description) {
         this.id = UUID.randomUUID();
         this.name = name;

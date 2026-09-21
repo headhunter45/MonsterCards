@@ -1,6 +1,7 @@
 package com.majinnaibu.monstercards.models;
 
 import androidx.room.Embedded;
+import androidx.room.Ignore;
 import androidx.room.Relation;
 
 public class DashboardMonsterWithMonster {
@@ -16,6 +17,7 @@ public class DashboardMonsterWithMonster {
     public DashboardMonsterWithMonster() {
     }
 
+    @Ignore
     public DashboardMonsterWithMonster(DashboardMonster dashboardEntry, Monster monster) {
         this.dashboardEntry = dashboardEntry;
         this.monster = monster;
