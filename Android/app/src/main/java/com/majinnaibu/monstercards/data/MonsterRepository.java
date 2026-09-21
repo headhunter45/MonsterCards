@@ -9,18 +9,22 @@ import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.CollectionMonster;
 import com.majinnaibu.monstercards.models.CollectionWithCount;
 import com.majinnaibu.monstercards.models.DashboardMonster;
+import com.majinnaibu.monstercards.models.DashboardMonsterWithMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SearchResultItem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -264,6 +268,91 @@ public class MonsterRepository {
         return result;
     }
 
+    public Completable clearAllData() {
+        return Completable.fromAction(() -> {
+            m_db.dashboardDAO().clearDashboard().blockingAwait();
+            m_db.collectionDAO().deleteAllCollectionMonsters().blockingAwait();
+            m_db.collectionDAO().deleteAllCollections().blockingAwait();
+            m_db.monsterDAO().deleteAllMonsters().blockingAwait();
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable removeAllCollections() {
+        return Completable.fromAction(() -> {
+            m_db.collectionDAO().deleteAllCollectionMonsters().blockingAwait();
+            m_db.collectionDAO().deleteAllCollections().blockingAwait();
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable removeAllMonstersFromCollection(@NonNull UUID collectionId) {
+        Completable result = m_db.collectionDAO().removeAllMonstersFromCollection(collectionId.toString());
+        result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        return result;
+    }
+
+    public Single<String> exportCollections() {
+        return m_db.collectionDAO().getAll().first(new ArrayList<>())
+                .map(collections -> {
+                    List<BinderExport.CollectionExport> colExports = new ArrayList<>();
+                    for (Collection col : collections) {
+                        List<Monster> colMonsters = m_db.collectionDAO().getMonstersForCollection(col.id.toString())
+                                .first(new ArrayList<>()).blockingGet();
+                        colExports.add(new BinderExport.CollectionExport(
+                                col.id.toString(),
+                                col.name,
+                                col.description,
+                                colMonsters
+                        ));
+                    }
+                    return new com.majinnaibu.monstercards.exporters.BinderExporter().exportFullBackup(colExports, null);
+                })
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<String> exportEverything() {
+        return Single.zip(
+                m_db.collectionDAO().getAll().first(new ArrayList<>()),
+                m_db.monsterDAO().getAll().first(new ArrayList<>()),
+                m_db.dashboardDAO().getDashboardMonsters().first(new ArrayList<>()),
+                (collections, allMonsters, dashboardMonsters) -> {
+                    List<BinderExport.CollectionExport> colExports = new ArrayList<>();
+                    Set<UUID> monstersInCollections = new HashSet<>();
+
+                    for (Collection col : collections) {
+                        List<Monster> colMonsters = m_db.collectionDAO().getMonstersForCollection(col.id.toString())
+                                .first(new ArrayList<>()).blockingGet();
+                        for (Monster m : colMonsters) {
+                            monstersInCollections.add(m.id);
+                        }
+                        colExports.add(new BinderExport.CollectionExport(
+                                col.id.toString(),
+                                col.name,
+                                col.description,
+                                colMonsters
+                        ));
+                    }
+
+                    List<Monster> uncategorized = new ArrayList<>();
+                    for (Monster m : allMonsters) {
+                        if (!monstersInCollections.contains(m.id)) {
+                            uncategorized.add(m);
+                        }
+                    }
+
+                    if (!uncategorized.isEmpty() || colExports.isEmpty()) {
+                        colExports.add(new BinderExport.CollectionExport(
+                                UUID.randomUUID().toString(),
+                                colExports.isEmpty() ? "All Monsters" : "Uncategorized",
+                                "",
+                                colExports.isEmpty() ? allMonsters : uncategorized
+                        ));
+                    }
+
+                    return new com.majinnaibu.monstercards.exporters.BinderExporter().exportFullBackup(colExports, dashboardMonsters);
+                }
+        ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Completable updateDashboardMonsters(List<DashboardMonster> items) {
         Completable result = m_db.dashboardDAO().updateDashboardMonsters(items);
         result.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
@@ -272,63 +361,162 @@ public class MonsterRepository {
 
     public Completable importBinder(@NonNull BinderExport binder) {
         return Completable.fromAction(() -> {
-            if (binder.collections == null || binder.collections.isEmpty()) {
-                return;
-            }
+            // 1. Process Collections & Cards in Binder
+            if (binder.collections != null && !binder.collections.isEmpty()) {
+                List<Collection> existingCols = m_db.collectionDAO().getAll().first(new ArrayList<>()).blockingGet();
 
-            for (BinderExport.CollectionExport colExport : binder.collections) {
-                if (colExport.cards == null || colExport.cards.isEmpty()) {
-                    continue;
-                }
-
-                List<Monster> monstersToSave = new ArrayList<>();
-                for (Monster card : colExport.cards) {
-                    if (card.id == null) {
-                        card.id = UUID.randomUUID();
+                for (BinderExport.CollectionExport colExport : binder.collections) {
+                    if (colExport == null) {
+                        continue;
                     }
-                    monstersToSave.add(card);
-                }
-                m_db.monsterDAO().save(monstersToSave.toArray(new Monster[0])).blockingAwait();
 
-                String colName = colExport.name != null ? colExport.name.trim() : "";
-                if (!colName.isEmpty()) {
-                    List<Collection> existingCols = m_db.collectionDAO().getAll().first(new ArrayList<>()).blockingGet();
+                    String colName = colExport.name != null ? colExport.name.trim() : "";
+                    String colDesc = colExport.description != null ? colExport.description.trim() : "";
+
+                    UUID colExportId = null;
+                    if (colExport.id != null && !colExport.id.trim().isEmpty()) {
+                        try {
+                            colExportId = UUID.fromString(colExport.id.trim());
+                        } catch (Exception ignored) {
+                        }
+                    }
+
                     Collection targetCollection = null;
-                    for (Collection existing : existingCols) {
-                        if (existing.name != null && existing.name.equalsIgnoreCase(colName)) {
-                            targetCollection = existing;
-                            break;
+                    if (colExportId != null) {
+                        for (Collection existing : existingCols) {
+                            if (existing.id.equals(colExportId)) {
+                                targetCollection = existing;
+                                break;
+                            }
+                        }
+                    }
+                    if (targetCollection == null && !colName.isEmpty()) {
+                        for (Collection existing : existingCols) {
+                            if (existing.name != null && existing.name.equalsIgnoreCase(colName)) {
+                                targetCollection = existing;
+                                break;
+                            }
                         }
                     }
 
                     UUID targetCollectionId;
                     if (targetCollection != null) {
                         targetCollectionId = targetCollection.id;
+                        if (!colDesc.isEmpty() && (targetCollection.description == null || targetCollection.description.isEmpty())) {
+                            targetCollection.description = colDesc;
+                            m_db.collectionDAO().save(targetCollection).blockingAwait();
+                        }
                     } else {
                         Collection newCol = new Collection();
-                        newCol.id = UUID.randomUUID();
-                        newCol.name = colName;
+                        newCol.id = colExportId != null ? colExportId : UUID.randomUUID();
+                        newCol.name = !colName.isEmpty() ? colName : "Imported Collection";
+                        newCol.description = colDesc;
                         m_db.collectionDAO().save(newCol).blockingAwait();
                         targetCollectionId = newCol.id;
+                        existingCols.add(newCol);
                     }
 
-                    List<Monster> colMonsters = m_db.collectionDAO().getMonstersForCollection(targetCollectionId.toString())
-                            .first(new ArrayList<>()).blockingGet();
-                    Set<UUID> existingMonsterIds = new HashSet<>();
-                    for (Monster m : colMonsters) {
-                        existingMonsterIds.add(m.id);
-                    }
+                    if (colExport.cards != null && !colExport.cards.isEmpty()) {
+                        List<Monster> monstersToSave = new ArrayList<>();
+                        Map<UUID, Integer> importedCardCounts = new HashMap<>();
 
-                    int ordinal = colMonsters.size();
-                    for (Monster monster : monstersToSave) {
-                        if (!existingMonsterIds.contains(monster.id)) {
-                            m_db.collectionDAO().addMonsterToCollection(new CollectionMonster(targetCollectionId, monster.id, ordinal++)).blockingAwait();
-                            existingMonsterIds.add(monster.id);
+                        for (Monster card : colExport.cards) {
+                            if (card != null) {
+                                if (card.id == null) {
+                                    card.id = UUID.randomUUID();
+                                }
+                                monstersToSave.add(card);
+                                importedCardCounts.put(card.id, getCount(importedCardCounts, card.id) + 1);
+                            }
+                        }
+
+                        if (!monstersToSave.isEmpty()) {
+                            m_db.monsterDAO().save(monstersToSave.toArray(new Monster[0])).blockingAwait();
+
+                            List<Monster> existingColMonsters = m_db.collectionDAO().getMonstersForCollection(targetCollectionId.toString())
+                                    .first(new ArrayList<>()).blockingGet();
+                            Map<UUID, Integer> existingCardCounts = new HashMap<>();
+                            for (Monster m : existingColMonsters) {
+                                existingCardCounts.put(m.id, getCount(existingCardCounts, m.id) + 1);
+                            }
+
+                            int ordinal = existingColMonsters.size();
+                            for (Map.Entry<UUID, Integer> entry : importedCardCounts.entrySet()) {
+                                UUID monsterId = entry.getKey();
+                                int importedCount = entry.getValue();
+                                int existingCount = getCount(existingCardCounts, monsterId);
+
+                                if (importedCount > existingCount) {
+                                    int extraCopiesNeeded = importedCount - existingCount;
+                                    for (int k = 0; k < extraCopiesNeeded; k++) {
+                                        m_db.collectionDAO().addMonsterToCollection(new CollectionMonster(targetCollectionId, monsterId, ordinal++)).blockingAwait();
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
+
+            // 2. Process Dashboard entries in Binder if present
+            if (binder.dashboard != null && !binder.dashboard.isEmpty()) {
+                List<Monster> dashboardMonstersToSave = new ArrayList<>();
+                Map<UUID, Integer> importedDashboardCounts = new HashMap<>();
+
+                for (Monster card : binder.dashboard) {
+                    if (card != null) {
+                        if (card.id == null) {
+                            card.id = UUID.randomUUID();
+                        }
+                        dashboardMonstersToSave.add(card);
+                        importedDashboardCounts.put(card.id, getCount(importedDashboardCounts, card.id) + 1);
+                    }
+                }
+
+                if (!dashboardMonstersToSave.isEmpty()) {
+                    m_db.monsterDAO().save(dashboardMonstersToSave.toArray(new Monster[0])).blockingAwait();
+
+                    List<DashboardMonsterWithMonster> existingDashboard = m_db.dashboardDAO().getDashboardMonstersWithMonster()
+                            .first(new ArrayList<>()).blockingGet();
+                    Map<UUID, Integer> existingDashboardCounts = new HashMap<>();
+                    int currentMaxOrdinal = 0;
+                    for (DashboardMonsterWithMonster entry : existingDashboard) {
+                        if (entry.monster != null) {
+                            existingDashboardCounts.put(entry.monster.id, getCount(existingDashboardCounts, entry.monster.id) + 1);
+                        }
+                        if (entry.dashboardEntry != null && entry.dashboardEntry.ordinal > currentMaxOrdinal) {
+                            currentMaxOrdinal = entry.dashboardEntry.ordinal;
+                        }
+                    }
+
+                    int ordinal = currentMaxOrdinal + 1;
+                    List<DashboardMonster> extraEntriesToAdd = new ArrayList<>();
+
+                    for (Map.Entry<UUID, Integer> entry : importedDashboardCounts.entrySet()) {
+                        UUID monsterId = entry.getKey();
+                        int importedCount = entry.getValue();
+                        int existingCount = getCount(existingDashboardCounts, monsterId);
+
+                        if (importedCount > existingCount) {
+                            int extraNeeded = importedCount - existingCount;
+                            for (int k = 0; k < extraNeeded; k++) {
+                                extraEntriesToAdd.add(new DashboardMonster(monsterId, ordinal++));
+                            }
+                        }
+                    }
+
+                    if (!extraEntriesToAdd.isEmpty()) {
+                        m_db.dashboardDAO().addMonsterToDashboard(extraEntriesToAdd.toArray(new DashboardMonster[0])).blockingAwait();
+                    }
+                }
+            }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    private static int getCount(Map<UUID, Integer> map, UUID key) {
+        if (map == null || key == null) return 0;
+        Integer val = map.get(key);
+        return val != null ? val : 0;
     }
 
     private static class Helpers {

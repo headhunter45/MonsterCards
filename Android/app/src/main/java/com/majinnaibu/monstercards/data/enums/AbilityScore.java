@@ -21,11 +21,23 @@ public enum AbilityScore {
     }
 
     public static AbilityScore valueOfString(String string) {
+        if (string == null) {
+            return AbilityScore.STRENGTH;
+        }
+        String lower = string.trim().toLowerCase(java.util.Locale.ROOT);
         for (AbilityScore abilityScore : values()) {
-            if (abilityScore.stringValue.equals(string)) {
+            if (abilityScore.stringValue.equalsIgnoreCase(lower)
+                    || abilityScore.shortDisplayName.equalsIgnoreCase(lower)
+                    || abilityScore.name().equalsIgnoreCase(lower)) {
                 return abilityScore;
             }
         }
+        if (lower.startsWith("str")) return STRENGTH;
+        if (lower.startsWith("dex")) return DEXTERITY;
+        if (lower.startsWith("con")) return CONSTITUTION;
+        if (lower.startsWith("int")) return INTELLIGENCE;
+        if (lower.startsWith("wis")) return WISDOM;
+        if (lower.startsWith("cha")) return CHARISMA;
         return AbilityScore.STRENGTH;
     }
 }

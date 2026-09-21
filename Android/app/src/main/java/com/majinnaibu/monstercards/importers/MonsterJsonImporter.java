@@ -18,7 +18,13 @@ public class MonsterJsonImporter implements EntityImporter<Monster> {
             JsonElement el = JsonParser.parseString(input);
             if (el.isJsonObject()) {
                 JsonObject obj = el.getAsJsonObject();
-                return obj.has("name") && (obj.has("strengthScore") || obj.has("hitDice") || obj.has("size"));
+                if (obj.has("$schema")) {
+                    String schemaVal = obj.get("$schema").getAsString();
+                    if (schemaVal.contains("monster-card.schema.json")) {
+                        return true;
+                    }
+                }
+                return obj.has("name") && (obj.has("strengthScore") || obj.has("strengthSavingThrowProficiency"));
             }
         } catch (Exception ignored) {
         }

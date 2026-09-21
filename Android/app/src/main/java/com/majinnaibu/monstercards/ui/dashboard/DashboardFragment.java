@@ -24,6 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Collection;
+import com.majinnaibu.monstercards.models.CollectionWithCount;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -265,7 +266,7 @@ public class DashboardFragment extends MCFragment {
 
     private void showAddCollectionPicker() {
         MonsterRepository repository = getMonsterRepository();
-        mDisposables.add(repository.getCollections()
+        mDisposables.add(repository.getCollectionsWithCount()
                 .firstOrError()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -279,12 +280,16 @@ public class DashboardFragment extends MCFragment {
                     }
                     String[] names = new String[collections.size()];
                     for (int i = 0; i < collections.size(); i++) {
-                        names[i] = collections.get(i).name;
+                        CollectionWithCount item = collections.get(i);
+                        int count = item.monsterCount;
+                        String countText = count == 1 ? "1 monster" : count + " monsters";
+                        String colName = item.collection != null && item.collection.name != null ? item.collection.name : "";
+                        names[i] = colName + " (" + countText + ")";
                     }
                     new AlertDialog.Builder(requireContext())
                             .setTitle(R.string.action_add_collection_option)
                             .setItems(names, (dialog, which) -> {
-                                Collection selected = collections.get(which);
+                                Collection selected = collections.get(which).collection;
                                 addCollectionToDashboard(selected);
                             })
                             .setNegativeButton(R.string.dialog_cancel, null)
@@ -364,9 +369,6 @@ public class DashboardFragment extends MCFragment {
             return true;
         } else if (item.getItemId() == R.id.menu_action_add_collection_option) {
             showAddCollectionPicker();
-            return true;
-        } else if (item.getItemId() == R.id.menu_action_remove_single_monster) {
-            showRemoveMonsterPicker();
             return true;
         } else if (item.getItemId() == R.id.menu_action_clear_dashboard) {
             clearDashboard();

@@ -13,11 +13,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_action_remove_single_monster"
-        android:title="@string/action_remove_single_monster"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/menu_action_clear_dashboard"
         android:title="@string/action_clear_dashboard"
         app:showAsAction="never" />

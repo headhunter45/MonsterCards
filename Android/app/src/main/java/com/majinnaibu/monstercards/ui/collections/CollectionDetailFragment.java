@@ -221,8 +221,30 @@ public class CollectionDetailFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_export_collection) {
             exportCollection();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_remove_all_monsters_from_collection) {
+            showRemoveAllMonstersConfirmationDialog();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showRemoveAllMonstersConfirmationDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.dialog_remove_all_from_collection_title)
+                .setMessage(R.string.dialog_remove_all_from_collection_message)
+                .setPositiveButton(R.string.action_remove_all, (dialog, which) -> {
+                    mDisposables.add(getMonsterRepository().removeAllMonstersFromCollection(mCollectionId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(() -> {
+                                View view = getView();
+                                if (view != null) {
+                                    SnackbarHelper.showLong(view, R.string.snackbar_collection_cleared);
+                                }
+                            }, throwable -> Logger.logError("Failed to remove all monsters from collection", throwable)));
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     private void exportCollection() {

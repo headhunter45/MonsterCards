@@ -9,6 +9,7 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
 import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
@@ -30,11 +31,16 @@ import java.util.UUID;
 @SuppressWarnings("unused")
 public class Monster {
 
+    @SerializedName("$schema")
+    @Ignore
+    public String schema = "https://majinnaibu.com/schemas/monster-card.schema.json";
+
     @Ignore
     public int schemaVersion = 1;
 
     @PrimaryKey
     @NonNull
+    @SerializedName("id")
     public UUID id;
 
     @NonNull
@@ -438,7 +444,10 @@ public class Monster {
         }
     }
 
-    public int getAbilityModifier(@NonNull AbilityScore abilityScore) {
+    public int getAbilityModifier(@Nullable AbilityScore abilityScore) {
+        if (abilityScore == null) {
+            return 0;
+        }
         switch (abilityScore) {
             case STRENGTH:
                 return getStrengthModifier();

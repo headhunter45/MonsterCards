@@ -34,13 +34,25 @@ public class Skill implements Comparator<Skill>, Comparable<Skill> {
         this.proficiencyType = proficiencyType;
     }
 
+    public AbilityScore getAbilityScore() {
+        if (abilityScore != null) {
+            return abilityScore;
+        }
+        if (name != null) {
+            return AbilityScore.valueOfString(name);
+        }
+        return AbilityScore.STRENGTH;
+    }
+
     public int getSkillBonus(Monster monster) {
-        int modifier = monster.getAbilityModifier(abilityScore);
-        switch (proficiencyType) {
+        AbilityScore score = getAbilityScore();
+        int modifier = monster != null ? monster.getAbilityModifier(score) : 0;
+        ProficiencyType prof = proficiencyType != null ? proficiencyType : ProficiencyType.PROFICIENT;
+        switch (prof) {
             case PROFICIENT:
-                return modifier + monster.getProficiencyBonus();
+                return modifier + (monster != null ? monster.getProficiencyBonus() : 0);
             case EXPERTISE:
-                return modifier + monster.getProficiencyBonus() * 2;
+                return modifier + (monster != null ? monster.getProficiencyBonus() * 2 : 0);
             case NONE:
             default:
                 return modifier;
