@@ -1,0 +1,128 @@
+{
+  "name": "Jagged Maw Scout",
+  "race": "Halfling (Athasian)",
+  "class": "Ranger / Sniper",
+  "alignment": "neutral evil",
+  "armor_class": 14,
+  "hit_points": 33,
+  "speed": 30,
+  "abilities": [
+    {
+      "name": "Keen Sight",
+      "desc": "The scout has advantage on Wisdom (Perception) checks that rely on sight."
+    },
+    {
+      "name": "Pack Tactics",
+      "desc": "The scout has advantage on an attack roll against a creature if at least one of the scout's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    },
+    {
+      "name": "Halfling Nimbleness",
+      "desc": "The scout can move through the space of any creature that is of a size larger than it."
+    }
+  ],
+  "skills": [
+    {
+      "name": "perception",
+      "stat": "wis",
+      "note": " (ex)"
+    },
+    {
+      "name": "stealth",
+      "stat": "dex",
+      "note": " (ex)"
+    },
+    {
+      "name": "survival",
+      "stat": "wis"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "desc": "The scout makes two ranged attacks with its Long Recurve Shortbow or two melee attacks with its Obsidian Dagger."
+    },
+    {
+      "name": "Long Recurve Shortbow",
+      "desc": "_Ranged Weapon Attack:_ +5 to hit, range 80/320 ft., one target. _Hit:_ 6 (1d6 + 3) piercing damage plus 3 (1d6) poison damage."
+    },
+    {
+      "name": "Obsidian Dagger",
+      "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 5 (1d4 + 3) piercing damage."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Halfling",
+  "strPoints": 10,
+  "dexPoints": 17,
+  "conPoints": 14,
+  "intPoints": 10,
+  "wisPoints": 14,
+  "chaPoints": 9,
+  "cr": "2",
+  "customCr": "2 (450 XP)",
+  "customProf": 2,
+  "shieldBonus": 0,
+  "armorName": "cured reptile leather",
+  "otherArmorDesc": "14 (cured reptile leather)",
+  "hitDice": 6,
+  "hpText": "6d6 + 12",
+  "customHP": true,
+  "burrowSpeed": 0,
+  "climbSpeed": 20,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": true,
+  "speedDesc": "30 ft., climb 20 ft.",
+  "sthrows": [
+    {
+      "name": "dex",
+      "order": 1
+    }
+  ],
+  "conditions": [],
+  "damagetypes": [],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 0,
+  "tremorsense": 0,
+  "truesight": 0,
+  "shortName": "scout",
+  "pluralName": "scouts",
+  "isLegendary": false,
+  "legendariesDescription": "",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [
+    {
+      "name": "Nimble Escape",
+      "desc": "The scout can take the Disengage or Hide action as a bonus action on each of its turns."
+    }
+  ],
+  "reactions": [],
+  "legendaries": [],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}

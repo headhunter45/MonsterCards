@@ -1,0 +1,172 @@
+{
+  "name": "Sirrith Ash-Tongue",
+  "race": "Halfling (Athasian)",
+  "class": "Defiler Wizard",
+  "alignment": "neutral evil",
+  "armor_class": 15,
+  "hit_points": 91,
+  "speed": 25,
+  "abilities": [
+    {
+      "name": "Athasian Resilience",
+      "desc": "Sirrith has advantage on saving throws against extreme heat, exhaustion, and poison."
+    },
+    {
+      "name": "Defiler's Thirst (Overcharge Fuel)",
+      "desc": "Whenever Sirrith casts an evocation or necromancy spell of 1st level or higher, she can choose to defile the surrounding life force. When she does so, a 10-foot-radius circle centered on her turns to lifeless, gray ash until cleared.\n* **Minion Harvest:** Sirrith can target a friendly halfling minion within 30 feet that she can see. The minion is instantly reduced to 0 hit points and crumbles to ash. Sirrith gains 2 Defile Charges.\n* **Juvenile Harvest:** If Sirrith targets a captive juvenile non-combatant, the captive dies instantly, granting Sirrith 3 Defile Charges.\n* **Crown Ward Backfire:** If Sirrith attempts to harvest Lira, the Verdant Crown flares with preserver backlash. The harvest fails, deals no damage to Lira, and Sirrith must succeed on a DC 15 Constitution saving throw or be stunned until the end of her next turn."
+    },
+    {
+      "name": "Overcharge Spending",
+      "desc": "When casting a spell, Sirrith can spend her accumulated Defile Charges to enhance it:\n* **Empowered Ruin (1 Charge):** Reroll up to four damage dice for the spell. She must use the new rolls.\n* **Withered Reach (1 Charge):** The spell's area of effect increases by 10 feet.\n* **Necrotic Infusion (2 Charges):** All damage dealt by the spell becomes necrotic damage, and targets hit cannot regain hit points until the start of Sirrith's next turn."
+    },
+    {
+      "name": "Spellcasting",
+      "desc": "Sirrith is a 9th-level spellcaster. Her spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). She has the following wizard spells prepared:\n* Cantrips (at will): _chill touch_, _fire bolt_ (burning ash), _mage hand_, _sandblast_ (+7 to hit, 2d8 bludgeoning)\n* 1st level (4 slots): _mage armor_, _magic missile_, _shield_, _ray of sickness_\n* 2nd level (3 slots): _misty step_, _ray of enfeeblement_, _scorching ray_\n* 3rd level (3 slots): _counterspell_, _fireball_ (burning cinder blast), _vampiric touch_\n* 4th level (3 slots): _blight_, _dimension door_\n* 5th level (1 slot): _cone of cold_ (bone-chill flaying wind)"
+    }
+  ],
+  "skills": [
+    {
+      "name": "arcana",
+      "stat": "int"
+    },
+    {
+      "name": "deception",
+      "stat": "cha"
+    },
+    {
+      "name": "perception",
+      "stat": "wis"
+    },
+    {
+      "name": "survival",
+      "stat": "wis"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "desc": "Sirrith makes two melee attacks with her Petrified Ash Staff, or makes one staff attack and casts a cantrip."
+    },
+    {
+      "name": "Petrified Ash Staff",
+      "desc": "_Melee Weapon Attack:_ +6 to hit, reach 5 ft., one target. _Hit:_ 6 (1d6 + 3) bludgeoning damage, or 7 (1d8 + 3) bludgeoning damage if used with two hands, plus 9 (2d8) necrotic damage."
+    },
+    {
+      "name": "Siphon Life (Recharge 5–6)",
+      "desc": "_Ranged Spell Attack:_ +7 to hit, range 60 ft., one creature. _Hit:_ 18 (4d8) necrotic damage. Sirrith regains hit points equal to half the necrotic damage dealt, and gains 1 Defile Charge."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Athasian Halfling",
+  "strPoints": 8,
+  "dexPoints": 16,
+  "conPoints": 16,
+  "intPoints": 18,
+  "wisPoints": 12,
+  "chaPoints": 14,
+  "cr": "8",
+  "customCr": "8 (3,900 XP)",
+  "customProf": 3,
+  "shieldBonus": 0,
+  "armorName": "cured kank-carapace and defiler wards",
+  "otherArmorDesc": "15 (cured kank-carapace and defiler wards)",
+  "hitDice": 14,
+  "hpText": "14d6 + 42",
+  "customHP": true,
+  "burrowSpeed": 0,
+  "climbSpeed": 0,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": false,
+  "speedDesc": "25 ft.",
+  "sthrows": [
+    {
+      "name": "con",
+      "order": 2
+    },
+    {
+      "name": "int",
+      "order": 3
+    },
+    {
+      "name": "wis",
+      "order": 4
+    }
+  ],
+  "conditions": [
+    {
+      "name": "frightened"
+    }
+  ],
+  "damagetypes": [
+    {
+      "name": "necrotic",
+      "type": "r"
+    },
+    {
+      "name": "bludgeoning, piercing, and slashing from nonmagical attacks",
+      "type": "r"
+    }
+  ],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Common",
+      "speaks": true
+    },
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 60,
+  "tremorsense": 0,
+  "truesight": 0,
+  "shortName": "Sirrith",
+  "pluralName": "Sirrith",
+  "isLegendary": true,
+  "legendariesDescription": "Sirrith can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Sirrith regains spent legendary actions at the start of her turn.",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [],
+  "reactions": [
+    {
+      "name": "Ash Shield",
+      "desc": "When hit by a weapon attack, Sirrith can spend 1 Defile Charge or expend a 1st-level spell slot to cause a burst of stinging ash to swirl around her, adding +4 to her AC against that attack and imposing disadvantage on subsequent attack rolls against her until the start of her next turn."
+    }
+  ],
+  "legendaries": [
+    {
+      "name": "Cantrip",
+      "desc": "Sirrith casts one cantrip."
+    },
+    {
+      "name": "Skittering Shift",
+      "desc": "Sirrith moves up to her speed without provoking opportunity attacks."
+    },
+    {
+      "name": "Sacrificial Command (Costs 2 Actions)",
+      "desc": "Sirrith commands one allied minion within 30 feet to immediately move up to its speed and make one melee attack, or Sirrith uses her Defiler's Thirst to harvest a willing minion within range."
+    }
+  ],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}

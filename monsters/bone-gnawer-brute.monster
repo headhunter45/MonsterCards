@@ -1,0 +1,140 @@
+{
+  "name": "Bone-Gnawer War-Brute",
+  "race": "Halfling (Athasian)",
+  "class": "Barbarian / Berserker",
+  "alignment": "neutral evil",
+  "armor_class": 15,
+  "hit_points": 68,
+  "speed": 25,
+  "abilities": [
+    {
+      "name": "Dense Frame",
+      "desc": "The brute has advantage on saving throws and ability checks against being knocked prone or moved against its will."
+    },
+    {
+      "name": "Pack Tactics",
+      "desc": "The brute has advantage on an attack roll against a creature if at least one of the brute's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    }
+  ],
+  "skills": [
+    {
+      "name": "athletics",
+      "stat": "str"
+    },
+    {
+      "name": "intimidation",
+      "stat": "cha"
+    },
+    {
+      "name": "survival",
+      "stat": "wis"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "desc": "The brute makes two melee attacks: one with its Great Bone Greataxe or Crag-Bone Warhammer, and one with its Savage Bite. Alternatively, it makes one Hurl Heavy Boulder attack."
+    },
+    {
+      "name": "Great Bone Greataxe (Axes Only)",
+      "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 12 (2d8 + 3) slashing damage."
+    },
+    {
+      "name": "Crag-Bone Warhammer (Hammers Only)",
+      "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 12 (2d8 + 3) bludgeoning damage. If the target is a Medium or smaller creature, it must succeed on a DC 13 Strength saving throw or be pushed up to 10 feet directly away from the brute."
+    },
+    {
+      "name": "Savage Bite",
+      "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 7 (1d8 + 3) piercing damage. If the target is a Medium or smaller creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
+    },
+    {
+      "name": "Hurl Heavy Boulder (3/Day)",
+      "desc": "_Ranged Weapon Attack:_ +5 to hit, range 20/60 ft., one target. _Hit:_ 8 (1d10 + 3) bludgeoning damage."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Halfling",
+  "strPoints": 17,
+  "dexPoints": 14,
+  "conPoints": 20,
+  "intPoints": 8,
+  "wisPoints": 12,
+  "chaPoints": 9,
+  "cr": "4",
+  "customCr": "4 (1,100 XP)",
+  "customProf": 2,
+  "shieldBonus": 0,
+  "armorName": "pieced mekillot-bone armor",
+  "otherArmorDesc": "15 (pieced mekillot-bone armor)",
+  "hitDice": 8,
+  "hpText": "8d6 + 40",
+  "customHP": true,
+  "burrowSpeed": 0,
+  "climbSpeed": 0,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": false,
+  "speedDesc": "25 ft.",
+  "sthrows": [
+    {
+      "name": "str",
+      "order": 0
+    },
+    {
+      "name": "con",
+      "order": 2
+    }
+  ],
+  "conditions": [],
+  "damagetypes": [
+    {
+      "name": "piercing",
+      "note": " (from nonmagical attacks)",
+      "type": "r"
+    }
+  ],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 0,
+  "tremorsense": 0,
+  "truesight": 0,
+  "shortName": "brute",
+  "pluralName": "brutes",
+  "isLegendary": false,
+  "legendariesDescription": "",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [
+    {
+      "name": "Cannibal Snarl (Recharge 5–6)",
+      "desc": "The brute lets out a blood-freezing screech while tearing at fresh bone. Each non-halfling creature within 30 feet of the brute that can hear it must succeed on a DC 13 Wisdom saving throw or become frightened until the end of its next turn."
+    }
+  ],
+  "reactions": [],
+  "legendaries": [],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}
