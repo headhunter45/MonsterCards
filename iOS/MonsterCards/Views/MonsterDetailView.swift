@@ -216,7 +216,7 @@ struct TraitList: View {
                 .font(.system(size: 20, weight: .bold))
             ForEach(traits) { action in
                 VStack {
-                    Markdown(Document(action.renderedText(viewModel)))
+                    Markdown(action.renderedText(viewModel))
                     Divider()
                 }
             }
@@ -271,7 +271,7 @@ struct MonsterDetailView: View {
                     if (viewModel.abilities.count > 0) {
                         ForEach(viewModel.abilities) { ability in
                             VStack {
-                                Markdown(Document(ability.renderedText(viewModel)))
+                                Markdown(ability.renderedText(viewModel))
                                 Divider()
                             }
                         }
