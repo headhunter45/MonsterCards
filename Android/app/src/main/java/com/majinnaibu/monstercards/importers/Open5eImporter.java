@@ -82,7 +82,16 @@ public class Open5eImporter implements EntityImporter<Monster> {
         parseArmorClass(props, monster);
         parseHitPoints(props, monster);
 
-        monster.walkSpeed = getInt(props, "speed", 30);
+        if (props.has("speed") && props.get("speed").isJsonObject()) {
+            JsonObject speedObj = props.getAsJsonObject("speed");
+            monster.walkSpeed = getInt(speedObj, "walk", 30);
+            monster.flySpeed = getInt(speedObj, "fly", 0);
+            monster.swimSpeed = getInt(speedObj, "swim", 0);
+            monster.burrowSpeed = getInt(speedObj, "burrow", 0);
+            monster.climbSpeed = getInt(speedObj, "climb", 0);
+        } else {
+            monster.walkSpeed = getInt(props, "speed", 30);
+        }
         if (props.has("speed_desc")) {
             String speedDesc = getString(props, "speed_desc");
             if (!speedDesc.isEmpty()) {
@@ -159,6 +168,10 @@ public class Open5eImporter implements EntityImporter<Monster> {
             crStr = props.get("challenge_rating").getAsString();
         }
         if (!crStr.isEmpty()) {
+            crStr = crStr.replace(".0", "");
+            if (crStr.equals("0.125")) crStr = "1/8";
+            else if (crStr.equals("0.25")) crStr = "1/4";
+            else if (crStr.equals("0.5")) crStr = "1/2";
             monster.challengeRating = ChallengeRating.valueOfString(crStr);
         }
     }
@@ -214,7 +227,12 @@ public class Open5eImporter implements EntityImporter<Monster> {
     private void parseSavingThrows(JsonObject props, Monster monster) {
         if (!props.has("saving_throws")) return;
         JsonElement savesEl = props.get("saving_throws");
-        if (savesEl.isJsonArray()) {
+        if (savesEl.isJsonObject()) {
+            JsonObject savesObj = savesEl.getAsJsonObject();
+            for (String key : savesObj.keySet()) {
+                applySaveProficiency(monster, key.toLowerCase(Locale.ROOT));
+            }
+        } else if (savesEl.isJsonArray()) {
             JsonArray arr = savesEl.getAsJsonArray();
             for (int i = 0; i < arr.size(); i++) {
                 String saveStr = arr.get(i).getAsString().toLowerCase(Locale.ROOT);
@@ -233,16 +251,23 @@ public class Open5eImporter implements EntityImporter<Monster> {
     }
 
     private void parseSkills(JsonObject props, Monster monster) {
-        if (!props.has("skills")) return;
-        JsonElement skillsEl = props.get("skills");
-        if (skillsEl.isJsonArray()) {
-            JsonArray arr = skillsEl.getAsJsonArray();
-            for (int i = 0; i < arr.size(); i++) {
-                String skillStr = arr.get(i).getAsString();
-                String skillName = skillStr.replaceAll("[+-]\\d+", "").trim();
-                if (!skillName.isEmpty()) {
-                    AbilityScore stat = getAbilityForSkill(skillName);
-                    monster.skills.add(new Skill(capitalize(skillName), stat, AdvantageType.NONE, ProficiencyType.PROFICIENT));
+        if (props.has("skill_bonuses") && props.get("skill_bonuses").isJsonObject()) {
+            JsonObject skillsObj = props.getAsJsonObject("skill_bonuses");
+            for (String key : skillsObj.keySet()) {
+                AbilityScore stat = getAbilityForSkill(key);
+                monster.skills.add(new Skill(capitalize(key.replace("_", " ")), stat, AdvantageType.NONE, ProficiencyType.PROFICIENT));
+            }
+        } else if (props.has("skills")) {
+            JsonElement skillsEl = props.get("skills");
+            if (skillsEl.isJsonArray()) {
+                JsonArray arr = skillsEl.getAsJsonArray();
+                for (int i = 0; i < arr.size(); i++) {
+                    String skillStr = arr.get(i).getAsString();
+                    String skillName = skillStr.replaceAll("[+-]\\d+", "").trim();
+                    if (!skillName.isEmpty()) {
+                        AbilityScore stat = getAbilityForSkill(skillName);
+                        monster.skills.add(new Skill(capitalize(skillName), stat, AdvantageType.NONE, ProficiencyType.PROFICIENT));
+                    }
                 }
             }
         }
@@ -274,7 +299,26 @@ public class Open5eImporter implements EntityImporter<Monster> {
     private void parseLanguages(JsonObject props, Monster monster) {
         if (props.has("languages")) {
             JsonElement langEl = props.get("languages");
-            if (langEl.isJsonArray()) {
+            if (langEl.isJsonObject()) {
+                if (langEl.getAsJsonObject().has("data") && langEl.getAsJsonObject().get("data").isJsonArray()) {
+                    JsonArray arr = langEl.getAsJsonObject().getAsJsonArray("data");
+                    for (int i = 0; i < arr.size(); i++) {
+                        if (arr.get(i).isJsonObject()) {
+                            String langName = getString(arr.get(i).getAsJsonObject(), "name");
+                            if (!langName.isEmpty()) {
+                                monster.languages.add(new Language(langName, true));
+                            }
+                        }
+                    }
+                } else if (langEl.getAsJsonObject().has("as_string")) {
+                    String langStr = langEl.getAsJsonObject().get("as_string").getAsString();
+                    for (String l : langStr.split(",")) {
+                        if (!l.trim().isEmpty()) {
+                            monster.languages.add(new Language(l.trim(), true));
+                        }
+                    }
+                }
+            } else if (langEl.isJsonArray()) {
                 JsonArray arr = langEl.getAsJsonArray();
                 for (int i = 0; i < arr.size(); i++) {
                     String langName = arr.get(i).getAsString();
@@ -294,10 +338,18 @@ public class Open5eImporter implements EntityImporter<Monster> {
     }
 
     private void parseDamageAndConditions(JsonObject props, Monster monster) {
-        parseStringSet(props, "damage_immunities", monster.damageImmunities);
-        parseStringSet(props, "damage_resistances", monster.damageResistances);
-        parseStringSet(props, "damage_vulnerabilities", monster.damageVulnerabilities);
-        parseStringSet(props, "condition_immunities", monster.conditionImmunities);
+        if (props.has("resistances_and_immunities") && props.get("resistances_and_immunities").isJsonObject()) {
+            JsonObject resObj = props.getAsJsonObject("resistances_and_immunities");
+            parseStringSet(resObj, "damage_immunities", monster.damageImmunities);
+            parseStringSet(resObj, "damage_resistances", monster.damageResistances);
+            parseStringSet(resObj, "damage_vulnerabilities", monster.damageVulnerabilities);
+            parseStringSet(resObj, "condition_immunities", monster.conditionImmunities);
+        } else {
+            parseStringSet(props, "damage_immunities", monster.damageImmunities);
+            parseStringSet(props, "damage_resistances", monster.damageResistances);
+            parseStringSet(props, "damage_vulnerabilities", monster.damageVulnerabilities);
+            parseStringSet(props, "condition_immunities", monster.conditionImmunities);
+        }
     }
 
     private void parseStringSet(JsonObject props, String key, java.util.Set<String> set) {
@@ -306,8 +358,14 @@ public class Open5eImporter implements EntityImporter<Monster> {
         if (el.isJsonArray()) {
             JsonArray arr = el.getAsJsonArray();
             for (int i = 0; i < arr.size(); i++) {
-                String val = arr.get(i).getAsString();
-                if (!val.isEmpty()) set.add(capitalize(val));
+                JsonElement item = arr.get(i);
+                if (item.isJsonObject() && item.getAsJsonObject().has("name")) {
+                    String val = item.getAsJsonObject().get("name").getAsString();
+                    if (!val.isEmpty()) set.add(capitalize(val));
+                } else if (item.isJsonPrimitive()) {
+                    String val = item.getAsString();
+                    if (!val.isEmpty()) set.add(capitalize(val));
+                }
             }
         } else if (el.isJsonPrimitive()) {
             for (String val : el.getAsString().split(",")) {
@@ -357,7 +415,12 @@ public class Open5eImporter implements EntityImporter<Monster> {
 
     private static String getString(JsonObject obj, String key, String defaultVal) {
         if (obj.has(key) && !obj.get(key).isJsonNull()) {
-            return obj.get(key).getAsString();
+            JsonElement el = obj.get(key);
+            if (el.isJsonPrimitive()) {
+                return el.getAsString();
+            } else if (el.isJsonObject() && el.getAsJsonObject().has("name")) {
+                return el.getAsJsonObject().get("name").getAsString();
+            }
         }
         return defaultVal;
     }

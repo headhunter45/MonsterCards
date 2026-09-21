@@ -21,16 +21,20 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.majinnaibu.monstercards.helpers.MonsterImportHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.importers.BinderImporter;
 import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
+import com.majinnaibu.monstercards.importers.Open5eApiWrapper;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.models.BinderExport;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
+import com.majinnaibu.monstercards.utils.SnackbarHelper;
 import com.majinnaibu.monstercards.utils.ToastHelper;
 
 import java.io.BufferedReader;
@@ -44,9 +48,12 @@ import java.util.Objects;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Disposable mOpen5eImportDisposable;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -67,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         AppCenterInitializer.init(getApplication());
         setContentView(R.layout.activity_main);
 
-        com.google.android.material.appbar.MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
@@ -200,6 +207,55 @@ public class MainActivity extends AppCompatActivity {
             Logger.logError("Failed to process import input: " + fileName, e);
             ToastHelper.showLong(this, R.string.failed_to_import_url);
         }
+    }
+
+    public void importAllFromOpen5e() {
+        if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
+            ToastHelper.showShort(this, "Open5e import already running");
+            return;
+        }
+
+        View rootView = findViewById(android.R.id.content);
+        Snackbar snackbar = SnackbarHelper.makeIndefinite(rootView, R.string.snackbar_importing_open5e);
+        snackbar.setAction(R.string.action_cancel, v -> {
+            if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
+                mOpen5eImportDisposable.dispose();
+                SnackbarHelper.showLong(rootView, R.string.snackbar_open5e_import_cancelled);
+            }
+        });
+        snackbar.show();
+
+        mOpen5eImportDisposable = Single.fromCallable(() -> {
+            int totalImported = 0;
+            String nextUrl = null;
+            do {
+                if (mOpen5eImportDisposable != null && mOpen5eImportDisposable.isDisposed()) {
+                    break;
+                }
+                Open5eApiWrapper.Open5ePageResult page = Open5eApiWrapper.fetchPage(nextUrl);
+                for (Monster monster : page.monsters) {
+                    if (mOpen5eImportDisposable != null && mOpen5eImportDisposable.isDisposed()) {
+                        break;
+                    }
+                    ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                            .saveMonster(monster)
+                            .blockingAwait();
+                    totalImported++;
+                }
+                nextUrl = page.nextUrl;
+            } while (nextUrl != null && !nextUrl.isEmpty());
+            return totalImported;
+        })
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(result -> {
+            snackbar.dismiss();
+            SnackbarHelper.showLong(rootView, R.string.snackbar_open5e_import_complete);
+        }, throwable -> {
+            snackbar.dismiss();
+            Logger.logError("Failed to import all Open5e monsters", throwable);
+            SnackbarHelper.showLong(rootView, R.string.snackbar_open5e_import_failed);
+        });
     }
 
     public void importMultipleFilesFromUris(@NonNull List<Uri> uris) {
@@ -369,5 +425,13 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
         return builder.toString();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
+            mOpen5eImportDisposable.dispose();
+        }
     }
 }

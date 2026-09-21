@@ -163,6 +163,7 @@
     <string name="snackbar_dashboard_cleared">Dashboard cleared</string>
     <string name="no_monsters_available">No monsters available in library. Create one first!</string>
     <string name="action_import_from_url">Import URL</string>
+    <string name="action_import_from_open5e">From Open5e.com</string>
     <string name="dialog_import_title">Import</string>
     <string name="dialog_import_message">Enter or paste a URL, ID, or data payload:</string>
     <string name="dialog_import_url_hint">e.g. D&amp;D Beyond URL or Open5e JSON</string>
@@ -225,4 +226,9 @@
     <string name="dialog_remove_all_from_collection_title">Remove All Monsters?</string>
     <string name="dialog_remove_all_from_collection_message">Are you sure you want to remove all monsters from this collection?</string>
     <string name="snackbar_collection_cleared">Removed all monsters from collection</string>
+    <string name="snackbar_importing_open5e">Importing monsters from Open5e…</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="snackbar_open5e_import_complete">Finished importing Open5e monsters.</string>
+    <string name="snackbar_open5e_import_cancelled">Cancelled Open5e import.</string>
+    <string name="snackbar_open5e_import_failed">Failed to import from Open5e.</string>
 </resources>

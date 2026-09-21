@@ -31,6 +31,14 @@ public class SnackbarHelper {
         return make(view, message, DEFAULT_LONG_DURATION);
     }
 
+    public static Snackbar makeIndefinite(@NonNull View view, @StringRes int resId) {
+        return Snackbar.make(view, resId, Snackbar.LENGTH_INDEFINITE);
+    }
+
+    public static Snackbar makeIndefinite(@NonNull View view, @NonNull CharSequence message) {
+        return Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE);
+    }
+
     public static Snackbar make(@NonNull View view, @NonNull CharSequence message, int durationMs) {
         return Snackbar.make(view, message, durationMs);
     }
