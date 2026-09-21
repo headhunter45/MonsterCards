@@ -1,0 +1,127 @@
+{
+  "name": "Sand-Eater Skirmisher",
+  "race": "Halfling (Athasian)",
+  "class": "Rogue / Scout",
+  "alignment": "neutral evil",
+  "armor_class": 14,
+  "hit_points": 38,
+  "speed": 30,
+  "abilities": [
+    {
+      "name": "Desert Skulker",
+      "desc": "The skirmisher can take the Hide action as a bonus action on each of its turns, even when lightly obscured by blowing sand, scree, or rocky overhangs."
+    },
+    {
+      "name": "Sand Ambush",
+      "desc": "During its first turn, the skirmisher has advantage on attack rolls against any creature that hasn't taken a turn yet."
+    },
+    {
+      "name": "Nimble Escape",
+      "desc": "The skirmisher can take the Disengage action as a bonus action on each of its turns."
+    }
+  ],
+  "skills": [
+    {
+      "name": "perception",
+      "stat": "wis"
+    },
+    {
+      "name": "stealth",
+      "stat": "dex",
+      "note": " (ex)"
+    },
+    {
+      "name": "survival",
+      "stat": "wis"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "desc": "The skirmisher makes two melee attacks with its Obsidian Scimitar, or two ranged attacks with its Carved Shortbow."
+    },
+    {
+      "name": "Obsidian Scimitar",
+      "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 6 (1d6 + 3) slashing damage."
+    },
+    {
+      "name": "Carved Shortbow",
+      "desc": "_Ranged Weapon Attack:_ +5 to hit, range 80/320 ft., one target. _Hit:_ 6 (1d6 + 3) piercing damage."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Halfling",
+  "strPoints": 11,
+  "dexPoints": 16,
+  "conPoints": 14,
+  "intPoints": 9,
+  "wisPoints": 13,
+  "chaPoints": 8,
+  "cr": "2",
+  "customCr": "2 (450 XP)",
+  "customProf": 2,
+  "shieldBonus": 0,
+  "armorName": "cured kank-carapace cuirass",
+  "otherArmorDesc": "14 (cured kank-carapace cuirass)",
+  "hitDice": 7,
+  "hpText": "7d6 + 14",
+  "customHP": true,
+  "burrowSpeed": 10,
+  "climbSpeed": 0,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": true,
+  "speedDesc": "30 ft., burrow 10 ft. (loose sand or scree only)",
+  "sthrows": [
+    {
+      "name": "dex",
+      "order": 1
+    }
+  ],
+  "conditions": [],
+  "damagetypes": [],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 0,
+  "tremorsense": 15,
+  "truesight": 0,
+  "shortName": "skirmisher",
+  "pluralName": "skirmishers",
+  "isLegendary": false,
+  "legendariesDescription": "",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [],
+  "reactions": [
+    {
+      "name": "Kick Sand (Recharge 5–6)",
+      "desc": "When a creature the skirmisher can see makes a melee attack against it while standing on sand or loose earth, the skirmisher kicks a spray of abrasive grit into the attacker's eyes. The attacker must make a DC 13 Constitution saving throw. On a failed save, the attacker takes disadvantage on that attack and is blinded until the end of its current turn."
+    }
+  ],
+  "legendaries": [],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}

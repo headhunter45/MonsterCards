@@ -1,0 +1,134 @@
+{
+  "name": "Lira, The Verdant Heir",
+  "race": "Halfling (Athasian)",
+  "class": "Preserver Initiate",
+  "alignment": "neutral good",
+  "armor_class": 12,
+  "hit_points": 11,
+  "speed": 25,
+  "abilities": [
+    {
+      "name": "Brave",
+      "desc": "Lira has advantage on saving throws against being frightened."
+    },
+    {
+      "name": "Halfling Nimbleness",
+      "desc": "Lira can move through the space of any creature that is of a size larger than it."
+    },
+    {
+      "name": "Verdant Resonance",
+      "desc": "While Lira is within 30 feet of the Verdant Crown, the crown awakens from dormancy if Lira is conscious and not frightened. Additionally, Lira cannot be targeted by defiling siphons or defiler harvest abilities; any attempt to drain her life force triggers a preserver ward backlash against the defiler."
+    },
+    {
+      "name": "Innate Preserving Spark (1/Day)",
+      "desc": "If Lira touches a dying creature, she can instinctively stabilize them. The target stabilizes, regains 1 hit point, and a tiny green shoot temporarily sprouts from the ground beneath them."
+    }
+  ],
+  "skills": [
+    {
+      "name": "insight",
+      "stat": "wis"
+    },
+    {
+      "name": "nature",
+      "stat": "int"
+    },
+    {
+      "name": "perception",
+      "stat": "wis"
+    },
+    {
+      "name": "survival",
+      "stat": "wis"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Improvised Strike / Stone",
+      "desc": "_Melee or Ranged Weapon Attack:_ +4 to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ 4 (1d4 + 2) bludgeoning damage."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Halfling",
+  "strPoints": 9,
+  "dexPoints": 14,
+  "conPoints": 14,
+  "intPoints": 12,
+  "wisPoints": 14,
+  "chaPoints": 15,
+  "cr": "1/4",
+  "customCr": "1/4 (50 XP)",
+  "customProf": 2,
+  "shieldBonus": 0,
+  "armorName": "none",
+  "otherArmorDesc": "12",
+  "hitDice": 2,
+  "hpText": "2d6 + 4",
+  "customHP": true,
+  "burrowSpeed": 0,
+  "climbSpeed": 0,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": false,
+  "speedDesc": "25 ft.",
+  "sthrows": [
+    {
+      "name": "wis",
+      "order": 4
+    },
+    {
+      "name": "cha",
+      "order": 5
+    }
+  ],
+  "conditions": [],
+  "damagetypes": [],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Common",
+      "speaks": true
+    },
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 0,
+  "tremorsense": 0,
+  "truesight": 0,
+  "shortName": "Lira",
+  "pluralName": "Lira",
+  "isLegendary": false,
+  "legendariesDescription": "",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [],
+  "reactions": [
+    {
+      "name": "Instinctive Duck",
+      "desc": "When a creature Lira can see hits her with an attack, Lira can use her reaction to drop prone or duck behind cover, adding +2 to her AC against that attack."
+    }
+  ],
+  "legendaries": [],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}

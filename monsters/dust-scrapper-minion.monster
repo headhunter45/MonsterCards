@@ -1,0 +1,113 @@
+{
+  "name": "Dust-Scrapper Minion",
+  "race": "Halfling (Athasian)",
+  "class": "Scavenger",
+  "alignment": "chaotic evil",
+  "armor_class": 13,
+  "hit_points": 1,
+  "speed": 30,
+  "abilities": [
+    {
+      "name": "Minion",
+      "desc": "If the dust-scrapper takes any damage, it dies instantly. If the dust-scrapper is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw."
+    },
+    {
+      "name": "Pack Tactics",
+      "desc": "The dust-scrapper has advantage on an attack roll against a creature if at least one of the dust-scrapper's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    },
+    {
+      "name": "Halfling Nimbleness",
+      "desc": "The dust-scrapper can move through the space of any creature that is of a size larger than it."
+    }
+  ],
+  "skills": [
+    {
+      "name": "sleight of hand",
+      "stat": "dex"
+    },
+    {
+      "name": "stealth",
+      "stat": "dex"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Obsidian Scimitar",
+      "desc": "_Melee Weapon Attack:_ +4 to hit, reach 5 ft., one target. _Hit:_ 5 slashing damage."
+    },
+    {
+      "name": "Bone Throwing Dagger",
+      "desc": "_Ranged Weapon Attack:_ +4 to hit, range 20/60 ft., one target. _Hit:_ 4 piercing damage."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Halfling",
+  "strPoints": 10,
+  "dexPoints": 15,
+  "conPoints": 11,
+  "intPoints": 8,
+  "wisPoints": 10,
+  "chaPoints": 8,
+  "cr": "1/2",
+  "customCr": "1/2 (Minion, 50 XP)",
+  "customProf": 2,
+  "shieldBonus": 0,
+  "armorName": "scavenged scrap and leather",
+  "otherArmorDesc": "13 (scavenged scrap and leather)",
+  "hitDice": 1,
+  "hpText": "1",
+  "customHP": true,
+  "burrowSpeed": 0,
+  "climbSpeed": 0,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": false,
+  "speedDesc": "30 ft.",
+  "sthrows": [],
+  "conditions": [],
+  "damagetypes": [],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 0,
+  "tremorsense": 0,
+  "truesight": 0,
+  "shortName": "minion",
+  "pluralName": "minions",
+  "isLegendary": false,
+  "legendariesDescription": "",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [
+    {
+      "name": "Nimble Escape",
+      "desc": "The dust-scrapper can take the Disengage or Hide action as a bonus action on each of its turns."
+    }
+  ],
+  "reactions": [],
+  "legendaries": [],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Halfling Captive / Juvenile",
+  "race": "Halfling (Athasian)",
+  "class": "Commoner",
+  "alignment": "neutral",
+  "armor_class": 10,
+  "hit_points": 4,
+  "speed": 25,
+  "abilities": [
+    {
+      "name": "Brave",
+      "desc": "The captive has advantage on saving throws against being frightened."
+    },
+    {
+      "name": "Halfling Nimbleness",
+      "desc": "The captive can move through the space of any creature that is of a size larger than it."
+    },
+    {
+      "name": "Malnourished & Bound",
+      "desc": "The captive has disadvantage on Strength and Dexterity ability checks until untied, fed, and hydrated."
+    }
+  ],
+  "skills": [
+    {
+      "name": "stealth",
+      "stat": "dex"
+    }
+  ],
+  "traits": [],
+  "actions": [
+    {
+      "name": "Unarmed Strike",
+      "desc": "_Melee Weapon Attack:_ +1 to hit, reach 5 ft., one target. _Hit:_ 1 bludgeoning damage."
+    }
+  ],
+  "size": "small",
+  "type": "Humanoid",
+  "tag": "Halfling",
+  "strPoints": 8,
+  "dexPoints": 11,
+  "conPoints": 10,
+  "intPoints": 10,
+  "wisPoints": 10,
+  "chaPoints": 10,
+  "cr": "0",
+  "customCr": "0 (10 XP)",
+  "customProf": 2,
+  "shieldBonus": 0,
+  "armorName": "none",
+  "otherArmorDesc": "10",
+  "hitDice": 1,
+  "hpText": "1d6",
+  "customHP": true,
+  "burrowSpeed": 0,
+  "climbSpeed": 0,
+  "flySpeed": 0,
+  "swimSpeed": 0,
+  "hover": false,
+  "customSpeed": false,
+  "speedDesc": "25 ft.",
+  "sthrows": [],
+  "conditions": [],
+  "damagetypes": [],
+  "specialdamage": [],
+  "languages": [
+    {
+      "name": "Halfling",
+      "speaks": true
+    }
+  ],
+  "telepathy": 0,
+  "understandsBut": "",
+  "blindsight": 0,
+  "blind": false,
+  "darkvision": 0,
+  "tremorsense": 0,
+  "truesight": 0,
+  "shortName": "captive",
+  "pluralName": "captives",
+  "isLegendary": false,
+  "legendariesDescription": "",
+  "isMythic": false,
+  "mythicDescription": "",
+  "isLair": false,
+  "lairDescription": "",
+  "lairDescriptionEnd": "",
+  "isRegional": false,
+  "regionalDescription": "",
+  "regionalDescriptionEnd": "",
+  "bonusActions": [],
+  "reactions": [],
+  "legendaries": [],
+  "mythics": [],
+  "lairs": [],
+  "regionals": [],
+  "separationPoint": 5,
+  "damage": [],
+  "natArmorBonus": 0,
+  "doubleColumns": false
+}
