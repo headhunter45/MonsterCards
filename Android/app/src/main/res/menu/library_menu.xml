@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_action_import_from_url"
-        android:title="@string/action_import_from_url"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_action_import_from_file"
-        android:title="@string/action_import_monster_from_file"
+        android:id="@+id/menu_action_import"
+        android:title="@string/action_import"
         app:showAsAction="never" />
 
     <item

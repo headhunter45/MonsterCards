@@ -114,16 +114,17 @@ public class MCFragment extends Fragment {
         importMonsterFromFile();
     }
 
-    public void showImportUrlDialog() {
+    public void showImportDialog() {
         Context context = requireContext();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.dialog_import_url_title);
-        builder.setMessage(R.string.dialog_import_url_message);
+        builder.setTitle(R.string.dialog_import_title);
 
-        final EditText input = new EditText(context);
-        input.setHint(R.string.dialog_import_url_hint);
-        input.setSingleLine(true);
+        View view = getLayoutInflater().inflate(R.layout.dialog_import, null);
+        builder.setView(view);
 
+        AlertDialog dialog = builder.create();
+
+        final EditText input = view.findViewById(R.id.edit_text_url);
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard != null && clipboard.hasPrimaryClip()) {
             ClipData clip = clipboard.getPrimaryClip();
@@ -139,20 +140,22 @@ public class MCFragment extends Fragment {
             }
         }
 
-        builder.setView(input);
-
-        builder.setPositiveButton(R.string.dialog_import, (dialog, which) -> {
+        view.findViewById(R.id.button_import_url).setOnClickListener(v -> {
             String urlOrId = input.getText().toString().trim();
             if (!urlOrId.isEmpty()) {
                 if (getActivity() instanceof MainActivity) {
                     ((MainActivity) getActivity()).importMonsterFromInputAndNavigate(urlOrId);
                 }
             }
+            dialog.dismiss();
         });
 
-        builder.setNegativeButton(R.string.dialog_cancel, (dialog, which) -> dialog.cancel());
+        view.findViewById(R.id.button_import_file).setOnClickListener(v -> {
+            importMonsterFromFile();
+            dialog.dismiss();
+        });
 
-        builder.show();
+        dialog.show();
     }
 
     public void createNewMonster() {

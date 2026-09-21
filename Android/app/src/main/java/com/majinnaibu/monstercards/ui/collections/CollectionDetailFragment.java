@@ -138,8 +138,7 @@ public class CollectionDetailFragment extends MCFragment {
         String[] options = new String[]{
                 getString(R.string.action_add_monster),
                 getString(R.string.action_create_monster),
-                getString(R.string.action_import_monster_from_url),
-                getString(R.string.action_import_monster_from_file)
+                getString(R.string.action_import)
         };
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.title_collection_actions)
@@ -149,9 +148,7 @@ public class CollectionDetailFragment extends MCFragment {
                     } else if (which == 1) {
                         createNewMonster();
                     } else if (which == 2) {
-                        showImportUrlDialog();
-                    } else if (which == 3) {
-                        importMonsterFromFile();
+                        showImportDialog();
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)

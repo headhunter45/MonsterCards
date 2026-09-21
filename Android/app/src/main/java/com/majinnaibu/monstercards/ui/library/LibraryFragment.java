@@ -76,11 +76,8 @@ public class LibraryFragment extends MCFragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_action_import_from_url) {
-            showImportUrlDialog();
-            return true;
-        } else if (item.getItemId() == R.id.menu_action_import_from_file) {
-            importMonsterFromFile();
+        if (item.getItemId() == R.id.menu_action_import) {
+            showImportDialog();
             return true;
         } else if (item.getItemId() == R.id.menu_action_export_library) {
             exportLibrary();
@@ -188,8 +185,7 @@ public class LibraryFragment extends MCFragment {
     private void showLibraryFabOptionsDialog() {
         String[] options = new String[]{
                 getString(R.string.action_create_monster),
-                getString(R.string.action_import_monster_from_url),
-                getString(R.string.action_import_monster_from_file)
+                getString(R.string.action_import)
         };
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.title_library_actions)
@@ -197,9 +193,7 @@ public class LibraryFragment extends MCFragment {
                     if (which == 0) {
                         createNewMonster();
                     } else if (which == 1) {
-                        showImportUrlDialog();
-                    } else if (which == 2) {
-                        importMonsterFromFile();
+                        showImportDialog();
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)
