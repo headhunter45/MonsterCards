@@ -36,6 +36,9 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.SnackbarHelper;
 import com.majinnaibu.monstercards.utils.ToastHelper;
 
+import com.majinnaibu.monstercards.data.GitRepositoryConfig;
+import com.majinnaibu.monstercards.models.GitRepositorySource;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -163,7 +166,36 @@ public class MCFragment extends Fragment {
             dialog.dismiss();
         });
 
+        view.findViewById(R.id.button_import_github).setOnClickListener(v -> {
+            dialog.dismiss();
+            showGithubRepoPicker();
+        });
+
         dialog.show();
+    }
+
+    private void showGithubRepoPicker() {
+        Context context = requireContext();
+        List<GitRepositorySource> sources = GitRepositoryConfig.SOURCES;
+        if (sources.isEmpty()) {
+            return;
+        }
+
+        String[] repoNames = new String[sources.size()];
+        for (int i = 0; i < sources.size(); i++) {
+            repoNames[i] = sources.get(i).projectName;
+        }
+
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.dialog_select_github_repo)
+                .setItems(repoNames, (d, which) -> {
+                    GitRepositorySource selected = sources.get(which);
+                    if (getActivity() instanceof MainActivity) {
+                        ((MainActivity) getActivity()).importFromGitRepository(selected);
+                    }
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     public void createNewMonster() {

@@ -231,4 +231,9 @@
     <string name="snackbar_open5e_import_complete">Finished importing Open5e monsters.</string>
     <string name="snackbar_open5e_import_cancelled">Cancelled Open5e import.</string>
     <string name="snackbar_open5e_import_failed">Failed to import from Open5e.</string>
+    <string name="action_import_from_github">From GitHub Repository</string>
+    <string name="dialog_select_github_repo">Select Repository</string>
+    <string name="snackbar_importing_github">Downloading and importing repository…</string>
+    <string name="snackbar_github_import_complete">Imported %1$d monsters from %2$s.</string>
+    <string name="snackbar_github_import_failed">Failed to import from GitHub repository.</string>
 </resources>
