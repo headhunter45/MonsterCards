@@ -65,7 +65,7 @@ public class CollectionDetailFragment extends MCFragment {
         FloatingActionButton fab = root.findViewById(R.id.fab_add_monster_to_collection);
 
         if (fab != null) {
-            fab.setOnClickListener(v -> showAddMonsterDialog());
+            fab.setOnClickListener(v -> showCollectionDetailFabOptionsDialog());
         }
 
         mViewModel.getCollection().observe(getViewLifecycleOwner(), collection -> {
@@ -132,6 +132,30 @@ public class CollectionDetailFragment extends MCFragment {
             }
         });
         recyclerView.setAdapter(mAdapter);
+    }
+
+    private void showCollectionDetailFabOptionsDialog() {
+        String[] options = new String[]{
+                getString(R.string.action_add_monster),
+                getString(R.string.action_create_monster),
+                getString(R.string.action_import_monster_from_url),
+                getString(R.string.action_import_monster_from_file)
+        };
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.title_collection_actions)
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        showAddMonsterDialog();
+                    } else if (which == 1) {
+                        createNewMonster();
+                    } else if (which == 2) {
+                        showImportUrlDialog();
+                    } else if (which == 3) {
+                        importMonsterFromFile();
+                    }
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     private void showAddMonsterDialog() {

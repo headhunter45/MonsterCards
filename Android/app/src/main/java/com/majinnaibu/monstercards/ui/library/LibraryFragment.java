@@ -79,6 +79,9 @@ public class LibraryFragment extends MCFragment {
         if (item.getItemId() == R.id.menu_action_import_from_url) {
             showImportUrlDialog();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_import_from_file) {
+            importMonsterFromFile();
+            return true;
         } else if (item.getItemId() == R.id.menu_action_export_library) {
             exportLibrary();
             return true;
@@ -96,47 +99,6 @@ public class LibraryFragment extends MCFragment {
                     String fileName = getString(R.string.default_filename_library) + ".binder";
                     exportToFile(fileName, json);
                 }, Logger::logError);
-    }
-
-    private void showImportUrlDialog() {
-        Context context = requireContext();
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.dialog_import_url_title);
-        builder.setMessage(R.string.dialog_import_url_message);
-
-        final EditText input = new EditText(context);
-        input.setHint(R.string.dialog_import_url_hint);
-        input.setSingleLine(true);
-
-        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        if (clipboard != null && clipboard.hasPrimaryClip()) {
-            ClipData clip = clipboard.getPrimaryClip();
-            if (clip != null && clip.getItemCount() > 0) {
-                CharSequence clipText = clip.getItemAt(0).getText();
-                if (clipText != null) {
-                    String clipStr = clipText.toString().trim();
-                    if (new DnDBeyondImporter().canImport(clipStr) || new Open5eImporter().canImport(clipStr)) {
-                        input.setText(clipStr);
-                        input.selectAll();
-                    }
-                }
-            }
-        }
-
-        builder.setView(input);
-
-        builder.setPositiveButton(R.string.dialog_import, (dialog, which) -> {
-            String urlOrId = input.getText().toString().trim();
-            if (!urlOrId.isEmpty()) {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).importMonsterFromInputAndNavigate(urlOrId);
-                }
-            }
-        });
-
-        builder.setNegativeButton(R.string.dialog_cancel, (dialog, which) -> dialog.cancel());
-
-        builder.show();
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView, @Nullable View emptyState) {
@@ -185,31 +147,28 @@ public class LibraryFragment extends MCFragment {
     }
 
     private void setupAddMonsterButton(@NonNull FloatingActionButton fab) {
-        fab.setOnClickListener(view -> createNewMonster());
+        fab.setOnClickListener(view -> showLibraryFabOptionsDialog());
     }
 
-    private void createNewMonster() {
-        Monster monster = new Monster();
-        monster.name = getString(R.string.default_monster_name);
-        MonsterRepository repository = this.getMonsterRepository();
-        mDisposables.add(repository.addMonster(monster)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableCompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        navigateToEditMonster(monster.id);
+    private void showLibraryFabOptionsDialog() {
+        String[] options = new String[]{
+                getString(R.string.action_create_monster),
+                getString(R.string.action_import_monster_from_url),
+                getString(R.string.action_import_monster_from_file)
+        };
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.title_library_actions)
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        createNewMonster();
+                    } else if (which == 1) {
+                        showImportUrlDialog();
+                    } else if (which == 2) {
+                        importMonsterFromFile();
                     }
-
-                    @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                        Logger.logError("Error creating monster", e);
-                        View view = getView();
-                        if (view != null) {
-                            SnackbarHelper.showLong(view, getString(R.string.snackbar_failed_to_create_monster));
-                        }
-                    }
-                }));
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     protected void navigateToMonsterDetail(@NonNull UUID monsterId) {

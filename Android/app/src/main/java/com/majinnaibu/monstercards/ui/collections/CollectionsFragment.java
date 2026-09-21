@@ -47,13 +47,13 @@ public class CollectionsFragment extends MCFragment {
 
         FloatingActionButton fab = root.findViewById(R.id.fab_add_collection);
         if (fab != null) {
-            fab.setOnClickListener(v -> showCreateCollectionDialog());
+            fab.setOnClickListener(v -> showCollectionFabOptionsDialog());
         }
 
         View emptyState = root.findViewById(R.id.empty_state);
         View emptyStateButton = root.findViewById(R.id.empty_state_button);
         if (emptyStateButton != null) {
-            emptyStateButton.setOnClickListener(v -> showCreateCollectionDialog());
+            emptyStateButton.setOnClickListener(v -> showCollectionFabOptionsDialog());
         }
 
         RecyclerView recyclerView = root.findViewById(R.id.collection_list);
@@ -107,6 +107,24 @@ public class CollectionsFragment extends MCFragment {
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(context, (position, direction) -> adapter.deleteItem(position), null));
         itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    private void showCollectionFabOptionsDialog() {
+        String[] options = new String[]{
+                getString(R.string.title_new_collection),
+                getString(R.string.action_import_collection)
+        };
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.title_collection_actions)
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        showCreateCollectionDialog();
+                    } else if (which == 1) {
+                        importCollectionFromFile();
+                    }
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     private void showCreateCollectionDialog() {

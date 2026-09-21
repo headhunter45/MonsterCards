@@ -8,6 +8,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_action_import_from_file"
+        android:title="@string/action_import_monster_from_file"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_action_export_library"
         android:title="@string/action_export_library"
         app:showAsAction="never" />
