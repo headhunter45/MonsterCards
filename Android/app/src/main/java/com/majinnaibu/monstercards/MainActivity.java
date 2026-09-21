@@ -28,6 +28,8 @@ import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.importers.BinderImporter;
 import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
+import com.majinnaibu.monstercards.models.BinderExport;
+import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.ToastHelper;
 
@@ -35,6 +37,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -131,46 +135,161 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        Uri intentUri = getUriFromIntent(intent);
+        String fileName = intentUri != null ? getFileNameFromUri(intentUri) : null;
         String json = readMonsterJSONFromIntent(intent);
         if (!StringHelper.isNullOrEmpty(json)) {
-            importMonsterFromInputAndNavigate(json);
+            importMonsterFromInputAndNavigate(json, fileName);
         }
     }
 
+    @Nullable
+    private Uri getUriFromIntent(@NonNull Intent intent) {
+        String action = intent.getAction();
+        Bundle extras = intent.getExtras();
+        if ("android.intent.action.SEND".equals(action)) {
+            if (extras != null) {
+                return extras.getParcelable(Intent.EXTRA_STREAM);
+            }
+        } else if ("android.intent.action.VIEW".equals(action) || "android.intent.action.EDIT".equals(action)) {
+            return intent.getData();
+        }
+        return null;
+    }
+
     public void importMonsterFromInputAndNavigate(@NonNull String input) {
-        BinderImporter binderImporter = new BinderImporter();
-        if (binderImporter.canImport(input)) {
+        importMonsterFromInputAndNavigate(input, null);
+    }
+
+    public void importMonsterFromInputAndNavigate(@NonNull String input, @Nullable String fileName) {
+        try {
+            BinderImporter binderImporter = new BinderImporter();
+            if (binderImporter.canImport(input)) {
+                ToastHelper.showShort(this, R.string.toast_importing_url);
+                Single.fromCallable(() -> binderImporter.parse(input))
+                        .flatMapCompletable(binder -> ((MonsterCardsApplication) getApplication()).getMonsterRepository().importBinder(binder))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(() -> {
+                            ToastHelper.showLong(this, R.string.snackbar_import_binder_success);
+                            NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
+                            NavController navController = navHostFragment.getNavController();
+                            navController.navigate(R.id.navigation_library);
+                        }, throwable -> {
+                            Logger.logError("Failed to import binder from input: " + fileName, throwable);
+                            ToastHelper.showLong(this, R.string.failed_to_import_url);
+                        });
+                return;
+            }
+
             ToastHelper.showShort(this, R.string.toast_importing_url);
-            Single.fromCallable(() -> binderImporter.parse(input))
-                    .flatMapCompletable(binder -> ((MonsterCardsApplication) getApplication()).getMonsterRepository().importBinder(binder))
+            Single.fromCallable(() -> MonsterImportHelper.fromJSON(input, fileName))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(() -> {
-                        ToastHelper.showLong(this, R.string.snackbar_import_binder_success);
+                    .subscribe(monster -> {
+                        String serializedJson = new Gson().toJson(monster);
                         NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
                         NavController navController = navHostFragment.getNavController();
-                        navController.navigate(R.id.navigation_library);
+                        NavDirections navAction = MobileNavigationDirections.actionGlobalMonsterImportFragment(serializedJson);
+                        navController.navigate(navAction);
                     }, throwable -> {
-                        Logger.logError("Failed to import binder from input", throwable);
+                        Logger.logError("Failed to import monster from input: " + fileName, throwable);
                         ToastHelper.showLong(this, R.string.failed_to_import_url);
                     });
+        } catch (Exception e) {
+            Logger.logError("Failed to process import input: " + fileName, e);
+            ToastHelper.showLong(this, R.string.failed_to_import_url);
+        }
+    }
+
+    public void importMultipleFilesFromUris(@NonNull List<Uri> uris) {
+        if (uris.isEmpty()) return;
+        if (uris.size() == 1) {
+            Uri singleUri = uris.get(0);
+            String fileName = getFileNameFromUri(singleUri);
+            String content = readContentsOfUri(singleUri);
+            if (content != null && !content.trim().isEmpty()) {
+                importMonsterFromInputAndNavigate(content, fileName);
+            } else {
+                ToastHelper.showLong(this, R.string.failed_to_import_url);
+            }
             return;
         }
 
         ToastHelper.showShort(this, R.string.toast_importing_url);
-        Single.fromCallable(() -> MonsterImportHelper.fromJSON(input))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(monster -> {
-                    String serializedJson = new Gson().toJson(monster);
-                    NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
-                    NavController navController = navHostFragment.getNavController();
-                    NavDirections navAction = MobileNavigationDirections.actionGlobalMonsterImportFragment(serializedJson);
-                    navController.navigate(navAction);
-                }, throwable -> {
-                    Logger.logError("Failed to import monster from input", throwable);
-                    ToastHelper.showLong(this, R.string.failed_to_import_url);
-                });
+        Single.fromCallable(() -> {
+            int monstersImported = 0;
+            int bindersImported = 0;
+
+            for (Uri uri : uris) {
+                try {
+                    String fileName = getFileNameFromUri(uri);
+                    String content = readContentsOfUri(uri);
+                    if (content == null || content.trim().isEmpty()) {
+                        continue;
+                    }
+
+                    BinderImporter binderImporter = new BinderImporter();
+                    if (binderImporter.canImport(content)) {
+                        BinderExport binder = binderImporter.parse(content);
+                        ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                .importBinder(binder)
+                                .blockingAwait();
+                        bindersImported++;
+                    } else {
+                        Monster monster = MonsterImportHelper.fromJSON(content, fileName);
+                        ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                .saveMonster(monster)
+                                .blockingAwait();
+                        monstersImported++;
+                    }
+                } catch (Exception e) {
+                    Logger.logError("Failed to import file URI: " + uri, e);
+                }
+            }
+
+            return new BatchImportResult(monstersImported, bindersImported);
+        })
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(result -> {
+            if (result.bindersImported > 0 || result.monstersImported > 0) {
+                String message = buildImportSummaryMessage(result.monstersImported, result.bindersImported);
+                ToastHelper.showLong(this, message);
+                NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
+                NavController navController = navHostFragment.getNavController();
+                navController.navigate(R.id.navigation_library);
+            } else {
+                ToastHelper.showLong(this, R.string.failed_to_import_url);
+            }
+        }, throwable -> {
+            Logger.logError("Failed to execute batch file import", throwable);
+            ToastHelper.showLong(this, R.string.failed_to_import_url);
+        });
+    }
+
+    private String buildImportSummaryMessage(int monstersCount, int bindersCount) {
+        StringBuilder sb = new StringBuilder("Successfully imported ");
+        if (bindersCount > 0 && monstersCount > 0) {
+            sb.append(bindersCount).append(bindersCount == 1 ? " collection" : " collections")
+              .append(" and ")
+              .append(monstersCount).append(monstersCount == 1 ? " monster" : " monsters");
+        } else if (bindersCount > 0) {
+            sb.append(bindersCount).append(bindersCount == 1 ? " collection" : " collections");
+        } else {
+            sb.append(monstersCount).append(monstersCount == 1 ? " monster" : " monsters");
+        }
+        return sb.toString();
+    }
+
+    private static class BatchImportResult {
+        final int monstersImported;
+        final int bindersImported;
+
+        BatchImportResult(int monstersImported, int bindersImported) {
+            this.monstersImported = monstersImported;
+            this.bindersImported = bindersImported;
+        }
     }
 
     @Nullable

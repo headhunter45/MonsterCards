@@ -36,6 +36,12 @@ public class TetraCubeMonsterImporter implements EntityImporter<Monster> {
                 return false;
             }
             JsonObject rootDict = element.getAsJsonObject();
+            if (rootDict.has("$schema")) {
+                String schemaVal = rootDict.get("$schema").getAsString();
+                if (schemaVal.contains("tetracube-monster.schema.json")) {
+                    return true;
+                }
+            }
             return rootDict.has("armorName") || rootDict.has("strPoints")
                     || rootDict.has("isLegendary") || rootDict.has("isMythic")
                     || rootDict.has("legendariesDescription");

@@ -11,6 +11,7 @@ public class MonsterCardExporter {
 
     @NonNull
     public String exportCard(@NonNull Monster monster) {
+        monster.schema = "https://majinnaibu.com/schemas/monster-card.schema.json";
         monster.schemaVersion = 1;
         return GSON.toJson(monster);
     }

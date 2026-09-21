@@ -47,8 +47,17 @@ public interface CollectionDAO {
     @Query("DELETE FROM collection_monsters WHERE collection_id = :collectionId AND monster_id = :monsterId")
     Completable removeMonsterFromCollection(String collectionId, String monsterId);
 
+    @Query("DELETE FROM collection_monsters WHERE collection_id = :collectionId")
+    Completable removeAllMonstersFromCollection(String collectionId);
+
     @Query("DELETE FROM collection_monsters WHERE id = :id")
     Completable removeCollectionMonsterById(long id);
+
+    @Query("DELETE FROM collection_monsters")
+    Completable deleteAllCollectionMonsters();
+
+    @Query("DELETE FROM collections")
+    Completable deleteAllCollections();
 
     @Update
     Completable updateCollectionMonsters(List<CollectionMonster> collectionMonsters);

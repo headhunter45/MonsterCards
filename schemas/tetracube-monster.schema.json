@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://majinnaibu.com/schemas/tetracube-monster.schema.json",
+  "title": "TetraCubeMonster",
+  "description": "JSON Schema for TetraCube .monster files based on all_the_fields.monster",
+  "type": "object",
+  "required": [
+    "name",
+    "size",
+    "type"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "race": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "alignment": {
+      "type": "string"
+    },
+    "armorName": {
+      "type": "string"
+    },
+    "strPoints": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "dexPoints": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "conPoints": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "intPoints": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "wisPoints": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "chaPoints": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "hitDice": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "speed": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "burrowSpeed": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "climbSpeed": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "flySpeed": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "swimSpeed": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "cr": {
+      "type": "string"
+    },
+    "customCr": {
+      "type": "string"
+    },
+    "customProf": {
+      "type": "integer"
+    },
+    "shieldBonus": {
+      "type": "integer"
+    },
+    "natArmorBonus": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "otherArmorDesc": {
+      "type": "string"
+    },
+    "hpText": {
+      "type": "string"
+    },
+    "speedDesc": {
+      "type": "string"
+    },
+    "customHP": {
+      "type": "boolean"
+    },
+    "customSpeed": {
+      "type": "boolean"
+    },
+    "hover": {
+      "type": "boolean"
+    },
+    "blind": {
+      "type": "boolean"
+    },
+    "blindsight": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "darkvision": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "tremorsense": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "truesight": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "telepathy": {
+      "type": "integer"
+    },
+    "understandsBut": {
+      "type": "string"
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "pluralName": {
+      "type": "string"
+    },
+    "isLegendary": {
+      "type": "boolean"
+    },
+    "legendariesDescription": {
+      "type": "string"
+    },
+    "isMythic": {
+      "type": "boolean"
+    },
+    "mythicDescription": {
+      "type": "string"
+    },
+    "isLair": {
+      "type": "boolean"
+    },
+    "lairDescription": {
+      "type": "string"
+    },
+    "lairDescriptionEnd": {
+      "type": "string"
+    },
+    "isRegional": {
+      "type": "boolean"
+    },
+    "regionalDescription": {
+      "type": "string"
+    },
+    "regionalDescriptionEnd": {
+      "type": "string"
+    },
+    "abilities": {
+      "type": "array"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "bonusActions": {
+      "type": "array"
+    },
+    "reactions": {
+      "type": "array"
+    },
+    "legendaries": {
+      "type": "array"
+    },
+    "mythics": {
+      "type": "array"
+    },
+    "lairs": {
+      "type": "array"
+    },
+    "regionals": {
+      "type": "array"
+    },
+    "skills": {
+      "type": "array"
+    },
+    "sthrows": {
+      "type": "array"
+    },
+    "languages": {
+      "type": "array"
+    },
+    "conditions": {
+      "type": "array"
+    },
+    "damagetypes": {
+      "type": "array"
+    },
+    "specialdamage": {
+      "type": "array"
+    }
+  }
+}

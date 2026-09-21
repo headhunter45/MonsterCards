@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://majinnaibu.com/schemas/binder.schema.json",
+  "title": "BinderExport",
+  "description": "JSON Schema for MonsterCards .binder collection files",
+  "type": "object",
+  "required": [
+    "collections",
+    "schemaVersion"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "cards"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "cards": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "dashboard": {
+      "type": "array"
+    }
+  }
+}

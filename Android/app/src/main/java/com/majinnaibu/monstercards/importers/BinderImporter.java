@@ -18,6 +18,12 @@ public class BinderImporter implements EntityImporter<BinderExport> {
             JsonElement el = JsonParser.parseString(input);
             if (el.isJsonObject()) {
                 JsonObject obj = el.getAsJsonObject();
+                if (obj.has("$schema")) {
+                    String schemaVal = obj.get("$schema").getAsString();
+                    if (schemaVal.contains("binder.schema.json")) {
+                        return true;
+                    }
+                }
                 return obj.has("collections") && obj.get("collections").isJsonArray();
             }
         } catch (Exception ignored) {

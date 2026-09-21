@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -43,6 +46,7 @@ public class CollectionsFragment extends MCFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View root = inflater.inflate(R.layout.fragment_collections, container, false);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_add_collection);
@@ -188,6 +192,51 @@ public class CollectionsFragment extends MCFragment {
     private void navigateToCollectionDetail(@NonNull UUID collectionId) {
         NavDirections action = CollectionsFragmentDirections.actionNavigationCollectionsToCollectionDetailFragment(collectionId.toString());
         Navigation.findNavController(requireView()).navigate(action);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.collections_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_action_export_collections) {
+            exportCollections();
+            return true;
+        } else if (item.getItemId() == R.id.menu_action_remove_all_collections) {
+            showRemoveAllCollectionsConfirmationDialog();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void exportCollections() {
+        mDisposables.add(getMonsterRepository().exportCollections()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(json -> exportToFile("collections.binder", json),
+                        throwable -> Logger.logError("Failed to export collections", throwable)));
+    }
+
+    private void showRemoveAllCollectionsConfirmationDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.dialog_remove_all_collections_title)
+                .setMessage(R.string.dialog_remove_all_collections_message)
+                .setPositiveButton(R.string.action_remove_all, (dialog, which) -> {
+                    mDisposables.add(getMonsterRepository().removeAllCollections()
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(() -> {
+                                View view = getView();
+                                if (view != null) {
+                                    SnackbarHelper.showLong(view, R.string.snackbar_all_collections_removed);
+                                }
+                            }, throwable -> Logger.logError("Failed to remove all collections", throwable)));
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     @Override

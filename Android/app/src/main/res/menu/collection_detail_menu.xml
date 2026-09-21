@@ -11,4 +11,9 @@
         android:id="@+id/menu_action_export_collection"
         android:title="@string/action_export_collection"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_action_remove_all_monsters_from_collection"
+        android:title="@string/action_remove_all"
+        app:showAsAction="never" />
 </menu>

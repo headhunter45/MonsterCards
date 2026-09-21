@@ -36,4 +36,7 @@ public interface MonsterDAO {
 
     @Delete
     Completable delete(Monster monster);
+
+    @Query("DELETE FROM monsters")
+    Completable deleteAllMonsters();
 }

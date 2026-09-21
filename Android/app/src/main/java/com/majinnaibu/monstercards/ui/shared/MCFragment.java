@@ -40,6 +40,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -71,17 +73,22 @@ public class MCFragment extends Fragment {
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                        Uri uri = result.getData().getData();
-                        if (uri != null && getActivity() instanceof MainActivity) {
-                            String content = readContentsFromUri(uri);
-                            if (content != null && !content.trim().isEmpty()) {
-                                ((MainActivity) getActivity()).importMonsterFromInputAndNavigate(content);
-                            } else {
-                                View view = getView();
-                                if (view != null) {
-                                    SnackbarHelper.showLong(view, R.string.failed_to_import_url);
+                        Intent data = result.getData();
+                        List<Uri> uris = new ArrayList<>();
+                        if (data.getClipData() != null) {
+                            ClipData clipData = data.getClipData();
+                            for (int i = 0; i < clipData.getItemCount(); i++) {
+                                Uri uri = clipData.getItemAt(i).getUri();
+                                if (uri != null) {
+                                    uris.add(uri);
                                 }
                             }
+                        } else if (data.getData() != null) {
+                            uris.add(data.getData());
+                        }
+
+                        if (!uris.isEmpty() && getActivity() instanceof MainActivity) {
+                            ((MainActivity) getActivity()).importMultipleFilesFromUris(uris);
                         }
                     }
                 });
@@ -91,6 +98,7 @@ public class MCFragment extends Fragment {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         try {
             mOpenDocumentLauncher.launch(intent);
         } catch (Exception e) {

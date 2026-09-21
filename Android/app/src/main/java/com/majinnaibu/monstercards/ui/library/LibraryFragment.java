@@ -85,8 +85,33 @@ public class LibraryFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_export_library) {
             exportLibrary();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_export_everything) {
+            exportEverything();
+            return true;
+        } else if (item.getItemId() == R.id.menu_action_clear_all_data) {
+            showClearAllDataConfirmationDialog();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showClearAllDataConfirmationDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.dialog_clear_all_data_title)
+                .setMessage(R.string.dialog_clear_all_data_message)
+                .setPositiveButton(R.string.action_clear, (dialog, which) -> {
+                    mDisposables.add(getMonsterRepository().clearAllData()
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(() -> {
+                                View view = getView();
+                                if (view != null) {
+                                    SnackbarHelper.showLong(view, R.string.snackbar_all_data_cleared);
+                                }
+                            }, throwable -> Logger.logError("Failed to clear all data", throwable)));
+                })
+                .setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     private void exportLibrary() {
@@ -99,6 +124,16 @@ public class LibraryFragment extends MCFragment {
                     String fileName = getString(R.string.default_filename_library) + ".binder";
                     exportToFile(fileName, json);
                 }, Logger::logError);
+    }
+
+    private void exportEverything() {
+        mDisposables.add(getMonsterRepository().exportEverything()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(json -> {
+                    String fileName = getString(R.string.default_filename_export_everything) + ".binder";
+                    exportToFile(fileName, json);
+                }, throwable -> Logger.logError("Failed to export everything", throwable)));
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView, @Nullable View emptyState) {
