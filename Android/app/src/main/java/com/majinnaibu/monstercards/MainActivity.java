@@ -29,9 +29,11 @@ import com.majinnaibu.monstercards.helpers.MonsterImportHelper;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.importers.BinderImporter;
 import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
+import com.majinnaibu.monstercards.importers.GitRepoImporterService;
 import com.majinnaibu.monstercards.importers.Open5eApiWrapper;
 import com.majinnaibu.monstercards.init.AppCenterInitializer;
 import com.majinnaibu.monstercards.models.BinderExport;
+import com.majinnaibu.monstercards.models.GitRepositorySource;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.SnackbarHelper;
@@ -54,6 +56,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
 
     private Disposable mOpen5eImportDisposable;
+    private Disposable mGitImportDisposable;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -263,6 +266,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void importFromGitRepository(@NonNull GitRepositorySource source) {
+        if (mGitImportDisposable != null && !mGitImportDisposable.isDisposed()) {
+            ToastHelper.showShort(this, "A GitHub import is already running.");
+            return;
+        }
+
+        View rootView = findViewById(android.R.id.content);
+        Snackbar snackbar = SnackbarHelper.makeIndefinite(rootView, R.string.snackbar_importing_github);
+        snackbar.show();
+
+        mGitImportDisposable = Single.fromCallable(() -> 
+            GitRepoImporterService.importFromGitRepository(getApplicationContext(), source)
+        )
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(resultCount -> {
+            snackbar.dismiss();
+            SnackbarHelper.showLong(rootView, getString(R.string.snackbar_github_import_complete, resultCount, source.projectName));
+        }, throwable -> {
+            snackbar.dismiss();
+            Logger.logError("Failed to import from GitHub repository: " + source.projectName, throwable);
+            SnackbarHelper.showLong(rootView, R.string.snackbar_github_import_failed);
+        });
+    }
+
     public void importMultipleFilesFromUris(@NonNull List<Uri> uris) {
         if (uris.isEmpty()) return;
         if (uris.size() == 1) {
@@ -438,6 +466,9 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         if (mOpen5eImportDisposable != null && !mOpen5eImportDisposable.isDisposed()) {
             mOpen5eImportDisposable.dispose();
+        }
+        if (mGitImportDisposable != null && !mGitImportDisposable.isDisposed()) {
+            mGitImportDisposable.dispose();
         }
     }
 }
