@@ -34,6 +34,7 @@ import com.majinnaibu.monstercards.importers.Open5eImporter;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.SnackbarHelper;
+import com.majinnaibu.monstercards.utils.ToastHelper;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -212,6 +213,10 @@ public class MCFragment extends Fragment {
             }
         } catch (Exception e) {
             Logger.logError("Error reading URI contents for import", e);
+            Context ctx = getContext();
+            if (ctx != null) {
+                ToastHelper.showLong(ctx, "An error occurred while reading the file.");
+            }
             return null;
         }
         return builder.toString();

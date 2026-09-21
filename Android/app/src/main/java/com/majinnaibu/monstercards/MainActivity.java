@@ -237,10 +237,15 @@ public class MainActivity extends AppCompatActivity {
                     if (mOpen5eImportDisposable != null && mOpen5eImportDisposable.isDisposed()) {
                         break;
                     }
-                    ((MonsterCardsApplication) getApplication()).getMonsterRepository()
-                            .saveMonster(monster)
-                            .blockingAwait();
-                    totalImported++;
+                    try {
+                        ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                .saveMonster(monster)
+                                .blockingAwait();
+                        totalImported++;
+                    } catch (Exception e) {
+                        Logger.logError("Failed to save monster to database", e);
+                        runOnUiThread(() -> ToastHelper.showShort(MainActivity.this, "An error occurred while saving a monster."));
+                    }
                 }
                 nextUrl = page.nextUrl;
             } while (nextUrl != null && !nextUrl.isEmpty());
@@ -422,6 +427,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (IOException e) {
             Logger.logError("error reading file", e);
+            ToastHelper.showLong(this, "An error occurred while reading the file.");
             return null;
         }
         return builder.toString();
