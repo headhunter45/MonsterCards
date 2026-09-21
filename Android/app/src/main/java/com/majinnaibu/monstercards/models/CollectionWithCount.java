@@ -1,6 +1,7 @@
 package com.majinnaibu.monstercards.models;
 
 import androidx.room.Embedded;
+import androidx.room.Ignore;
 
 public class CollectionWithCount {
     @Embedded
@@ -13,6 +14,7 @@ public class CollectionWithCount {
         this.monsterCount = 0;
     }
 
+    @Ignore
     public CollectionWithCount(Collection collection, int monsterCount) {
         this.collection = collection;
         this.monsterCount = monsterCount;
