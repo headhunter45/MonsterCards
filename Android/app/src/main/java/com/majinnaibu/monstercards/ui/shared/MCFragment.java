@@ -155,6 +155,13 @@ public class MCFragment extends Fragment {
             dialog.dismiss();
         });
 
+        view.findViewById(R.id.button_import_open5e).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).importAllFromOpen5e();
+            }
+            dialog.dismiss();
+        });
+
         dialog.show();
     }
 
