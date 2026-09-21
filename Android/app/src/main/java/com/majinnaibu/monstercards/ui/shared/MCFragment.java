@@ -36,8 +36,8 @@ import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.SnackbarHelper;
 import com.majinnaibu.monstercards.utils.ToastHelper;
 
-import com.majinnaibu.monstercards.data.GitRepositoryConfig;
-import com.majinnaibu.monstercards.models.GitRepositorySource;
+import com.majinnaibu.monstercards.data.ImportConfig;
+import com.majinnaibu.monstercards.models.ImportSource;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -159,24 +159,17 @@ public class MCFragment extends Fragment {
             dialog.dismiss();
         });
 
-        view.findViewById(R.id.button_import_open5e).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).importAllFromOpen5e();
-            }
+        view.findViewById(R.id.button_import_source).setOnClickListener(v -> {
             dialog.dismiss();
-        });
-
-        view.findViewById(R.id.button_import_github).setOnClickListener(v -> {
-            dialog.dismiss();
-            showGithubRepoPicker();
+            showSourcePicker();
         });
 
         dialog.show();
     }
 
-    private void showGithubRepoPicker() {
+    private void showSourcePicker() {
         Context context = requireContext();
-        List<GitRepositorySource> sources = GitRepositoryConfig.SOURCES;
+        List<ImportSource> sources = ImportConfig.SOURCES;
         if (sources.isEmpty()) {
             return;
         }
@@ -187,11 +180,11 @@ public class MCFragment extends Fragment {
         }
 
         new AlertDialog.Builder(context)
-                .setTitle(R.string.dialog_select_github_repo)
+                .setTitle(R.string.dialog_select_import_source)
                 .setItems(repoNames, (d, which) -> {
-                    GitRepositorySource selected = sources.get(which);
+                    ImportSource selected = sources.get(which);
                     if (getActivity() instanceof MainActivity) {
-                        ((MainActivity) getActivity()).importFromGitRepository(selected);
+                        ((MainActivity) getActivity()).startImportFromSource(selected);
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)

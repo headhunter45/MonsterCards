@@ -41,17 +41,10 @@
         android:text="@string/action_import_monster_from_file" />
 
     <Button
-        android:id="@+id/button_import_open5e"
+        android:id="@+id/button_import_source"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/action_import_from_open5e" />
-
-    <Button
-        android:id="@+id/button_import_github"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/action_import_from_github" />
+        android:text="@string/action_import_from_source" />
 
 </LinearLayout>
