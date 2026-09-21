@@ -4,6 +4,6 @@
     <item
         android:id="@+id/menu_action_import_monster"
         android:icon="@drawable/ic_library_add_24"
-        android:title="@string/action_import_monster"
+        android:title="@string/action_import"
         app:showAsAction="always" />
 </menu>

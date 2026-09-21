@@ -11,7 +11,7 @@
     <string name="action_add_skill">Add Skill</string>
     <string name="action_add_trait">Add Trait</string>
     <string name="action_edit">Edit</string>
-    <string name="action_import_monster">Import File</string>
+    <string name="action_import">Import</string>
     <string name="app_name">MonsterCards</string>
     <string name="charisma_abbreviation">CHA</string>
     <string name="constitution_abbreviation">CON</string>
@@ -163,8 +163,8 @@
     <string name="snackbar_dashboard_cleared">Dashboard cleared</string>
     <string name="no_monsters_available">No monsters available in library. Create one first!</string>
     <string name="action_import_from_url">Import URL</string>
-    <string name="dialog_import_url_title">Import Character</string>
-    <string name="dialog_import_url_message">Enter or paste a D&amp;D Beyond URL, Character ID, or Open5e JSON payload:</string>
+    <string name="dialog_import_title">Import</string>
+    <string name="dialog_import_message">Enter or paste a URL, ID, or data payload:</string>
     <string name="dialog_import_url_hint">e.g. D&amp;D Beyond URL or Open5e JSON</string>
     <string name="dialog_import">Import</string>
     <string name="toast_importing_url">Importing…</string>
