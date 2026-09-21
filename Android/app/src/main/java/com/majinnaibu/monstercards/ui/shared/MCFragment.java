@@ -1,6 +1,8 @@
 package com.majinnaibu.monstercards.ui.shared;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,27 +12,45 @@ import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.OpenableColumns;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.majinnaibu.monstercards.MainActivity;
 import com.majinnaibu.monstercards.MonsterCardsApplication;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
+import com.majinnaibu.monstercards.importers.Open5eImporter;
+import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
 import com.majinnaibu.monstercards.utils.SnackbarHelper;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+import java.util.UUID;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MCFragment extends Fragment {
     private String mPendingExportContent;
     private ActivityResultLauncher<Intent> mCreateDocumentLauncher;
+    private ActivityResultLauncher<Intent> mOpenDocumentLauncher;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,6 +66,137 @@ public class MCFragment extends Fragment {
                     }
                     mPendingExportContent = null;
                 });
+
+        mOpenDocumentLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                        Uri uri = result.getData().getData();
+                        if (uri != null && getActivity() instanceof MainActivity) {
+                            String content = readContentsFromUri(uri);
+                            if (content != null && !content.trim().isEmpty()) {
+                                ((MainActivity) getActivity()).importMonsterFromInputAndNavigate(content);
+                            } else {
+                                View view = getView();
+                                if (view != null) {
+                                    SnackbarHelper.showLong(view, R.string.failed_to_import_url);
+                                }
+                            }
+                        }
+                    }
+                });
+    }
+
+    public void importMonsterFromFile() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        try {
+            mOpenDocumentLauncher.launch(intent);
+        } catch (Exception e) {
+            Logger.logError("Failed to launch file picker", e);
+            View view = getView();
+            if (view != null) {
+                SnackbarHelper.showLong(view, R.string.failed_to_import_url);
+            }
+        }
+    }
+
+    public void importCollectionFromFile() {
+        importMonsterFromFile();
+    }
+
+    public void showImportUrlDialog() {
+        Context context = requireContext();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.dialog_import_url_title);
+        builder.setMessage(R.string.dialog_import_url_message);
+
+        final EditText input = new EditText(context);
+        input.setHint(R.string.dialog_import_url_hint);
+        input.setSingleLine(true);
+
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard != null && clipboard.hasPrimaryClip()) {
+            ClipData clip = clipboard.getPrimaryClip();
+            if (clip != null && clip.getItemCount() > 0) {
+                CharSequence clipText = clip.getItemAt(0).getText();
+                if (clipText != null) {
+                    String clipStr = clipText.toString().trim();
+                    if (new DnDBeyondImporter().canImport(clipStr) || new Open5eImporter().canImport(clipStr)) {
+                        input.setText(clipStr);
+                        input.selectAll();
+                    }
+                }
+            }
+        }
+
+        builder.setView(input);
+
+        builder.setPositiveButton(R.string.dialog_import, (dialog, which) -> {
+            String urlOrId = input.getText().toString().trim();
+            if (!urlOrId.isEmpty()) {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).importMonsterFromInputAndNavigate(urlOrId);
+                }
+            }
+        });
+
+        builder.setNegativeButton(R.string.dialog_cancel, (dialog, which) -> dialog.cancel());
+
+        builder.show();
+    }
+
+    public void createNewMonster() {
+        Monster monster = new Monster();
+        monster.name = getString(R.string.default_monster_name);
+        MonsterRepository repository = getMonsterRepository();
+        repository.addMonster(monster)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableCompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                        navigateToEditMonster(monster.id);
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Logger.logError("Error creating monster", e);
+                        View view = getView();
+                        if (view != null) {
+                            SnackbarHelper.showLong(view, getString(R.string.snackbar_failed_to_create_monster));
+                        }
+                    }
+                });
+    }
+
+    protected void navigateToEditMonster(@NonNull UUID monsterId) {
+        try {
+            NavController navController = Navigation.findNavController(requireView());
+            Bundle args = new Bundle();
+            args.putString("monster_id", monsterId.toString());
+            navController.navigate(R.id.edit_monster_navigation, args);
+        } catch (Exception e) {
+            Logger.logError("Error navigating to edit monster", e);
+        }
+    }
+
+    private String readContentsFromUri(@NonNull Uri uri) {
+        Context context = getContext();
+        if (context == null) return null;
+        StringBuilder builder = new StringBuilder();
+        try (InputStream inputStream = context.getContentResolver().openInputStream(uri);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream), StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line).append("\n");
+            }
+        } catch (Exception e) {
+            Logger.logError("Error reading URI contents for import", e);
+            return null;
+        }
+        return builder.toString();
     }
 
     public MonsterCardsApplication getApplication() {

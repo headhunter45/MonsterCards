@@ -198,4 +198,12 @@
     <string name="snackbar_dashboard_already_empty">Dashboard is already empty</string>
     <string name="dialog_remove_from_dashboard_title">Remove %1$s?</string>
     <string name="dialog_remove_from_dashboard_message">Remove %1$s from your dashboard?</string>
+
+    <string name="action_create_monster">Create Monster</string>
+    <string name="action_import_monster_from_url">Import Monster from Url</string>
+    <string name="action_import_monster_from_file">Import Monster from File</string>
+    <string name="action_import_collection">Import Collection</string>
+    <string name="title_library_actions">Library Actions</string>
+    <string name="title_collection_actions">Collection Actions</string>
+    <string name="title_dashboard_actions">Dashboard Actions</string>
 </resources>

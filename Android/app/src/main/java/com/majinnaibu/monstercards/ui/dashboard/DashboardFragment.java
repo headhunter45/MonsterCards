@@ -148,15 +148,24 @@ public class DashboardFragment extends MCFragment {
     private void showAddToDashboardOptionsDialog() {
         String[] options = new String[]{
                 getString(R.string.action_add_single_monster),
-                getString(R.string.action_add_collection_option)
+                getString(R.string.action_add_collection_option),
+                getString(R.string.action_create_monster),
+                getString(R.string.action_import_monster_from_url),
+                getString(R.string.action_import_monster_from_file)
         };
         new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.dialog_add_to_dashboard)
+                .setTitle(R.string.title_dashboard_actions)
                 .setItems(options, (dialog, which) -> {
                     if (which == 0) {
                         showAddMonsterPicker();
                     } else if (which == 1) {
                         showAddCollectionPicker();
+                    } else if (which == 2) {
+                        createNewMonster();
+                    } else if (which == 3) {
+                        showImportUrlDialog();
+                    } else if (which == 4) {
+                        importMonsterFromFile();
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)
