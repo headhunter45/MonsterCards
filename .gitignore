@@ -6,3 +6,5 @@ thumbs.db
 # Build & Tooling
 .artifacts/
 .worktrees/
+.build/
+
