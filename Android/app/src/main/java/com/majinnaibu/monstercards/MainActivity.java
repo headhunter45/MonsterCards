@@ -249,10 +249,14 @@ public class MainActivity extends AppCompatActivity {
                 int totalImported = 0;
                 String nextUrl = null;
                 do {
-                    if (mImportDisposable != null && mImportDisposable.isDisposed()) break;
-                    Open5eApiWrapper.Open5ePageResult page = Open5eApiWrapper.fetchPage(nextUrl);
+                    if (mImportDisposable != null && mImportDisposable.isDisposed()) {
+                        throw new InterruptedException("Open5e import was cancelled");
+                    }
+                    Open5eApiWrapper.Open5ePageResult page = Open5eApiWrapper.fetchPage(nextUrl, () -> mImportDisposable != null && mImportDisposable.isDisposed());
                     for (Monster monster : page.monsters) {
-                        if (mImportDisposable != null && mImportDisposable.isDisposed()) break;
+                        if (mImportDisposable != null && mImportDisposable.isDisposed()) {
+                            throw new InterruptedException("Open5e import was cancelled");
+                        }
                         try {
                             ((MonsterCardsApplication) getApplication()).getMonsterRepository()
                                     .saveMonster(monster)
