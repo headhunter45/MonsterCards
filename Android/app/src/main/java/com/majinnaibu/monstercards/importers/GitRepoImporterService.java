@@ -146,14 +146,20 @@ public class GitRepoImporterService {
             if (isCancelled.getAsBoolean()) break;
             if (file.isFile()) {
                 String content = readFileContent(file);
-                if (content != null && importer.canImport(content)) {
-                    try {
-                        Monster monster = importer.parse(content);
-                        repository.saveMonster(monster).blockingAwait();
-                        importedCount++;
-                    } catch (Exception e) {
-                        Logger.logError("Failed to parse/save monster from file: " + file.getName(), e);
+                if (content != null) {
+                    if (importer.canImport(content)) {
+                        try {
+                            Monster monster = importer.parse(content);
+                            repository.saveMonster(monster).blockingAwait();
+                            importedCount++;
+                        } catch (Exception e) {
+                            Logger.logError("Failed to parse/save monster from file: " + file.getName(), e);
+                        }
+                    } else {
+                        Logger.logWTF("Importer rejected file: " + file.getName());
                     }
+                } else {
+                    Logger.logError("Failed to read content from file: " + file.getName());
                 }
             }
         }
