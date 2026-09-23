@@ -1,0 +1,20 @@
+<div class="ddb-entity-card class-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}{{#if level}} {{level}}{{/if}}</h3>
+      <span class="card-subtitle">{{#if properties.subclassDefinition.name}}{{properties.subclassDefinition.name}}{{else if subclass}}{{subclass}}{{/if}}</span>
+    </div>
+    <span class="card-badge red">d{{#if properties.hitDice}}{{properties.hitDice}}{{else}}8{{/if}} HD</span>
+  </div>
+
+  <div class="card-stats-row">
+    <div class="card-stat-item">
+      <strong>Hit Die:</strong>
+      <span>d{{#if properties.hitDice}}{{properties.hitDice}}{{else}}8{{/if}}</span>
+    </div>
+    <div class="card-stat-item">
+      <strong>Caster:</strong>
+      <span>{{#if properties.canCastSpells}}Yes{{else}}No{{/if}}</span>
+    </div>
+  </div>
+</div>

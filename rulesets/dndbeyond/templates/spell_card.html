@@ -1,0 +1,33 @@
+<div class="ddb-entity-card spell-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">{{#if properties}}{{ddbSpellLevelSchool properties.level properties.school}}{{else if school}}{{school}}{{/if}}</span>
+    </div>
+    <div class="card-tags">
+      {{#if properties.concentration}}<span class="card-badge red">C</span>{{else if concentration}}<span class="card-badge red">C</span>{{/if}}
+      {{#if properties.ritual}}<span class="card-badge">R</span>{{else if ritual}}<span class="card-badge">R</span>{{/if}}
+    </div>
+  </div>
+
+  <div class="card-stats-row">
+    <div class="card-stat-item">
+      <strong>Time:</strong>
+      <span>{{#if properties.castingTimeDescription}}{{properties.castingTimeDescription}}{{else if castingTime}}{{castingTime}}{{else}}1 Action{{/if}}</span>
+    </div>
+    <div class="card-stat-item">
+      <strong>Range:</strong>
+      <span>{{#if properties}}{{ddbSpellRange properties.range}}{{else if range}}{{range}}{{else}}Self{{/if}}</span>
+    </div>
+    <div class="card-stat-item">
+      <strong>Duration:</strong>
+      <span>{{#if properties}}{{ddbSpellDuration properties.duration properties.concentration}}{{else if duration}}{{duration}}{{else}}Instant{{/if}}</span>
+    </div>
+  </div>
+
+  {{#if properties.snippet}}
+  <div class="card-desc">
+    <p>{{properties.snippet}}</p>
+  </div>
+  {{/if}}
+</div>

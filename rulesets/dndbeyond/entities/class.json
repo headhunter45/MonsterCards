@@ -1,0 +1,64 @@
+{
+  "id": "class",
+  "name": "Character Class",
+  "description": "D&D Beyond character classes with hit dice, spellcasting attributes, subclasses, and class features.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name",
+      "hitDice"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "hitDice": {
+        "type": "integer",
+        "enum": [
+          6,
+          8,
+          10,
+          12
+        ]
+      },
+      "canCastSpells": {
+        "type": "boolean",
+        "default": false
+      },
+      "spellCastingAbilityId": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "subclassDefinition": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "classFeatures": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

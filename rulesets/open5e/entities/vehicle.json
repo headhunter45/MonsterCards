@@ -1,0 +1,126 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "vehicle",
+  "name": "Vehicle",
+  "description": "5e Land, water, airborne, and siege vehicles with armor class, hit points, damage thresholds, capacities, and components.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "category", "armor_class", "hit_points"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Vehicle name (e.g. 'Sailing Ship', 'Rowboat', 'Warship', 'Cart', 'Carriage', 'Apparatus of Kwalish')."
+      },
+      "category": {
+        "type": "string",
+        "enum": ["Land", "Water", "Air", "Space", "Infernal", "Special"],
+        "description": "Vehicle operational domain."
+      },
+      "size": {
+        "type": "string",
+        "description": "Vehicle size category (e.g. 'Large', 'Huge', 'Gargantuan')."
+      },
+      "dimensions": {
+        "type": "string",
+        "description": "Physical dimensions (e.g. '100 ft. by 20 ft.')."
+      },
+      "cost": {
+        "type": "object",
+        "properties": {
+          "quantity": { "type": "number", "minimum": 0 },
+          "unit": { "type": "string", "default": "gp" }
+        }
+      },
+      "creature_capacity": {
+        "type": "object",
+        "properties": {
+          "crew": { "type": ["integer", "string"], "description": "Number of crew members needed." },
+          "passengers": { "type": ["integer", "string"], "description": "Passenger capacity." }
+        }
+      },
+      "cargo_capacity": {
+        "type": ["string", "object", "number"],
+        "description": "Cargo capacity (e.g. '100 tons', '1000 lbs')."
+      },
+      "armor_class": {
+        "type": ["integer", "object"],
+        "description": "Base Armor Class of the vehicle."
+      },
+      "hit_points": {
+        "type": "object",
+        "required": ["max"],
+        "properties": {
+          "max": { "type": "integer" },
+          "current": { "type": "integer" },
+          "damage_threshold": { "type": "integer", "description": "Minimum single-hit damage required to damage the vehicle." },
+          "mishap_threshold": { "type": "integer", "description": "Mishap threshold for infernal machines or mechanical engines." }
+        }
+      },
+      "speed": {
+        "type": ["string", "object", "number"],
+        "description": "Travel pace or tactical movement speed (e.g. '4 mph (sails)', '30 ft.')."
+      },
+      "damage_immunities": {
+        "type": "array",
+        "items": { "type": "string" },
+        "default": ["poison", "psychic"]
+      },
+      "condition_immunities": {
+        "type": "array",
+        "items": { "type": "string" },
+        "default": ["blinded", "charmed", "deafened", "exhaustion", "frightened", "paralyzed", "petrified", "poisoned", "prone", "stunned", "unconscious"]
+      },
+      "components": {
+        "type": "array",
+        "description": "Modular vehicle components, stations, control helms, movement elements, and siege weapons.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string", "enum": ["hull", "control", "movement", "weapon", "armor", "station", "special"] },
+            "armor_class": { "type": "integer" },
+            "hit_points": { "type": "integer" },
+            "damage_threshold": { "type": "integer" },
+            "description": { "type": "string" },
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "desc": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "actions": {
+        "type": "array",
+        "description": "Actions that can be taken by the vehicle or through its component weapon stations.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "desc": { "type": "string" }
+          }
+        }
+      },
+      "description": {
+        "type": "string"
+      }
+    }
+  },
+  "default_values": {
+    "category": "Water",
+    "damage_immunities": ["poison", "psychic"],
+    "condition_immunities": ["blinded", "charmed", "deafened", "exhaustion", "frightened", "paralyzed", "petrified", "poisoned", "prone", "stunned", "unconscious"],
+    "components": [],
+    "actions": []
+  }
+}

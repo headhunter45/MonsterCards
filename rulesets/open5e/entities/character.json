@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "character",
   "name": "Player Character",
   "description": "5e Player Character entity with ability scores, proficiencies, hit points, and inventory.",
@@ -14,23 +14,125 @@
     "character_card",
     "character_list_item"
   ],
+  "default_editor": "entity_form",
   "schema": {
     "type": "object",
-    "required": ["level", "abilities", "hit_points"],
-    "properties": {
-      "level": {
-        "type": "integer",
-        "minimum": 1,
-        "maximum": 20,
-        "description": "Total character level."
+    "required": ["abilities", "hit_points"],
+    "$defs": {
+      "abilityScore": {
+        "type": ["integer", "object"],
+        "description": "Ability score integer or rich ability object with display_name, short_name, value, modifier, proficiency, and saving_throw.",
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "description": "Full display name (e.g. 'Strength', 'Dexterity')."
+          },
+          "short_name": {
+            "type": "string",
+            "description": "3-letter abbreviation (e.g. 'Str', 'Dex', 'Con', 'Int', 'Wis', 'Cha')."
+          },
+          "value": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "description": "Base ability score (typically 1 to 30)."
+          },
+          "modifier": {
+            "type": "integer",
+            "description": "Calculated ability modifier: floor((value - 10) / 2)."
+          },
+          "proficiency": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the character is proficient in saving throws for this ability."
+          },
+          "saving_throw": {
+            "type": "integer",
+            "description": "Calculated saving throw bonus: modifier + (proficiency ? proficiency_bonus : 0)."
+          },
+          "advantage": {
+            "type": ["boolean", "string"],
+            "default": false,
+            "description": "Advantage flag or conditions for saving throws of this ability."
+          }
+        }
       },
-      "class": {
-        "type": "string",
-        "description": "Primary class of the character."
+      "actionEntry": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name or title of the action, trait, or feature."
+          },
+          "desc": {
+            "type": "string",
+            "description": "Mechanical description or rule text."
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "properties": {
+      "class_levels": {
+        "type": ["object", "array"],
+        "description": "Per-class level progression. Keyed object mapping class slug to class progression details, or array of class progression entries.",
+        "additionalProperties": {
+          "type": "object",
+          "required": ["name", "level"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Class name (e.g. 'Fighter', 'Mage', 'Ranger')."
+            },
+            "level": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20,
+              "description": "Level in this specific class."
+            },
+            "subclass": {
+              "type": ["string", "null"],
+              "description": "Archetype or subclass chosen for this class (only one subclass per class, or null)."
+            },
+            "description": {
+              "type": "string",
+              "description": "Optional notes, fighting style, or feature summary for this class progression."
+            }
+          }
+        },
+        "items": {
+          "type": "object",
+          "required": ["name", "level"],
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "level": { "type": "integer", "minimum": 1, "maximum": 20 },
+            "subclass": { "type": ["string", "null"] },
+            "description": { "type": "string" }
+          }
+        }
       },
       "race": {
         "type": "string",
         "description": "Character race / species."
+      },
+      "size": {
+        "type": "string",
+        "enum": ["tiny", "small", "medium", "large", "huge", "gargantuan"],
+        "description": "Creature size category."
+      },
+      "type": {
+        "type": "string",
+        "description": "Creature type (e.g. 'Dragon', 'Monstrosity', 'Humanoid', 'Beast', 'Undead')."
+      },
+      "subtype": {
+        "type": "string",
+        "description": "Creature subcategory or heritage (e.g. 'Elf', 'Goblinoid', 'Shapechanger')."
+      },
+      "tag": {
+        "type": "string",
+        "description": "Optional secondary creature tag or category."
       },
       "background": {
         "type": "string",
@@ -38,15 +140,52 @@
       },
       "alignment": {
         "type": "string",
+        "examples": [
+          "Lawful Good",
+          "Neutral Good",
+          "Chaotic Good",
+          "Lawful Neutral",
+          "True Neutral",
+          "Chaotic Neutral",
+          "Lawful Evil",
+          "Neutral Evil",
+          "Chaotic Evil"
+        ],
         "description": "Ethical and moral alignment."
       },
       "experience_points": {
         "type": "integer",
         "minimum": 0
       },
+      "challenge_rating": {
+        "type": "string",
+        "description": "Challenge rating display string (e.g. '2 (450 XP)', '1/4')."
+      },
+      "xp": {
+        "type": "integer",
+        "description": "Experience points granted for defeating the creature."
+      },
+      "proficiency_bonus": {
+        "type": "integer",
+        "description": "Proficiency bonus (+2 to +9)."
+      },
       "armor_class": {
         "type": ["integer", "object"],
         "description": "Armor class value or extended property with shield/dex/item modifiers."
+      },
+      "armor_description": {
+        "type": "string",
+        "description": "Descriptive armor text following AC (e.g. 'natural armor', 'leather armor', '14 (natural armor), 11 while prone')."
+      },
+      "shield_bonus": {
+        "type": "integer",
+        "default": 0,
+        "description": "Shield bonus added to AC."
+      },
+      "nat_armor_bonus": {
+        "type": "integer",
+        "default": 0,
+        "description": "Natural armor bonus."
       },
       "equipped_armor": {
         "type": ["object", "null"],
@@ -76,8 +215,37 @@
         }
       },
       "speed": {
-        "type": "integer",
+        "type": ["integer", "string"],
         "description": "Base walking speed in feet."
+      },
+      "speed_desc": {
+        "type": "string",
+        "description": "Full human-readable movement speed string (e.g. '30 ft., burrow 10 ft.')."
+      },
+      "burrow_speed": {
+        "type": ["integer", "string"],
+        "description": "Burrow speed in feet."
+      },
+      "climb_speed": {
+        "type": ["integer", "string"],
+        "description": "Climb speed in feet."
+      },
+      "fly_speed": {
+        "type": ["integer", "string"],
+        "description": "Fly speed in feet."
+      },
+      "swim_speed": {
+        "type": ["integer", "string"],
+        "description": "Swim speed in feet."
+      },
+      "hover": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether the creature can hover while flying."
+      },
+      "custom_speed": {
+        "type": "boolean",
+        "default": false
       },
       "hit_points": {
         "type": "object",
@@ -85,12 +253,32 @@
         "properties": {
           "current": { "type": "integer" },
           "max": { "type": "integer" },
-          "temp": { "type": "integer", "default": 0 }
+          "temp": { "type": "integer", "default": 0 },
+          "base": { "type": ["integer", "null"] },
+          "bonus": { "type": ["integer", "null"] },
+          "override": { "type": ["integer", "null"] },
+          "removed": { "type": ["integer", "null"] },
+          "formula": {
+            "type": "string",
+            "description": "Dice expression for HP (e.g. '6d10 + 6')."
+          },
+          "hit_dice": {
+            "type": "string",
+            "description": "Hit dice string (e.g. '6d10')."
+          },
+          "custom_hp": { "type": "boolean", "default": false }
+        }
+      },
+      "attunement": {
+        "type": "object",
+        "properties": {
+          "current": { "type": "integer", "default": 0 },
+          "max": { "type": "integer", "default": 3 }
         }
       },
       "abilities": {
         "type": "object",
-        "description": "Core 5e ability scores.",
+        "description": "Core 5e ability scores and saving throws keyed by canonical ability name.",
         "required": [
           "strength",
           "dexterity",
@@ -100,12 +288,12 @@
           "charisma"
         ],
         "properties": {
-          "strength": { "type": ["integer", "object"] },
-          "dexterity": { "type": ["integer", "object"] },
-          "constitution": { "type": ["integer", "object"] },
-          "intelligence": { "type": ["integer", "object"] },
-          "wisdom": { "type": ["integer", "object"] },
-          "charisma": { "type": ["integer", "object"] }
+          "strength": { "$ref": "#/$defs/abilityScore" },
+          "dexterity": { "$ref": "#/$defs/abilityScore" },
+          "constitution": { "$ref": "#/$defs/abilityScore" },
+          "intelligence": { "$ref": "#/$defs/abilityScore" },
+          "wisdom": { "$ref": "#/$defs/abilityScore" },
+          "charisma": { "$ref": "#/$defs/abilityScore" }
         }
       },
       "player_name": {
@@ -147,6 +335,10 @@
             "minimum": 0,
             "maximum": 3,
             "default": 0
+          },
+          "is_stabilized": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -214,6 +406,145 @@
           }
         }
       },
+      "senses": {
+        "type": "string",
+        "description": "Human-readable summary of senses (e.g. 'darkvision 60 ft., tremorsense 60 ft., passive Perception 11')."
+      },
+      "blindsight": {
+        "type": ["integer", "string"],
+        "description": "Blindsight range in feet."
+      },
+      "blind": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether blindsight is restricted to blind creatures (blind beyond this radius)."
+      },
+      "darkvision": {
+        "type": ["integer", "string"],
+        "description": "Darkvision range in feet."
+      },
+      "tremorsense": {
+        "type": ["integer", "string"],
+        "description": "Tremorsense range in feet."
+      },
+      "truesight": {
+        "type": ["integer", "string"],
+        "description": "Truesight range in feet."
+      },
+      "telepathy": {
+        "type": ["integer", "string"],
+        "description": "Telepathy range in feet."
+      },
+      "languages": {
+        "type": ["array", "string"],
+        "description": "Languages spoken or understood by the creature.",
+        "items": { "type": ["string", "object"] }
+      },
+      "understands_but": {
+        "type": "string",
+        "description": "Condition or limitation on language comprehension (e.g. \"doesn't like to\", \"cannot speak\")."
+      },
+      "languages_detail": {
+        "type": "array",
+        "description": "Structured per-language breakdown indicating fluency vs comprehension.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "speaks": { "type": "boolean", "default": true }
+          }
+        }
+      },
+      "damage_vulnerabilities": {
+        "type": "array",
+        "description": "Damage types the creature is vulnerable to.",
+        "items": { "type": ["string", "object"] }
+      },
+      "damage_resistances": {
+        "type": "array",
+        "description": "Damage types the creature resists.",
+        "items": { "type": ["string", "object"] }
+      },
+      "damage_immunities": {
+        "type": "array",
+        "description": "Damage types the creature is immune to.",
+        "items": { "type": ["string", "object"] }
+      },
+      "condition_immunities": {
+        "type": "array",
+        "description": "Conditions the creature is immune to.",
+        "items": { "type": ["string", "object"] }
+      },
+      "traits": {
+        "type": "array",
+        "description": "Special traits and passive monster features.",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "actions": {
+        "type": "array",
+        "description": "Standard combat actions (attacks, breath weapons, spells, multiattack).",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "bonus_actions": {
+        "type": "array",
+        "description": "Bonus actions available to the creature.",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "reactions": {
+        "type": "array",
+        "description": "Reactions available to the creature.",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "legendary_actions": {
+        "type": ["object", "array"],
+        "description": "Legendary action preamble and action options.",
+        "properties": {
+          "description": { "type": "string" },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "mythic_actions": {
+        "type": ["object", "array"],
+        "description": "Mythic action preamble and action options.",
+        "properties": {
+          "description": { "type": "string" },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "lair_actions": {
+        "type": ["object", "array"],
+        "description": "Lair action preamble, effects, and usage rules.",
+        "properties": {
+          "description": { "type": "string" },
+          "description_end": { "type": "string" },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "regional_effects": {
+        "type": ["object", "array"],
+        "description": "Regional effects caused by the creature's lair.",
+        "properties": {
+          "description": { "type": "string" },
+          "description_end": { "type": "string" },
+          "effects": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "is_legendary": { "type": "boolean", "default": false },
+      "is_mythic": { "type": "boolean", "default": false },
+      "is_lair": { "type": "boolean", "default": false },
+      "is_regional": { "type": "boolean", "default": false },
       "character_details": {
         "type": "object",
         "properties": {
@@ -226,7 +557,103 @@
           "appearance": { "type": "string" },
           "backstory": { "type": "string" },
           "allies_and_organizations": { "type": ["string", "array"] },
-          "treasure": { "type": ["string", "array"] }
+          "treasure": { "type": ["string", "array"] },
+          "gender": { "type": "string" },
+          "faith": { "type": "string" },
+          "lifestyle": { "type": "string" },
+          "personal_possessions": { "type": "string" },
+          "other_holdings": { "type": "string" },
+          "enemies": { "type": ["string", "array"] }
+        }
+      },
+      "decorations": {
+        "type": "object",
+        "properties": {
+          "avatar_url": { "type": ["string", "null"] },
+          "backdrop_url": { "type": ["string", "null"] },
+          "theme_color": { "type": ["string", "null"] }
+        }
+      },
+      "conditions": {
+        "type": "array",
+        "description": "Active status conditions on the character.",
+        "items": { "type": ["string", "object"] }
+      },
+      "feats": {
+        "type": "array",
+        "description": "Feats chosen by the character.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "id": { "type": "string" },
+            "entity_ref": {
+              "type": "string",
+              "description": "Optional reference to standalone feat entity (e.g. 'rulesets/open5e/examples/feat/sharpshooter.json' or UUID)."
+            },
+            "name": { "type": "string" },
+            "desc": { "type": "string" },
+            "description": { "type": "string" },
+            "prerequisite": { "type": "string" }
+          }
+        }
+      },
+      "infusions": {
+        "type": "object",
+        "description": "Artificer infusions known and active.",
+        "properties": {
+          "known": {
+            "type": "array",
+            "items": {
+              "type": ["string", "object"],
+              "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "entity_ref": {
+                  "type": "string",
+                  "description": "Optional reference to standalone infusion entity."
+                }
+              }
+            }
+          },
+          "active": {
+            "type": "array",
+            "items": {
+              "type": ["string", "object"],
+              "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "entity_ref": {
+                  "type": "string",
+                  "description": "Optional reference to standalone infusion entity."
+                },
+                "target_item_id": {
+                  "type": "string",
+                  "description": "Inventory item ID to which this infusion is currently applied."
+                },
+                "target_item_name": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "vehicles": {
+        "type": "array",
+        "description": "Vehicles owned, operated, or crewed by this character.",
+        "items": {
+          "type": ["string", "object"],
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "entity_ref": {
+              "type": "string",
+              "description": "Optional reference to standalone vehicle entity."
+            },
+            "role": {
+              "type": "string",
+              "description": "Role on vehicle (e.g. Captain, Helmsman, Gunner, Owner)."
+            }
+          }
         }
       },
       "spellcasting": {
@@ -251,16 +678,38 @@
               }
             }
           },
+          "pact_magic": {
+            "type": "object",
+            "description": "Warlock pact magic slots.",
+            "properties": {
+              "level": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "slots": { "type": "integer" },
+              "expended": { "type": "integer", "default": 0 }
+            }
+          },
           "spells": {
             "type": "array",
             "items": {
               "type": "object",
               "required": ["name"],
               "properties": {
+                "id": { "type": "string" },
+                "entity_ref": {
+                  "type": "string",
+                  "description": "Optional reference to standalone spell entity (e.g. 'rulesets/open5e/examples/spell/fireball.json' or UUID)."
+                },
                 "name": { "type": "string" },
                 "level": { "type": "integer", "minimum": 0, "maximum": 9 },
                 "prepared": { "type": "boolean", "default": false },
-                "desc": { "type": "string" }
+                "desc": { "type": "string" },
+                "school": { "type": "string" },
+                "casting_time": { "type": "string" },
+                "range": { "type": "string" },
+                "duration": { "type": "string" },
+                "source": { "type": "string" },
+                "at_will": { "type": "boolean", "default": false },
+                "ritual": { "type": "boolean", "default": false },
+                "concentration": { "type": "boolean", "default": false }
               }
             }
           }
@@ -282,6 +731,15 @@
             "quantity": { "type": "integer", "default": 1 },
             "weight": { "type": "number", "default": 0 },
             "equipped": { "type": "boolean", "default": false },
+            "attuned": { "type": "boolean", "default": false },
+            "requires_attunement": { "type": "boolean", "default": false },
+            "charges": { "type": "integer" },
+            "max_charges": { "type": "integer" },
+            "rarity": { "type": "string" },
+            "filter_type": { "type": "string" },
+            "container_id": { "type": ["string", "integer", "null"] },
+            "description": { "type": "string" },
+            "cost": { "type": ["number", "string", "object"] },
             "ac_base": { "type": "integer" },
             "dex_cap": { "type": ["integer", "null"] },
             "ac_bonus": { "type": "integer" },
@@ -371,5 +829,58 @@
     },
     "speed": 30,
     "inventory": []
+  },
+  "ui": {
+    "fields": {
+      "level": {
+        "readonly": true,
+        "label": "Level (derived from Class Levels)"
+      },
+      "race": {},
+      "size": {},
+      "type": {},
+      "subtype": {},
+      "challenge_rating": {},
+      "class_levels": {
+        "widget": "array-of-objects-editor",
+        "label": "Class Levels"
+      },
+      "attacks": {
+        "widget": "array-of-objects-editor",
+        "label": "Attacks"
+      },
+      "features_and_traits": {
+        "widget": "array-of-objects-editor",
+        "label": "Features & Traits"
+      },
+      "feats": {
+        "widget": "array-of-objects-editor",
+        "label": "Feats"
+      },
+      "abilities": {
+        "widget": "builtin-object-group",
+        "fields": {
+          "strength": { "widget": "ability-score-stepper" },
+          "dexterity": { "widget": "ability-score-stepper" },
+          "constitution": { "widget": "ability-score-stepper" },
+          "intelligence": { "widget": "ability-score-stepper" },
+          "wisdom": { "widget": "ability-score-stepper" },
+          "charisma": { "widget": "ability-score-stepper" }
+        }
+      },
+      "actions": {
+        "widget": "action-list-editor",
+        "label": "Actions",
+        "config": {
+          "allowCustomRecharge": true,
+          "maxItems": 20
+        }
+      },
+      "traits": {
+        "widget": "action-list-editor",
+        "label": "Traits & Features"
+      },
+      "hit_points": { "hidden": false }
+    }
   }
 }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Class Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">Character Class</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        Hit Die: d{{properties.hitDice}}{{#if properties.canCastSpells}} &bull; Spellcaster{{/if}}
+      </div>
+    </header>
+
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Hit Die</span>
+        <span class="stat-value highlight">d{{properties.hitDice}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Spellcasting</span>
+        <span class="stat-value">{{#if properties.canCastSpells}}Yes{{else}}No{{/if}}</span>
+      </div>
+      {{#if properties.subclassDefinition.name}}
+      <div class="stat-pill">
+        <span class="stat-label">Subclass</span>
+        <span class="stat-value">{{properties.subclassDefinition.name}}</span>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="entity-body">
+      {{{properties.description}}}
+    </div>
+
+    {{#if properties.subclassDefinition}}
+    <div class="entity-section">
+      <div class="section-header">Subclass: {{properties.subclassDefinition.name}}</div>
+      <div class="section-content">
+        {{{properties.subclassDefinition.description}}}
+        {{#if properties.subclassDefinition.classFeatures}}
+        <h4>Subclass Features</h4>
+        {{#each properties.subclassDefinition.classFeatures}}
+        <div class="feature-block">
+          <div class="feature-heading">
+            <span>{{this.name}}</span>
+            <span class="feature-level-tag">Level {{this.requiredLevel}}</span>
+          </div>
+          {{{this.description}}}
+        </div>
+        {{/each}}
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if properties.classFeatures}}
+    <div class="entity-section">
+      <div class="section-header">Class Features</div>
+      <div class="section-content">
+        {{#each properties.classFeatures}}
+        <div class="feature-block">
+          <div class="feature-heading">
+            <span>{{this.name}}</span>
+            <span class="feature-level-tag">Level {{this.requiredLevel}}</span>
+          </div>
+          {{{this.description}}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+  </article>
+</body>
+</html>

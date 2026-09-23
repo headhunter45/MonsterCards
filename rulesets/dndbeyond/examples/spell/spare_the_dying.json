@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "a97ccc5f-47a5-4285-aa04-fd8ba81f1b0e",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Spare the Dying",
+  "description": "Level 0 Necromancy spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "necromancy"
+  ],
+  "properties": {
+    "id": 2257,
+    "name": "Spare the Dying",
+    "level": 0,
+    "school": "Necromancy",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": 0,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You touch a living creature that has 0 hit points. The creature becomes stable. This spell has no effect on undead or constructs.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 277,
+        "sourceType": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "23a12a05-f892-482f-e912-22d102381205",
+  "ruleset_id": "open5e",
+  "entity_type": "race",
+  "display_name": "Human",
+  "description": "The most adaptable and ambitious people among the common races.",
+  "version": "1.0.0",
+  "properties": {
+    "name": "Human",
+    "description": "Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.",
+    "speed": 30,
+    "size": "medium",
+    "ability_score_bonuses": {
+      "strength": 1,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": 1,
+      "wisdom": 1,
+      "charisma": 1
+    },
+    "traits": [
+      {
+        "name": "Extra Language",
+        "description": "You can speak, read, and write one extra language of your choice."
+      }
+    ],
+    "languages": ["Common"],
+    "subraces": []
+  }
+}

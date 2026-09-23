@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "faae332c-ee37-40f2-b870-c4b6d28aa6eb",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Zone of Truth",
+  "description": "Level 2 Enchantment spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "enchantment"
+  ],
+  "properties": {
+    "id": 2305,
+    "name": "Zone of Truth",
+    "level": 2,
+    "school": "Enchantment",
+    "duration": {
+      "durationInterval": 10,
+      "durationUnit": "Minute",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 60,
+      "aoeType": "Sphere",
+      "aoeValue": 15
+    },
+    "description": "You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw.\n\n\r\nAn affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive in its answers as long as it remains within the boundaries of the truth.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 289,
+        "sourceType": 1
+      }
+    ]
+  }
+}

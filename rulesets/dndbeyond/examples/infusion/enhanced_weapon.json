@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "24905d90-6c7d-45d6-9985-37359ca4bef3",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "infusion",
+  "display_name": "Enhanced Weapon",
+  "description": "This magic weapon grants a +1 bonus to attack and damage rolls made with it.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "infusion",
+    "artificer"
+  ],
+  "properties": {
+    "id": 8419204,
+    "definitionKey": "enhanced-weapon",
+    "name": "Enhanced Weapon",
+    "itemRuleType": "artificer-infusion",
+    "levelRequirement": 2,
+    "snippet": "This magic weapon grants a +1 bonus to attack and damage rolls made with it.",
+    "description": "This magic weapon grants a +1 bonus to attack and damage rolls made with it. At 10th level, this bonus increases to +2.",
+    "prerequisites": [
+      {
+        "id": 14904,
+        "name": "Item Type: Simple or Martial Weapon",
+        "description": "Item prerequisite: A simple or martial weapon",
+        "prerequisiteType": 2,
+        "prerequisiteSubType": "item-type",
+        "value": null,
+        "entityId": 2,
+        "entityTypeId": 1437517608
+      }
+    ],
+    "modifiers": [],
+    "definition": {
+      "id": 2046,
+      "name": "Enhanced Weapon",
+      "description": "<p>Grants a bonus to attack and damage rolls...</p>",
+      "snippet": "+1 or +2 to attack and damage rolls.",
+      "filterType": "Weapon",
+      "type": "Simple or Martial Weapon",
+      "rarity": "Common",
+      "attunement": false,
+      "attunementDescription": null,
+      "requiresAttunement": false,
+      "modifiers": [
+        {
+          "id": "enhanced-weapon-attack-bonus",
+          "entityId": null,
+          "entityTypeId": null,
+          "type": "bonus",
+          "subType": "magic",
+          "dice": null,
+          "restriction": "",
+          "statId": null,
+          "requiresAttunement": false,
+          "duration": null,
+          "isGranted": true,
+          "value": 1,
+          "friendlyTypeName": "Bonus",
+          "friendlySubtypeName": "Magic"
+        }
+      ],
+      "tags": [
+        "Combat",
+        "Damage"
+      ]
+    }
+  }
+}

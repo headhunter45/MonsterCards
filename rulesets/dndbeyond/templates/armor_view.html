@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Armor Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">{{#if properties.rarity}}{{properties.rarity}} {{/if}}{{properties.filterType}} &bull; {{properties.type}}</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        Armor Class {{properties.armorClass}}{{#if properties.armorClassDescription}} ({{properties.armorClassDescription}}){{/if}}
+      </div>
+    </header>
+
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Armor Class</span>
+        <span class="stat-value highlight">{{properties.armorClass}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Strength Req.</span>
+        <span class="stat-value">{{#if properties.strengthRequirement}}{{properties.strengthRequirement}}{{else}}&mdash;{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Stealth</span>
+        <span class="stat-value">{{#if properties.stealthCheck}}Disadvantage{{else}}Normal{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Weight</span>
+        <span class="stat-value">{{properties.weight}} lb.</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Cost</span>
+        <span class="stat-value">{{ddbCostText properties.cost}}</span>
+      </div>
+    </div>
+
+    <div class="entity-body">
+      {{{properties.description}}}
+    </div>
+  </article>
+</body>
+</html>

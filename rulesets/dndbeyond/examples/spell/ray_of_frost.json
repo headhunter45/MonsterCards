@@ -1,0 +1,146 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "c96a3086-54b3-4d67-8045-cf959cce18d2",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Ray of Frost",
+  "description": "Level 0 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "evocation"
+  ],
+  "properties": {
+    "id": 2226,
+    "name": "Ray of Frost",
+    "level": 0,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 60,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn.\n\n\r\nThe spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2226_239",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "damage",
+        "subType": "cold",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Damage",
+        "friendlySubtypeName": "Cold",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": 1,
+          "diceValue": 8,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": "1d8"
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 5,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 2,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "2d8"
+              },
+              "value": null,
+              "details": ""
+            },
+            {
+              "level": 11,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 3,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "3d8"
+              },
+              "value": null,
+              "details": ""
+            },
+            {
+              "level": 17,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 4,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "4d8"
+              },
+              "value": null,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 271,
+        "sourceType": 1
+      }
+    ]
+  }
+}

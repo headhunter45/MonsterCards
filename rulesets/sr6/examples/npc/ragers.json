@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
   "uuid": "f13179e7-3180-41da-b079-eb92bd4eae4c",
   "ruleset_id": "sr6",
   "entity_type": "npc",

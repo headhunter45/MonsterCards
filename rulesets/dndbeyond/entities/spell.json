@@ -1,0 +1,124 @@
+{
+  "id": "spell",
+  "name": "Spell",
+  "description": "D&D Beyond spell definition with school, level, casting time, range, components, duration, and rules text.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name",
+      "level"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "level": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9
+      },
+      "school": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "duration": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "activation": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "range": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "snippet": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "concentration": {
+        "type": [
+          "boolean",
+          "null"
+        ],
+        "default": false
+      },
+      "ritual": {
+        "type": [
+          "boolean",
+          "null"
+        ],
+        "default": false
+      },
+      "components": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "integer"
+        }
+      },
+      "componentsDescription": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "castingTimeDescription": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "damageEffect": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "modifiers": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      },
+      "sources": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "ec160ca7-a25b-4b2d-9ff5-e3a9320465ec",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "infusion",
+  "display_name": "infusion:2e8dd3d9-977a-4a69-ad3d-01c687a26e8a",
+  "description": "Artificer Infusion",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "infusion",
+    "artificer"
+  ],
+  "properties": {
+    "id": 20725348,
+    "definitionKey": "infusion:2e8dd3d9-977a-4a69-ad3d-01c687a26e8a",
+    "name": "infusion:2e8dd3d9-977a-4a69-ad3d-01c687a26e8a",
+    "itemRuleType": "artificer-infusion",
+    "snippet": "",
+    "description": "",
+    "prerequisites": [],
+    "modifiers": [],
+    "definition": null
+  }
+}

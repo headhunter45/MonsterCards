@@ -1,0 +1,96 @@
+{
+  "id": "weapon",
+  "name": "Weapon",
+  "description": "D&D Beyond weapon with damage dice, type, range, and weapon properties.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "filterType": {
+        "type": "string",
+        "default": "Weapon"
+      },
+      "damage": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "damageType": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "range": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "longRange": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "properties": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      },
+      "weight": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "cost": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "rarity": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "isMonkWeapon": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

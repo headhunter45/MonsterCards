@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "593d70c7-e1b7-4da5-974a-a25b41553725",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Thieves' Tools",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 126,
+    "name": "Thieves' Tools",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 1,
+    "cost": 25,
+    "description": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

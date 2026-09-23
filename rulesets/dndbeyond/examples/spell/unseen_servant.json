@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "9097af26-103a-4774-b206-09009db8bd09",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Unseen Servant",
+  "description": "Level 1 Conjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "conjuration"
+  ],
+  "properties": {
+    "id": 2288,
+    "name": "Unseen Servant",
+    "level": 1,
+    "school": "Conjuration",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 60,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "This spell creates an invisible, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength of 2, and it can't attack. If it drops to 0 hit points, the spell ends.\n\n\r\nOnce on each of your turns as a bonus action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human servant could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring wine. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.\n\n\r\nIf you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": true,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a bit of string and of wood",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 284,
+        "sourceType": 1
+      }
+    ]
+  }
+}

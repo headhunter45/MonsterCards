@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "6e18612e-4416-4d0a-bc16-5461c5782d09",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Rations (1 day)",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 75,
+    "name": "Rations (1 day)",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 2,
+    "cost": 0.5,
+    "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

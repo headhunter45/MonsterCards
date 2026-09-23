@@ -1,0 +1,162 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b6898bac-23e0-4e29-91fd-56325d854198",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Armor of Agathys",
+  "description": "Level 1 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 2310,
+    "name": "Armor of Agathys",
+    "level": 1,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Self",
+      "rangeValue": null,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a cup of water",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2310_319",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "bonus",
+        "subType": "temporary-hit-points",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Bonus",
+        "friendlySubtypeName": "Temporary Hit Points",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": 5,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 1,
+              "typeId": 15,
+              "dice": null,
+              "value": 5,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2310_320",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "damage",
+        "subType": "cold",
+        "dice": null,
+        "restriction": "A creature takes the cold damage when it hits you with a melee attack while you have the temporary hit points.",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Damage",
+        "friendlySubtypeName": "Cold",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": 5,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 1,
+              "typeId": 15,
+              "dice": null,
+              "value": 5,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 2,
+        "pageNumber": 215,
+        "sourceType": 1
+      }
+    ]
+  }
+}

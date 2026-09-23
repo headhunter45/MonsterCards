@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "ff8dbb6f-4309-4562-84d8-125b950706bc",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Shovel",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 82,
+    "name": "Shovel",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 5,
+    "cost": 2,
+    "description": "A standard shovel used for digging.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

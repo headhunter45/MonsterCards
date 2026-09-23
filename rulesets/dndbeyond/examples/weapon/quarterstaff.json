@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "30d8b06c-94ce-45b7-8311-2854c56e2812",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Quarterstaff",
+  "description": "Quarterstaff dealing Bludgeoning.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "quarterstaff"
+  ],
+  "properties": {
+    "id": 12,
+    "name": "Quarterstaff",
+    "type": "Quarterstaff",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 6,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d6"
+    },
+    "damageType": "Bludgeoning",
+    "range": 5,
+    "longRange": 5,
+    "properties": [
+      {
+        "id": 12,
+        "name": "Versatile",
+        "description": "<p>A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack.</p>",
+        "notes": "1d8"
+      },
+      {
+        "id": 24,
+        "name": "Topple",
+        "description": "<p>If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the [condition]Prone[/condition] condition.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 4,
+    "cost": 0.2,
+    "rarity": "Common",
+    "description": "Proficiency with a Quarterstaff allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nTopple. If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition.",
+    "isMonkWeapon": true
+  }
+}

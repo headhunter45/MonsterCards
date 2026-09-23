@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/open5e/templates/editors/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit {{display_name}}</title>
+  <link rel="stylesheet" href="entity_form.css">
+</head>
+<body class="entity-editor-page">
+  <form class="entity-editor" data-entity-type="{{entity_type}}" data-uuid="{{uuid}}">
+    <h1 class="entity-editor-title">Edit {{display_name}}</h1>
+    {{> field-dispatcher schema=_entityDef.schema ui=_entityDef.ui value=properties}}
+    <div class="entity-editor-actions">
+      <button type="submit">Save</button>
+      <p class="entity-editor-note">Preview only - changes are not written back to the example JSON file.</p>
+    </div>
+  </form>
+  <script src="entity_form.js"></script>
+</body>
+</html>

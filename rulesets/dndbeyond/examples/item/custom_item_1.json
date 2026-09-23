@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "662c870b-3ad3-4d60-8e29-35f9b5621d76",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Custom Item 1",
+  "description": "Item (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "gear"
+  ],
+  "properties": {
+    "id": 9438588,
+    "name": "Custom Item 1",
+    "filterType": null,
+    "type": null,
+    "rarity": null,
+    "weight": 0,
+    "cost": null,
+    "description": "",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

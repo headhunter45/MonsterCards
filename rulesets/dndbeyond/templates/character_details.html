@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Character Details</title>
+  <link rel="stylesheet" href="character_details.css">
+  <link rel="stylesheet" href="entity_cards.css">
+</head>
+<body class="sheet-page-wrapper">
+  <div class="details-sheet-container">
+    
+    <!-- Top Details Header Banner -->
+    <header class="details-header">
+      <div class="header-name-box">
+        <h1 class="character-name">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+        <label class="header-label">CHARACTER NAME</label>
+      </div>
+
+      <!-- Physical Attributes Grid -->
+      <div class="physical-stats-grid">
+        <div class="phys-cell">
+          <div class="phys-val">{{#if properties.age}}{{properties.age}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">AGE</label>
+        </div>
+        <div class="phys-cell">
+          <div class="phys-val">{{#if properties.height}}{{properties.height}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">HEIGHT</label>
+        </div>
+        <div class="phys-cell">
+          <div class="phys-val">{{#if properties.weight}}{{properties.weight}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">WEIGHT</label>
+        </div>
+        <div class="phys-cell">
+          <div class="phys-val">{{#if properties.eyes}}{{properties.eyes}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">EYES</label>
+        </div>
+        <div class="phys-cell">
+          <div class="phys-val">{{#if properties.skin}}{{properties.skin}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">SKIN</label>
+        </div>
+        <div class="phys-cell">
+          <div class="phys-val">{{#if properties.hair}}{{properties.hair}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">HAIR</label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Details Grid -->
+    <main class="details-main-grid">
+      
+      <!-- ================= COLUMN 1: Portrait & Appearance ================= -->
+      <section class="details-col">
+        
+        <!-- Portrait Box -->
+        <div class="section-box portrait-box">
+          <div class="portrait-container">
+            {{#if (ddbAvatarUrl properties)}}
+              <img src="{{ddbAvatarUrl properties}}" alt="{{display_name}} Portrait" class="character-portrait-img">
+            {{else}}
+              <div class="portrait-placeholder">
+                <span class="portrait-icon">&#9876;</span>
+                <span>No portrait available</span>
+              </div>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">CHARACTER PORTRAIT</div>
+        </div>
+
+        <!-- Character Appearance -->
+        <div class="section-box appearance-box">
+          <div class="narrative-content">
+            {{#if properties.traits.appearance}}
+              <p>{{properties.traits.appearance}}</p>
+            {{else}}
+              <span class="empty-hint">No appearance details recorded</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">CHARACTER APPEARANCE</div>
+        </div>
+
+      </section>
+
+      <!-- ================= COLUMN 2: Backstory, Allies & Orgs ================= -->
+      <section class="details-col">
+        
+        <!-- Character Backstory -->
+        <div class="section-box backstory-box">
+          <div class="narrative-content">
+            {{#if properties.notes.backstory}}
+              <p>{{properties.notes.backstory}}</p>
+            {{else}}
+              <span class="empty-hint">No backstory recorded</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">CHARACTER BACKSTORY</div>
+        </div>
+
+        <!-- Allies & Organizations -->
+        <div class="section-box allies-box">
+          <div class="narrative-content">
+            {{#if properties.notes.allies}}
+              <p><strong>Allies:</strong><br>{{properties.notes.allies}}</p>
+            {{/if}}
+            {{#if properties.notes.organizations}}
+              <p><strong>Organizations:</strong><br>{{properties.notes.organizations}}</p>
+            {{/if}}
+            {{#if properties.notes.enemies}}
+              <p><strong>Enemies:</strong><br>{{properties.notes.enemies}}</p>
+            {{/if}}
+            {{#unless properties.notes.allies}}
+              {{#unless properties.notes.organizations}}
+                {{#unless properties.notes.enemies}}
+                  <span class="empty-hint">No allies or organizations recorded</span>
+                {{/unless}}
+              {{/unless}}
+            {{/unless}}
+          </div>
+          <div class="box-bottom-label">ALLIES &amp; ORGANIZATIONS</div>
+        </div>
+
+      </section>
+
+      <!-- ================= COLUMN 3: Additional Features & Treasure ================= -->
+      <section class="details-col">
+        
+        <!-- Additional Features & Traits -->
+        <div class="section-box add-features-box">
+          <div class="narrative-content">
+            {{#ddbFeatures properties}}
+            {{> feat_card isInline=true}}
+            {{else}}
+            <span class="empty-hint">None</span>
+            {{/ddbFeatures}}
+          </div>
+          <div class="box-bottom-label">ADDITIONAL FEATURES &amp; TRAITS</div>
+        </div>
+
+        <!-- Treasure & Possessions -->
+        <div class="section-box treasure-box">
+          <div class="narrative-content">
+            {{#if properties.notes.personalPossessions}}
+              <p><strong>Personal Possessions:</strong><br>{{properties.notes.personalPossessions}}</p>
+            {{/if}}
+            {{#if properties.notes.otherHoldings}}
+              <p><strong>Other Holdings:</strong><br>{{properties.notes.otherHoldings}}</p>
+            {{/if}}
+            {{#if properties.notes.otherNotes}}
+              <p><strong>Other Notes:</strong><br>{{properties.notes.otherNotes}}</p>
+            {{/if}}
+            {{#unless properties.notes.personalPossessions}}
+              {{#unless properties.notes.otherHoldings}}
+                {{#unless properties.notes.otherNotes}}
+                  <span class="empty-hint">No extra treasure or holdings recorded</span>
+                {{/unless}}
+              {{/unless}}
+            {{/unless}}
+          </div>
+          <div class="box-bottom-label">TREASURE &amp; PERSONAL POSSESSIONS</div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

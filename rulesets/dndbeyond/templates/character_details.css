@@ -1,0 +1,240 @@
+/* D&D Beyond Character Details Sheet Styling */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ddb-red: #c53131;
+  --ddb-dark-red: #8b0000;
+  --ddb-dark: #22252a;
+  --ddb-border: #444950;
+  --ddb-border-light: #d1d5db;
+  --ddb-bg-page: #0f1217;
+  --ddb-bg-sheet: #ffffff;
+  --ddb-bg-box: #f8fafc;
+  --ddb-bg-subtle: #f1f5f9;
+  --ddb-text-main: #1e293b;
+  --ddb-text-muted: #64748b;
+  --ddb-font-header: 'Cinzel', serif;
+  --ddb-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.sheet-page-wrapper {
+  margin: 0;
+  padding: 24px;
+  background-color: var(--ddb-bg-page);
+  font-family: var(--ddb-font-sans);
+  color: var(--ddb-text-main);
+  display: flex;
+  justify-content: center;
+}
+
+.details-sheet-container {
+  width: 100%;
+  max-width: 1040px;
+  background: var(--ddb-bg-sheet);
+  border: 2px solid var(--ddb-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ================= HEADER ================= */
+.details-header {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 16px;
+  align-items: stretch;
+  border-bottom: 2.5px solid var(--ddb-border);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.header-name-box {
+  border: 2px solid var(--ddb-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--ddb-bg-box);
+}
+
+.character-name {
+  font-family: var(--ddb-font-header);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ddb-dark-red);
+  margin: 0 0 6px 0;
+  line-height: 1.15;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+.header-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--ddb-text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Physical Attributes Strip */
+.physical-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  border: 2px solid var(--ddb-border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: var(--ddb-bg-box);
+}
+
+.phys-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--ddb-border-light);
+  padding: 2px 4px;
+}
+
+.phys-cell:last-child {
+  border-right: none;
+}
+
+.phys-val {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ddb-text-main);
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+/* ================= 3-COLUMN CONTENT GRID ================= */
+.details-main-grid {
+  display: grid;
+  grid-template-columns: 310px 1fr 1fr;
+  gap: 16px;
+}
+
+.details-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-box {
+  border: 1.5px solid var(--ddb-border);
+  border-radius: 6px;
+  background: var(--ddb-bg-sheet);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.box-bottom-label {
+  background: var(--ddb-bg-subtle);
+  border-top: 1px solid var(--ddb-border-light);
+  text-align: center;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--ddb-text-muted);
+  letter-spacing: 0.6px;
+  padding: 4px 6px;
+  text-transform: uppercase;
+}
+
+/* Avatar / Portrait Box */
+.portrait-box {
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+}
+
+.portrait-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ddb-bg-box);
+  overflow: hidden;
+  padding: 12px;
+}
+
+.character-portrait-img {
+  max-width: 100%;
+  max-height: 280px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.portrait-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ddb-text-muted);
+  font-style: italic;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.portrait-icon {
+  font-size: 40px;
+  opacity: 0.4;
+}
+
+/* Narrative Text Content */
+.narrative-content {
+  padding: 12px 14px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ddb-text-main);
+  flex: 1;
+  max-height: 320px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.narrative-content p {
+  margin: 0 0 8px 0;
+}
+
+.narrative-content p:last-child {
+  margin-bottom: 0;
+}
+
+.empty-hint {
+  color: var(--ddb-text-muted);
+  font-style: italic;
+}
+
+/* ================= PRINT STYLES ================= */
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.35in;
+  }
+
+  body.sheet-page-wrapper {
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .details-sheet-container {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .narrative-content {
+    max-height: none;
+    overflow: visible;
+  }
+}

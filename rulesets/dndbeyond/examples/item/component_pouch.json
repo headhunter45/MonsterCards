@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "79cb26de-9818-48ef-a95c-666115692163",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Component Pouch",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 42,
+    "name": "Component Pouch",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 2,
+    "cost": 25,
+    "description": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

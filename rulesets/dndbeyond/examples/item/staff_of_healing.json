@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "d2d5bd1a-6ad5-4ae0-95aa-fff9fc43f52e",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Staff of Healing",
+  "description": "Staff (Rare)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "staff"
+  ],
+  "properties": {
+    "id": 4763,
+    "name": "Staff of Healing",
+    "filterType": "Staff",
+    "type": "Staff",
+    "rarity": "Rare",
+    "weight": 0,
+    "cost": null,
+    "description": "This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: cure wounds (1 charge per spell level, up to 4th), lesser restoration (2 charges), or mass cure wounds (5 charges).\n\n\r\nThe staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff vanishes in a flash of light, lost forever.",
+    "canAttune": true,
+    "attunementDescription": "Bard, Cleric, or Druid",
+    "isConsumable": false
+  }
+}

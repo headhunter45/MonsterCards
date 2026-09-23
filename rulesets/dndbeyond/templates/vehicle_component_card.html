@@ -1,0 +1,17 @@
+<div class="ddb-entity-card component-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">Vehicle Component{{#if properties.type}} &bull; {{properties.type}}{{/if}}</span>
+    </div>
+    <span class="card-badge red">AC {{properties.armorClass}} &bull; {{properties.hitPoints}} HP</span>
+  </div>
+
+  {{#if properties.actions}}
+  <div class="card-tags">
+    {{#each properties.actions}}
+    <span class="card-tag">{{this.name}}</span>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

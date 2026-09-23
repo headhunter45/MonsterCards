@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "a0623748-9c9a-464e-8ea7-65b09c7ed226",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Bag of Holding",
+  "description": "Wondrous item (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 4581,
+    "name": "Bag of Holding",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Uncommon",
+    "weight": 15,
+    "cost": null,
+    "description": "This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n\n\r\nIf the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n\n\r\nPlacing a bag of holding inside an extradimensional space created by a handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can’t be reopened.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

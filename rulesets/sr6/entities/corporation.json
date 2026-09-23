@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "corporation",
   "name": "Megacorporation",
   "description": "SR6 Corporate Court ranked megacorporation profile with extraterritorial status, slogans, and leadership.",

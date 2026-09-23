@@ -1,0 +1,13 @@
+<div class="field field-action-list" data-array-key="{{key}}" data-widget-config="{{json ui.config}}">
+  <label>{{label}}</label>
+  <ul class="action-entries">
+    {{#each value}}
+      <li class="action-entry">
+        <input type="text" class="action-name" name="{{../key}}[{{@index}}].name" value="{{this.name}}" placeholder="Name">
+        <textarea class="action-desc" name="{{../key}}[{{@index}}].desc" placeholder="Description">{{this.desc}}</textarea>
+        <button type="button" class="remove-action" aria-label="Remove action">&times; Remove</button>
+      </li>
+    {{/each}}
+  </ul>
+  <button type="button" class="add-action" data-target="{{key}}">+ Add Action</button>
+</div>

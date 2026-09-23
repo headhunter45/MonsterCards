@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e043570b-75bf-4194-ba61-62bf3fc7c840",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Signet Ring",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 84,
+    "name": "Signet Ring",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": 5,
+    "description": "Each signet ring has a distinctive design carved into it. When you press this ring into warm sealing wax, you leave an identifying mark.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

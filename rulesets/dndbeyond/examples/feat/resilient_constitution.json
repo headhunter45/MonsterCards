@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "0b441e84-86ac-46c4-a930-21019458bd57",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "feat",
+  "display_name": "Resilient (Constitution)",
+  "description": "Increase your CON score by 1 and you gain proficiency in CON saving throws.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "feat",
+    "resilient_constitution"
+  ],
+  "properties": {
+    "id": 71,
+    "name": "Resilient (Constitution)",
+    "description": "Choose one ability score. You gain the following benefits:\n\n\r\n\r\nIncrease the chosen ability score by 1, to a maximum of 20.\r\nYou gain proficiency in saving throws using the chosen ability.",
+    "snippet": "Increase your CON score by 1 and you gain proficiency in CON saving throws.",
+    "prerequisites": []
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "bca45d14-7264-44bb-83f1-1614ef214e8c",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Earth Tremor",
+  "description": "Level 1 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "evocation"
+  ],
+  "properties": {
+    "id": 2378,
+    "name": "Earth Tremor",
+    "level": 1,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 10,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2378_403",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "damage",
+        "subType": "bludgeoning",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Damage",
+        "friendlySubtypeName": "Bludgeoning",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": 1,
+          "diceValue": 6,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": "1d6"
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 1,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "1d6"
+              },
+              "value": null,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 4,
+        "pageNumber": 155,
+        "sourceType": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5839eb5e-8023-4ada-ad06-3997ac0d7aee",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Aquamarine",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 249,
+    "name": "Aquamarine",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": 500,
+    "description": "A transparent pale blue-green gemstone worth 500 gold pieces.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

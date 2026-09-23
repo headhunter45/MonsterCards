@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Item Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">{{#if properties.rarity}}{{properties.rarity}} {{/if}}{{properties.filterType}} &bull; {{properties.type}}</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        {{#if properties.canAttune}}Requires Attunement{{#if properties.attunementDescription}} ({{properties.attunementDescription}}){{/if}}{{else}}Wondrous / Adventuring Item{{/if}}
+      </div>
+    </header>
+
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Rarity</span>
+        <span class="stat-value">{{#if properties.rarity}}{{properties.rarity}}{{else}}Common{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Weight</span>
+        <span class="stat-value">{{#if properties.weight}}{{properties.weight}} lb.{{else}}&mdash;{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Cost</span>
+        <span class="stat-value">{{ddbCostText properties.cost}}</span>
+      </div>
+      {{#if properties.canAttune}}
+      <div class="stat-pill">
+        <span class="stat-label">Attunement</span>
+        <span class="stat-value highlight">Yes</span>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="entity-body">
+      {{{properties.description}}}
+    </div>
+  </article>
+</body>
+</html>

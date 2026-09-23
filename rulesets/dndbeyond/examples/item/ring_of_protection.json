@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "c32d1e25-2454-4401-87b1-d33bd37a76ea",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Ring of Protection",
+  "description": "Ring (Rare)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "ring"
+  ],
+  "properties": {
+    "id": 4726,
+    "name": "Ring of Protection",
+    "filterType": "Ring",
+    "type": "Ring",
+    "rarity": "Rare",
+    "weight": 0,
+    "cost": null,
+    "description": "You gain a +1 bonus to Armor Class and saving throws while wearing this ring.",
+    "canAttune": true,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

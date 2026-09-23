@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "87de2bf5-8e45-4e1d-b674-e7d59a266007",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Chest",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 36,
+    "name": "Chest",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 25,
+    "cost": 5,
+    "description": "A chest can hold 12 cubic feet/ 300 pounds of gear.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

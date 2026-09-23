@@ -1,0 +1,416 @@
+{
+    "$schema": "https://schemas.ttrpgwith.me/manifest.json",
+    "id": "dndbeyond",
+    "uuid": "3A0FACEA-5704-4C0A-8C36-2799B3BC1ED6",
+    "name": "DnDBeyond",
+    "version": "1.0.0",
+    "description": "DnDBeyond ruleset providing entity schemas and sheet templates.",
+    "license": "MIT",
+    "author": {
+        "name": "Tom Hicks",
+        "url": "https://dndbeyond.com"
+    },
+    "entities": [
+        {
+            "id": "character",
+            "name": "Player Character",
+            "description": "A playable character with attributes, multiclass levels, spell slots, pact magic, equipment, and features.",
+            "schema": "entities/character.json",
+            "default_template": "character_sheet",
+            "templates": [
+                "character_sheet",
+                "character_sheet_alt",
+                "spellcasting_sheet",
+                "character_details"
+            ],
+            "default_editor": "entity_form",
+            "allowed_editors": [
+                "entity_form"
+            ]
+        },
+        {
+            "id": "spell",
+            "name": "Spell",
+            "description": "D&D Beyond spell definition with school, level, casting time, range, components, duration, and rules text.",
+            "schema": "entities/spell.json",
+            "default_template": "spell_view",
+            "templates": ["spell_view", "spell_card"]
+        },
+        {
+            "id": "weapon",
+            "name": "Weapon",
+            "description": "D&D Beyond simple and martial melee and ranged weapons with damage dice, type, range, and properties.",
+            "schema": "entities/weapon.json",
+            "default_template": "weapon_view",
+            "templates": ["weapon_view", "weapon_card"]
+        },
+        {
+            "id": "armor",
+            "name": "Armor",
+            "description": "D&D Beyond wearable armor with base AC, dex cap, strength requirements, and stealth penalties.",
+            "schema": "entities/armor.json",
+            "default_template": "armor_view",
+            "templates": ["armor_view", "armor_card"]
+        },
+        {
+            "id": "shield",
+            "name": "Shield",
+            "description": "D&D Beyond equippable shields providing armor class bonuses.",
+            "schema": "entities/shield.json",
+            "default_template": "shield_view",
+            "templates": ["shield_view", "shield_card"]
+        },
+        {
+            "id": "item",
+            "name": "Item / Adventuring Gear",
+            "description": "D&D Beyond generic items, adventuring gear, potions, scrolls, rings, and practical wondrous items.",
+            "schema": "entities/item.json",
+            "default_template": "item_view",
+            "templates": ["item_view", "item_card"]
+        },
+        {
+            "id": "infusion",
+            "name": "Artificer Infusion",
+            "description": "D&D Beyond Artificer Infusions detailing item prerequisites, target types, attunement, and granted modifiers.",
+            "schema": "entities/infusion.json",
+            "default_template": "infusion_view",
+            "templates": ["infusion_view", "infusion_card"]
+        },
+        {
+            "id": "vehicle",
+            "name": "Vehicle",
+            "description": "D&D Beyond vehicles with armor class, hit points, speed, dimensions, crew, cargo, and actions.",
+            "schema": "entities/vehicle.json",
+            "default_template": "vehicle_view",
+            "templates": ["vehicle_view", "vehicle_card"]
+        },
+        {
+            "id": "vehicle_component",
+            "name": "Vehicle Part / Component",
+            "description": "D&D Beyond vehicle components including hulls, sails, engines, helms, and weapons.",
+            "schema": "entities/vehicle_component.json",
+            "default_template": "vehicle_component_view",
+            "templates": ["vehicle_component_view", "vehicle_component_card"]
+        },
+        {
+            "id": "class",
+            "name": "Character Class",
+            "description": "D&D Beyond character classes with hit dice, spellcasting attributes, subclasses, and class features.",
+            "schema": "entities/class.json",
+            "default_template": "class_view",
+            "templates": ["class_view", "class_card"]
+        },
+        {
+            "id": "race",
+            "name": "Character Race / Species",
+            "description": "D&D Beyond races and species with speeds, size, ability modifiers, and racial traits.",
+            "schema": "entities/race.json",
+            "default_template": "race_view",
+            "templates": ["race_view", "race_card"]
+        },
+        {
+            "id": "background",
+            "name": "Character Background",
+            "description": "D&D Beyond character backgrounds with skill proficiencies, tool proficiencies, languages, and features.",
+            "schema": "entities/background.json",
+            "default_template": "background_view",
+            "templates": ["background_view", "background_card"]
+        },
+        {
+            "id": "feat",
+            "name": "Feat",
+            "description": "D&D Beyond feats with prerequisites, benefits, and mechanical rules text.",
+            "schema": "entities/feat.json",
+            "default_template": "feat_view",
+            "templates": ["feat_view", "feat_card"]
+        }
+    ],
+    "templates": [
+        {
+            "id": "character_sheet",
+            "name": "Standard Character Sheet",
+            "description": "Full interactive D&D Beyond character sheet matching the official 3-column printable layout.",
+            "entity_types": ["character"],
+            "mode": "sheet",
+            "engine": "html",
+            "html": "templates/character_sheet.html",
+            "css": ["templates/character_sheet.css"],
+            "js": ["templates/character_sheet.js"]
+        },
+        {
+            "id": "character_sheet_alt",
+            "name": "Alternative Character Sheet",
+            "description": "D&D Beyond character sheet with saving throws and skills grouped by ability score.",
+            "entity_types": ["character"],
+            "mode": "sheet",
+            "engine": "html",
+            "html": "templates/character_sheet_alt.html",
+            "css": ["templates/character_sheet_alt.css"],
+            "js": ["templates/character_sheet.js"]
+        },
+        {
+            "id": "spellcasting_sheet",
+            "name": "Spellcasting Sheet",
+            "description": "Dedicated D&D Beyond spellcasting sheet with cantrips, spell slots 1-9, save DC, and attack bonus.",
+            "entity_types": ["character"],
+            "mode": "sheet",
+            "engine": "html",
+            "html": "templates/spellcasting_sheet.html",
+            "css": ["templates/spellcasting_sheet.css"]
+        },
+        {
+            "id": "character_details",
+            "name": "Character Details & Backstory",
+            "description": "D&D Beyond character details sheet with avatar portrait, physical characteristics, backstory, and allies.",
+            "entity_types": ["character"],
+            "mode": "sheet",
+            "engine": "html",
+            "html": "templates/character_details.html",
+            "css": ["templates/character_details.css"]
+        },
+        {
+            "id": "spell_view",
+            "name": "Spell Description View",
+            "description": "Full standalone presentation of a spell with level, school, casting time, range, components, duration, and full rules text.",
+            "entity_types": ["spell"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/spell_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "spell_card",
+            "name": "Spell Card",
+            "description": "Compact spell badge with level, school, concentration & ritual tags, casting time, and range.",
+            "entity_types": ["spell"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/spell_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "weapon_view",
+            "name": "Weapon Description View",
+            "description": "Full standalone presentation of a weapon with damage dice, type, range, mastery, and properties.",
+            "entity_types": ["weapon"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/weapon_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "weapon_card",
+            "name": "Weapon Card",
+            "description": "Compact weapon badge with damage, range, and properties.",
+            "entity_types": ["weapon"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/weapon_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "armor_view",
+            "name": "Armor Description View",
+            "description": "Full standalone presentation of wearable armor with AC, type, dex limits, stealth, and weight.",
+            "entity_types": ["armor"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/armor_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "armor_card",
+            "name": "Armor Card",
+            "description": "Compact armor card with AC, type, and weight.",
+            "entity_types": ["armor"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/armor_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "shield_view",
+            "name": "Shield Description View",
+            "description": "Full standalone presentation of a shield with AC bonus, weight, and description.",
+            "entity_types": ["shield"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/shield_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "shield_card",
+            "name": "Shield Card",
+            "description": "Compact shield badge with AC bonus.",
+            "entity_types": ["shield"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/shield_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "item_view",
+            "name": "Item Description View",
+            "description": "Full standalone presentation of an adventuring item or wondrous gear.",
+            "entity_types": ["item"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/item_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "item_card",
+            "name": "Item Card",
+            "description": "Compact inventory item card with quantity, weight, and attunement.",
+            "entity_types": ["item"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/item_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "feat_view",
+            "name": "Feat Description View",
+            "description": "Full standalone presentation of a feat with prerequisites and benefits.",
+            "entity_types": ["feat"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/feat_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "feat_card",
+            "name": "Feat Card",
+            "description": "Compact feat badge with prerequisites and snippet.",
+            "entity_types": ["feat"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/feat_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "class_view",
+            "name": "Class Description View",
+            "description": "Full standalone presentation of a character class with hit dice, spellcasting, subclass, and features.",
+            "entity_types": ["class"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/class_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "class_card",
+            "name": "Class Card",
+            "description": "Compact class badge with hit die and subclass summary.",
+            "entity_types": ["class"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/class_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "race_view",
+            "name": "Race / Species Description View",
+            "description": "Full standalone presentation of a character species with speed, size, and racial traits.",
+            "entity_types": ["race"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/race_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "race_card",
+            "name": "Race Card",
+            "description": "Compact race summary card with speed, size, and traits list.",
+            "entity_types": ["race"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/race_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "background_view",
+            "name": "Background Description View",
+            "description": "Full standalone presentation of a character background with proficiencies, feature, and tables.",
+            "entity_types": ["background"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/background_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "background_card",
+            "name": "Background Card",
+            "description": "Compact background card with proficiencies and feature name.",
+            "entity_types": ["background"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/background_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "infusion_view",
+            "name": "Infusion Description View",
+            "description": "Full standalone presentation of an artificer infusion with prerequisites and rules text.",
+            "entity_types": ["infusion"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/infusion_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "infusion_card",
+            "name": "Infusion Card",
+            "description": "Compact infusion card with item prerequisite and snippet.",
+            "entity_types": ["infusion"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/infusion_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "vehicle_view",
+            "name": "Vehicle Description View",
+            "description": "Full standalone presentation of a vehicle with combat stats, dimensions, crew, cargo, and actions.",
+            "entity_types": ["vehicle"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/vehicle_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "vehicle_card",
+            "name": "Vehicle Card",
+            "description": "Compact vehicle card with AC, HP, speed, and actions.",
+            "entity_types": ["vehicle"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/vehicle_card.html",
+            "css": ["templates/entity_cards.css"]
+        },
+        {
+            "id": "vehicle_component_view",
+            "name": "Vehicle Component Description View",
+            "description": "Full standalone presentation of a vehicle component or mounted weapon.",
+            "entity_types": ["vehicle_component"],
+            "mode": "view",
+            "engine": "html",
+            "html": "templates/vehicle_component_view.html",
+            "css": ["templates/entity_view.css"]
+        },
+        {
+            "id": "vehicle_component_card",
+            "name": "Vehicle Component Card",
+            "description": "Compact vehicle component card with AC and HP.",
+            "entity_types": ["vehicle_component"],
+            "mode": "card",
+            "engine": "html",
+            "html": "templates/vehicle_component_card.html",
+            "css": ["templates/entity_cards.css"]
+        }
+    ],
+    "assets": {
+        "path": "assets",
+        "images": []
+    }
+}

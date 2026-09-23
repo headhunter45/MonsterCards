@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b9f60137-3dd4-4743-9a1a-e6f21e484da7",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Flame Tongue Rapier",
+  "description": "Rapier dealing Piercing.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "rapier"
+  ],
+  "properties": {
+    "id": 4896,
+    "name": "Flame Tongue Rapier",
+    "type": "Rapier",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 8,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d8"
+    },
+    "damageType": "Piercing",
+    "range": 5,
+    "longRange": 5,
+    "properties": [
+      {
+        "id": 2,
+        "name": "Finesse",
+        "description": "<p>When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.</p>",
+        "notes": null
+      },
+      {
+        "id": 25,
+        "name": "Vex",
+        "description": "<p>If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 2,
+    "cost": null,
+    "rarity": "Rare",
+    "description": "While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.",
+    "isMonkWeapon": false
+  }
+}

@@ -1,0 +1,138 @@
+.entity-editor-page {
+  font-family: system-ui, sans-serif;
+  background: #f4f1ea;
+  margin: 0;
+  padding: 2rem;
+}
+
+.entity-editor {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.entity-editor-title {
+  margin-top: 0;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.4rem;
+  box-sizing: border-box;
+}
+
+.field-object-group {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.field-object-group legend {
+  font-weight: 600;
+}
+
+.field-ability-stepper .stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field-ability-stepper input[type="number"] {
+  width: 4rem;
+  text-align: center;
+}
+
+.action-entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.action-entry {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.action-entry .action-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.remove-array-item,
+.remove-action {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.25rem;
+}
+
+.array-list-entries li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.entity-editor-actions {
+  margin-top: 1.5rem;
+}
+
+.entity-editor-note {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.array-object-entry {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.array-object-entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.array-object-entry-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.array-object-entry-template {
+  display: none;
+}
+
+.field input[readonly] {
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: not-allowed;
+}

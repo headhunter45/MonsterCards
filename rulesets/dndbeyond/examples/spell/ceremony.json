@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "fb52ac37-4c42-439f-b0f1-6238747f8a57",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Ceremony",
+  "description": "Level 1 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 14760,
+    "name": "Ceremony",
+    "level": 1,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 7
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": null,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You perform a special religious ceremony that is infused with magic. When you cast the spell, choose one of the following rites, the target of which must be within 10 feet of you throughout the casting.\n\n\r\nAtonement. You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a successful check, you restore the target to its original alignment.\n\n\r\nBless Water. You touch one vial of water and cause it to become holy water.\n\n\r\nComing of Age. You touch one humanoid who is a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this rite only once.\n\n\r\nDedication. You touch one humanoid who wishes to be dedicated to your god’s service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this rite only once.\n\n\r\nFuneral Rite. You touch one corpse, and for the next 7 days, the target can’t become undead by any means short of a wish spell.\n\n\r\nWedding. You touch adult humanoids willing to be bonded together in marriage. For the next 7 days, each target gains a +2 bonus to AC while they are within 30 feet of each other. A creature can benefit from this rite again only if widowed.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": true,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "25 gp worth of powdered silver, which the spell consumes",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 27,
+        "pageNumber": 151,
+        "sourceType": 1
+      }
+    ]
+  }
+}

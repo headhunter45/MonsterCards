@@ -1,0 +1,8 @@
+<div class="field field-ability-stepper">
+  <label for="field-{{key}}">{{label}}</label>
+  <div class="stepper">
+    <button type="button" class="step-down" data-target="{{key}}">-</button>
+    <input type="number" id="field-{{key}}" name="{{key}}" value="{{val value}}" min="{{#if schema.minimum}}{{schema.minimum}}{{else}}1{{/if}}" max="{{#if schema.maximum}}{{schema.maximum}}{{else}}30{{/if}}">
+    <button type="button" class="step-up" data-target="{{key}}">+</button>
+  </div>
+</div>

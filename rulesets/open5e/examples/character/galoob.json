@@ -1,0 +1,475 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "d95f49a8-8ea6-4090-821c-86dbe9efd884",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Galoob",
+  "description": "Half-Orc Barbarian (Path of the Berserker) (Level 6)",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T08:27:16.894Z",
+  "updated_at": "2026-09-17T08:27:16.894Z",
+  "tags": [
+    "pc",
+    "barbarian",
+    "half_orc"
+  ],
+  "properties": {
+    "player_name": "Hoggrim",
+    "class_levels": {
+      "barbarian": {
+        "name": "Barbarian",
+        "level": 6,
+        "subclass": "Path of the Berserker",
+        "description": "Barbarian level 6"
+      }
+    },
+    "race": "Half-Orc",
+    "size": "medium",
+    "type": "Humanoid",
+    "subtype": "Half-Orc",
+    "background": "Soldier",
+    "alignment": "Chaotic Good",
+    "experience_points": 0,
+    "inspiration": false,
+    "proficiency_bonus": 3,
+    "initiative": 2,
+    "speed": 30,
+    "speed_desc": "30 ft.",
+    "hit_points": {
+      "current": 10,
+      "max": 47,
+      "temp": 0,
+      "base": 47,
+      "bonus": null,
+      "override": null,
+      "removed": 37,
+      "hit_dice": "6d12"
+    },
+    "hit_dice": {
+      "total": 6,
+      "current": 6,
+      "dice": "6d12"
+    },
+    "death_saves": {
+      "successes": 0,
+      "failures": 0,
+      "is_stabilized": false
+    },
+    "saving_throws": [
+      "Strength +6",
+      "Constitution +7"
+    ],
+    "skills": [
+      "Athletics +6",
+      "Intimidation +3",
+      "Medicine +4",
+      "Religion +4",
+      "Survival +4"
+    ],
+    "passive_perception": 11,
+    "senses": "darkvision 60 ft., passive Perception 11",
+    "languages": [
+      "Common",
+      "Orc"
+    ],
+    "other_proficiencies_and_languages": {
+      "armor": [
+        "Light Armor",
+        "Medium Armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple Weapons",
+        "Martial Weapons"
+      ],
+      "tools": [
+        "Dragonchess Set",
+        "Vehicles (Land)"
+      ],
+      "languages": [
+        "Common",
+        "Orc"
+      ]
+    },
+    "attacks": [
+      {
+        "name": "Greataxe, +1",
+        "atk_bonus": "+7",
+        "damage": "1d12 + 4",
+        "damage_type": "Slashing",
+        "range": "5 ft."
+      },
+      {
+        "name": "Javelin",
+        "atk_bonus": "+5",
+        "damage": "1d6 + 2",
+        "damage_type": "Piercing",
+        "range": "30/90 ft."
+      }
+    ],
+    "currency": {
+      "cp": 0,
+      "sp": 0,
+      "gp": 770,
+      "ep": 0,
+      "pp": 0
+    },
+    "personality_traits": "I enjoy being strong and like breaking things.\nI face problems head-on. A simple, direct solution is the best path to success.",
+    "ideals": "Independence. When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)",
+    "bonds": "Those who fight beside me are those worth dying for.",
+    "flaws": "",
+    "character_details": {
+      "height": "7ft",
+      "skin": "Greenish",
+      "personal_possessions": "a piece of a banner\na piece of a banner"
+    },
+    "decorations": {
+      "avatar_url": "https://www.dndbeyond.com/avatars/17/340/636377874717950950.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+      "backdrop_url": "https://www.dndbeyond.com/avatars/61/471/636453122222914252.jpeg"
+    },
+    "attunement": {
+      "current": 0,
+      "max": 3
+    },
+    "armor_class": {
+      "value": 13,
+      "base": 11,
+      "description": "Leather, +1"
+    },
+    "abilities": {
+      "strength": {
+        "display_name": "Strength",
+        "short_name": "Str",
+        "value": 17,
+        "modifier": 3,
+        "proficiency": true,
+        "saving_throw": 6
+      },
+      "dexterity": {
+        "display_name": "Dexterity",
+        "short_name": "Dex",
+        "value": 14,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "constitution": {
+        "display_name": "Constitution",
+        "short_name": "Con",
+        "value": 18,
+        "modifier": 4,
+        "proficiency": true,
+        "saving_throw": 7
+      },
+      "intelligence": {
+        "display_name": "Intelligence",
+        "short_name": "Int",
+        "value": 13,
+        "modifier": 1,
+        "proficiency": false,
+        "saving_throw": 1
+      },
+      "wisdom": {
+        "display_name": "Wisdom",
+        "short_name": "Wis",
+        "value": 12,
+        "modifier": 1,
+        "proficiency": false,
+        "saving_throw": 1
+      },
+      "charisma": {
+        "display_name": "Charisma",
+        "short_name": "Cha",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      }
+    },
+    "features_and_traits": [
+      {
+        "name": "Darkvision",
+        "source": "Half-Orc",
+        "desc": "Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+      },
+      {
+        "name": "Menacing",
+        "source": "Half-Orc",
+        "desc": "You gain proficiency in the Intimidation skill."
+      },
+      {
+        "name": "Relentless Endurance",
+        "source": "Half-Orc",
+        "desc": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest."
+      },
+      {
+        "name": "Savage Attacks",
+        "source": "Half-Orc",
+        "desc": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit."
+      },
+      {
+        "name": "Frenzy",
+        "source": "Barbarian 3",
+        "desc": "Starting when you choose this path at 3rd level, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion."
+      },
+      {
+        "name": "Mindless Rage",
+        "source": "Barbarian 6",
+        "desc": "Beginning at 6th level, you can’t be charmed or frightened while raging. If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage."
+      },
+      {
+        "name": "Rage",
+        "source": "Barbarian 1",
+        "desc": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.\n\n\r\nWhile raging, you gain the following benefits if you aren’t wearing heavy armor:\n\n\r\n\r\nYou have advantage on Strength checks and Strength saving throws.\r\nWhen you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.\r\nYou have resistance to bludgeoning, piercing, and slashing damage.\r\n\r\nIf you are able to cast spells, you can’t cast them or concentrate on them while raging.\n\n\r\nYour rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.\n\n\r\nOnce you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again."
+      },
+      {
+        "name": "Unarmored Defense",
+        "source": "Barbarian 1",
+        "desc": "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
+      },
+      {
+        "name": "Reckless Attack",
+        "source": "Barbarian 2",
+        "desc": "Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn."
+      },
+      {
+        "name": "Danger Sense",
+        "source": "Barbarian 2",
+        "desc": "At 2nd level, you gain an uncanny sense of when things nearby aren’t as they should be, giving you an edge when you dodge away from danger.\n\n\r\nYou have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can’t be blinded, deafened, or incapacitated."
+      },
+      {
+        "name": "Primal Path",
+        "source": "Barbarian 3",
+        "desc": "At 3rd level, you choose a path that shapes the nature of your rage. Your choice grants you features at 3rd level and again at 6th, 10th, and 14th levels."
+      },
+      {
+        "name": "Extra Attack",
+        "source": "Barbarian 5",
+        "desc": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn."
+      },
+      {
+        "name": "Fast Movement",
+        "source": "Barbarian 5",
+        "desc": "Starting at 5th level, your speed increases by 10 feet while you aren’t wearing heavy armor."
+      },
+      {
+        "name": "Equipment",
+        "source": "Barbarian 1",
+        "desc": "You start with the following equipment, in addition to the equipment granted by your background:\n\n\r\n\r\n(a) a greataxe or (b) any martial melee weapon\r\n(a) two handaxes or (b) any simple weapon\r\nAn explorer’s pack and four javelins"
+      },
+      {
+        "name": "Military Rank",
+        "source": "Background: Soldier",
+        "desc": "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized."
+      }
+    ],
+    "feats": [
+      {
+        "name": "Grappler",
+        "description": "You’ve developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:\n\n\r\n\r\nYou have advantage on attack rolls against a creature you are grappling.\r\nYou can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends."
+      }
+    ],
+    "spellcasting": {
+      "class": "Barbarian",
+      "ability": "INTELLIGENCE",
+      "save_dc": 12,
+      "attack_bonus": 4,
+      "cantrips": [],
+      "spells": []
+    },
+    "inventory": [
+      {
+        "id": "item_143013327",
+        "name": "Leather, +1",
+        "quantity": 1,
+        "weight": 10,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "rare",
+        "filter_type": "Armor",
+        "description": "You have a +1 bonus to AC while wearing this armor."
+      },
+      {
+        "id": "item_143013375",
+        "name": "Greataxe, +1",
+        "quantity": 1,
+        "weight": 7,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Weapon",
+        "description": "You have a +1 bonus to attack and damage rolls made with this magic weapon."
+      },
+      {
+        "id": "item_143013210",
+        "name": "Javelin",
+        "quantity": 8,
+        "weight": 2,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Javelin allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nSlow. If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+      },
+      {
+        "id": "item_143013200",
+        "name": "Greataxe",
+        "quantity": 1,
+        "weight": 7,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Greataxe allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nCleave. If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon’s damage, but don’t add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."
+      },
+      {
+        "id": "item_143013224",
+        "name": "Greataxe",
+        "quantity": 1,
+        "weight": 7,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Greataxe allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nCleave. If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon’s damage, but don’t add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."
+      },
+      {
+        "id": "item_143013201",
+        "name": "Backpack",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.\n\n\r\nYou can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack."
+      },
+      {
+        "id": "item_177539745",
+        "name": "Backpack",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.\n\n\r\nYou can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack."
+      },
+      {
+        "id": "item_143013202",
+        "name": "Bedroll",
+        "quantity": 2,
+        "weight": 7,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "You never know where you’re going to sleep, and a bedroll helps you get better sleep in a hayloft or on the cold ground. A bedroll consists of bedding and a blanket thin enough to be rolled up and tied. In an emergency, it can double as a stretcher."
+      },
+      {
+        "id": "item_143013212",
+        "name": "Clothes, Common",
+        "quantity": 2,
+        "weight": 3,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes."
+      },
+      {
+        "id": "item_143013203",
+        "name": "Mess Kit",
+        "quantity": 2,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl."
+      },
+      {
+        "id": "item_143013206",
+        "name": "Rations (1 day)",
+        "quantity": 20,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts."
+      },
+      {
+        "id": "item_143013209",
+        "name": "Rope, Hempen (50 feet)",
+        "quantity": 2,
+        "weight": 10,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check."
+      },
+      {
+        "id": "item_143013204",
+        "name": "Tinderbox",
+        "quantity": 2,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute."
+      },
+      {
+        "id": "item_143013205",
+        "name": "Torch",
+        "quantity": 20,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage."
+      },
+      {
+        "id": "item_143013208",
+        "name": "Waterskin",
+        "quantity": 2,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A waterskin can hold 4 pints of liquid."
+      },
+      {
+        "id": "item_143013211",
+        "name": "Dice Set",
+        "quantity": 2,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set."
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "0c6379f5-d971-4cbd-a29e-5c81f9a16137",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Waterskin",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 92,
+    "name": "Waterskin",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 5,
+    "cost": 0.2,
+    "description": "A waterskin can hold 4 pints of liquid.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

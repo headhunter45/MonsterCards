@@ -1,0 +1,38 @@
+<div class="ddb-entity-card weapon-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">{{#if properties.damage}}{{ddbDamageString properties.damage properties.damageType}}{{else if damage}}{{damage}}{{/if}}</span>
+    </div>
+    {{#if atkBonus}}
+    <span class="card-badge red">ATK {{atkBonus}}</span>
+    {{/if}}
+  </div>
+
+  <div class="card-stats-row">
+    <div class="card-stat-item">
+      <strong>Range:</strong>
+      <span>{{#if properties.range}}{{properties.range}} ft.{{else}}5 ft.{{/if}}</span>
+    </div>
+    {{#if properties.weight}}
+    <div class="card-stat-item">
+      <strong>Weight:</strong>
+      <span>{{properties.weight}} lb.</span>
+    </div>
+    {{/if}}
+    {{#if properties.cost}}
+    <div class="card-stat-item">
+      <strong>Cost:</strong>
+      <span>{{ddbCostText properties.cost}}</span>
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if properties.properties}}
+  <div class="card-tags">
+    {{#each properties.properties}}
+    <span class="card-tag">{{this.name}}{{#if this.notes}} ({{this.notes}}){{/if}}</span>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

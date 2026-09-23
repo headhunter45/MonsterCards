@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "ca0aee22-5435-4d46-a322-06ad78ed5b9f",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Sling",
+  "description": "Sling dealing Bludgeoning.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "sling"
+  ],
+  "properties": {
+    "id": 18,
+    "name": "Sling",
+    "type": "Sling",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 4,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d4"
+    },
+    "damageType": "Bludgeoning",
+    "range": 30,
+    "longRange": 120,
+    "properties": [
+      {
+        "id": 1,
+        "name": "Ammunition",
+        "description": "<p>You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.</p>",
+        "notes": null
+      },
+      {
+        "id": 7,
+        "name": "Range",
+        "description": "<p>A Range weapon has a range in parentheses after the [wprop]Ammunition[/wprop] or [wprop]Thrown[/wprop] property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have [rules]Disadvantage[/rules] on the attack roll. You can’t attack a target beyond the long range.</p>",
+        "notes": null
+      },
+      {
+        "id": 23,
+        "name": "Slow",
+        "description": "<p>If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn't exceed 10 feet.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 0,
+    "cost": 0.1,
+    "rarity": "Common",
+    "description": "Proficiency with a Sling allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nSlow. If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet.",
+    "isMonkWeapon": false
+  }
+}

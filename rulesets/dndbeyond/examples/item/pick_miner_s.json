@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "1c8ca64d-9508-4ed6-bd89-603c2a37df6d",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Pick, Miner's",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 66,
+    "name": "Pick, Miner's",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 10,
+    "cost": 2,
+    "description": "A miner's pick is designed to concentrate the force of its blow on a small area.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

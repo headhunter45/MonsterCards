@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "09daa930-d339-4dd5-83e0-41de43692856",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Hammer",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 47,
+    "name": "Hammer",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 3,
+    "cost": 1,
+    "description": "This one-handed hammer with an iron head is useful for pounding pitons into a wall.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5b2c2387-61be-4059-8551-e048bd1868b1",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Mithral Chain Mail",
+  "description": "Armor (AC 16)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 5123,
+    "name": "Mithral Chain Mail",
+    "type": null,
+    "filterType": "Armor",
+    "armorClass": 16,
+    "armorTypeId": 3,
+    "strengthRequirement": 0,
+    "stealthCheck": 1,
+    "weight": 55,
+    "cost": null,
+    "rarity": "Uncommon",
+    "description": "Mithral is a light, flexible metal. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't."
+  }
+}

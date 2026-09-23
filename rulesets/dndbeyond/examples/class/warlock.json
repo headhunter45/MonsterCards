@@ -1,0 +1,1191 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "16819337-3f1f-483e-90fe-18734154a090",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "class",
+  "display_name": "Warlock",
+  "description": "A wielder of magic that is derived from a bargain with an extraplanar entity.\n\n\r\nHit Die: d8\nPrimary Ability: Charisma\nSaves: Wisdom & Charisma",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "class",
+    "warlock"
+  ],
+  "properties": {
+    "id": 7,
+    "name": "Warlock",
+    "description": "A wielder of magic that is derived from a bargain with an extraplanar entity.\n\n\r\nHit Die: d8\nPrimary Ability: Charisma\nSaves: Wisdom & Charisma",
+    "hitDice": 8,
+    "canCastSpells": true,
+    "spellCastingAbilityId": 6,
+    "subclassDefinition": {
+      "id": 82,
+      "definitionKey": "789467139:82",
+      "name": "The Undying",
+      "description": "<p>Death holds no sway over your patron, who has unlocked the secrets of everlasting life, although such a prize &mdash; like all power &mdash; comes at a price. Once mortal, the Undying has seen mortal lifetimes pass like the seasons, like the flicker of endless days and nights. It has the secrets of the ages to share, secrets of life and death. Beings of this sort include Vecna, Lord of the Hand and the Eye; the dread Iuz; the lich-queen Vol; the Undying Court of Aerenal; Vlaakith, lich-queen of the githyanki; and the deathless wizard Fista<span class=\"No-Break\">ndantalus.</span></p>",
+      "equipmentDescription": null,
+      "parentClassId": 7,
+      "slug": "82-the-undying",
+      "avatarUrl": null,
+      "largeAvatarUrl": null,
+      "portraitAvatarUrl": null,
+      "moreDetailsUrl": "/classes/7-warlock#TheUndying",
+      "spellCastingAbilityId": 6,
+      "sources": [
+        {
+          "sourceId": 13,
+          "pageNumber": null,
+          "sourceType": 1
+        }
+      ],
+      "classFeatures": [
+        {
+          "id": 518,
+          "name": "Expanded Spell List",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">The Undying lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.</p>\r\n<h5 class=\"Table-Styles_Table-Title\"><strong>Undying Expanded Spells</strong></h5>\r\n<table class=\"compendium-left-aligned-table\">\r\n<thead>\r\n<tr>\r\n<th style=\"text-align: left;\">Spell Level</th>\r\n<th>Spells</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: left;\">1st</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">false life,</span>&nbsp;<span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">ray of sickness</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">2nd</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">blindness/deafness</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">silence</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">3rd</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">feign death</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">speak with dead</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">4th</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">aura of life</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">death ward</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">5th</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">contagion</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">legend lore</span></td>\r\n</tr>\r\n</tbody>\r\n</table>",
+          "requiredLevel": 1,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#ExpandedSpellList-518"
+        },
+        {
+          "id": 519,
+          "name": "Among the Dead",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 1st level, you learn the <span class=\"Serif-Character-Style_Italic-Serif\">spare the dying</span> cantrip, which counts as a warlock cantrip for you. You also have advantage on saving throws against any disease.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, undead have difficulty harming you. If an undead targets you directly with an attack or a harmful spell, that creature must make a Wisdom saving throw against your spell save DC (an undead needn’t make the save when it includes you in an area effect, such as the explosion of <span class=\"Serif-Character-Style_Italic-Serif\">fireball</span>). On a failed save, the creature must choose a new target or forfeit targeting someone instead of you, potentially wasting the attack or spell. On a successful save, the creature is immune to this effect for 24 hours. An undead is also immune to this effect for 24 hours if you target it with an attack or a harmful spell.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#AmongtheDead-519"
+        },
+        {
+          "id": 520,
+          "name": "Defy Death",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 6th level, you can give yourself vitality when you cheat death or when you help someone else cheat it. You can regain hit points equal to 1d8 + your Constitution modifier (minimum of 1 hit point) when you succeed on a death saving throw or when you stabilize a creature with <span class=\"Serif-Character-Style_Italic-Serif\">spare the dying</span>.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a long rest.</p>",
+          "requiredLevel": 6,
+          "displayOrder": 3,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#DefyDeath-520"
+        },
+        {
+          "id": 521,
+          "name": "Undying Nature",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Beginning at 10th level, you can hold your breath indefinitely, and you don’t require food, water, or sleep, although you still require rest to reduce exhaustion and still benefit from finishing short and long rests.</p>\r\n<p class=\"Core-Styles_Core-Body\">In addition, you age at a slower rate. For every 10 years that pass, your body ages only 1 year, and you are immune to being magically aged.</p>",
+          "requiredLevel": 10,
+          "displayOrder": 4,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#UndyingNature-521"
+        },
+        {
+          "id": 522,
+          "name": "Indestructible Life",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">When you reach 14th level, you partake of some of the true secrets of the Undying. On your turn, you can use a bonus action to regain hit points equal to 1d8 + your warlock level. Additionally, if you put a severed body part of yours back in place when you use this feature, the part reattaches.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+          "requiredLevel": 14,
+          "displayOrder": 5,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#IndestructibleLife-522"
+        },
+        {
+          "id": 323,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 4,
+          "displayOrder": 8,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#AbilityScoreImprovement-323"
+        },
+        {
+          "id": 324,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 8th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 8,
+          "displayOrder": 9,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#AbilityScoreImprovement-324"
+        },
+        {
+          "id": 325,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 12,
+          "displayOrder": 11,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#AbilityScoreImprovement-325"
+        },
+        {
+          "id": 326,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 16,
+          "displayOrder": 14,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#AbilityScoreImprovement-326"
+        },
+        {
+          "id": 327,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 19,
+          "displayOrder": 16,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#AbilityScoreImprovement-327"
+        },
+        {
+          "id": 386,
+          "name": "Otherworldly Patron",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At 1st level, you have struck a bargain with an otherworldly being of your choice: the Fiend, which is detailed at the end of the class description, or one from another source. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 4,
+          "summary": "Strike a bargain with an otherworldly being of your choice in exchange for its power.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#OtherworldlyPatron-386"
+        },
+        {
+          "id": 387,
+          "name": "Pact Magic",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">Your arcane research and the magic bestowed on you by your patron have given you facility with spells. See <span style=\"color: #99cc00;\"><a style=\"color: #47d18c;\" title=\"Spells Rules\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\">Spells Rules</a></span> for the general rules of spellcasting and the <span style=\"color: #993366;\"><a style=\"color: #704cd9;\" title=\"Spells Listing (Warlock)\" href=\"https://www.dndbeyond.com/spells?filter-class=7&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\">Spells Listing</a></span>&nbsp;for the warlock&nbsp;spell list.</p>\r\n<h5 class=\"compendium-hr\">Cantrips</h5>\r\n<p class=\"Core-Styles_Core-Body\">You know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table.</p>\r\n<h5 class=\"compendium-hr\">Spell Slots</h5>\r\n<p class=\"Core-Styles_Core-Body\">The Warlock table shows how many spell slots you have to cast your warlock spells of 1st through 5th level. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended Pact Magic spell slots when you finish a short or long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">For example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell <span class=\"Serif-Character-Style_Italic-Serif\">witch bolt</span>, you must spend one of those slots, and you cast it as a 3rd-level spell.</p>\r\n<h5 class=\"compendium-hr\">Spells Known of 1st Level and Higher</h5>\r\n<p class=\"Core-Styles_Core-Body\">At 1st level, you know two 1st-level spells of your choice from the warlock spell list.</p>\r\n<p class=\"Core-Styles_Core-Body\">The Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level and higher. A spell you choose must be of a level no higher than what’s shown in the table’s Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Ability</h5>\r\n<p class=\"Core-Styles_Core-Body-Last--to-apply-extra-space-\">Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell save DC </span></strong>= 8 + your proficiency bonus + your Charisma modifier</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell attack modifier </span></strong>= your proficiency bonus + your Charisma modifier</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Focus</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can use an arcane focus (see the <span style=\"color: #47d18c;\"><a style=\"color: #47d18c;\" title=\"Adventuring Gear\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#ArcaneFocus\">Adventuring Gear</a></span> section) as a spellcasting focus for your warlock spells.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 5,
+          "summary": "Cast spells using the magic bestowed on you by your patron.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#PactMagic-387"
+        },
+        {
+          "id": 388,
+          "name": "Eldritch Invocations",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.</p>\r\n<p class=\"Core-Styles_Core-Body\">If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.</p>",
+          "requiredLevel": 2,
+          "displayOrder": 6,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#EldritchInvocations-388"
+        },
+        {
+          "id": 389,
+          "name": "Pact Boon",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Metadata\">At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 7,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#PactBoon-389"
+        },
+        {
+          "id": 390,
+          "name": "Mystic Arcanum (6th level)",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "requiredLevel": 11,
+          "displayOrder": 10,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#MysticArcanum(6thlevel)-390"
+        },
+        {
+          "id": 391,
+          "name": "Eldritch Master",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.</p>",
+          "requiredLevel": 20,
+          "displayOrder": 17,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#EldritchMaster-391"
+        },
+        {
+          "id": 392,
+          "name": "Mystic Arcanum (7th level)",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">At 13th level, your patron bestows upon you a magical secret called an arcanum. Choose one 7th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "requiredLevel": 13,
+          "displayOrder": 12,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#MysticArcanum(7thlevel)-392"
+        },
+        {
+          "id": 393,
+          "name": "Mystic Arcanum (8th level)",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">At 15th level, your patron bestows upon you a magical secret called an arcanum. Choose one 8th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 17th level, you gain a 9th-level&nbsp;warlock spell of your choice that can be cast in this way. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "requiredLevel": 15,
+          "displayOrder": 13,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#MysticArcanum(8thlevel)-393"
+        },
+        {
+          "id": 394,
+          "name": "Mystic Arcanum (9th level)",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">At 17th level, your patron bestows upon you a magical secret called an arcanum. Choose one 9th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "requiredLevel": 17,
+          "displayOrder": 15,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#MysticArcanum(9thlevel)-394"
+        },
+        {
+          "id": 469,
+          "name": "Proficiencies",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">: </span></strong>Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons: </span></strong>Simple weapons<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools:</span></strong> None<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws:</span></strong> Wisdom, Charisma<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose two skills from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion</p>",
+          "requiredLevel": 1,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#Proficiencies-469"
+        },
+        {
+          "id": 541,
+          "name": "Hit Points",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice:</span></strong> 1d8 per warlock level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per warlock level after 1st</p>",
+          "requiredLevel": 1,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/7-warlock#TheUndying#HitPoints-541"
+        }
+      ],
+      "hitDice": 8,
+      "wealthDice": null,
+      "canCastSpells": false,
+      "knowsAllSpells": false,
+      "spellPrepareType": null,
+      "spellCastingLearningStyle": null,
+      "spellContainerName": null,
+      "sourcePageNumber": null,
+      "subclassDefinition": null,
+      "isHomebrew": false,
+      "primaryAbilities": null,
+      "spellRules": null,
+      "prerequisites": null,
+      "desktopCardBackgroundAvatarUrl": null,
+      "mobileCardBackgroundAvatarUrl": null,
+      "detailsBackgroundAvatarUrl": null,
+      "iconAvatarUrl": null,
+      "complexity": null,
+      "tagline": null,
+      "cardDescription": "Defy the Cycle of Life and Death",
+      "highlights": null,
+      "color": null,
+      "desktopCardForegroundAvatarUrl": null,
+      "mobileCardForegroundAvatarUrl": null,
+      "detailsForegroundAvatarUrl": null,
+      "mobileCardBannerAvatarUrl": null,
+      "desktopCardBannerAvatarUrl": null,
+      "iconicGearAvatarUrl": null,
+      "classFantasy": null,
+      "iconicGear": null,
+      "subclassTagline": null,
+      "subclassFlavorText": null,
+      "cardEyebrow": "The",
+      "cardHeading": "Undying"
+    },
+    "classFeatures": [
+      {
+        "definition": {
+          "id": 518,
+          "definitionKey": "class-feature:518",
+          "entityTypeId": 12168134,
+          "displayOrder": 100,
+          "name": "Expanded Spell List",
+          "description": "<p class=\"Core-Styles_Core-Body\">The Undying lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.</p>\r\n<h5 class=\"Table-Styles_Table-Title\"><strong>Undying Expanded Spells</strong></h5>\r\n<table class=\"compendium-left-aligned-table\">\r\n<thead>\r\n<tr>\r\n<th style=\"text-align: left;\">Spell Level</th>\r\n<th>Spells</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: left;\">1st</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">false life,</span>&nbsp;<span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">ray of sickness</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">2nd</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">blindness/deafness</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">silence</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">3rd</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">feign death</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">speak with dead</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">4th</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">aura of life</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">death ward</span></td>\r\n</tr>\r\n<tr>\r\n<td style=\"text-align: left;\">5th</td>\r\n<td><span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">contagion</span>, <span class=\"Sans-Serif-Character-Styles_Italic-Sans-Serif\">legend lore</span></td>\r\n</tr>\r\n</tbody>\r\n</table>",
+          "snippet": "Additional spells are added to the warlock spell list for you.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 82,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "518",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 519,
+          "definitionKey": "class-feature:519",
+          "entityTypeId": 12168134,
+          "displayOrder": 200,
+          "name": "Among the Dead",
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 1st level, you learn the <span class=\"Serif-Character-Style_Italic-Serif\">spare the dying</span> cantrip, which counts as a warlock cantrip for you. You also have advantage on saving throws against any disease.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, undead have difficulty harming you. If an undead targets you directly with an attack or a harmful spell, that creature must make a Wisdom saving throw against your spell save DC (an undead needn’t make the save when it includes you in an area effect, such as the explosion of <span class=\"Serif-Character-Style_Italic-Serif\">fireball</span>). On a failed save, the creature must choose a new target or forfeit targeting someone instead of you, potentially wasting the attack or spell. On a successful save, the creature is immune to this effect for 24 hours. An undead is also immune to this effect for 24 hours if you target it with an attack or a harmful spell.</p>",
+          "snippet": "You learn the spare the dying cantrip, which counts as a warlock cantrip for you. You also have advantage on saving throws against any disease. If an undead targets you directly with an attack or spell, that creature must make a WIS saving throw (DC {{savedc:cha}}). On failure, they must choose a new target or waste the attack or spell. On success or if you target the creature with an attack or spell, the creature is immune to this effect for 24 hours.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 82,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "519",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 520,
+          "definitionKey": "class-feature:520",
+          "entityTypeId": 12168134,
+          "displayOrder": 300,
+          "name": "Defy Death",
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 6th level, you can give yourself vitality when you cheat death or when you help someone else cheat it. You can regain hit points equal to 1d8 + your Constitution modifier (minimum of 1 hit point) when you succeed on a death saving throw or when you stabilize a creature with <span class=\"Serif-Character-Style_Italic-Serif\">spare the dying</span>.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a long rest.</p>",
+          "snippet": "Once per long rest, you can regain 1d8 {{modifier:con@min:1#signed}} HP when you succeed on a death saving throw or when you stabilize a creature with spare the dying.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 6,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 82,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "520",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 521,
+          "definitionKey": "class-feature:521",
+          "entityTypeId": 12168134,
+          "displayOrder": 400,
+          "name": "Undying Nature",
+          "description": "<p class=\"Core-Styles_Core-Body\">Beginning at 10th level, you can hold your breath indefinitely, and you don’t require food, water, or sleep, although you still require rest to reduce exhaustion and still benefit from finishing short and long rests.</p>\r\n<p class=\"Core-Styles_Core-Body\">In addition, you age at a slower rate. For every 10 years that pass, your body ages only 1 year, and you are immune to being magically aged.</p>",
+          "snippet": "You age at a slower rate and can hold your breath indefinitely, and you don’t require food, water, or sleep, although you still require rest to reduce exhaustion and still benefit from finishing short and long rests.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 10,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 82,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "521",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 522,
+          "definitionKey": "class-feature:522",
+          "entityTypeId": 12168134,
+          "displayOrder": 500,
+          "name": "Indestructible Life",
+          "description": "<p class=\"Core-Styles_Core-Body\">When you reach 14th level, you partake of some of the true secrets of the Undying. On your turn, you can use a bonus action to regain hit points equal to 1d8 + your warlock level. Additionally, if you put a severed body part of yours back in place when you use this feature, the part reattaches.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+          "snippet": "Once per short rest, you can use a bonus action to regain 1d8 {{classlevel#signed}} HP. Additionally, if you put a severed body part of yours back in place when you use this feature, the part reattaches.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 14,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 82,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "522",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 323,
+          "definitionKey": "class-feature:323",
+          "entityTypeId": 12168134,
+          "displayOrder": 8,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 4,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "323",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 324,
+          "definitionKey": "class-feature:324",
+          "entityTypeId": 12168134,
+          "displayOrder": 9,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 8th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 8,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "324",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 325,
+          "definitionKey": "class-feature:325",
+          "entityTypeId": 12168134,
+          "displayOrder": 11,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 12,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "325",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 326,
+          "definitionKey": "class-feature:326",
+          "entityTypeId": 12168134,
+          "displayOrder": 14,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 16,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "326",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 327,
+          "definitionKey": "class-feature:327",
+          "entityTypeId": 12168134,
+          "displayOrder": 16,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 19,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "327",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 386,
+          "definitionKey": "class-feature:386",
+          "entityTypeId": 12168134,
+          "displayOrder": 4,
+          "name": "Otherworldly Patron",
+          "description": "<p class=\"compendium-hr\">At 1st level, you have struck a bargain with an otherworldly being of your choice: the Fiend, which is detailed at the end of the class description, or one from another source. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.</p>",
+          "snippet": "You have struck a bargain with an otherworldly being.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 107,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 107,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "386",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 387,
+          "definitionKey": "class-feature:387",
+          "entityTypeId": 12168134,
+          "displayOrder": 5,
+          "name": "Pact Magic",
+          "description": "<p class=\"compendium-hr\">Your arcane research and the magic bestowed on you by your patron have given you facility with spells. See <span style=\"color: #99cc00;\"><a style=\"color: #47d18c;\" title=\"Spells Rules\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\">Spells Rules</a></span> for the general rules of spellcasting and the <span style=\"color: #993366;\"><a style=\"color: #704cd9;\" title=\"Spells Listing (Warlock)\" href=\"https://www.dndbeyond.com/spells?filter-class=7&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\">Spells Listing</a></span>&nbsp;for the warlock&nbsp;spell list.</p>\r\n<h5 class=\"compendium-hr\">Cantrips</h5>\r\n<p class=\"Core-Styles_Core-Body\">You know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table.</p>\r\n<h5 class=\"compendium-hr\">Spell Slots</h5>\r\n<p class=\"Core-Styles_Core-Body\">The Warlock table shows how many spell slots you have to cast your warlock spells of 1st through 5th level. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended Pact Magic spell slots when you finish a short or long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">For example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell <span class=\"Serif-Character-Style_Italic-Serif\">witch bolt</span>, you must spend one of those slots, and you cast it as a 3rd-level spell.</p>\r\n<h5 class=\"compendium-hr\">Spells Known of 1st Level and Higher</h5>\r\n<p class=\"Core-Styles_Core-Body\">At 1st level, you know two 1st-level spells of your choice from the warlock spell list.</p>\r\n<p class=\"Core-Styles_Core-Body\">The Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level and higher. A spell you choose must be of a level no higher than what’s shown in the table’s Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Ability</h5>\r\n<p class=\"Core-Styles_Core-Body-Last--to-apply-extra-space-\">Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell save DC </span></strong>= 8 + your proficiency bonus + your Charisma modifier</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell attack modifier </span></strong>= your proficiency bonus + your Charisma modifier</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Focus</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can use an arcane focus (see the <span style=\"color: #47d18c;\"><a style=\"color: #47d18c;\" title=\"Adventuring Gear\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#ArcaneFocus\">Adventuring Gear</a></span> section) as a spellcasting focus for your warlock spells.</p>",
+          "snippet": "You can cast known warlock spells using CHA as your spellcasting modifier (Spell DC {{savedc:cha}}, Spell Attack {{spellattack:cha}}). You can use an arcane focus as a spellcasting focus.",
+          "activation": null,
+          "multiClassDescription": "<p><em>This feature is affected by multiclassing</em>. See the <a title=\"Multiclassing - Class Features\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/customization-options#ClassFeatures\">Multiclassing</a> rules for more information.</p>\r\n<p class=\"compendium-hr\">Your arcane research and the magic bestowed on you by your patron have given you facility with spells. See <span style=\"color: #99cc00;\"><a style=\"color: #47d18c;\" title=\"Spells Rules\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\">Spells Rules</a></span> for the general rules of spellcasting and the <span style=\"color: #993366;\"><a style=\"color: #704cd9;\" title=\"Spells Listing (Warlock)\" href=\"https://www.dndbeyond.com/spells?filter-class=7&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\">Spells Listing</a></span>&nbsp;for the warlock&nbsp;spell list.</p>\r\n<h5 class=\"compendium-hr\">Cantrips</h5>\r\n<p class=\"Core-Styles_Core-Body\">You know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table.</p>\r\n<h5 class=\"compendium-hr\">Spell Slots</h5>\r\n<p class=\"Core-Styles_Core-Body\">The Warlock table shows how many spell slots you have to cast your warlock spells of 1st through 5th level. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended Pact Magic spell slots when you finish a short or long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">For example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell <span class=\"Serif-Character-Style_Italic-Serif\">witch bolt</span>, you must spend one of those slots, and you cast it as a 3rd-level spell.</p>\r\n<h5 class=\"compendium-hr\">Spells Known of 1st Level and Higher</h5>\r\n<p class=\"Core-Styles_Core-Body\">At 1st level, you know two 1st-level spells of your choice from the warlock spell list.</p>\r\n<p class=\"Core-Styles_Core-Body\">The Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level and higher. A spell you choose must be of a level no higher than what’s shown in the table’s Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Ability</h5>\r\n<p class=\"Core-Styles_Core-Body-Last--to-apply-extra-space-\">Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell save DC </span></strong>= 8 + your proficiency bonus + your Charisma modifier</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell attack modifier </span></strong>= your proficiency bonus + your Charisma modifier</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Focus</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can use an arcane focus (see the <span style=\"color: #47d18c;\"><a style=\"color: #47d18c;\" title=\"Adventuring Gear\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#ArcaneFocus\">Adventuring Gear</a></span> section) as a spellcasting focus for your warlock spells.</p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 107,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 107,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "387",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 388,
+          "definitionKey": "class-feature:388",
+          "entityTypeId": 12168134,
+          "displayOrder": 6,
+          "name": "Eldritch Invocations",
+          "description": "<p class=\"compendium-hr\">In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.</p>\r\n<p class=\"Core-Styles_Core-Body\">If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.</p>",
+          "snippet": "You learn fragments of forbidden knowledge that imbue you with an abiding magical ability.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 2,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 107,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 107,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "388",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 389,
+          "definitionKey": "class-feature:389",
+          "entityTypeId": 12168134,
+          "displayOrder": 7,
+          "name": "Pact Boon",
+          "description": "<p class=\"Core-Styles_Core-Metadata\">At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.</p>",
+          "snippet": "Your otherworldly patron bestows a gift upon you for your loyal service.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 107,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 107,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "389",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 390,
+          "definitionKey": "class-feature:390",
+          "entityTypeId": 12168134,
+          "displayOrder": 10,
+          "name": "Mystic Arcanum (6th level)",
+          "description": "<p class=\"Core-Styles_Core-Body\">At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "snippet": "Your patron bestows upon you one 6th-level warlock spell that you can cast without expending a spell slot once per long rest.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 11,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "390",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 391,
+          "definitionKey": "class-feature:391",
+          "entityTypeId": 12168134,
+          "displayOrder": 17,
+          "name": "Eldritch Master",
+          "description": "<p class=\"Core-Styles_Core-Body\">At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.</p>",
+          "snippet": "Once per long rest, you can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 20,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "391",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 392,
+          "definitionKey": "class-feature:392",
+          "entityTypeId": 12168134,
+          "displayOrder": 12,
+          "name": "Mystic Arcanum (7th level)",
+          "description": "<p class=\"Core-Styles_Core-Body\">At 13th level, your patron bestows upon you a magical secret called an arcanum. Choose one 7th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "snippet": "Your patron bestows upon you one 7th-level warlock spell that you can cast without expending a spell slot once per long rest.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 13,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "392",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 393,
+          "definitionKey": "class-feature:393",
+          "entityTypeId": 12168134,
+          "displayOrder": 13,
+          "name": "Mystic Arcanum (8th level)",
+          "description": "<p class=\"Core-Styles_Core-Body\">At 15th level, your patron bestows upon you a magical secret called an arcanum. Choose one 8th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 17th level, you gain a 9th-level&nbsp;warlock spell of your choice that can be cast in this way. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "snippet": "Your patron bestows upon you one 8th-level warlock spell that you can cast without expending a spell slot once per long rest.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 15,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "393",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 394,
+          "definitionKey": "class-feature:394",
+          "entityTypeId": 12168134,
+          "displayOrder": 15,
+          "name": "Mystic Arcanum (9th level)",
+          "description": "<p class=\"Core-Styles_Core-Body\">At 17th level, your patron bestows upon you a magical secret called an arcanum. Choose one 9th-level spell from the warlock spell list as this arcanum.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\r\n<p class=\"Core-Styles_Core-Body\">You regain all uses of your Mystic Arcanum when you finish a long rest.</p>",
+          "snippet": "Your patron bestows upon you one 9th-level warlock spell that you can cast without expending a spell slot once per long rest.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 17,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 108,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 108,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "394",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 469,
+          "definitionKey": "class-feature:469",
+          "entityTypeId": 12168134,
+          "displayOrder": 2,
+          "name": "Proficiencies",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">: </span></strong>Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons: </span></strong>Simple weapons<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools:</span></strong> None<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws:</span></strong> Wisdom, Charisma<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose two skills from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"No-Break\"><span class=\"Serif-Character-Style_Bold-Serif\">: </span></span></strong><span class=\"No-Break\">Light armor<br /></span><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons: </span></strong>S<span class=\"No-Break\">imple weapons</span></p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 107,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 107,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "469",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 541,
+          "definitionKey": "class-feature:541",
+          "entityTypeId": 12168134,
+          "displayOrder": 1,
+          "name": "Hit Points",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice:</span></strong> 1d8 per warlock level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per warlock level after 1st</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 106,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 106,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "541",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 9961454,
+          "definitionKey": "class-feature:9961454",
+          "entityTypeId": 12168134,
+          "displayOrder": 3,
+          "name": "Equipment",
+          "description": "<p>You start with the following equipment, in addition to the equipment granted by your background:</p>\r\n<ul>\r\n<li>(a) a light crossbow and 20 bolts or (b) any simple weapon</li>\r\n<li>(a) a component pouch or (b) an arcane focus</li>\r\n<li>(a) a scholar’s pack or (b) a dungeoneer’s pack</li>\r\n<li>Leather armor, any simple weapon, and two daggers</li>\r\n</ul>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 7,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "9961454",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5e2d52c6-8c8d-4c29-bcb7-1220bba028ca",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Message",
+  "description": "Level 0 Transmutation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "transmutation"
+  ],
+  "properties": {
+    "id": 2188,
+    "name": "Message",
+    "level": 0,
+    "school": "Transmutation",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Round",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 120,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.\n\n\r\nYou can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence, 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the spell. The spell doesn't have to follow a straight line and can travel freely around corners or through openings.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a short piece of copper wire",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 259,
+        "sourceType": 1
+      }
+    ]
+  }
+}

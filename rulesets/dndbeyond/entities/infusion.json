@@ -1,0 +1,81 @@
+{
+  "id": "infusion",
+  "name": "Artificer Infusion",
+  "description": "D&D Beyond Artificer Infusion detailing prerequisites, item target types, and granted modifiers.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "id": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "definitionKey": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "name": {
+        "type": "string"
+      },
+      "itemRuleType": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "default": "artificer-infusion"
+      },
+      "levelRequirement": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "snippet": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "prerequisites": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      },
+      "modifiers": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      },
+      "definition": {
+        "type": [
+          "object",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

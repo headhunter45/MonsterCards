@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "622518fa-6c46-4111-9092-c5cb30d52cb2",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Club",
+  "description": "Club dealing Bludgeoning.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "club"
+  ],
+  "properties": {
+    "id": 5,
+    "name": "Club",
+    "type": "Club",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 4,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d4"
+    },
+    "damageType": "Bludgeoning",
+    "range": 5,
+    "longRange": 5,
+    "properties": [
+      {
+        "id": 4,
+        "name": "Light",
+        "description": "<p>When you take the [action]Attack[/action] action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a [items]Shortsword[/items] in one hand and a [items]Dagger[/items] in the other using the [action]Attack[/action] action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.</p>",
+        "notes": null
+      },
+      {
+        "id": 23,
+        "name": "Slow",
+        "description": "<p>If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn't exceed 10 feet.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 2,
+    "cost": 0.1,
+    "rarity": "Common",
+    "description": "Proficiency with a Club allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nSlow. If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet.",
+    "isMonkWeapon": true
+  }
+}

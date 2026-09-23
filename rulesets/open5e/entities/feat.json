@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "feat",
+  "name": "Feat",
+  "description": "5e Feat entity definition detailing prerequisites, description, and granted modifiers.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "description"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the feat (e.g. 'Sharpshooter', 'War Caster', 'Alert')."
+      },
+      "prerequisite": {
+        "type": ["string", "null"],
+        "default": null,
+        "description": "Prerequisites needed to take this feat (e.g. 'Strength 13 or higher', 'The ability to cast at least one spell'). null if none."
+      },
+      "description": {
+        "type": "string",
+        "description": "Complete rules text and mechanical effects of the feat."
+      },
+      "benefits": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Bullet points summarizing key benefits."
+      },
+      "modifiers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "target": { "type": "string" },
+            "value": { "type": ["number", "string"] },
+            "type": { "type": "string" }
+          }
+        },
+        "description": "Mechanical modifiers applied to the character."
+      }
+    }
+  },
+  "default_values": {
+    "prerequisite": null,
+    "benefits": [],
+    "modifiers": []
+  }
+}

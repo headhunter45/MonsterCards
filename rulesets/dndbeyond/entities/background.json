@@ -1,0 +1,47 @@
+{
+  "id": "background",
+  "name": "Character Background",
+  "description": "D&D Beyond character backgrounds with feature descriptions and rules text.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "snippet": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "featureName": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "featureDescription": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

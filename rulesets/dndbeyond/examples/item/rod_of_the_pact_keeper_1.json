@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e12a501e-be23-4f48-9103-0fc309f574a7",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Rod of the Pact Keeper, +1",
+  "description": "Rod (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "rod"
+  ],
+  "properties": {
+    "id": 11217,
+    "name": "Rod of the Pact Keeper, +1",
+    "filterType": "Rod",
+    "type": "Rod",
+    "rarity": "Uncommon",
+    "weight": 0,
+    "cost": null,
+    "description": "While holding this rod, you gain a +1 bonus to spell attack rolls and to the saving throw DCs of your warlock spells.\n\n\r\nIn addition, you can regain 1 warlock spell slot as an action while holding the rod. You can’t use this property again until you finish a long rest.",
+    "canAttune": true,
+    "attunementDescription": "Warlock",
+    "isConsumable": false
+  }
+}

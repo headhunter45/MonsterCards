@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "67d12a08-c892-482f-1912-55d102381208",
+  "ruleset_id": "open5e",
+  "entity_type": "feat",
+  "display_name": "Sharpshooter",
+  "description": "Mastered ranged weapons and can make shots that others find impossible.",
+  "version": "1.0.0",
+  "properties": {
+    "name": "Sharpshooter",
+    "prerequisite": null,
+    "description": "You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:\n\n• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n• Your ranged weapon attacks ignore half cover and three-quarters cover.\n• Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
+    "benefits": [
+      "No disadvantage at long range",
+      "Ignore half and three-quarters cover",
+      "Option for -5 to hit, +10 to damage"
+    ],
+    "modifiers": [
+      {
+        "target": "ranged_attack.long_range_penalty",
+        "value": 0,
+        "type": "override"
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "750917c1-dc1b-458a-b9cc-bb50347aae3a",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Hold Person",
+  "description": "Level 2 Enchantment spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "enchantment"
+  ],
+  "properties": {
+    "id": 2147,
+    "name": "Hold Person",
+    "level": 2,
+    "school": "Enchantment",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Minute",
+      "durationType": "Concentration"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 60,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them.",
+    "snippet": "",
+    "concentration": true,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a small, straight piece of iron",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 251,
+        "sourceType": 1
+      }
+    ]
+  }
+}

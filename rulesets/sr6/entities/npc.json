@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "npc",
   "name": "Non-Player Character / Gang",
   "description": "SR6 NPCs, gang members, syndicate leaders, and corporate operatives compatible with character and dossier sheets.",

@@ -1,0 +1,21 @@
+<div class="ddb-entity-card feat-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">Feat{{#if source}} &bull; {{source}}{{/if}}</span>
+    </div>
+  </div>
+
+  {{#if properties.prerequisites}}
+  <div class="card-stats-row">
+    <div class="card-stat-item">
+      <strong>Req:</strong>
+      <span>{{#each properties.prerequisites}}{{this.description}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="card-desc">
+    <p>{{#if properties.snippet}}{{properties.snippet}}{{else if snippet}}{{snippet}}{{else if properties.description}}{{properties.description}}{{else if description}}{{description}}{{/if}}</p>
+  </div>
+</div>

@@ -1,0 +1,277 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b8d6e7b4-5170-4592-bc9a-c3460417485a",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Vicious Mockery",
+  "description": "Level 0 Enchantment spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "enchantment"
+  ],
+  "properties": {
+    "id": 2290,
+    "name": "Vicious Mockery",
+    "level": 0,
+    "school": "Enchantment",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 60,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You unleash a string of insults laced with subtle enchantments at a creature you can see within range. If the target can hear you (though it need not understand you), it must succeed on a Wisdom saving throw or take 1d4 psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.\n\n\r\nThis spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2290_292",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "damage",
+        "subType": "psychic",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Damage",
+        "friendlySubtypeName": "Psychic",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": 1,
+          "diceValue": 4,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": "1d4"
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 5,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 2,
+                "diceValue": 4,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "2d4"
+              },
+              "value": null,
+              "details": ""
+            },
+            {
+              "level": 11,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 3,
+                "diceValue": 4,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "3d4"
+              },
+              "value": null,
+              "details": ""
+            },
+            {
+              "level": 17,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 4,
+                "diceValue": 4,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "4d4"
+              },
+              "value": null,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2290_293",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "disadvantage",
+        "subType": "melee-attacks",
+        "dice": null,
+        "restriction": "On target's next attack roll it makes before the end of its next turn",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Disadvantage",
+        "friendlySubtypeName": "Melee Attacks",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2290_294",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "disadvantage",
+        "subType": "ranged-attacks",
+        "dice": null,
+        "restriction": "On target's next attack roll it makes before the end of its next turn",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Disadvantage",
+        "friendlySubtypeName": "Ranged Attacks",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2290_295",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "disadvantage",
+        "subType": "spell-attacks",
+        "dice": null,
+        "restriction": "On target's next attack roll it makes before the end of its next turn",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Disadvantage",
+        "friendlySubtypeName": "Spell Attacks",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 285,
+        "sourceType": 1
+      }
+    ]
+  }
+}

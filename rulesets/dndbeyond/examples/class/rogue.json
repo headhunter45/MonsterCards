@@ -1,0 +1,1604 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "20d72135-a4b5-4e43-be66-b4a162e2375f",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "class",
+  "display_name": "Rogue",
+  "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies\n\n\r\nHit Die: d8\nPrimary Ability: Dexterity\nSaves: Dexterity & Intelligence",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "class",
+    "rogue"
+  ],
+  "properties": {
+    "id": 12,
+    "name": "Rogue",
+    "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies\n\n\r\nHit Die: d8\nPrimary Ability: Dexterity\nSaves: Dexterity & Intelligence",
+    "hitDice": 8,
+    "canCastSpells": false,
+    "spellCastingAbilityId": null,
+    "subclassDefinition": {
+      "id": 79,
+      "definitionKey": "789467139:79",
+      "name": "Mastermind",
+      "description": "<p>Your focus is on people and on the influence and secrets they have. Many spies, courtiers, and schemers follow this archetype, leading lives of intrigue. Words are your weapons as often as knives or poison, and secrets and&nbsp;favors&nbsp;are some of your&nbsp;favorite&nbsp;treasures.</p>",
+      "equipmentDescription": null,
+      "parentClassId": 12,
+      "slug": "79-mastermind",
+      "avatarUrl": null,
+      "largeAvatarUrl": null,
+      "portraitAvatarUrl": null,
+      "moreDetailsUrl": "/classes/12-rogue#Mastermind",
+      "spellCastingAbilityId": null,
+      "sources": [
+        {
+          "sourceId": 13,
+          "pageNumber": 46,
+          "sourceType": 1
+        }
+      ],
+      "classFeatures": [
+        {
+          "id": 502,
+          "name": "Master of Intrigue",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">When you choose this archetype at 3rd level, you gain proficiency with the disguise kit, the forgery kit, and one gaming set of your choice. You also learn two languages of your choice.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, you can unerringly mimic the speech patterns and accent of a creature that you hear speak for at least 1 minute, enabling you to pass yourself off as a native speaker of a particular land, provided that you know the language.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#MasterofIntrigue-502"
+        },
+        {
+          "id": 503,
+          "name": "Master of Tactics",
+          "prerequisite": null,
+          "description": "<p>Starting at 3rd level, you can use the Help action as a bonus action. Additionally, when you use the&nbsp;Help action to aid an ally in attacking a creature, the target of that attack can be within 30 feet of you, rather than within 5 feet of you, if the target can see or hear you.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#MasterofTactics-503"
+        },
+        {
+          "id": 504,
+          "name": "Insightful Manipulator",
+          "prerequisite": null,
+          "description": "<p>Starting at 9th level, if you spend at least 1 minute observing or interacting with another creature outside combat, you can learn certain information about its capabilities compared to your own. The DM tells you if the creature is your equal, superior, or inferior in regard to two of the following characteristics of your choice:</p>\r\n<ul>\r\n<li>Intelligence score</li>\r\n<li>Wisdom score</li>\r\n<li>Charisma score</li>\r\n<li>Class levels (if any)</li>\r\n</ul>\r\n<p>At the DM’s option, you might also realize you know a piece of the creature’s history or one of its personality traits, if it has any.</p>",
+          "requiredLevel": 9,
+          "displayOrder": 3,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#InsightfulManipulator-504"
+        },
+        {
+          "id": 505,
+          "name": "Misdirection",
+          "prerequisite": null,
+          "description": "<p>Beginning at 13th level, you can sometimes cause another creature to suffer an attack meant for you. When you are targeted by an attack while a creature within 5 feet of you is granting you cover against that attack, you can use your reaction to have the attack target that creature instead of you.</p>",
+          "requiredLevel": 13,
+          "displayOrder": 4,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Misdirection-505"
+        },
+        {
+          "id": 506,
+          "name": "Soul of Deceit",
+          "prerequisite": null,
+          "description": "<p>Starting at 17th level, your thoughts can’t be read by telepathy or other means, unless you allow it. You can present false thoughts by succeeding on a Charisma (Deception) check contested by the mind reader’s Wisdom (Insight) check.</p>\r\n<p>Additionally, no matter what you say, magic that would determine if you are telling the truth indicates you are being truthful if you so choose, and you can’t be compelled to tell the truth by magic.</p>",
+          "requiredLevel": 17,
+          "displayOrder": 5,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#SoulofDeceit-506"
+        },
+        {
+          "id": 313,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 4th level, and again at 8th, 10th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 4,
+          "displayOrder": 9,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#AbilityScoreImprovement-313"
+        },
+        {
+          "id": 314,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 8th level, and again at 10th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 8,
+          "displayOrder": 13,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#AbilityScoreImprovement-314"
+        },
+        {
+          "id": 315,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 12,
+          "displayOrder": 15,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#AbilityScoreImprovement-315"
+        },
+        {
+          "id": 316,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 16,
+          "displayOrder": 18,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#AbilityScoreImprovement-316"
+        },
+        {
+          "id": 317,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 19,
+          "displayOrder": 20,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#AbilityScoreImprovement-317"
+        },
+        {
+          "id": 342,
+          "name": "Expertise",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 6th level, you can choose two more of your proficiencies (in skills or with thieves’ tools) to gain this benefit.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 4,
+          "summary": "Become an expert in your choice of skills.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Expertise-342"
+        },
+        {
+          "id": 343,
+          "name": "Sneak Attack",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.</p>\r\n<p class=\"Core-Styles_Core-Body\">You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.</p>\r\n<p class=\"Core-Styles_Core-Body\">The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 5,
+          "summary": "Strike subtly and exploit a foe's distraction to deal extra damage.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#SneakAttack-343"
+        },
+        {
+          "id": 344,
+          "name": "Thieves’ Cant",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">During your rogue training you learned thieves’ cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves’ cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.</p>\r\n<p class=\"Core-Styles_Core-Body\">In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves’ guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 6,
+          "summary": "Learn the secret tongue of the criminal underworld.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Thieves’Cant-344"
+        },
+        {
+          "id": 345,
+          "name": "Cunning Action",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or&nbsp;Hide action.</p>",
+          "requiredLevel": 2,
+          "displayOrder": 7,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#CunningAction-345"
+        },
+        {
+          "id": 346,
+          "name": "Roguish Archetype",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, detailed at the end of the class description, or one from another source. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 8,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#RoguishArchetype-346"
+        },
+        {
+          "id": 347,
+          "name": "Uncanny Dodge",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you.</p>",
+          "requiredLevel": 5,
+          "displayOrder": 10,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#UncannyDodge-347"
+        },
+        {
+          "id": 348,
+          "name": "Evasion",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as an ancient red dragon’s fiery breath or an <span class=\"Serif-Character-Style_Italic-Serif\">ice storm</span> spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>",
+          "requiredLevel": 7,
+          "displayOrder": 12,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Evasion-348"
+        },
+        {
+          "id": 349,
+          "name": "Reliable Talent",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">By 11th level, you have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.</p>",
+          "requiredLevel": 11,
+          "displayOrder": 14,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#ReliableTalent-349"
+        },
+        {
+          "id": 350,
+          "name": "Blindsense",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.</p>",
+          "requiredLevel": 14,
+          "displayOrder": 16,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Blindsense-350"
+        },
+        {
+          "id": 351,
+          "name": "Slippery Mind",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.</p>",
+          "requiredLevel": 15,
+          "displayOrder": 17,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#SlipperyMind-351"
+        },
+        {
+          "id": 352,
+          "name": "Elusive",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren’t incapacitated.</p>",
+          "requiredLevel": 18,
+          "displayOrder": 19,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Elusive-352"
+        },
+        {
+          "id": 353,
+          "name": "Stroke of Luck",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+          "requiredLevel": 20,
+          "displayOrder": 21,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#StrokeofLuck-353"
+        },
+        {
+          "id": 467,
+          "name": "Proficiencies",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">:</span></strong> Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons:</span></strong> Simple weapons, hand crossbows, longswords, rapiers, shortswords<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools: </span></strong>Thieves’ tools<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws: </span></strong>Dexterity, Intelligence<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills: </span></strong>Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth</p>",
+          "requiredLevel": 1,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Proficiencies-467"
+        },
+        {
+          "id": 471,
+          "name": "Expertise",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At 6th level, choose two more of your skill proficiencies, or one more of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</p>",
+          "requiredLevel": 6,
+          "displayOrder": 11,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#Expertise-471"
+        },
+        {
+          "id": 539,
+          "name": "Hit Points",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice:</span></strong> 1d8 per rogue level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per rogue level after 1st</p>",
+          "requiredLevel": 1,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#HitPoints-539"
+        },
+        {
+          "id": 591,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 10th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using&nbsp;this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 10,
+          "displayOrder": 14,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/12-rogue#Mastermind#AbilityScoreImprovement-591"
+        }
+      ],
+      "hitDice": 8,
+      "wealthDice": null,
+      "canCastSpells": false,
+      "knowsAllSpells": null,
+      "spellPrepareType": null,
+      "spellCastingLearningStyle": null,
+      "spellContainerName": null,
+      "sourcePageNumber": 46,
+      "subclassDefinition": null,
+      "isHomebrew": false,
+      "primaryAbilities": null,
+      "spellRules": null,
+      "prerequisites": null,
+      "desktopCardBackgroundAvatarUrl": "https://www.dndbeyond.com/avatars/54901/683/639068736848621035.jpeg",
+      "mobileCardBackgroundAvatarUrl": "https://www.dndbeyond.com/avatars/54901/684/639068736850531112.jpeg",
+      "detailsBackgroundAvatarUrl": null,
+      "iconAvatarUrl": null,
+      "complexity": null,
+      "tagline": null,
+      "cardDescription": "Manipulate People and Tactics Alike",
+      "highlights": null,
+      "color": null,
+      "desktopCardForegroundAvatarUrl": null,
+      "mobileCardForegroundAvatarUrl": null,
+      "detailsForegroundAvatarUrl": null,
+      "mobileCardBannerAvatarUrl": null,
+      "desktopCardBannerAvatarUrl": null,
+      "iconicGearAvatarUrl": null,
+      "classFantasy": null,
+      "iconicGear": null,
+      "subclassTagline": null,
+      "subclassFlavorText": null,
+      "cardEyebrow": "",
+      "cardHeading": ""
+    },
+    "classFeatures": [
+      {
+        "definition": {
+          "id": 502,
+          "definitionKey": "class-feature:502",
+          "entityTypeId": 12168134,
+          "displayOrder": 100,
+          "name": "Master of Intrigue",
+          "description": "<p class=\"Core-Styles_Core-Body\">When you choose this archetype at 3rd level, you gain proficiency with the disguise kit, the forgery kit, and one gaming set of your choice. You also learn two languages of your choice.</p>\r\n<p class=\"Core-Styles_Core-Body\">Additionally, you can unerringly mimic the speech patterns and accent of a creature that you hear speak for at least 1 minute, enabling you to pass yourself off as a native speaker of a particular land, provided that you know the language.</p>",
+          "snippet": "You gain proficiency with the disguise kit, the forgery kit, and one gaming set of your choice. You also learn two languages of your choice, and you can unerringly mimic the speech patterns and accent of a creature that you hear speak for at least 1 minute.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": 46,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 79,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": 46,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "502",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 503,
+          "definitionKey": "class-feature:503",
+          "entityTypeId": 12168134,
+          "displayOrder": 200,
+          "name": "Master of Tactics",
+          "description": "<p>Starting at 3rd level, you can use the Help action as a bonus action. Additionally, when you use the&nbsp;Help action to aid an ally in attacking a creature, the target of that attack can be within 30 feet of you, rather than within 5 feet of you, if the target can see or hear you.</p>",
+          "snippet": "You can use the Help action as a bonus action. When you use the Help action to aid an ally in attacking a creature, the target of that attack can be within 30 ft. of you if it can see or hear you.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": 46,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 79,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": 46,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "503",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 504,
+          "definitionKey": "class-feature:504",
+          "entityTypeId": 12168134,
+          "displayOrder": 300,
+          "name": "Insightful Manipulator",
+          "description": "<p>Starting at 9th level, if you spend at least 1 minute observing or interacting with another creature outside combat, you can learn certain information about its capabilities compared to your own. The DM tells you if the creature is your equal, superior, or inferior in regard to two of the following characteristics of your choice:</p>\r\n<ul>\r\n<li>Intelligence score</li>\r\n<li>Wisdom score</li>\r\n<li>Charisma score</li>\r\n<li>Class levels (if any)</li>\r\n</ul>\r\n<p>At the DM’s option, you might also realize you know a piece of the creature’s history or one of its personality traits, if it has any.</p>",
+          "snippet": "If you spend at least 1 minute observing or interacting with another creature outside combat, you can learn whether it is your equal, superior, or inferior in any two of its INT, WIS, CHA scores, or class levels (if any).",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 9,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": 46,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 79,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": 46,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "504",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 505,
+          "definitionKey": "class-feature:505",
+          "entityTypeId": 12168134,
+          "displayOrder": 400,
+          "name": "Misdirection",
+          "description": "<p>Beginning at 13th level, you can sometimes cause another creature to suffer an attack meant for you. When you are targeted by an attack while a creature within 5 feet of you is granting you cover against that attack, you can use your reaction to have the attack target that creature instead of you.</p>",
+          "snippet": "When you are targeted by an attack while a creature within 5 ft. is granting you cover against that attack, you can use your reaction to have the attack target that creature instead of you.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 13,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": 46,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 79,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": 46,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "505",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 506,
+          "definitionKey": "class-feature:506",
+          "entityTypeId": 12168134,
+          "displayOrder": 500,
+          "name": "Soul of Deceit",
+          "description": "<p>Starting at 17th level, your thoughts can’t be read by telepathy or other means, unless you allow it. You can present false thoughts by succeeding on a Charisma (Deception) check contested by the mind reader’s Wisdom (Insight) check.</p>\r\n<p>Additionally, no matter what you say, magic that would determine if you are telling the truth indicates you are being truthful if you so choose, and you can’t be compelled to tell the truth by magic.</p>",
+          "snippet": "Your thoughts can’t be read by telepathy or other means, unless you allow it. You can present false thoughts by succeeding on a Deception) check contested by the mind reader’s Insight) check. Magic that would determine if you are telling the truth indicates you are being truthful if you so choose, and you can’t be compelled to tell the truth by magic.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 17,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 13,
+          "sourcePageNumber": 46,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 79,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 13,
+              "pageNumber": 46,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "506",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 313,
+          "definitionKey": "class-feature:313",
+          "entityTypeId": 12168134,
+          "displayOrder": 9,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 4th level, and again at 8th, 10th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 4,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "313",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 314,
+          "definitionKey": "class-feature:314",
+          "entityTypeId": 12168134,
+          "displayOrder": 13,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 8th level, and again at 10th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 8,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "314",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 315,
+          "definitionKey": "class-feature:315",
+          "entityTypeId": 12168134,
+          "displayOrder": 15,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 12,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "315",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 316,
+          "definitionKey": "class-feature:316",
+          "entityTypeId": 12168134,
+          "displayOrder": 18,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 16,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "316",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 317,
+          "definitionKey": "class-feature:317",
+          "entityTypeId": 12168134,
+          "displayOrder": 20,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 19,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "317",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 342,
+          "definitionKey": "class-feature:342",
+          "entityTypeId": 12168134,
+          "displayOrder": 4,
+          "name": "Expertise",
+          "description": "<p class=\"compendium-hr\">At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 6th level, you can choose two more of your proficiencies (in skills or with thieves’ tools) to gain this benefit.</p>",
+          "snippet": "Your proficiency bonus is doubled for any ability check you make for two chosen proficiencies. [6th] Choose two additional proficiencies.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "342",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 343,
+          "definitionKey": "class-feature:343",
+          "entityTypeId": 12168134,
+          "displayOrder": 5,
+          "name": "Sneak Attack",
+          "description": "<p class=\"Core-Styles_Core-Body\">Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.</p>\r\n<p class=\"Core-Styles_Core-Body\">You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.</p>\r\n<p class=\"Core-Styles_Core-Body\">The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.</p>",
+          "snippet": "Once per turn, you can deal an extra {{scalevalue}} damage to one creature you hit with an attack with a finesse or ranged weapon if you have advantage on the attack roll. You don’t need advantage on the attack roll if another enemy of the target is within 5 ft. of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [
+            {
+              "id": 16,
+              "level": 1,
+              "description": "1d6",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 17,
+              "level": 3,
+              "description": "2d6",
+              "dice": {
+                "diceCount": 2,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "2d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 18,
+              "level": 5,
+              "description": "3d6",
+              "dice": {
+                "diceCount": 3,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "3d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 19,
+              "level": 7,
+              "description": "4d6",
+              "dice": {
+                "diceCount": 4,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "4d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 20,
+              "level": 9,
+              "description": "5d6",
+              "dice": {
+                "diceCount": 5,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "5d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 21,
+              "level": 11,
+              "description": "6d6",
+              "dice": {
+                "diceCount": 6,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "6d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 22,
+              "level": 13,
+              "description": "7d6",
+              "dice": {
+                "diceCount": 7,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "7d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 23,
+              "level": 15,
+              "description": "8d6",
+              "dice": {
+                "diceCount": 8,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "8d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 24,
+              "level": 17,
+              "description": "9d6",
+              "dice": {
+                "diceCount": 9,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "9d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 25,
+              "level": 19,
+              "description": "10d6",
+              "dice": {
+                "diceCount": 10,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "10d6"
+              },
+              "fixedValue": null
+            }
+          ],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "343",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": {
+          "id": 18,
+          "level": 5,
+          "description": "3d6",
+          "dice": {
+            "diceCount": 3,
+            "diceValue": 6,
+            "diceMultiplier": null,
+            "fixedValue": null,
+            "diceString": "3d6"
+          },
+          "fixedValue": null
+        }
+      },
+      {
+        "definition": {
+          "id": 344,
+          "definitionKey": "class-feature:344",
+          "entityTypeId": 12168134,
+          "displayOrder": 6,
+          "name": "Thieves’ Cant",
+          "description": "<p class=\"Core-Styles_Core-Body\">During your rogue training you learned thieves’ cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves’ cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.</p>\r\n<p class=\"Core-Styles_Core-Body\">In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves’ guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.</p>",
+          "snippet": "You have learned thieves’ cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. It takes four times longer to convey such a message than it does to speak the same idea plainly.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "344",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 345,
+          "definitionKey": "class-feature:345",
+          "entityTypeId": 12168134,
+          "displayOrder": 7,
+          "name": "Cunning Action",
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or&nbsp;Hide action.</p>",
+          "snippet": "You can take a bonus action on each of your turns to take the Dash, Disengage, or Hide action.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 2,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "345",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 346,
+          "definitionKey": "class-feature:346",
+          "entityTypeId": 12168134,
+          "displayOrder": 8,
+          "name": "Roguish Archetype",
+          "description": "<p class=\"compendium-hr\">At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, detailed at the end of the class description, or one from another source. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "346",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 347,
+          "definitionKey": "class-feature:347",
+          "entityTypeId": 12168134,
+          "displayOrder": 10,
+          "name": "Uncanny Dodge",
+          "description": "<p class=\"compendium-hr\">Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you.</p>",
+          "snippet": "When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 5,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "347",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 348,
+          "definitionKey": "class-feature:348",
+          "entityTypeId": 12168134,
+          "displayOrder": 12,
+          "name": "Evasion",
+          "description": "<p class=\"compendium-hr\">Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as an ancient red dragon’s fiery breath or an <span class=\"Serif-Character-Style_Italic-Serif\">ice storm</span> spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>",
+          "snippet": "When you are subjected to an effect that allows you to make a DEX saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 7,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "348",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 349,
+          "definitionKey": "class-feature:349",
+          "entityTypeId": 12168134,
+          "displayOrder": 14,
+          "name": "Reliable Talent",
+          "description": "<p class=\"compendium-hr\">By 11th level, you have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.</p>",
+          "snippet": "Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 11,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "349",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 350,
+          "definitionKey": "class-feature:350",
+          "entityTypeId": 12168134,
+          "displayOrder": 16,
+          "name": "Blindsense",
+          "description": "<p class=\"compendium-hr\">Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.</p>",
+          "snippet": "If you are able to hear, you are aware of the location of any hidden or invisible creature within 10 ft. of you.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 14,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "350",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 351,
+          "definitionKey": "class-feature:351",
+          "entityTypeId": 12168134,
+          "displayOrder": 17,
+          "name": "Slippery Mind",
+          "description": "<p class=\"compendium-hr\">By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.</p>",
+          "snippet": "You gain proficiency in Wisdom saving throws.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 15,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "351",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 352,
+          "definitionKey": "class-feature:352",
+          "entityTypeId": 12168134,
+          "displayOrder": 19,
+          "name": "Elusive",
+          "description": "<p class=\"compendium-hr\">Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren’t incapacitated.</p>",
+          "snippet": "No attack roll has advantage against you while you aren’t incapacitated.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 18,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "352",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 353,
+          "definitionKey": "class-feature:353",
+          "entityTypeId": 12168134,
+          "displayOrder": 21,
+          "name": "Stroke of Luck",
+          "description": "<p class=\"compendium-hr\">At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+          "snippet": "Once per short rest, if your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 20,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 97,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 97,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "353",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 467,
+          "definitionKey": "class-feature:467",
+          "entityTypeId": 12168134,
+          "displayOrder": 2,
+          "name": "Proficiencies",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">:</span></strong> Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons:</span></strong> Simple weapons, hand crossbows, longswords, rapiers, shortswords<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools: </span></strong>Thieves’ tools<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws: </span></strong>Dexterity, Intelligence<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills: </span></strong>Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">:</span></strong> Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools: </span></strong>Thieves’ tools<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills: </span></strong>Choose one from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth</p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 95,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 95,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "467",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 471,
+          "definitionKey": "class-feature:471",
+          "entityTypeId": 12168134,
+          "displayOrder": 11,
+          "name": "Expertise",
+          "description": "<p class=\"compendium-hr\">At 6th level, choose two more of your skill proficiencies, or one more of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</p>",
+          "snippet": "Your proficiency bonus is doubled for any ability check you make that uses any of the chosen proficiencies.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 6,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "471",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 539,
+          "definitionKey": "class-feature:539",
+          "entityTypeId": 12168134,
+          "displayOrder": 1,
+          "name": "Hit Points",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice:</span></strong> 1d8 per rogue level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per rogue level after 1st</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 95,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 95,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "539",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 591,
+          "definitionKey": "class-feature:591",
+          "entityTypeId": 12168134,
+          "displayOrder": 14,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 10th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using&nbsp;this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 10,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 96,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 96,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "591",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 9961440,
+          "definitionKey": "class-feature:9961440",
+          "entityTypeId": 12168134,
+          "displayOrder": 3,
+          "name": "Equipment",
+          "description": "<p>You start with the following equipment, in addition to the equipment granted by your background:</p>\r\n<ul>\r\n<li>(a) a rapier or (b) a shortsword</li>\r\n<li>(a) a shortbow and quiver of 20 arrows or (b) a shortsword</li>\r\n<li>(a) a burglar’s pack, (b) a dungeoneer’s pack, or (c) an explorer’s pack</li>\r\n<li>Leather armor, two daggers, and thieves’ tools</li>\r\n</ul>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 12,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "9961440",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      }
+    ]
+  }
+}

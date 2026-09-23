@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "a2b8959b-4930-4bab-b2d6-d5f1f3328fbc",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Thaumaturgy",
+  "description": "Level 0 Transmutation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "transmutation"
+  ],
+  "properties": {
+    "id": 2277,
+    "name": "Thaumaturgy",
+    "level": 0,
+    "school": "Transmutation",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Minute",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:\n\n\r\n\r\nYour voice booms up to three times as loud as normal for 1 minute.\r\nYou cause flames to flicker, brighten, dim, or change color for 1 minute.\r\nYou cause harmless tremors in the ground for 1 minute.\r\nYou create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\nYou instantaneously cause an unlocked door or window to fly open or slam shut.\r\nYou alter the appearance of your eyes for 1 minute.\r\n\r\n\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 282,
+        "sourceType": 1
+      }
+    ]
+  }
+}

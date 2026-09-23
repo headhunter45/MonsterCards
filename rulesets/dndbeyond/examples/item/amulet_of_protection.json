@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "1df097c2-0fb4-4580-93f9-cd4ee607a9ab",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Amulet of Protection",
+  "description": "Wondrous item (Rare)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 3265859,
+    "name": "Amulet of Protection",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Rare",
+    "weight": 0,
+    "cost": null,
+    "description": "You gain a +1 bonus to AC and saving throws while you wear this amulet.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

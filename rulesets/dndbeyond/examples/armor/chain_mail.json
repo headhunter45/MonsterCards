@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "8e9d8ff0-e0f4-4213-ab5e-ecae9be8fa66",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Chain Mail",
+  "description": "Armor (AC 16)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 16,
+    "name": "Chain Mail",
+    "type": "",
+    "filterType": "Armor",
+    "armorClass": 16,
+    "armorTypeId": 3,
+    "strengthRequirement": 13,
+    "stealthCheck": 2,
+    "weight": 55,
+    "cost": 75,
+    "rarity": "Common",
+    "description": "Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets."
+  }
+}

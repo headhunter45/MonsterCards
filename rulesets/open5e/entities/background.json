@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "background",
+  "name": "Character Background",
+  "description": "5e Background entity definition declaring skill proficiencies, tool proficiencies, languages, equipment, and background feature.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "skill_proficiencies"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the background (e.g. 'Outlander', 'Acolyte', 'Soldier')."
+      },
+      "description": {
+        "type": "string",
+        "description": "Background origin and flavor."
+      },
+      "skill_proficiencies": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Two skill proficiencies granted by this background."
+      },
+      "tool_proficiencies": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Tool or vehicle proficiencies granted."
+      },
+      "languages": {
+        "type": ["array", "integer"],
+        "description": "Specific languages granted, or number of languages of player choice."
+      },
+      "equipment": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Starting equipment granted by this background."
+      },
+      "feature": {
+        "type": "object",
+        "required": ["name", "description"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "description": "Unique roleplaying feature (e.g. Wanderer, Shelter of the Faithful)."
+      },
+      "suggested_characteristics": {
+        "type": "object",
+        "properties": {
+          "personality_traits": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "ideals": { "type": "array", "items": { "type": "string" } },
+          "bonds": { "type": "array", "items": { "type": "string" } },
+          "flaws": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  },
+  "default_values": {
+    "skill_proficiencies": [],
+    "tool_proficiencies": [],
+    "equipment": []
+  }
+}

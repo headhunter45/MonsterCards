@@ -1,0 +1,150 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e960612d-78cd-48fa-a142-37f910a16e28",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Protection from Poison",
+  "description": "Level 2 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 2222,
+    "name": "Protection from Poison",
+    "level": 2,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": 0,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You touch a creature. If it is poisoned, you neutralize the poison. If more than one poison afflicts the target, you neutralize one poison that you know is present, or you neutralize one at random.\n\n\r\nFor the duration, the target has advantage on saving throws against being poisoned, and it has resistance to poison damage.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2222_237",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "resistance",
+        "subType": "poison",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Resistance",
+        "friendlySubtypeName": "Poison",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2222_238",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "advantage",
+        "subType": "saving-throws",
+        "dice": null,
+        "restriction": "Against being poisoned",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Advantage",
+        "friendlySubtypeName": "Saving Throws",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 270,
+        "sourceType": 1
+      }
+    ]
+  }
+}

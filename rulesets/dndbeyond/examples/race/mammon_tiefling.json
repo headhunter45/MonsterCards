@@ -1,0 +1,374 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "1e2c2226-e94c-42f0-843d-61c50c4cb2d5",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Mammon Tiefling",
+  "description": "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling.\n\n\r\nRacial Traits\n+2 Charisma, +1 Intelligence, Darkvision, Hellish Resistance, Infernal Legacy\n\nThe great miser Mammon loves coins above all else. Tieflings tied to him excel at gathering and safeguarding wealth.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "tiefling"
+  ],
+  "properties": {
+    "fullName": "Mammon Tiefling",
+    "baseRaceName": "Tiefling",
+    "isSubRace": true,
+    "size": null,
+    "sizeId": 4,
+    "weightSpeeds": {
+      "normal": {
+        "walk": 30,
+        "fly": 0,
+        "burrow": 0,
+        "swim": 0,
+        "climb": 0
+      },
+      "encumbered": null,
+      "heavilyEncumbered": null,
+      "pushDragLift": null,
+      "override": null
+    },
+    "racialTraits": [
+      {
+        "definition": {
+          "id": 60,
+          "definitionKey": "racial-trait:60",
+          "entityTypeId": 1960452172,
+          "displayOrder": 6,
+          "name": "Darkvision",
+          "description": "<p>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</p>",
+          "snippet": "You can see in darkness (shades of gray) up to 60 ft.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 43,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 43,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "60",
+          "entityRaceId": 7,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 61,
+          "definitionKey": "racial-trait:61",
+          "entityTypeId": 1960452172,
+          "displayOrder": 7,
+          "name": "Hellish Resistance",
+          "description": "<p>You have resistance to fire damage.</p>",
+          "snippet": "You have resistance to fire damage.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 43,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 43,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "61",
+          "entityRaceId": 7,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 105,
+          "definitionKey": "racial-trait:105",
+          "entityTypeId": 1960452172,
+          "displayOrder": 9,
+          "name": "Languages",
+          "description": "<p>You can speak, read, and write Common and Infernal.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 43,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 43,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "105",
+          "entityRaceId": 7,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "LANGUAGE": 1,
+            "ABILITYSCORE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 154,
+          "definitionKey": "racial-trait:154",
+          "entityTypeId": 1960452172,
+          "displayOrder": 2,
+          "name": "Age",
+          "description": "<p>Tieflings mature at the same rate as humans but live a few years longer.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 43,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 43,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "154",
+          "entityRaceId": 7,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 156,
+          "definitionKey": "racial-trait:156",
+          "entityTypeId": 1960452172,
+          "displayOrder": 4,
+          "name": "Size",
+          "description": "<p>Tieflings are about the same size and build as humans. Your size is Medium.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 43,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 43,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "156",
+          "entityRaceId": 7,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 157,
+          "definitionKey": "racial-trait:157",
+          "entityTypeId": 1960452172,
+          "displayOrder": 5,
+          "name": "Speed",
+          "description": "<p>Your base walking speed is 30 feet.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 43,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 43,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "157",
+          "entityRaceId": 7,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 214100,
+          "definitionKey": "racial-trait:214100",
+          "entityTypeId": 1960452172,
+          "displayOrder": null,
+          "name": "Ability Score Increase",
+          "description": "<p>Your Charisma score increases by 2, and your Intelligence score increases by 1.</p>",
+          "snippet": "Your Charisma score increases by 2, and your Intelligence score increases by 1.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 33,
+          "sourcePageNumber": 22,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 33,
+              "pageNumber": 22,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "214100",
+          "entityRaceId": 15487,
+          "entityRaceTypeId": 1228963568,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 63,
+              "entityTypeId": 1960452172,
+              "entityId": 214100,
+              "definitionKey": "1960452172:214100",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 214107,
+          "definitionKey": "racial-trait:214107",
+          "entityTypeId": 1960452172,
+          "displayOrder": null,
+          "name": "Legacy of Minauros",
+          "description": "<p>You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser’s floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>",
+          "snippet": "You know the mage hand cantrip. [3rd] You can cast Tenser's floating disk (2nd) once per short or long rest. [5th] You can cast arcane lock once per long rest. CHA is your spellcasting ability.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 33,
+          "sourcePageNumber": 22,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 33,
+              "pageNumber": 22,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "214107",
+          "entityRaceId": 15487,
+          "entityRaceTypeId": 1228963568,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      }
+    ]
+  }
+}

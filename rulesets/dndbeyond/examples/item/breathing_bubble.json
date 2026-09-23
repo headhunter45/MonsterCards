@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "d4ad0a70-1219-4bee-b211-77e96f475efb",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Breathing Bubble",
+  "description": "Wondrous item (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 1434259,
+    "name": "Breathing Bubble",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": null,
+    "description": "This translucent, bubble-like sphere has a slightly tacky outer surface, and you gain the item’s benefits only while wearing it over your head like a helmet.\n\n\r\nThe bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

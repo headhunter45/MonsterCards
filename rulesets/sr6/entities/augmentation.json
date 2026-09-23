@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "augmentation",
   "name": "Augmentation",
   "description": "SR6 Cyberware and Bioware implants with essence cost, grade, and enhancements.",

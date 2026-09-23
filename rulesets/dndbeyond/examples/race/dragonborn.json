@@ -1,0 +1,374 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "0cb48f62-e0c9-4a53-8e18-8e0d50eabb3d",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Dragonborn",
+  "description": "Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail.\n\n\r\nRacial Traits\n+2 Strength, +1 Charisma, Draconic Ancestry, Breath Weapon, Damage Resistance",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "dragonborn"
+  ],
+  "properties": {
+    "fullName": "Dragonborn",
+    "baseRaceName": "Dragonborn",
+    "isSubRace": false,
+    "size": null,
+    "sizeId": 4,
+    "weightSpeeds": {
+      "normal": {
+        "walk": 30,
+        "fly": 0,
+        "burrow": 0,
+        "swim": 0,
+        "climb": 0
+      },
+      "encumbered": null,
+      "heavilyEncumbered": null,
+      "pushDragLift": null,
+      "override": null
+    },
+    "racialTraits": [
+      {
+        "definition": {
+          "id": 3,
+          "definitionKey": "racial-trait:3",
+          "entityTypeId": 1960452172,
+          "displayOrder": 6,
+          "name": "Draconic Ancestry",
+          "description": "<p>You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.</p>\r\n<h5 id=\"DraconicAncestryTable\" class=\"quick-menu-exclude compendium-hr\">Draconic Ancestry</h5>\r\n<div class=\"table-overflow-wrapper\">\r\n<table class=\"table-compendium table--generic-dice\">\r\n<thead>\r\n<tr>\r\n<th>Dragon</th>\r\n<th>Damage Type</th>\r\n<th>Breath Weapon</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>Black</td>\r\n<td>Acid</td>\r\n<td>5 by 30 ft. line (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Blue</td>\r\n<td>Lightning</td>\r\n<td>5 by 30 ft. line (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Brass</td>\r\n<td>Fire</td>\r\n<td>5 by 30 ft. line (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Bronze</td>\r\n<td>Lightning</td>\r\n<td>5 by 30 ft. line (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Copper</td>\r\n<td>Acid</td>\r\n<td>5 by 30 ft. line (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Gold</td>\r\n<td>Fire</td>\r\n<td>15 ft. cone (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Green</td>\r\n<td>Poison</td>\r\n<td>15 ft. cone (Con. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Red</td>\r\n<td>Fire</td>\r\n<td>15 ft. cone (Dex. save)</td>\r\n</tr>\r\n<tr>\r\n<td>Silver</td>\r\n<td>Cold</td>\r\n<td>15 ft. cone (Con. save)</td>\r\n</tr>\r\n<tr>\r\n<td>White</td>\r\n<td>Cold</td>\r\n<td>15 ft. cone (Con. save)</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>",
+          "snippet": "You gain a breath weapon and damage resistance with your chosen dragon type.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "3",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 4,
+          "definitionKey": "racial-trait:4",
+          "entityTypeId": 1960452172,
+          "displayOrder": 7,
+          "name": "Breath Weapon",
+          "description": "<p>You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can’t use it again until you complete a short or long rest.</p>",
+          "snippet": "Once per short rest as an action, exhale destructive energy based on your Draconic Ancestry. Each creature in the area must make a DC {{savedc:con}} saving throw (type determined by your ancestry), taking 2d6 ([6th] 3d6, [11th] 4d6, [16th] 5d6) on a failed save, and half damage on a successful one.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "4",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 5,
+          "definitionKey": "racial-trait:5",
+          "entityTypeId": 1960452172,
+          "displayOrder": 8,
+          "name": "Damage Resistance",
+          "description": "<p>You have resistance to the damage type associated with your draconic ancestry.</p>",
+          "snippet": "You have resistance to the damage type associated with your draconic ancestry.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "5",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 67,
+          "definitionKey": "racial-trait:67",
+          "entityTypeId": 1960452172,
+          "displayOrder": 1,
+          "name": "Ability Score Increase",
+          "description": "<p>Your Strength score increases by 2, and your Charisma score increases by 1.</p>",
+          "snippet": "Your Strength score increases by 2, and your Charisma score increases by 1.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "67",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 199,
+              "entityTypeId": 1960452172,
+              "entityId": 67,
+              "definitionKey": "1960452172:67",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 83,
+          "definitionKey": "racial-trait:83",
+          "entityTypeId": 1960452172,
+          "displayOrder": 9,
+          "name": "Languages",
+          "description": "<p>You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "83",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "LANGUAGE": 1,
+            "ABILITYSCORE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 110,
+          "definitionKey": "racial-trait:110",
+          "entityTypeId": 1960452172,
+          "displayOrder": 2,
+          "name": "Age",
+          "description": "<p>Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "110",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 112,
+          "definitionKey": "racial-trait:112",
+          "entityTypeId": 1960452172,
+          "displayOrder": 4,
+          "name": "Size",
+          "description": "<p>Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "112",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 113,
+          "definitionKey": "racial-trait:113",
+          "entityTypeId": 1960452172,
+          "displayOrder": 5,
+          "name": "Speed",
+          "description": "<p>Your base walking speed is 30 feet.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 34,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 34,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "113",
+          "entityRaceId": 16,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      }
+    ]
+  }
+}

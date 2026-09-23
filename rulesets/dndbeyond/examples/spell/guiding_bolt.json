@@ -1,0 +1,252 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5e497c69-7afe-4db3-a122-1a2acb01f556",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Guiding Bolt",
+  "description": "Level 1 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "evocation"
+  ],
+  "properties": {
+    "id": 2133,
+    "name": "Guiding Bolt",
+    "level": 1,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Round",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 120,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "A flash of light streaks toward a creature of your choice within range. Make a ranged spell attack against the target. On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has advantage, thanks to the mystical dim light glittering on the target until then.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2133_139",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "damage",
+        "subType": "radiant",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Damage",
+        "friendlySubtypeName": "Radiant",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": 4,
+          "diceValue": 6,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": "4d6"
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 1,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "1d6"
+              },
+              "value": null,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2133_140",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "advantage",
+        "subType": "melee-attacks",
+        "dice": null,
+        "restriction": "Against Target On Hit",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Advantage",
+        "friendlySubtypeName": "Melee Attacks",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2133_141",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "advantage",
+        "subType": "ranged-attacks",
+        "dice": null,
+        "restriction": "Against Target On Hit",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Advantage",
+        "friendlySubtypeName": "Ranged Attacks",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      },
+      {
+        "fixedValue": null,
+        "id": "spell_2133_142",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "advantage",
+        "subType": "spell-attacks",
+        "dice": null,
+        "restriction": "Against Target On Hit",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Advantage",
+        "friendlySubtypeName": "Spell Attacks",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 248,
+        "sourceType": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "64a199bb-bea1-4c6a-8745-95fe45070504",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Light",
+  "description": "Level 0 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "evocation"
+  ],
+  "properties": {
+    "id": 2166,
+    "name": "Light",
+    "level": 0,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": 0,
+      "aoeType": "Sphere",
+      "aoeValue": 20
+    },
+    "description": "You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it as an action.\n\n\r\nIf you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      3
+    ],
+    "componentsDescription": "a firefly or phosphorescent moss",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 255,
+        "sourceType": 1
+      }
+    ]
+  }
+}

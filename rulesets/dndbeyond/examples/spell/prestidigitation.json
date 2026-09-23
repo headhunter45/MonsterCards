@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "9129d7a0-ffa7-48cd-9387-f180be2652f9",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Prestidigitation",
+  "description": "Level 0 Transmutation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "transmutation"
+  ],
+  "properties": {
+    "id": 2618893,
+    "name": "Prestidigitation",
+    "level": 0,
+    "school": "Transmutation",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 10,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.\n\n\r\nSensory Effect. You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.\n\n\r\nFire Play. You instantaneously light or snuff out a candle, a torch, or a small campfire.\n\n\r\nClean or Soil. You instantaneously clean or soil an object no larger than 1 cubic foot.\n\n\r\nMinor Sensation. You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.\n\n\r\nMagic Mark. You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.\n\n\r\nMinor Creation. You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 145,
+        "pageNumber": 307,
+        "sourceType": 1
+      }
+    ]
+  }
+}

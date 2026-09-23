@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
   "uuid": "4c8f3824-3453-48bf-9a0e-a4c336b3bcf2",
   "ruleset_id": "open5e",
   "entity_type": "character",
@@ -11,9 +11,14 @@
   "tags": ["pc", "ranger", "elf"],
   "properties": {
     "player_name": "Tom",
-    "level": 3,
-    "class": "Ranger",
-    "subclass": "Hunter",
+    "class_levels": {
+      "ranger": {
+        "name": "Ranger",
+        "level": 3,
+        "subclass": "Hunter",
+        "description": "Hunter archetype with Colossus Slayer"
+      }
+    },
     "race": "Elf",
     "size": "medium",
     "type": "Humanoid",
@@ -179,11 +184,22 @@
       ]
     },
     "abilities": {
-      "strength": 12,
+      "strength": {
+        "display_name": "Strength",
+        "short_name": "Str",
+        "value": 12,
+        "modifier": 1,
+        "proficiency": true,
+        "saving_throw": 3
+      },
       "dexterity": {
+        "display_name": "Dexterity",
+        "short_name": "Dex",
         "value": 16,
         "base": 14,
         "modifier": 3,
+        "proficiency": true,
+        "saving_throw": 5,
         "modifiers": [
           {
             "source": "Elven Agility",
@@ -192,10 +208,39 @@
           }
         ]
       },
-      "constitution": 14,
-      "intelligence": 10,
-      "wisdom": 15,
-      "charisma": 8
+      "constitution": {
+        "display_name": "Constitution",
+        "short_name": "Con",
+        "value": 14,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "intelligence": {
+        "display_name": "Intelligence",
+        "short_name": "Int",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      },
+      "wisdom": {
+        "display_name": "Wisdom",
+        "short_name": "Wis",
+        "value": 15,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2,
+        "advantage": "Fey Ancestry (charm saves)"
+      },
+      "charisma": {
+        "display_name": "Charisma",
+        "short_name": "Cha",
+        "value": 8,
+        "modifier": -1,
+        "proficiency": false,
+        "saving_throw": -1
+      }
     },
     "inventory": [
       {

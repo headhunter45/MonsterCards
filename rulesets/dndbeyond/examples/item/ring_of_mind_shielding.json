@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "1be14702-5374-41d7-ac2b-ea3b5916ecb6",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Ring of Mind Shielding",
+  "description": "Ring (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "ring"
+  ],
+  "properties": {
+    "id": 4725,
+    "name": "Ring of Mind Shielding",
+    "filterType": "Ring",
+    "type": "Ring",
+    "rarity": "Uncommon",
+    "weight": 0,
+    "cost": null,
+    "description": "While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.\n\n\r\nYou can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.\n\n\r\nIf you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication.",
+    "canAttune": true,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

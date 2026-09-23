@@ -1,0 +1,12 @@
+<div class="field field-array-list" data-array-key="{{key}}">
+  <label>{{label}}</label>
+  <ul class="array-list-entries">
+    {{#each value}}
+      <li>
+        <input type="text" name="{{../key}}[{{@index}}]" value="{{val this}}">
+        <button type="button" class="remove-array-item" aria-label="Remove item">&times;</button>
+      </li>
+    {{/each}}
+  </ul>
+  <button type="button" class="add-array-item" data-target="{{key}}">+ Add</button>
+</div>

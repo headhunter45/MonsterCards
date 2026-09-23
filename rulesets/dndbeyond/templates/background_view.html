@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Background Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">Character Background</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        Feature: {{properties.featureName}}
+      </div>
+    </header>
+
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Skills</span>
+        <span class="stat-value highlight">{{#if properties.skillProficienciesDescription}}{{properties.skillProficienciesDescription}}{{else}}&mdash;{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Tools</span>
+        <span class="stat-value">{{#if properties.toolProficienciesDescription}}{{properties.toolProficienciesDescription}}{{else}}&mdash;{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Languages</span>
+        <span class="stat-value">{{#if properties.languagesDescription}}{{properties.languagesDescription}}{{else}}&mdash;{{/if}}</span>
+      </div>
+    </div>
+
+    <div class="entity-body">
+      {{{properties.description}}}
+    </div>
+
+    {{#if properties.featureName}}
+    <div class="entity-section">
+      <div class="section-header">Feature: {{properties.featureName}}</div>
+      <div class="section-content">
+        {{{properties.featureDescription}}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if properties.personalityTraits}}
+    <div class="entity-section">
+      <div class="section-header">Suggested Personality Traits</div>
+      <div class="section-content">
+        <table class="entity-table">
+          <thead>
+            <tr><th>d8</th><th>Personality Trait</th></tr>
+          </thead>
+          <tbody>
+            {{#each properties.personalityTraits}}
+            <tr><td>{{this.diceRoll}}</td><td>{{this.description}}</td></tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{/if}}
+  </article>
+</body>
+</html>

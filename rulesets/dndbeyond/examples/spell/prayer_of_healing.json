@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "436e702e-b2d2-4689-ae40-55a27c073ec3",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Prayer of Healing",
+  "description": "Level 2 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "evocation"
+  ],
+  "properties": {
+    "id": 2212,
+    "name": "Prayer of Healing",
+    "level": 2,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 10,
+      "activationType": 6
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "Up to six creatures of your choice that you can see within range each regain hit points equal to 2d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d8 for each slot level above 2nd.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_2212_215",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "bonus",
+        "subType": "hit-points",
+        "dice": null,
+        "restriction": "Unaffected: constructs, undead",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Bonus",
+        "friendlySubtypeName": "Hit Points",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": 2,
+          "diceValue": 8,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": "2d8"
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": true,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 1,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "1d8"
+              },
+              "value": null,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 267,
+        "sourceType": 1
+      }
+    ]
+  }
+}

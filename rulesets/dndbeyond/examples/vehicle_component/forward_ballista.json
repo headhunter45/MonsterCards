@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "8c78fe94-8ffe-408e-86e0-f2b94eba5da2",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "vehicle_component",
+  "display_name": "Forward Ballista",
+  "description": "Weapon (AC 15, HP 50)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "vehicle-component",
+    "weapon"
+  ],
+  "properties": {
+    "id": 112235,
+    "vehicleId": 554433,
+    "name": "Forward Ballista",
+    "type": "Weapon",
+    "componentType": 3,
+    "armorClass": 15,
+    "hitPoints": 50,
+    "damageThreshold": 0,
+    "actions": [
+      {
+        "id": 201,
+        "name": "Bolt",
+        "description": "+6 to hit, range 120/480 ft., one target. Hit: 16 (3d10) piercing damage."
+      }
+    ],
+    "speed": null
+  }
+}

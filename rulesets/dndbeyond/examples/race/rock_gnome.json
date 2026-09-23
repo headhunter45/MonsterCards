@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "292239c5-6479-4754-9d05-efc0402944b1",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Rock Gnome",
+  "description": "As a rock gnome, you have a natural inventiveness...",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "gnome"
+  ],
+  "properties": {
+    "fullName": "Rock Gnome",
+    "baseRaceName": "Gnome",
+    "isSubRace": false,
+    "sizeId": 4,
+    "racialTraits": []
+  }
+}

@@ -1,0 +1,1540 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "49124460-6cac-4410-b62a-6c155d845873",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "class",
+  "display_name": "Bard",
+  "description": "An inspiring magician whose power echoes the music of creation\n\n\r\nHit Die: d8\nPrimary Ability: Charisma\nSaves: Dexterity & Charisma",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "class",
+    "bard"
+  ],
+  "properties": {
+    "id": 1,
+    "name": "Bard",
+    "description": "An inspiring magician whose power echoes the music of creation\n\n\r\nHit Die: d8\nPrimary Ability: Charisma\nSaves: Dexterity & Charisma",
+    "hitDice": 8,
+    "canCastSpells": true,
+    "spellCastingAbilityId": 6,
+    "subclassDefinition": {
+      "id": 94,
+      "definitionKey": "789467139:94",
+      "name": "College of Glamour",
+      "description": "<p>The College of Glamour is the home of bards who mastered their craft in the vibrant realm of the Feywild or under the tutelage of someone who dwelled there. Tutored by satyrs, eladrin, and other fey, these bards learn to use their magic to delight and captivate others.</p>",
+      "equipmentDescription": null,
+      "parentClassId": 1,
+      "slug": null,
+      "avatarUrl": null,
+      "largeAvatarUrl": null,
+      "portraitAvatarUrl": null,
+      "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour",
+      "spellCastingAbilityId": 6,
+      "sources": [
+        {
+          "sourceId": 27,
+          "pageNumber": 14,
+          "sourceType": 1
+        }
+      ],
+      "classFeatures": [
+        {
+          "id": 649,
+          "name": "Mantle of Inspiration",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">When you join the College of Glamour at 3rd level, you gain the ability to weave a song of fey magic that imbues your allies with&nbsp;vigor&nbsp;and speed.</p>\r\n<p class=\"Core-Styles_Core-Body\">As a bonus action, you can expend one use of your Bardic Inspiration to grant yourself a wondrous appearance. When you do so, choose a number of creatures you can see and that can see you within 60 feet of you, up to a number equal to your Charisma modifier (minimum of one). Each of them gains 5 temporary hit points. When a creature gains these temporary hit points, it can immediately use its reaction to move up to its speed, without provoking opportunity attacks.</p>\r\n<p class=\"Core-Styles_Core-Body\">The number of temporary hit points increases when you reach certain levels in this class, increasing to 8 at 5th level, 11 at 10th level, and 14 at 15th level.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#MantleofInspiration-649"
+        },
+        {
+          "id": 650,
+          "name": "Enthralling Performance",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 3rd level, you can charge your performance with seductive, fey magic.</p>\r\n<p class=\"Core-Styles_Core-Body\">If you perform for at least 1 minute, you can attempt to inspire wonder in your audience by singing, reciting a poem, or dancing. At the end of the performance, choose a number of humanoids within 60 feet of you who watched and listened to all of it, up to a number equal to your Charisma modifier (minimum of one). Each target must succeed on a Wisdom saving throw against your spell save DC or be charmed by you. While charmed in this way, the target idolizes you, it speaks glowingly of you to anyone who talks to it, and it hinders anyone who opposes you, although it avoids violence unless it was already inclined to fight on your behalf. This effect ends on a target after 1 hour, if it takes any damage, if you attack it, or if it witnesses you attacking or damaging any of its allies.</p>\r\n<p class=\"Core-Styles_Core-Body\">If a target succeeds on its saving throw, the target has no hint that you tried to charm it.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#EnthrallingPerformance-650"
+        },
+        {
+          "id": 651,
+          "name": "Mantle of Majesty",
+          "prerequisite": null,
+          "description": "<p>At 6th level, you gain the ability to cloak yourself in a fey magic that makes others want to serve you. As a bonus action, you cast command, without expending a spell slot, and you take on an appearance of unearthly beauty for 1 minute or until your concentration ends (as if you were concentrating on a spell). During this time, you can cast command as a bonus action on each of your turns, without expending a spell slot.</p>\r\n<p>Any creature charmed by you automatically fails its saving throw against the command you cast with this feature.</p>\r\n<p>Once you use this feature, you can’t use it again until you finish a long rest.</p>",
+          "requiredLevel": 6,
+          "displayOrder": 3,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#MantleofMajesty-651"
+        },
+        {
+          "id": 652,
+          "name": "Unbreakable Majesty",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">At 14th level, your appearance permanently gains an otherworldly aspect that makes you look more lovely and fierce.</p>\r\n<p class=\"Core-Styles_Core-Body\">In addition, as a bonus action, you can assume a magically majestic presence for 1 minute or until you are incapacitated. For the duration, whenever any creature tries to attack you for the first time on a turn, the attacker must make a Charisma saving throw against your spell save DC. On a failed save, it can’t attack you on this turn, and it must choose a new target for its attack or the attack is wasted. On a successful save, it can attack you on this turn, but it has disadvantage on any saving throw it makes against your spells on your next turn.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you assume this majestic presence, you can’t do so again until you finish a short or long rest.</p>",
+          "requiredLevel": 14,
+          "displayOrder": 4,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#UnbreakableMajesty-652"
+        },
+        {
+          "id": 74,
+          "name": "Spellcasting",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations. See <a style=\"color: #47d18c;\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\"><span style=\"font-weight: 400;\">Spells Rules</span></a> for the general rules of spellcasting and the <a style=\"color: #704cd9;\" href=\"https://www.dndbeyond.com/spells?filter-class=1&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\"><span style=\"font-weight: 400;\">Spells Listing</span></a> for the bard spell list.</span></p>\r\n<h5><b>Cantrips</b></h5>\r\n<p><span style=\"font-weight: 400;\">You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.</span></p>\r\n<h5><b>Spell Slots</b></h5>\r\n<p><span style=\"font-weight: 400;\">The Bard table shows how many spell slots you have to cast your bard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.</span></p>\r\n<p><span style=\"font-weight: 400;\">For example, if you know the 1st-level spell cure wounds and have a 1st-level and a 2nd-level spell slot available, you can cast cure wounds using either slot.</span></p>\r\n<h5><b>Spells Known of 1st Level and Higher</b></h5>\r\n<p><span style=\"font-weight: 400;\">You know four 1st-level spells of your choice from the bard spell list.</span></p>\r\n<p><span style=\"font-weight: 400;\">The Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.</span></p>\r\n<p><span style=\"font-weight: 400;\">Additionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.</span></p>\r\n<h5><b>Spellcasting Ability</b></h5>\r\n<p><span style=\"font-weight: 400;\">Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.</span></p>\r\n<p><b>Spell save DC </b><span style=\"font-weight: 400;\">= 8 + your proficiency bonus + your Charisma modifier</span></p>\r\n<p><b>Spell attack modifier </b><span style=\"font-weight: 400;\">= your proficiency bonus + your Charisma modifier</span></p>\r\n<h5><b>Ritual Casting</b></h5>\r\n<p><span style=\"font-weight: 400;\">You can cast any bard spell you know as a ritual if that spell has the ritual tag.</span></p>\r\n<h5><b>Spellcasting Focus</b></h5>\r\n<p><span style=\"font-weight: 400;\">You can use a musical instrument (see the <a style=\"color: #47d18c;\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#Tools\"><span style=\"font-weight: 400;\">Tools</span></a> section) as a spellcasting focus for your bard spells.</span></p>",
+          "requiredLevel": 1,
+          "displayOrder": 4,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#Spellcasting-74"
+        },
+        {
+          "id": 75,
+          "name": "Bardic Inspiration",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.</span></p>\r\n<p><span style=\"font-weight: 400;\">Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</span></p>\r\n<p><span style=\"font-weight: 400;\">You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.</span></p>\r\n<p><span style=\"font-weight: 400;\">Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</span></p>",
+          "requiredLevel": 1,
+          "displayOrder": 5,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#BardicInspiration-75"
+        },
+        {
+          "id": 79,
+          "name": "Jack of All Trades",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn’t already include your proficiency bonus.</span></p>",
+          "requiredLevel": 2,
+          "displayOrder": 6,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#JackofAllTrades-79"
+        },
+        {
+          "id": 80,
+          "name": "Song of Rest",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.</span></p>\r\n<p><span style=\"font-weight: 400;\">The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.</span></p>",
+          "requiredLevel": 2,
+          "displayOrder": 7,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#SongofRest-80"
+        },
+        {
+          "id": 84,
+          "name": "Bard College",
+          "prerequisite": null,
+          "description": "<p>At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore detailed at the end of the class description or another from the <em>Player's Handbook</em> or other sources. Your choice grants you features at 3rd level and again at 6th and 14th level.</p>",
+          "requiredLevel": 3,
+          "displayOrder": 8,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#BardCollege-84"
+        },
+        {
+          "id": 85,
+          "name": "Expertise",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</span></p>",
+          "requiredLevel": 3,
+          "displayOrder": 9,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#Expertise-85"
+        },
+        {
+          "id": 86,
+          "name": "Expertise",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">At 10th level, choose two more of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</span></p>",
+          "requiredLevel": 10,
+          "displayOrder": 15,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#Expertise-86"
+        },
+        {
+          "id": 87,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 4,
+          "displayOrder": 10,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#AbilityScoreImprovement-87"
+        },
+        {
+          "id": 88,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 8th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 8,
+          "displayOrder": 14,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#AbilityScoreImprovement-88"
+        },
+        {
+          "id": 89,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 12,
+          "displayOrder": 16,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#AbilityScoreImprovement-89"
+        },
+        {
+          "id": 90,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 16,
+          "displayOrder": 17,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#AbilityScoreImprovement-90"
+        },
+        {
+          "id": 91,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 19,
+          "displayOrder": 18,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#AbilityScoreImprovement-91"
+        },
+        {
+          "id": 92,
+          "name": "Font of Inspiration",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.</span></p>",
+          "requiredLevel": 5,
+          "displayOrder": 12,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#FontofInspiration-92"
+        },
+        {
+          "id": 93,
+          "name": "Countercharm",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).</span></p>",
+          "requiredLevel": 6,
+          "displayOrder": 13,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#Countercharm-93"
+        },
+        {
+          "id": 94,
+          "name": "Superior Inspiration",
+          "prerequisite": null,
+          "description": "<p><span style=\"font-weight: 400;\">At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.</span></p>",
+          "requiredLevel": 20,
+          "displayOrder": 19,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#SuperiorInspiration-94"
+        },
+        {
+          "id": 460,
+          "name": "Proficiencies",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">:</span></strong> Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons:</span></strong> Simple weapons, hand crossbows, longswords, rapiers, shortswords<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools:</span></strong> Three musical instruments of your choice<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws:</span></strong> Dexterity, Charisma<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose any three</p>",
+          "requiredLevel": 1,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#Proficiencies-460"
+        },
+        {
+          "id": 531,
+          "name": "Hit Points",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice:</span></strong> 1d8 per bard level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per bard level after 1st</p>",
+          "requiredLevel": 1,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#HitPoints-531"
+        },
+        {
+          "id": 592,
+          "name": "Magical Secrets",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">By 10th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table,&nbsp;or a cantrip.</p>\r\n<p class=\"Core-Styles_Core-Body\">The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.</p>\r\n<p class=\"Core-Styles_Core-Body\">You learn two additional spells from any classes at 14th level and again at 18th level.</p>",
+          "requiredLevel": 10,
+          "displayOrder": 15,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#MagicalSecrets-592"
+        },
+        {
+          "id": 593,
+          "name": "Magical Secrets",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At&nbsp;14th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.</p>\r\n<p class=\"Core-Styles_Core-Body\">The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.</p>\r\n<p class=\"Core-Styles_Core-Body\">You learn two additional spells from any classes at 18th level.</p>",
+          "requiredLevel": 14,
+          "displayOrder": 16,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#MagicalSecrets-593"
+        },
+        {
+          "id": 594,
+          "name": "Magical Secrets",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At&nbsp;18th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.</p>\r\n<p class=\"Core-Styles_Core-Body\">The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.</p>",
+          "requiredLevel": 18,
+          "displayOrder": 17,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/1-bard#CollegeofGlamour#MagicalSecrets-594"
+        }
+      ],
+      "hitDice": 8,
+      "wealthDice": null,
+      "canCastSpells": false,
+      "knowsAllSpells": false,
+      "spellPrepareType": null,
+      "spellCastingLearningStyle": null,
+      "spellContainerName": null,
+      "sourcePageNumber": 14,
+      "subclassDefinition": null,
+      "isHomebrew": false,
+      "primaryAbilities": null,
+      "spellRules": null,
+      "prerequisites": null,
+      "desktopCardBackgroundAvatarUrl": null,
+      "mobileCardBackgroundAvatarUrl": null,
+      "detailsBackgroundAvatarUrl": null,
+      "iconAvatarUrl": null,
+      "complexity": null,
+      "tagline": null,
+      "cardDescription": null,
+      "highlights": null,
+      "color": null,
+      "desktopCardForegroundAvatarUrl": null,
+      "mobileCardForegroundAvatarUrl": null,
+      "detailsForegroundAvatarUrl": null,
+      "mobileCardBannerAvatarUrl": null,
+      "desktopCardBannerAvatarUrl": null,
+      "iconicGearAvatarUrl": null,
+      "classFantasy": null,
+      "iconicGear": null,
+      "subclassTagline": null,
+      "subclassFlavorText": null,
+      "cardEyebrow": null,
+      "cardHeading": null
+    },
+    "classFeatures": [
+      {
+        "definition": {
+          "id": 649,
+          "definitionKey": "class-feature:649",
+          "entityTypeId": 12168134,
+          "displayOrder": 100,
+          "name": "Mantle of Inspiration",
+          "description": "<p class=\"Core-Styles_Core-Body\">When you join the College of Glamour at 3rd level, you gain the ability to weave a song of fey magic that imbues your allies with&nbsp;vigor&nbsp;and speed.</p>\r\n<p class=\"Core-Styles_Core-Body\">As a bonus action, you can expend one use of your Bardic Inspiration to grant yourself a wondrous appearance. When you do so, choose a number of creatures you can see and that can see you within 60 feet of you, up to a number equal to your Charisma modifier (minimum of one). Each of them gains 5 temporary hit points. When a creature gains these temporary hit points, it can immediately use its reaction to move up to its speed, without provoking opportunity attacks.</p>\r\n<p class=\"Core-Styles_Core-Body\">The number of temporary hit points increases when you reach certain levels in this class, increasing to 8 at 5th level, 11 at 10th level, and 14 at 15th level.</p>",
+          "snippet": "As a bonus action, spend one use of Bardic Inspiration to grant {{scalevalue#unsigned}} temporary HP to up to {{modifier:cha@min:1#unsigned}} creatures  you can see and that can see you within 60 ft. Each creature can immediately use its reaction to move up to its speed, without provoking opportunity attacks.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 27,
+          "sourcePageNumber": 14,
+          "creatureRules": [],
+          "levelScales": [
+            {
+              "id": 59774,
+              "level": 3,
+              "description": "5 temp hp",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 5
+            },
+            {
+              "id": 59775,
+              "level": 5,
+              "description": "8 temp hp",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 8
+            },
+            {
+              "id": 59776,
+              "level": 10,
+              "description": "11 temp hp",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 11
+            },
+            {
+              "id": 59777,
+              "level": 15,
+              "description": "14 temp hp",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 14
+            }
+          ],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 94,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 27,
+              "pageNumber": 14,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "649",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": {
+          "id": 59775,
+          "level": 5,
+          "description": "8 temp hp",
+          "dice": null,
+          "fixedValue": 8
+        }
+      },
+      {
+        "definition": {
+          "id": 650,
+          "definitionKey": "class-feature:650",
+          "entityTypeId": 12168134,
+          "displayOrder": 200,
+          "name": "Enthralling Performance",
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 3rd level, you can charge your performance with seductive, fey magic.</p>\r\n<p class=\"Core-Styles_Core-Body\">If you perform for at least 1 minute, you can attempt to inspire wonder in your audience by singing, reciting a poem, or dancing. At the end of the performance, choose a number of humanoids within 60 feet of you who watched and listened to all of it, up to a number equal to your Charisma modifier (minimum of one). Each target must succeed on a Wisdom saving throw against your spell save DC or be charmed by you. While charmed in this way, the target idolizes you, it speaks glowingly of you to anyone who talks to it, and it hinders anyone who opposes you, although it avoids violence unless it was already inclined to fight on your behalf. This effect ends on a target after 1 hour, if it takes any damage, if you attack it, or if it witnesses you attacking or damaging any of its allies.</p>\r\n<p class=\"Core-Styles_Core-Body\">If a target succeeds on its saving throw, the target has no hint that you tried to charm it.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+          "snippet": "Once per short rest, you can choose {{modifier:cha@min:1#unsigned}} creatures that watched and listened to you perform for 1 minute. Each target makes a WIS saving throw (DC {{savedc:cha}}) and is charmed if it fails for 1 hour, or until it takes any damage, you attack it, or it sees you attack or damage its allies.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 27,
+          "sourcePageNumber": 14,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 94,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 27,
+              "pageNumber": 14,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "650",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 651,
+          "definitionKey": "class-feature:651",
+          "entityTypeId": 12168134,
+          "displayOrder": 300,
+          "name": "Mantle of Majesty",
+          "description": "<p>At 6th level, you gain the ability to cloak yourself in a fey magic that makes others want to serve you. As a bonus action, you cast command, without expending a spell slot, and you take on an appearance of unearthly beauty for 1 minute or until your concentration ends (as if you were concentrating on a spell). During this time, you can cast command as a bonus action on each of your turns, without expending a spell slot.</p>\r\n<p>Any creature charmed by you automatically fails its saving throw against the command you cast with this feature.</p>\r\n<p>Once you use this feature, you can’t use it again until you finish a long rest.</p>",
+          "snippet": "Once per long rest as a bonus action, you cast command, without expending a spell slot. For 1 minute or until your concentration ends, you can cast command as a bonus action on each of your turns, without expending a spell slot. Creatures charmed by you automatically fail saving throws against the command you cast with this feature.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 6,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 27,
+          "sourcePageNumber": 14,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 94,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 27,
+              "pageNumber": 14,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "651",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 652,
+          "definitionKey": "class-feature:652",
+          "entityTypeId": 12168134,
+          "displayOrder": 400,
+          "name": "Unbreakable Majesty",
+          "description": "<p class=\"Core-Styles_Core-Body\">At 14th level, your appearance permanently gains an otherworldly aspect that makes you look more lovely and fierce.</p>\r\n<p class=\"Core-Styles_Core-Body\">In addition, as a bonus action, you can assume a magically majestic presence for 1 minute or until you are incapacitated. For the duration, whenever any creature tries to attack you for the first time on a turn, the attacker must make a Charisma saving throw against your spell save DC. On a failed save, it can’t attack you on this turn, and it must choose a new target for its attack or the attack is wasted. On a successful save, it can attack you on this turn, but it has disadvantage on any saving throw it makes against your spells on your next turn.</p>\r\n<p class=\"Core-Styles_Core-Body\">Once you assume this majestic presence, you can’t do so again until you finish a short or long rest.</p>",
+          "snippet": "As a bonus action, you can assume a majestic presence for 1 minute or until you are incapacitated. For the duration, whenever any creature tries to attack you for the first time on a turn, the attacker must make a CHA saving throw (DC {{savedc:cha}}). On fail, it can’t attack you on this turn, and it must choose a new target for its attack or the attack is wasted. On success, it can attack you on this turn, but it has disadvantage on any saving throw it makes against your spells on your next turn.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 14,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 27,
+          "sourcePageNumber": 14,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 94,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 27,
+              "pageNumber": 14,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "652",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 74,
+          "definitionKey": "class-feature:74",
+          "entityTypeId": 12168134,
+          "displayOrder": 4,
+          "name": "Spellcasting",
+          "description": "<p><span style=\"font-weight: 400;\">You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations. See <a style=\"color: #47d18c;\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\"><span style=\"font-weight: 400;\">Spells Rules</span></a> for the general rules of spellcasting and the <a style=\"color: #704cd9;\" href=\"https://www.dndbeyond.com/spells?filter-class=1&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\"><span style=\"font-weight: 400;\">Spells Listing</span></a> for the bard spell list.</span></p>\r\n<h5><b>Cantrips</b></h5>\r\n<p><span style=\"font-weight: 400;\">You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.</span></p>\r\n<h5><b>Spell Slots</b></h5>\r\n<p><span style=\"font-weight: 400;\">The Bard table shows how many spell slots you have to cast your bard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.</span></p>\r\n<p><span style=\"font-weight: 400;\">For example, if you know the 1st-level spell cure wounds and have a 1st-level and a 2nd-level spell slot available, you can cast cure wounds using either slot.</span></p>\r\n<h5><b>Spells Known of 1st Level and Higher</b></h5>\r\n<p><span style=\"font-weight: 400;\">You know four 1st-level spells of your choice from the bard spell list.</span></p>\r\n<p><span style=\"font-weight: 400;\">The Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.</span></p>\r\n<p><span style=\"font-weight: 400;\">Additionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.</span></p>\r\n<h5><b>Spellcasting Ability</b></h5>\r\n<p><span style=\"font-weight: 400;\">Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.</span></p>\r\n<p><b>Spell save DC </b><span style=\"font-weight: 400;\">= 8 + your proficiency bonus + your Charisma modifier</span></p>\r\n<p><b>Spell attack modifier </b><span style=\"font-weight: 400;\">= your proficiency bonus + your Charisma modifier</span></p>\r\n<h5><b>Ritual Casting</b></h5>\r\n<p><span style=\"font-weight: 400;\">You can cast any bard spell you know as a ritual if that spell has the ritual tag.</span></p>\r\n<h5><b>Spellcasting Focus</b></h5>\r\n<p><span style=\"font-weight: 400;\">You can use a musical instrument (see the <a style=\"color: #47d18c;\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#Tools\"><span style=\"font-weight: 400;\">Tools</span></a> section) as a spellcasting focus for your bard spells.</span></p>",
+          "snippet": "You can cast known bard spells using CHA as your spellcasting modifier (Spell DC {{savedc:cha}}, Spell Attack {{spellattack:cha}}) and known bard spells as rituals if they have the ritual tag. You can use a musical instrument as a spellcasting focus.",
+          "activation": null,
+          "multiClassDescription": "<p><em>This feature is affected by multiclassing</em>. See the <a title=\"Multiclassing - Class Features\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/customization-options#ClassFeatures\">Multiclassing</a> rules for more information.</p>\r\n<p><span style=\"font-weight: 400;\">You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations. See <a style=\"color: #47d18c;\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\"><span style=\"font-weight: 400;\">Spells Rules</span></a> for the general rules of spellcasting and the <a style=\"color: #704cd9;\" href=\"https://www.dndbeyond.com/spells?filter-class=1&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\"><span style=\"font-weight: 400;\">Spells Listing</span></a> for the bard spell list.</span></p>\r\n<h5><b>Cantrips</b></h5>\r\n<p><span style=\"font-weight: 400;\">You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.</span></p>\r\n<h5><b>Spell Slots</b></h5>\r\n<p><span style=\"font-weight: 400;\">The Bard table shows how many spell slots you have to cast your bard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.</span></p>\r\n<p><span style=\"font-weight: 400;\">For example, if you know the 1st-level spell cure wounds and have a 1st-level and a 2nd-level spell slot available, you can cast cure wounds using either slot.</span></p>\r\n<h5><b>Spells Known of 1st Level and Higher</b></h5>\r\n<p><span style=\"font-weight: 400;\">You know four 1st-level spells of your choice from the bard spell list.</span></p>\r\n<p><span style=\"font-weight: 400;\">The Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.</span></p>\r\n<p><span style=\"font-weight: 400;\">Additionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.</span></p>\r\n<h5><b>Spellcasting Ability</b></h5>\r\n<p><span style=\"font-weight: 400;\">Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.</span></p>\r\n<p><b>Spell save DC </b><span style=\"font-weight: 400;\">= 8 + your proficiency bonus + your Charisma modifier</span></p>\r\n<p><b>Spell attack modifier </b><span style=\"font-weight: 400;\">= your proficiency bonus + your Charisma modifier</span></p>\r\n<h5><b>Ritual Casting</b></h5>\r\n<p><span style=\"font-weight: 400;\">You can cast any bard spell you know as a ritual if that spell has the ritual tag.</span></p>\r\n<h5><b>Spellcasting Focus</b></h5>\r\n<p><span style=\"font-weight: 400;\">You can use a musical instrument (see the <a style=\"color: #47d18c;\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#Tools\"><span style=\"font-weight: 400;\">Tools</span></a> section) as a spellcasting focus for your bard spells.</span></p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 52,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 52,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "74",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 75,
+          "definitionKey": "class-feature:75",
+          "entityTypeId": 12168134,
+          "displayOrder": 5,
+          "name": "Bardic Inspiration",
+          "description": "<p><span style=\"font-weight: 400;\">You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.</span></p>\r\n<p><span style=\"font-weight: 400;\">Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</span></p>\r\n<p><span style=\"font-weight: 400;\">You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.</span></p>\r\n<p><span style=\"font-weight: 400;\">Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</span></p>",
+          "snippet": "As a bonus action, a creature (other than you) within 60 ft. that can hear you gains an inspiration die ({{scalevalue}}). For 10 minutes, the creature can add it to one ability check, attack roll, or saving throw. This can be added after seeing the roll, but before knowing the outcome.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 53,
+          "creatureRules": [],
+          "levelScales": [
+            {
+              "id": 5,
+              "level": 1,
+              "description": "d6",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 6,
+              "level": 5,
+              "description": "d8",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d8"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 7,
+              "level": 10,
+              "description": "d10",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 10,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d10"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 8,
+              "level": 15,
+              "description": "d12",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 12,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d12"
+              },
+              "fixedValue": null
+            }
+          ],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 53,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "75",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": {
+          "id": 6,
+          "level": 5,
+          "description": "d8",
+          "dice": {
+            "diceCount": 1,
+            "diceValue": 8,
+            "diceMultiplier": null,
+            "fixedValue": null,
+            "diceString": "1d8"
+          },
+          "fixedValue": null
+        }
+      },
+      {
+        "definition": {
+          "id": 79,
+          "definitionKey": "class-feature:79",
+          "entityTypeId": 12168134,
+          "displayOrder": 6,
+          "name": "Jack of All Trades",
+          "description": "<p><span style=\"font-weight: 400;\">Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn’t already include your proficiency bonus.</span></p>",
+          "snippet": "You can add half your proficiency bonus, rounded down ( {{(proficiency/2)@rounddown#signed}} ), to any ability check you make that doesn’t already include it.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 2,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "79",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 80,
+          "definitionKey": "class-feature:80",
+          "entityTypeId": 12168134,
+          "displayOrder": 7,
+          "name": "Song of Rest",
+          "description": "<p><span style=\"font-weight: 400;\">Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.</span></p>\r\n<p><span style=\"font-weight: 400;\">The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.</span></p>",
+          "snippet": "If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra {{scalevalue}} hit points.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 2,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [
+            {
+              "id": 11204,
+              "level": 2,
+              "description": "+1d6 HP",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d6"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 11205,
+              "level": 9,
+              "description": "+1d8 HP",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d8"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 11206,
+              "level": 13,
+              "description": "+1d10 HP",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 10,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d10"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 11207,
+              "level": 17,
+              "description": "+1d12 HP",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 12,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d12"
+              },
+              "fixedValue": null
+            }
+          ],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "80",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": {
+          "id": 11204,
+          "level": 2,
+          "description": "+1d6 HP",
+          "dice": {
+            "diceCount": 1,
+            "diceValue": 6,
+            "diceMultiplier": null,
+            "fixedValue": null,
+            "diceString": "1d6"
+          },
+          "fixedValue": null
+        }
+      },
+      {
+        "definition": {
+          "id": 84,
+          "definitionKey": "class-feature:84",
+          "entityTypeId": 12168134,
+          "displayOrder": 8,
+          "name": "Bard College",
+          "description": "<p>At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore detailed at the end of the class description or another from the <em>Player's Handbook</em> or other sources. Your choice grants you features at 3rd level and again at 6th and 14th level.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "84",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 85,
+          "definitionKey": "class-feature:85",
+          "entityTypeId": 12168134,
+          "displayOrder": 9,
+          "name": "Expertise",
+          "description": "<p><span style=\"font-weight: 400;\">At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</span></p>",
+          "snippet": "Your proficiency bonus is doubled for any ability check you make with chosen proficiencies (2 at 3rd and 10th level).",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 3,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "85",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 86,
+          "definitionKey": "class-feature:86",
+          "entityTypeId": 12168134,
+          "displayOrder": 15,
+          "name": "Expertise",
+          "description": "<p><span style=\"font-weight: 400;\">At 10th level, choose two more of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</span></p>",
+          "snippet": "Your proficiency bonus is doubled for any ability check you make with chosen proficiencies (2 at 3rd and 10th level).",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 10,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "86",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 87,
+          "definitionKey": "class-feature:87",
+          "entityTypeId": 12168134,
+          "displayOrder": 10,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 4,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "87",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 88,
+          "definitionKey": "class-feature:88",
+          "entityTypeId": 12168134,
+          "displayOrder": 14,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 8th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 8,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "88",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 89,
+          "definitionKey": "class-feature:89",
+          "entityTypeId": 12168134,
+          "displayOrder": 16,
+          "name": "Ability Score Improvement",
+          "description": "<p class=\"Core-Styles_Core-Body\">When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 12,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "89",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 90,
+          "definitionKey": "class-feature:90",
+          "entityTypeId": 12168134,
+          "displayOrder": 17,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 16,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "90",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 91,
+          "definitionKey": "class-feature:91",
+          "entityTypeId": 12168134,
+          "displayOrder": 18,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 19,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "91",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 92,
+          "definitionKey": "class-feature:92",
+          "entityTypeId": 12168134,
+          "displayOrder": 12,
+          "name": "Font of Inspiration",
+          "description": "<p><span style=\"font-weight: 400;\">Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.</span></p>",
+          "snippet": "You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 5,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "92",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 93,
+          "definitionKey": "class-feature:93",
+          "entityTypeId": 12168134,
+          "displayOrder": 13,
+          "name": "Countercharm",
+          "description": "<p><span style=\"font-weight: 400;\">At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).</span></p>",
+          "snippet": "As an action, you can perform until the end of your next turn. During that time, you and any friendly creatures within 30 ft. that can hear you gain advantage on saving throws against being frightened or charmed.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 6,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "93",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 94,
+          "definitionKey": "class-feature:94",
+          "entityTypeId": 12168134,
+          "displayOrder": 19,
+          "name": "Superior Inspiration",
+          "description": "<p><span style=\"font-weight: 400;\">At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.</span></p>",
+          "snippet": "When you roll initiative and have no uses of Bardic Inspiration left, you regain one use.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 20,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "94",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 460,
+          "definitionKey": "class-feature:460",
+          "entityTypeId": 12168134,
+          "displayOrder": 2,
+          "name": "Proficiencies",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">:</span></strong> Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons:</span></strong> Simple weapons, hand crossbows, longswords, rapiers, shortswords<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools:</span></strong> Three musical instruments of your choice<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws:</span></strong> Dexterity, Charisma<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose any three</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor</span><span class=\"Serif-Character-Style_Bold-Serif\">:</span></strong> Light armor<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools:</span></strong>&nbsp;One musical instruments of your choice<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose any skill</p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 52,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 52,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "460",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 531,
+          "definitionKey": "class-feature:531",
+          "entityTypeId": 12168134,
+          "displayOrder": 1,
+          "name": "Hit Points",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice:</span></strong> 1d8 per bard level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per bard level after 1st</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 52,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 52,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "531",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 592,
+          "definitionKey": "class-feature:592",
+          "entityTypeId": 12168134,
+          "displayOrder": 15,
+          "name": "Magical Secrets",
+          "description": "<p class=\"compendium-hr\">By 10th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table,&nbsp;or a cantrip.</p>\r\n<p class=\"Core-Styles_Core-Body\">The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.</p>\r\n<p class=\"Core-Styles_Core-Body\">You learn two additional spells from any classes at 14th level and again at 18th level.</p>",
+          "snippet": "You can add spells from any class lists as bard spells to your known spells (choose 2 at 10th, 14th, and 18th level).",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 10,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "592",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 593,
+          "definitionKey": "class-feature:593",
+          "entityTypeId": 12168134,
+          "displayOrder": 16,
+          "name": "Magical Secrets",
+          "description": "<p class=\"compendium-hr\">At&nbsp;14th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.</p>\r\n<p class=\"Core-Styles_Core-Body\">The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.</p>\r\n<p class=\"Core-Styles_Core-Body\">You learn two additional spells from any classes at 18th level.</p>",
+          "snippet": "You can add spells from any class lists as bard spells to your known spells (choose 2 at 10th, 14th, and 18th level).",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 14,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "593",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 594,
+          "definitionKey": "class-feature:594",
+          "entityTypeId": 12168134,
+          "displayOrder": 17,
+          "name": "Magical Secrets",
+          "description": "<p class=\"compendium-hr\">At&nbsp;18th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.</p>\r\n<p class=\"Core-Styles_Core-Body\">The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.</p>",
+          "snippet": "You can add spells from any class lists as bard spells to your known spells (choose 2 at 10th, 14th, and 18th level).",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 18,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 54,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 54,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "594",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 9961358,
+          "definitionKey": "class-feature:9961358",
+          "entityTypeId": 12168134,
+          "displayOrder": 3,
+          "name": "Equipment",
+          "description": "<p>You start with the following equipment, in addition to the equipment granted by your background:</p>\r\n<ul>\r\n<li>(a) a rapier, (b) a longsword, or (c) any simple weapon</li>\r\n<li>(a) a diplomat’s pack or (b) an entertainer’s pack</li>\r\n<li>(a) a lute or (b) any other musical instrument</li>\r\n<li>Leather armor and a dagger</li>\r\n</ul>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 1,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "9961358",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      }
+    ]
+  }
+}

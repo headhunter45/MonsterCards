@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "2666ac07-b5d4-4561-a3e5-f170a92103c7",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Boots of Elvenkind",
+  "description": "Wondrous item (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 4587,
+    "name": "Boots of Elvenkind",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Uncommon",
+    "weight": 0,
+    "cost": null,
+    "description": "While you wear these boots, your steps make no sound, regardless of the surface you are moving across. You also have Advantage on Dexterity (Stealth) checks.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5fc7c379-f71d-4314-9d83-9a01dfacd23d",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Doss Lute",
+  "description": "Wondrous item (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 5436,
+    "name": "Doss Lute",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Uncommon",
+    "weight": 0,
+    "cost": null,
+    "description": "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n\n\r\nYou can use an action to play the instrument and cast one of its spells: Fly, Invisibility, Levitate, Protection from Evil and Good, Animal Friendship, Protection from Energy (fire only), Protection from Poison. Once the instrument has been used to cast a spell, it can’t be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n\n\r\nYou can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+    "canAttune": true,
+    "attunementDescription": "Bard",
+    "isConsumable": false
+  }
+}

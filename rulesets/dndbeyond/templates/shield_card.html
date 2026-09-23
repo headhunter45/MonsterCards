@@ -1,0 +1,24 @@
+<div class="ddb-entity-card shield-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">Shield</span>
+    </div>
+    <span class="card-badge red">+{{#if properties.armorClass}}{{properties.armorClass}}{{else}}2{{/if}} AC</span>
+  </div>
+
+  <div class="card-stats-row">
+    {{#if properties.weight}}
+    <div class="card-stat-item">
+      <strong>Weight:</strong>
+      <span>{{properties.weight}} lb.</span>
+    </div>
+    {{/if}}
+    {{#if properties.cost}}
+    <div class="card-stat-item">
+      <strong>Cost:</strong>
+      <span>{{ddbCostText properties.cost}}</span>
+    </div>
+    {{/if}}
+  </div>
+</div>

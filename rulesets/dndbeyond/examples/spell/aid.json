@@ -1,0 +1,115 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b3e21324-add0-4e60-9898-39e01aa31c38",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Aid",
+  "description": "Level 2 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 1990,
+    "name": "Aid",
+    "level": 2,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 8,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a tiny strip of white cloth",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_1990_79",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "bonus",
+        "subType": "hit-points",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Bonus",
+        "friendlySubtypeName": "Hit Points",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": null,
+          "diceValue": null,
+          "diceMultiplier": null,
+          "fixedValue": 5,
+          "diceString": null
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 1,
+              "typeId": 15,
+              "dice": null,
+              "value": 5,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 211,
+        "sourceType": 1
+      }
+    ]
+  }
+}

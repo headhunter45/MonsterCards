@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "777212d7-121c-43af-a9b2-efdb77b82905",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Detect Magic",
+  "description": "Level 1 Divination spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "divination"
+  ],
+  "properties": {
+    "id": 2065,
+    "name": "Detect Magic",
+    "level": 1,
+    "school": "Divination",
+    "duration": {
+      "durationInterval": 10,
+      "durationUnit": "Minute",
+      "durationType": "Concentration"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Self",
+      "rangeValue": 0,
+      "aoeType": "Sphere",
+      "aoeValue": 30
+    },
+    "description": "For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.\n\n\r\nThe spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
+    "snippet": "",
+    "concentration": true,
+    "ritual": true,
+    "components": [
+      1,
+      2
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 231,
+        "sourceType": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "45d12a01-b892-482f-a912-78d102381201",
+  "ruleset_id": "open5e",
+  "entity_type": "class",
+  "display_name": "Fighter",
+  "description": "A master of martial combat, skilled with a variety of weapons and armor.",
+  "version": "1.0.0",
+  "properties": {
+    "name": "Fighter",
+    "description": "Fighters share an unparalleled mastery with weapons and armor, and a thorough knowledge of the skills of combat.",
+    "hit_die": "d10",
+    "primary_ability": ["Strength", "Dexterity"],
+    "saving_throws": ["Strength", "Constitution"],
+    "armor_proficiencies": ["All armor", "Shields"],
+    "weapon_proficiencies": ["Simple weapons", "Martial weapons"],
+    "tool_proficiencies": [],
+    "skill_choices": {
+      "choose": 2,
+      "from": [
+        "Acrobatics",
+        "Animal Handling",
+        "Athletics",
+        "History",
+        "Insight",
+        "Intimidation",
+        "Perception",
+        "Survival"
+      ]
+    },
+    "spellcasting_ability": null,
+    "subclasses": [
+      {
+        "name": "Champion",
+        "description": "Focuses on the development of raw physical power honed to deadly perfection.",
+        "level_available": 3
+      },
+      {
+        "name": "Battle Master",
+        "description": "Employs martial techniques passed down through generations.",
+        "level_available": 3
+      },
+      {
+        "name": "Eldritch Knight",
+        "description": "Combines the martial mastery common to all fighters with a careful study of magic.",
+        "level_available": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "572a25af-740a-41ab-9fb9-ed9321e70b55",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Rapier, +1",
+  "description": "Rapier dealing Piercing.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "rapier"
+  ],
+  "properties": {
+    "id": 5252,
+    "name": "Rapier, +1",
+    "type": "Rapier",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 8,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d8"
+    },
+    "damageType": "Piercing",
+    "range": 5,
+    "longRange": 5,
+    "properties": [
+      {
+        "id": 2,
+        "name": "Finesse",
+        "description": "<p>When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.</p>",
+        "notes": null
+      },
+      {
+        "id": 25,
+        "name": "Vex",
+        "description": "<p>If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 2,
+    "cost": null,
+    "rarity": "Uncommon",
+    "description": "You have a +1 bonus to attack and damage rolls made with this magic weapon.",
+    "isMonkWeapon": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "162aaac8-bd20-4ddf-b002-bf6f99b1f156",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Studded Leather",
+  "description": "Armor (AC 12)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 3,
+    "name": "Studded Leather",
+    "type": "",
+    "filterType": "Armor",
+    "armorClass": 12,
+    "armorTypeId": 1,
+    "strengthRequirement": null,
+    "stealthCheck": 1,
+    "weight": 13,
+    "cost": 45,
+    "rarity": "Common",
+    "description": "Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes."
+  }
+}

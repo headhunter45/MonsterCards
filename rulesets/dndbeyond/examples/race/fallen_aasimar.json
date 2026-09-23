@@ -1,0 +1,506 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "a62725a8-4cf3-4302-af64-e6305940c5cf",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Fallen Aasimar",
+  "description": "Aasimar are placed in the world to serve as guardians of law and good. Their patrons expect them to strike at evil, lead by example, and further the cause of justice.\n\n\r\nRacial Traits\n+2 Charisma, Darkvision, Celestial Resistance, Healing Hands, Light Bearer\n\nAn aasimar who was touched by dark powers as a youth or who turns to evil in early adulthood can become one of the fallen — a group of aasimar whose inner light has been replaced by shadow.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "aasimar"
+  ],
+  "properties": {
+    "fullName": "Fallen Aasimar",
+    "baseRaceName": "Aasimar",
+    "isSubRace": true,
+    "size": null,
+    "sizeId": 4,
+    "weightSpeeds": {
+      "normal": {
+        "walk": 30,
+        "fly": 0,
+        "burrow": 0,
+        "swim": 0,
+        "climb": 0
+      },
+      "encumbered": null,
+      "heavilyEncumbered": null,
+      "pushDragLift": null,
+      "override": null
+    },
+    "racialTraits": [
+      {
+        "definition": {
+          "id": 158,
+          "definitionKey": "racial-trait:158",
+          "entityTypeId": 1960452172,
+          "displayOrder": 1,
+          "name": "Ability Score Increase",
+          "description": "<p class=\"Core-Styles_Core-Body\">Your Charisma score incre<span class=\"No-Break\">ases by 2.</span></p>",
+          "snippet": "Your Charisma score increases by 2.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "158",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 211,
+              "entityTypeId": 1960452172,
+              "entityId": 158,
+              "definitionKey": "1960452172:158",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 159,
+          "definitionKey": "racial-trait:159",
+          "entityTypeId": 1960452172,
+          "displayOrder": 2,
+          "name": "Age",
+          "description": "<p>Aasimar mature at the same rate as humans, but they can live up to <span class=\"No-Break\">160 years.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "159",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 161,
+          "definitionKey": "racial-trait:161",
+          "entityTypeId": 1960452172,
+          "displayOrder": 4,
+          "name": "Size",
+          "description": "<p>Aasimar have the same range of height and weight <span class=\"No-Break\">as humans.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "161",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 162,
+          "definitionKey": "racial-trait:162",
+          "entityTypeId": 1960452172,
+          "displayOrder": 5,
+          "name": "Speed",
+          "description": "<p>Your base walking speed i<span class=\"No-Break\">s 30 feet.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "162",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 163,
+          "definitionKey": "racial-trait:163",
+          "entityTypeId": 1960452172,
+          "displayOrder": 6,
+          "name": "Darkvision",
+          "description": "<p>Blessed with a radiant soul, your vision can easily cut through darkness. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shade<span class=\"No-Break\">s of gray.</span></p>",
+          "snippet": "You can see in darkness (shades of gray) up to 60 ft.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "163",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 164,
+          "definitionKey": "racial-trait:164",
+          "entityTypeId": 1960452172,
+          "displayOrder": 7,
+          "name": "Celestial Resistance",
+          "description": "<p>You have resistance to necrotic damage and radia<span class=\"No-Break\">nt damage.</span></p>",
+          "snippet": "You have resistance to necrotic damage and radiant damage.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "164",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 165,
+          "definitionKey": "racial-trait:165",
+          "entityTypeId": 1960452172,
+          "displayOrder": 8,
+          "name": "Healing Hands",
+          "description": "<p>As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can’t use it again until you finish a <span class=\"No-Break\">long rest.</span></p>",
+          "snippet": "Once per long rest as an action, touch a creature and restore {{characterlevel#unsigned}} hit points.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "165",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 166,
+          "definitionKey": "racial-trait:166",
+          "entityTypeId": 1960452172,
+          "displayOrder": 9,
+          "name": "Light Bearer",
+          "description": "<p>You know the <span class=\"Serif-Character-Style_Italic-Serif\">light&nbsp;</span>cantrip. Charisma is your spellcasting abili<span class=\"No-Break\">ty for it.</span></p>",
+          "snippet": "You know the light cantrip (CHA).",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "166",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 167,
+          "definitionKey": "racial-trait:167",
+          "entityTypeId": 1960452172,
+          "displayOrder": 10,
+          "name": "Languages",
+          "description": "<p>You can speak, read, and write Common and <span class=\"No-Break\">Celestial.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "167",
+          "entityRaceId": 24,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "LANGUAGE": 1,
+            "ABILITYSCORE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 172,
+          "definitionKey": "racial-trait:172",
+          "entityTypeId": 1960452172,
+          "displayOrder": 100,
+          "name": "Ability Score Increase",
+          "description": "<p class=\"Core-Styles_Core-Body\">Your Strength score incre<span class=\"No-Break\">ases by 1.</span></p>",
+          "snippet": "Your Strength score increases by 1.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "172",
+          "entityRaceId": 20,
+          "entityRaceTypeId": 1228963568,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 34,
+              "entityTypeId": 1960452172,
+              "entityId": 172,
+              "definitionKey": "1960452172:172",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 173,
+          "definitionKey": "racial-trait:173",
+          "entityTypeId": 1960452172,
+          "displayOrder": 200,
+          "name": "Necrotic Shroud",
+          "description": "<p class=\"Core-Styles_Core-Body\">Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your <span class=\"No-Break\">next turn.</span></p>\r\n<p class=\"Core-Styles_Core-Body\">Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals y<span class=\"No-Break\">our level.</span></p>\r\n<p class=\"Core-Styles_Core-Body\">Once you use this trait, you can’t use it again until you finish a <span class=\"No-Break\">long rest.</span></p>",
+          "snippet": "[3rd] Once per long rest as an action, you can transform, causing all within 10 ft. to make a CHA saving throw (DC {{savedc:cha}}) or be frightened of you until the end of your next turn. This lasts for 1 minute or until you end it as a bonus action. Once on your turn you can have one attack or spell deal {{characterlevel}} points of extra necrotic damage to one target.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "173",
+          "entityRaceId": 20,
+          "entityRaceTypeId": 1228963568,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      }
+    ]
+  }
+}

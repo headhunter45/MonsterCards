@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "573dfc16-f92d-4c0c-b34c-08197eaf62a2",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Blanket",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 26,
+    "name": "Blanket",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 3,
+    "cost": 0.5,
+    "description": "A thick, quilted, blanket made to keep you warm in cold weather.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

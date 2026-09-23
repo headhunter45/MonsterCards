@@ -1,0 +1,297 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "monster",
+  "name": "Monster / NPC Stat Block",
+  "description": "5e Creature and Monster Stat Block entity with challenge rating, size-based hit dice, action economy, and legendary/mythic/lair actions.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "default_template": "stat_block",
+  "allowed_templates": [
+    "stat_block",
+    "character_card",
+    "character_list_item"
+  ],
+  "schema": {
+    "type": "object",
+    "required": ["size", "type", "abilities", "hit_points"],
+    "$defs": {
+      "abilityScore": {
+        "type": ["integer", "object"],
+        "description": "Ability score integer or rich ability object with display_name, short_name, value, modifier, and saving_throw.",
+        "properties": {
+          "display_name": { "type": "string" },
+          "short_name": { "type": "string" },
+          "value": { "type": "integer", "minimum": 1, "maximum": 30 },
+          "modifier": { "type": "integer" },
+          "saving_throw": { "type": "integer" }
+        }
+      },
+      "actionEntry": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string", "description": "Action or feature title." },
+          "desc": { "type": "string", "description": "Rules text and attack mechanics." }
+        },
+        "additionalProperties": true
+      }
+    },
+    "properties": {
+      "size": {
+        "type": "string",
+        "enum": ["tiny", "small", "medium", "large", "huge", "gargantuan"],
+        "description": "Creature size category."
+      },
+      "type": {
+        "type": "string",
+        "description": "Creature type (e.g. 'Aberration', 'Beast', 'Celestial', 'Construct', 'Dragon', 'Elemental', 'Fey', 'Fiend', 'Giant', 'Humanoid', 'Monstrosity', 'Ooze', 'Plant', 'Undead')."
+      },
+      "subtype": {
+        "type": "string",
+        "description": "Subcategory or heritage (e.g. 'Elf', 'Goblinoid', 'Shapechanger')."
+      },
+      "tag": {
+        "type": "string",
+        "description": "Optional secondary tag."
+      },
+      "alignment": {
+        "type": "string",
+        "description": "Ethical and moral alignment (e.g. 'chaotic evil', 'unaligned')."
+      },
+      "short_name": {
+        "type": "string",
+        "description": "Shortened name used when referencing the creature in action text."
+      },
+      "plural_name": {
+        "type": "string",
+        "description": "Plural name for descriptions."
+      },
+      "challenge_rating": {
+        "type": ["string", "number"],
+        "description": "Challenge rating display string (e.g. '2 (450 XP)', '1/4')."
+      },
+      "cr": {
+        "type": ["string", "number"],
+        "description": "Numeric or fractional challenge rating value."
+      },
+      "xp": {
+        "type": "integer",
+        "description": "Experience points awarded for defeating the creature."
+      },
+      "proficiency_bonus": {
+        "type": "integer",
+        "description": "Proficiency bonus derived from challenge rating (+2 to +9)."
+      },
+      "custom_cr": { "type": "string" },
+      "custom_prof": { "type": "integer" },
+      "armor_class": {
+        "type": ["integer", "object"],
+        "description": "Armor class value or extended property object."
+      },
+      "armor_description": {
+        "type": "string",
+        "description": "Descriptive text following AC (e.g. 'natural armor', 'leather armor', '14 (natural armor), 11 while prone')."
+      },
+      "shield_bonus": { "type": "integer", "default": 0 },
+      "nat_armor_bonus": { "type": "integer", "default": 0 },
+      "hit_points": {
+        "type": "object",
+        "required": ["current", "max"],
+        "properties": {
+          "current": { "type": "integer" },
+          "max": { "type": "integer" },
+          "temp": { "type": "integer", "default": 0 },
+          "formula": { "type": "string", "description": "Dice expression (e.g. '21d20 + 147')." },
+          "hit_dice": { "type": "string", "description": "Hit dice count and size (e.g. '21d20')." },
+          "custom_hp": { "type": "boolean", "default": false }
+        }
+      },
+      "speed": {
+        "type": ["integer", "string"],
+        "description": "Base walking speed in feet."
+      },
+      "speed_desc": {
+        "type": "string",
+        "description": "Full formatted movement string (e.g. '40 ft., fly 80 ft., swim 40 ft.')."
+      },
+      "burrow_speed": { "type": ["integer", "string"] },
+      "climb_speed": { "type": ["integer", "string"] },
+      "fly_speed": { "type": ["integer", "string"] },
+      "swim_speed": { "type": ["integer", "string"] },
+      "hover": { "type": "boolean", "default": false },
+      "custom_speed": { "type": "boolean", "default": false },
+      "abilities": {
+        "type": "object",
+        "required": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+        "properties": {
+          "strength": { "$ref": "#/$defs/abilityScore" },
+          "dexterity": { "$ref": "#/$defs/abilityScore" },
+          "constitution": { "$ref": "#/$defs/abilityScore" },
+          "intelligence": { "$ref": "#/$defs/abilityScore" },
+          "wisdom": { "$ref": "#/$defs/abilityScore" },
+          "charisma": { "$ref": "#/$defs/abilityScore" }
+        }
+      },
+      "saving_throws": {
+        "type": ["array", "object"],
+        "description": "List of proficient saving throws with bonuses (e.g. ['Dexterity +9', 'Constitution +14'])."
+      },
+      "skills": {
+        "type": ["array", "object"],
+        "description": "List of proficient skills with bonuses (e.g. ['Perception +16', 'Stealth +9'])."
+      },
+      "damage_vulnerabilities": {
+        "type": "array",
+        "items": { "type": ["string", "object"] }
+      },
+      "damage_resistances": {
+        "type": "array",
+        "items": { "type": ["string", "object"] }
+      },
+      "damage_immunities": {
+        "type": "array",
+        "items": { "type": ["string", "object"] }
+      },
+      "condition_immunities": {
+        "type": "array",
+        "items": { "type": ["string", "object"] }
+      },
+      "senses": {
+        "type": "string",
+        "description": "Human-readable summary of senses (e.g. 'blindsight 60 ft., darkvision 120 ft., passive Perception 26')."
+      },
+      "blindsight": { "type": ["integer", "string"] },
+      "blind": { "type": "boolean", "default": false },
+      "darkvision": { "type": ["integer", "string"] },
+      "tremorsense": { "type": ["integer", "string"] },
+      "truesight": { "type": ["integer", "string"] },
+      "telepathy": { "type": ["integer", "string"] },
+      "passive_perception": { "type": ["integer", "object"] },
+      "languages": {
+        "type": ["array", "string"],
+        "description": "Languages known or understood by the creature.",
+        "items": { "type": ["string", "object"] }
+      },
+      "understands_but": { "type": "string" },
+      "languages_detail": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "speaks": { "type": "boolean", "default": true }
+          }
+        }
+      },
+      "traits": {
+        "type": "array",
+        "description": "Special traits and passive monster features.",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "actions": {
+        "type": "array",
+        "description": "Standard combat actions (attacks, multiattack, breath weapons).",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "bonus_actions": {
+        "type": "array",
+        "description": "Bonus actions available to the creature.",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "reactions": {
+        "type": "array",
+        "description": "Reactions available to the creature.",
+        "items": { "$ref": "#/$defs/actionEntry" }
+      },
+      "is_legendary": { "type": "boolean", "default": false },
+      "legendary_actions": {
+        "type": ["object", "array"],
+        "description": "Legendary action preamble and action options.",
+        "properties": {
+          "description": { "type": "string" },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "is_mythic": { "type": "boolean", "default": false },
+      "mythic_actions": {
+        "type": ["object", "array"],
+        "description": "Mythic action preamble and action options.",
+        "properties": {
+          "description": { "type": "string" },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "is_lair": { "type": "boolean", "default": false },
+      "lair_actions": {
+        "type": ["object", "array"],
+        "description": "Lair action preamble, effects, and usage rules.",
+        "properties": {
+          "description": { "type": "string" },
+          "description_end": { "type": "string" },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      },
+      "is_regional": { "type": "boolean", "default": false },
+      "regional_effects": {
+        "type": ["object", "array"],
+        "description": "Regional effects caused by the creature's lair.",
+        "properties": {
+          "description": { "type": "string" },
+          "description_end": { "type": "string" },
+          "effects": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/actionEntry" }
+          }
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "calculated_properties": {
+    "proficiency_bonus": {
+      "expr": "cr >= 29 ? 9 : (cr >= 25 ? 8 : (cr >= 21 ? 7 : (cr >= 17 ? 6 : (cr >= 13 ? 5 : (cr >= 9 ? 4 : (cr >= 5 ? 3 : 2))))))",
+      "type": "integer",
+      "dependencies": ["cr"],
+      "description": "5e Proficiency bonus derived from Challenge Rating."
+    },
+    "passive_perception": {
+      "expr": "10 + floor((abilities.wisdom - 10) / 2) + (skills.perception ? proficiency_bonus : 0)",
+      "type": "integer",
+      "dependencies": ["abilities.wisdom", "skills", "proficiency_bonus"]
+    }
+  },
+  "default_values": {
+    "size": "medium",
+    "type": "Monstrosity",
+    "alignment": "unaligned",
+    "speed": 30,
+    "speed_desc": "30 ft.",
+    "armor_class": 10,
+    "armor_description": "natural armor",
+    "abilities": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 10,
+      "charisma": 10
+    },
+    "hit_points": {
+      "current": 10,
+      "max": 10,
+      "formula": "2d8 + 2",
+      "hit_dice": "2d8"
+    },
+    "traits": [],
+    "actions": []
+  }
+}

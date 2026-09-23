@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "2ffcc2ae-0fd5-4bb6-90ca-a8357adf4ff2",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Cleansing Stone",
+  "description": "Wondrous item (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 215548,
+    "name": "Cleansing Stone",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": null,
+    "description": "A cleansing stone is a sphere 1 foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person.\n\n\r\nSuch stones are often embedded in pedestals in public squares in Aundair or in high-end Ghallanda inns.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

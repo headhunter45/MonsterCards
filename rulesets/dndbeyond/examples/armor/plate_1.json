@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "39f64fa2-ff15-48ec-b2ba-0bf7d518a18b",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Plate, +1",
+  "description": "Armor (AC 18)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 5092,
+    "name": "Plate, +1",
+    "type": null,
+    "filterType": "Armor",
+    "armorClass": 18,
+    "armorTypeId": 3,
+    "strengthRequirement": 15,
+    "stealthCheck": 2,
+    "weight": 65,
+    "cost": null,
+    "rarity": "Rare",
+    "description": "You have a +1 bonus to AC while wearing this armor."
+  }
+}

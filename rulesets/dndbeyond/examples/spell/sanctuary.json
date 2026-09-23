@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "f62028ce-3fd2-466b-97e6-8a6ae5869ca5",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Sanctuary",
+  "description": "Level 1 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 2237,
+    "name": "Sanctuary",
+    "level": 1,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Minute",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 3
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a Wisdom saving throw. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from area effects, such as the explosion of a fireball.\n\n\r\nIf the warded creature makes an attack, casts a spell that affects an enemy, or deals damage to another creature, this spell ends.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a small silver mirror",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 272,
+        "sourceType": 1
+      }
+    ]
+  }
+}

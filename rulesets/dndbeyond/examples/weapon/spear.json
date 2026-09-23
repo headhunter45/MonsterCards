@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "bf8a1c7c-754f-4d57-8a98-44c6e4ee6bfe",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Spear",
+  "description": "Spear dealing Piercing.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "spear"
+  ],
+  "properties": {
+    "id": 14,
+    "name": "Spear",
+    "type": "Spear",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 6,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d6"
+    },
+    "damageType": "Piercing",
+    "range": 20,
+    "longRange": 60,
+    "properties": [
+      {
+        "id": 10,
+        "name": "Thrown",
+        "description": "<p>If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.</p>",
+        "notes": null
+      },
+      {
+        "id": 12,
+        "name": "Versatile",
+        "description": "<p>A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack.</p>",
+        "notes": "1d8"
+      },
+      {
+        "id": 22,
+        "name": "Sap",
+        "description": "<p>If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 3,
+    "cost": 1,
+    "rarity": "Common",
+    "description": "Proficiency with a Spear allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nSap. If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.",
+    "isMonkWeapon": true
+  }
+}

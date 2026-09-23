@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "edfb4e39-a3e9-4690-8dd9-f1957c4f0940",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Invisibility",
+  "description": "Level 2 Illusion spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "illusion"
+  ],
+  "properties": {
+    "id": 2159,
+    "name": "Invisibility",
+    "level": 2,
+    "school": "Illusion",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Concentration"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": 0,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.",
+    "snippet": "",
+    "concentration": true,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "an eyelash encased in gum arabic",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 254,
+        "sourceType": 1
+      }
+    ]
+  }
+}

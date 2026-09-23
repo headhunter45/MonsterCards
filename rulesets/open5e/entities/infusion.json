@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "infusion",
+  "name": "Artificer Infusion",
+  "description": "5e Artificer Infusion entity definition specifying prerequisites, item targets, attunement requirements, description, and granted modifiers.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "description"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the infusion (e.g. 'Enhanced Defense', 'Repeating Shot', 'Replicate Magic Item')."
+      },
+      "prerequisite": {
+        "type": ["string", "null"],
+        "default": null,
+        "description": "Prerequisite needed to learn this infusion (e.g. '6th-level artificer', null for none)."
+      },
+      "item_type": {
+        "type": ["string", "array"],
+        "description": "Item type that this infusion can be applied to (e.g. 'A suit of armor or a shield', 'A simple or martial weapon with the ammunition property')."
+      },
+      "attunement": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether the infused item requires attunement while infused."
+      },
+      "description": {
+        "type": "string",
+        "description": "Complete rules text and mechanical effects of the infusion."
+      },
+      "benefits": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Bullet points summarizing key mechanical benefits."
+      },
+      "grants_modifiers": {
+        "type": "array",
+        "description": "Modifiers granted to the item or wearer when this infusion is active.",
+        "items": {
+          "type": "object",
+          "required": ["target", "value"],
+          "properties": {
+            "target": { "type": "string" },
+            "value": { "type": ["number", "string"] },
+            "type": { "type": "string" },
+            "source": { "type": "string" }
+          }
+        }
+      },
+      "replicated_item": {
+        "type": ["string", "object", "null"],
+        "description": "For Replicate Magic Item infusions, the target magic item name or reference."
+      }
+    }
+  },
+  "default_values": {
+    "prerequisite": null,
+    "attunement": false,
+    "benefits": [],
+    "grants_modifiers": []
+  }
+}

@@ -1,0 +1,462 @@
+{
+    "character": {
+        "id": 0,
+        "success": true,
+        "message": "Character successfully received.",
+        "data": {
+            "id": 24332804,
+            "userId": 105672483,
+            "username": "sparklesandfriends",
+            "isAssignedToPlayer": true,
+            "readonlyUrl": "https://ddb.ac/characters/24332804/demo",
+            "name": "Artificer Vance",
+            "gender": "Male",
+            "age": 34,
+            "hair": "Brown",
+            "eyes": "Hazel",
+            "skin": "Fair",
+            "height": "5'10\"",
+            "weight": 170,
+            "inspiration": false,
+            "baseHitPoints": 48,
+            "bonusHitPoints": null,
+            "overrideHitPoints": null,
+            "removedHitPoints": 0,
+            "temporaryHitPoints": 0,
+            "currentXp": 14000,
+            "alignmentId": 4,
+            "lifestyleId": 3,
+            "stats": [
+                {
+                    "id": 1,
+                    "name": null,
+                    "value": 10
+                },
+                {
+                    "id": 2,
+                    "name": null,
+                    "value": 14
+                },
+                {
+                    "id": 3,
+                    "name": null,
+                    "value": 14
+                },
+                {
+                    "id": 4,
+                    "name": null,
+                    "value": 18
+                },
+                {
+                    "id": 5,
+                    "name": null,
+                    "value": 12
+                },
+                {
+                    "id": 6,
+                    "name": null,
+                    "value": 8
+                }
+            ],
+            "bonusStats": [
+                {
+                    "id": 1,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 2,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 3,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 4,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 5,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 6,
+                    "name": null,
+                    "value": null
+                }
+            ],
+            "overrideStats": [
+                {
+                    "id": 1,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 2,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 3,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 4,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 5,
+                    "name": null,
+                    "value": null
+                },
+                {
+                    "id": 6,
+                    "name": null,
+                    "value": null
+                }
+            ],
+            "race": {
+                "entityRaceId": 1,
+                "entityRaceTypeId": 1234,
+                "fullName": "Rock Gnome",
+                "baseRaceName": "Gnome",
+                "subRaceShortName": "Rock",
+                "description": "As a rock gnome, you have a natural inventiveness...",
+                "sizeId": 4
+            },
+            "classes": [
+                {
+                    "id": 8920192,
+                    "entityTypeId": 1282167126,
+                    "level": 6,
+                    "isStartingClass": true,
+                    "hitDiceUsed": 0,
+                    "definition": {
+                        "id": 252717,
+                        "name": "Artificer",
+                        "hitDice": 8
+                    },
+                    "subclassDefinition": {
+                        "id": 198273,
+                        "name": "Battle Smith"
+                    }
+                }
+            ],
+            "inventory": [
+                {
+                    "id": 456789123,
+                    "entityTypeId": 1437517608,
+                    "definition": {
+                        "id": 104,
+                        "name": "Shield",
+                        "type": "Shield",
+                        "filterType": "Armor",
+                        "armorClass": 2,
+                        "baseArmorName": "Shield"
+                    },
+                    "quantity": 1,
+                    "isAttuned": false,
+                    "equipped": true
+                },
+                {
+                    "id": 456789124,
+                    "entityTypeId": 1437517608,
+                    "definition": {
+                        "id": 201,
+                        "name": "Warhammer",
+                        "type": "Martial Melee",
+                        "filterType": "Weapon",
+                        "damage": {
+                            "diceCount": 1,
+                            "diceValue": 8
+                        }
+                    },
+                    "quantity": 1,
+                    "isAttuned": false,
+                    "equipped": true
+                }
+            ]
+        },
+        "pagination": null
+    },
+    "vehicles": {
+        "id": 0,
+        "success": true,
+        "message": "Successfully retrieved vehicle mappings",
+        "data": [
+            {
+                "id": 554433,
+                "characterId": 24332804,
+                "name": "The Iron Keel",
+                "vehicleType": 2,
+                "capacity": {
+                    "crew": 10,
+                    "passengers": 20,
+                    "cargo": 100
+                },
+                "speed": {
+                    "pace": "4 mph",
+                    "speed": 35
+                },
+                "dimensions": "80 ft. by 20 ft.",
+                "creatureCapacity": "30 crew/passengers",
+                "cargoCapacity": 100,
+                "armorClass": 15,
+                "hitPoints": 300,
+                "damageThreshold": 15,
+                "isCustom": false,
+                "definitionId": 42,
+                "actions": [
+                    {
+                        "id": 101,
+                        "name": "Ram",
+                        "description": "The ship moves into a target's space to deal 8d10 bludgeoning damage."
+                    }
+                ]
+            }
+        ],
+        "pagination": null
+    },
+    "vehicleComponents": {
+        "id": 0,
+        "success": true,
+        "message": "Successfully retrieved component mappings",
+        "data": [
+            {
+                "id": 112233,
+                "vehicleId": 554433,
+                "characterId": 24332804,
+                "name": "Reinforced Hull",
+                "type": "Hull",
+                "componentType": 1,
+                "armorClass": 15,
+                "hitPoints": 300,
+                "damageThreshold": 15,
+                "actions": [],
+                "speed": null
+            },
+            {
+                "id": 112234,
+                "vehicleId": 554433,
+                "characterId": 24332804,
+                "name": "Sails & Rigging",
+                "type": "Movement",
+                "componentType": 2,
+                "armorClass": 12,
+                "hitPoints": 100,
+                "damageThreshold": 0,
+                "actions": [],
+                "speed": "35 ft."
+            },
+            {
+                "id": 112235,
+                "vehicleId": 554433,
+                "characterId": 24332804,
+                "name": "Forward Ballista",
+                "type": "Weapon",
+                "componentType": 3,
+                "armorClass": 15,
+                "hitPoints": 50,
+                "damageThreshold": 0,
+                "actions": [
+                    {
+                        "id": 201,
+                        "name": "Bolt",
+                        "description": "+6 to hit, range 120/480 ft., one target. Hit: 16 (3d10) piercing damage."
+                    }
+                ],
+                "speed": null
+            }
+        ],
+        "pagination": null
+    },
+    "knownInfusions": {
+        "id": 0,
+        "success": true,
+        "message": "Successfully retrieved known infusion mappings",
+        "data": [
+            {
+                "id": 8419203,
+                "characterId": 24332804,
+                "entityTypeId": 1782728300,
+                "definitionKey": "repulsion-shield",
+                "name": "Repulsion Shield",
+                "itemRuleType": "artificer-infusion",
+                "type": "ArtificerInfusion",
+                "levelRequirement": 6,
+                "snippet": "A shield that grants a +1 bonus to AC and allows the wielder to push an attacker up to 15 feet away as a reaction.",
+                "description": "<p>A creature gains a +1 bonus to Armor Class while wielding this shield. A creature that is hit by a melee attack can use its reaction to push the attacker up to 15 feet away.</p>",
+                "prerequisites": [
+                    {
+                        "id": 14902,
+                        "name": "6th Level",
+                        "description": "Requires 6th-level Artificer",
+                        "prerequisiteType": 1,
+                        "prerequisiteSubType": "class-level",
+                        "value": 6,
+                        "entityId": 252717,
+                        "entityTypeId": 1282167126
+                    },
+                    {
+                        "id": 14903,
+                        "name": "Item Type: Shield",
+                        "description": "Item prerequisite: A shield",
+                        "prerequisiteType": 2,
+                        "prerequisiteSubType": "item-type",
+                        "value": null,
+                        "entityId": 4,
+                        "entityTypeId": 1437517608
+                    }
+                ],
+                "definition": {
+                    "id": 2045,
+                    "name": "Repulsion Shield",
+                    "description": "<p>A creature gains a +1 bonus to Armor Class while wielding this shield...</p>",
+                    "snippet": "Bonus to AC and reaction push.",
+                    "filterType": "Armor",
+                    "type": "Shield",
+                    "rarity": "Varies",
+                    "attunement": true,
+                    "attunementDescription": "Requires Attunement",
+                    "requiresAttunement": true,
+                    "modifiers": [
+                        {
+                            "id": "repulsion-shield-bonus-ac",
+                            "entityId": null,
+                            "entityTypeId": null,
+                            "type": "bonus",
+                            "subType": "armor-class",
+                            "dice": null,
+                            "restriction": "",
+                            "statId": null,
+                            "requiresAttunement": true,
+                            "duration": null,
+                            "isGranted": true,
+                            "value": 1,
+                            "friendlyTypeName": "Bonus",
+                            "friendlySubtypeName": "Armor Class"
+                        }
+                    ],
+                    "tags": [
+                        "Warding",
+                        "Utility"
+                    ]
+                }
+            },
+            {
+                "id": 8419204,
+                "characterId": 24332804,
+                "entityTypeId": 1782728300,
+                "definitionKey": "enhanced-weapon",
+                "name": "Enhanced Weapon",
+                "itemRuleType": "artificer-infusion",
+                "type": "ArtificerInfusion",
+                "levelRequirement": 2,
+                "snippet": "This magic weapon grants a +1 bonus to attack and damage rolls made with it.",
+                "description": "<p>This magic weapon grants a +1 bonus to attack and damage rolls made with it. At 10th level, this bonus increases to +2.</p>",
+                "prerequisites": [
+                    {
+                        "id": 14904,
+                        "name": "Item Type: Simple or Martial Weapon",
+                        "description": "Item prerequisite: A simple or martial weapon",
+                        "prerequisiteType": 2,
+                        "prerequisiteSubType": "item-type",
+                        "value": null,
+                        "entityId": 2,
+                        "entityTypeId": 1437517608
+                    }
+                ],
+                "definition": {
+                    "id": 2046,
+                    "name": "Enhanced Weapon",
+                    "description": "<p>Grants a bonus to attack and damage rolls...</p>",
+                    "snippet": "+1 or +2 to attack and damage rolls.",
+                    "filterType": "Weapon",
+                    "type": "Simple or Martial Weapon",
+                    "rarity": "Common",
+                    "attunement": false,
+                    "attunementDescription": null,
+                    "requiresAttunement": false,
+                    "modifiers": [
+                        {
+                            "id": "enhanced-weapon-attack-bonus",
+                            "entityId": null,
+                            "entityTypeId": null,
+                            "type": "bonus",
+                            "subType": "magic",
+                            "dice": null,
+                            "restriction": "",
+                            "statId": null,
+                            "requiresAttunement": false,
+                            "duration": null,
+                            "isGranted": true,
+                            "value": 1,
+                            "friendlyTypeName": "Bonus",
+                            "friendlySubtypeName": "Magic"
+                        }
+                    ],
+                    "tags": [
+                        "Combat",
+                        "Damage"
+                    ]
+                }
+            }
+        ],
+        "pagination": null
+    },
+    "infusions": {
+        "id": 0,
+        "success": true,
+        "message": "Successfully retrieved infusion mappings",
+        "data": [
+            {
+                "id": 987654,
+                "characterId": 24332804,
+                "definitionKey": "repulsion-shield",
+                "name": "Repulsion Shield",
+                "itemRuleType": "artificer-infusion",
+                "infusedEntity": {
+                    "entityId": 456789123,
+                    "entityTypeId": 1437517608,
+                    "itemType": "Armor"
+                },
+                "modifiers": [
+                    {
+                        "id": "modifier-repulsion-shield-1",
+                        "type": "bonus",
+                        "subType": "armor-class",
+                        "fixedValue": 1
+                    }
+                ]
+            },
+            {
+                "id": 987655,
+                "characterId": 24332804,
+                "definitionKey": "enhanced-weapon",
+                "name": "Enhanced Weapon",
+                "itemRuleType": "artificer-infusion",
+                "infusedEntity": {
+                    "entityId": 456789124,
+                    "entityTypeId": 1437517608,
+                    "itemType": "Weapon"
+                },
+                "modifiers": [
+                    {
+                        "id": "modifier-enhanced-weapon-1",
+                        "type": "bonus",
+                        "subType": "magic",
+                        "fixedValue": 1
+                    }
+                ]
+            }
+        ],
+        "pagination": null
+    }
+}

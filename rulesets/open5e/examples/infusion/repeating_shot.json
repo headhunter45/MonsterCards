@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "77915368-1670-4a77-a710-170087368530",
+  "ruleset_id": "open5e",
+  "entity_type": "infusion",
+  "display_name": "Repeating Shot",
+  "description": "Artificer Infusion: +1 bonus to attack and damage rolls with ranged weapon; ignores loading and generates ammo.",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T00:00:00Z",
+  "updated_at": "2026-09-17T00:00:00Z",
+  "tags": ["artificer", "infusion", "weapon", "ranged"],
+  "properties": {
+    "name": "Repeating Shot",
+    "prerequisite": null,
+    "item_type": "A simple or martial weapon with the ammunition property",
+    "attunement": true,
+    "description": "This magic weapon grants a +1 bonus to attack and damage rolls made with it when used by a creature attuned to it. It ignores the loading property if it has it. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it.",
+    "benefits": [
+      "+1 bonus to attack and damage rolls",
+      "Ignores loading property",
+      "Magically creates its own ammunition if none is loaded"
+    ],
+    "grants_modifiers": [
+      {
+        "target": "attack_bonus",
+        "value": 1,
+        "type": "bonus",
+        "source": "Infusion: Repeating Shot"
+      },
+      {
+        "target": "damage",
+        "value": 1,
+        "type": "bonus",
+        "source": "Infusion: Repeating Shot"
+      }
+    ]
+  }
+}

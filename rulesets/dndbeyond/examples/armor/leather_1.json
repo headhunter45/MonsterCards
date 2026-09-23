@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "eac0a1fa-945e-4d25-8bf8-62ec9614a43c",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Leather, +1",
+  "description": "Armor (AC 11)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 5090,
+    "name": "Leather, +1",
+    "type": null,
+    "filterType": "Armor",
+    "armorClass": 11,
+    "armorTypeId": 1,
+    "strengthRequirement": 0,
+    "stealthCheck": 1,
+    "weight": 10,
+    "cost": null,
+    "rarity": "Rare",
+    "description": "You have a +1 bonus to AC while wearing this armor."
+  }
+}

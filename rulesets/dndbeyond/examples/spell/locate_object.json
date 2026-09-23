@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "9cbe12e7-5689-4166-855e-fda9abe69f6d",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Locate Object",
+  "description": "Level 2 Divination spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "divination"
+  ],
+  "properties": {
+    "id": 2170,
+    "name": "Locate Object",
+    "level": 2,
+    "school": "Divination",
+    "duration": {
+      "durationInterval": 10,
+      "durationUnit": "Minute",
+      "durationType": "Concentration"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Self",
+      "rangeValue": 0,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "Describe or name an object that is familiar to you. You sense the direction to the object's location, as long as that object is within 1,000 feet of you. If the object is in motion, you know the direction of its movement.\n\n\r\nThe spell can locate a specific object known to you, as long as you have seen it up close--within 30 feet--at least once. Alternatively, the spell can locate the nearest object of a particular kind, such as a certain kind of apparel, jewelry, furniture, tool, or weapon.\n\n\r\nThis spell can't locate an object if any thickness of lead, even a thin sheet, blocks a direct path between you and the object.",
+    "snippet": "",
+    "concentration": true,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a forked twig",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 256,
+        "sourceType": 1
+      }
+    ]
+  }
+}

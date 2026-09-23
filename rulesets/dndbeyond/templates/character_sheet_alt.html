@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Alternative Character Sheet</title>
+  <link rel="stylesheet" href="character_sheet_alt.css">
+  <link rel="stylesheet" href="entity_cards.css">
+  <script src="character_sheet.js" defer></script>
+</head>
+<body class="sheet-page-wrapper">
+  <div class="character-sheet-container">
+    
+    <!-- Top Header Banner -->
+    <header class="sheet-header">
+      <div class="header-name-box">
+        <h1 class="character-name">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+        <label class="header-label">CHARACTER NAME</label>
+      </div>
+      <div class="header-details-grid">
+        <div class="detail-cell">
+          <div class="detail-val">{{ddbClassDisplay properties}}</div>
+          <label class="header-label">CLASS &amp; LEVEL</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{ddbBackgroundName properties}}</div>
+          <label class="header-label">BACKGROUND</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{#if properties.username}}{{properties.username}}{{else}}&mdash;{{/if}}</div>
+          <label class="header-label">PLAYER NAME</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{ddbRaceName properties}}</div>
+          <label class="header-label">RACE</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{ddbAlignment properties}}</div>
+          <label class="header-label">ALIGNMENT</label>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-val">{{#if properties.currentXp}}{{properties.currentXp}}{{else}}0{{/if}} XP</div>
+          <label class="header-label">EXPERIENCE POINTS</label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main 3-Column Body -->
+    <main class="sheet-main-grid">
+      
+      <!-- ================= LEFT COLUMN: ABILITY-GROUPED STATS ================= -->
+      <section class="sheet-col col-left">
+        
+        <!-- Top Controls: Proficiency Bonus & Inspiration -->
+        <div class="alt-top-row">
+          <div class="alt-stat-pill">
+            <span class="pill-value">{{ddbProfBonusText properties}}</span>
+            <span class="pill-label">PROFICIENCY BONUS</span>
+          </div>
+          <div class="alt-stat-pill">
+            <span class="pill-checkbox {{#if properties.inspiration}}checked{{/if}}"></span>
+            <span class="pill-label">INSPIRATION</span>
+          </div>
+        </div>
+
+        <!-- STRENGTH GROUP (1) -->
+        <div class="ability-group-box">
+          <div class="ag-score-badge">
+            <span class="ag-title">STRENGTH</span>
+            <span class="ag-mod">{{ddbStatModText properties 1}}</span>
+            <span class="ag-score">{{ddbStatScore properties 1}}</span>
+          </div>
+          <ul class="ag-sublist">
+            <li class="ag-subitem">
+              <span class="dot {{#if (ddbHasSaveProf properties 1)}}filled{{/if}}"></span>
+              <span class="ag-bonus">{{ddbSavingThrow properties 1}}</span>
+              <span class="ag-name save-title">Saving Throw</span>
+            </li>
+            {{#ddbSkillsForStat properties 1}}
+            <li class="ag-subitem">
+              <span class="dot {{#if this.isProf}}filled{{/if}}{{#if this.isExpert}} expert{{/if}}"></span>
+              <span class="ag-bonus">{{this.bonus}}</span>
+              <span class="ag-name">{{this.name}}</span>
+            </li>
+            {{/ddbSkillsForStat}}
+          </ul>
+        </div>
+
+        <!-- DEXTERITY GROUP (2) -->
+        <div class="ability-group-box">
+          <div class="ag-score-badge">
+            <span class="ag-title">DEXTERITY</span>
+            <span class="ag-mod">{{ddbStatModText properties 2}}</span>
+            <span class="ag-score">{{ddbStatScore properties 2}}</span>
+          </div>
+          <ul class="ag-sublist">
+            <li class="ag-subitem">
+              <span class="dot {{#if (ddbHasSaveProf properties 2)}}filled{{/if}}"></span>
+              <span class="ag-bonus">{{ddbSavingThrow properties 2}}</span>
+              <span class="ag-name save-title">Saving Throw</span>
+            </li>
+            {{#ddbSkillsForStat properties 2}}
+            <li class="ag-subitem">
+              <span class="dot {{#if this.isProf}}filled{{/if}}{{#if this.isExpert}} expert{{/if}}"></span>
+              <span class="ag-bonus">{{this.bonus}}</span>
+              <span class="ag-name">{{this.name}}</span>
+            </li>
+            {{/ddbSkillsForStat}}
+          </ul>
+        </div>
+
+        <!-- CONSTITUTION GROUP (3) -->
+        <div class="ability-group-box">
+          <div class="ag-score-badge">
+            <span class="ag-title">CONSTITUTION</span>
+            <span class="ag-mod">{{ddbStatModText properties 3}}</span>
+            <span class="ag-score">{{ddbStatScore properties 3}}</span>
+          </div>
+          <ul class="ag-sublist">
+            <li class="ag-subitem">
+              <span class="dot {{#if (ddbHasSaveProf properties 3)}}filled{{/if}}"></span>
+              <span class="ag-bonus">{{ddbSavingThrow properties 3}}</span>
+              <span class="ag-name save-title">Saving Throw</span>
+            </li>
+            {{#ddbSkillsForStat properties 3}}
+            <li class="ag-subitem">
+              <span class="dot {{#if this.isProf}}filled{{/if}}{{#if this.isExpert}} expert{{/if}}"></span>
+              <span class="ag-bonus">{{this.bonus}}</span>
+              <span class="ag-name">{{this.name}}</span>
+            </li>
+            {{/ddbSkillsForStat}}
+          </ul>
+        </div>
+
+        <!-- INTELLIGENCE GROUP (4) -->
+        <div class="ability-group-box">
+          <div class="ag-score-badge">
+            <span class="ag-title">INTELLIGENCE</span>
+            <span class="ag-mod">{{ddbStatModText properties 4}}</span>
+            <span class="ag-score">{{ddbStatScore properties 4}}</span>
+          </div>
+          <ul class="ag-sublist">
+            <li class="ag-subitem">
+              <span class="dot {{#if (ddbHasSaveProf properties 4)}}filled{{/if}}"></span>
+              <span class="ag-bonus">{{ddbSavingThrow properties 4}}</span>
+              <span class="ag-name save-title">Saving Throw</span>
+            </li>
+            {{#ddbSkillsForStat properties 4}}
+            <li class="ag-subitem">
+              <span class="dot {{#if this.isProf}}filled{{/if}}{{#if this.isExpert}} expert{{/if}}"></span>
+              <span class="ag-bonus">{{this.bonus}}</span>
+              <span class="ag-name">{{this.name}}</span>
+            </li>
+            {{/ddbSkillsForStat}}
+          </ul>
+        </div>
+
+        <!-- WISDOM GROUP (5) -->
+        <div class="ability-group-box">
+          <div class="ag-score-badge">
+            <span class="ag-title">WISDOM</span>
+            <span class="ag-mod">{{ddbStatModText properties 5}}</span>
+            <span class="ag-score">{{ddbStatScore properties 5}}</span>
+          </div>
+          <ul class="ag-sublist">
+            <li class="ag-subitem">
+              <span class="dot {{#if (ddbHasSaveProf properties 5)}}filled{{/if}}"></span>
+              <span class="ag-bonus">{{ddbSavingThrow properties 5}}</span>
+              <span class="ag-name save-title">Saving Throw</span>
+            </li>
+            {{#ddbSkillsForStat properties 5}}
+            <li class="ag-subitem">
+              <span class="dot {{#if this.isProf}}filled{{/if}}{{#if this.isExpert}} expert{{/if}}"></span>
+              <span class="ag-bonus">{{this.bonus}}</span>
+              <span class="ag-name">{{this.name}}</span>
+            </li>
+            {{/ddbSkillsForStat}}
+          </ul>
+        </div>
+
+        <!-- CHARISMA GROUP (6) -->
+        <div class="ability-group-box">
+          <div class="ag-score-badge">
+            <span class="ag-title">CHARISMA</span>
+            <span class="ag-mod">{{ddbStatModText properties 6}}</span>
+            <span class="ag-score">{{ddbStatScore properties 6}}</span>
+          </div>
+          <ul class="ag-sublist">
+            <li class="ag-subitem">
+              <span class="dot {{#if (ddbHasSaveProf properties 6)}}filled{{/if}}"></span>
+              <span class="ag-bonus">{{ddbSavingThrow properties 6}}</span>
+              <span class="ag-name save-title">Saving Throw</span>
+            </li>
+            {{#ddbSkillsForStat properties 6}}
+            <li class="ag-subitem">
+              <span class="dot {{#if this.isProf}}filled{{/if}}{{#if this.isExpert}} expert{{/if}}"></span>
+              <span class="ag-bonus">{{this.bonus}}</span>
+              <span class="ag-name">{{this.name}}</span>
+            </li>
+            {{/ddbSkillsForStat}}
+          </ul>
+        </div>
+
+        <!-- Passive Perception Box -->
+        <div class="passive-perception-box">
+          <span class="passive-score">{{ddbPassivePerception properties}}</span>
+          <span class="passive-label">PASSIVE WISDOM (PERCEPTION)</span>
+        </div>
+
+        <!-- Other Proficiencies & Languages Box -->
+        <div class="section-box proficiencies-box">
+          <div class="prof-block-content">
+            {{#with (ddbOtherProficiencies properties)}}
+              {{#if armor}}
+                <div class="prof-line"><strong>Armor:</strong> {{armor}}</div>
+              {{/if}}
+              {{#if weapons}}
+                <div class="prof-line"><strong>Weapons:</strong> {{weapons}}</div>
+              {{/if}}
+              {{#if tools}}
+                <div class="prof-line"><strong>Tools:</strong> {{tools}}</div>
+              {{/if}}
+              {{#if languages}}
+                <div class="prof-line"><strong>Languages:</strong> {{languages}}</div>
+              {{/if}}
+            {{/with}}
+          </div>
+          <div class="box-bottom-label">OTHER PROFICIENCIES &amp; LANGUAGES</div>
+        </div>
+
+      </section>
+
+      <!-- ================= MIDDLE COLUMN ================= -->
+      <section class="sheet-col col-middle">
+        
+        <!-- Combat Top Row: AC, Initiative, Speed -->
+        <div class="combat-top-row">
+          <div class="combat-badge badge-ac">
+            <span class="badge-value">{{ddbArmorClass properties}}</span>
+            <span class="badge-label">ARMOR CLASS</span>
+          </div>
+          <div class="combat-badge badge-init">
+            <span class="badge-value">{{ddbInitiative properties}}</span>
+            <span class="badge-label">INITIATIVE</span>
+          </div>
+          <div class="combat-badge badge-speed">
+            <span class="badge-value">{{ddbSpeed properties}} ft.</span>
+            <span class="badge-label">SPEED</span>
+          </div>
+        </div>
+
+        <!-- Current Hit Points -->
+        <div class="section-box hp-box">
+          <div class="hp-max-line">
+            Hit Point Maximum: <strong>{{ddbMaxHp properties}}</strong>
+          </div>
+          <div class="hp-current-val">
+            {{ddbCurrentHp properties}}
+          </div>
+          <div class="box-bottom-label">CURRENT HIT POINTS</div>
+        </div>
+
+        <!-- Temporary Hit Points -->
+        <div class="section-box temp-hp-box">
+          <div class="temp-hp-val">
+            {{#if (ddbTempHp properties)}}{{ddbTempHp properties}}{{else}}--{{/if}}
+          </div>
+          <div class="box-bottom-label">TEMPORARY HIT POINTS</div>
+        </div>
+
+        <!-- Hit Dice & Death Saves Row -->
+        <div class="hd-and-death-row">
+          <!-- Hit Dice -->
+          <div class="section-box half-box hd-box">
+            <div class="hd-total-line">Total: {{ddbTotalLevel properties}}</div>
+            <div class="hd-current-val">
+              {{ddbHitDice properties}}
+            </div>
+            <div class="box-bottom-label">HIT DICE</div>
+          </div>
+
+          <!-- Death Saves -->
+          <div class="section-box half-box death-saves-box">
+            {{#with (ddbDeathSaves properties)}}
+            <div class="death-save-line">
+              <span class="ds-title">SUCCESSES</span>
+              <span class="ds-bubbles">
+                <span class="bubble {{#if (ddbGte successes 1)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (ddbGte successes 2)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (ddbGte successes 3)}}filled{{/if}}"></span>
+              </span>
+            </div>
+            <div class="death-save-line">
+              <span class="ds-title">FAILURES</span>
+              <span class="ds-bubbles">
+                <span class="bubble {{#if (ddbGte failures 1)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (ddbGte failures 2)}}filled{{/if}}"></span>
+                <span class="bubble {{#if (ddbGte failures 3)}}filled{{/if}}"></span>
+              </span>
+            </div>
+            {{/with}}
+            <div class="box-bottom-label">DEATH SAVES</div>
+          </div>
+        </div>
+
+        <!-- Attacks & Spellcasting -->
+        <div class="section-box attacks-box">
+          <table class="attacks-table">
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>ATK BONUS</th>
+                <th>DAMAGE/TYPE</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#ddbAttacks properties}}
+              <tr>
+                <td class="atk-name">{{this.name}}</td>
+                <td class="atk-bonus">{{this.atkBonus}}</td>
+                <td class="atk-damage">{{this.damage}}</td>
+              </tr>
+              {{/ddbAttacks}}
+            </tbody>
+          </table>
+          <div class="box-bottom-label">ATTACKS &amp; SPELLCASTING</div>
+        </div>
+
+        <!-- Equipment & Coins -->
+        <div class="section-box equipment-box">
+          <div class="equipment-layout">
+            <!-- Coins Column -->
+            {{#with (ddbCurrencies properties)}}
+            <div class="coins-stack">
+              <div class="coin-row">
+                <span class="coin-tag">CP</span>
+                <span class="coin-val">{{cp}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">SP</span>
+                <span class="coin-val">{{sp}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">EP</span>
+                <span class="coin-val">{{ep}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">GP</span>
+                <span class="coin-val">{{gp}}</span>
+              </div>
+              <div class="coin-row">
+                <span class="coin-tag">PP</span>
+                <span class="coin-val">{{pp}}</span>
+              </div>
+            </div>
+            {{/with}}
+
+            <!-- Equipment List -->
+            <div class="items-list-container">
+              <ul class="items-list">
+                {{#ddbInventoryItems properties}}
+                <li class="item-row">
+                  {{> item_card isInline=true}}
+                </li>
+                {{/ddbInventoryItems}}
+              </ul>
+            </div>
+          </div>
+          <div class="box-bottom-label">EQUIPMENT</div>
+        </div>
+
+      </section>
+
+      <!-- ================= RIGHT COLUMN ================= -->
+      <section class="sheet-col col-right">
+        
+        <!-- Personality Traits -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.traits.personalityTraits}}
+              <p>{{properties.traits.personalityTraits}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">PERSONALITY TRAITS</div>
+        </div>
+
+        <!-- Ideals -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.traits.ideals}}
+              <p>{{properties.traits.ideals}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">IDEALS</div>
+        </div>
+
+        <!-- Bonds -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.traits.bonds}}
+              <p>{{properties.traits.bonds}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">BONDS</div>
+        </div>
+
+        <!-- Flaws -->
+        <div class="section-box roleplay-box">
+          <div class="box-content">
+            {{#if properties.traits.flaws}}
+              <p>{{properties.traits.flaws}}</p>
+            {{else}}
+              <span class="empty-hint">None</span>
+            {{/if}}
+          </div>
+          <div class="box-bottom-label">FLAWS</div>
+        </div>
+
+        <!-- Features & Traits (Large Box) -->
+        <div class="section-box features-box">
+          <div class="features-content">
+            {{#ddbFeatures properties}}
+            {{> feat_card isInline=true}}
+            {{/ddbFeatures}}
+          </div>
+          <div class="box-bottom-label">FEATURES &amp; TRAITS</div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

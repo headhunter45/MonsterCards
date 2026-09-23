@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "572b9d58-6428-4a3b-8e8e-e5574931f0e5",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Scale Mail",
+  "description": "Armor (AC 14)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 6,
+    "name": "Scale Mail",
+    "type": "",
+    "filterType": "Armor",
+    "armorClass": 14,
+    "armorTypeId": 2,
+    "strengthRequirement": null,
+    "stealthCheck": 2,
+    "weight": 45,
+    "cost": 50,
+    "rarity": "Common",
+    "description": "This armor consists of a coat and leggings (and perhaps a separate skirt) of leather covered with overlapping pieces of metal, much like the scales of a fish. The suit includes gauntlets."
+  }
+}

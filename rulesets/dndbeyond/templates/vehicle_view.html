@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Vehicle Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">Vehicle</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        {{#if properties.dimensions}}{{properties.dimensions}}{{else}}Vessel{{/if}}
+      </div>
+    </header>
+
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Armor Class</span>
+        <span class="stat-value highlight">{{properties.armorClass}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Hit Points</span>
+        <span class="stat-value highlight">{{properties.hitPoints}}</span>
+      </div>
+      {{#if properties.damageThreshold}}
+      <div class="stat-pill">
+        <span class="stat-label">Damage Threshold</span>
+        <span class="stat-value">{{properties.damageThreshold}}</span>
+      </div>
+      {{/if}}
+      <div class="stat-pill">
+        <span class="stat-label">Speed</span>
+        <span class="stat-value">{{#if properties.speed.speed}}{{properties.speed.speed}} ft.{{else if properties.speed.pace}}{{properties.speed.pace}}{{else}}&mdash;{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Cargo</span>
+        <span class="stat-value">{{#if properties.cargoCapacity}}{{properties.cargoCapacity}} tons{{else}}&mdash;{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Creatures</span>
+        <span class="stat-value">{{#if properties.creatureCapacity}}{{properties.creatureCapacity}}{{else}}&mdash;{{/if}}</span>
+      </div>
+    </div>
+
+    {{#if properties.actions}}
+    <div class="entity-section">
+      <div class="section-header">Vehicle Actions</div>
+      <div class="section-content">
+        {{#each properties.actions}}
+        <div class="feature-block">
+          <div class="feature-heading">
+            <span>{{this.name}}</span>
+          </div>
+          <p>{{this.description}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+  </article>
+</body>
+</html>

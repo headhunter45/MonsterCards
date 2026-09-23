@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e987531d-8731-4beb-ba52-378d85a4aa5c",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Arcane Lock",
+  "description": "Level 2 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 2003,
+    "name": "Arcane Lock",
+    "level": 2,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Until Dispelled"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": 0,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You touch a closed door, window, gate, chest, or other entryway, and it becomes locked for the duration. You and the creatures you designate when you cast this spell can open the object normally. You can also set a password that, when spoken within 5 feet of the object, suppresses this spell for 1 minute. Otherwise, it is impassable until it is broken or the spell is dispelled or suppressed. Casting knock on the object suppresses arcane lock for 10 minutes.\n\n\r\nWhile affected by this spell, the object is more difficult to break or force open; the DC to break it or pick any locks on it increases by 10.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "gold dust worth at least 25 gp, which the spell consumes",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 215,
+        "sourceType": 1
+      }
+    ]
+  }
+}

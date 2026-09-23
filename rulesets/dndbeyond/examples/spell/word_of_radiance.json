@@ -1,0 +1,141 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "3c349045-9588-4912-8089-4a0898e1333e",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Word of Radiance",
+  "description": "Level 0 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "evocation"
+  ],
+  "properties": {
+    "id": 14618,
+    "name": "Word of Radiance",
+    "level": 0,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 5,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You utter a divine word, and burning radiance erupts from you. Each creature of your choice that you can see within range must succeed on a Constitution saving throw or take 1d6 radiant damage.\n\n\r\nThe spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1,
+      3
+    ],
+    "componentsDescription": "a holy symbol",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [
+      {
+        "fixedValue": null,
+        "id": "spell_14618_9473",
+        "entityId": null,
+        "entityTypeId": null,
+        "type": "damage",
+        "subType": "radiant",
+        "dice": null,
+        "restriction": "",
+        "statId": null,
+        "requiresAttunement": false,
+        "duration": null,
+        "friendlyTypeName": "Damage",
+        "friendlySubtypeName": "Radiant",
+        "isGranted": false,
+        "bonusTypes": [],
+        "value": null,
+        "availableToMulticlass": null,
+        "modifierTypeId": 0,
+        "modifierSubTypeId": 0,
+        "componentId": 0,
+        "componentTypeId": 0,
+        "die": {
+          "diceCount": 1,
+          "diceValue": 6,
+          "diceMultiplier": null,
+          "fixedValue": null,
+          "diceString": "1d6"
+        },
+        "count": 1,
+        "durationUnit": null,
+        "usePrimaryStat": false,
+        "atHigherLevels": {
+          "higherLevelDefinitions": [
+            {
+              "level": 5,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 2,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "2d6"
+              },
+              "value": null,
+              "details": ""
+            },
+            {
+              "level": 11,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 3,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "3d6"
+              },
+              "value": null,
+              "details": ""
+            },
+            {
+              "level": 17,
+              "typeId": 15,
+              "dice": {
+                "diceCount": 4,
+                "diceValue": 6,
+                "diceMultiplier": null,
+                "fixedValue": 0,
+                "diceString": "4d6"
+              },
+              "value": null,
+              "details": ""
+            }
+          ],
+          "additionalAttacks": [],
+          "additionalTargets": [],
+          "areaOfEffect": [],
+          "duration": [],
+          "creatures": [],
+          "special": [],
+          "points": [],
+          "range": []
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": 27,
+        "pageNumber": 171,
+        "sourceType": 1
+      }
+    ]
+  }
+}

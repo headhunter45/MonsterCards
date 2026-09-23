@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "99010b13-18ec-4010-a2a0-cd472177637b",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "feat",
+  "display_name": "Observant",
+  "description": "Increase your INT or WIS score by 1. If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips. You have a +5 bonus to your passive Perception and passive Investigation scores.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "feat",
+    "observant"
+  ],
+  "properties": {
+    "id": 37,
+    "name": "Observant",
+    "description": "Quick to notice details of your environment, you gain the following benefits:\n\n\r\n\r\nIncrease your Intelligence or Wisdom score by 1, to a maximum of 20.\r\nIf you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.\r\nYou have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores.",
+    "snippet": "Increase your INT or WIS score by 1. If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips. You have a +5 bonus to your passive Perception and passive Investigation scores.",
+    "prerequisites": []
+  }
+}

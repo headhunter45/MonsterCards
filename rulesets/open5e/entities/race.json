@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "race",
+  "name": "Character Race / Species",
+  "description": "5e Race entity definition specifying speed, size, ability score adjustments, racial traits, languages, and subraces.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "speed"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the race (e.g. 'Elf', 'Dwarf', 'Human')."
+      },
+      "description": {
+        "type": "string",
+        "description": "Lore and racial overview."
+      },
+      "speed": {
+        "type": "integer",
+        "default": 30,
+        "description": "Base walking speed in feet."
+      },
+      "size": {
+        "type": "string",
+        "enum": ["small", "medium", "large"],
+        "default": "medium",
+        "description": "Creature size category."
+      },
+      "ability_score_bonuses": {
+        "type": "object",
+        "description": "Racial ability score increases (e.g. {'dexterity': 2}).",
+        "additionalProperties": {
+          "type": "integer"
+        }
+      },
+      "traits": {
+        "type": "array",
+        "description": "Racial traits and abilities (e.g. Darkvision, Fey Ancestry).",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      },
+      "languages": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Languages automatically spoken and written by this race."
+      },
+      "subraces": {
+        "type": "array",
+        "description": "Subraces available for this species (e.g. High Elf, Wood Elf, Drow).",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" },
+            "ability_score_bonuses": {
+              "type": "object",
+              "additionalProperties": { "type": "integer" }
+            },
+            "traits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "default_values": {
+    "speed": 30,
+    "size": "medium",
+    "ability_score_bonuses": {},
+    "traits": [],
+    "languages": ["Common"],
+    "subraces": []
+  }
+}

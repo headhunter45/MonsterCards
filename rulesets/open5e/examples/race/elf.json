@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "12f12a04-e892-482f-d912-11d102381204",
+  "ruleset_id": "open5e",
+  "entity_type": "race",
+  "display_name": "Elf",
+  "description": "A magical people of otherworldly grace, living in the world but not entirely part of it.",
+  "version": "1.0.0",
+  "properties": {
+    "name": "Elf",
+    "description": "Elves are a magical people of otherworldly grace, living in places of ethereal beauty, in the midst of ancient-growth forests or in silvery spires glittering with faerie light.",
+    "speed": 30,
+    "size": "medium",
+    "ability_score_bonuses": {
+      "dexterity": 2
+    },
+    "traits": [
+      {
+        "name": "Darkvision",
+        "description": "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions (60 feet)."
+      },
+      {
+        "name": "Keen Senses",
+        "description": "You have proficiency in the Perception skill."
+      },
+      {
+        "name": "Fey Ancestry",
+        "description": "You have advantage on saving throws against being charmed, and magic cannot put you to sleep."
+      },
+      {
+        "name": "Trance",
+        "description": "Elves do not sleep. Instead, they meditate deeply for 4 hours a day."
+      }
+    ],
+    "languages": ["Common", "Elvish"],
+    "subraces": [
+      {
+        "name": "High Elf",
+        "description": "Has a keen mind and a mastery of at least the basics of magic.",
+        "ability_score_bonuses": { "intelligence": 1 }
+      },
+      {
+        "name": "Wood Elf",
+        "description": "Has keen senses and intuition, and fleet feet carry you quickly through forests.",
+        "ability_score_bonuses": { "wisdom": 1 }
+      }
+    ]
+  }
+}

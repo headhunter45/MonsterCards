@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "4e303739-2de5-4a99-a814-c590333dc21b",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Greataxe",
+  "description": "Greataxe dealing Slashing.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "greataxe"
+  ],
+  "properties": {
+    "id": 21,
+    "name": "Greataxe",
+    "type": "Greataxe",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 12,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d12"
+    },
+    "damageType": "Slashing",
+    "range": 5,
+    "longRange": 5,
+    "properties": [
+      {
+        "id": 3,
+        "name": "Heavy",
+        "description": "<p>You have [rules]Disadvantage[/rules] on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.</p>",
+        "notes": null
+      },
+      {
+        "id": 11,
+        "name": "Two-Handed",
+        "description": "<p>A Two-Handed weapon requires two hands when you attack with it.</p>",
+        "notes": null
+      },
+      {
+        "id": 18,
+        "name": "Cleave",
+        "description": "<p>If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon's damage, but don't add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 7,
+    "cost": 30,
+    "rarity": "Common",
+    "description": "Proficiency with a Greataxe allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nCleave. If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon’s damage, but don’t add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn.",
+    "isMonkWeapon": false
+  }
+}

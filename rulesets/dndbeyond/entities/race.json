@@ -1,0 +1,54 @@
+{
+  "id": "race",
+  "name": "Character Race / Species",
+  "description": "D&D Beyond races and species with speeds, size, and racial traits.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "fullName"
+    ],
+    "properties": {
+      "fullName": {
+        "type": "string"
+      },
+      "baseRaceName": {
+        "type": "string"
+      },
+      "isSubRace": {
+        "type": "boolean",
+        "default": false
+      },
+      "size": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "sizeId": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "weightSpeeds": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "racialTraits": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Spellcasting Sheet</title>
+  <link rel="stylesheet" href="spellcasting_sheet.css">
+</head>
+<body class="sheet-page-wrapper">
+  <div class="spellcasting-sheet-container">
+    
+    <!-- Top Spellcasting Header -->
+    <header class="spell-header">
+      <div class="spell-header-class-box">
+        <h1 class="spell-class-name">{{ddbSpellcastingClass properties}}</h1>
+        <label class="spell-header-label">SPELLCASTING CLASS</label>
+      </div>
+
+      <div class="spell-header-stats-grid">
+        <div class="spell-stat-cell">
+          <span class="spell-stat-val">{{ddbSpellcastingAbility properties}}</span>
+          <label class="spell-header-label">SPELLCASTING ABILITY</label>
+        </div>
+
+        <div class="spell-stat-cell">
+          <span class="spell-stat-val">{{ddbSpellSaveDc properties}}</span>
+          <label class="spell-header-label">SPELL SAVE DC</label>
+        </div>
+
+        <div class="spell-stat-cell">
+          <span class="spell-stat-val">{{ddbSpellAttackBonus properties}}</span>
+          <label class="spell-header-label">SPELL ATTACK BONUS</label>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3-Column Spells Grid -->
+    <main class="spells-main-grid">
+      
+      <!-- ================= COLUMN 1: Cantrips, Level 1, Level 2 ================= -->
+      <section class="spells-column">
+        
+        <!-- Cantrips (Level 0) -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">0</span>
+            <span class="level-title">CANTRIPS</span>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 0}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle invisible"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 1 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">1</span>
+            <span class="level-title">LEVEL 1</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 1)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 1}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 2 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">2</span>
+            <span class="level-title">LEVEL 2</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 2)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 2}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- ================= COLUMN 2: Level 3, Level 4, Level 5 ================= -->
+      <section class="spells-column">
+        
+        <!-- Level 3 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">3</span>
+            <span class="level-title">LEVEL 3</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 3)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 3}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 4 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">4</span>
+            <span class="level-title">LEVEL 4</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 4)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 4}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 5 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">5</span>
+            <span class="level-title">LEVEL 5</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 5)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 5}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- ================= COLUMN 3: Level 6, 7, 8, 9 ================= -->
+      <section class="spells-column">
+        
+        <!-- Level 6 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">6</span>
+            <span class="level-title">LEVEL 6</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 6)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 6}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 7 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">7</span>
+            <span class="level-title">LEVEL 7</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 7)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 7}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 8 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">8</span>
+            <span class="level-title">LEVEL 8</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 8)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 8}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+        <!-- Level 9 Spells -->
+        <div class="spell-level-box">
+          <div class="spell-level-header">
+            <span class="level-num">9</span>
+            <span class="level-title">LEVEL 9</span>
+            <div class="slot-counters">
+              {{#with (ddbSpellSlotInfo properties 9)}}
+              <span class="slot-field">Total: <strong>{{total}}</strong></span>
+              <span class="slot-field">Expended: <strong>{{used}}</strong></span>
+              {{/with}}
+            </div>
+          </div>
+          <ul class="spell-items-list">
+            {{#ddbSpellsByLevel properties 9}}
+            <li class="spell-item-row">
+              <span class="spell-prep-circle {{#if this.prepared}}prepared{{/if}}"></span>
+              <span class="spell-name">{{this.name}}</span>
+              <span class="spell-tags">
+                {{#if this.concentration}}<span class="tag-badge c" title="Concentration">C</span>{{/if}}
+                {{#if this.ritual}}<span class="tag-badge r" title="Ritual">R</span>{{/if}}
+              </span>
+            </li>
+            {{else}}
+            <li class="spell-item-row empty"><span class="spell-name">&mdash;</span></li>
+            {{/ddbSpellsByLevel}}
+          </ul>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

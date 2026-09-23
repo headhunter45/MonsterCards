@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "f4ec3d17-e5cd-438a-9c6e-dc4aae0f7ee6",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Staff of Birdcalls",
+  "description": "Staff (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "staff"
+  ],
+  "properties": {
+    "id": 27137,
+    "name": "Staff of Birdcalls",
+    "filterType": "Staff",
+    "type": "Staff",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": null,
+    "description": "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch’s chirp, a raven’s caw, a duck’s quack, a chicken’s cluck, a goose’s honk, a loon’s call, a turkey’s gobble, a seagull’s cry, an owl’s hoot, or an eagle’s shriek.\n\n\r\nThe staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

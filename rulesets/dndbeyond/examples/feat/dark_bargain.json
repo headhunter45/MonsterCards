@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "61f21641-8f40-48e8-b6c0-4d9e2857eb25",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "feat",
+  "display_name": "Dark Bargain",
+  "description": "At your GM's discretion, you have taken a Dark Bargain.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "feat",
+    "dark_bargain"
+  ],
+  "properties": {
+    "id": 2048517,
+    "name": "Dark Bargain",
+    "description": "At your GM's discretion, you can take a Dark Bargain.",
+    "snippet": "At your GM's discretion, you have taken a Dark Bargain.",
+    "prerequisites": []
+  }
+}

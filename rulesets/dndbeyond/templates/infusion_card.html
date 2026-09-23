@@ -1,0 +1,24 @@
+<div class="ddb-entity-card infusion-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">Artificer Infusion{{#if properties.levelRequirement}} &bull; Lvl {{properties.levelRequirement}}{{/if}}</span>
+    </div>
+    {{#if properties.definition.requiresAttunement}}
+    <span class="card-badge red">Attunement</span>
+    {{/if}}
+  </div>
+
+  {{#if properties.prerequisites}}
+  <div class="card-stats-row">
+    <div class="card-stat-item">
+      <strong>Item:</strong>
+      <span>{{#each properties.prerequisites}}{{this.name}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="card-desc">
+    <p>{{#if properties.snippet}}{{properties.snippet}}{{else if snippet}}{{snippet}}{{else if properties.description}}{{properties.description}}{{else if description}}{{description}}{{/if}}</p>
+  </div>
+</div>

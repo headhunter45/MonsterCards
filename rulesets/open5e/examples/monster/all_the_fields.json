@@ -1,0 +1,160 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "84619a80-4336-4936-995b-e449baaf4b57",
+  "ruleset_id": "open5e",
+  "entity_type": "monster",
+  "display_name": "Ankheg",
+  "description": "Large monstrosity, unaligned. Comprehensive creature model exercising all tetra-cube stat block fields.",
+  "version": "1.0.0",
+  "template_id": "stat_block",
+  "tags": [
+    "monster",
+    "monstrosity",
+    "ankheg",
+    "cr-2",
+    "legendary",
+    "mythic",
+    "lair",
+    "regional",
+    "all-fields"
+  ],
+  "properties": {
+    "size": "large",
+    "type": "Monstrosity",
+    "subtype": "",
+    "tag": "",
+    "alignment": "unaligned",
+    "short_name": "short name",
+    "plural_name": "short names",
+    "armor_class": 14,
+    "armor_description": "14 (natural armor), 11 while prone",
+    "shield_bonus": 0,
+    "nat_armor_bonus": 4,
+    "hit_points": {
+      "current": 39,
+      "max": 39,
+      "formula": "6d10 + 6",
+      "hit_dice": "6d10",
+      "custom_hp": false
+    },
+    "speed": 30,
+    "speed_desc": "30 ft., burrow 10 ft.",
+    "burrow_speed": 10,
+    "climb_speed": 0,
+    "fly_speed": 0,
+    "swim_speed": 0,
+    "hover": false,
+    "custom_speed": false,
+    "challenge_rating": "2 (450 XP)",
+    "cr": "2",
+    "xp": 450,
+    "proficiency_bonus": 2,
+    "abilities": {
+      "strength": 17,
+      "dexterity": 11,
+      "constitution": 13,
+      "intelligence": 1,
+      "wisdom": 13,
+      "charisma": 6
+    },
+    "saving_throws": [],
+    "skills": [],
+    "damage_vulnerabilities": [],
+    "damage_resistances": [],
+    "damage_immunities": [],
+    "condition_immunities": [],
+    "senses": "darkvision 60 ft., tremorsense 60 ft., passive Perception 11",
+    "darkvision": 60,
+    "tremorsense": 60,
+    "blindsight": 0,
+    "blind": false,
+    "truesight": 0,
+    "telepathy": 0,
+    "passive_perception": 11,
+    "languages": [
+      "Abyssal",
+      "understands Auran but doesn't like to"
+    ],
+    "understands_but": "doesn't like to",
+    "languages_detail": [
+      {
+        "name": "Abyssal",
+        "speaks": true
+      },
+      {
+        "name": "Auran",
+        "speaks": false
+      }
+    ],
+    "traits": [
+      {
+        "name": "do the thing",
+        "desc": "do some stuff"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Bite",
+        "desc": "_Melee Weapon Attack:_ +5 to hit, reach 5 ft., one target. _Hit:_ 10 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so."
+      },
+      {
+        "name": "Acid Spray (Recharge 6)",
+        "desc": "The ankheg spits acid in a line that is 30 ft. long and 5 ft. wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one."
+      }
+    ],
+    "bonus_actions": [
+      {
+        "name": "i have a bonus action",
+        "desc": "mememe"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "this is a reaction",
+        "desc": "i gotcha"
+      }
+    ],
+    "is_legendary": true,
+    "legendary_actions": {
+      "description": "The ankheg can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The ankheg regains spent legendary actions at the start of its turn.",
+      "actions": [
+        {
+          "name": "I am legend",
+          "desc": "does a thing"
+        }
+      ]
+    },
+    "is_mythic": true,
+    "mythic_actions": {
+      "description": "If the ankheg's mythic trait is active, it can use the options below as legendary actions for 1 hour after using {Some Ability}.",
+      "actions": [
+        {
+          "name": "Mythical",
+          "desc": "nobody believes it"
+        }
+      ]
+    },
+    "is_lair": true,
+    "lair_actions": {
+      "description": "When fighting inside its lair, the ankheg can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the ankheg can take one lair action to cause one of the following effects:",
+      "description_end": "The ancient black dragon can't repeat an effect until they have all been used, and it can't use the same effect two rounds in a row.",
+      "actions": [
+        {
+          "name": "my lair reeks of balls",
+          "desc": "my balls bitch"
+        }
+      ]
+    },
+    "is_regional": true,
+    "regional_effects": {
+      "description": "The region containing the ankheg's lair is warped by the creature's presence, which creates one or more of the following effects:",
+      "description_end": "If the ankheg dies, the first two effects fade over the course of 3d10 days.",
+      "effects": [
+        {
+          "name": "this whole region is fucked",
+          "desc": "we in the ghetto of the ghetto."
+        }
+      ]
+    }
+  }
+}

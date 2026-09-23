@@ -1,5 +1,5 @@
 {
-  "$schema": "../../schema/manifest.json",
+  "$schema": "https://schemas.ttrpgwith.me/manifest.json",
   "id": "sr6",
   "uuid": "3f80c10b-8d54-4a47-a89c-d9cb773b06e0",
   "name": "Shadowrun Sixth World (SR6)",

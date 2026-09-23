@@ -1,0 +1,81 @@
+{
+  "id": "armor",
+  "name": "Armor",
+  "description": "D&D Beyond wearable body armor with base AC, dex caps, and strength/stealth rules.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name",
+      "armorClass"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "filterType": {
+        "type": "string",
+        "default": "Armor"
+      },
+      "armorClass": {
+        "type": "integer"
+      },
+      "armorTypeId": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "1: Light, 2: Medium, 3: Heavy."
+      },
+      "strengthRequirement": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "stealthCheck": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "1: Disadvantage on Stealth."
+      },
+      "weight": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "cost": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "rarity": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

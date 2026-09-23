@@ -204,7 +204,7 @@
     {{/if}}
 
     <!-- Legendary Actions Section -->
-    {{#if properties.legendary_actions}}
+    {{#if (or properties.legendary_actions properties.legendaries)}}
     <section class="sb-section">
       <h2 class="section-title">Legendary Actions</h2>
       <div class="section-divider"></div>
@@ -226,6 +226,99 @@
           <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
         </div>
         {{/each}}
+      {{/if}}
+    </section>
+    {{/if}}
+
+    <!-- Mythic Actions Section -->
+    {{#if (or properties.mythic_actions properties.mythics)}}
+    <section class="sb-section">
+      <h2 class="section-title">Mythic Actions</h2>
+      <div class="section-divider"></div>
+      {{#if properties.mythic_actions.description}}
+      <p class="legendary-preamble">{{formatText properties.mythic_actions.description}}</p>
+      {{else if properties.mythicDescription}}
+      <p class="legendary-preamble">{{formatText properties.mythicDescription}}</p>
+      {{/if}}
+
+      {{#if properties.mythic_actions.actions}}
+        {{#each properties.mythic_actions.actions}}
+        <div class="action-block">
+          <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{else if properties.mythics}}
+        {{#each properties.mythics}}
+        <div class="action-block">
+          <em><strong>{{this.name}}:</strong></em> {{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{/if}}
+    </section>
+    {{/if}}
+
+    <!-- Lair Actions Section -->
+    {{#if (or properties.lair_actions properties.lairs)}}
+    <section class="sb-section">
+      <h2 class="section-title">Lair Actions</h2>
+      <div class="section-divider"></div>
+      {{#if properties.lair_actions.description}}
+      <p class="legendary-preamble">{{formatText properties.lair_actions.description}}</p>
+      {{else if properties.lairDescription}}
+      <p class="legendary-preamble">{{formatText properties.lairDescription}}</p>
+      {{/if}}
+
+      {{#if properties.lair_actions.actions}}
+        {{#each properties.lair_actions.actions}}
+        <div class="action-block">
+          {{#if this.name}}<em><strong>{{this.name}}:</strong></em> {{/if}}{{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{else if properties.lairs}}
+        {{#each properties.lairs}}
+        <div class="action-block">
+          {{#if this.name}}<em><strong>{{this.name}}:</strong></em> {{/if}}{{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{/if}}
+
+      {{#if properties.lair_actions.description_end}}
+      <p class="legendary-preamble">{{formatText properties.lair_actions.description_end}}</p>
+      {{else if properties.lairDescriptionEnd}}
+      <p class="legendary-preamble">{{formatText properties.lairDescriptionEnd}}</p>
+      {{/if}}
+    </section>
+    {{/if}}
+
+    <!-- Regional Effects Section -->
+    {{#if (or properties.regional_effects properties.regionals)}}
+    <section class="sb-section">
+      <h2 class="section-title">Regional Effects</h2>
+      <div class="section-divider"></div>
+      {{#if properties.regional_effects.description}}
+      <p class="legendary-preamble">{{formatText properties.regional_effects.description}}</p>
+      {{else if properties.regionalDescription}}
+      <p class="legendary-preamble">{{formatText properties.regionalDescription}}</p>
+      {{/if}}
+
+      {{#if properties.regional_effects.effects}}
+        {{#each properties.regional_effects.effects}}
+        <div class="action-block">
+          {{#if this.name}}<em><strong>{{this.name}}:</strong></em> {{/if}}{{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{else if properties.regionals}}
+        {{#each properties.regionals}}
+        <div class="action-block">
+          {{#if this.name}}<em><strong>{{this.name}}:</strong></em> {{/if}}{{formatText this.desc}}
+        </div>
+        {{/each}}
+      {{/if}}
+
+      {{#if properties.regional_effects.description_end}}
+      <p class="legendary-preamble">{{formatText properties.regional_effects.description_end}}</p>
+      {{else if properties.regionalDescriptionEnd}}
+      <p class="legendary-preamble">{{formatText properties.regionalDescriptionEnd}}</p>
       {{/if}}
     </section>
     {{/if}}

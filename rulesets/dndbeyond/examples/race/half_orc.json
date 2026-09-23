@@ -1,0 +1,415 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "53324262-b458-4c6c-8711-2f56da69a036",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Half-Orc",
+  "description": "Some half-orcs rise to become proud leaders of orc communities. Some venture into the world to prove their worth. Many of these become adventurers, achieving greatness for their mighty deeds.\n\n\r\nRacial Traits\n+2 Strength, +1 Constitution, Darkvision, Menacing, Relentless Endurance, Savage Attacks",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "half_orc"
+  ],
+  "properties": {
+    "fullName": "Half-Orc",
+    "baseRaceName": "Half-Orc",
+    "isSubRace": false,
+    "size": null,
+    "sizeId": 4,
+    "weightSpeeds": {
+      "normal": {
+        "walk": 30,
+        "fly": 0,
+        "burrow": 0,
+        "swim": 0,
+        "climb": 0
+      },
+      "encumbered": null,
+      "heavilyEncumbered": null,
+      "pushDragLift": null,
+      "override": null
+    },
+    "racialTraits": [
+      {
+        "definition": {
+          "id": 56,
+          "definitionKey": "racial-trait:56",
+          "entityTypeId": 1960452172,
+          "displayOrder": 6,
+          "name": "Darkvision",
+          "description": "<p>Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</p>",
+          "snippet": "You can see in darkness (shades of gray) up to 60 ft.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "56",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 57,
+          "definitionKey": "racial-trait:57",
+          "entityTypeId": 1960452172,
+          "displayOrder": 7,
+          "name": "Menacing",
+          "description": "<p>You gain proficiency in the Intimidation skill.</p>",
+          "snippet": "You gain proficiency in the Intimidation skill.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "57",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 58,
+          "definitionKey": "racial-trait:58",
+          "entityTypeId": 1960452172,
+          "displayOrder": 8,
+          "name": "Relentless Endurance",
+          "description": "<p>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.</p>",
+          "snippet": "When you are reduced to 0 HP but not killed, you can drop to 1 HP instead once per long rest.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "58",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 59,
+          "definitionKey": "racial-trait:59",
+          "entityTypeId": 1960452172,
+          "displayOrder": 9,
+          "name": "Savage Attacks",
+          "description": "<p>When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.</p>",
+          "snippet": "When you score a critical hit, roll one of the weapon’s dice one additional time and add it to the extra damage.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "59",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 99,
+          "definitionKey": "racial-trait:99",
+          "entityTypeId": 1960452172,
+          "displayOrder": 1,
+          "name": "Ability Score Increase",
+          "description": "<p>Your Strength score increases by 2, and your Constitution score increases by 1.</p>",
+          "snippet": "Your Strength score increases by 2, and your Constitution score increases by 1.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "99",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 311,
+              "entityTypeId": 1960452172,
+              "entityId": 99,
+              "definitionKey": "1960452172:99",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 100,
+          "definitionKey": "racial-trait:100",
+          "entityTypeId": 1960452172,
+          "displayOrder": 10,
+          "name": "Languages",
+          "description": "<p>You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "100",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "LANGUAGE": 1,
+            "ABILITYSCORE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 146,
+          "definitionKey": "racial-trait:146",
+          "entityTypeId": 1960452172,
+          "displayOrder": 2,
+          "name": "Age",
+          "description": "<p>Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years.</p>",
+          "snippet": "",
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "146",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 148,
+          "definitionKey": "racial-trait:148",
+          "entityTypeId": 1960452172,
+          "displayOrder": 4,
+          "name": "Size",
+          "description": "<p>Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "148",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 149,
+          "definitionKey": "racial-trait:149",
+          "entityTypeId": 1960452172,
+          "displayOrder": 5,
+          "name": "Speed",
+          "description": "<p>Your base walking speed is 30 feet.</p>",
+          "snippet": null,
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 1,
+          "sourcePageNumber": 41,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 1,
+              "pageNumber": 41,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "149",
+          "entityRaceId": 2,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      }
+    ]
+  }
+}

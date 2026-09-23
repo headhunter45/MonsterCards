@@ -1,0 +1,43 @@
+<div class="ddb-entity-card item-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}{{#if equipped}} <small class="card-badge red">Equipped</small>{{/if}}</h3>
+      <span class="card-subtitle">{{#if properties.filterType}}{{properties.filterType}}{{else if type}}{{type}}{{else}}Item{{/if}}{{#if properties.rarity}} &bull; {{properties.rarity}}{{/if}}</span>
+    </div>
+    {{#if quantity}}
+    <span class="card-badge">x{{quantity}}</span>
+    {{/if}}
+  </div>
+
+  <div class="card-stats-row">
+    {{#if properties.weight}}
+    <div class="card-stat-item">
+      <strong>Weight:</strong>
+      <span>{{properties.weight}} lb</span>
+    </div>
+    {{else if weight}}
+    <div class="card-stat-item">
+      <strong>Weight:</strong>
+      <span>{{weight}} lb</span>
+    </div>
+    {{/if}}
+    {{#if properties.cost}}
+    <div class="card-stat-item">
+      <strong>Cost:</strong>
+      <span>{{ddbCostText properties.cost}}</span>
+    </div>
+    {{/if}}
+    {{#if properties.canAttune}}
+    <div class="card-stat-item">
+      <strong>Attunement:</strong>
+      <span>Required</span>
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if properties.description}}
+  <div class="card-desc">
+    <p>{{properties.description}}</p>
+  </div>
+  {{/if}}
+</div>

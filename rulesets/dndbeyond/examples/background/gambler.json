@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "f6477576-6ded-4563-b3cc-74ea269f4ddd",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "background",
+  "display_name": "Gambler",
+  "description": "Gambler background",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "background",
+    "gambler"
+  ],
+  "properties": {
+    "id": 53565,
+    "name": "Gambler",
+    "description": "All you need to make a lot of gold is a little gold. Except at those times when all you need to have no gold at all is a little gold. Whether you’re a good gambler or a bad one rarely matters, because no one can divine the whims of Lady Luck. Sometimes you’re up, sometimes you’re down. But the thing about gambling is that someone is always willing to take a bet.\n\n\r\n\r\nSkill Proficiencies: Deception, Insight\n\n\r\nTool Proficiencies: One gaming set\n\n\r\nLanguages: Any one of your choice\n\n\r\nEquipment: One gaming set, a lucky charm, a set of fine clothes, and a belt pouch containing 15 gp\n\n\r\n\r\nFeature: Never Tell Me the Odds\n\n\r\nOdds and probability are your bread and butter. During downtime activities that involve games of chance or figuring odds on the best plan, you can get a solid sense of which choice is likely the best one and which opportunities seem too good to be true, at the DM’s determination.",
+    "snippet": "",
+    "featureName": "Never Tell Me the Odds",
+    "featureDescription": "Odds and probability are your bread and butter. During downtime activities that involve games of chance or figuring odds on the best plan, you can get a solid sense of which choice is likely the best one and which opportunities seem too good to be true, at the DM’s determination."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "7a69619b-3413-4ed8-9560-d19cedc27471",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Alarm",
+  "description": "Level 1 Abjuration spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "abjuration"
+  ],
+  "properties": {
+    "id": 1991,
+    "name": "Alarm",
+    "level": 1,
+    "school": "Abjuration",
+    "duration": {
+      "durationInterval": 8,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 6
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible.\n\n\r\nA mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping.\n\n\r\nAn audible alarm produces the sound of a hand bell for 10 seconds within 60 feet.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": true,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a tiny bell and a piece of fine silver wire",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 211,
+        "sourceType": 1
+      }
+    ]
+  }
+}

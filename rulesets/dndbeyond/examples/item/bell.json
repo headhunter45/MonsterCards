@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "76bb6f0c-5452-4ea5-bab8-fe9c35762537",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Bell",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 25,
+    "name": "Bell",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": 1,
+    "description": "A standard bell that rings, typically used for signaling.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "2e5c64cb-6b68-43a5-8dbf-97aa9ac3faa9",
+  "ruleset_id": "open5e",
+  "entity_type": "infusion",
+  "display_name": "Enhanced Defense",
+  "description": "Artificer Infusion: +1 bonus to AC of armor or shield (+2 at level 10).",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T00:00:00Z",
+  "updated_at": "2026-09-17T00:00:00Z",
+  "tags": ["artificer", "infusion", "defense", "armor", "shield"],
+  "properties": {
+    "name": "Enhanced Defense",
+    "prerequisite": null,
+    "item_type": "A suit of armor or a shield",
+    "attunement": false,
+    "description": "A creature gains a +1 bonus to Armor Class while wearing (armor) or wielding (shield) the infused item. The bonus increases to +2 when you reach 10th level in this class.",
+    "benefits": [
+      "+1 bonus to AC while wearing or wielding the infused item",
+      "Increases to +2 bonus to AC at 10th level Artificer"
+    ],
+    "grants_modifiers": [
+      {
+        "target": "armor_class",
+        "value": 1,
+        "type": "bonus",
+        "source": "Infusion: Enhanced Defense"
+      }
+    ]
+  }
+}

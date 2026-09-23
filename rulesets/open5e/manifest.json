@@ -1,5 +1,5 @@
 {
-  "$schema": "../../schema/manifest.json",
+  "$schema": "https://schemas.ttrpgwith.me/manifest.json",
   "id": "open5e",
   "uuid": "7a35e4d2-f67b-4890-a292-6a7593c72b21",
   "name": "Open5e (D&D 5th Edition SRD)",
@@ -14,17 +14,24 @@
     {
       "id": "character",
       "name": "Player Character",
-      "description": "A player character with attributes, proficiencies, classes, equipment, and spells.",
+      "description": "A playable character with attributes, multiclass levels, spell slots, pact magic, equipment, and features.",
       "schema": "entities/character.json",
       "default_template": "character_sheet",
       "templates": [
         "character_sheet",
         "character_sheet_alt",
-        "spellcasting_sheet",
-        "stat_block",
-        "character_card",
-        "character_list_item"
-      ]
+        "spellcasting_sheet"
+      ],
+      "default_editor": "entity_form",
+      "allowed_editors": ["entity_form"]
+    },
+    {
+      "id": "monster",
+      "name": "Monster / NPC Stat Block",
+      "description": "5e Creature and Monster Stat Blocks with challenge ratings, action economy, and legendary actions.",
+      "schema": "entities/monster.json",
+      "default_template": "stat_block",
+      "templates": ["stat_block", "character_card", "character_list_item"]
     },
     {
       "id": "item",
@@ -55,6 +62,42 @@
       "name": "Spell",
       "description": "5e Spells with level, school, casting time, range, and components.",
       "schema": "entities/spell.json"
+    },
+    {
+      "id": "class",
+      "name": "Character Class",
+      "description": "5e Character Classes with hit dice, proficiencies, subclasses, and spellcasting.",
+      "schema": "entities/class.json"
+    },
+    {
+      "id": "race",
+      "name": "Character Race / Species",
+      "description": "5e Races and species with speed, size, ability bonuses, and traits.",
+      "schema": "entities/race.json"
+    },
+    {
+      "id": "background",
+      "name": "Character Background",
+      "description": "5e Character Backgrounds with skill proficiencies, tools, languages, and features.",
+      "schema": "entities/background.json"
+    },
+    {
+      "id": "feat",
+      "name": "Feat",
+      "description": "5e Feats with prerequisites, rules text, and mechanical benefits.",
+      "schema": "entities/feat.json"
+    },
+    {
+      "id": "infusion",
+      "name": "Artificer Infusion",
+      "description": "5e Artificer Infusions detailing prerequisites, item target types, attunement, and granted modifiers.",
+      "schema": "entities/infusion.json"
+    },
+    {
+      "id": "vehicle",
+      "name": "Vehicle",
+      "description": "5e Land, water, airborne, and siege vehicles with armor class, hit points, damage thresholds, and components.",
+      "schema": "entities/vehicle.json"
     }
   ],
   "templates": [
@@ -93,7 +136,7 @@
       "id": "stat_block",
       "name": "Creature Stat Block",
       "description": "Monster manual style stat block with full actions, traits, and combat statistics.",
-      "entity_types": ["character"],
+      "entity_types": ["monster", "character"],
       "mode": "view",
       "engine": "html",
       "html": "templates/stat_block.html",
@@ -103,7 +146,7 @@
       "id": "character_card",
       "name": "NPC Character Card",
       "description": "Compact NPC card with 8 stat boxes and quick action summaries.",
-      "entity_types": ["character"],
+      "entity_types": ["monster", "character"],
       "mode": "card",
       "engine": "html",
       "html": "templates/character_card.html",
@@ -113,11 +156,126 @@
       "id": "character_list_item",
       "name": "Character List Item",
       "description": "Uniform fixed-height quick-reference list item card with non-wrapping horizontal action row.",
-      "entity_types": ["character"],
+      "entity_types": ["monster", "character"],
       "mode": "card",
       "engine": "html",
       "html": "templates/character_list_item.html",
       "css": ["templates/character_list_item.css"]
+    },
+    {
+      "id": "entity_form",
+      "name": "Generic Entity Editor Form",
+      "description": "Schema-driven editor form that renders every property of an entity's schema, dispatching each field to a builtin or custom widget based on the entity definition's 'ui' descriptor.",
+      "entity_types": [
+        "character",
+        "monster",
+        "item",
+        "weapon",
+        "armor",
+        "shield",
+        "spell",
+        "class",
+        "race",
+        "background",
+        "feat",
+        "infusion",
+        "vehicle"
+      ],
+      "mode": "edit",
+      "engine": "handlebars",
+      "html": "templates/editors/entity_form.html",
+      "css": ["templates/editors/entity_form.css"],
+      "js": ["templates/editors/entity_form.js"]
+    },
+    {
+      "id": "field-dispatcher",
+      "name": "Field Dispatcher (internal)",
+      "description": "Recursive partial that resolves and renders the widget for each schema property. Not directly requestable; used via {{> field-dispatcher}} by entity_form and builtin-object-group.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/field_dispatcher.html"
+    },
+    {
+      "id": "builtin-text",
+      "name": "Text Input",
+      "description": "Default widget for string schema properties.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_text.html"
+    },
+    {
+      "id": "builtin-number",
+      "name": "Number Input",
+      "description": "Default widget for integer/number schema properties.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_number.html"
+    },
+    {
+      "id": "builtin-toggle",
+      "name": "Toggle / Checkbox",
+      "description": "Default widget for boolean schema properties.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_toggle.html"
+    },
+    {
+      "id": "builtin-select",
+      "name": "Select Dropdown",
+      "description": "Default widget for string schema properties with an 'enum'.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_select.html"
+    },
+    {
+      "id": "builtin-combo",
+      "name": "Combo Box",
+      "description": "Default widget for string schema properties with 'examples': a freeform text input with a suggestion dropdown (HTML datalist), not restricted to those values.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_combo.html"
+    },
+    {
+      "id": "builtin-array-list",
+      "name": "Simple Array List",
+      "description": "Default widget for array schema properties with primitive items.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_array_list.html"
+    },
+    {
+      "id": "builtin-object-group",
+      "name": "Object Field Group",
+      "description": "Default widget for nested object schema properties; recurses via field-dispatcher.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/builtin_object_group.html"
+    },
+    {
+      "id": "array-of-objects-editor",
+      "name": "Array of Objects Editor",
+      "description": "Reusable widget for an array (or key-object) of nested entities, e.g. attacks, feats, features_and_traits, class_levels. Recurses into the property's schema.items via field-dispatcher and supports add/remove.",
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/array_of_objects_editor.html"
+    },
+    {
+      "id": "ability-score-stepper",
+      "name": "Ability Score Stepper",
+      "description": "Custom widget for a single ability score with +/- stepper controls.",
+      "entity_types": ["character", "monster"],
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/ability_score_stepper.html"
+    },
+    {
+      "id": "action-list-editor",
+      "name": "Action List Editor",
+      "description": "Custom widget for an array of name/desc action entries (actions, traits, legendary actions, etc.).",
+      "entity_types": ["character", "monster"],
+      "mode": "widget",
+      "engine": "handlebars",
+      "html": "templates/editors/action_list_editor.html"
     }
   ],
   "assets": {

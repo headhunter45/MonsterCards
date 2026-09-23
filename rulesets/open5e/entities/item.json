@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "item",
   "name": "Item / Gear",
   "description": "Base entity schema for generic items, equipment, and gear in 5e.",
@@ -50,6 +50,30 @@
         "type": "boolean",
         "default": false,
         "description": "Whether this item requires attunement."
+      },
+      "requires_attunement": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether this item requires attunement."
+      },
+      "attuned": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether the character is currently attuned to this item."
+      },
+      "charges": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Current charges remaining on this magic item."
+      },
+      "max_charges": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum charges this item can hold."
+      },
+      "filter_type": {
+        "type": "string",
+        "description": "Category or filter type (e.g. 'Armor', 'Weapon', 'Wondrous item', 'Ring', 'Potion', 'Scroll', 'Adventuring Gear')."
       },
       "equipped": {
         "type": "boolean",

@@ -1,0 +1,374 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5881e11a-8bf6-4a8b-be5e-54c963413ae9",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Kenku",
+  "description": "Haunted by an ancient crime that robbed them of their wings, the kenku wander the world as vagabonds and burglars who live at the edge of human society.\n\n\r\nRacial Traits\n+2 Dexterity, +1 Wisdom, Expert Forgery, Kenku Training, Mimicry",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "kenku"
+  ],
+  "properties": {
+    "fullName": "Kenku",
+    "baseRaceName": "Kenku",
+    "isSubRace": false,
+    "size": null,
+    "sizeId": 4,
+    "weightSpeeds": {
+      "normal": {
+        "walk": 30,
+        "fly": 0,
+        "burrow": 0,
+        "swim": 0,
+        "climb": 0
+      },
+      "encumbered": null,
+      "heavilyEncumbered": null,
+      "pushDragLift": null,
+      "override": null
+    },
+    "racialTraits": [
+      {
+        "definition": {
+          "id": 184,
+          "definitionKey": "racial-trait:184",
+          "entityTypeId": 1960452172,
+          "displayOrder": 1,
+          "name": "Ability Score Increase",
+          "description": "<p>Your Dexterity score increases by 2, and your Wisdom score incre<span class=\"No-Break\">ases by 1.</span></p>",
+          "snippet": "Your Dexterity score increases by 2, and your Wisdom score increases by 1.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "184",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 336,
+              "entityTypeId": 1960452172,
+              "entityId": 184,
+              "definitionKey": "1960452172:184",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 185,
+          "definitionKey": "racial-trait:185",
+          "entityTypeId": 1960452172,
+          "displayOrder": 2,
+          "name": "Age",
+          "description": "<p>Kenku have shorter lifespans than humans. They reach maturity at about 12 years old and can l<span class=\"No-Break\">ive to 60.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "185",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 187,
+          "definitionKey": "racial-trait:187",
+          "entityTypeId": 1960452172,
+          "displayOrder": 4,
+          "name": "Size",
+          "description": "<p>Kenku are around 5 feet tall and weigh between 90 and 120 pounds. Your size <span class=\"No-Break\">is Medium.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "187",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 188,
+          "definitionKey": "racial-trait:188",
+          "entityTypeId": 1960452172,
+          "displayOrder": 5,
+          "name": "Speed",
+          "description": "<p>Your base walking speed i<span class=\"No-Break\">s 30 feet.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "188",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 189,
+          "definitionKey": "racial-trait:189",
+          "entityTypeId": 1960452172,
+          "displayOrder": 6,
+          "name": "Expert Forgery",
+          "description": "<p>You can duplicate other creatures’ handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existin<span class=\"No-Break\">g objects.</span></p>",
+          "snippet": "You have advantage on all checks made to produce forgeries or duplicates of existing objects.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "189",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 190,
+          "definitionKey": "racial-trait:190",
+          "entityTypeId": 1960452172,
+          "displayOrder": 7,
+          "name": "Kenku Training",
+          "description": "<p>You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleigh<span class=\"No-Break\">t of Hand.</span></p>",
+          "snippet": "You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "190",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 191,
+          "definitionKey": "racial-trait:191",
+          "entityTypeId": 1960452172,
+          "displayOrder": 8,
+          "name": "Mimicry",
+          "description": "<p>You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Decepti<span class=\"No-Break\">on) check.</span></p>",
+          "snippet": "You can mimic sounds you have heard. A creature can tell these sounds are imitations with an Insight check opposed by your Deception check.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": true,
+          "entityType": "racial-trait",
+          "entityID": "191",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 192,
+          "definitionKey": "racial-trait:192",
+          "entityTypeId": 1960452172,
+          "displayOrder": 9,
+          "name": "Languages",
+          "description": "<p>You can read and write Common and Auran, but you can speak only by using your Mimi<span class=\"No-Break\">cry trait.</span></p>",
+          "snippet": null,
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 15,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 15,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "192",
+          "entityRaceId": 28,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "LANGUAGE": 1,
+            "ABILITYSCORE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      }
+    ]
+  }
+}

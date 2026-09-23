@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Spell Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">{{ddbSpellLevelSchool properties.level properties.school}}</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        {{#if properties.ritual}}Ritual &bull; {{/if}}
+        {{#if properties.concentration}}Concentration &bull; {{/if}}
+        {{#if properties.damageType}}{{properties.damageType}} Damage{{/if}}
+      </div>
+    </header>
+
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Casting Time</span>
+        <span class="stat-value">{{#if properties.castingTimeDescription}}{{properties.castingTimeDescription}}{{else}}{{properties.activation.activationTime}} Action{{/if}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Range / Area</span>
+        <span class="stat-value">{{ddbSpellRange properties.range}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Components</span>
+        <span class="stat-value">{{ddbSpellComponents properties.components properties.componentsDescription}}</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Duration</span>
+        <span class="stat-value">{{ddbSpellDuration properties.duration properties.concentration}}</span>
+      </div>
+    </div>
+
+    <div class="entity-body">
+      {{{properties.description}}}
+    </div>
+
+    {{#if properties.sources}}
+    <footer class="entity-footer">
+      <span>Sources: {{#each properties.sources}}Book {{this.sourceId}}{{#if this.pageNumber}}, p.{{this.pageNumber}}{{/if}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+    </footer>
+    {{/if}}
+  </article>
+</body>
+</html>

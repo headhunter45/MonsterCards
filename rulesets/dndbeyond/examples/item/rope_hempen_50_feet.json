@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "f6bd01c2-db0d-4b22-a703-5e082634865f",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Rope, Hempen (50 feet)",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 77,
+    "name": "Rope, Hempen (50 feet)",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 10,
+    "cost": 1,
+    "description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

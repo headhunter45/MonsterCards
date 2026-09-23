@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b94f9f84-306c-48e3-a3ae-fd6e700da84e",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Minor Illusion",
+  "description": "Level 0 Illusion spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "illusion"
+  ],
+  "properties": {
+    "id": 2191,
+    "name": "Minor Illusion",
+    "level": 0,
+    "school": "Illusion",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Minute",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": "Cube",
+      "aoeValue": 5
+    },
+    "description": "You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.\n\n\r\nIf you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.\n\n\r\nIf you create an image of an object--such as a chair, muddy footprints, or a small chest--it must be no larger than a 5-foot cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it.\n\n\r\nIf a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      2,
+      3
+    ],
+    "componentsDescription": "a bit of fleece",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 260,
+        "sourceType": 1
+      }
+    ]
+  }
+}

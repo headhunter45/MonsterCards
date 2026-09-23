@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/rulesets/dndbeyond/templates/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{display_name}} - Feat Details</title>
+  <link rel="stylesheet" href="entity_view.css">
+</head>
+<body class="entity-view-wrapper">
+  <article class="entity-detail-container">
+    <header class="entity-header">
+      <div class="entity-type-badge">General Feat</div>
+      <h1 class="entity-title">{{#if properties.name}}{{properties.name}}{{else}}{{display_name}}{{/if}}</h1>
+      <div class="entity-subtitle">
+        {{#if properties.prerequisites}}
+          Prerequisite: {{#each properties.prerequisites}}{{this.description}}{{#unless @last}}, {{/unless}}{{/each}}
+        {{else}}
+          No prerequisites
+        {{/if}}
+      </div>
+    </header>
+
+    {{#if properties.prerequisites}}
+    <div class="entity-stats-bar">
+      <div class="stat-pill">
+        <span class="stat-label">Prerequisites</span>
+        <span class="stat-value highlight">{{#each properties.prerequisites}}{{this.description}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="entity-body">
+      {{{properties.description}}}
+    </div>
+  </article>
+</body>
+</html>

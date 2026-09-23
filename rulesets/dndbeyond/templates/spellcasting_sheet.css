@@ -1,0 +1,275 @@
+/* D&D Beyond Spellcasting Sheet Styling */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ddb-red: #c53131;
+  --ddb-dark-red: #8b0000;
+  --ddb-dark: #22252a;
+  --ddb-border: #444950;
+  --ddb-border-light: #d1d5db;
+  --ddb-bg-page: #0f1217;
+  --ddb-bg-sheet: #ffffff;
+  --ddb-bg-box: #f8fafc;
+  --ddb-bg-subtle: #f1f5f9;
+  --ddb-text-main: #1e293b;
+  --ddb-text-muted: #64748b;
+  --ddb-font-header: 'Cinzel', serif;
+  --ddb-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.sheet-page-wrapper {
+  margin: 0;
+  padding: 24px;
+  background-color: var(--ddb-bg-page);
+  font-family: var(--ddb-font-sans);
+  color: var(--ddb-text-main);
+  display: flex;
+  justify-content: center;
+}
+
+.spellcasting-sheet-container {
+  width: 100%;
+  max-width: 1040px;
+  background: var(--ddb-bg-sheet);
+  border: 2px solid var(--ddb-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ================= HEADER ================= */
+.spell-header {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 16px;
+  align-items: stretch;
+  border-bottom: 2.5px solid var(--ddb-border);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.spell-header-class-box {
+  border: 2px solid var(--ddb-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--ddb-bg-box);
+}
+
+.spell-class-name {
+  font-family: var(--ddb-font-header);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ddb-dark-red);
+  margin: 0 0 6px 0;
+  line-height: 1.15;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+.spell-header-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--ddb-text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.spell-header-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  border: 2px solid var(--ddb-border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: var(--ddb-bg-box);
+}
+
+.spell-stat-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--ddb-border-light);
+  padding: 0 8px;
+}
+
+.spell-stat-cell:last-child {
+  border-right: none;
+}
+
+.spell-stat-val {
+  font-family: var(--ddb-font-header);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ddb-text-main);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+/* ================= 3-COLUMN SPELLS GRID ================= */
+.spells-main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.spells-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spell-level-box {
+  border: 1.5px solid var(--ddb-border);
+  border-radius: 6px;
+  background: var(--ddb-bg-sheet);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.spell-level-header {
+  background: var(--ddb-bg-subtle);
+  border-bottom: 1.5px solid var(--ddb-border);
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.level-num {
+  font-family: var(--ddb-font-header);
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--ddb-dark-red);
+  color: #fff;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--ddb-text-main);
+  text-transform: uppercase;
+}
+
+.slot-counters {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  color: var(--ddb-text-muted);
+}
+
+.slot-field strong {
+  color: var(--ddb-text-main);
+  font-size: 11px;
+}
+
+.spell-items-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 80px;
+}
+
+.spell-item-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 3px;
+}
+
+.spell-item-row:last-child {
+  border-bottom: none;
+}
+
+.spell-item-row.empty {
+  color: var(--ddb-text-muted);
+  font-style: italic;
+  justify-content: center;
+}
+
+.spell-prep-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ddb-border);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.spell-prep-circle.prepared {
+  background: var(--ddb-dark-red);
+}
+
+.spell-prep-circle.invisible {
+  visibility: hidden;
+}
+
+.spell-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.spell-tags {
+  display: flex;
+  gap: 4px;
+}
+
+.tag-badge {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #e2e8f0;
+  color: var(--ddb-text-muted);
+}
+
+.tag-badge.c {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.tag-badge.r {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+/* ================= PRINT STYLES ================= */
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.35in;
+  }
+
+  body.sheet-page-wrapper {
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .spellcasting-sheet-container {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+  }
+}

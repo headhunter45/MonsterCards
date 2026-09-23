@@ -1,0 +1,736 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "25ea7be4-49ad-4311-abdb-2d893ffd2027",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Enidon Murnig",
+  "description": "Rock Gnome Artificer (Artillerist) (Level 5)",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T08:27:16.885Z",
+  "updated_at": "2026-09-17T08:27:16.886Z",
+  "tags": [
+    "pc",
+    "artificer",
+    "rock_gnome"
+  ],
+  "properties": {
+    "player_name": "Kusalite",
+    "class_levels": {
+      "artificer": {
+        "name": "Artificer",
+        "level": 5,
+        "subclass": "Artillerist",
+        "description": "Artificer level 5"
+      }
+    },
+    "race": "Rock Gnome",
+    "size": "small",
+    "type": "Humanoid",
+    "subtype": "Rock Gnome",
+    "background": "Pirate",
+    "alignment": "True Neutral",
+    "experience_points": 0,
+    "inspiration": false,
+    "proficiency_bonus": 3,
+    "initiative": 1,
+    "speed": 25,
+    "speed_desc": "25 ft.",
+    "hit_points": {
+      "current": 28,
+      "max": 28,
+      "temp": 8,
+      "base": 28,
+      "bonus": null,
+      "override": null,
+      "removed": 0,
+      "hit_dice": "5d8"
+    },
+    "hit_dice": {
+      "total": 5,
+      "current": 5,
+      "dice": "5d8"
+    },
+    "death_saves": {
+      "successes": 0,
+      "failures": 0,
+      "is_stabilized": false
+    },
+    "saving_throws": [
+      "Constitution +6",
+      "Intelligence +7"
+    ],
+    "skills": [
+      "Arcana +7",
+      "Athletics +3",
+      "History +7",
+      "Perception +5"
+    ],
+    "passive_perception": 15,
+    "senses": "darkvision 60 ft., passive Perception 15",
+    "languages": [
+      "Common",
+      "Gnomish"
+    ],
+    "other_proficiencies_and_languages": {
+      "armor": [
+        "Light Armor",
+        "Medium Armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple Weapons",
+        "Firearms"
+      ],
+      "tools": [
+        "Tinker's Tools",
+        "Thieves' Tools",
+        "Smith's Tools",
+        "Woodcarver's Tools",
+        "Navigator's Tools",
+        "Vehicles (Water)"
+      ],
+      "languages": [
+        "Common",
+        "Gnomish"
+      ]
+    },
+    "attacks": [
+      {
+        "name": "Dagger",
+        "atk_bonus": "+4",
+        "damage": "1d4 + 1",
+        "damage_type": "Piercing",
+        "range": "20/60 ft."
+      },
+      {
+        "name": "Light Hammer",
+        "atk_bonus": "+4",
+        "damage": "1d4 + 1",
+        "damage_type": "Bludgeoning",
+        "range": "20/60 ft."
+      }
+    ],
+    "currency": {
+      "cp": 0,
+      "sp": 0,
+      "gp": 760,
+      "ep": 0,
+      "pp": 0
+    },
+    "personality_traits": "My friends know they can rely on me, no matter what.",
+    "ideals": "",
+    "bonds": "",
+    "flaws": "",
+    "character_details": {
+      "personal_possessions": "a belaying pin (club)\na rabbit foot\na belaying pin (club)\na rabbit foot"
+    },
+    "decorations": {
+      "avatar_url": "https://www.dndbeyond.com/avatars/10/628/636344370776687347.png?width=150&height=150&fit=crop&quality=95&auto=webp",
+      "backdrop_url": "https://www.dndbeyond.com/avatars/15044/294/637461368825808319.jpeg"
+    },
+    "attunement": {
+      "current": 1,
+      "max": 3
+    },
+    "armor_class": {
+      "value": 15,
+      "base": 14,
+      "description": "Scale Mail"
+    },
+    "abilities": {
+      "strength": {
+        "display_name": "Strength",
+        "short_name": "Str",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      },
+      "dexterity": {
+        "display_name": "Dexterity",
+        "short_name": "Dex",
+        "value": 13,
+        "modifier": 1,
+        "proficiency": false,
+        "saving_throw": 1
+      },
+      "constitution": {
+        "display_name": "Constitution",
+        "short_name": "Con",
+        "value": 16,
+        "modifier": 3,
+        "proficiency": true,
+        "saving_throw": 6
+      },
+      "intelligence": {
+        "display_name": "Intelligence",
+        "short_name": "Int",
+        "value": 19,
+        "modifier": 4,
+        "proficiency": true,
+        "saving_throw": 7
+      },
+      "wisdom": {
+        "display_name": "Wisdom",
+        "short_name": "Wis",
+        "value": 14,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "charisma": {
+        "display_name": "Charisma",
+        "short_name": "Cha",
+        "value": 12,
+        "modifier": 1,
+        "proficiency": false,
+        "saving_throw": 1
+      }
+    },
+    "features_and_traits": [
+      {
+        "name": "Darkvision",
+        "source": "Rock Gnome",
+        "desc": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+      },
+      {
+        "name": "Gnome Cunning",
+        "source": "Rock Gnome",
+        "desc": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+      },
+      {
+        "name": "Artificer’s Lore",
+        "source": "Rock Gnome",
+        "desc": "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+      },
+      {
+        "name": "Tinker",
+        "source": "Rock Gnome",
+        "desc": "You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.\n\n\r\nWhen you create a device, choose one of the following options:\n\n\r\nClockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\n\n\r\nFire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\n\n\r\nMusic Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
+      },
+      {
+        "name": "Tool Proficiency",
+        "source": "Artificer 3",
+        "desc": "3rd-level Artillerist feature\n\n\r\nYou gain proficiency with woodcarver’s tools. If you already have this proficiency, you gain proficiency with one other type of artisan’s tools of your choice."
+      },
+      {
+        "name": "Artillerist Spells",
+        "source": "Artificer 3",
+        "desc": "3rd-level Artillerist feature\n\n\r\nYou always have certain spells prepared after you reach particular levels in this class, as shown in the Artillerist Spells table. These spells count as artificer spells for you, but they don’t count against the number of artificer spells you prepare.\n\n\r\nArtillerist Spells\r\n\r\n\r\n\r\nArtificer Level\r\nSpell\r\n\r\n\r\n\r\n\r\n\r\n3rd\n\n\r\n\r\n\r\nshield, thunderwave\n\n\r\n\r\n\r\n\r\n\r\n5th\n\n\r\n\r\n\r\nscorching ray, shatter\n\n\r\n\r\n\r\n\r\n\r\n9th\n\n\r\n\r\n\r\nfireball, wind wall\n\n\r\n\r\n\r\n\r\n\r\n13th\n\n\r\n\r\n\r\nice storm, wall of fire\n\n\r\n\r\n\r\n\r\n\r\n17th\n\n\r\n\r\n\r\ncone of cold, wall of force"
+      },
+      {
+        "name": "Eldritch Cannon",
+        "source": "Artificer 3",
+        "desc": "3rd-level Artillerist feature\n\n\r\nYou've learned how to create a magical cannon. Using woodcarver’s tools or smith’s tools, you can take an action to magically create a Small or Tiny eldritch cannon in an unoccupied space on a horizontal surface within 5 feet of you. A Small eldritch cannon occupies its space, and a Tiny one can be held in one hand.\n\n\r\nOnce you create a cannon, you can’t do so again until you finish a long rest or until you expend a spell slot to create one. You can have only one cannon at a time and can’t create one while your cannon is present.\n\n\r\nThe cannon is a magical object. Regardless of size, the cannon has an AC of 18 and a number of hit points equal to five times your artificer level. It is immune to poison damage and psychic damage. If it is forced to make an ability check or a saving throw, treat all its ability scores as 10 (+0). If the mending spell is cast on it, it regains 2d6 hit points. It disappears if it is reduced to 0 hit points or after 1 hour. You can dismiss it early as an action.\n\n\r\nWhen you create the cannon, you determine its appearance and whether it has legs. You also decide which type it is, choosing from the options on the Eldritch Cannons table. On each of your turns, you can take a bonus action to cause the cannon to activate if you are within 60 feet of it. As part of the same bonus action, you can direct the cannon to walk or climb up to 15 feet to an unoccupied space, provided it has legs.\n\n\r\nEldritch Cannons\r\n\r\n\r\n\r\nCannon\r\nActivation\r\n\r\n\r\n\r\n\r\n\r\nFlamethrower\n\n\r\n\r\n\r\nThe cannon exhales fire in an adjacent 15-foot cone that you designate. Each creature in that area must make a Dexterity saving throw against your spell save DC, taking 2d8 fire damage on a failed save or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren’t being worn or carried.\n\n\r\n\r\n\r\n\r\n\r\nForce Ballista\n\n\r\n\r\n\r\nMake a ranged spell attack, originating from the cannon, at one creature or object within 120 feet of it. On a hit, the target takes 2d8 force damage, and if the target is a creature, it is pushed up to 5 feet away from the cannon.\n\n\r\n\r\n\r\n\r\n\r\nProtector\n\n\r\n\r\n\r\nThe cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to 1d8 + your Intelligence modifier (minimum of +1)."
+      },
+      {
+        "name": "Arcane Firearm",
+        "source": "Artificer 5",
+        "desc": "5th-level Artillerist feature\n\n\r\nYou know how to turn a wand, staff, or rod into an arcane firearm, a conduit for your destructive spells. When you finish a long rest, you can use woodcarver’s tools to carve special sigils into a wand, staff, or rod and thereby turn it into your arcane firearm. The sigils disappear from the object if you later carve them on a different item. The sigils otherwise last indefinitely.\n\n\r\nYou can use your arcane firearm as a spellcasting focus for your artificer spells. When you cast an artificer spell through the firearm, roll a d8, and you gain a bonus to one of the spell’s damage rolls equal to the number rolled."
+      },
+      {
+        "name": "Magical Tinkering",
+        "source": "Artificer 1",
+        "desc": "At 1st level, you learn how to invest a spark of magic into mundane objects. To use this ability, you must have thieves’ tools or artisan’s tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:\n\n\r\n\r\nThe object sheds bright light in a 5-foot radius and dim light for an additional 5 feet.\r\nWhenever tapped by a creature, the object emits a recorded message that can be heard up to 10 feet away. You utter the message when you bestow this property on the object, and the recording can be no more than 6 seconds long.\r\nThe object continuously emits your choice of an odor or a nonverbal sound (wind, waves, chirping, or the like). The chosen phenomenon is perceivable up to 10 feet away.\r\nA static visual effect appears on one of the object’s surfaces. This effect can be a picture, up to 25 words of text, lines and shapes, or a mixture of these elements, as you like.\r\n\r\nThe chosen property lasts indefinitely. As an action, you can touch the object and end the property early.\n\n\r\nYou can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies."
+      },
+      {
+        "name": "Spellcasting",
+        "source": "Artificer 1",
+        "desc": "You’ve studied the workings of magic and how to cast spells, channeling the magic through objects. To observers, you don’t appear to be casting spells in a conventional way; you appear to produce wonders from mundane items and outlandish inventions.\n\n\r\nTools Required\r\nYou produce your artificer spell effects through your tools. You must have a spellcasting focus—specifically thieves’ tools or some kind of artisan’s tool—in hand when you cast any spell with this Spellcasting feature (meaning the spell has an ‘M’ component when you cast it). You must be proficient with the tool to use it in this way. See chapter 5, “Equipment,” in the Player’s Handbook for descriptions of these tools.\n\n\r\nAfter you gain the Infuse Item feature at 2nd level, you can also use any item bearing one of your infusions as a spellcasting focus.\n\n\r\nCantrips (0-Level Spells)\r\nAt 1st level, you know two cantrips of your choice from the artificer spell list. At higher levels, you learn additional artificer cantrips of your choice, as shown in the Cantrips Known column of the Artificer table.\n\n\r\nWhen you gain a level in this class, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list.\n\n\r\nPreparing and Casting Spells\r\nThe Artificer table shows how many spell slots you have to cast your artificer spells. To cast one of your artificer spells of 1st level or higher, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.\n\n\r\nYou prepare the list of artificer spells that are available for you to cast, choosing from the artificer spell list. When you do so, choose a number of artificer spells equal to your Intelligence modifier + half your artificer level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.\n\n\r\nFor example, if you are a 5th-level artificer, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell cure wounds, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.\n\n\r\nYou can change your list of prepared spells when you finish a long rest. Preparing a new list of artificer spells requires time spent tinkering with your spellcasting focuses: at least 1 minute per spell level for each spell on your list.\n\n\r\n\r\nTHE MAGIC OF ARTIFICE\n\n\r\nAs an artificer, you use tools when you cast your spells. When describing your spellcasting, think about how you’re using a tool to perform the spell effect. If you cast cure wounds using alchemist’s supplies, you could be quickly producing a salve. If you cast it using tinker’s tools, you might have a miniature mechanical spider that binds wounds. When you cast poison spray, you could fling foul chemicals or use a wand that spits venom. The effect of the spell is the same as for a spellcaster of any other class, but your method of spellcasting is special.\n\n\r\nThe same principle applies when you prepare your spells. As an artificer, you don’t study a spellbook or pray to prepare your spells. Instead, you work with your tools and create the specialized items you’ll use to produce your effects. If you replace cure wounds with heat metal, you might be altering the device you use to heal—perhaps modifying a tool so that it channels heat instead of healing energy.\n\n\r\nSuch details don’t limit you in any way or provide you with any benefit beyond the spell’s effects. You don’t have to justify how you’re using tools to cast a spell. But describing your spellcasting creatively is a fun way to distinguish yourself from other spellcasters.\n\n\r\n\r\nSpellcasting Ability\r\nIntelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one.\n\n\r\nSpell save DC = 8 + your proficiency bonus + your Intelligence modifier\n\n\r\nSpell attack modifier = your proficiency bonus + your Intelligence modifier\n\n\r\nRitual Casting\r\nYou can cast an artificer spell as a ritual if that spell has the ritual tag and you have the spell prepared."
+      },
+      {
+        "name": "Infuse Item",
+        "source": "Artificer 2",
+        "desc": "At 2nd level, you gain the ability to imbue mundane items with certain magical infusions. The magic items you create with this feature are effectively prototypes of permanent items.\n\n\r\nInfusions Known\r\nWhen you gain this feature, pick four artificer infusions to learn, choosing from the “Artificer Infusions” section at the end of the class’s description. You learn additional infusions of your choice when you reach certain levels in this class, as shown in the Infusions Known column of the Artificer table.\n\n\r\nWhenever you gain a level in this class, you can replace one of the artificer infusions you learned with a new one.\n\n\r\nInfusing an Item\r\nWhenever you finish a long rest, you can touch a non-magical object and imbue it with one of your artificer infusions, turning it into a magic item. An infusion works on only certain kinds of objects, as specified in the infusion’s description. If the item requires attunement, you can attune yourself to it the instant you infuse the item. If you decide to attune to the item later, you must do so using the normal process for attunement (see “Attunement” in chapter 7 of the Dungeon Master’s Guide).\n\n\r\nYour infusion remains in an item indefinitely, but when you die, the infusion vanishes after a number of days have passed equal to your Intelligence modifier (minimum of 1 day). The infusion also vanishes if you give up your knowledge of the infusion for another one.\n\n\r\nYou can infuse more than one nonmagical object at the end of a long rest; the maximum number of objects appears in the Infused Items column of the Artificer table. You must touch each of the objects, and each of your infusions can be in only one object at a time. Moreover, no object can bear more than one of your infusions at a time. If you try to exceed your maximum number of infusions, the oldest infusion immediately ends, and then the new infusion applies.\n\n\r\nIf an infusion ends on an item that contains other things, like a bag of holding, its contents harmlessly appear in and around its space."
+      },
+      {
+        "name": "Artificer Infusions",
+        "source": "Artificer 2",
+        "desc": "Artificer infusions are extraordinary processes that rapidly turn a nonmagical object into a magic item.\n\n\r\nThe description of each of the following infusions details the type of object that can receive it, along with whether the resulting magic item requires attunement.\n\n\r\nSome infusions specify a minimum artificer level. You can’t learn such an infusion until you are at least that level.\n\n\r\nUnless an infusion’s description says otherwise, you can’t learn an infusion more than once.\n\n\r\nArcane Propulsion Armor\r\nPrerequisite: 14th-level artificer\nItem: A suit of armor (requires attunement)\n\n\r\nThe wearer of this armor gains these benefits:\n\n\r\n\r\nThe wearer’s walking speed increases by 5 feet.\r\nThe armor includes gauntlets, each of which is a magic melee weapon that can be wielded only when the hand is holding nothing. The wearer is proficient with the gauntlets, and each one deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the gauntlet detaches and flies at the attack’s target, then immediately returns to the wearer and reattaches.\r\nThe armor can’t be removed against the wearer’s will.\r\nIf the wearer is missing any limbs, the armor replaces those limbs—hands, arms, feet, legs, or similar appendages. The replacements function identically to the body parts they replace.\r\n\r\nArmor of Magical Strength\r\nItem: A suit of armor (requires attunement)\n\n\r\nThis armor has 6 charges. The wearer can expend the armor’s charges in the following ways:\n\n\r\n\r\nWhen the wearer makes a Strength check or a Strength saving throw, it can expend 1 charge to add a bonus to the roll equal to its Intelligence modifier.\r\nIf the creature would be knocked prone, it can use its reaction to expend 1 charge to avoid being knocked prone.\r\n\r\nThe armor regains 1d6 expended charges daily at dawn.\n\n\r\nBoots of the Winding Path\r\nPrerequisite: 6th-level artificer\nItem: A pair of boots (requires attunement)\n\n\r\nWhile wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.\n\n\r\nEnhanced Arcane Focus\r\nItem: A rod, staff, or wand (requires attunement)\n\n\r\nWhile holding this item, a creature gains a +1 bonus to spell attack rolls. In addition, the creature ignores half cover when making a spell attack.\n\n\r\nThe bonus increases to +2 when you reach 10th level in this class.\n\n\r\nEnhanced Defense\r\nItem: A suit of armor or a shield\n\n\r\nA creature gains a +1 bonus to Armor Class while wearing (armor) or wielding (shield) the infused item.\n\n\r\nThe bonus increases to +2 when you reach 10th level in this class.\n\n\r\nEnhanced Weapon\r\nItem: A simple or martial weapon\n\n\r\nThis magic weapon grants a +1 bonus to attack and damage rolls made with it.\n\n\r\nThe bonus increases to +2 when you reach 10th level in this class.\n\n\r\nHelm of Awareness\r\nPrerequisite: 10th-level artificer\nItem: A helmet (requires attunement)\n\n\r\nWhile wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can’t be surprised, provided it isn’t incapacitated.\n\n\r\nHomunculus Servant\r\nItem: A gem or crystal worth at least 100 gp\n\n\r\nYou learn intricate methods for magically creating a special homunculus that serves you. The item you infuse serves as the creature’s heart, around which the creature’s body instantly forms.\n\n\r\nYou determine the homunculus’s appearance. Some artificers prefer mechanical-looking birds, whereas some like winged vials or miniature, animate cauldrons.\n\n\r\nThe homunculus is friendly to you and your companions, and it obeys your commands. See this creature’s game statistics in the Homunculus Servant stat block, which uses your proficiency bonus (PB) in several places.\n\n\r\nIn combat, the homunculus shares your initiative count, but it takes its turn immediately after yours. It can move and use its reaction on its own, but the only action it takes on its turn is the Dodge action, unless you take a bonus action on your turn to command it to take another action. That action can be one in its stat block or some other action. If you are incapacitated, the homunculus can take any action of its choice, not just Dodge.\n\n\r\nThe homunculus regains 2d6 hit points if the mending spell is cast on it. If you or the homunculus dies, it vanishes, leaving its heart in its space.\n\n\r\n\r\nHomunculus Servant\n\n\r\nTiny construct\n\n\r\nArmor Class 13 (natural armor)\n\n\r\nHit Points 1 + your Intelligence modifier + your artificer level (the homunculus has a number of Hit Dice [d4s] equal to your artificer level)\n\n\r\nSpeed 20 ft., fly 30 ft.\n\n\r\n\r\n\r\nSTR\r\n4 (&minus;3)\r\n\r\n\r\nDEX\r\n15 (+2)\r\n\r\n\r\nCON\r\n12 (+1)\r\n\r\n\r\nINT\r\n10 (+0)\r\n\r\n\r\nWIS\r\n10 (+0)\r\n\r\n\r\nCHA\r\n7 (&minus;2)\r\n\r\n\r\nSaving Throws Dex +2 plus PB\n\n\r\nSkills Perception +0 plus PB &times; 2, Stealth +2 plus PB\n\n\r\nDamage Immunities poison\n\n\r\nCondition Immunities exhaustion, poisoned\n\n\r\nSenses darkvision 60 ft., passive Perception 10 + (PB &times; 2)\n\n\r\nLanguages understands the languages you speak\n\n\r\nChallenge — Proficiency Bonus (PB) equals your bonus\n\n\r\nEvasion. If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can’t use this trait if it’s incapacitated.\n\n\r\nActions\n\n\r\nForce Strike. Ranged Weapon Attack: your spell attack modifier to hit, range 30 ft., one target you can see. Hit: 1d4 + PB force damage.\n\n\r\nReactions\n\n\r\nChannel Magic. The homunculus delivers a spell you cast that has a range of touch. The homunculus must be within 120 feet of you.\n\n\r\n\r\n \n\n\r\nMind Sharpener\r\nItem: A suit of armor or robes\n\n\r\nThe infused item can send a jolt to the wearer to refocus their mind. The item has 4 charges. When the wearer fails a Constitution saving throw to maintain concentration on a spell, the wearer can use its reaction to expend 1 of the item’s charges to succeed instead. The item regains 1d4 expended charges daily at dawn.\n\n\r\nRadiant Weapon\r\nPrerequisite: 6th-level artificer\nItem: A simple or martial weapon (requires attunement)\n\n\r\nThis magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n\n\r\nThe weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker’s next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. The weapon regains 1d4 expended charges daily at dawn.\n\n\r\nRepeating Shot\r\nItem: A simple or martial weapon with the ammunition property (requires attunement)\n\n\r\nThis magic weapon grants a +1 bonus to attack and damage rolls made with it when it’s used to make a ranged attack, and it ignores the loading property if it has it.\n\n\r\nIf the weapon lacks ammunition, it produces its own, automatically creating one piece of magic ammunition when the wielder makes a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.\n\n\r\nReplicate Magic Item\r\nUsing this infusion, you replicate a particular magic item. You can learn this infusion multiple times; each time you do so, choose a magic item that you can make with it, picking from the Replicable Items tables. A table’s title tells you the level you must be in the class to choose an item from the table. Alternatively, you can choose the magic item from among the common magic items in the game, not including potions or scrolls.\n\n\r\nIn the tables, an item’s entry tells you whether the item requires attunement. See the item’s description in the Dungeon Master’s Guide for more information about it, including the type of object required for its making.\n\n\r\nReplicable Items (2nd-Level Artificer)\r\n\r\n\r\n\r\n\r\nMagic Item\r\nAttunement\r\n\r\n\r\n\r\n\r\nAlchemy jug\r\nNo\r\n\r\n\r\nBag of holding\r\nNo\r\n\r\n\r\nCap of water breathing\r\nNo\r\n\r\n\r\nGoggles of night\r\nNo\r\n\r\n\r\nRope of climbing\r\nNo\r\n\r\n\r\nSending stones\r\nNo\r\n\r\n\r\nWand of magic detection\r\nNo\r\n\r\n\r\nWand of secrets\r\nNo\r\n\r\n\r\n\r\n\r\nReplicable Items (6th-Level Artificer)\r\n\r\n\r\n\r\n\r\nMagic Item\r\nAttunement\r\n\r\n\r\n\r\n\r\nBoots of elvenkind\r\nNo\r\n\r\n\r\nCloak of elvenkind\r\nYes\r\n\r\n\r\nCloak of the manta ray\r\nNo\r\n\r\n\r\nEyes of charming\r\nYes\r\n\r\n\r\nGloves of thievery\r\nNo\r\n\r\n\r\nLantern of revealing\r\nNo\r\n\r\n\r\nPipes of haunting\r\nNo\r\n\r\n\r\nRing of water walking\r\nNo\r\n\r\n\r\n\r\n\r\nReplicable Items (10th-Level Artificer)\r\n\r\n\r\n\r\n\r\nMagic Item\r\nAttunement\r\n\r\n\r\n\r\n\r\nBoots of striding and springing\r\nYes\r\n\r\n\r\nBoots of the winterlands\r\nYes\r\n\r\n\r\nBracers of archery\r\nYes\r\n\r\n\r\nBrooch of shielding\r\nYes\r\n\r\n\r\nCloak of protection\r\nYes\r\n\r\n\r\nEyes of the eagle\r\nYes\r\n\r\n\r\nGauntlets of ogre power\r\nYes\r\n\r\n\r\nGloves of missile snaring\r\nYes\r\n\r\n\r\nGloves of swimming and climbing\r\nYes\r\n\r\n\r\nHat of disguise\r\nYes\r\n\r\n\r\nHeadband of intellect\r\nYes\r\n\r\n\r\nHelm of telepathy\r\nYes\r\n\r\n\r\nMedallion of thoughts\r\nYes\r\n\r\n\r\nNecklace of adaptation\r\nYes\r\n\r\n\r\nPeriapt of wound closure\r\nYes\r\n\r\n\r\nPipes of the sewers\r\nYes\r\n\r\n\r\nQuiver of Ehlonna\r\nNo\r\n\r\n\r\nRing of jumping\r\nYes\r\n\r\n\r\nRing of mind shielding\r\nYes\r\n\r\n\r\nSlippers of spider climbing\r\nYes\r\n\r\n\r\nWinged boots\r\nYes\r\n\r\n\r\n\r\n\r\nReplicable Items (14th-Level Artificer)\r\n\r\n\r\n\r\n\r\nMagic Item\r\nAttunement\r\n\r\n\r\n\r\n\r\nAmulet of health\r\nYes\r\n\r\n\r\nBelt of hill giant strength\r\nYes\r\n\r\n\r\nBoots of levitation\r\nYes\r\n\r\n\r\nBoots of speed\r\nYes\r\n\r\n\r\nBracers of defense\r\nYes\r\n\r\n\r\nCloak of the bat\r\nYes\r\n\r\n\r\nDimensional shackles\r\nNo\r\n\r\n\r\nGem of seeing\r\nYes\r\n\r\n\r\nHorn of blasting\r\nNo\r\n\r\n\r\nRing of free action\r\nYes\r\n\r\n\r\nRing of protection\r\nYes\r\n\r\n\r\nRing of the ram\r\nYes\r\n\r\n\r\n\r\n\r\nRepulsion Shield\r\nPrerequisite: 6th-level artificer\nItem: A shield (requires attunement)\n\n\r\nA creature gains a +1 bonus to Armor Class while wielding this shield.\n\n\r\nThe shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield’s charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.\n\n\r\nResistant Armor\r\nPrerequisite: 6th-level artificer\nItem: A suit of armor (requires attunement)\n\n\r\nWhile wearing this armor, a creature has resistance to one of the following damage types, which you choose when you infuse the item: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder.\n\n\r\nReturning Weapon\r\nItem: A simple or martial weapon with the thrown property\n\n\r\nThis magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder’s hand immediately after it is used to make a ranged attack.\n\n\r\nSpell-Refueling Ring\r\nPrerequisite: 6th-level artificer\nItem: A ring (requires attunement)\n\n\r\nWhile wearing this ring, the creature can recover one expended spell slot as an action. The recovered slot can be of 3rd level or lower. Once used, the ring can’t be used again until the next dawn."
+      },
+      {
+        "name": "Artificer Specialist",
+        "source": "Artificer 3",
+        "desc": "Artificers pursue many disciplines. Here are specialist options you can choose from at 3rd level."
+      },
+      {
+        "name": "The Right Tool for the Job",
+        "source": "Artificer 3",
+        "desc": "At 3rd level, you learn how to produce exactly the tool you need: with thieves’ tools or artisan’s tools, you can magically create one set of artisan’s tools in an unoccupied space within 5 feet of you. This creation requires 1 hour of uninterrupted work, which can coincide with a short or long rest. Though the product of magic, the tools are nonmagical, and they vanish when you use this feature again."
+      },
+      {
+        "name": "Equipment",
+        "source": "Artificer 1",
+        "desc": "You start with the following equipment, in addition to the equipment granted by your background:\n\n\r\n\r\nany two simple weapons of your choice\r\na light crossbow and 20 bolts\r\nyour choice of studded leather armor or scale mail\r\nthieves’ tools and a dungeoneer’s pack"
+      },
+      {
+        "name": "Bad Reputation",
+        "source": "Background: Pirate",
+        "desc": "No matter where you go, people are afraid of you due to your reputation. When you are in a settlement, you can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report your activity to the authorities."
+      }
+    ],
+    "feats": [
+      {
+        "name": "Spell Sniper (Wizard)",
+        "description": "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n\n\r\n\r\nWhen you cast a spell that requires you to make an attack roll, the spell's range is doubled.\r\nYour ranged spell attacks ignore half cover and three-quarters cover.\r\nYou learn one cantrip that requires an attack roll. Choose the cantrip from the wizard spell list. Your spellcasting ability for this cantrip is Intelligence."
+      }
+    ],
+    "infusions": {
+      "known": [
+        {
+          "id": "2121599",
+          "name": "Enhanced Defense",
+          "entity_ref": "rulesets/open5e/examples/infusion/enhanced_defense.json"
+        },
+        {
+          "id": "2121600",
+          "name": "Repeating Shot",
+          "entity_ref": "rulesets/open5e/examples/infusion/repeating_shot.json"
+        },
+        {
+          "id": "2121601",
+          "name": "infusion:b40c5807-37b6-417b-9826-3c8152b5e14a",
+          "entity_ref": "rulesets/open5e/examples/infusion/b40c5807-37b6-417b-9826-3c8152b5e14a.json"
+        },
+        {
+          "id": "2121598",
+          "name": "infusion:fee7a7ac-cbc3-4a7a-a987-6bcdbcbf2210",
+          "entity_ref": "rulesets/open5e/examples/infusion/fee7a7ac-cbc3-4a7a-a987-6bcdbcbf2210.json"
+        }
+      ],
+      "active": []
+    },
+    "spellcasting": {
+      "class": "Artificer",
+      "ability": "INTELLIGENCE",
+      "save_dc": 15,
+      "attack_bonus": 7,
+      "cantrips": [
+        "Mending",
+        "Fire Bolt",
+        "Ray of Frost"
+      ],
+      "spells": [
+        {
+          "name": "Mending",
+          "level": 0,
+          "prepared": false,
+          "school": "Transmutation",
+          "casting_time": "1 action",
+          "range": "Touch",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Artificer",
+          "desc": "This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.\n\n\r\nThis spell can physically repair a magic item or construct, but the spell can't restore magic to such an object."
+        },
+        {
+          "name": "Faerie Fire",
+          "level": 1,
+          "prepared": true,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Artificer",
+          "desc": "Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius.\n\n\r\nAny attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible."
+        },
+        {
+          "name": "Sanctuary",
+          "level": 1,
+          "prepared": true,
+          "school": "Abjuration",
+          "casting_time": "1 action",
+          "range": "30 ft.",
+          "duration": "Time",
+          "ritual": false,
+          "concentration": false,
+          "source": "Artificer",
+          "desc": "You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a Wisdom saving throw. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from area effects, such as the explosion of a fireball.\n\n\r\nIf the warded creature makes an attack, casts a spell that affects an enemy, or deals damage to another creature, this spell ends."
+        },
+        {
+          "name": "Catapult",
+          "level": 1,
+          "prepared": true,
+          "school": "Transmutation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Artificer",
+          "desc": "Choose one object weighing 1 to 5 pounds within range that isn’t being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage increases by 1d8, for each slot level above 1st."
+        },
+        {
+          "name": "Heat Metal",
+          "level": 2,
+          "prepared": true,
+          "school": "Transmutation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Artificer",
+          "desc": "Choose a manufactured metal object, such as a metal weapon or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes 2d8 fire damage when you cast the spell. Until the spell ends, you can use a bonus action on each of your subsequent turns to cause this damage again.\n\n\r\nIf a creature is holding or wearing the object and takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn’t drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd."
+        },
+        {
+          "name": "See Invisibility",
+          "level": 2,
+          "prepared": true,
+          "school": "Divination",
+          "casting_time": "1 action",
+          "range": "Self",
+          "duration": "Time",
+          "ritual": false,
+          "concentration": false,
+          "source": "Artificer",
+          "desc": "For the duration, you see invisible creatures and objects as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent."
+        },
+        {
+          "name": "Fire Bolt",
+          "level": 0,
+          "prepared": false,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "120 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Artificer",
+          "desc": "You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried.\n\n\r\nThis spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
+        },
+        {
+          "name": "Detect Magic",
+          "level": 1,
+          "prepared": true,
+          "school": "Divination",
+          "casting_time": "1 action",
+          "range": "Self",
+          "duration": "Concentration",
+          "ritual": true,
+          "concentration": true,
+          "source": "Artificer",
+          "desc": "For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.\n\n\r\nThe spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."
+        },
+        {
+          "name": "Ray of Frost",
+          "level": 0,
+          "prepared": true,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Feat",
+          "desc": "A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn.\n\n\r\nThe spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
+        }
+      ]
+    },
+    "inventory": [
+      {
+        "id": "item_139944519",
+        "name": "Eyes of the Eagle",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": true,
+        "attuned": true,
+        "requires_attunement": true,
+        "rarity": "uncommon",
+        "filter_type": "Wondrous item",
+        "description": "These crystal lenses fit over the eyes. While wearing them, you have advantage on Wisdom (Perception) checks that rely on sight. In conditions of clear visibility, you can make out details of even extremely distant creatures and objects as small as 2 feet across."
+      },
+      {
+        "id": "item_139946507",
+        "name": "Spell Scroll (1st Level)",
+        "quantity": 3,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Scroll",
+        "description": "A spell scroll bears the words of a single spell, written in a mystical cipher. If the spell is on your class’s spell list, you can read the scroll and cast its spell without providing any material components. Otherwise, the scroll is unintelligible. Casting the spell by reading the scroll requires the spell’s normal casting time. Once the spell is cast, the words on the scroll fade, and it crumbles to dust. If the casting is interrupted, the scroll is not lost.\n\n\r\nIf the spell is on your class’s spell list but of a higher level than you can normally cast, you must make an ability check using your spellcasting ability to determine whether you cast it successfully. The DC equals 11. On a failed check, the spell disappears from the scroll with no other effect.\n\n\r\nThis scroll contains a 1st level spell. The spell's saving throw DC is 13 and attack bonus is +5.\n\n\r\nA wizard spell on a spell scroll can be copied just as spells in spellbooks can be copied. When a spell is copied from a spell scroll, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 11. If the check succeeds, the spell is successfully copied. Whether the check succeeds or fails, the spell scroll is destroyed."
+      },
+      {
+        "id": "item_139946483",
+        "name": "Spell Scroll (2nd Level)",
+        "quantity": 2,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Scroll",
+        "description": "A spell scroll bears the words of a single spell, written in a mystical cipher. If the spell is on your class’s spell list, you can read the scroll and cast its spell without providing any material components. Otherwise, the scroll is unintelligible. Casting the spell by reading the scroll requires the spell’s normal casting time. Once the spell is cast, the words on the scroll fade, and it crumbles to dust. If the casting is interrupted, the scroll is not lost.\n\n\r\nIf the spell is on your class’s spell list but of a higher level than you can normally cast, you must make an ability check using your spellcasting ability to determine whether you cast it successfully. The DC equals 12. On a failed check, the spell disappears from the scroll with no other effect.\n\n\r\nThis scroll contains a 2nd level spell. The spell's saving throw DC is 13 and attack bonus is +5.\n\n\r\nA wizard spell on a spell scroll can be copied just as spells in spellbooks can be copied. When a spell is copied from a spell scroll, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 12. If the check succeeds, the spell is successfully copied. Whether the check succeeds or fails, the spell scroll is destroyed."
+      },
+      {
+        "id": "item_139946341",
+        "name": "Staff of Birdcalls",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Staff",
+        "description": "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch’s chirp, a raven’s caw, a duck’s quack, a chicken’s cluck, a goose’s honk, a loon’s call, a turkey’s gobble, a seagull’s cry, an owl’s hoot, or an eagle’s shriek.\n\n\r\nThe staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever."
+      },
+      {
+        "id": "item_139945537",
+        "name": "Cleansing Stone",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Wondrous item",
+        "description": "A cleansing stone is a sphere 1 foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person.\n\n\r\nSuch stones are often embedded in pedestals in public squares in Aundair or in high-end Ghallanda inns."
+      },
+      {
+        "id": "item_139945836",
+        "name": "Breathing Bubble",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Wondrous item",
+        "description": "This translucent, bubble-like sphere has a slightly tacky outer surface, and you gain the item’s benefits only while wearing it over your head like a helmet.\n\n\r\nThe bubble contains 1 hour of breathable air. The bubble regains all its expended air daily at dawn."
+      },
+      {
+        "id": "item_150594319",
+        "name": "Amulet of Protection",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "rare",
+        "filter_type": "Wondrous item",
+        "description": "You gain a +1 bonus to AC and saving throws while you wear this amulet."
+      },
+      {
+        "id": "item_109456809",
+        "name": "Scale Mail",
+        "quantity": 1,
+        "weight": 45,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Armor",
+        "description": "This armor consists of a coat and leggings (and perhaps a separate skirt) of leather covered with overlapping pieces of metal, much like the scales of a fish. The suit includes gauntlets."
+      },
+      {
+        "id": "item_109456806",
+        "name": "Dagger",
+        "quantity": 1,
+        "weight": 1,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Dagger allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nNick. When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+      },
+      {
+        "id": "item_109456807",
+        "name": "Light Hammer",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Light Hammer allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nNick. When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+      },
+      {
+        "id": "item_141506241",
+        "name": "Quarterstaff",
+        "quantity": 1,
+        "weight": 4,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Quarterstaff allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nTopple. If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."
+      },
+      {
+        "id": "item_141506242",
+        "name": "Crossbow, Light",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Light Crossbow allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nSlow. If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+      },
+      {
+        "id": "item_109456808",
+        "name": "Crossbow Bolts",
+        "quantity": 40,
+        "weight": 1.5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Crossbow bolts are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield."
+      },
+      {
+        "id": "item_109456811",
+        "name": "Backpack",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.\n\n\r\nYou can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack."
+      },
+      {
+        "id": "item_109456821",
+        "name": "Clothes, Common",
+        "quantity": 1,
+        "weight": 3,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes."
+      },
+      {
+        "id": "item_109456812",
+        "name": "Crowbar",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied."
+      },
+      {
+        "id": "item_109456813",
+        "name": "Hammer",
+        "quantity": 2,
+        "weight": 3,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This one-handed hammer with an iron head is useful for pounding pitons into a wall."
+      },
+      {
+        "id": "item_109456814",
+        "name": "Piton",
+        "quantity": 10,
+        "weight": 0.25,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "When a wall doesn’t offer handholds and footholds, you can make your own. A piton is a steel spike with an eye through which you can loop a rope."
+      },
+      {
+        "id": "item_109456810",
+        "name": "Thieves' Tools",
+        "quantity": 1,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks."
+      },
+      {
+        "id": "item_109456815",
+        "name": "Torch",
+        "quantity": 10,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage."
+      },
+      {
+        "id": "item_109456816",
+        "name": "Tinderbox",
+        "quantity": 1,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute."
+      },
+      {
+        "id": "item_109456817",
+        "name": "Rations (1 day)",
+        "quantity": 10,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts."
+      },
+      {
+        "id": "item_109456818",
+        "name": "Waterskin",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A waterskin can hold 4 pints of liquid."
+      },
+      {
+        "id": "item_109456819",
+        "name": "Rope, Hempen (50 feet)",
+        "quantity": 1,
+        "weight": 10,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check."
+      },
+      {
+        "id": "item_109456820",
+        "name": "Rope, Silk (50 feet)",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check."
+      }
+    ]
+  }
+}

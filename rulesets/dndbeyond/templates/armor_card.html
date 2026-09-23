@@ -1,0 +1,28 @@
+<div class="ddb-entity-card armor-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">{{#if properties.type}}{{properties.type}}{{else}}Armor{{/if}}</span>
+    </div>
+    <span class="card-badge red">AC {{properties.armorClass}}</span>
+  </div>
+
+  <div class="card-stats-row">
+    {{#if properties.strengthRequirement}}
+    <div class="card-stat-item">
+      <strong>STR Req:</strong>
+      <span>{{properties.strengthRequirement}}</span>
+    </div>
+    {{/if}}
+    <div class="card-stat-item">
+      <strong>Stealth:</strong>
+      <span>{{#if properties.stealthCheck}}Disadvantage{{else}}Normal{{/if}}</span>
+    </div>
+    {{#if properties.weight}}
+    <div class="card-stat-item">
+      <strong>Weight:</strong>
+      <span>{{properties.weight}} lb.</span>
+    </div>
+    {{/if}}
+  </div>
+</div>

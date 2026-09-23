@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "28916a40-f210-4b68-8e19-495a127a260e",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Stone of Good Luck (Luckstone)",
+  "description": "Wondrous item (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 4773,
+    "name": "Stone of Good Luck (Luckstone)",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Uncommon",
+    "weight": 0,
+    "cost": null,
+    "description": "While this polished agate is on your person, you gain a +1 bonus to ability checks and saving throws.",
+    "canAttune": true,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

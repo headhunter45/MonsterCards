@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "bd521204-9975-44b6-ae47-fc2eaf9aefe9",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Warhammer",
+  "description": "Martial Melee dealing damage.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "martial_melee"
+  ],
+  "properties": {
+    "id": 201,
+    "name": "Warhammer",
+    "type": "Martial Melee",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 8
+    },
+    "properties": [],
+    "description": ""
+  }
+}

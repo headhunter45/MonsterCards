@@ -1,0 +1,89 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "class",
+  "name": "Character Class",
+  "description": "5e Character Class definition detailing hit dice, saving throw proficiencies, armor/weapon proficiencies, skill choices, spellcasting, and subclasses.",
+  "ruleset_id": "open5e",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": ["name", "hit_die", "saving_throws"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name of the class (e.g. 'Fighter', 'Wizard', 'Ranger')."
+      },
+      "description": {
+        "type": "string",
+        "description": "Class overview and role description."
+      },
+      "hit_die": {
+        "type": "string",
+        "enum": ["d6", "d8", "d10", "d12"],
+        "description": "Hit die die type per class level (e.g. 'd10' for Fighter/Ranger, 'd6' for Wizard, 'd8' for Rogue/Cleric)."
+      },
+      "primary_ability": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Primary ability score(s) recommended for this class (e.g. ['Strength', 'Dexterity'])."
+      },
+      "saving_throws": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "The two ability scores this class grants saving throw proficiencies in."
+      },
+      "armor_proficiencies": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Armor types granted by this class (e.g. ['Light armor', 'Medium armor', 'Shields'])."
+      },
+      "weapon_proficiencies": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Weapon categories or specific weapons granted by this class."
+      },
+      "tool_proficiencies": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Tool kits or musical instruments proficient."
+      },
+      "skill_choices": {
+        "type": "object",
+        "properties": {
+          "choose": { "type": "integer", "default": 2 },
+          "from": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "description": "Class skill proficiencies selection rule."
+      },
+      "spellcasting_ability": {
+        "type": ["string", "null"],
+        "enum": ["Intelligence", "Wisdom", "Charisma", null],
+        "description": "Spellcasting ability score if this is a spellcasting class."
+      },
+      "subclasses": {
+        "type": "array",
+        "description": "Archetypes and subclasses available to this class.",
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "description": { "type": "string" },
+            "level_available": { "type": "integer", "default": 3 }
+          }
+        }
+      }
+    }
+  },
+  "default_values": {
+    "hit_die": "d8",
+    "primary_ability": [],
+    "saving_throws": [],
+    "armor_proficiencies": [],
+    "weapon_proficiencies": [],
+    "subclasses": []
+  }
+}

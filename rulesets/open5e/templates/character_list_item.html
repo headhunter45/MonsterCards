@@ -18,6 +18,8 @@
           CR {{properties.challenge_rating}}
         {{else if properties.cr}}
           CR {{properties.cr}}
+        {{else if properties.class_levels}}
+          LVL {{calcOverallLevel properties}}
         {{else if properties.level}}
           LVL {{properties.level}}
         {{else}}

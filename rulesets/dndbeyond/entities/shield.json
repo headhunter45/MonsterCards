@@ -1,0 +1,60 @@
+{
+  "id": "shield",
+  "name": "Shield",
+  "description": "D&D Beyond equippable shields providing armor class bonuses.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name",
+      "armorClass"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "default": "Shield"
+      },
+      "filterType": {
+        "type": "string",
+        "default": "Armor"
+      },
+      "armorClass": {
+        "type": "integer",
+        "default": 2
+      },
+      "weight": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "cost": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "rarity": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

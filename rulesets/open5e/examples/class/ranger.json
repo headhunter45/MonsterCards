@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "78b12a02-c892-482f-b912-88d102381202",
+  "ruleset_id": "open5e",
+  "entity_type": "class",
+  "display_name": "Ranger",
+  "description": "A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization.",
+  "version": "1.0.0",
+  "properties": {
+    "name": "Ranger",
+    "description": "Far from the bustle of cities and towns, past the hedges that shelter the most distant farms from the terrors of the wild, amid the dense-packed trees of trackless forests and across wide and empty plains, rangers keep their unending watch.",
+    "hit_die": "d10",
+    "primary_ability": ["Dexterity", "Wisdom"],
+    "saving_throws": ["Strength", "Dexterity"],
+    "armor_proficiencies": ["Light armor", "Medium armor", "Shields"],
+    "weapon_proficiencies": ["Simple weapons", "Martial weapons"],
+    "tool_proficiencies": [],
+    "skill_choices": {
+      "choose": 3,
+      "from": [
+        "Animal Handling",
+        "Athletics",
+        "Insight",
+        "Investigation",
+        "Nature",
+        "Perception",
+        "Stealth",
+        "Survival"
+      ]
+    },
+    "spellcasting_ability": "Wisdom",
+    "subclasses": [
+      {
+        "name": "Hunter",
+        "description": "Emulates the specialized hunting techniques used by wild beasts and seasoned woodsmen.",
+        "level_available": 3
+      },
+      {
+        "name": "Beast Master",
+        "description": "Bonds with a beast companion, fighting as a coordinated partnership.",
+        "level_available": 3
+      }
+    ]
+  }
+}

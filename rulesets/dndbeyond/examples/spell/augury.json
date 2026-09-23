@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "83f87f4d-350a-42db-ad9f-495945b434ad",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Augury",
+  "description": "Level 2 Divination spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-2",
+    "divination"
+  ],
+  "properties": {
+    "id": 2007,
+    "name": "Augury",
+    "level": 2,
+    "school": "Divination",
+    "duration": {
+      "durationInterval": 0,
+      "durationUnit": null,
+      "durationType": "Instantaneous"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 6
+    },
+    "range": {
+      "origin": "Self",
+      "rangeValue": 0,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "By casting gem-inlaid sticks, rolling dragon bones, laying out ornate cards, or employing some other divining tool, you receive an omen from an otherworldly entity about the results of a specific course of action that you plan to take within the next 30 minutes. The DM chooses from the following possible omens:\n\n\r\n\r\nWeal, for good results\r\nWoe, for bad results\r\nWeal and woe, for both good and bad results\r\nNothing, for results that aren't especially good or bad\r\n\r\n\nThe spell doesn't take into account any possible circumstances that might change the outcome, such as the casting of additional spells or the loss or gain of a companion.\n\n\r\nIf you cast the spell two or more times before completing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The DM makes this roll in secret.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": true,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "specially marked sticks, bones, or similar tokens worth at least 25 gp",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 215,
+        "sourceType": 1
+      }
+    ]
+  }
+}

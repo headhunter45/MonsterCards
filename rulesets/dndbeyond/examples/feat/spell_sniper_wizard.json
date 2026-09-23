@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e48fb92c-d6e0-4f96-84e0-28a1e4929987",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "feat",
+  "display_name": "Spell Sniper (Wizard)",
+  "description": "When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover. You learn one cantrip that requires an attack roll from your chosen class spell list (INT is your spellcasting ability for it).",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "feat",
+    "spell_sniper_wizard"
+  ],
+  "properties": {
+    "id": 79,
+    "name": "Spell Sniper (Wizard)",
+    "description": "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n\n\r\n\r\nWhen you cast a spell that requires you to make an attack roll, the spell's range is doubled.\r\nYour ranged spell attacks ignore half cover and three-quarters cover.\r\nYou learn one cantrip that requires an attack roll. Choose the cantrip from the wizard spell list. Your spellcasting ability for this cantrip is Intelligence.",
+    "snippet": "When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover. You learn one cantrip that requires an attack roll from your chosen class spell list (INT is your spellcasting ability for it).",
+    "prerequisites": []
+  }
+}

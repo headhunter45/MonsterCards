@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "9a8371da-5ce7-45cf-b8f2-feea06cddd14",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Dice Set",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 121,
+    "name": "Dice Set",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": 0.1,
+    "description": "If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

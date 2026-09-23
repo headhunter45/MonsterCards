@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "f296a662-d165-4f0d-bd39-6bc77133fdc9",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "class",
+  "display_name": "Artificer",
+  "description": "Artificer class (d8 hit die).",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "class",
+    "artificer"
+  ],
+  "properties": {
+    "id": 252717,
+    "name": "Artificer",
+    "description": "",
+    "hitDice": 8,
+    "subclassDefinition": {
+      "id": 198273,
+      "name": "Battle Smith"
+    },
+    "classFeatures": []
+  }
+}

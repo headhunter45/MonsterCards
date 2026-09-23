@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "ce56d238-2f83-41e3-b63c-bcb38598c2d5",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Fast Friends",
+  "description": "Level 3 Enchantment spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-3",
+    "enchantment"
+  ],
+  "properties": {
+    "id": 188104,
+    "name": "Fast Friends",
+    "level": 3,
+    "school": "Enchantment",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Hour",
+      "durationType": "Concentration"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 30,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "When you need to make sure something gets done, you can’t rely on vague promises, sworn oaths, or binding contracts of employment. When you cast this spell, choose one humanoid within range that can see and hear you, and that can understand you. The creature must succeed on a Wisdom saving throw or become charmed by you for the duration. While the creature is charmed in this way, it undertakes to perform any services or activities you ask of it in a friendly manner, to the best of its ability.\n\n\r\nYou can set the creature new tasks when a previous task is completed, or if you decide to end its current task. If the service or activity might cause harm to the creature, or if it conflicts with the creature’s normal activities and desires, the creature can make another Wisdom saving throw to try to end the effect. This save is made with advantage if you or your companions are fighting the creature. If the activity would result in certain death for the creature, the spell ends.\n\n\r\nWhen the spell ends, the creature knows it was charmed by you.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd.",
+    "snippet": "",
+    "concentration": true,
+    "ritual": false,
+    "components": [
+      1
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 44,
+        "pageNumber": 75,
+        "sourceType": 1
+      }
+    ]
+  }
+}

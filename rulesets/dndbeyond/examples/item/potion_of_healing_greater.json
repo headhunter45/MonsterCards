@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "710db6c4-25bd-47a0-bc54-74817ef52317",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Potion of Healing (Greater)",
+  "description": "Potion (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "potion"
+  ],
+  "properties": {
+    "id": 5133,
+    "name": "Potion of Healing (Greater)",
+    "filterType": "Potion",
+    "type": "Potion",
+    "rarity": "Uncommon",
+    "weight": 0.5,
+    "cost": null,
+    "description": "You regain 4d4 + 4 Hit Points when you drink this potion.\n\n\r\nWhatever its potency, the potion’s red liquid glimmers when agitated.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": true
+  }
+}

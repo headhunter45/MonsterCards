@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "bb4e3514-9491-447b-94b4-9c18baac1a8a",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Potion of Comprehension",
+  "description": "Potion (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "potion"
+  ],
+  "properties": {
+    "id": 954138,
+    "name": "Potion of Comprehension",
+    "filterType": "Potion",
+    "type": "Potion",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": null,
+    "description": "When you drink this potion, you gain the effect of the Comprehend Languages spell for 1 hour.\n\n\r\nThis potion’s liquid is a clear concoction with bits of salt and soot swirling in it.",
+    "canAttune": false,
+    "attunementDescription": "",
+    "isConsumable": true
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "3f2dedfb-5018-48f4-806b-8e5064b3b22c",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Dancing Lights",
+  "description": "Level 0 Evocation spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-0",
+    "evocation"
+  ],
+  "properties": {
+    "id": 2057,
+    "name": "Dancing Lights",
+    "level": 0,
+    "school": "Evocation",
+    "duration": {
+      "durationInterval": 1,
+      "durationUnit": "Minute",
+      "durationType": "Concentration"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 1
+    },
+    "range": {
+      "origin": "Ranged",
+      "rangeValue": 120,
+      "aoeType": null,
+      "aoeValue": null
+    },
+    "description": "You create up to four torch-sized lights within range, making them appear as torches, lanterns, or glowing orbs that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10-foot radius.\n\n\r\nAs a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this spell, and a light winks out if it exceeds the spell's range.",
+    "snippet": "",
+    "concentration": true,
+    "ritual": false,
+    "components": [
+      1,
+      2,
+      3
+    ],
+    "componentsDescription": "a bit of phosphorus or wychwood, or a glowworm",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 1,
+        "pageNumber": null,
+        "sourceType": 2
+      },
+      {
+        "sourceId": 2,
+        "pageNumber": 230,
+        "sourceType": 1
+      }
+    ]
+  }
+}

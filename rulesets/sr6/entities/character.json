@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "character",
   "name": "Shadowrunner Character",
   "description": "A 6th Edition Shadowrunner character with attributes, skills, condition monitors, qualities, augmentations, and combat statistics.",

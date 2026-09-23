@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "8d7d392a-9bd2-4ea6-a9b9-fc4c9f54a911",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Alexandrite",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 284,
+    "name": "Alexandrite",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": 500,
+    "description": "A transparent dark green gemstone worth 500 gold pieces",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

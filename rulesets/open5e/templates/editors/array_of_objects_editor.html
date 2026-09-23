@@ -1,0 +1,31 @@
+{{!--
+  Generic widget for an array (or key-object) of nested entities, each
+  rendered by recursing back into field-dispatcher using the property's
+  JSON Schema "items" definition. Reused for e.g. attacks, feats,
+  features_and_traits, and class_levels (dict-of-class-progression).
+--}}
+<div class="field field-array-of-objects" data-array-key="{{key}}">
+  <label>{{label}}</label>
+  <div class="array-object-entries">
+    {{#each value}}
+      <fieldset class="array-object-entry">
+        <div class="array-object-entry-header">
+          <span class="array-object-entry-title">{{../label}} #{{@index}}</span>
+          <button type="button" class="remove-array-object" aria-label="Remove entry">&times; Remove</button>
+        </div>
+        {{> field-dispatcher schema=../schema.items ui=../ui value=this}}
+      </fieldset>
+    {{/each}}
+  </div>
+  {{!-- Blank row template cloned client-side by entity_form.js for "+ Add" --}}
+  <template class="array-object-entry-template">
+    <fieldset class="array-object-entry">
+      <div class="array-object-entry-header">
+        <span class="array-object-entry-title">{{label}} (new)</span>
+        <button type="button" class="remove-array-object" aria-label="Remove entry">&times; Remove</button>
+      </div>
+      {{> field-dispatcher schema=schema.items ui=ui value=(emptyObject)}}
+    </fieldset>
+  </template>
+  <button type="button" class="add-array-object" data-target="{{key}}">+ Add {{label}}</button>
+</div>

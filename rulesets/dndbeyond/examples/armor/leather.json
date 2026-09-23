@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "30c26ec3-4fca-40dd-94f5-3d90f991fda3",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Leather",
+  "description": "Armor (AC 11)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "light_armor"
+  ],
+  "properties": {
+    "id": 10,
+    "name": "Leather",
+    "type": "Light Armor",
+    "filterType": "Armor",
+    "armorClass": 11,
+    "armorTypeId": 1,
+    "strengthRequirement": null,
+    "stealthCheck": 1,
+    "weight": 10,
+    "cost": 10,
+    "rarity": "Common",
+    "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials."
+  }
+}

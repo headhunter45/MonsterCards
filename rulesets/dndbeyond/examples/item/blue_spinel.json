@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "9070b71d-83f9-4a83-91d6-189cd6106a5e",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Blue spinel",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 256,
+    "name": "Blue spinel",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0,
+    "cost": 500,
+    "description": "A transparent deep blue gemstone worth 500 gold pieces",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

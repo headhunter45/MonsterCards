@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "99c12a03-d892-482f-c912-99d102381203",
+  "ruleset_id": "open5e",
+  "entity_type": "class",
+  "display_name": "Wizard / Mage",
+  "description": "A scholarly magic-user capable of manipulating the structures of reality through arcane study.",
+  "version": "1.0.0",
+  "properties": {
+    "name": "Wizard",
+    "description": "Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle deception, and brute-force mind control.",
+    "hit_die": "d6",
+    "primary_ability": ["Intelligence"],
+    "saving_throws": ["Intelligence", "Wisdom"],
+    "armor_proficiencies": [],
+    "weapon_proficiencies": [
+      "Daggers",
+      "Darts",
+      "Slings",
+      "Quarterstaffs",
+      "Light crossbows"
+    ],
+    "tool_proficiencies": [],
+    "skill_choices": {
+      "choose": 2,
+      "from": [
+        "Arcana",
+        "History",
+        "Insight",
+        "Investigation",
+        "Medicine",
+        "Religion"
+      ]
+    },
+    "spellcasting_ability": "Intelligence",
+    "subclasses": [
+      {
+        "name": "School of Evocation",
+        "description": "Focuses on the study of magic that creates powerful elemental and explosive effects.",
+        "level_available": 2
+      },
+      {
+        "name": "School of Abjuration",
+        "description": "Emphasizes protective magic, shielding allies and banishing foes.",
+        "level_available": 2
+      }
+    ]
+  }
+}

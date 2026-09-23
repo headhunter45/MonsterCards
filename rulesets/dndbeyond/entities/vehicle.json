@@ -1,0 +1,101 @@
+{
+  "id": "vehicle",
+  "name": "Vehicle",
+  "description": "D&D Beyond land, water, and airborne vehicles with armor class, hit points, speed, and actions.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "vehicleType": {
+        "type": [
+          "integer",
+          "string",
+          "null"
+        ]
+      },
+      "capacity": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "speed": {
+        "type": [
+          "object",
+          "string",
+          "number",
+          "null"
+        ]
+      },
+      "dimensions": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "creatureCapacity": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "cargoCapacity": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "armorClass": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "hitPoints": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "damageThreshold": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "isCustom": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "definitionId": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "actions": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

@@ -1,0 +1,18 @@
+{{!--
+  Recursive field dispatcher partial.
+  Iterates a JSON Schema's "properties" and, for each one, resolves a widget
+  partial (explicit ui.widget override, or a builtin-* default by JSON Schema
+  type) and renders it with { key, schema, ui, value, label }.
+  Composite widgets (e.g. builtin-object-group) call back into this partial
+  to recurse into nested "properties".
+--}}
+{{#each schema.properties as |propSchema propKey|}}
+  {{#unless (fieldHidden (uiField ../ui propKey))}}
+    {{> (resolveWidget propSchema (uiField ../ui propKey))
+        key=propKey
+        schema=propSchema
+        ui=(uiField ../ui propKey)
+        value=(lookup ../value propKey)
+        label=(fieldLabel propKey (uiField ../ui propKey)) }}
+  {{/unless}}
+{{/each}}

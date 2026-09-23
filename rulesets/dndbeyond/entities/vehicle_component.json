@@ -1,0 +1,74 @@
+{
+  "id": "vehicle_component",
+  "name": "Vehicle Part / Component",
+  "description": "D&D Beyond vehicle components including hulls, sails, engines, helms, and weapons.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "vehicleId": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "componentType": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "armorClass": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "hitPoints": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "damageThreshold": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "actions": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      },
+      "speed": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}

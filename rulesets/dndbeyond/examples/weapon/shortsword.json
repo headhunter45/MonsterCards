@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e6b23add-bc03-482a-8629-a1c041d301a2",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Shortsword",
+  "description": "Shortsword dealing Piercing.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "shortsword"
+  ],
+  "properties": {
+    "id": 30,
+    "name": "Shortsword",
+    "type": "Shortsword",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 6,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d6"
+    },
+    "damageType": "Piercing",
+    "range": 5,
+    "longRange": 5,
+    "properties": [
+      {
+        "id": 2,
+        "name": "Finesse",
+        "description": "<p>When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.</p>",
+        "notes": null
+      },
+      {
+        "id": 4,
+        "name": "Light",
+        "description": "<p>When you take the [action]Attack[/action] action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a [items]Shortsword[/items] in one hand and a [items]Dagger[/items] in the other using the [action]Attack[/action] action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.</p>",
+        "notes": null
+      },
+      {
+        "id": 25,
+        "name": "Vex",
+        "description": "<p>If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 2,
+    "cost": 10,
+    "rarity": "Common",
+    "description": "Proficiency with a Shortsword allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nVex. If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.",
+    "isMonkWeapon": true
+  }
+}

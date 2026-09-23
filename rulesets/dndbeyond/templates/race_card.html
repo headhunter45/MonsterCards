@@ -1,0 +1,28 @@
+<div class="ddb-entity-card race-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.fullName}}{{properties.fullName}}{{else if properties.baseRaceName}}{{properties.baseRaceName}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">Species / Race</span>
+    </div>
+    <span class="card-badge red">{{#if properties.weightSpeeds.normal.walk}}{{properties.weightSpeeds.normal.walk}}{{else}}30{{/if}} ft</span>
+  </div>
+
+  <div class="card-stats-row">
+    <div class="card-stat-item">
+      <strong>Speed:</strong>
+      <span>{{#if properties.weightSpeeds.normal.walk}}{{properties.weightSpeeds.normal.walk}}{{else}}30{{/if}} ft</span>
+    </div>
+    <div class="card-stat-item">
+      <strong>Size:</strong>
+      <span>{{#if properties.size}}Size {{properties.size}}{{else}}Medium{{/if}}</span>
+    </div>
+  </div>
+
+  {{#if properties.racialTraits}}
+  <div class="card-tags">
+    {{#each properties.racialTraits}}
+    <span class="card-tag">{{this.definition.name}}</span>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "ed185541-c218-4a07-91c0-28e9659e38d0",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Eyes of the Eagle",
+  "description": "Wondrous item (Uncommon)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "wondrous_item"
+  ],
+  "properties": {
+    "id": 4635,
+    "name": "Eyes of the Eagle",
+    "filterType": "Wondrous item",
+    "type": "Wondrous item",
+    "rarity": "Uncommon",
+    "weight": 0,
+    "cost": null,
+    "description": "These crystal lenses fit over the eyes. While wearing them, you have advantage on Wisdom (Perception) checks that rely on sight. In conditions of clear visibility, you can make out details of even extremely distant creatures and objects as small as 2 feet across.",
+    "canAttune": true,
+    "attunementDescription": "",
+    "isConsumable": false
+  }
+}

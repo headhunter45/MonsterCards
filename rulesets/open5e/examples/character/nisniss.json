@@ -1,0 +1,646 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "2501e1e0-9abd-4319-a2b7-3c441682216c",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Nisniss",
+  "description": "Kenku Rogue (Thief) (Level 6)",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T08:27:16.901Z",
+  "updated_at": "2026-09-17T08:27:16.901Z",
+  "tags": [
+    "pc",
+    "rogue",
+    "kenku"
+  ],
+  "properties": {
+    "player_name": "N1SP",
+    "class_levels": {
+      "rogue": {
+        "name": "Rogue",
+        "level": 6,
+        "subclass": "Thief",
+        "description": "Rogue level 6"
+      }
+    },
+    "race": "Kenku",
+    "size": "medium",
+    "type": "Humanoid",
+    "subtype": "Kenku",
+    "background": "Faceless",
+    "alignment": "Chaotic Good",
+    "experience_points": 0,
+    "inspiration": true,
+    "proficiency_bonus": 3,
+    "initiative": 3,
+    "speed": 30,
+    "speed_desc": "30 ft.",
+    "hit_points": {
+      "current": 51,
+      "max": 51,
+      "temp": 0,
+      "base": 33,
+      "bonus": null,
+      "override": 51,
+      "removed": 0,
+      "hit_dice": "6d8"
+    },
+    "hit_dice": {
+      "total": 6,
+      "current": 6,
+      "dice": "6d8"
+    },
+    "death_saves": {
+      "successes": 0,
+      "failures": 0,
+      "is_stabilized": false
+    },
+    "saving_throws": [
+      "Dexterity +6",
+      "Intelligence +4"
+    ],
+    "skills": [
+      "Acrobatics +9 (Expertise)",
+      "Perception +8 (Expertise)",
+      "Sleight of Hand +9 (Expertise)",
+      "Stealth +6"
+    ],
+    "passive_perception": 23,
+    "senses": "passive Perception 23",
+    "languages": [
+      "Common",
+      "Auran",
+      "Thieves’ Cant"
+    ],
+    "other_proficiencies_and_languages": {
+      "armor": [
+        "Light Armor"
+      ],
+      "weapons": [
+        "Simple Weapons"
+      ],
+      "tools": [
+        "Thieves' Tools"
+      ],
+      "languages": [
+        "Common",
+        "Auran",
+        "Thieves’ Cant"
+      ]
+    },
+    "attacks": [
+      {
+        "name": "Rapier, +1",
+        "atk_bonus": "+7",
+        "damage": "1d8 + 4",
+        "damage_type": "Piercing",
+        "range": "5 ft."
+      },
+      {
+        "name": "Shortbow, +1",
+        "atk_bonus": "+7",
+        "damage": "1d6 + 4",
+        "damage_type": "Piercing",
+        "range": "80/240 ft."
+      },
+      {
+        "name": "Rapier",
+        "atk_bonus": "+6",
+        "damage": "1d8 + 3",
+        "damage_type": "Piercing",
+        "range": "5 ft."
+      }
+    ],
+    "currency": {
+      "cp": 0,
+      "sp": 5,
+      "gp": 56,
+      "ep": 7,
+      "pp": 0
+    },
+    "personality_traits": "",
+    "ideals": "",
+    "bonds": "",
+    "flaws": "",
+    "character_details": {
+      "age": 25,
+      "height": "5 feet",
+      "weight": "95 lbs.",
+      "eyes": "Birb",
+      "skin": "Under feathers",
+      "hair": "Feathers",
+      "gender": "Male"
+    },
+    "decorations": {
+      "avatar_url": "https://www.dndbeyond.com/avatars/20854/677/1581111423-47387485.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+      "backdrop_url": "https://www.dndbeyond.com/avatars/61/544/636453167791328397.jpeg"
+    },
+    "attunement": {
+      "current": 1,
+      "max": 3
+    },
+    "armor_class": {
+      "value": 15,
+      "base": 12,
+      "description": "Glamoured Studded Leather"
+    },
+    "abilities": {
+      "strength": {
+        "display_name": "Strength",
+        "short_name": "Str",
+        "value": 15,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "dexterity": {
+        "display_name": "Dexterity",
+        "short_name": "Dex",
+        "value": 16,
+        "modifier": 3,
+        "proficiency": true,
+        "saving_throw": 6
+      },
+      "constitution": {
+        "display_name": "Constitution",
+        "short_name": "Con",
+        "value": 17,
+        "modifier": 3,
+        "proficiency": false,
+        "saving_throw": 3
+      },
+      "intelligence": {
+        "display_name": "Intelligence",
+        "short_name": "Int",
+        "value": 13,
+        "modifier": 1,
+        "proficiency": true,
+        "saving_throw": 4
+      },
+      "wisdom": {
+        "display_name": "Wisdom",
+        "short_name": "Wis",
+        "value": 14,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "charisma": {
+        "display_name": "Charisma",
+        "short_name": "Cha",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      }
+    },
+    "features_and_traits": [
+      {
+        "name": "Expert Forgery",
+        "source": "Kenku",
+        "desc": "You can duplicate other creatures’ handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects."
+      },
+      {
+        "name": "Kenku Training",
+        "source": "Kenku",
+        "desc": "You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand."
+      },
+      {
+        "name": "Mimicry",
+        "source": "Kenku",
+        "desc": "You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check."
+      },
+      {
+        "name": "Fast Hands",
+        "source": "Rogue 3",
+        "desc": "Starting at 3rd level, you can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to disarm a trap or open a lock, or take the Use an Object action."
+      },
+      {
+        "name": "Second-Story Work",
+        "source": "Rogue 3",
+        "desc": "When you choose this archetype at 3rd level, you gain the ability to climb faster than normal; climbing no longer costs you extra movement.\n\n\r\nIn addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier."
+      },
+      {
+        "name": "Expertise",
+        "source": "Rogue 1",
+        "desc": "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.\n\n\r\nAt 6th level, you can choose two more of your proficiencies (in skills or with thieves’ tools) to gain this benefit."
+      },
+      {
+        "name": "Sneak Attack",
+        "source": "Rogue 1",
+        "desc": "Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.\n\n\r\nYou don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.\n\n\r\nThe amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table."
+      },
+      {
+        "name": "Thieves’ Cant",
+        "source": "Rogue 1",
+        "desc": "During your rogue training you learned thieves’ cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves’ cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.\n\n\r\nIn addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves’ guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run."
+      },
+      {
+        "name": "Cunning Action",
+        "source": "Rogue 2",
+        "desc": "Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action."
+      },
+      {
+        "name": "Roguish Archetype",
+        "source": "Rogue 3",
+        "desc": "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, detailed at the end of the class description, or one from another source. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level."
+      },
+      {
+        "name": "Uncanny Dodge",
+        "source": "Rogue 5",
+        "desc": "Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you."
+      },
+      {
+        "name": "Expertise",
+        "source": "Rogue 6",
+        "desc": "At 6th level, choose two more of your skill proficiencies, or one more of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies."
+      },
+      {
+        "name": "Equipment",
+        "source": "Rogue 1",
+        "desc": "You start with the following equipment, in addition to the equipment granted by your background:\n\n\r\n\r\n(a) a rapier or (b) a shortsword\r\n(a) a shortbow and quiver of 20 arrows or (b) a shortsword\r\n(a) a burglar’s pack, (b) a dungeoneer’s pack, or (c) an explorer’s pack\r\nLeather armor, two daggers, and thieves’ tools"
+      },
+      {
+        "name": "Dual Personalities",
+        "source": "Background: Faceless",
+        "desc": "Most of your fellow adventurers and the world know you as your persona. Those who seek to learn more about you—your weaknesses, your origins, your purpose—find themselves stymied by your disguise. Upon donning a disguise and behaving as your persona, you are unidentifiable as your true self. By removing your disguise and revealing your true face, you are no longer identifiable as your persona. This allows you to change appearances between your two personalities as often as you wish, using one to hide the other or serve as convenient camouflage. However, should someone realize the connection between your persona and your true self, your deception might lose its effectiveness."
+      }
+    ],
+    "feats": [
+      {
+        "name": "Observant",
+        "description": "Quick to notice details of your environment, you gain the following benefits:\n\n\r\n\r\nIncrease your Intelligence or Wisdom score by 1, to a maximum of 20.\r\nIf you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.\r\nYou have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores."
+      }
+    ],
+    "spellcasting": {
+      "class": "Rogue",
+      "ability": "INTELLIGENCE",
+      "save_dc": 12,
+      "attack_bonus": 4,
+      "cantrips": [],
+      "spells": [
+        {
+          "name": "Comprehend Languages",
+          "level": 1,
+          "prepared": true,
+          "school": "Divination",
+          "casting_time": "1 action",
+          "range": "Self",
+          "duration": "Time",
+          "ritual": true,
+          "concentration": false,
+          "source": "Item",
+          "desc": "For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text.\n\n\r\nThis spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language."
+        }
+      ]
+    },
+    "inventory": [
+      {
+        "id": "item_145896829",
+        "name": "Boots of Elvenkind",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Wondrous item",
+        "description": "While you wear these boots, your steps make no sound, regardless of the surface you are moving across. You also have Advantage on Dexterity (Stealth) checks."
+      },
+      {
+        "id": "item_145896628",
+        "name": "Glamoured Studded Leather",
+        "quantity": 1,
+        "weight": 13,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "rare",
+        "filter_type": "Armor",
+        "description": "While wearing this armor, you gain a +1 bonus to Armor Class. You can also take a Bonus Action to cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like—including color, style, and accessories—but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or doff the armor."
+      },
+      {
+        "id": "item_145896801",
+        "name": "Ring of Mind Shielding",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": true,
+        "attuned": true,
+        "requires_attunement": true,
+        "rarity": "uncommon",
+        "filter_type": "Ring",
+        "description": "While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.\n\n\r\nYou can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.\n\n\r\nIf you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication."
+      },
+      {
+        "id": "item_197103151",
+        "name": "Potion of Healing (Greater)",
+        "quantity": 5,
+        "weight": 0.5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Potion",
+        "description": "You regain 4d4 + 4 Hit Points when you drink this potion.\n\n\r\nWhatever its potency, the potion’s red liquid glimmers when agitated."
+      },
+      {
+        "id": "item_145896759",
+        "name": "Rapier, +1",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Weapon",
+        "description": "You have a +1 bonus to attack and damage rolls made with this magic weapon."
+      },
+      {
+        "id": "item_145896566",
+        "name": "Shortbow, +1",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Weapon",
+        "description": "You have a +1 bonus to attack and damage rolls made with this magic weapon."
+      },
+      {
+        "id": "item_145896924",
+        "name": "Gloves of Thievery",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Wondrous item",
+        "description": "These gloves are invisible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks."
+      },
+      {
+        "id": "item_145896948",
+        "name": "Potion of Comprehension",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Potion",
+        "description": "When you drink this potion, you gain the effect of the Comprehend Languages spell for 1 hour.\n\n\r\nThis potion’s liquid is a clear concoction with bits of salt and soot swirling in it."
+      },
+      {
+        "id": "item_198295405",
+        "name": "Custom Item 1",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common"
+      },
+      {
+        "id": "item_145900388",
+        "name": "Rapier",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Rapier allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nVex. If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+      },
+      {
+        "id": "item_141506798",
+        "name": "Arrows",
+        "quantity": 20,
+        "weight": 1,
+        "equipped": true,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Arrows are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield."
+      },
+      {
+        "id": "item_141506799",
+        "name": "Backpack",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.\n\n\r\nYou can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack."
+      },
+      {
+        "id": "item_141506800",
+        "name": "Ball Bearings (bag of 1,000)",
+        "quantity": 1000,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn't need to make the save."
+      },
+      {
+        "id": "item_141506802",
+        "name": "Bell",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A standard bell that rings, typically used for signaling."
+      },
+      {
+        "id": "item_141506803",
+        "name": "Candle",
+        "quantity": 5,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet."
+      },
+      {
+        "id": "item_141506804",
+        "name": "Crowbar",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied."
+      },
+      {
+        "id": "item_141506805",
+        "name": "Hammer",
+        "quantity": 1,
+        "weight": 3,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This one-handed hammer with an iron head is useful for pounding pitons into a wall."
+      },
+      {
+        "id": "item_141506807",
+        "name": "Lantern, Hooded",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius."
+      },
+      {
+        "id": "item_141506801",
+        "name": "String",
+        "quantity": 10,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A 10-foot length of string, typically found in a burglar's pack."
+      },
+      {
+        "id": "item_141506806",
+        "name": "Piton",
+        "quantity": 10,
+        "weight": 0.25,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "When a wall doesn’t offer handholds and footholds, you can make your own. A piton is a steel spike with an eye through which you can loop a rope."
+      },
+      {
+        "id": "item_141506808",
+        "name": "Oil (flask)",
+        "quantity": 2,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn."
+      },
+      {
+        "id": "item_141506809",
+        "name": "Rations (1 day)",
+        "quantity": 5,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts."
+      },
+      {
+        "id": "item_141506810",
+        "name": "Tinderbox",
+        "quantity": 1,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute."
+      },
+      {
+        "id": "item_141506811",
+        "name": "Waterskin",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A waterskin can hold 4 pints of liquid."
+      },
+      {
+        "id": "item_141506812",
+        "name": "Rope, Hempen (50 feet)",
+        "quantity": 1,
+        "weight": 10,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check."
+      },
+      {
+        "id": "item_141506813",
+        "name": "Thieves' Tools",
+        "quantity": 1,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks."
+      },
+      {
+        "id": "item_141507074",
+        "name": "Blue spinel",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A transparent deep blue gemstone worth 500 gold pieces"
+      },
+      {
+        "id": "item_141507120",
+        "name": "Aquamarine",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A transparent pale blue-green gemstone worth 500 gold pieces."
+      },
+      {
+        "id": "item_198295960",
+        "name": "Alexandrite",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A transparent dark green gemstone worth 500 gold pieces"
+      }
+    ]
+  }
+}

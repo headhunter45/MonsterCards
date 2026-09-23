@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "gear",
   "name": "Gear / Equipment",
   "description": "SR6 Adventuring gear, electronics, tools, commlinks, cyberdecks, and programs.",

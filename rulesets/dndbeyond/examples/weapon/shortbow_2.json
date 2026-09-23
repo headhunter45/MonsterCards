@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "fba6a469-844d-409e-b94a-991f62aa2bd8",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "weapon",
+  "display_name": "Shortbow, +2",
+  "description": "Shortbow dealing Piercing.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "weapon",
+    "shortbow"
+  ],
+  "properties": {
+    "id": 5292,
+    "name": "Shortbow, +2",
+    "type": "Shortbow",
+    "filterType": "Weapon",
+    "damage": {
+      "diceCount": 1,
+      "diceValue": 6,
+      "diceMultiplier": null,
+      "fixedValue": null,
+      "diceString": "1d6"
+    },
+    "damageType": "Piercing",
+    "range": 80,
+    "longRange": 320,
+    "properties": [
+      {
+        "id": 1,
+        "name": "Ammunition",
+        "description": "<p>You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.</p>",
+        "notes": null
+      },
+      {
+        "id": 7,
+        "name": "Range",
+        "description": "<p>A Range weapon has a range in parentheses after the [wprop]Ammunition[/wprop] or [wprop]Thrown[/wprop] property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have [rules]Disadvantage[/rules] on the attack roll. You can’t attack a target beyond the long range.</p>",
+        "notes": null
+      },
+      {
+        "id": 11,
+        "name": "Two-Handed",
+        "description": "<p>A Two-Handed weapon requires two hands when you attack with it.</p>",
+        "notes": null
+      },
+      {
+        "id": 25,
+        "name": "Vex",
+        "description": "<p>If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.</p>",
+        "notes": null
+      }
+    ],
+    "weight": 2,
+    "cost": null,
+    "rarity": "Rare",
+    "description": "You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+    "isMonkWeapon": false
+  }
+}

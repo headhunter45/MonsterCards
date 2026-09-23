@@ -1,0 +1,2240 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
+  "id": "character",
+  "name": "Player Character",
+  "description": "D&D Beyond Character entity schema modeling character profile, stats, classes, race, inventory, spells, modifiers, infusions, and vehicles.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "default_template": "character_sheet",
+  "allowed_templates": [
+    "character_sheet",
+    "character_sheet_alt",
+    "spellcasting_sheet"
+  ],
+  "default_editor": "entity_form",
+  "schema": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "classes",
+      "stats"
+    ],
+    "$defs": {
+      "statEntry": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6,
+            "description": "Ability score identifier: 1=Strength, 2=Dexterity, 3=Constitution, 4=Intelligence, 5=Wisdom, 6=Charisma."
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Optional stat name label."
+          },
+          "value": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Ability score value."
+          }
+        }
+      },
+      "deathSaves": {
+        "type": "object",
+        "properties": {
+          "failCount": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 3
+          },
+          "successCount": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 3
+          },
+          "isStabilized": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "currencies": {
+        "type": "object",
+        "properties": {
+          "cp": {
+            "type": "integer",
+            "default": 0
+          },
+          "sp": {
+            "type": "integer",
+            "default": 0
+          },
+          "ep": {
+            "type": "integer",
+            "default": 0
+          },
+          "gp": {
+            "type": "integer",
+            "default": 0
+          },
+          "pp": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "decorations": {
+        "type": "object",
+        "properties": {
+          "avatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "frameAvatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "backdropAvatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "smallBackdropAvatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "largeBackdropAvatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "thumbnailBackdropAvatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "defaultBackdrop": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "backdropAvatarUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "smallBackdropAvatarUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "largeBackdropAvatarUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "thumbnailBackdropAvatarUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "avatarId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "portraitDecorationKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "frameAvatarDecorationKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "frameAvatarId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "backdropAvatarDecorationKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "backdropAvatarId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "smallBackdropAvatarDecorationKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "smallBackdropAvatarId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "largeBackdropAvatarDecorationKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "largeBackdropAvatarId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "thumbnailBackdropAvatarDecorationKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "thumbnailBackdropAvatarId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "themeColor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "characterClass": {
+        "type": "object",
+        "required": [
+          "level"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "entityTypeId": {
+            "type": "integer"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "isStartingClass": {
+            "type": "boolean"
+          },
+          "hitDiceUsed": {
+            "type": "integer",
+            "default": 0
+          },
+          "definitionId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "subclassDefinitionId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "definition": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "hitDice": {
+                "type": "integer"
+              },
+              "canCastSpells": {
+                "type": "boolean"
+              },
+              "spellCastingAbilityId": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "spellSlotType": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          },
+          "subclassDefinition": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "spellCastingAbilityId": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          },
+          "classFeatures": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "characterRace": {
+        "type": "object",
+        "properties": {
+          "isSubRace": {
+            "type": "boolean"
+          },
+          "baseRaceName": {
+            "type": "string"
+          },
+          "entityRaceId": {
+            "type": "integer"
+          },
+          "entityRaceTypeId": {
+            "type": "integer"
+          },
+          "definitionKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "baseRaceId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "baseRaceTypeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "avatarUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "subRaceShortName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "baseName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "racialTraits": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "weightSpeeds": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "normal": {
+                "type": "object",
+                "properties": {
+                  "walk": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "fly": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "burrow": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "swim": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "climb": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "size": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sizeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      },
+      "characterBackground": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "hasCustomBackground": {
+            "type": "boolean"
+          },
+          "definitionId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "definition": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "entityTypeId": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "snippet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "featureName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "featureDescription": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "customBackground": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "inventoryItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "entityTypeId": {
+            "type": "integer"
+          },
+          "definition": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "filterType": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "snippet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "armorClass": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "armorTypeId": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "damage": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "damageType": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "weight": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cost": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "rarity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "isAttuned": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "canAttune": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "attunementDescription": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fixedCharges": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "isConsumable": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            }
+          },
+          "definitionId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "definitionTypeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "displayAsAttack": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "quantity": {
+            "type": "integer",
+            "default": 1
+          },
+          "isAttuned": {
+            "type": "boolean",
+            "default": false
+          },
+          "equipped": {
+            "type": "boolean",
+            "default": false
+          },
+          "chargesUsed": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "default": 0
+          },
+          "limitedUse": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "containerEntityId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      },
+      "modifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "integer",
+              "null"
+            ]
+          },
+          "type": {
+            "type": "string"
+          },
+          "subType": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "integer",
+              "number",
+              "null"
+            ]
+          },
+          "fixedValue": {
+            "type": [
+              "integer",
+              "number",
+              "null"
+            ]
+          },
+          "dice": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "restriction": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "statId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "requiresAttunement": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "duration": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "isGranted": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "friendlyTypeName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "friendlySubtypeName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "spellSlot": {
+        "type": "object",
+        "required": [
+          "level"
+        ],
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "used": {
+            "type": "integer",
+            "default": 0
+          },
+          "available": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "pactMagic": {
+        "type": "object",
+        "required": [
+          "level"
+        ],
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "used": {
+            "type": "integer",
+            "default": 0
+          },
+          "available": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "classSpellGroup": {
+        "type": "object",
+        "properties": {
+          "entityTypeId": {
+            "type": "integer"
+          },
+          "characterClassId": {
+            "type": "integer"
+          },
+          "spells": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "overrideSaveDc": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "limitedUse": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "entityTypeId": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "definition": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "level": {
+                      "type": "integer"
+                    },
+                    "school": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "duration": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "activation": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "range": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "asPartOfSubClass": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "snippet": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "concentration": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "ritual": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    }
+                  }
+                },
+                "definitionId": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "prepared": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "countsAsKnownSpell": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "usesSpellSlot": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "castOnlyAsRitual": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "alwaysPrepared": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "restriction": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "characterFeat": {
+        "type": "object",
+        "properties": {
+          "componentTypeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "componentId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "definition": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "snippet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "vehicle": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "characterId": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "vehicleType": {
+            "type": [
+              "integer",
+              "string",
+              "null"
+            ]
+          },
+          "capacity": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "speed": {
+            "type": [
+              "object",
+              "string",
+              "number",
+              "null"
+            ]
+          },
+          "dimensions": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "creatureCapacity": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cargoCapacity": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "armorClass": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "hitPoints": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "damageThreshold": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "isCustom": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "definitionId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "actions": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "vehicleComponent": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "vehicleId": {
+            "type": "integer"
+          },
+          "characterId": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "componentType": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "armorClass": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "hitPoints": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "damageThreshold": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "actions": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "speed": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "knownInfusion": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "characterId": {
+            "type": "integer"
+          },
+          "definitionKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "itemRuleType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "levelRequirement": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "snippet": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "itemId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "itemName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "itemTypeId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "choiceKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "legacyItemTypeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "prerequisites": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "definition": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "infusion": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "characterId": {
+            "type": "integer"
+          },
+          "definitionKey": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "itemRuleType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "itemId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "infusedEntity": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "modifiers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Unique D&D Beyond Character ID."
+      },
+      "userId": {
+        "type": "integer",
+        "description": "Owner user account ID."
+      },
+      "username": {
+        "type": "string",
+        "description": "Owner player username."
+      },
+      "name": {
+        "type": "string",
+        "description": "Character display name."
+      },
+      "socialName": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "gender": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "faith": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "age": {
+        "type": [
+          "integer",
+          "string",
+          "null"
+        ]
+      },
+      "hair": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "eyes": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "skin": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "height": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "weight": {
+        "type": [
+          "integer",
+          "number",
+          "string",
+          "null"
+        ]
+      },
+      "inspiration": {
+        "type": "boolean",
+        "default": false
+      },
+      "baseHitPoints": {
+        "type": "integer",
+        "description": "Base hit points from class hit dice + Con mod."
+      },
+      "bonusHitPoints": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "overrideHitPoints": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "removedHitPoints": {
+        "type": "integer",
+        "default": 0,
+        "description": "Current damage taken."
+      },
+      "temporaryHitPoints": {
+        "type": "integer",
+        "default": 0
+      },
+      "currentXp": {
+        "type": "integer",
+        "default": 0
+      },
+      "adjustmentXp": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "alignmentId": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          null
+        ],
+        "description": "1: LG, 2: NG, 3: CG, 4: LN, 5: TN, 6: CN, 7: LE, 8: NE, 9: CE."
+      },
+      "lifestyleId": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          null
+        ],
+        "description": "Lifestyle expense tier (1: Wretched to 7: Aristocratic)."
+      },
+      "stats": {
+        "type": "array",
+        "description": "Base ability scores array (ids 1..6).",
+        "items": {
+          "$ref": "#/$defs/statEntry"
+        }
+      },
+      "bonusStats": {
+        "type": "array",
+        "description": "Manual stat bonus adjustments (ids 1..6).",
+        "items": {
+          "$ref": "#/$defs/statEntry"
+        }
+      },
+      "overrideStats": {
+        "type": "array",
+        "description": "Hard stat overrides (ids 1..6).",
+        "items": {
+          "$ref": "#/$defs/statEntry"
+        }
+      },
+      "background": {
+        "$ref": "#/$defs/characterBackground"
+      },
+      "race": {
+        "$ref": "#/$defs/characterRace"
+      },
+      "classes": {
+        "type": "array",
+        "description": "Class levels and progression features.",
+        "items": {
+          "$ref": "#/$defs/characterClass"
+        }
+      },
+      "inventory": {
+        "type": "array",
+        "description": "Inventory items and equipment.",
+        "items": {
+          "$ref": "#/$defs/inventoryItem"
+        }
+      },
+      "currencies": {
+        "$ref": "#/$defs/currencies"
+      },
+      "modifiers": {
+        "type": "object",
+        "description": "Active modifiers grouped by origin (race, class, background, item, feat, condition).",
+        "properties": {
+          "race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/modifier"
+            }
+          },
+          "class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/modifier"
+            }
+          },
+          "background": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/$defs/modifier"
+            }
+          },
+          "item": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/$defs/modifier"
+            }
+          },
+          "feat": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/$defs/modifier"
+            }
+          },
+          "condition": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/$defs/modifier"
+            }
+          }
+        }
+      },
+      "spells": {
+        "type": "object",
+        "description": "Spells granted from racial traits, items, feats, background, etc.",
+        "properties": {
+          "race": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "class": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "background": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "item": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "feat": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "classSpells": {
+        "type": "array",
+        "description": "Class spell lists, prepared status, and definitions.",
+        "items": {
+          "$ref": "#/$defs/classSpellGroup"
+        }
+      },
+      "spellSlots": {
+        "type": "array",
+        "description": "Standard spell slot pools by level.",
+        "items": {
+          "$ref": "#/$defs/spellSlot"
+        }
+      },
+      "pactMagic": {
+        "type": "array",
+        "description": "Warlock pact magic spell slot pools.",
+        "items": {
+          "$ref": "#/$defs/pactMagic"
+        }
+      },
+      "deathSaves": {
+        "$ref": "#/$defs/deathSaves"
+      },
+      "traits": {
+        "type": "object",
+        "properties": {
+          "personalityTraits": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ideals": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "bonds": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "flaws": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "appearance": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "notes": {
+        "type": "object",
+        "properties": {
+          "allies": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "personalPossessions": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "otherHoldings": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "organizations": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "enemies": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "backstory": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "otherNotes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "decorations": {
+        "$ref": "#/$defs/decorations"
+      },
+      "preferences": {
+        "type": "object",
+        "description": "Player configuration and sheet preferences."
+      },
+      "configuration": {
+        "type": "object",
+        "properties": {
+          "startingEquipmentType": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "abilityScoreType": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "showHelpText": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "actions": {
+        "type": "object",
+        "properties": {
+          "race": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "class": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "background": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "item": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "feat": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "options": {
+        "type": "object",
+        "properties": {
+          "race": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "class": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "background": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "item": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "feat": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "choices": {
+        "type": "object",
+        "properties": {
+          "race": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "class": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "background": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "item": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "feat": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          },
+          "choiceDefinitions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "definitionKeyNameMap": {
+            "type": "object"
+          }
+        }
+      },
+      "feats": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/characterFeat"
+        }
+      },
+      "features": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "customActions": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "customDefenseAdjustments": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "customItems": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "customProficiencies": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "customSenses": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "customSpeeds": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "characterValues": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "conditions": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "creatures": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "campaign": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "campaignSetting": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "canEdit": {
+        "type": "boolean"
+      },
+      "isAssignedToPlayer": {
+        "type": "boolean"
+      },
+      "readonlyUrl": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "status": {
+        "type": "integer"
+      },
+      "statusSlug": {
+        "type": "string"
+      },
+      "dateModified": {
+        "type": "string"
+      },
+      "providedFrom": {
+        "type": "string"
+      },
+      "lifestyle": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "optionalClassFeatures": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "optionalOrigins": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "raceDefinitionId": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "raceDefinitionTypeId": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "activeSourceCategories": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "vehicles": {
+        "type": "array",
+        "description": "Vehicles owned or operated by the character.",
+        "items": {
+          "$ref": "#/$defs/vehicle"
+        }
+      },
+      "vehicleComponents": {
+        "type": "array",
+        "description": "Mounted vehicle component stations.",
+        "items": {
+          "$ref": "#/$defs/vehicleComponent"
+        }
+      },
+      "knownInfusions": {
+        "type": "array",
+        "description": "Unlocked Artificer infusion plans.",
+        "items": {
+          "$ref": "#/$defs/knownInfusion"
+        }
+      },
+      "infusions": {
+        "type": "array",
+        "description": "Active Artificer infusions mapped to equipment items.",
+        "items": {
+          "$ref": "#/$defs/infusion"
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "calculated_properties": {
+    "total_level": {
+      "expr": "sum(classes.map(c => c.level))",
+      "type": "integer",
+      "dependencies": [
+        "classes"
+      ],
+      "description": "Total character level calculated as the sum of all class levels."
+    },
+    "proficiency_bonus": {
+      "expr": "floor((total_level - 1) / 4) + 2",
+      "type": "integer",
+      "dependencies": [
+        "classes"
+      ],
+      "description": "Standard 5e proficiency bonus based on total character level."
+    },
+    "max_hit_points": {
+      "expr": "overrideHitPoints != null ? overrideHitPoints : (baseHitPoints + (bonusHitPoints || 0))",
+      "type": "integer",
+      "dependencies": [
+        "baseHitPoints",
+        "bonusHitPoints",
+        "overrideHitPoints"
+      ],
+      "description": "Calculated maximum hit points factoring in base, bonus, and override values."
+    },
+    "current_hit_points": {
+      "expr": "max(0, max_hit_points - removedHitPoints)",
+      "type": "integer",
+      "dependencies": [
+        "baseHitPoints",
+        "bonusHitPoints",
+        "overrideHitPoints",
+        "removedHitPoints"
+      ],
+      "description": "Current hit points remaining after sustained damage."
+    }
+  },
+  "default_values": {
+    "inspiration": false,
+    "baseHitPoints": 10,
+    "removedHitPoints": 0,
+    "temporaryHitPoints": 0,
+    "currentXp": 0,
+    "stats": [
+      {
+        "id": 1,
+        "name": null,
+        "value": 10
+      },
+      {
+        "id": 2,
+        "name": null,
+        "value": 10
+      },
+      {
+        "id": 3,
+        "name": null,
+        "value": 10
+      },
+      {
+        "id": 4,
+        "name": null,
+        "value": 10
+      },
+      {
+        "id": 5,
+        "name": null,
+        "value": 10
+      },
+      {
+        "id": 6,
+        "name": null,
+        "value": 10
+      }
+    ],
+    "bonusStats": [
+      {
+        "id": 1,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 2,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 3,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 4,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 5,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 6,
+        "name": null,
+        "value": null
+      }
+    ],
+    "overrideStats": [
+      {
+        "id": 1,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 2,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 3,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 4,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 5,
+        "name": null,
+        "value": null
+      },
+      {
+        "id": 6,
+        "name": null,
+        "value": null
+      }
+    ],
+    "currencies": {
+      "cp": 0,
+      "sp": 0,
+      "ep": 0,
+      "gp": 0,
+      "pp": 0
+    },
+    "deathSaves": {
+      "failCount": 0,
+      "successCount": 0,
+      "isStabilized": false
+    },
+    "vehicles": [],
+    "vehicleComponents": [],
+    "knownInfusions": [],
+    "infusions": []
+  }
+}

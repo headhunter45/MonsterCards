@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "e2e37c42-5e8f-469b-b16b-3738b6719d43",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Clothes, Costume",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 39,
+    "name": "Clothes, Costume",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 4,
+    "cost": 5,
+    "description": "This set of clothes is fashioned after a particular costume, typically meant for entertaining.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

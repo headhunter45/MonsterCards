@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "3be3fa11-459b-43df-91af-40cf14ae2256",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "vehicle",
+  "display_name": "The Iron Keel",
+  "description": "Vehicle (AC 15, HP 300)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "vehicle"
+  ],
+  "properties": {
+    "id": 554433,
+    "name": "The Iron Keel",
+    "vehicleType": 2,
+    "capacity": {
+      "crew": 10,
+      "passengers": 20,
+      "cargo": 100
+    },
+    "speed": {
+      "pace": "4 mph",
+      "speed": 35
+    },
+    "dimensions": "80 ft. by 20 ft.",
+    "creatureCapacity": "30 crew/passengers",
+    "cargoCapacity": 100,
+    "armorClass": 15,
+    "hitPoints": 300,
+    "damageThreshold": 15,
+    "isCustom": false,
+    "definitionId": 42,
+    "actions": [
+      {
+        "id": 101,
+        "name": "Ram",
+        "description": "The ship moves into a target's space to deal 8d10 bludgeoning damage."
+      }
+    ]
+  }
+}

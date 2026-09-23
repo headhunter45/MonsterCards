@@ -1,0 +1,101 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5f1a9b2c-8d3e-4f7a-9c2b-1e0d5a7f9c3b",
+  "ruleset_id": "open5e",
+  "entity_type": "vehicle",
+  "display_name": "Sailing Ship",
+  "description": "5e SRD Water vehicle with sails, cargo holds, helm, and ballistas.",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T00:00:00Z",
+  "updated_at": "2026-09-17T00:00:00Z",
+  "tags": ["vehicle", "watercraft", "ship", "sailing_ship"],
+  "properties": {
+    "name": "Sailing Ship",
+    "category": "Water",
+    "size": "Gargantuan",
+    "dimensions": "100 ft. by 20 ft.",
+    "cost": {
+      "quantity": 10000,
+      "unit": "gp"
+    },
+    "creature_capacity": {
+      "crew": 20,
+      "passengers": 20
+    },
+    "cargo_capacity": "100 tons",
+    "armor_class": 15,
+    "hit_points": {
+      "max": 300,
+      "current": 300,
+      "damage_threshold": 15
+    },
+    "speed": "5 mph (sails) or 48 miles per day",
+    "damage_immunities": ["poison", "psychic"],
+    "condition_immunities": [
+      "blinded", "charmed", "deafened", "exhaustion",
+      "frightened", "paralyzed", "petrified", "poisoned",
+      "prone", "stunned", "unconscious"
+    ],
+    "components": [
+      {
+        "name": "Hull",
+        "type": "hull",
+        "armor_class": 15,
+        "hit_points": 300,
+        "damage_threshold": 15,
+        "description": "The vessel's wooden hull."
+      },
+      {
+        "name": "Sails",
+        "type": "movement",
+        "armor_class": 12,
+        "hit_points": 100,
+        "damage_threshold": 0,
+        "description": "Square-rigged canvas sails. If reduced to 0 HP, speed becomes 0."
+      },
+      {
+        "name": "Helm",
+        "type": "control",
+        "armor_class": 18,
+        "hit_points": 50,
+        "damage_threshold": 0,
+        "description": "Ship's wheel controlling the rudder."
+      },
+      {
+        "name": "Ballista (Port)",
+        "type": "weapon",
+        "armor_class": 15,
+        "hit_points": 50,
+        "damage_threshold": 0,
+        "description": "Large mounted heavy crossbow firing steel bolts.",
+        "actions": [
+          {
+            "name": "Bolt",
+            "desc": "_Ranged Weapon Attack:_ +6 to hit, range 120/480 ft., one target. _Hit:_ 16 (3d10) piercing damage."
+          }
+        ]
+      },
+      {
+        "name": "Ballista (Starboard)",
+        "type": "weapon",
+        "armor_class": 15,
+        "hit_points": 50,
+        "damage_threshold": 0,
+        "description": "Large mounted heavy crossbow firing steel bolts.",
+        "actions": [
+          {
+            "name": "Bolt",
+            "desc": "_Ranged Weapon Attack:_ +6 to hit, range 120/480 ft., one target. _Hit:_ 16 (3d10) piercing damage."
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "Ballista",
+        "desc": "_Ranged Weapon Attack:_ +6 to hit, range 120/480 ft., one target. _Hit:_ 16 (3d10) piercing damage."
+      }
+    ],
+    "description": "A traditional 100-foot sailing ship used for coastal and oceanic trade and naval combat."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b21fefe4-db41-4396-ab41-d291731b56c7",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "shield",
+  "display_name": "Shield",
+  "description": "Shield (+2 AC)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "shield",
+    "armor"
+  ],
+  "properties": {
+    "id": 104,
+    "name": "Shield",
+    "type": "Shield",
+    "filterType": "Armor",
+    "armorClass": 2,
+    "description": ""
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5898e18a-2545-42c3-9821-6949aa50dcd3",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Potion of Healing",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 71,
+    "name": "Potion of Healing",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 0.5,
+    "cost": 50,
+    "description": "A character who drinks the magical red fluid in this vial regains 2d4 + 2 hit points. Drinking or administering a potion takes an action.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": true
+  }
+}

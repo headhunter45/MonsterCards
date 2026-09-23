@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "ff3e673c-c54b-42e3-9ba0-1c17fc1daa0a",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "infusion",
+  "display_name": "Repulsion Shield",
+  "description": "A shield that grants a +1 bonus to AC and allows the wielder to push an attacker up to 15 feet away as a reaction.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "infusion",
+    "artificer"
+  ],
+  "properties": {
+    "id": 8419203,
+    "definitionKey": "repulsion-shield",
+    "name": "Repulsion Shield",
+    "itemRuleType": "artificer-infusion",
+    "levelRequirement": 6,
+    "snippet": "A shield that grants a +1 bonus to AC and allows the wielder to push an attacker up to 15 feet away as a reaction.",
+    "description": "A creature gains a +1 bonus to Armor Class while wielding this shield. A creature that is hit by a melee attack can use its reaction to push the attacker up to 15 feet away.",
+    "prerequisites": [
+      {
+        "id": 14902,
+        "name": "6th Level",
+        "description": "Requires 6th-level Artificer",
+        "prerequisiteType": 1,
+        "prerequisiteSubType": "class-level",
+        "value": 6,
+        "entityId": 252717,
+        "entityTypeId": 1282167126
+      },
+      {
+        "id": 14903,
+        "name": "Item Type: Shield",
+        "description": "Item prerequisite: A shield",
+        "prerequisiteType": 2,
+        "prerequisiteSubType": "item-type",
+        "value": null,
+        "entityId": 4,
+        "entityTypeId": 1437517608
+      }
+    ],
+    "modifiers": [],
+    "definition": {
+      "id": 2045,
+      "name": "Repulsion Shield",
+      "description": "<p>A creature gains a +1 bonus to Armor Class while wielding this shield...</p>",
+      "snippet": "Bonus to AC and reaction push.",
+      "filterType": "Armor",
+      "type": "Shield",
+      "rarity": "Varies",
+      "attunement": true,
+      "attunementDescription": "Requires Attunement",
+      "requiresAttunement": true,
+      "modifiers": [
+        {
+          "id": "repulsion-shield-bonus-ac",
+          "entityId": null,
+          "entityTypeId": null,
+          "type": "bonus",
+          "subType": "armor-class",
+          "dice": null,
+          "restriction": "",
+          "statId": null,
+          "requiresAttunement": true,
+          "duration": null,
+          "isGranted": true,
+          "value": 1,
+          "friendlyTypeName": "Bonus",
+          "friendlySubtypeName": "Armor Class"
+        }
+      ],
+      "tags": [
+        "Warding",
+        "Utility"
+      ]
+    }
+  }
+}

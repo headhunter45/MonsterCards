@@ -1,0 +1,415 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "b5111943-ea33-48ac-89ef-eab093eb027f",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "race",
+  "display_name": "Gnome",
+  "description": "Gnomes are magical folk created by gods of invention, illusions, and life underground.\n\n\r\nGnome Traits\nDarkvision, Gnomish Cunning, Gnomish Lineage",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "race",
+    "gnome"
+  ],
+  "properties": {
+    "fullName": "Gnome",
+    "baseRaceName": "Gnome",
+    "isSubRace": false,
+    "size": null,
+    "sizeId": 3,
+    "weightSpeeds": {
+      "normal": {
+        "walk": 30,
+        "fly": 0,
+        "burrow": 0,
+        "swim": 0,
+        "climb": 0
+      },
+      "encumbered": null,
+      "heavilyEncumbered": null,
+      "pushDragLift": null,
+      "override": null
+    },
+    "racialTraits": [
+      {
+        "definition": {
+          "id": 13856117,
+          "definitionKey": "racial-trait:13856117",
+          "entityTypeId": 1960452172,
+          "displayOrder": 1,
+          "name": "Creature Type",
+          "description": "<p>You are a Humanoid.</p>",
+          "snippet": "You are a Humanoid.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": true,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856117",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856118,
+          "definitionKey": "racial-trait:13856118",
+          "entityTypeId": 1960452172,
+          "displayOrder": 2,
+          "name": "Size",
+          "description": "<p>You are Small (about 3&ndash;4 feet tall).</p>",
+          "snippet": "You are Small.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": true,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856118",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856119,
+          "definitionKey": "racial-trait:13856119",
+          "entityTypeId": 1960452172,
+          "displayOrder": 3,
+          "name": "Speed",
+          "description": "<p>Your Speed is 30 feet.</p>",
+          "snippet": "Your Speed is 30 ft.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": true,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856119",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856120,
+          "definitionKey": "racial-trait:13856120",
+          "entityTypeId": 1960452172,
+          "displayOrder": 4,
+          "name": "Darkvision",
+          "description": "<p>You have Darkvision with a range of 60 feet.</p>",
+          "snippet": "You have Darkvision with a range of 60 ft.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856120",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856121,
+          "definitionKey": "racial-trait:13856121",
+          "entityTypeId": 1960452172,
+          "displayOrder": 5,
+          "name": "Gnomish Cunning",
+          "description": "<p>You have Advantage on Intelligence, Wisdom, and Charisma saving throws.</p>",
+          "snippet": "You have Advantage on Intelligence, Wisdom, and Charisma saving throws.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856121",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856122,
+          "definitionKey": "racial-trait:13856122",
+          "entityTypeId": 1960452172,
+          "displayOrder": 6,
+          "name": "Gnomish Lineage",
+          "description": "<p>You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage):</p>\r\n<p><strong>Forest Gnome.</strong> You know the Minor Illusion cantrip. You also always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell.</p>\r\n<p><strong>Rock Gnome.</strong> You know the Mending and Prestidigitation cantrips. In addition, you can spend 10 minutes casting <em>Prestidigitation</em> to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from <em>Prestidigitation</em>; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell’s ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn’t do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action.</p>",
+          "snippet": "",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": false,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856122",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856123,
+          "definitionKey": "racial-trait:13856123",
+          "entityTypeId": 1960452172,
+          "displayOrder": 7,
+          "name": "Gnomish Lineage Spells",
+          "description": "<p>Whichever Gnomish Lineage you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with that trait.</p>",
+          "snippet": "",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": true,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 191,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 191,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856123",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 1,
+            "ABILITYSCORE": 0,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      },
+      {
+        "definition": {
+          "id": 13856124,
+          "definitionKey": "racial-trait:13856124",
+          "entityTypeId": 1960452172,
+          "displayOrder": null,
+          "name": "Ability Score Increases",
+          "description": "<p>When determining your character’s ability scores, increase one score by 2 and a different one by 1, or increase three scores by 1. None of these increases can raise a score above 20.</p>",
+          "snippet": "When determining your character’s ability scores, increase one score by 2 and a different one by 1, or increase three scores by 1.",
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "hideOnDetailsPage": true,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856124",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 0,
+            "ABILITYSCORE": 1,
+            "LANGUAGE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": [
+            {
+              "id": 503,
+              "entityTypeId": 1960452172,
+              "entityId": 13856124,
+              "definitionKey": "1960452172:13856124",
+              "entityTagId": 2,
+              "tagName": "__INITIAL_ASI"
+            }
+          ]
+        }
+      },
+      {
+        "definition": {
+          "id": 13856125,
+          "definitionKey": "racial-trait:13856125",
+          "entityTypeId": 1960452172,
+          "displayOrder": 9,
+          "name": "Languages",
+          "description": "<p>Your character knows at least three languages: Common plus two languages you roll or choose from the Standard Languages table. Knowledge of a language means your character can communicate in it, read it, and write it. Your class and other features might also give you languages.</p>\r\n<p>The Standard Languages table lists languages that are widespread on D&amp;D worlds. Every player character knows Common, which originated in the planar metropolis of Sigil, the hub of the multiverse. The other standard languages originated with the first members of the most prominent species in the worlds of D&amp;D and have since spread widely.</p>\r\n<table class=\"table-compendium table--generic-dice\" style=\"--sb-table-row-bg-hover: #b3d3df; --sb-table-row-bg-dark: #d7e8ee; --sb-table-row-bg-light: #f1f7f9; --dark-sb-table-row-bg-light: #5e7982; --dark-sb-table-row-bg-dark: #5c7f8c; --dark-sb-table-row-bg-hover: #78a2b0;\"><caption><strong>Standard Languages</strong></caption>\r\n<thead>\r\n<tr>\r\n<th>1d12</th>\r\n<th>Language</th>\r\n<th>Origin</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>&mdash;</td>\r\n<td>Common</td>\r\n<td>Sigil</td>\r\n</tr>\r\n<tr>\r\n<td>1</td>\r\n<td>Common Sign Language</td>\r\n<td>Sigil</td>\r\n</tr>\r\n<tr>\r\n<td>2</td>\r\n<td>Draconic</td>\r\n<td>Dragons</td>\r\n</tr>\r\n<tr>\r\n<td>3-4</td>\r\n<td>Dwarvish</td>\r\n<td>Dwarves</td>\r\n</tr>\r\n<tr>\r\n<td>5-6</td>\r\n<td>Elvish</td>\r\n<td>Elves</td>\r\n</tr>\r\n<tr>\r\n<td>7</td>\r\n<td>Giant</td>\r\n<td>Giants</td>\r\n</tr>\r\n<tr>\r\n<td>8</td>\r\n<td>Gnomish</td>\r\n<td>Gnomes</td>\r\n</tr>\r\n<tr>\r\n<td>9</td>\r\n<td>Goblin</td>\r\n<td>Goblinoids</td>\r\n</tr>\r\n<tr>\r\n<td>10-11</td>\r\n<td>Halfling</td>\r\n<td>Halflings</td>\r\n</tr>\r\n<tr>\r\n<td>12</td>\r\n<td>Orc</td>\r\n<td>Orcs</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+          "snippet": "Your character knows at least three languages: Common plus two languages you roll or choose from the Standard Languages table. Knowledge of a language means your character can communicate in it, read it, and write it.",
+          "hideInBuilder": false,
+          "hideInSheet": true,
+          "hideOnDetailsPage": true,
+          "activation": null,
+          "sourceId": 145,
+          "sourcePageNumber": 37,
+          "creatureRules": [],
+          "spellListIds": [],
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 145,
+              "pageNumber": 37,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "isCalledOut": false,
+          "entityType": "racial-trait",
+          "entityID": "13856125",
+          "entityRaceId": 1751438,
+          "entityRaceTypeId": 1743923279,
+          "displayConfiguration": {
+            "RACIALTRAIT": 0,
+            "LANGUAGE": 1,
+            "ABILITYSCORE": 0,
+            "CLASSFEATURE": 0
+          },
+          "requiredLevel": null,
+          "categories": []
+        }
+      }
+    ]
+  }
+}

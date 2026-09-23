@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
   "uuid": "deee47e3-7521-4bce-afac-79246287c964",
   "ruleset_id": "sr6",
   "entity_type": "weapon",

@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../schema/entity-definition.json",
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json",
   "id": "dossier",
   "name": "Shadowrunner Dossier",
   "description": "A comprehensive 4-page runner dossier combining full character statistics with narrative background, roleplaying tips, tactical guidelines, and tailored action pools.",

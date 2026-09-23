@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "286b3502-e6c7-46c0-94bb-b5f1f61cb659",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "spell",
+  "display_name": "Distort Value",
+  "description": "Level 1 Illusion spell.",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "spell",
+    "level-1",
+    "illusion"
+  ],
+  "properties": {
+    "id": 188092,
+    "name": "Distort Value",
+    "level": 1,
+    "school": "Illusion",
+    "duration": {
+      "durationInterval": 8,
+      "durationUnit": "Hour",
+      "durationType": "Time"
+    },
+    "activation": {
+      "activationTime": 1,
+      "activationType": 6
+    },
+    "range": {
+      "origin": "Touch",
+      "rangeValue": null,
+      "aoeType": "Cube",
+      "aoeValue": 1
+    },
+    "description": "Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? Distort Value has you covered.\n\n\r\nYou cast this spell on an object no more than 1 foot on a side, doubling the object’s perceived value by adding illusory flourishes or polish to it, or reducing its perceived value by half with the help of illusory scratches, dents, and other unsightly features. Anyone examining the object can ascertain its true value with a successful Intelligence (Investigation) check against your spell save DC.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the maximum size of the object increases by 1 foot for each slot level above 1st.",
+    "snippet": "",
+    "concentration": false,
+    "ritual": false,
+    "components": [
+      1
+    ],
+    "componentsDescription": "",
+    "castingTimeDescription": "",
+    "damageEffect": null,
+    "modifiers": [],
+    "sources": [
+      {
+        "sourceId": 44,
+        "pageNumber": 75,
+        "sourceType": 1
+      }
+    ]
+  }
+}

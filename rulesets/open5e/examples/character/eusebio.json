@@ -1,0 +1,730 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "2705249d-39a3-4302-910d-991ea0b156e0",
+  "ruleset_id": "open5e",
+  "entity_type": "character",
+  "display_name": "Eusebio Rafaela",
+  "description": "Stout Halfling Bard (College of Glamour) (Level 6)",
+  "version": "1.0.0",
+  "created_at": "2026-09-17T08:27:16.891Z",
+  "updated_at": "2026-09-17T08:27:16.891Z",
+  "tags": [
+    "pc",
+    "bard",
+    "stout_halfling"
+  ],
+  "properties": {
+    "player_name": "sparklesandfriends",
+    "class_levels": {
+      "bard": {
+        "name": "Bard",
+        "level": 6,
+        "subclass": "College of Glamour",
+        "description": "Bard level 6"
+      }
+    },
+    "race": "Stout Halfling",
+    "size": "small",
+    "type": "Humanoid",
+    "subtype": "Stout Halfling",
+    "background": "Entertainer",
+    "alignment": "Chaotic Good",
+    "experience_points": 0,
+    "inspiration": false,
+    "proficiency_bonus": 3,
+    "initiative": 5,
+    "speed": 25,
+    "speed_desc": "25 ft.",
+    "hit_points": {
+      "current": 32,
+      "max": 33,
+      "temp": 0,
+      "base": 33,
+      "bonus": null,
+      "override": null,
+      "removed": 1,
+      "hit_dice": "6d8"
+    },
+    "hit_dice": {
+      "total": 6,
+      "current": 6,
+      "dice": "6d8"
+    },
+    "death_saves": {
+      "successes": 0,
+      "failures": 0,
+      "is_stabilized": false
+    },
+    "saving_throws": [
+      "Dexterity +7",
+      "Charisma +7"
+    ],
+    "skills": [
+      "Acrobatics +7",
+      "Arcana +3",
+      "Performance +10 (Expertise)",
+      "Persuasion +10 (Expertise)",
+      "Sleight of Hand +7"
+    ],
+    "passive_perception": 10,
+    "senses": "passive Perception 10",
+    "languages": [
+      "Common",
+      "Halfling"
+    ],
+    "other_proficiencies_and_languages": {
+      "armor": [
+        "Light Armor"
+      ],
+      "weapons": [
+        "Simple Weapons"
+      ],
+      "tools": [
+        "Disguise Kit"
+      ],
+      "languages": [
+        "Common",
+        "Halfling"
+      ]
+    },
+    "attacks": [
+      {
+        "name": "Rapier of Warning",
+        "atk_bonus": "+7",
+        "damage": "1d8 + 4",
+        "damage_type": "Piercing",
+        "range": "5 ft."
+      }
+    ],
+    "currency": {
+      "cp": 0,
+      "sp": 0,
+      "gp": 72,
+      "ep": 0,
+      "pp": 0
+    },
+    "personality_traits": "I’m a hopeless romantic, always searching for that “special someone.”\nI get bitter if I’m not the center of attention.",
+    "ideals": "Creativity. The world is in need of new ideas and bold action. (Chaotic)",
+    "bonds": "I want to be famous, whatever it takes.",
+    "flaws": "I’m a sucker for a pretty face.",
+    "character_details": {
+      "personal_possessions": "a love letter"
+    },
+    "decorations": {
+      "avatar_url": "https://www.dndbeyond.com/avatars/17/175/636377833949480548.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+      "backdrop_url": "https://www.dndbeyond.com/avatars/61/475/636453123635897181.jpeg"
+    },
+    "attunement": {
+      "current": 3,
+      "max": 3
+    },
+    "armor_class": {
+      "value": 14,
+      "base": 10,
+      "description": "unarmored"
+    },
+    "abilities": {
+      "strength": {
+        "display_name": "Strength",
+        "short_name": "Str",
+        "value": 8,
+        "modifier": -1,
+        "proficiency": false,
+        "saving_throw": -1
+      },
+      "dexterity": {
+        "display_name": "Dexterity",
+        "short_name": "Dex",
+        "value": 18,
+        "modifier": 4,
+        "proficiency": true,
+        "saving_throw": 7
+      },
+      "constitution": {
+        "display_name": "Constitution",
+        "short_name": "Con",
+        "value": 15,
+        "modifier": 2,
+        "proficiency": false,
+        "saving_throw": 2
+      },
+      "intelligence": {
+        "display_name": "Intelligence",
+        "short_name": "Int",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      },
+      "wisdom": {
+        "display_name": "Wisdom",
+        "short_name": "Wis",
+        "value": 10,
+        "modifier": 0,
+        "proficiency": false,
+        "saving_throw": 0
+      },
+      "charisma": {
+        "display_name": "Charisma",
+        "short_name": "Cha",
+        "value": 18,
+        "modifier": 4,
+        "proficiency": true,
+        "saving_throw": 7
+      }
+    },
+    "features_and_traits": [
+      {
+        "name": "Lucky",
+        "source": "Stout Halfling",
+        "desc": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+      },
+      {
+        "name": "Brave",
+        "source": "Stout Halfling",
+        "desc": "You have advantage on saving throws against being frightened."
+      },
+      {
+        "name": "Halfling Nimbleness",
+        "source": "Stout Halfling",
+        "desc": "You can move through the space of any creature that is of a size larger than yours."
+      },
+      {
+        "name": "Stout Resilience",
+        "source": "Stout Halfling",
+        "desc": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+      },
+      {
+        "name": "Mantle of Inspiration",
+        "source": "Bard 3",
+        "desc": "When you join the College of Glamour at 3rd level, you gain the ability to weave a song of fey magic that imbues your allies with vigor and speed.\n\n\r\nAs a bonus action, you can expend one use of your Bardic Inspiration to grant yourself a wondrous appearance. When you do so, choose a number of creatures you can see and that can see you within 60 feet of you, up to a number equal to your Charisma modifier (minimum of one). Each of them gains 5 temporary hit points. When a creature gains these temporary hit points, it can immediately use its reaction to move up to its speed, without provoking opportunity attacks.\n\n\r\nThe number of temporary hit points increases when you reach certain levels in this class, increasing to 8 at 5th level, 11 at 10th level, and 14 at 15th level."
+      },
+      {
+        "name": "Enthralling Performance",
+        "source": "Bard 3",
+        "desc": "Starting at 3rd level, you can charge your performance with seductive, fey magic.\n\n\r\nIf you perform for at least 1 minute, you can attempt to inspire wonder in your audience by singing, reciting a poem, or dancing. At the end of the performance, choose a number of humanoids within 60 feet of you who watched and listened to all of it, up to a number equal to your Charisma modifier (minimum of one). Each target must succeed on a Wisdom saving throw against your spell save DC or be charmed by you. While charmed in this way, the target idolizes you, it speaks glowingly of you to anyone who talks to it, and it hinders anyone who opposes you, although it avoids violence unless it was already inclined to fight on your behalf. This effect ends on a target after 1 hour, if it takes any damage, if you attack it, or if it witnesses you attacking or damaging any of its allies.\n\n\r\nIf a target succeeds on its saving throw, the target has no hint that you tried to charm it.\n\n\r\nOnce you use this feature, you can’t use it again until you finish a short or long rest."
+      },
+      {
+        "name": "Mantle of Majesty",
+        "source": "Bard 6",
+        "desc": "At 6th level, you gain the ability to cloak yourself in a fey magic that makes others want to serve you. As a bonus action, you cast command, without expending a spell slot, and you take on an appearance of unearthly beauty for 1 minute or until your concentration ends (as if you were concentrating on a spell). During this time, you can cast command as a bonus action on each of your turns, without expending a spell slot.\n\n\r\nAny creature charmed by you automatically fails its saving throw against the command you cast with this feature.\n\n\r\nOnce you use this feature, you can’t use it again until you finish a long rest."
+      },
+      {
+        "name": "Spellcasting",
+        "source": "Bard 1",
+        "desc": "You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations. See Spells Rules for the general rules of spellcasting and the Spells Listing for the bard spell list.\n\n\r\nCantrips\r\nYou know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.\n\n\r\nSpell Slots\r\nThe Bard table shows how many spell slots you have to cast your bard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.\n\n\r\nFor example, if you know the 1st-level spell cure wounds and have a 1st-level and a 2nd-level spell slot available, you can cast cure wounds using either slot.\n\n\r\nSpells Known of 1st Level and Higher\r\nYou know four 1st-level spells of your choice from the bard spell list.\n\n\r\nThe Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.\n\n\r\nAdditionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.\n\n\r\nSpellcasting Ability\r\nCharisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.\n\n\r\nSpell save DC = 8 + your proficiency bonus + your Charisma modifier\n\n\r\nSpell attack modifier = your proficiency bonus + your Charisma modifier\n\n\r\nRitual Casting\r\nYou can cast any bard spell you know as a ritual if that spell has the ritual tag.\n\n\r\nSpellcasting Focus\r\nYou can use a musical instrument (see the Tools section) as a spellcasting focus for your bard spells."
+      },
+      {
+        "name": "Bardic Inspiration",
+        "source": "Bard 1",
+        "desc": "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.\n\n\r\nOnce within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.\n\n\r\nYou can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.\n\n\r\nYour Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level."
+      },
+      {
+        "name": "Jack of All Trades",
+        "source": "Bard 2",
+        "desc": "Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn’t already include your proficiency bonus."
+      },
+      {
+        "name": "Song of Rest",
+        "source": "Bard 2",
+        "desc": "Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.\n\n\r\nThe extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level."
+      },
+      {
+        "name": "Bard College",
+        "source": "Bard 3",
+        "desc": "At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore detailed at the end of the class description or another from the Player's Handbook or other sources. Your choice grants you features at 3rd level and again at 6th and 14th level."
+      },
+      {
+        "name": "Expertise",
+        "source": "Bard 3",
+        "desc": "At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies."
+      },
+      {
+        "name": "Font of Inspiration",
+        "source": "Bard 5",
+        "desc": "Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest."
+      },
+      {
+        "name": "Countercharm",
+        "source": "Bard 6",
+        "desc": "At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required)."
+      },
+      {
+        "name": "Equipment",
+        "source": "Bard 1",
+        "desc": "You start with the following equipment, in addition to the equipment granted by your background:\n\n\r\n\r\n(a) a rapier, (b) a longsword, or (c) any simple weapon\r\n(a) a diplomat’s pack or (b) an entertainer’s pack\r\n(a) a lute or (b) any other musical instrument\r\nLeather armor and a dagger"
+      },
+      {
+        "name": "By Popular Demand",
+        "source": "Background: Entertainer",
+        "desc": "You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble’s court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you."
+      }
+    ],
+    "spellcasting": {
+      "class": "Bard",
+      "ability": "CHARISMA",
+      "save_dc": 15,
+      "attack_bonus": 7,
+      "cantrips": [
+        "Vicious Mockery",
+        "Starry Wisp",
+        "Prestidigitation"
+      ],
+      "spells": [
+        {
+          "name": "Healing Word",
+          "level": 1,
+          "prepared": false,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st."
+        },
+        {
+          "name": "Thunderwave",
+          "level": 1,
+          "prepared": false,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "Self",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\n\n\r\nIn addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st."
+        },
+        {
+          "name": "Vicious Mockery",
+          "level": 0,
+          "prepared": false,
+          "school": "Enchantment",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "You unleash a string of insults laced with subtle enchantments at a creature you can see within range. If the target can hear you (though it need not understand you), it must succeed on a Wisdom saving throw or take 1d4 psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.\n\n\r\nThis spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4)."
+        },
+        {
+          "name": "Dispel Magic",
+          "level": 3,
+          "prepared": false,
+          "school": "Abjuration",
+          "casting_time": "1 action",
+          "range": "120 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "Choose one creature, object, or magical effect within range. Any spell of 3rd level or lower on the target ends. For each spell of 4th level or higher on the target, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a successful check, the spell ends.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used."
+        },
+        {
+          "name": "Shatter",
+          "level": 2,
+          "prepared": false,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "A loud noise erupts from a point of your choice within range. Each creature in a 10-foot-radius Sphere centered there makes a Constitution saving throw, taking 3d8 Thunder damage on a failed save or half as much damage on a successful one. A Construct has Disadvantage on the save.\n\n\r\nA nonmagical object that isn’t being worn or carried also takes the damage if it’s in the spell’s area.\n\n\r\nUsing a Higher-Level Spell Slot. The damage increases by 1d8 for each spell slot level above 2."
+        },
+        {
+          "name": "Hypnotic Pattern",
+          "level": 3,
+          "prepared": false,
+          "school": "Illusion",
+          "casting_time": "1 action",
+          "range": "120 ft.",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Bard",
+          "desc": "You create a twisting pattern of colors in a 30-foot Cube within range. The pattern appears for a moment and vanishes. Each creature in the area who can see the pattern must succeed on a Wisdom saving throw or have the Charmed condition for the duration. While Charmed, the creature has the Incapacitated condition and a Speed of 0.\n\n\r\nThe spell ends for an affected creature if it takes any damage or if someone else uses an action to shake the creature out of its stupor."
+        },
+        {
+          "name": "Mass Healing Word",
+          "level": 3,
+          "prepared": false,
+          "school": "Abjuration",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "Up to six creatures of your choice that you can see within range regain Hit Points equal to 2d4 plus your spellcasting ability modifier.\n\n\r\nUsing a Higher-Level Spell Slot. The healing increases by 1d4 for each spell slot level above 3."
+        },
+        {
+          "name": "Tasha's Hideous Laughter",
+          "level": 1,
+          "prepared": false,
+          "school": "Enchantment",
+          "casting_time": "1 action",
+          "range": "30 ft.",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Bard",
+          "desc": "One creature of your choice that you can see within range makes a Wisdom saving throw. On a failed save, it has the Prone and Incapacitated conditions for the duration. During that time, it laughs uncontrollably if it’s capable of laughter, and it can’t end the Prone condition on itself.\n\n\r\nAt the end of each of its turns and each time it takes damage, it makes another Wisdom saving throw. The target has Advantage on the save if the save is triggered by damage. On a successful save, the spell ends.\n\n\r\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1."
+        },
+        {
+          "name": "Hold Person",
+          "level": 2,
+          "prepared": false,
+          "school": "Enchantment",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Bard",
+          "desc": "Choose a Humanoid that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.\n\n\r\nUsing a Higher-Level Spell Slot. You can target one additional Humanoid for each spell slot level above 2."
+        },
+        {
+          "name": "Starry Wisp",
+          "level": 0,
+          "prepared": false,
+          "school": "Evocation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can’t benefit from the Invisible condition.\n\n\r\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8)."
+        },
+        {
+          "name": "Prestidigitation",
+          "level": 0,
+          "prepared": false,
+          "school": "Transmutation",
+          "casting_time": "1 action",
+          "range": "10 ft.",
+          "duration": "Time",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.\n\n\r\nSensory Effect. You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.\n\n\r\nFire Play. You instantaneously light or snuff out a candle, a torch, or a small campfire.\n\n\r\nClean or Soil. You instantaneously clean or soil an object no larger than 1 cubic foot.\n\n\r\nMinor Sensation. You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.\n\n\r\nMagic Mark. You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.\n\n\r\nMinor Creation. You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth."
+        },
+        {
+          "name": "Dissonant Whispers",
+          "level": 1,
+          "prepared": false,
+          "school": "Enchantment",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Instantaneous",
+          "ritual": false,
+          "concentration": false,
+          "source": "Bard",
+          "desc": "One creature of your choice that you can see within range hears a discordant melody in its mind. The target makes a Wisdom saving throw. On a failed save, it takes 3d6 Psychic damage and must immediately use its Reaction, if available, to move as far away from you as it can, using the safest route. On a successful save, the target takes half as much damage only.\n\n\r\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 1."
+        },
+        {
+          "name": "Animal Friendship",
+          "level": 1,
+          "prepared": true,
+          "school": "Enchantment",
+          "casting_time": "1 action",
+          "range": "30 ft.",
+          "duration": "Time",
+          "ritual": false,
+          "concentration": false,
+          "source": "Item",
+          "desc": "This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be charmed by you for the spell's duration. If you or one of your companions harms the target, the spell ends.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional beast for each slot level above 1st."
+        },
+        {
+          "name": "Fly",
+          "level": 3,
+          "prepared": true,
+          "school": "Transmutation",
+          "casting_time": "1 action",
+          "range": "Touch",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Item",
+          "desc": "You touch a willing creature. The target gains a flying speed of 60 feet for the duration. When the spell ends, the target falls if it is still aloft, unless it can stop the fall.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd."
+        },
+        {
+          "name": "Invisibility",
+          "level": 2,
+          "prepared": true,
+          "school": "Illusion",
+          "casting_time": "1 action",
+          "range": "Touch",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Item",
+          "desc": "A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.\n\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd."
+        },
+        {
+          "name": "Levitate",
+          "level": 2,
+          "prepared": true,
+          "school": "Transmutation",
+          "casting_time": "1 action",
+          "range": "60 ft.",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Item",
+          "desc": "One creature or loose object of your choice that you can see within range rises vertically, up to 20 feet, and remains suspended there for the duration. The spell can levitate a target that weighs up to 500 pounds. An unwilling creature that succeeds on a Constitution saving throw is unaffected.\n\n\r\nThe target can move only by pushing or pulling against a fixed object or surface within reach (such as a wall or a ceiling), which allows it to move as if it were climbing. You can change the target's altitude by up to 20 feet in either direction on your turn. If you are the target, you can move up or down as part of your move. Otherwise, you can use your action to move the target, which must remain within the spell's range.\n\n\r\nWhen the spell ends, the target floats gently to the ground if it is still aloft."
+        },
+        {
+          "name": "Protection from Energy",
+          "level": 3,
+          "prepared": true,
+          "school": "Abjuration",
+          "casting_time": "1 action",
+          "range": "Touch",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Item",
+          "desc": "For the duration, the willing creature you touch has resistance to one damage type of your choice: acid, cold, fire, lightning, or thunder."
+        },
+        {
+          "name": "Protection from Evil and Good",
+          "level": 1,
+          "prepared": true,
+          "school": "Abjuration",
+          "casting_time": "1 action",
+          "range": "Touch",
+          "duration": "Concentration",
+          "ritual": false,
+          "concentration": true,
+          "source": "Item",
+          "desc": "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead.\n\n\r\nThe protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect."
+        },
+        {
+          "name": "Protection from Poison",
+          "level": 2,
+          "prepared": true,
+          "school": "Abjuration",
+          "casting_time": "1 action",
+          "range": "Touch",
+          "duration": "Time",
+          "ritual": false,
+          "concentration": false,
+          "source": "Item",
+          "desc": "You touch a creature. If it is poisoned, you neutralize the poison. If more than one poison afflicts the target, you neutralize one poison that you know is present, or you neutralize one at random.\n\n\r\nFor the duration, the target has advantage on saving throws against being poisoned, and it has resistance to poison damage."
+        }
+      ]
+    },
+    "inventory": [
+      {
+        "id": "item_141875496",
+        "name": "Ring of Protection",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": true,
+        "attuned": true,
+        "requires_attunement": true,
+        "rarity": "rare",
+        "filter_type": "Ring",
+        "description": "You gain a +1 bonus to Armor Class and saving throws while wearing this ring."
+      },
+      {
+        "id": "item_141874771",
+        "name": "Doss Lute",
+        "quantity": 1,
+        "weight": 0,
+        "equipped": true,
+        "attuned": true,
+        "requires_attunement": true,
+        "rarity": "uncommon",
+        "filter_type": "Wondrous item",
+        "description": "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n\n\r\nYou can use an action to play the instrument and cast one of its spells: Fly, Invisibility, Levitate, Protection from Evil and Good, Animal Friendship, Protection from Energy (fire only), Protection from Poison. Once the instrument has been used to cast a spell, it can’t be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n\n\r\nYou can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component."
+      },
+      {
+        "id": "item_141876711",
+        "name": "Rapier of Warning",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": true,
+        "attuned": true,
+        "requires_attunement": true,
+        "rarity": "uncommon",
+        "filter_type": "Weapon",
+        "description": "This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can’t be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins."
+      },
+      {
+        "id": "item_141509529",
+        "name": "Leather",
+        "quantity": 1,
+        "weight": 10,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Armor",
+        "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials."
+      },
+      {
+        "id": "item_141509530",
+        "name": "Dagger",
+        "quantity": 1,
+        "weight": 1,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Dagger allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nNick. When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+      },
+      {
+        "id": "item_141509520",
+        "name": "Rapier",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Weapon",
+        "description": "Proficiency with a Rapier allows you to add your proficiency bonus to the attack roll for any attack you make with it.\n\n\r\n\r\nThis weapon has the following mastery property. To use this property, you must have a feature that lets you use it.\n\n\r\nVex. If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+      },
+      {
+        "id": "item_141509521",
+        "name": "Backpack",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.\n\n\r\nYou can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack."
+      },
+      {
+        "id": "item_141509522",
+        "name": "Bedroll",
+        "quantity": 1,
+        "weight": 7,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "You never know where you’re going to sleep, and a bedroll helps you get better sleep in a hayloft or on the cold ground. A bedroll consists of bedding and a blanket thin enough to be rolled up and tied. In an emergency, it can double as a stretcher."
+      },
+      {
+        "id": "item_141509524",
+        "name": "Candle",
+        "quantity": 5,
+        "weight": 0,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet."
+      },
+      {
+        "id": "item_141509523",
+        "name": "Clothes, Costume",
+        "quantity": 3,
+        "weight": 4,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This set of clothes is fashioned after a particular costume, typically meant for entertaining."
+      },
+      {
+        "id": "item_141509525",
+        "name": "Rations (1 day)",
+        "quantity": 5,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts."
+      },
+      {
+        "id": "item_141509526",
+        "name": "Waterskin",
+        "quantity": 1,
+        "weight": 5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "A waterskin can hold 4 pints of liquid."
+      },
+      {
+        "id": "item_141509527",
+        "name": "Disguise Kit",
+        "quantity": 1,
+        "weight": 3,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise."
+      },
+      {
+        "id": "item_141509531",
+        "name": "Drum",
+        "quantity": 1,
+        "weight": 3,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus."
+      },
+      {
+        "id": "item_141509528",
+        "name": "Lute",
+        "quantity": 1,
+        "weight": 2,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "common",
+        "filter_type": "Other Gear",
+        "description": "If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus."
+      },
+      {
+        "id": "item_197103091",
+        "name": "Potion of Healing (Greater)",
+        "quantity": 1,
+        "weight": 0.5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Potion",
+        "description": "You regain 4d4 + 4 Hit Points when you drink this potion.\n\n\r\nWhatever its potency, the potion’s red liquid glimmers when agitated."
+      },
+      {
+        "id": "item_197103142",
+        "name": "Potion of Healing (Greater)",
+        "quantity": 1,
+        "weight": 0.5,
+        "equipped": false,
+        "attuned": false,
+        "requires_attunement": false,
+        "rarity": "uncommon",
+        "filter_type": "Potion",
+        "description": "You regain 4d4 + 4 Hit Points when you drink this potion.\n\n\r\nWhatever its potency, the potion’s red liquid glimmers when agitated."
+      }
+    ]
+  }
+}

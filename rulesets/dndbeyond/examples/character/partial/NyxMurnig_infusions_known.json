@@ -1,0 +1,128 @@
+{
+  "id": 0,
+  "success": true,
+  "message": "Successfully retrieved known infusion mappings",
+  "data": [
+    {
+      "id": 20725344,
+      "characterId": 170808282,
+      "definitionKey": "infusion:ed7c3f35-6d06-44ff-823b-c8014fb64769",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "084BD479-2652-48F7-B33C-654A9E54B7EB",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725337,
+      "characterId": 170808282,
+      "definitionKey": "infusion:8f2ff7bf-b8ee-4550-a5bd-d36210ff44ac",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "364B2EAD-4019-4953-A0FF-7B59AE1021EE",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725345,
+      "characterId": 170808282,
+      "definitionKey": "infusion:847c1622-734d-4ea7-9ada-8f5b419ced88",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "3B8CF983-861F-41EE-BCE3-800E11F2F12B",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725346,
+      "characterId": 170808282,
+      "definitionKey": "infusion:77915368-1670-4a77-a710-170087368530",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "5ADE93FE-0C80-43B0-A7EC-6943A8C1487F",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725338,
+      "characterId": 170808282,
+      "definitionKey": "infusion:48a0d64d-7e08-49b8-9d65-b14a9c8c731c",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "5B17382D-7918-4F98-8BA6-F7B127EEDE05",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725340,
+      "characterId": 170808282,
+      "definitionKey": "infusion:b40c5807-37b6-417b-9826-3c8152b5e14a",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "66999947-3AC1-4688-BC63-E1096FDE2D5C",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725348,
+      "characterId": 170808282,
+      "definitionKey": "infusion:2e8dd3d9-977a-4a69-ad3d-01c687a26e8a",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "7793ED36-F99B-4391-BFF9-D0056954779C",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725341,
+      "characterId": 170808282,
+      "definitionKey": "infusion:fee7a7ac-cbc3-4a7a-a987-6bcdbcbf2210",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "92FD2E9E-348C-40EA-AFD2-F434EE8CB9A9",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725336,
+      "characterId": 170808282,
+      "definitionKey": "infusion:787d1341-51ec-471c-9dc2-bd5c9fe2f2b4",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "9B62F826-D598-4D8C-B425-0F0AA5F32BB8",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725349,
+      "characterId": 170808282,
+      "definitionKey": "infusion:c04f435f-edab-46a6-815b-6be44fa9f601",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "D406D1C1-D530-402B-9071-E2235BBB9CD2",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725343,
+      "characterId": 170808282,
+      "definitionKey": "infusion:1c49712c-6230-492d-986d-04584541f454",
+      "itemId": null,
+      "itemName": null,
+      "itemTypeId": "magic-item",
+      "choiceKey": "ED1BC003-DD65-411D-B2C7-4B95E502C7F7",
+      "legacyItemTypeId": 112130694
+    },
+    {
+      "id": 20725342,
+      "characterId": 170808282,
+      "definitionKey": "infusion:b099e55e-22ac-4675-904f-4279efa8a3fb",
+      "itemId": "215619",
+      "itemName": "Armblade (Dagger)",
+      "itemTypeId": "magic-item",
+      "choiceKey": "F5746C8B-4B8A-4853-9BCB-1DD70AD6FC09",
+      "legacyItemTypeId": 112130694
+    }
+  ],
+  "pagination": null
+}

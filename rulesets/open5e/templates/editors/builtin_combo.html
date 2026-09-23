@@ -1,0 +1,9 @@
+<div class="field field-combo">
+  <label for="field-{{key}}">{{label}}</label>
+  <input type="text" id="field-{{key}}" name="{{key}}" list="list-{{key}}" value="{{val value}}" placeholder="{{ui.placeholder}}" {{#if (fieldReadonly ui)}}readonly{{/if}}>
+  <datalist id="list-{{key}}">
+    {{#each (comboOptions schema)}}
+      <option value="{{this}}"></option>
+    {{/each}}
+  </datalist>
+</div>

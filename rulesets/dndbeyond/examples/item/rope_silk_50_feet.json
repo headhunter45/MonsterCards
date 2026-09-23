@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "6ca4ce3c-b05f-4e1c-a9c6-dc4806024143",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "item",
+  "display_name": "Rope, Silk (50 feet)",
+  "description": "Other Gear (Common)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "item",
+    "other_gear"
+  ],
+  "properties": {
+    "id": 78,
+    "name": "Rope, Silk (50 feet)",
+    "filterType": "Other Gear",
+    "type": "Gear",
+    "rarity": "Common",
+    "weight": 5,
+    "cost": 10,
+    "description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check.",
+    "canAttune": false,
+    "attunementDescription": null,
+    "isConsumable": false
+  }
+}

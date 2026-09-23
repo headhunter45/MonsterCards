@@ -1,0 +1,1149 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "bf895ec0-9ac0-4300-a8f9-30728e540cc4",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "class",
+  "display_name": "Cleric",
+  "description": "A priestly champion who wields divine magic in service of a higher power\n\n\r\nHit Die: d8\nPrimary Ability: Wisdom\nSaves: Wisdom & Charisma",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "class",
+    "cleric"
+  ],
+  "properties": {
+    "id": 2,
+    "name": "Cleric",
+    "description": "A priestly champion who wields divine magic in service of a higher power\n\n\r\nHit Die: d8\nPrimary Ability: Wisdom\nSaves: Wisdom & Charisma",
+    "hitDice": 8,
+    "canCastSpells": true,
+    "spellCastingAbilityId": 5,
+    "subclassDefinition": {
+      "id": 19,
+      "definitionKey": "789467139:19",
+      "name": "Life Domain",
+      "description": "<p>The Life domain focuses on the vibrant positive energy &mdash; one of the fundamental forces of the universe &mdash; that sustains all life. The gods of life promote vitality and health through healing the sick and wounded, caring for those in need, and driving away the forces of death and undeath. Almost any non-evil deity can claim influence over this domain, particularly agricultural deities (such as Chauntea, Arawai, and Demeter), sun gods (such as Lathander, Pelor, and Re-Horakhty), gods of healing or endurance (such as Ilmater, Mishakal, Apollo, and Diancecht), and gods of home and community (such as Hestia, Hathor, <span class=\"No-Break\">and Boldrei).</span></p>",
+      "equipmentDescription": null,
+      "parentClassId": 2,
+      "slug": "19-life-domain",
+      "avatarUrl": null,
+      "largeAvatarUrl": null,
+      "portraitAvatarUrl": null,
+      "moreDetailsUrl": "/classes/2-cleric#LifeDomain",
+      "spellCastingAbilityId": 5,
+      "sources": [
+        {
+          "sourceId": 1,
+          "pageNumber": 60,
+          "sourceType": 1
+        }
+      ],
+      "classFeatures": [
+        {
+          "id": 130,
+          "name": "Bonus Proficiency",
+          "prerequisite": null,
+          "description": "<p>When you choose this domain at 1st level, you gain proficiency with heavy armor.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#BonusProficiency-130"
+        },
+        {
+          "id": 131,
+          "name": "Disciple of Life",
+          "prerequisite": null,
+          "description": "<p>Also starting at 1st level, your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell’s level.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#DiscipleofLife-131"
+        },
+        {
+          "id": 132,
+          "name": "Channel Divinity: Preserve Life",
+          "prerequisite": null,
+          "description": "<p>Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.</p>\r\n<p>As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can’t use this feature on an undead or a construct.</p>",
+          "requiredLevel": 2,
+          "displayOrder": 3,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#ChannelDivinity:PreserveLife-132"
+        },
+        {
+          "id": 133,
+          "name": "Blessed Healer",
+          "prerequisite": null,
+          "description": "<p>Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell’s level.</p>",
+          "requiredLevel": 6,
+          "displayOrder": 4,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#BlessedHealer-133"
+        },
+        {
+          "id": 134,
+          "name": "Divine Strike",
+          "prerequisite": null,
+          "description": "<p>At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.</p>",
+          "requiredLevel": 8,
+          "displayOrder": 5,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#DivineStrike-134"
+        },
+        {
+          "id": 135,
+          "name": "Supreme Healing",
+          "prerequisite": null,
+          "description": "<p>Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.</p>",
+          "requiredLevel": 17,
+          "displayOrder": 7,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#SupremeHealing-135"
+        },
+        {
+          "id": 108,
+          "name": "Spellcasting",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">As a conduit for divine power, you can cast cleric spells. See <span style=\"color: #99cc00;\"><a style=\"color: #47d18c;\" title=\"Spells Rules\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\">Spells Rules</a></span> for the general rules of spellcasting and the <span style=\"color: #993366;\"><a style=\"color: #704cd9;\" title=\"Spells Listing (Cleric)\" href=\"https://www.dndbeyond.com/spells?filter-class=2&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\">Spells Listing</a></span>&nbsp;for the cleric spell list.</p>\r\n<h5 class=\"compendium-hr\">Cantrips</h5>\r\n<p class=\"Core-Styles_Core-Body\">At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.</p>\r\n<h5 id=\"PreparingandCastingSpells\" class=\"compendium-hr\">Preparing and Casting Spells</h5>\r\n<p class=\"Core-Styles_Core-Body\">The Cleric table shows how many spell slots you have to cast your cleric spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.</p>\r\n<p class=\"Core-Styles_Core-Body\">For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell <span class=\"Serif-Character-Style_Italic-Serif\">cure wounds</span>, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Ability</h5>\r\n<p class=\"Core-Styles_Core-Body-Last--to-apply-extra-space-\">Wisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell save DC </span></strong>= 8 + your proficiency bonus + your Wisdom modifier</p>\r\n<p class=\"List-Styles_List-Item-Centered ParaOverride-2\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell attack modifier </span></strong>= your proficiency bonus + your Wisdom modifier</p>\r\n<h5 class=\"compendium-hr\">Ritual Casting</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Focus</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can use a holy symbol (see the <span style=\"color: #47d18c;\"><a style=\"color: #47d18c;\" title=\"Adventuring Gear\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#HolySymbol\">Adventuring Gear</a></span> section) as a spellcasting focus for your cleric spells.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 4,
+          "summary": "Cast spells through prayer and meditation.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#Spellcasting-108"
+        },
+        {
+          "id": 109,
+          "name": "Divine Domain",
+          "prerequisite": null,
+          "description": "<p>Choose one domain related to your deity. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.</p>\r\n<h5>Domain Spells</h5>\r\n<p>Each domain has a list of spells &mdash; its domain spells &mdash; that you gain at the cleric levels noted in the domain description. Once you gain a domain spell, you always have it prepared, and it doesn’t count against the number of spells you can prepare each day.</p>\r\n<p>If you have a domain spell that doesn’t appear on the cleric spell list, the spell is nonetheless a cleric spell for you.</p>",
+          "requiredLevel": 1,
+          "displayOrder": 5,
+          "summary": "Choose one aspect of your deity’s portfolio to emphasize, and gain powers related to it.",
+          "featuresSectionType": 1,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#DivineDomain-109"
+        },
+        {
+          "id": 110,
+          "name": "Channel Divinity",
+          "prerequisite": null,
+          "description": "<p class=\"compendium-hr\">At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.</p>\r\n<p class=\"Core-Styles_Core-Body\">When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again.</p>\r\n<p class=\"Core-Styles_Core-Body\">Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC.</p>\r\n<p class=\"Core-Styles_Core-Body\">Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.</p>\r\n<h5 class=\"compendium-hr\">Channel Divinity: Turn Undead</h5>\r\n<p class=\"Core-Styles_Core-Body\">As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p>\r\n<p class=\"Core-Styles_Core-Body\">A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
+          "requiredLevel": 2,
+          "displayOrder": 6,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#ChannelDivinity-110"
+        },
+        {
+          "id": 111,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 4,
+          "displayOrder": 7,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#AbilityScoreImprovement-111"
+        },
+        {
+          "id": 112,
+          "name": "Destroy Undead",
+          "prerequisite": null,
+          "description": "<p>Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.</p>\r\n<table class=\"compendium-left-aligned-table\"><caption>\r\n<h5 id=\"DestroyUndeadTable\" style=\"text-align: left;\">Destroy Undead</h5>\r\n</caption>\r\n<thead>\r\n<tr>\r\n<th>Cleric Level</th>\r\n<th>Destroys Undead of CR &hellip;</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>5th</td>\r\n<td>1/2 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>8th</td>\r\n<td>1 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>11th</td>\r\n<td>2 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>14th</td>\r\n<td>3 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>17th</td>\r\n<td>4 or lower</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+          "requiredLevel": 5,
+          "displayOrder": 8,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#DestroyUndead-112"
+        },
+        {
+          "id": 115,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 8th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 8,
+          "displayOrder": 9,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#AbilityScoreImprovement-115"
+        },
+        {
+          "id": 116,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 12,
+          "displayOrder": 13,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#AbilityScoreImprovement-116"
+        },
+        {
+          "id": 117,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 16,
+          "displayOrder": 15,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#AbilityScoreImprovement-117"
+        },
+        {
+          "id": 118,
+          "name": "Ability Score Improvement",
+          "prerequisite": null,
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "requiredLevel": 19,
+          "displayOrder": 17,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#AbilityScoreImprovement-118"
+        },
+        {
+          "id": 123,
+          "name": "Divine Intervention",
+          "prerequisite": null,
+          "description": "<p class=\"Core-Styles_Core-Body\">Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great.</p>\r\n<p class=\"Core-Styles_Core-Body\">Imploring your deity’s aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate.</p>\r\n<p class=\"Core-Styles_Core-Body\">If your deity intervenes, you can’t use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 20th level, your call for intervention succeeds automatically, no roll required.</p>",
+          "requiredLevel": 10,
+          "displayOrder": 11,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#DivineIntervention-123"
+        },
+        {
+          "id": 461,
+          "name": "Proficiencies",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor:</span></strong> Light armor, medium armor, shields<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons:</span></strong> Simple weapons<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools: </span></strong>None<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws: </span></strong>Wisdom, Charisma<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose two from History, Insight, Medicine, Persuasion, and Religion</p>",
+          "requiredLevel": 1,
+          "displayOrder": 2,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#Proficiencies-461"
+        },
+        {
+          "id": 533,
+          "name": "Hit Points",
+          "prerequisite": null,
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice: </span></strong>1d8 per cleric level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per cleric level after 1st</p>",
+          "requiredLevel": 1,
+          "displayOrder": 1,
+          "summary": null,
+          "featuresSectionType": null,
+          "moreDetailsUrl": "/classes/2-cleric#LifeDomain#HitPoints-533"
+        }
+      ],
+      "hitDice": 8,
+      "wealthDice": null,
+      "canCastSpells": false,
+      "knowsAllSpells": true,
+      "spellPrepareType": 1,
+      "spellCastingLearningStyle": null,
+      "spellContainerName": null,
+      "sourcePageNumber": 60,
+      "subclassDefinition": null,
+      "isHomebrew": false,
+      "primaryAbilities": null,
+      "spellRules": null,
+      "prerequisites": null,
+      "desktopCardBackgroundAvatarUrl": null,
+      "mobileCardBackgroundAvatarUrl": null,
+      "detailsBackgroundAvatarUrl": null,
+      "iconAvatarUrl": null,
+      "complexity": null,
+      "tagline": null,
+      "cardDescription": "Soothe the Hurts of the World",
+      "highlights": null,
+      "color": null,
+      "desktopCardForegroundAvatarUrl": null,
+      "mobileCardForegroundAvatarUrl": null,
+      "detailsForegroundAvatarUrl": null,
+      "mobileCardBannerAvatarUrl": null,
+      "desktopCardBannerAvatarUrl": null,
+      "iconicGearAvatarUrl": null,
+      "classFantasy": null,
+      "iconicGear": null,
+      "subclassTagline": null,
+      "subclassFlavorText": null,
+      "cardEyebrow": "Domain",
+      "cardHeading": " Life"
+    },
+    "classFeatures": [
+      {
+        "definition": {
+          "id": 130,
+          "definitionKey": "class-feature:130",
+          "entityTypeId": 12168134,
+          "displayOrder": 100,
+          "name": "Bonus Proficiency",
+          "description": "<p>When you choose this domain at 1st level, you gain proficiency with heavy armor.</p>",
+          "snippet": "You gain proficiency with heavy armor.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 60,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 19,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 60,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "130",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 131,
+          "definitionKey": "class-feature:131",
+          "entityTypeId": 12168134,
+          "displayOrder": 200,
+          "name": "Disciple of Life",
+          "description": "<p>Also starting at 1st level, your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell’s level.</p>",
+          "snippet": "Whenever you use a spell of 1st level or higher to restore HP, the creature regains additional HP equal to 2 + the spell’s level.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 60,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 19,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 60,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "131",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 132,
+          "definitionKey": "class-feature:132",
+          "entityTypeId": 12168134,
+          "displayOrder": 300,
+          "name": "Channel Divinity: Preserve Life",
+          "description": "<p>Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.</p>\r\n<p>As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can’t use this feature on an undead or a construct.</p>",
+          "snippet": "As an action, you can restore {{classlevel*5#unsigned}} HP. Choose any creatures within 30 ft. of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can’t use this feature on an undead or a construct.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 2,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 60,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 19,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 60,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "132",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 133,
+          "definitionKey": "class-feature:133",
+          "entityTypeId": 12168134,
+          "displayOrder": 400,
+          "name": "Blessed Healer",
+          "description": "<p>Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell’s level.</p>",
+          "snippet": "When you cast a spell of 1st level or higher that restores HP to a creature other than you, you regain HP equal to 2 + the spell’s level.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 6,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 60,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 19,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 60,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "133",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 134,
+          "definitionKey": "class-feature:134",
+          "entityTypeId": 12168134,
+          "displayOrder": 500,
+          "name": "Divine Strike",
+          "description": "<p>At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.</p>",
+          "snippet": "Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {{scalevalue}} radiant damage.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 8,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 60,
+          "creatureRules": [],
+          "levelScales": [
+            {
+              "id": 60480,
+              "level": 8,
+              "description": "1d8 radiant dmg",
+              "dice": {
+                "diceCount": 1,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "1d8"
+              },
+              "fixedValue": null
+            },
+            {
+              "id": 60481,
+              "level": 14,
+              "description": "2d8 radiant dmg",
+              "dice": {
+                "diceCount": 2,
+                "diceValue": 8,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": "2d8"
+              },
+              "fixedValue": null
+            }
+          ],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 19,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 60,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "134",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 135,
+          "definitionKey": "class-feature:135",
+          "entityTypeId": 12168134,
+          "displayOrder": 700,
+          "name": "Supreme Healing",
+          "description": "<p>Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.</p>",
+          "snippet": "When you would normally roll one or more dice to restore HP with a spell, you instead use the highest number possible for each die.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 17,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 60,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 19,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 60,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "135",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 108,
+          "definitionKey": "class-feature:108",
+          "entityTypeId": 12168134,
+          "displayOrder": 4,
+          "name": "Spellcasting",
+          "description": "<p class=\"Core-Styles_Core-Body\">As a conduit for divine power, you can cast cleric spells. See <span style=\"color: #99cc00;\"><a style=\"color: #47d18c;\" title=\"Spells Rules\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\">Spells Rules</a></span> for the general rules of spellcasting and the <span style=\"color: #993366;\"><a style=\"color: #704cd9;\" title=\"Spells Listing (Cleric)\" href=\"https://www.dndbeyond.com/spells?filter-class=2&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\">Spells Listing</a></span>&nbsp;for the cleric spell list.</p>\r\n<h5 class=\"compendium-hr\">Cantrips</h5>\r\n<p class=\"Core-Styles_Core-Body\">At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.</p>\r\n<h5 id=\"PreparingandCastingSpells\" class=\"compendium-hr\">Preparing and Casting Spells</h5>\r\n<p class=\"Core-Styles_Core-Body\">The Cleric table shows how many spell slots you have to cast your cleric spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.</p>\r\n<p class=\"Core-Styles_Core-Body\">For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell <span class=\"Serif-Character-Style_Italic-Serif\">cure wounds</span>, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Ability</h5>\r\n<p class=\"Core-Styles_Core-Body-Last--to-apply-extra-space-\">Wisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell save DC </span></strong>= 8 + your proficiency bonus + your Wisdom modifier</p>\r\n<p class=\"List-Styles_List-Item-Centered ParaOverride-2\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell attack modifier </span></strong>= your proficiency bonus + your Wisdom modifier</p>\r\n<h5 class=\"compendium-hr\">Ritual Casting</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Focus</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can use a holy symbol (see the <span style=\"color: #47d18c;\"><a style=\"color: #47d18c;\" title=\"Adventuring Gear\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#HolySymbol\">Adventuring Gear</a></span> section) as a spellcasting focus for your cleric spells.</p>",
+          "snippet": "You can cast prepared cleric spells using WIS as your spellcasting modifier (Spell DC {{savedc:wis}}, Spell Attack {{spellattack:wis}}) and prepared cleric spells as rituals if they have the ritual tag. You can use a holy symbol as a spellcasting focus.",
+          "activation": null,
+          "multiClassDescription": "<p><em>This feature is affected by multiclassing</em>. See the <a title=\"Multiclassing - Class Features\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/customization-options#ClassFeatures\">Multiclassing</a> rules for more information.</p>\r\n<p class=\"Core-Styles_Core-Body\">As a conduit for divine power, you can cast cleric spells. See <span style=\"color: #99cc00;\"><a style=\"color: #47d18c;\" title=\"Spells Rules\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting\">Spells Rules</a></span> for the general rules of spellcasting and the <span style=\"color: #993366;\"><a style=\"color: #704cd9;\" title=\"Spells Listing (Cleric)\" href=\"https://www.dndbeyond.com/spells?filter-class=2&amp;filter-search=&amp;filter-sub-class=&amp;filter-concentration=&amp;filter-ritual=&amp;filter-unlocked-content=\">Spells Listing</a></span>&nbsp;for the cleric spell list.</p>\r\n<h5 class=\"compendium-hr\">Cantrips</h5>\r\n<p class=\"Core-Styles_Core-Body\">At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.</p>\r\n<h5 class=\"compendium-hr\">Preparing and Casting Spells</h5>\r\n<p class=\"Core-Styles_Core-Body\">The Cleric table shows how many spell slots you have to cast your cleric spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.</p>\r\n<p class=\"Core-Styles_Core-Body\">For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell <span class=\"Serif-Character-Style_Italic-Serif\">cure wounds</span>, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.</p>\r\n<p class=\"Core-Styles_Core-Body\">You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Ability</h5>\r\n<p class=\"Core-Styles_Core-Body-Last--to-apply-extra-space-\">Wisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.</p>\r\n<p class=\"List-Styles_List-Item-Centered\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell save DC </span></strong>= 8 + your proficiency bonus + your Wisdom modifier</p>\r\n<p class=\"List-Styles_List-Item-Centered ParaOverride-2\"><strong><span class=\"Sans-Serif-Character-Styles_Bold-Sans-Serif\">Spell attack modifier </span></strong>= your proficiency bonus + your Wisdom modifier</p>\r\n<h5 class=\"compendium-hr\">Ritual Casting</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.</p>\r\n<h5 class=\"compendium-hr\">Spellcasting Focus</h5>\r\n<p class=\"Core-Styles_Core-Body\">You can use a holy symbol (see the <span style=\"color: #47d18c;\"><a style=\"color: #47d18c;\" title=\"Adventuring Gear\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#HolySymbol\">Adventuring Gear</a></span> section) as a spellcasting focus for your cleric spells.</p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 58,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 58,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "108",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 109,
+          "definitionKey": "class-feature:109",
+          "entityTypeId": 12168134,
+          "displayOrder": 5,
+          "name": "Divine Domain",
+          "description": "<p>Choose one domain related to your deity. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.</p>\r\n<h5>Domain Spells</h5>\r\n<p>Each domain has a list of spells &mdash; its domain spells &mdash; that you gain at the cleric levels noted in the domain description. Once you gain a domain spell, you always have it prepared, and it doesn’t count against the number of spells you can prepare each day.</p>\r\n<p>If you have a domain spell that doesn’t appear on the cleric spell list, the spell is nonetheless a cleric spell for you.</p>",
+          "snippet": "You choose a divine domain that grants you additional spells and other features related to your deity.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 58,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 58,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "109",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 110,
+          "definitionKey": "class-feature:110",
+          "entityTypeId": 12168134,
+          "displayOrder": 6,
+          "name": "Channel Divinity",
+          "description": "<p class=\"compendium-hr\">At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.</p>\r\n<p class=\"Core-Styles_Core-Body\">When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again.</p>\r\n<p class=\"Core-Styles_Core-Body\">Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC.</p>\r\n<p class=\"Core-Styles_Core-Body\">Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.</p>\r\n<h5 class=\"compendium-hr\">Channel Divinity: Turn Undead</h5>\r\n<p class=\"Core-Styles_Core-Body\">As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p>\r\n<p class=\"Core-Styles_Core-Body\">A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
+          "snippet": "You can channel divine energy to fuel magical effects a number of times per short rest",
+          "activation": null,
+          "multiClassDescription": "<p><em>This feature could be affected by multiclassing</em>. See the <a title=\"Multiclassing - Class Features\" href=\"https://www.dndbeyond.com/compendium/rules/basic-rules/customization-options#ClassFeatures\">Multiclassing</a> rules for more information.</p>\r\n<p class=\"compendium-hr\">At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.</p>\r\n<p class=\"Core-Styles_Core-Body\">When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again.</p>\r\n<p class=\"Core-Styles_Core-Body\">Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC.</p>\r\n<p class=\"Core-Styles_Core-Body\">Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.</p>\r\n<h5 class=\"compendium-hr\">Channel Divinity: Turn Undead</h5>\r\n<p class=\"Core-Styles_Core-Body\">As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p>\r\n<p class=\"Core-Styles_Core-Body\">A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
+          "requiredLevel": 2,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            },
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 58,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 58,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "110",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 111,
+          "definitionKey": "class-feature:111",
+          "entityTypeId": 12168134,
+          "displayOrder": 7,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 4,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "111",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 112,
+          "definitionKey": "class-feature:112",
+          "entityTypeId": 12168134,
+          "displayOrder": 8,
+          "name": "Destroy Undead",
+          "description": "<p>Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.</p>\r\n<table class=\"compendium-left-aligned-table\"><caption>\r\n<h5 id=\"DestroyUndeadTable\" style=\"text-align: left;\">Destroy Undead</h5>\r\n</caption>\r\n<thead>\r\n<tr>\r\n<th>Cleric Level</th>\r\n<th>Destroys Undead of CR &hellip;</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>5th</td>\r\n<td>1/2 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>8th</td>\r\n<td>1 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>11th</td>\r\n<td>2 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>14th</td>\r\n<td>3 or lower</td>\r\n</tr>\r\n<tr>\r\n<td>17th</td>\r\n<td>4 or lower</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+          "snippet": "When an undead fails its saving throw against your Turn Undead feature, it is instantly destroyed if its CR is lower than the threshold for your level.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 5,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [
+            {
+              "id": 11263,
+              "level": 5,
+              "description": "CR 1/2 or Lower",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 1
+            },
+            {
+              "id": 11264,
+              "level": 8,
+              "description": "CR 1 or Lower",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 1
+            },
+            {
+              "id": 11265,
+              "level": 11,
+              "description": "CR 2 or Lower",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 2
+            },
+            {
+              "id": 11266,
+              "level": 14,
+              "description": "CR 3 or Lower",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 3
+            },
+            {
+              "id": 11267,
+              "level": 17,
+              "description": "CR 4 or Lower",
+              "dice": {
+                "diceCount": null,
+                "diceValue": null,
+                "diceMultiplier": null,
+                "fixedValue": null,
+                "diceString": null
+              },
+              "fixedValue": 4
+            }
+          ],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "112",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": {
+          "id": 11263,
+          "level": 5,
+          "description": "CR 1/2 or Lower",
+          "dice": null,
+          "fixedValue": 1
+        }
+      },
+      {
+        "definition": {
+          "id": 115,
+          "definitionKey": "class-feature:115",
+          "entityTypeId": 12168134,
+          "displayOrder": 9,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 8th level, and again at 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 8,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "115",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 116,
+          "definitionKey": "class-feature:116",
+          "entityTypeId": 12168134,
+          "displayOrder": 13,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 12th level, and again at 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 12,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "116",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 117,
+          "definitionKey": "class-feature:117",
+          "entityTypeId": 12168134,
+          "displayOrder": 15,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 16th level, and again at 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 16,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "117",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 118,
+          "definitionKey": "class-feature:118",
+          "entityTypeId": 12168134,
+          "displayOrder": 17,
+          "name": "Ability Score Improvement",
+          "description": "<p>When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 19,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "118",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 123,
+          "definitionKey": "class-feature:123",
+          "entityTypeId": 12168134,
+          "displayOrder": 11,
+          "name": "Divine Intervention",
+          "description": "<p class=\"Core-Styles_Core-Body\">Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great.</p>\r\n<p class=\"Core-Styles_Core-Body\">Imploring your deity’s aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate.</p>\r\n<p class=\"Core-Styles_Core-Body\">If your deity intervenes, you can’t use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.</p>\r\n<p class=\"Core-Styles_Core-Body\">At 20th level, your call for intervention succeeds automatically, no roll required.</p>",
+          "snippet": "As an action, you can request your deity's aid and roll percentile dice. If your roll is equal to or less than {{classlevel}}, your deity intervenes (your DM chooses the nature of the intervention). If successful, you can't use this feature again for 7 days, otherwise, you can use it again after a long rest. \r\n\r\nAt 20th level, your request succeeds automatically, no roll required.",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 10,
+          "isSubClassFeature": false,
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            }
+          ],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 59,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 59,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "123",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 461,
+          "definitionKey": "class-feature:461",
+          "entityTypeId": 12168134,
+          "displayOrder": 2,
+          "name": "Proficiencies",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor:</span></strong> Light armor, medium armor, shields<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Weapons:</span></strong> Simple weapons<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Tools: </span></strong>None<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Saving Throws: </span></strong>Wisdom, Charisma<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Skills:</span></strong> Choose two from History, Insight, Medicine, Persuasion, and Religion</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Armor:</span></strong> Light armor, medium armor, shields</p>",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 57,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 57,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "461",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 533,
+          "definitionKey": "class-feature:533",
+          "entityTypeId": 12168134,
+          "displayOrder": 1,
+          "name": "Hit Points",
+          "description": "<p><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Dice: </span></strong>1d8 per cleric level<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at 1st Level:</span></strong> 8 + your Constitution modifier<br /><strong><span class=\"Serif-Character-Style_Bold-Serif\">Hit Points at Higher Levels:</span></strong> 1d8 (or 5) + your Constitution modifier per cleric level after 1st</p>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": false,
+          "hideInSheet": false,
+          "sourceId": 2,
+          "sourcePageNumber": 57,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": 57,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "533",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      },
+      {
+        "definition": {
+          "id": 9961372,
+          "definitionKey": "class-feature:9961372",
+          "entityTypeId": 12168134,
+          "displayOrder": 3,
+          "name": "Equipment",
+          "description": "<p>You start with the following equipment, in addition to the equipment granted by your background:</p>\r\n<ul>\r\n<li>(a) a mace or (b) a warhammer (if proficient)</li>\r\n<li>(a) scale mail, (b) leather armor, or (c) chain mail (if proficient)</li>\r\n<li>(a) a light crossbow and 20 bolts or (b) any simple weapon</li>\r\n<li>(a) a priest’s pack or (b) an explorer’s pack</li>\r\n<li>A shield and a holy symbol</li>\r\n</ul>",
+          "snippet": "",
+          "activation": null,
+          "multiClassDescription": "",
+          "requiredLevel": 1,
+          "isSubClassFeature": false,
+          "limitedUse": [],
+          "hideInBuilder": true,
+          "hideInSheet": true,
+          "sourceId": 2,
+          "sourcePageNumber": null,
+          "creatureRules": [],
+          "levelScales": [],
+          "infusionRules": [],
+          "spellListIds": [],
+          "classId": 2,
+          "featureType": 1,
+          "sources": [
+            {
+              "sourceId": 2,
+              "pageNumber": null,
+              "sourceType": 1
+            }
+          ],
+          "affectedFeatureDefinitionKeys": [],
+          "entityType": "class-feature",
+          "entityID": "9961372",
+          "hasItemMappings": false,
+          "grantedFeats": []
+        },
+        "levelScale": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+<div class="ddb-entity-card background-card {{#if isInline}}card-inline{{/if}}">
+  <div class="card-header">
+    <div class="card-title-group">
+      <h3 class="card-title">{{#if properties.name}}{{properties.name}}{{else if name}}{{name}}{{else}}{{display_name}}{{/if}}</h3>
+      <span class="card-subtitle">Background</span>
+    </div>
+    {{#if properties.featureName}}
+    <span class="card-badge red">{{properties.featureName}}</span>
+    {{/if}}
+  </div>
+
+  <div class="card-stats-row">
+    {{#if properties.skillProficienciesDescription}}
+    <div class="card-stat-item">
+      <strong>Skills:</strong>
+      <span>{{properties.skillProficienciesDescription}}</span>
+    </div>
+    {{/if}}
+    {{#if properties.toolProficienciesDescription}}
+    <div class="card-stat-item">
+      <strong>Tools:</strong>
+      <span>{{properties.toolProficienciesDescription}}</span>
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if properties.featureDescription}}
+  <div class="card-desc">
+    <p>{{#if properties.featureName}}<strong>{{properties.featureName}}: </strong>{{/if}}{{{properties.featureDescription}}}</p>
+  </div>
+  {{/if}}
+</div>

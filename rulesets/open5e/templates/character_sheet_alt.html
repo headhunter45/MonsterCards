@@ -18,7 +18,7 @@
       </div>
       <div class="header-details-grid">
         <div class="detail-cell">
-          <div class="detail-val">{{properties.class}}{{#if properties.subclass}} ({{properties.subclass}}){{/if}} {{properties.level}}</div>
+          <div class="detail-val">{{classDisplay properties}}</div>
           <label class="header-label">CLASS &amp; LEVEL</label>
         </div>
         <div class="detail-cell">
@@ -53,7 +53,7 @@
         <!-- Top Controls: Proficiency Bonus & Inspiration -->
         <div class="alt-top-row">
           <div class="alt-stat-pill">
-            <span class="pill-value">+{{calcProf properties.level properties.cr}}</span>
+            <span class="pill-value">+{{calcProf properties}}</span>
             <span class="pill-label">PROFICIENCY BONUS</span>
           </div>
           <div class="alt-stat-pill">
@@ -71,7 +71,7 @@
           </div>
           <ul class="ag-sublist">
             <li class="ag-subitem">
-              <span class="dot {{#if (hasSave properties.saving_throws 'str')}}filled{{/if}}"></span>
+              <span class="dot {{#if (hasSave properties 'str')}}filled{{/if}}"></span>
               <span class="ag-bonus">{{saveBonus properties 'strength'}}</span>
               <span class="ag-name">SAVING THROWS</span>
             </li>
@@ -92,7 +92,7 @@
           </div>
           <ul class="ag-sublist">
             <li class="ag-subitem">
-              <span class="dot {{#if (hasSave properties.saving_throws 'dex')}}filled{{/if}}"></span>
+              <span class="dot {{#if (hasSave properties 'dex')}}filled{{/if}}"></span>
               <span class="ag-bonus">{{saveBonus properties 'dexterity'}}</span>
               <span class="ag-name">SAVING THROWS</span>
             </li>
@@ -123,7 +123,7 @@
           </div>
           <ul class="ag-sublist">
             <li class="ag-subitem">
-              <span class="dot {{#if (hasSave properties.saving_throws 'con')}}filled{{/if}}"></span>
+              <span class="dot {{#if (hasSave properties 'con')}}filled{{/if}}"></span>
               <span class="ag-bonus">{{saveBonus properties 'constitution'}}</span>
               <span class="ag-name">SAVING THROWS</span>
             </li>
@@ -139,7 +139,7 @@
           </div>
           <ul class="ag-sublist">
             <li class="ag-subitem">
-              <span class="dot {{#if (hasSave properties.saving_throws 'int')}}filled{{/if}}"></span>
+              <span class="dot {{#if (hasSave properties 'int')}}filled{{/if}}"></span>
               <span class="ag-bonus">{{saveBonus properties 'intelligence'}}</span>
               <span class="ag-name">SAVING THROWS</span>
             </li>
@@ -180,7 +180,7 @@
           </div>
           <ul class="ag-sublist">
             <li class="ag-subitem">
-              <span class="dot {{#if (hasSave properties.saving_throws 'wis')}}filled{{/if}}"></span>
+              <span class="dot {{#if (hasSave properties 'wis')}}filled{{/if}}"></span>
               <span class="ag-bonus">{{saveBonus properties 'wisdom'}}</span>
               <span class="ag-name">SAVING THROWS</span>
             </li>
@@ -221,7 +221,7 @@
           </div>
           <ul class="ag-sublist">
             <li class="ag-subitem">
-              <span class="dot {{#if (hasSave properties.saving_throws 'cha')}}filled{{/if}}"></span>
+              <span class="dot {{#if (hasSave properties 'cha')}}filled{{/if}}"></span>
               <span class="ag-bonus">{{saveBonus properties 'charisma'}}</span>
               <span class="ag-name">SAVING THROWS</span>
             </li>

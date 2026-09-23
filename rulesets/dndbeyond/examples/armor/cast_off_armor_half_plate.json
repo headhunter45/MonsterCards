@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.ttrpgwith.me/entity.json",
+  "uuid": "5d438560-79be-43dd-b8be-bab93afcf678",
+  "ruleset_id": "dndbeyond",
+  "entity_type": "armor",
+  "display_name": "Cast-Off Armor, Half Plate",
+  "description": "Armor (AC 15)",
+  "version": "1.0.0",
+  "created_at": "2020-01-01T00:00:00Z",
+  "updated_at": "2020-01-01T00:00:00Z",
+  "tags": [
+    "armor",
+    "body"
+  ],
+  "properties": {
+    "id": 36578,
+    "name": "Cast-Off Armor, Half Plate",
+    "type": null,
+    "filterType": "Armor",
+    "armorClass": 15,
+    "armorTypeId": 2,
+    "strengthRequirement": 0,
+    "stealthCheck": 2,
+    "weight": 40,
+    "cost": null,
+    "rarity": "Common",
+    "description": "You can doff this armor as an action."
+  }
+}

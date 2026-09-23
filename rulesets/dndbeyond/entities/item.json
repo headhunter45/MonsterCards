@@ -1,0 +1,83 @@
+{
+  "id": "item",
+  "name": "Item / Adventuring Gear",
+  "description": "D&D Beyond generic items, adventuring gear, potions, scrolls, rings, and wondrous items.",
+  "ruleset_id": "dndbeyond",
+  "version": "1.0.0",
+  "schema": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "filterType": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "rarity": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "weight": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "cost": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "canAttune": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "attunementDescription": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "fixedCharges": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "isConsumable": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": true
+  },
+  "$schema": "https://schemas.ttrpgwith.me/entity-definition.json"
+}
