@@ -1,7 +1,7 @@
 package com.majinnaibu.monstercards.importers;
 
 import android.content.Context;
-import android.net.Uri;
+import android.os.Environment;
 
 import androidx.annotation.NonNull;
 
@@ -31,19 +31,30 @@ public class GitRepoImporterService {
     public static int importFromGitRepository(Context context, ImportSource source, BooleanSupplier isCancelled) throws Exception {
         int totalImported = 0;
         
-        File tempZip = File.createTempFile("repo_download", ".zip", context.getCacheDir());
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        if (!downloadsDir.exists()) {
+            downloadsDir.mkdirs();
+        }
+        
+        File tempZip = null;
+        File[] existingZips = downloadsDir.listFiles((dir, name) -> name.startsWith(source.id + "_download") && name.endsWith(".zip"));
+        if (existingZips != null && existingZips.length > 0) {
+            tempZip = existingZips[0];
+        } else {
+            tempZip = new File(downloadsDir, source.id + "_download_" + System.currentTimeMillis() + ".zip");
+            downloadZip(source.downloadUrl, tempZip, isCancelled);
+        }
+        
         File extractDir = new File(context.getCacheDir(), "repo_extracted_" + System.currentTimeMillis());
         
         try {
-            downloadZip(source.downloadUrl, tempZip, isCancelled);
-            
             if (isCancelled.getAsBoolean()) return 0;
             
             if (!extractDir.exists()) {
                 extractDir.mkdirs();
             }
             
-            unzipAndFilter(tempZip, extractDir, source.fileExtension, isCancelled);
+            unzipAndFilter(tempZip, extractDir, source.fileExtension, source.subfolder, isCancelled);
             
             if (isCancelled.getAsBoolean()) return 0;
             
@@ -58,7 +69,8 @@ public class GitRepoImporterService {
             totalImported = processDirectory(extractDir, importer, repository, isCancelled);
 
         } finally {
-            deleteFileOrDir(tempZip);
+            // We no longer delete tempZip since the user wants to keep the downloaded zip
+            // deleteFileOrDir(tempZip);
             deleteFileOrDir(extractDir);
         }
         
@@ -97,14 +109,15 @@ public class GitRepoImporterService {
         }
     }
 
-    private static void unzipAndFilter(File zipFile, File extractDir, String filterExtension, BooleanSupplier isCancelled) throws IOException {
+    private static void unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) throws IOException {
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
                 if (isCancelled.getAsBoolean()) break;
                 if (!entry.isDirectory()) {
                     String name = entry.getName();
-                    if (filterExtension == null || name.endsWith(filterExtension)) {
+                    boolean inSubfolder = subfolder == null || subfolder.isEmpty() || name.contains("/" + subfolder + "/") || name.startsWith(subfolder + "/");
+                    if (inSubfolder && (filterExtension == null || name.endsWith(filterExtension))) {
                         File outFile = new File(extractDir, new File(name).getName());
                         if (outFile.exists()) {
                             outFile = new File(extractDir, System.currentTimeMillis() + "_" + new File(name).getName());

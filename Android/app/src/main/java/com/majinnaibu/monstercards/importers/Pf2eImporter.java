@@ -16,6 +16,7 @@ import com.majinnaibu.monstercards.models.Skill;
 import com.majinnaibu.monstercards.models.Trait;
 
 import java.util.Locale;
+import java.util.UUID;
 
 public class Pf2eImporter implements EntityImporter<Monster> {
     @Override
@@ -43,6 +44,7 @@ public class Pf2eImporter implements EntityImporter<Monster> {
         JsonObject system = root.has("system") ? root.getAsJsonObject("system") : new JsonObject();
         
         Monster monster = new Monster();
+        monster.id = UUID.randomUUID();
         
         // Name
         if (root.has("name") && !root.get("name").isJsonNull()) {

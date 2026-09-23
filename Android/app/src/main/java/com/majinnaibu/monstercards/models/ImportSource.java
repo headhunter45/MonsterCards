@@ -16,8 +16,9 @@ public class ImportSource {
     public String downloadUrl;
     public String importerClassName;
     public String fileExtension;
+    public String subfolder;
 
-    public ImportSource(String id, String projectName, String creatorName, String creatorPageLink, ImportType importType, String downloadUrl, String importerClassName, String fileExtension) {
+    public ImportSource(String id, String projectName, String creatorName, String creatorPageLink, ImportType importType, String downloadUrl, String importerClassName, String fileExtension, String subfolder) {
         this.id = id;
         this.projectName = projectName;
         this.creatorName = creatorName;
@@ -26,5 +27,6 @@ public class ImportSource {
         this.downloadUrl = downloadUrl;
         this.importerClassName = importerClassName;
         this.fileExtension = fileExtension;
+        this.subfolder = subfolder;
     }
 }

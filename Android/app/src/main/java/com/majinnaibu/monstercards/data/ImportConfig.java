@@ -17,6 +17,7 @@ public class ImportConfig {
             ImportSource.ImportType.OPEN5E_API,
             null,
             null,
+            null,
             null
         ));
         
@@ -28,7 +29,20 @@ public class ImportConfig {
             ImportSource.ImportType.GIT_ARCHIVE,
             "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
             "com.majinnaibu.monstercards.importers.Pf2eImporter",
-            ".json"
+            ".json",
+            "packs/pf2e"
+        ));
+        
+        SOURCES.add(new ImportSource(
+            "sf2e_foundry",
+            "Starfinder 2e Foundry VTT",
+            "foundryvtt",
+            "https://github.com/foundryvtt/pf2e",
+            ImportSource.ImportType.GIT_ARCHIVE,
+            "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
+            "com.majinnaibu.monstercards.importers.Pf2eImporter",
+            ".json",
+            "packs/sf2e"
         ));
     }
 }
