@@ -10,6 +10,12 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.majinnaibu.monstercards.data.MonsterRepository;
 
+import io.reactivex.rxjava3.exceptions.UndeliverableException;
+import io.reactivex.rxjava3.plugins.RxJavaPlugins;
+import com.majinnaibu.monstercards.utils.Logger;
+
+import java.io.InterruptedIOException;
+
 public class MonsterCardsApplication extends Application {
 
     private static final Migration MIGRATION_1_2 = new Migration(1, 2) {
@@ -110,6 +116,19 @@ public class MonsterCardsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        
+        RxJavaPlugins.setErrorHandler(e -> {
+            if (e instanceof UndeliverableException) {
+                e = e.getCause();
+            }
+            if (e instanceof InterruptedException || e instanceof InterruptedIOException) {
+                Logger.logWTF("RxJava Global Error Handler caught an expected InterruptedException upon disposal.");
+                return;
+            }
+            
+            Logger.logError("Undeliverable exception received by RxJava global handler", e);
+        });
+        
         // Required initialization logic here!
 
         //                .fallbackToDestructiveMigration()
