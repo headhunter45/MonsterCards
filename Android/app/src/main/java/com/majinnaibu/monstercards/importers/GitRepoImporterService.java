@@ -54,7 +54,8 @@ public class GitRepoImporterService {
                 extractDir.mkdirs();
             }
             
-            unzipAndFilter(tempZip, extractDir, source.fileExtension, source.subfolder, isCancelled);
+            int extractedFiles = unzipAndFilter(tempZip, extractDir, source.fileExtension, source.subfolder, isCancelled);
+            Logger.logWTF("Extracted " + extractedFiles + " files to " + extractDir.getAbsolutePath());
             
             if (isCancelled.getAsBoolean()) return 0;
             
@@ -71,7 +72,9 @@ public class GitRepoImporterService {
         } finally {
             // We no longer delete tempZip since the user wants to keep the downloaded zip
             // deleteFileOrDir(tempZip);
-            deleteFileOrDir(extractDir);
+            // DO NOT DELETE EXTRACT DIR FOR NOW
+            // deleteFileOrDir(extractDir);
+            Logger.logWTF("Skipping deletion of extract directory: " + extractDir.getAbsolutePath());
         }
         
         return totalImported;
@@ -109,7 +112,8 @@ public class GitRepoImporterService {
         }
     }
 
-    private static void unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) throws IOException {
+    private static int unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) throws IOException {
+        int extractedCount = 0;
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
@@ -130,17 +134,24 @@ public class GitRepoImporterService {
                                 fos.write(buffer, 0, count);
                             }
                         }
+                        extractedCount++;
                     }
                 }
                 zis.closeEntry();
             }
         }
+        return extractedCount;
     }
 
     private static int processDirectory(File dir, EntityImporter<Monster> importer, MonsterRepository repository, BooleanSupplier isCancelled) {
         int importedCount = 0;
         File[] files = dir.listFiles();
-        if (files == null) return 0;
+        if (files == null) {
+            Logger.logWTF("processDirectory: files array is null for " + dir.getAbsolutePath());
+            return 0;
+        }
+        
+        Logger.logWTF("Attempting to process " + files.length + " JSON files.");
         
         for (File file : files) {
             if (isCancelled.getAsBoolean()) break;
