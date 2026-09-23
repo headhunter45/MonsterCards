@@ -290,8 +290,13 @@ public class MainActivity extends AppCompatActivity {
                     SnackbarHelper.showLong(rootView, getString(R.string.snackbar_import_source_complete, resultCount, source.projectName));
                 }, throwable -> {
                     snackbar.dismiss();
-                    Logger.logError("Failed to import from source: " + source.projectName, throwable);
-                    SnackbarHelper.showLong(rootView, getString(R.string.snackbar_import_source_failed, source.projectName));
+                    if (throwable instanceof InterruptedException) {
+                        Logger.logError("Import task was cancelled: " + source.projectName, throwable);
+                        // The user cancelled via UI, message handled in the snackbar action.
+                    } else {
+                        Logger.logError("Failed to import from source: " + source.projectName, throwable);
+                        SnackbarHelper.showLong(rootView, getString(R.string.snackbar_import_source_failed, source.projectName));
+                    }
                 });
     }
 
