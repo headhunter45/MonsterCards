@@ -268,7 +268,14 @@ public class MainActivity extends AppCompatActivity {
                 return totalImported;
             };
         } else {
-            importTask = () -> GitRepoImporterService.importFromGitRepository(getApplicationContext(), source, () -> mImportDisposable != null && mImportDisposable.isDisposed());
+            importTask = () -> {
+                try {
+                    return GitRepoImporterService.importFromGitRepository(getApplicationContext(), source, () -> mImportDisposable != null && mImportDisposable.isDisposed());
+                } catch (InterruptedException e) {
+                    Logger.logError("Import task was interrupted", e);
+                    return 0; // Return gracefully on interruption
+                }
+            };
         }
 
         mImportDisposable = Single.fromCallable(importTask)
