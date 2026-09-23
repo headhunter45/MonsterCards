@@ -122,7 +122,7 @@ public class MonsterCardsApplication extends Application {
                 e = e.getCause();
             }
             if (e instanceof InterruptedException || e instanceof InterruptedIOException) {
-                Logger.logWTF("RxJava Global Error Handler caught an expected InterruptedException upon disposal.");
+                // Expected when a blocking task is cancelled; swallow silently.
                 return;
             }
             
