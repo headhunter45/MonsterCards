@@ -112,12 +112,19 @@ public class GitRepoImporterService {
         }
     }
 
-    private static int unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) throws IOException {
+    private static int unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) {
         int extractedCount = 0;
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
-                if (isCancelled.getAsBoolean()) break;
+                if (isCancelled.getAsBoolean()) {
+                    try {
+                        zis.closeEntry();
+                    } catch (Exception e) {
+                        Logger.logError("Failed to close zip entry upon cancellation", e);
+                    }
+                    break;
+                }
                 if (!entry.isDirectory()) {
                     String name = entry.getName();
                     boolean inSubfolder = subfolder == null || subfolder.isEmpty() || name.contains("/" + subfolder + "/") || name.startsWith(subfolder + "/");
@@ -133,12 +140,19 @@ public class GitRepoImporterService {
                                 if (isCancelled.getAsBoolean()) break;
                                 fos.write(buffer, 0, count);
                             }
+                        } catch (Exception e) {
+                            Logger.logError("Failed to write extracted file to disk: " + name, e);
                         }
-                        extractedCount++;
                     }
                 }
-                zis.closeEntry();
+                try {
+                    zis.closeEntry();
+                } catch (Exception e) {
+                    Logger.logError("Failed to close zip entry", e);
+                }
             }
+        } catch (Exception e) {
+            Logger.logError("Failed during unzip stream processing", e);
         }
         return extractedCount;
     }
