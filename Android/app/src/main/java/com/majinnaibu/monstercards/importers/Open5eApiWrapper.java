@@ -12,11 +12,13 @@ import com.majinnaibu.monstercards.models.Monster;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.InterruptedIOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 import com.majinnaibu.monstercards.utils.Logger;
 
@@ -29,7 +31,7 @@ public class Open5eApiWrapper {
     }
 
     @NonNull
-    public static Open5ePageResult fetchPage(@Nullable String urlStr) throws Exception {
+    public static Open5ePageResult fetchPage(@Nullable String urlStr, BooleanSupplier isCancelled) throws Exception {
         if (urlStr == null || urlStr.isEmpty()) {
             urlStr = BASE_URL;
         }
@@ -52,8 +54,13 @@ public class Open5eApiWrapper {
              BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                if (isCancelled.getAsBoolean()) {
+                    throw new InterruptedException("Open5e network read was cancelled.");
+                }
                 sb.append(line);
             }
+        } catch (InterruptedIOException e) {
+            throw new InterruptedException("Open5e network read was cancelled.");
         }
         
         String jsonPayload = sb.toString();
