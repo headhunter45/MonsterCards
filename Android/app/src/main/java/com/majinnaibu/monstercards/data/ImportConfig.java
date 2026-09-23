@@ -30,7 +30,7 @@ public class ImportConfig {
             "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
             "com.majinnaibu.monstercards.importers.Pf2eImporter",
             ".json",
-            "packs/pf2e"
+            "pf2e-master/packs/"
         ));
         
         SOURCES.add(new ImportSource(
@@ -42,7 +42,7 @@ public class ImportConfig {
             "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
             "com.majinnaibu.monstercards.importers.Pf2eImporter",
             ".json",
-            "packs/sf2e"
+            "pf2e-master/packs/sf2e"
         ));
     }
 }
