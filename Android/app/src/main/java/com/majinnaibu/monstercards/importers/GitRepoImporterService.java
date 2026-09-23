@@ -80,7 +80,7 @@ public class GitRepoImporterService {
         return totalImported;
     }
 
-    private static void downloadZip(String urlStr, File dest, BooleanSupplier isCancelled) throws IOException {
+    private static void downloadZip(String urlStr, File dest, BooleanSupplier isCancelled) throws IOException, InterruptedException {
         URL url = new URL(urlStr);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -106,13 +106,15 @@ public class GitRepoImporterService {
             byte[] buffer = new byte[8192];
             int count;
             while ((count = in.read(buffer)) != -1) {
-                if (isCancelled.getAsBoolean()) break;
+                if (isCancelled.getAsBoolean()) {
+                    throw new InterruptedException("Git download was cancelled.");
+                }
                 out.write(buffer, 0, count);
             }
         }
     }
 
-    private static int unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) {
+    private static int unzipAndFilter(File zipFile, File extractDir, String filterExtension, String subfolder, BooleanSupplier isCancelled) throws InterruptedException {
         int extractedCount = 0;
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
             ZipEntry entry;
@@ -123,7 +125,7 @@ public class GitRepoImporterService {
                     } catch (Exception e) {
                         Logger.logError("Failed to close zip entry upon cancellation", e);
                     }
-                    break;
+                    throw new InterruptedException("Git extraction was cancelled.");
                 }
                 if (!entry.isDirectory()) {
                     String name = entry.getName();
@@ -137,9 +139,13 @@ public class GitRepoImporterService {
                             byte[] buffer = new byte[8192];
                             int count;
                             while ((count = zis.read(buffer)) != -1) {
-                                if (isCancelled.getAsBoolean()) break;
+                                if (isCancelled.getAsBoolean()) {
+                                    throw new InterruptedException("Git extraction was cancelled during file read.");
+                                }
                                 fos.write(buffer, 0, count);
                             }
+                        } catch (InterruptedException e) {
+                            throw e;
                         } catch (Exception e) {
                             Logger.logError("Failed to write extracted file to disk: " + name, e);
                         }
@@ -151,13 +157,15 @@ public class GitRepoImporterService {
                     Logger.logError("Failed to close zip entry", e);
                 }
             }
+        } catch (InterruptedException e) {
+            throw e;
         } catch (Exception e) {
             Logger.logError("Failed during unzip stream processing", e);
         }
         return extractedCount;
     }
 
-    private static int processDirectory(File dir, EntityImporter<Monster> importer, MonsterRepository repository, BooleanSupplier isCancelled) {
+    private static int processDirectory(File dir, EntityImporter<Monster> importer, MonsterRepository repository, BooleanSupplier isCancelled) throws InterruptedException {
         int importedCount = 0;
         File[] files = dir.listFiles();
         if (files == null) {
@@ -168,7 +176,9 @@ public class GitRepoImporterService {
         Logger.logWTF("Attempting to process " + files.length + " JSON files.");
         
         for (File file : files) {
-            if (isCancelled.getAsBoolean()) break;
+            if (isCancelled.getAsBoolean()) {
+                throw new InterruptedException("Git import processing was cancelled.");
+            }
             if (file.isFile()) {
                 String content = readFileContent(file);
                 if (content != null) {
