@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Monster" representedClassName="Monster" syncable="YES" codeGenerationType="category">
+        <attribute name="abilities" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="actions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="alignment" attributeType="String" defaultValueString=""/>
+        <attribute name="armorType" attributeType="String" defaultValueString=""/>
+        <attribute name="blindsightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="burrowSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="canHover" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="challengeRating" attributeType="String" defaultValueString=""/>
+        <attribute name="charismaSavingThrowAdvantage" attributeType="String" defaultValueString=""/>
+        <attribute name="charismaSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="charismaScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="climbSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="conditionImmunities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="constitutionSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="constitutionSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="constitutionScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="customArmor" attributeType="String" defaultValueString=""/>
+        <attribute name="customChallengeRating" attributeType="String" defaultValueString=""/>
+        <attribute name="customHP" attributeType="String" defaultValueString=""/>
+        <attribute name="customProficiencyBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="customSpeed" attributeType="String" defaultValueString=""/>
+        <attribute name="damageImmunities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="damageResistances" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="damageVulnerabilities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="darkvisionDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dexteritySavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="dexteritySavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="dexterityScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="flySpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hasCustomHP" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasCustomSpeed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasShield" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hitDice" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intelligenceSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="intelligenceSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="intelligenceScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="isBlind" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="lairActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="languages" optional="YES" attributeType="Transformable" valueTransformerName="LanguageViewModelValueTransformer" customClassName="[LanguageViewModel]"/>
+        <attribute name="legendaryActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="name" attributeType="String" defaultValueString="Unnamed Monster"/>
+        <attribute name="naturalArmorBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
+        <attribute name="reactions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="regionalActions" optional="YES" attributeType="Transformable" valueTransformerName="AbilityViewModelValueTransformer" customClassName="[AbilityViewModel]"/>
+        <attribute name="senses" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
+        <attribute name="shieldBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="size" attributeType="String" defaultValueString=""/>
+        <attribute name="strengthSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="strengthSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="strengthScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="subtype" attributeType="String" defaultValueString=""/>
+        <attribute name="swimSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="telepathy" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tremorsenseDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="truesightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" attributeType="String" defaultValueString=""/>
+        <attribute name="understandsBut" attributeType="String" defaultValueString=""/>
+        <attribute name="walkSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wisdomSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="wisdomSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="wisdomScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skill" inverseName="monster" inverseEntity="Skill"/>
+    </entity>
+    <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
+        <attribute name="abilityScoreName" attributeType="String" defaultValueString="strength"/>
+        <attribute name="advantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="proficiency" attributeType="String" defaultValueString="none"/>
+        <relationship name="monster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
+    </entity>
+    <elements>
+        <element name="Monster" positionX="-63" positionY="-18" width="128" height="974"/>
+        <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
+    </elements>
+</model>
