@@ -27,10 +27,10 @@ public class ImportConfig {
             "foundryvtt",
             "https://github.com/foundryvtt/pf2e",
             ImportSource.ImportType.GIT_ARCHIVE,
-            "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
+            "https://github.com/foundryvtt/pf2e/archive/refs/heads/v14-dev.zip",
             "com.majinnaibu.monstercards.importers.Pf2eImporter",
             ".json",
-            "pf2e-master/packs/"
+            "pf2e-14-dev/packs/pf2e"
         ));
         
         SOURCES.add(new ImportSource(
@@ -39,10 +39,10 @@ public class ImportConfig {
             "foundryvtt",
             "https://github.com/foundryvtt/pf2e",
             ImportSource.ImportType.GIT_ARCHIVE,
-            "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
+            "https://github.com/foundryvtt/pf2e/archive/refs/heads/v14-dev.zip",
             "com.majinnaibu.monstercards.importers.Pf2eImporter",
             ".json",
-            "pf2e-master/packs/sf2e"
+            "pf2e-14-dev/packs/sf2e"
         ));
     }
 }
