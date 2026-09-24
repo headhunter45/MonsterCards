@@ -21,6 +21,23 @@ class SkillViewModel: ObservableObject, Identifiable {
         self.proficiency = proficiency
         self.advantage = advantage
     }
+    
+    static func knownSkillForName(_ name: String) -> AbilityScore? {
+        switch name.lowercased() {
+        case "athletics":
+            return .strength
+        case "acrobatics", "sleight of hand", "stealth":
+            return .dexterity
+        case "arcana", "history", "investigation", "nature", "religion":
+            return .intelligence
+        case "animal handling", "insight", "medicine", "perception", "survival":
+            return .wisdom
+        case "deception", "intimidation", "performance", "persuasion":
+            return .charisma
+        default:
+            return nil
+        }
+    }
         
     func modifier(forMonster: MonsterViewModel) -> Int {
         let proficiencyBonus = Double(forMonster.proficiencyBonus)

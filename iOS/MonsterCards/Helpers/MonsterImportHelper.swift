@@ -109,26 +109,3 @@ class MonsterImportHelper {
         return monster
     }
 }
-
-// MARK: - Generic JSON import (auto-detects schema via EntityImporter)
-
-extension MonsterImportHelper {
-    
-    /// Attempts to parse raw JSON into a ``MonsterViewModel`` by trying all registered
-    /// ``EntityImporter`` implementations in turn. Returns `nil` if no importer recognises the input.
-    static func fromJSON(_ json: String) -> MonsterViewModel? {
-        // Try each EntityImporter until one says it can handle this format.
-        let importers: [EntityImporter.Type] = [TetraCubeMonsterImporter.self, BinderImporter.self]
-        
-        for importer in importers where importer.canImport(json) {
-            do {
-                return try importer.parse(json)
-            } catch {
-                print("⚠️ EntityImporter \(importer) threw while parsing: \(error.localizedDescription)")
-                continue
-            }
-        }
-        
-        return nil
-    }
-}

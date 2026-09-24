@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 58;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */; };
+		E20209D425D8DD9600EFE734 /* Collection+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D425D8DD9600EFE736 /* Collection+CoreDataClass.swift */; };
+		E20209D525D8DD9600EFE735 /* CollectionMonster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D525D8DD9600EFE737 /* CollectionMonster+CoreDataClass.swift */; };
 		E20209E825D8DEC100EFE733 /* AbilityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209E725D8DEC100EFE733 /* AbilityScore.swift */; };
 		E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F225D8E04300EFE733 /* ProficiencyType.swift */; };
 		E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F325D8E04300EFE733 /* AdvantageType.swift */; };
@@ -100,6 +102,11 @@
 		E2CB0DE1260887ED00142591 /* StringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE0260887ED00142591 /* StringViewModel.swift */; };
 		E2CB0DE626088CE400142591 /* EditStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE526088CE400142591 /* EditStrings.swift */; };
 		E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D473FC25B532C900CB36D7 /* Color+Hex.swift */; };
+		E2FE0021261FE0000055B23B /* EntityImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0001261FE0000083EAC5 /* EntityImporter.swift */; };
+		E2FE0022261FE0000055B23B /* BinderImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0002261FE0000083EAC5 /* BinderImporter.swift */; };
+		E2FE0023261FE0000055B23B /* BinderExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0003261FE0000083EAC5 /* BinderExporter.swift */; };
+		E2FE0024261FE0000055B23B /* BinderImportModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0004261FE0000083EAC5 /* BinderImportModels.swift */; };
+		E2FE0025261FE0000055B23B /* TetraCubeMonsterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0005261FE0000083EAC5 /* TetraCubeMonsterImporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +149,8 @@
 
 /* Begin PBXFileReference section */
 		E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E20209D425D8DD9600EFE736 /* Collection+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E20209D525D8DD9600EFE737 /* CollectionMonster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionMonster+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E20209E725D8DEC100EFE733 /* AbilityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityScore.swift; sourceTree = "<group>"; };
 		E20209F225D8E04300EFE733 /* ProficiencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProficiencyType.swift; sourceTree = "<group>"; };
 		E20209F325D8E04300EFE733 /* AdvantageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvantageType.swift; sourceTree = "<group>"; };
@@ -217,6 +226,11 @@
 		E2CB0DE0260887ED00142591 /* StringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringViewModel.swift; sourceTree = "<group>"; };
 		E2CB0DE526088CE400142591 /* EditStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStrings.swift; sourceTree = "<group>"; };
 		E2D473FC25B532C900CB36D7 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		E2FE0001261FE0000083EAC5 /* EntityImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityImporter.swift; sourceTree = "<group>"; };
+		E2FE0002261FE0000083EAC5 /* BinderImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderImporter.swift; sourceTree = "<group>"; };
+		E2FE0003261FE0000083EAC5 /* BinderExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderExporter.swift; sourceTree = "<group>"; };
+		E2FE0004261FE0000083EAC5 /* BinderImportModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderImportModels.swift; sourceTree = "<group>"; };
+		E2FE0005261FE0000083EAC5 /* TetraCubeMonsterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetraCubeMonsterImporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +330,7 @@
 				E20CF008261FF37700B55D72 /* MonsterCards.entitlements */,
 				E2570FBC25B1AC550055B23B /* Assets.xcassets */,
 				E2D473FB25B5328800CB36D7 /* Helpers */,
+				E2FE0000261FE0000083EAC5 /* ImportExport */,
 				E2570FC625B1AC550055B23B /* Info.plist */,
 				E257101225B1B2790055B23B /* Models */,
 				E2570FC325B1AC550055B23B /* MonsterCards.xcdatamodeld */,
@@ -406,6 +421,8 @@
 				E216E46C261FDE5600FD9262 /* MonsterViewModel+CoreData.swift */,
 				E219247F261989F700C84E12 /* SavingThrowDTO.swift */,
 				E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */,
+				E20209D425D8DD9600EFE736 /* Collection+CoreDataClass.swift */,
+				E20209D525D8DD9600EFE737 /* CollectionMonster+CoreDataClass.swift */,
 				E219248426198A1200C84E12 /* SkillDTO.swift */,
 				E20209F925D8E19100EFE733 /* SkillViewModel.swift */,
 				E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */,
@@ -423,6 +440,18 @@
 				E2CB0DD62608720000142591 /* StringHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E2FE0000261FE0000083EAC5 /* ImportExport */ = {
+			isa = PBXGroup;
+			children = (
+				E2FE0001261FE0000083EAC5 /* EntityImporter.swift */,
+				E2FE0002261FE0000083EAC5 /* BinderImporter.swift */,
+				E2FE0003261FE0000083EAC5 /* BinderExporter.swift */,
+				E2FE0004261FE0000083EAC5 /* BinderImportModels.swift */,
+				E2FE0005261FE0000083EAC5 /* TetraCubeMonsterImporter.swift */,
+			);
+			path = ImportExport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,6 +679,11 @@
 				E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */,
 				E2CB0DB826081A2F00142591 /* MCAbilityScorePicker.swift in Sources */,
 				E219249926198E0D00C84E12 /* MonsterImportHelper.swift in Sources */,
+				E2FE0021261FE0000055B23B /* EntityImporter.swift in Sources */,
+				E2FE0022261FE0000055B23B /* BinderImporter.swift in Sources */,
+				E2FE0023261FE0000055B23B /* BinderExporter.swift in Sources */,
+				E2FE0024261FE0000055B23B /* BinderImportModels.swift in Sources */,
+				E2FE0025261FE0000055B23B /* TetraCubeMonsterImporter.swift in Sources */,
 				E2CB0DC026086E3C00142591 /* ChallengeRating.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
 				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,
@@ -675,6 +709,8 @@
 				E2192480261989F700C84E12 /* SavingThrowDTO.swift in Sources */,
 				E216B7B7260C5A9800FB205F /* ChallengeRatingViewModel.swift in Sources */,
 				E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */,
+				E20209D425D8DD9600EFE734 /* Collection+CoreDataClass.swift in Sources */,
+				E20209D525D8DD9600EFE735 /* CollectionMonster+CoreDataClass.swift in Sources */,
 				E24ACE652607F55D009BF703 /* EditSavingThrows.swift in Sources */,
 				E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */,
 				E216B7BC260C691400FB205F /* EditChallengeRating.swift in Sources */,
@@ -738,6 +774,7 @@
 		E216E48A261FE76F00FD9262 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
@@ -760,6 +797,7 @@
 		E216E48B261FE76F00FD9262 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
@@ -782,6 +820,7 @@
 		E2570FDD25B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -830,7 +869,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -843,6 +882,7 @@
 		E2570FDE25B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -885,7 +925,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -898,6 +938,7 @@
 		E2570FE025B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -924,6 +965,7 @@
 		E2570FE125B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -950,12 +992,13 @@
 		E2570FE325B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
 				INFOPLIST_FILE = MonsterCardsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -972,12 +1015,13 @@
 		E2570FE425B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
 				INFOPLIST_FILE = MonsterCardsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -994,6 +1038,7 @@
 		E2570FE625B1AC550055B23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;
@@ -1014,6 +1059,7 @@
 		E2570FE725B1AC550055B23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_VERSION = 6.0;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J793L9LQJ2;

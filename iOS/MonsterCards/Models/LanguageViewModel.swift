@@ -9,7 +9,7 @@ import Foundation
 
 // TODO: split this into separate Model and ViewModel classes later.
 public class LanguageViewModel : NSObject, ObservableObject, Comparable, Identifiable, NSSecureCoding {
-    public static var supportsSecureCoding = true
+    public static let supportsSecureCoding = true
     
     public func encode(with coder: NSCoder) {
         coder.encode(self.name, forKey: "name")

@@ -8,7 +8,7 @@
 import Foundation
 
 public class AbilityViewModel: NSObject, ObservableObject, Identifiable, NSSecureCoding {
-    public static var supportsSecureCoding = true
+    public static let supportsSecureCoding = true
     
     public func encode(with coder: NSCoder) {
         coder.encode(self.name, forKey: "name")

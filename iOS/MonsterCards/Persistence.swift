@@ -10,7 +10,8 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    @MainActor
+    static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         let monsters: [Monster] = [
@@ -21,10 +22,9 @@ struct PersistenceController {
         do {
             try viewContext.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            // TODO: Replace this implementation with code to handle the error appropriately.
             let nsError = error as NSError
-//            fatalError("TOMHICKS_Unresolved error \(nsError), \(nsError.userInfo)")
+            print("Unresolved error \(nsError), \(nsError.userInfo)")
         }
         return result
     }()
@@ -39,6 +39,7 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
+                // TODO: Handle persistent store load failure gracefully instead of fatalError
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })

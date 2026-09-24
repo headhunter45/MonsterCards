@@ -3,16 +3,14 @@
 //  MonsterCards
 //
 //  Data models for parsing Binder (TRPG platform) JSON format.
-//  Companion to Android BinderExporter / Monster classes.
-//  Field names here must match the keys produced by Binder's Gson serializer,
-//  which serializes the Android `Monster` POJO.
+//  Field names match the keys produced by Binder's serializer.
+//
 
 import Foundation
 
 /// Top-level Binder export file containing collections of monster cards.
 struct BinderRoot: Decodable {
     let schemaVersion: Int?
-    @Environment(\.codingVersion) var codingScheme
     let collections: [CollectionModel]
 }
 
@@ -27,9 +25,7 @@ struct MonsterCard: Decodable {
     
     // MARK: - Basic info
     
-    typealias CodingKeys = MonsterCardCodingKey
-    
-    enum MonsterCardCodingKey: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name, displayName, displayType, alignment, sizeAbbrv
         case shieldName, baseAcFormula, baseAcVal, shieldAcNum, extraArmorAcMod
         case hitDice, customHpText, speedText
@@ -39,7 +35,6 @@ struct MonsterCard: Decodable {
         case specialdamage, languageLine, sensesDescription
         case crDisplay, proficiencyBonusValue
         case cardTraits, legendaryActionsWithHeader
-        case attributes
     }
     
     let name: String?
@@ -65,7 +60,7 @@ struct MonsterCard: Decodable {
     /// Additional armor modifier (e.g. "+4", "-1").
     let extraArmorAcMod: String?
     
-    /// Hit dice (e.g. "38d10"). When nil, uses hitDice from attributes[0].
+    /// Hit dice (e.g. "38d10").
     let hitDice: String?
     
     /// Custom HP text when the monster has custom HP.
@@ -124,11 +119,6 @@ struct MonsterCard: Decodable {
     /// Proficiency bonus numeric value.
     let proficiencyBonusValue: Int?
     
-    /// Display armor class line (e.g. "AC 16; no armor, +4 shield (+2 AC), base AC 10").
-    let acLine: String?
-    
-    // MARK: - Traits from card
-    
     /// Card trait entries (abilities/actions) with section headers and grouping flags.
     let cardTraits: [CardTraitEntry]?
     
@@ -146,7 +136,6 @@ struct CardAttributeBox: Decodable {
 /// A proficiency-based skill entry (e.g. Perception).
 struct ProfSkillBox: Decodable {
     let name: String?
-    @Environment(\.codingVersion) var codingScheme
     let isExpertise: Int?   // 0 or 1 stored as int; nil means false
     
     enum CodingKeys: String, CodingKey {
@@ -157,7 +146,6 @@ struct ProfSkillBox: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decodeIfPresent(String.self, forKey: .name)
         
-        // "expertise" field may be 0 or 1 as Int. Also store it in isExpertise.
         if let expertiseValue = (try? container.decode(Int.self, forKey: .expertise)), expertiseValue == 1 {
             self.isExpertise = 1
         } else {
@@ -177,6 +165,6 @@ struct SpecialDamageBox: Decodable {
 struct CardTraitEntry: Decodable {
     let displayName: String?    // action/ability name
     let desc: String?           // ability text
-    let isActionHeader: Int?    // 0 or 1 flag for section headers (e.g. "Spellcasting", "Legendary Actions")
+    let isActionHeader: Int?    // 0 or 1 flag for section headers
     let actionSection: Int?     // grouping key (0=bonus actions, 1=actions, 2=reactions, etc.)
 }
