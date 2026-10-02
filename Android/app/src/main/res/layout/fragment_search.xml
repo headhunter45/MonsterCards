@@ -43,7 +43,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_all"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -51,35 +51,35 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_my_library"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My Library" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_dnd5e"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="D&amp;D 5e" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_pf2e"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PF2e" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_sf2e"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SF2e" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_collections"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Collections" />
