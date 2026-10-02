@@ -99,11 +99,84 @@
         <attribute name="proficiency" attributeType="String" defaultValueString="none"/>
         <relationship name="monster" optional="YES" deletionRule="Nullify" destinationEntity="Monster" inverseName="skills" inverseEntity="Monster"/>
     </entity>
+    <entity name="ReferenceMonster" representedClassName="ReferenceMonster" syncable="NO" codeGenerationType="category">
+        <attribute name="abilitiesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="actionsJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="alignment" attributeType="String" defaultValueString=""/>
+        <attribute name="armorType" attributeType="String" defaultValueString=""/>
+        <attribute name="blindsightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookSource" attributeType="String" defaultValueString=""/>
+        <attribute name="burrowSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="canHover" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="challengeRating" attributeType="String" defaultValueString=""/>
+        <attribute name="charismaSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="charismaSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="charismaScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="climbSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="conditionImmunitiesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="constitutionSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="constitutionSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="constitutionScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="customArmor" attributeType="String" defaultValueString=""/>
+        <attribute name="customChallengeRating" attributeType="String" defaultValueString=""/>
+        <attribute name="customHP" attributeType="String" defaultValueString=""/>
+        <attribute name="customProficiencyBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="customSpeed" attributeType="String" defaultValueString=""/>
+        <attribute name="damageImmunitiesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="damageResistancesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="damageVulnerabilitiesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="darkvisionDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dexteritySavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="dexteritySavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="dexterityScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="flySpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gameSystem" attributeType="String" defaultValueString="DND_5E"/>
+        <attribute name="hasCustomHP" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasCustomSpeed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasShield" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hitDice" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String" defaultValueString=""/>
+        <attribute name="imageURL" attributeType="String" defaultValueString=""/>
+        <attribute name="intelligenceSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="intelligenceSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="intelligenceScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="isBlind" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="lairActionsJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="languagesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="legendaryActionsJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="naturalArmorBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="otherArmorDescription" attributeType="String" defaultValueString=""/>
+        <attribute name="reactionsJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="regionalActionsJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="sensesJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="shieldBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="size" attributeType="String" defaultValueString=""/>
+        <attribute name="skillsJson" attributeType="String" defaultValueString="[]"/>
+        <attribute name="sourceId" attributeType="String" defaultValueString=""/>
+        <attribute name="sourceLabel" attributeType="String" defaultValueString=""/>
+        <attribute name="sourceURL" attributeType="String" defaultValueString=""/>
+        <attribute name="strengthSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="strengthSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="strengthScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+        <attribute name="subtype" attributeType="String" defaultValueString=""/>
+        <attribute name="swimSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="telepathy" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tremorsenseDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="truesightDistance" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" attributeType="String" defaultValueString=""/>
+        <attribute name="understandsBut" attributeType="String" defaultValueString=""/>
+        <attribute name="walkSpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wisdomSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
+        <attribute name="wisdomSavingThrowProficiency" attributeType="String" defaultValueString="none"/>
+        <attribute name="wisdomScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Monster" positionX="-63" positionY="-18" width="128" height="1154"/>
         <element name="Skill" positionX="-63" positionY="135" width="128" height="14"/>
         <element name="Collection" positionX="-220" positionY="0" width="128" height="112"/>
         <element name="CollectionMonster" positionX="-63" positionY="260" width="128" height="128"/>
         <element name="DashboardMonster" positionX="100" positionY="0" width="128" height="128"/>
+        <element name="ReferenceMonster" positionX="260" positionY="0" width="128" height="1000"/>
     </elements>
 </model>

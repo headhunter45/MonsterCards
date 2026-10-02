@@ -138,7 +138,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                            | Android | Fixed   | [Feature](#mcr-017) |
 | MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library             | Android | Fixed   | [Feature](#mcr-018) |
 | MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles          | iOS     | Fixed   | [Feature](#mcr-019) |
-| MCR-020 | **Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline**             | iOS     | Pending | [Feature](#mcr-020) |
+| MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline                 | iOS     | Fixed   | [Feature](#mcr-020) |
 | MCR-021 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | iOS     | Pending | [Feature](#mcr-021) |
 | MCR-022 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | iOS     | Pending | [Feature](#mcr-022) |
 | MCR-023 | **Integrate reference compendiums into Search with source tag filters and badges**                        | iOS     | Pending | [Feature](#mcr-023) |
@@ -506,11 +506,11 @@ Add `gameSystem` (enum string) and `sourceLabel` attributes to the CoreData `Mon
 - [x] Create `SourceTagView` SwiftUI component rendering styled pill badges
 - [x] Render source tag bubbles in `LibraryView`, `Search` results, and `DashboardView`
 
-<a id="mcr-020" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-020" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline
 **ID:** MCR-020
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -518,10 +518,10 @@ Create an isolated `ReferenceMonster` CoreData entity matching all statblock pro
 
 **Requirements:**
 
-- [ ] Add `ReferenceMonster` entity to `MonsterCards.xcdatamodeld` (local non-cloud sync configuration)
-- [ ] Ensure exporters and user library queries filter exclusively for user `Monster` entities
-- [ ] Build background batch ingestion pipeline mapping extracted JSON files into `ReferenceMonster` entities using `NSBatchInsertRequest`
-- [ ] Cache extracted entities locally to reuse during import workflows without re-downloading
+- [x] Add `ReferenceMonster` entity to `MonsterCards.xcdatamodeld` (local non-cloud sync configuration)
+- [x] Ensure exporters and user library queries filter exclusively for user `Monster` entities
+- [x] Build background batch ingestion pipeline mapping extracted JSON files into `ReferenceMonster` entities using `NSBatchInsertRequest`
+- [x] Cache extracted entities locally to reuse during import workflows without re-downloading
 
 <a id="mcr-021" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal

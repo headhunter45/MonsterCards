@@ -38,6 +38,7 @@ public struct PersistenceController: @unchecked Sendable {
 
         if inMemory {
             description.url = URL(fileURLWithPath: "/dev/null")
+            description.cloudKitContainerOptions = nil
         } else {
             // Configure CloudKit container options if not in-memory
             description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)

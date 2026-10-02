@@ -125,6 +125,11 @@
 		E2FE0032261FE0000055B23B /* GameSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0030261FE0000083EAC5 /* GameSystem.swift */; };
 		E2FE0034261FE0000055B23B /* SourceTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0033261FE0000083EAC5 /* SourceTagView.swift */; };
 		E2FE0035261FE0000055B23B /* SourceTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0033261FE0000083EAC5 /* SourceTagView.swift */; };
+		E2FE0037261FE0000055B23B /* ReferenceMonster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0036261FE0000083EAC5 /* ReferenceMonster+CoreDataClass.swift */; };
+		E2FE0038261FE0000055B23B /* ReferenceMonster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0036261FE0000083EAC5 /* ReferenceMonster+CoreDataClass.swift */; };
+		E2FE003A261FE0000055B23B /* ReferenceMonsterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0039261FE0000083EAC5 /* ReferenceMonsterRepository.swift */; };
+		E2FE003B261FE0000055B23B /* ReferenceMonsterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0039261FE0000083EAC5 /* ReferenceMonsterRepository.swift */; };
+		E2FE003D261FE0000055B23B /* ReferenceMonsterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE003C261FE0000083EAC5 /* ReferenceMonsterRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +270,9 @@
 		E2FE000B261FE0000083EAC5 /* MonsterCardExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardExporter.swift; sourceTree = "<group>"; };
 		E2FE0030261FE0000083EAC5 /* GameSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSystem.swift; sourceTree = "<group>"; };
 		E2FE0033261FE0000083EAC5 /* SourceTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTagView.swift; sourceTree = "<group>"; };
+		E2FE0036261FE0000083EAC5 /* ReferenceMonster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceMonster+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E2FE0039261FE0000083EAC5 /* ReferenceMonsterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceMonsterRepository.swift"; sourceTree = "<group>"; };
+		E2FE003C261FE0000083EAC5 /* ReferenceMonsterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceMonsterRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +401,7 @@
 				E2FE0012261FE0000083EAC5 /* BinderImporterTest.swift */,
 				E2FE0013261FE0000083EAC5 /* ImporterExporterTests.swift */,
 				E2FE0014261FE0000083EAC5 /* MonsterRepositoryTests.swift */,
+				E2FE003C261FE0000083EAC5 /* ReferenceMonsterRepositoryTests.swift */,
 				E2570FD125B1AC550055B23B /* Info.plist */,
 			);
 			path = MonsterCardsTests;
@@ -471,6 +480,8 @@
 				E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */,
 				E2CB0DE0260887ED00142591 /* StringViewModel.swift */,
 				E219248926198A5400C84E12 /* TraitDTO.swift */,
+				E2FE0036261FE0000083EAC5 /* ReferenceMonster+CoreDataClass.swift */,
+				E2FE0039261FE0000083EAC5 /* ReferenceMonsterRepository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -745,6 +756,8 @@
 				E2FE002B261FE0000055B23B /* MonsterCardExporter.swift in Sources */,
 				E2FE0031261FE0000055B23B /* GameSystem.swift in Sources */,
 				E2FE0034261FE0000055B23B /* SourceTagView.swift in Sources */,
+				E2FE0037261FE0000055B23B /* ReferenceMonster+CoreDataClass.swift in Sources */,
+				E2FE003A261FE0000055B23B /* ReferenceMonsterRepository.swift in Sources */,
 				E2CB0DC026086E3C00142591 /* ChallengeRating.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
 				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,
@@ -796,6 +809,7 @@
 				E2FE0022261FE0000083EAC5 /* BinderImporterTest.swift in Sources */,
 				E2FE0023261FE0000083EAC5 /* ImporterExporterTests.swift in Sources */,
 				E2FE0024261FE0000083EAC5 /* MonsterRepositoryTests.swift in Sources */,
+				E2FE003D261FE0000055B23B /* ReferenceMonsterRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
