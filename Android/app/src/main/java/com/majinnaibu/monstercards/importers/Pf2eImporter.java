@@ -9,6 +9,7 @@ import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
+import com.majinnaibu.monstercards.data.enums.GameSystem;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
@@ -45,6 +46,7 @@ public class Pf2eImporter implements EntityImporter<Monster> {
         
         Monster monster = new Monster();
         monster.id = UUID.randomUUID();
+        monster.gameSystem = GameSystem.PF_2E;
         
         // Name
         if (root.has("name") && !root.get("name").isJsonNull()) {

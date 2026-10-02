@@ -132,7 +132,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing               | iOS     | Fixed   | [Feature](#mcr-011) |
 | MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                 | iOS     | Fixed   | [Feature](#mcr-012) |
 | MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                       | Android | Fixed   | [Feature](#mcr-013) |
-| MCR-014 | **Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline**              | Android | Pending | [Feature](#mcr-014) |
+| MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                  | Android | Fixed   | [Feature](#mcr-014) |
 | MCR-015 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | Android | Pending | [Feature](#mcr-015) |
 | MCR-016 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | Android | Pending | [Feature](#mcr-016) |
 | MCR-017 | **Integrate reference compendiums into Search with source tag filters and badges**                        | Android | Pending | [Feature](#mcr-017) |
@@ -404,11 +404,11 @@ Add a structured `gameSystem` enum (e.g. `DND_5E`, `PF_2E`, `SF_2E`, `CUSTOM`) a
 - [x] Create `SourceTagView` component rendering colored pill tag bubbles (e.g., `[PF2e | Bestiary]`, `[5e | SRD]`, `[SF2e | Alien Archive]`)
 - [x] Render source tag bubbles on Monster Library cards, Search results, and Dashboard cards
 
-<a id="mcr-014" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-014" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline
 **ID:** MCR-014
 **Project:** Android
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -416,10 +416,10 @@ Create an isolated `ReferenceMonster` Room entity and DAO matching all statblock
 
 **Requirements:**
 
-- [ ] Create `ReferenceMonster` Room entity, DAO, and full-text search indexes
-- [ ] Ensure user library exports and collection operations exclusively query user `Monster` records, ignoring reference monsters
-- [ ] Implement fast background JSON ingestion pipeline mapping external schemas (PF2e, SF2e, Open5e) into `ReferenceMonster` records
-- [ ] Cache extracted reference entities on local disk/database so import workflows reuse existing data without re-downloading
+- [x] Create `ReferenceMonster` Room entity, DAO, and full-text search indexes
+- [x] Ensure user library exports and collection operations exclusively query user `Monster` records, ignoring reference monsters
+- [x] Implement fast background JSON ingestion pipeline mapping external schemas (PF2e, SF2e, Open5e) into `ReferenceMonster` records
+- [x] Cache extracted reference entities on local disk/database so import workflows reuse existing data without re-downloading
 
 <a id="mcr-015" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
 ### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal

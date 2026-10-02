@@ -21,7 +21,19 @@ import com.majinnaibu.monstercards.models.DashboardMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.MonsterFTS;
 
-@Database(entities = {Monster.class, MonsterFTS.class, Collection.class, CollectionMonster.class, DashboardMonster.class}, version = 9)
+import com.majinnaibu.monstercards.data.ReferenceMonsterDAO;
+import com.majinnaibu.monstercards.models.ReferenceMonster;
+import com.majinnaibu.monstercards.models.ReferenceMonsterFTS;
+
+@Database(entities = {
+        Monster.class,
+        MonsterFTS.class,
+        Collection.class,
+        CollectionMonster.class,
+        DashboardMonster.class,
+        ReferenceMonster.class,
+        ReferenceMonsterFTS.class
+}, version = 10)
 @TypeConverters({
         ArmorTypeConverter.class,
         ChallengeRatingConverter.class,
@@ -36,4 +48,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract MonsterDAO monsterDAO();
     public abstract CollectionDAO collectionDAO();
     public abstract DashboardDAO dashboardDAO();
+    public abstract ReferenceMonsterDAO referenceMonsterDAO();
 }

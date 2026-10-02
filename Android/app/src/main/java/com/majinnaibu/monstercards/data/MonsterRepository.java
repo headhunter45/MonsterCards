@@ -13,6 +13,8 @@ import com.majinnaibu.monstercards.models.DashboardMonsterWithMonster;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SearchResultItem;
 
+import com.majinnaibu.monstercards.models.ReferenceMonster;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -34,6 +36,63 @@ public class MonsterRepository {
 
     public MonsterRepository(@NonNull AppDatabase db) {
         m_db = db;
+    }
+
+    public Flowable<List<ReferenceMonster>> getReferenceMonsters() {
+        return m_db.referenceMonsterDAO()
+                .getAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<List<ReferenceMonster>> getReferenceMonstersBySource(String sourceId) {
+        return m_db.referenceMonsterDAO()
+                .getBySourceId(sourceId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<ReferenceMonster> getReferenceMonster(String id) {
+        return m_db.referenceMonsterDAO()
+                .getById(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Flowable<List<ReferenceMonster>> searchReferenceMonsters(String searchText) {
+        if (StringHelper.isNullOrEmpty(searchText)) {
+            return getReferenceMonsters();
+        }
+        return m_db.referenceMonsterDAO()
+                .search("*" + searchText.trim() + "*")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable saveReferenceMonsters(List<ReferenceMonster> monsters) {
+        return m_db.referenceMonsterDAO()
+                .insertAll(monsters)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable deleteReferenceMonstersBySource(String sourceId) {
+        return m_db.referenceMonsterDAO()
+                .deleteBySourceId(sourceId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable clearReferenceMonsters() {
+        return m_db.referenceMonsterDAO()
+                .deleteAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Completable cloneReferenceMonsterToLibrary(@NonNull ReferenceMonster referenceMonster) {
+        Monster cloned = referenceMonster.toMonster();
+        return saveMonster(cloned);
     }
 
     public Flowable<List<Monster>> getMonsters() {

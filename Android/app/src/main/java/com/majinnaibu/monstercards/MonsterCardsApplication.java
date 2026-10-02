@@ -108,6 +108,87 @@ public class MonsterCardsApplication extends Application {
             database.execSQL("ALTER TABLE monsters ADD COLUMN `source_label` TEXT NOT NULL DEFAULT ''");
         }
     };
+    private static final Migration MIGRATION_9_10 = new Migration(9, 10) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `reference_monsters` (" +
+                    "`id` TEXT NOT NULL, " +
+                    "`source_id` TEXT NOT NULL DEFAULT '', " +
+                    "`source_label` TEXT NOT NULL DEFAULT '', " +
+                    "`book_source` TEXT NOT NULL DEFAULT '', " +
+                    "`game_system` TEXT NOT NULL DEFAULT 'DND_5E', " +
+                    "`name` TEXT NOT NULL DEFAULT '', " +
+                    "`size` TEXT NOT NULL DEFAULT '', " +
+                    "`type` TEXT NOT NULL DEFAULT '', " +
+                    "`subtype` TEXT NOT NULL DEFAULT '', " +
+                    "`alignment` TEXT NOT NULL DEFAULT '', " +
+                    "`strength_score` INTEGER NOT NULL DEFAULT 10, " +
+                    "`strength_saving_throw_advantage` TEXT DEFAULT 'none', " +
+                    "`strength_saving_throw_proficiency` TEXT DEFAULT 'none', " +
+                    "`dexterity_score` INTEGER NOT NULL DEFAULT 10, " +
+                    "`dexterity_saving_throw_advantage` TEXT DEFAULT 'none', " +
+                    "`dexterity_saving_throw_proficiency` TEXT DEFAULT 'none', " +
+                    "`constitution_score` INTEGER NOT NULL DEFAULT 10, " +
+                    "`constitution_saving_throw_advantage` TEXT DEFAULT 'none', " +
+                    "`constitution_saving_throw_proficiency` TEXT DEFAULT 'none', " +
+                    "`intelligence_score` INTEGER NOT NULL DEFAULT 10, " +
+                    "`intelligence_saving_throw_advantage` TEXT DEFAULT 'none', " +
+                    "`intelligence_saving_throw_proficiency` TEXT DEFAULT 'none', " +
+                    "`wisdom_score` INTEGER NOT NULL DEFAULT 10, " +
+                    "`wisdom_saving_throw_advantage` TEXT DEFAULT 'none', " +
+                    "`wisdom_saving_throw_proficiency` TEXT DEFAULT 'none', " +
+                    "`charisma_score` INTEGER NOT NULL DEFAULT 10, " +
+                    "`charisma_saving_throw_advantage` TEXT DEFAULT 'none', " +
+                    "`charisma_saving_throw_proficiency` TEXT DEFAULT 'none', " +
+                    "`armor_type` TEXT DEFAULT 'none', " +
+                    "`shield_bonus` INTEGER NOT NULL DEFAULT 0, " +
+                    "`natural_armor_bonus` INTEGER NOT NULL DEFAULT 0, " +
+                    "`other_armor_description` TEXT DEFAULT '', " +
+                    "`hit_dice` INTEGER NOT NULL DEFAULT 1, " +
+                    "`has_custom_hit_points` INTEGER NOT NULL DEFAULT 0, " +
+                    "`custom_hit_points_description` TEXT DEFAULT '', " +
+                    "`walk_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`burrow_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`climb_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`fly_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`can_hover` INTEGER NOT NULL DEFAULT 0, " +
+                    "`swim_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`has_custom_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`custom_speed_description` TEXT, " +
+                    "`challenge_rating` TEXT DEFAULT '1', " +
+                    "`custom_challenge_rating_description` TEXT DEFAULT '', " +
+                    "`custom_proficiency_bonus` INTEGER NOT NULL DEFAULT 0, " +
+                    "`telepathy_range` INTEGER NOT NULL DEFAULT 0, " +
+                    "`understands_but_description` TEXT DEFAULT '', " +
+                    "`senses` TEXT DEFAULT '[]', " +
+                    "`skills` TEXT DEFAULT '[]', " +
+                    "`damage_immunities` TEXT DEFAULT '[]', " +
+                    "`damage_resistances` TEXT DEFAULT '[]', " +
+                    "`damage_vulnerabilities` TEXT DEFAULT '[]', " +
+                    "`condition_immunities` TEXT DEFAULT '[]', " +
+                    "`languages` TEXT DEFAULT '[]', " +
+                    "`abilities` TEXT DEFAULT '[]', " +
+                    "`actions` TEXT DEFAULT '[]', " +
+                    "`reactions` TEXT DEFAULT '[]', " +
+                    "`lair_actions` TEXT DEFAULT '[]', " +
+                    "`legendary_actions` TEXT DEFAULT '[]', " +
+                    "`regional_actions` TEXT DEFAULT '[]', " +
+                    "`source_url` TEXT DEFAULT '', " +
+                    "`bonus_actions` TEXT DEFAULT '[]', " +
+                    "`mythic_actions` TEXT DEFAULT '[]', " +
+                    "`legendary_actions_description` TEXT DEFAULT '', " +
+                    "`lair_actions_description` TEXT DEFAULT '', " +
+                    "`lair_actions_end_note` TEXT DEFAULT '', " +
+                    "`regional_actions_description` TEXT DEFAULT '', " +
+                    "`regional_actions_end_note` TEXT DEFAULT '', " +
+                    "`mythic_actions_description` TEXT DEFAULT '', " +
+                    "PRIMARY KEY(`id`))");
+            database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `reference_monsters_fts` USING FTS4(" +
+                    "`name` TEXT, `size` TEXT, `type` TEXT, `subtype` TEXT, `alignment` TEXT, " +
+                    "`source_label` TEXT, `book_source` TEXT, " +
+                    "content=`reference_monsters`)");
+        }
+    };
     private MonsterRepository m_monsterLibraryRepository;
 
 
@@ -148,6 +229,7 @@ public class MonsterCardsApplication extends Application {
                 .addMigrations(MIGRATION_6_7)
                 .addMigrations(MIGRATION_7_8)
                 .addMigrations(MIGRATION_8_9)
+                .addMigrations(MIGRATION_9_10)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();

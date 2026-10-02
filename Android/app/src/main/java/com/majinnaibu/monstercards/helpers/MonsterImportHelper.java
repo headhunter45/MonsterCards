@@ -10,6 +10,7 @@ import com.majinnaibu.monstercards.importers.DnDBeyondImporter;
 import com.majinnaibu.monstercards.importers.EntityImporter;
 import com.majinnaibu.monstercards.importers.MonsterJsonImporter;
 import com.majinnaibu.monstercards.importers.Open5eImporter;
+import com.majinnaibu.monstercards.importers.Pf2eImporter;
 import com.majinnaibu.monstercards.importers.TetraCubeMonsterImporter;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -26,6 +27,7 @@ public class MonsterImportHelper {
         IMPORTERS.add(new MonsterJsonImporter());
         IMPORTERS.add(new Open5eImporter());
         IMPORTERS.add(new DnDBeyondImporter());
+        IMPORTERS.add(new Pf2eImporter());
     }
 
     @NonNull
