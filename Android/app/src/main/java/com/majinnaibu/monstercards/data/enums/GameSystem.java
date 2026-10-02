@@ -25,14 +25,30 @@ public enum GameSystem {
     }
 
     public static GameSystem fromString(String text) {
-        if (text != null) {
+        if (text != null && !text.trim().isEmpty()) {
+            String trimmed = text.trim();
             for (GameSystem gs : GameSystem.values()) {
-                if (gs.name().equalsIgnoreCase(text) || gs.displayName.equalsIgnoreCase(text) || gs.shortName.equalsIgnoreCase(text)) {
+                if (gs.name().equalsIgnoreCase(trimmed) || gs.displayName.equalsIgnoreCase(trimmed) || gs.shortName.equalsIgnoreCase(trimmed)) {
                     return gs;
                 }
             }
+            return CUSTOM;
         }
         return DND_5E;
+    }
+
+    public static String getSystemDisplayName(GameSystem system, String customSystem) {
+        if (system == CUSTOM && customSystem != null && !customSystem.trim().isEmpty()) {
+            return customSystem.trim();
+        }
+        return system != null ? system.getDisplayName() : DND_5E.getDisplayName();
+    }
+
+    public static String getSystemShortName(GameSystem system, String customSystem) {
+        if (system == CUSTOM && customSystem != null && !customSystem.trim().isEmpty()) {
+            return customSystem.trim();
+        }
+        return system != null ? system.getShortName() : DND_5E.getShortName();
     }
 
     @NonNull

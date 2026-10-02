@@ -189,6 +189,19 @@ public class MonsterCardsApplication extends Application {
                     "content=`reference_monsters`)");
         }
     };
+    private static final Migration MIGRATION_10_11 = new Migration(10, 11) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `custom_game_system` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `origin` TEXT NOT NULL DEFAULT 'manual'");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `custom_origin` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `book_source` TEXT NOT NULL DEFAULT ''");
+
+            database.execSQL("ALTER TABLE reference_monsters ADD COLUMN `custom_game_system` TEXT NOT NULL DEFAULT ''");
+            database.execSQL("ALTER TABLE reference_monsters ADD COLUMN `origin` TEXT NOT NULL DEFAULT 'open5e.com'");
+            database.execSQL("ALTER TABLE reference_monsters ADD COLUMN `custom_origin` TEXT NOT NULL DEFAULT ''");
+        }
+    };
     private AppDatabase m_db;
     private MonsterRepository m_monsterLibraryRepository;
 
@@ -234,6 +247,7 @@ public class MonsterCardsApplication extends Application {
                 .addMigrations(MIGRATION_7_8)
                 .addMigrations(MIGRATION_8_9)
                 .addMigrations(MIGRATION_9_10)
+                .addMigrations(MIGRATION_10_11)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();

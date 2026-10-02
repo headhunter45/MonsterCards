@@ -14,6 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.majinnaibu.monstercards.data.enums.GameSystem;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Monster;
+import com.majinnaibu.monstercards.models.ReferenceMonster;
 
 public class SourceTagView extends AppCompatTextView {
 
@@ -43,8 +44,12 @@ public class SourceTagView extends AppCompatTextView {
     }
 
     public void setSource(@Nullable GameSystem system, @Nullable String sourceLabel) {
+        setSource(system, null, sourceLabel);
+    }
+
+    public void setSource(@Nullable GameSystem system, @Nullable String customSystem, @Nullable String sourceLabel) {
         GameSystem resolvedSystem = system != null ? system : GameSystem.DND_5E;
-        String systemName = resolvedSystem.getShortName();
+        String systemName = GameSystem.getSystemShortName(resolvedSystem, customSystem);
 
         StringBuilder sb = new StringBuilder(systemName);
         if (!StringHelper.isNullOrEmpty(sourceLabel)) {
@@ -77,6 +82,12 @@ public class SourceTagView extends AppCompatTextView {
     }
 
     public void setMonster(@NonNull Monster monster) {
-        setSource(monster.gameSystem, monster.sourceLabel);
+        String label = !StringHelper.isNullOrEmpty(monster.bookSource) ? monster.bookSource : monster.sourceLabel;
+        setSource(monster.gameSystem, monster.customGameSystem, label);
+    }
+
+    public void setReferenceMonster(@NonNull ReferenceMonster referenceMonster) {
+        String label = !StringHelper.isNullOrEmpty(referenceMonster.bookSource) ? referenceMonster.bookSource : referenceMonster.sourceLabel;
+        setSource(referenceMonster.gameSystem, referenceMonster.customGameSystem, label);
     }
 }

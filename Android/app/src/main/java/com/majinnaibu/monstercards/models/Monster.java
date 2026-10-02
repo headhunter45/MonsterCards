@@ -15,6 +15,7 @@ import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.GameSystem;
+import com.majinnaibu.monstercards.data.enums.MonsterOrigin;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -309,6 +310,23 @@ public class Monster {
     @SerializedName("gameSystem")
     public GameSystem gameSystem = GameSystem.DND_5E;
 
+    @ColumnInfo(name = "custom_game_system", defaultValue = "")
+    @SerializedName("customGameSystem")
+    public String customGameSystem = "";
+
+    @NonNull
+    @ColumnInfo(name = "origin", defaultValue = "manual")
+    @SerializedName("origin")
+    public MonsterOrigin origin = MonsterOrigin.MANUAL;
+
+    @ColumnInfo(name = "custom_origin", defaultValue = "")
+    @SerializedName("customOrigin")
+    public String customOrigin = "";
+
+    @ColumnInfo(name = "book_source", defaultValue = "")
+    @SerializedName("bookSource")
+    public String bookSource = "";
+
     @NonNull
     @ColumnInfo(name = "source_label", defaultValue = "")
     @SerializedName("sourceLabel")
@@ -322,6 +340,10 @@ public class Monster {
         subtype = "";
         alignment = "";
         gameSystem = GameSystem.DND_5E;
+        customGameSystem = "";
+        origin = MonsterOrigin.MANUAL;
+        customOrigin = "";
+        bookSource = "";
         sourceLabel = "";
         strengthScore = 10;
         dexterityScore = 10;
@@ -402,10 +424,23 @@ public class Monster {
         mythicActionsDescription = "";
     }
 
+    public String getGameSystemShortName() {
+        return GameSystem.getSystemShortName(gameSystem, customGameSystem);
+    }
+
+    public String getGameSystemDisplayName() {
+        return GameSystem.getSystemDisplayName(gameSystem, customGameSystem);
+    }
+
+    public String getOriginDisplayName() {
+        return MonsterOrigin.getOriginDisplayName(origin, customOrigin);
+    }
+
     public String getSourceTag() {
-        String systemName = (gameSystem != null) ? gameSystem.getShortName() : "5e";
-        if (!StringHelper.isNullOrEmpty(sourceLabel)) {
-            return systemName + " | " + sourceLabel;
+        String systemName = getGameSystemShortName();
+        String label = !StringHelper.isNullOrEmpty(sourceLabel) ? sourceLabel : bookSource;
+        if (!StringHelper.isNullOrEmpty(label)) {
+            return systemName + " | " + label;
         }
         return systemName;
     }

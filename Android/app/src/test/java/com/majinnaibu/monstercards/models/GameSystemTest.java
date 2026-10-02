@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import com.google.gson.Gson;
 import com.majinnaibu.monstercards.data.enums.GameSystem;
+import com.majinnaibu.monstercards.data.enums.MonsterOrigin;
 
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class GameSystemTest {
         assertEquals(GameSystem.PF_2E, GameSystem.fromString("PF2e"));
         assertEquals(GameSystem.PF_2E, GameSystem.fromString("Pathfinder 2e"));
         assertEquals(GameSystem.SF_2E, GameSystem.fromString("SF2e"));
-        assertEquals(GameSystem.DND_5E, GameSystem.fromString("Unknown"));
+        assertEquals(GameSystem.CUSTOM, GameSystem.fromString("Unknown"));
     }
 
     @Test
@@ -43,6 +44,8 @@ public class GameSystemTest {
         Monster monster = new Monster();
         monster.name = "Goblin Warrior";
         monster.gameSystem = GameSystem.PF_2E;
+        monster.origin = MonsterOrigin.OPEN5E;
+        monster.bookSource = "Tome of Beasts";
         monster.sourceLabel = "Bestiary 1";
 
         Gson gson = new Gson();
@@ -51,6 +54,23 @@ public class GameSystemTest {
 
         assertNotNull(deserialized);
         assertEquals(GameSystem.PF_2E, deserialized.gameSystem);
+        assertEquals(MonsterOrigin.OPEN5E, deserialized.origin);
+        assertEquals("Tome of Beasts", deserialized.bookSource);
         assertEquals("Bestiary 1", deserialized.sourceLabel);
+    }
+
+    @Test
+    public void testUnrecognizedGameSystemAndOrigin() {
+        Monster monster = new Monster();
+        monster.name = "Star Wars Droid";
+        monster.gameSystem = GameSystem.fromString("StarWars_d20");
+        monster.customGameSystem = "StarWars_d20";
+        monster.origin = com.majinnaibu.monstercards.data.enums.MonsterOrigin.fromString("custom_site.com");
+        monster.customOrigin = "custom_site.com";
+        monster.bookSource = "Star Wars Core Rulebook";
+
+        assertEquals("StarWars_d20", monster.getGameSystemShortName());
+        assertEquals("custom_site.com", monster.getOriginDisplayName());
+        assertEquals("StarWars_d20 | Star Wars Core Rulebook", monster.getSourceTag());
     }
 }

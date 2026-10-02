@@ -11,6 +11,7 @@ import com.majinnaibu.monstercards.data.converters.ArmorTypeConverter;
 import com.majinnaibu.monstercards.data.converters.ChallengeRatingConverter;
 import com.majinnaibu.monstercards.data.converters.GameSystemConverter;
 import com.majinnaibu.monstercards.data.converters.ListOfTraitsConverter;
+import com.majinnaibu.monstercards.data.converters.MonsterOriginConverter;
 import com.majinnaibu.monstercards.data.converters.SetOfLanguageConverter;
 import com.majinnaibu.monstercards.data.converters.SetOfSkillConverter;
 import com.majinnaibu.monstercards.data.converters.SetOfStringConverter;
@@ -33,11 +34,12 @@ import com.majinnaibu.monstercards.models.ReferenceMonsterFTS;
         DashboardMonster.class,
         ReferenceMonster.class,
         ReferenceMonsterFTS.class
-}, version = 10)
+}, version = 11)
 @TypeConverters({
         ArmorTypeConverter.class,
         ChallengeRatingConverter.class,
         GameSystemConverter.class,
+        MonsterOriginConverter.class,
         ListOfTraitsConverter.class,
         SetOfLanguageConverter.class,
         SetOfSkillConverter.class,

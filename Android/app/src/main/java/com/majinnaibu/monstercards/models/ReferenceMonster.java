@@ -13,6 +13,7 @@ import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.GameSystem;
+import com.majinnaibu.monstercards.data.enums.MonsterOrigin;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 
@@ -52,6 +53,19 @@ public class ReferenceMonster {
     @ColumnInfo(name = "game_system", defaultValue = "DND_5E")
     @SerializedName("gameSystem")
     public GameSystem gameSystem;
+
+    @ColumnInfo(name = "custom_game_system", defaultValue = "")
+    @SerializedName("customGameSystem")
+    public String customGameSystem = "";
+
+    @NonNull
+    @ColumnInfo(name = "origin", defaultValue = "open5e.com")
+    @SerializedName("origin")
+    public MonsterOrigin origin = MonsterOrigin.OPEN5E;
+
+    @ColumnInfo(name = "custom_origin", defaultValue = "")
+    @SerializedName("customOrigin")
+    public String customOrigin = "";
 
     @NonNull
     @ColumnInfo(defaultValue = "")
@@ -329,10 +343,13 @@ public class ReferenceMonster {
     public static ReferenceMonster fromMonster(@NonNull Monster monster, @NonNull String sourceId, @Nullable String bookSource) {
         ReferenceMonster rm = new ReferenceMonster();
         rm.id = monster.id != null ? monster.id.toString() : UUID.randomUUID().toString();
-        rm.sourceId = sourceId;
+        rm.sourceId = !StringHelper.isNullOrEmpty(sourceId) ? sourceId : (monster.origin != null ? monster.origin.getValue() : "");
         rm.sourceLabel = !StringHelper.isNullOrEmpty(monster.sourceLabel) ? monster.sourceLabel : (!StringHelper.isNullOrEmpty(bookSource) ? bookSource : "");
-        rm.bookSource = bookSource != null ? bookSource : "";
+        rm.bookSource = !StringHelper.isNullOrEmpty(monster.bookSource) ? monster.bookSource : (bookSource != null ? bookSource : "");
         rm.gameSystem = monster.gameSystem != null ? monster.gameSystem : GameSystem.DND_5E;
+        rm.customGameSystem = monster.customGameSystem;
+        rm.origin = monster.origin != null ? monster.origin : MonsterOrigin.fromString(sourceId);
+        rm.customOrigin = monster.customOrigin;
         rm.name = monster.name;
         rm.size = monster.size;
         rm.type = monster.type;
@@ -410,7 +427,11 @@ public class ReferenceMonster {
         monster.subtype = subtype;
         monster.alignment = alignment;
         monster.gameSystem = gameSystem;
+        monster.customGameSystem = customGameSystem;
+        monster.origin = origin != null ? origin : MonsterOrigin.fromString(sourceId);
+        monster.customOrigin = !StringHelper.isNullOrEmpty(customOrigin) ? customOrigin : sourceId;
         monster.sourceLabel = sourceLabel;
+        monster.bookSource = bookSource;
         monster.strengthScore = strengthScore;
         monster.dexterityScore = dexterityScore;
         monster.constitutionScore = constitutionScore;
@@ -475,9 +496,10 @@ public class ReferenceMonster {
     }
 
     public String getSourceTag() {
-        String systemName = (gameSystem != null) ? gameSystem.getShortName() : "5e";
-        if (!StringHelper.isNullOrEmpty(sourceLabel)) {
-            return systemName + " | " + sourceLabel;
+        String systemName = GameSystem.getSystemShortName(gameSystem, customGameSystem);
+        String label = !StringHelper.isNullOrEmpty(sourceLabel) ? sourceLabel : bookSource;
+        if (!StringHelper.isNullOrEmpty(label)) {
+            return systemName + " | " + label;
         }
         return systemName;
     }

@@ -241,13 +241,23 @@ public class CompendiumSourceManager {
     private static int ingestOpen5eApi(Context context, AppDatabase db, ImportSource source,
                                       BooleanSupplier isCancelled, ProgressListener progressListener) throws Exception {
         if (progressListener != null) progressListener.onProgress(0, 0, "Querying Open5e API…");
+        
+        // Start fresh for this source
+        db.referenceMonsterDAO().deleteBySourceIdSync(source.id);
+
         int totalIngested = 0;
+        int totalCount = 0;
         String nextUrl = null;
-        List<ReferenceMonster> allMonsters = new ArrayList<>();
 
         do {
             if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium download was cancelled");
+            
             Open5eApiWrapper.Open5ePageResult page = Open5eApiWrapper.fetchPage(nextUrl, isCancelled);
+            if (page.totalCount > 0) {
+                totalCount = page.totalCount;
+            }
+            
+            List<ReferenceMonster> pageMonsters = new ArrayList<>();
             for (Monster monster : page.monsters) {
                 if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium download was cancelled");
                 ReferenceMonster rm = ReferenceMonster.fromMonster(monster, source.id, source.bookSource);
@@ -255,24 +265,30 @@ public class CompendiumSourceManager {
                 if (!source.sourceLabel.isEmpty()) {
                     rm.sourceLabel = source.sourceLabel;
                 }
-                allMonsters.add(rm);
-                totalIngested++;
-
-                if (progressListener != null && totalIngested % 25 == 0) {
-                    progressListener.onProgress(totalIngested, 0, "Fetched " + totalIngested + " monsters…");
-                }
+                pageMonsters.add(rm);
             }
+
+            if (!pageMonsters.isEmpty()) {
+                db.referenceMonsterDAO().insertAllSync(pageMonsters);
+                totalIngested += pageMonsters.size();
+                markSourceDownloaded(context, source.id, totalIngested);
+            }
+
+            if (progressListener != null) {
+                String status = totalCount > 0 
+                        ? "Fetched " + totalIngested + " of " + totalCount + " monsters…" 
+                        : "Fetched " + totalIngested + " monsters…";
+                progressListener.onProgress(totalIngested, totalCount, status);
+            }
+
             nextUrl = page.nextUrl;
         } while (nextUrl != null && !nextUrl.isEmpty());
 
         if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium download was cancelled");
 
-        if (progressListener != null) progressListener.onProgress(totalIngested, totalIngested, "Atomically replacing reference records…");
-        // Atomic transaction replacement
-        db.referenceMonsterDAO().replaceSourceMonstersSync(source.id, allMonsters);
-
-        markSourceDownloaded(context, source.id, totalIngested);
-        return totalIngested;
+        int finalCount = db.referenceMonsterDAO().countBySourceId(source.id);
+        markSourceDownloaded(context, source.id, finalCount);
+        return finalCount;
     }
 
     private static int ingestGitArchive(Context context, AppDatabase db, ImportSource source,

@@ -10,6 +10,8 @@ import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
+import com.majinnaibu.monstercards.data.enums.GameSystem;
+import com.majinnaibu.monstercards.data.enums.MonsterOrigin;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
@@ -19,6 +21,7 @@ import com.majinnaibu.monstercards.models.Trait;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -114,6 +117,8 @@ public class Open5eImporter implements EntityImporter<Monster> {
         parseDamageAndConditions(props, monster);
 
         parseTraitsAndActions(props, monster);
+
+        parseDocumentSource(props, monster);
 
         if (props.has("source_url")) {
             monster.sourceUrl = getString(props, "source_url");
@@ -355,7 +360,7 @@ public class Open5eImporter implements EntityImporter<Monster> {
         }
     }
 
-    private void parseStringSet(JsonObject props, String key, java.util.Set<String> set) {
+    private void parseStringSet(JsonObject props, String key, Set<String> set) {
         if (!props.has(key)) return;
         JsonElement el = props.get(key);
         if (el.isJsonArray()) {
@@ -409,6 +414,31 @@ public class Open5eImporter implements EntityImporter<Monster> {
                     list.add(new Trait(name, desc));
                 }
             }
+        }
+    }
+
+    private void parseDocumentSource(JsonObject props, Monster monster) {
+        monster.gameSystem = GameSystem.DND_5E;
+        monster.origin = MonsterOrigin.OPEN5E;
+        monster.customOrigin = "open5e.com";
+
+        if (props.has("document__title") && !props.get("document__title").isJsonNull()) {
+            monster.bookSource = props.get("document__title").getAsString();
+        } else if (props.has("document_title") && !props.get("document_title").isJsonNull()) {
+            monster.bookSource = props.get("document_title").getAsString();
+        } else if (props.has("document") && props.get("document").isJsonObject()) {
+            JsonObject docObj = props.getAsJsonObject("document");
+            if (docObj.has("display_name") && !docObj.get("display_name").isJsonNull()) {
+                monster.bookSource = docObj.get("display_name").getAsString();
+            } else if (docObj.has("name") && !docObj.get("name").isJsonNull()) {
+                monster.bookSource = docObj.get("name").getAsString();
+            } else if (docObj.has("title") && !docObj.get("title").isJsonNull()) {
+                monster.bookSource = docObj.get("title").getAsString();
+            }
+        } else if (props.has("book_source") && !props.get("book_source").isJsonNull()) {
+            monster.bookSource = props.get("book_source").getAsString();
+        } else if (props.has("book") && !props.get("book").isJsonNull()) {
+            monster.bookSource = props.get("book").getAsString();
         }
     }
 

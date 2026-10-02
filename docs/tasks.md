@@ -150,6 +150,9 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-029 | *After downloading all compendiums there are no search results in the search compendiums tab.*                 | iOS     | Triage | [Feature](#mcr-029) |
 | MCR-030 | Text on compendium sources screen is very tiny.                                                                | Android | Fixed  | [Feature](#mcr-030) |
 | MCR-031 | The download buttons on the compendium page are magenta bubbles.                                               | Android | Fixed  | [Feature](#mcr-031) |
+| MCR-032 | *The 3rd party content notice frame is also tiny text.*                                                        | Android | Triage | [Feature](#mcr-032) |
+| MCR-033 | *Stop calling the repositories community.*                                                                     | Android | Triage | [Feature](#mcr-033) |
+| MCR-034 | *Stop calling the repositories community.*                                                                     | iOS     | Triage | [Feature](#mcr-034) |
 
 ---
 
@@ -695,6 +698,39 @@ Make it the same size as text in the rest of the app. Are we not using the same 
 **Description:**
 Are we missing themes/styles. Check elsewhere in the layouts. I remember seeing another magenta button somewhere earlier.
 - [x]
+
+<a id="mcr-032" class="task" data-project="android" data-status="triage" data-task-type="feature"></a>
+### The 3rd party content notice frame is also tiny text.
+**ID:** MCR-032
+**Project:** Android
+**Status:** Triage
+**Type:** Feature
+
+**Description:**
+Plese look for other occurences of this issue in the layouts when fixing it.
+- [ ]
+
+<a id="mcr-033" class="task" data-project="android" data-status="triage" data-task-type="feature"></a>
+### Stop calling the repositories community.
+**ID:** MCR-033
+**Project:** Android
+**Status:** Triage
+**Type:** Feature
+
+**Description:**
+They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
+- [ ]
+
+<a id="mcr-034" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+### Stop calling the repositories community.
+**ID:** MCR-034
+**Project:** iOS
+**Status:** Triage
+**Type:** Feature
+
+**Description:**
+They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
+- [ ]
 
 ---
 

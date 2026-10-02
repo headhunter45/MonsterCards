@@ -10,6 +10,7 @@ import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
 import com.majinnaibu.monstercards.data.enums.GameSystem;
+import com.majinnaibu.monstercards.data.enums.MonsterOrigin;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.models.Language;
 import com.majinnaibu.monstercards.models.Monster;
@@ -103,13 +104,24 @@ public class Pf2eImporter implements EntityImporter<Monster> {
             }
         }
         
-        // Level (Mapped to CR)
+        // Level (Mapped to CR) & Book Source
         if (system.has("details") && system.get("details").isJsonObject()) {
             JsonObject details = system.getAsJsonObject("details");
             if (details.has("level") && details.get("level").isJsonObject()) {
                 int level = getInt(details.getAsJsonObject("level"), "value");
                 monster.challengeRating = mapLevelToCr(level);
             }
+            
+            if (details.has("publication") && details.get("publication").isJsonObject()) {
+                JsonObject pubObj = details.getAsJsonObject("publication");
+                monster.bookSource = getString(pubObj, "title");
+            }
+            if (monster.bookSource.isEmpty() && details.has("source") && details.get("source").isJsonObject()) {
+                JsonObject srcObj = details.getAsJsonObject("source");
+                monster.bookSource = getString(srcObj, "value");
+            }
+            monster.origin = MonsterOrigin.FOUNDRY_PF2E;
+            monster.customOrigin = "foundryvtt/pf2e";
             
             if (details.has("languages") && details.get("languages").isJsonObject()) {
                 JsonObject langObj = details.getAsJsonObject("languages");
