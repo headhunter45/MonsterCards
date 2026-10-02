@@ -129,7 +129,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed   | [Feature](#fgj-008) |
 | FGJ-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed   | [Feature](#fgj-009) |
 | FGJ-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed   | [Feature](#fgj-010) |
-| FGJ-011 | **Implement QuickLook Preview Extension, custom document types (.monster), and system sharing**    | iOS     | Pending | [Feature](#fgj-011) |
+| FGJ-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing        | iOS     | Fixed   | [Feature](#fgj-011) |
 | FGJ-012 | **Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows**      | iOS     | Pending | [Feature](#fgj-012) |
 
 ---
@@ -328,24 +328,23 @@ Revamp the monster creation and editing suite (`EditMonster.swift` and subviews)
 - [x] Spellcasting Block: Caster level, spellcasting ability, save DC, spell attack bonus, spell slots by level, cantrips and prepared spells
 - [x] Live preview mode to switch seamlessly between editor forms and rendered statblock card
 
-<a id="fgj-011" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-011" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement QuickLook Preview Extension, custom document types (.monster), and system sharing
 **ID:** FGJ-011
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Configure iOS document handling for `.monster` and `.json` files, implement AirDrop sharing, system Share Sheet integration, and finish the `MonsterPreview` App Extension for system QuickLook previews in Files.app.
 
 **Requirements:**
 
-- [ ] Register Uniform Type Identifiers (UTIs) for `com.majinnaibu.monstercards.monster` and JSON documents in `Info.plist`
-- [ ] Implement custom file import handling via `.onOpenURL` / document opening delegates
-- [ ] Implement `MonsterPreview` QuickLook preview extension rendering stat blocks directly in Files.app and AirDrop previews
-- [ ] Add Share Sheet integration to export and send monster cards via Messages, Mail, AirDrop, and cloud storage
-- [ ] Support Drag and Drop of monster files on iPadOS
+- [x] Register Uniform Type Identifiers (UTIs) for `com.majinnaibu.monstercards.monster` and JSON documents in `Info.plist`
+- [x] Implement custom file import handling via `.onOpenURL` / document opening delegates
+- [x] Implement `MonsterPreview` QuickLook preview extension rendering stat blocks directly in Files.app and AirDrop previews
+- [x] Add Share Sheet integration to export and send monster cards via Messages, Mail, AirDrop, and cloud storage
+- [x] Support Drag and Drop of monster files on iPadOS
 
 <a id="fgj-012" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows

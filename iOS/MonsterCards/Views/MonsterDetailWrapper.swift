@@ -19,17 +19,25 @@ struct MonsterDetailWrapper: View {
             .onAppear(perform: {
                 viewModel.copyFromMonster(monster: monster)
             })
-            .toolbar(content: {
-                ToolbarItem(placement: .primaryAction) {
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    ShareLink(
+                        item: exportedMonsterString,
+                        subject: Text(monster.name ?? "Monster Card"),
+                        message: Text("Monster Card for \(monster.name ?? "a creature")")
+                    ) {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+
                     NavigationLink("Edit", destination: EditMonster(monster: monster))
                 }
-            })
+            }
             .navigationTitle(monster.name ?? "")
             .navigationBarTitleDisplayMode(.inline)
     }
-    
-    private func editMonster() {
-        print("Edit Monster pressed")
+
+    private var exportedMonsterString: String {
+        (try? MonsterCardExporter.exportCardJSON(viewModel)) ?? MonsterCardExporter.exportMarkdown(viewModel)
     }
 }
 
