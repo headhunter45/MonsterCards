@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Collection;
+import java.util.Locale;
 
 @SuppressWarnings({"RedundantIfStatement"})
 public final class StringHelper {
@@ -72,8 +73,10 @@ public final class StringHelper {
         }
     }
 
-    public static boolean containsCaseInsensitive(@NonNull String text, @NonNull String search) {
-        // TODO: find a locale independent way to do this
-        return text.toLowerCase().contains(search.toLowerCase());
+    public static boolean containsCaseInsensitive(@Nullable String text, @Nullable String search) {
+        if (text == null || search == null) {
+            return false;
+        }
+        return text.toLowerCase(Locale.ROOT).contains(search.toLowerCase(Locale.ROOT));
     }
 }

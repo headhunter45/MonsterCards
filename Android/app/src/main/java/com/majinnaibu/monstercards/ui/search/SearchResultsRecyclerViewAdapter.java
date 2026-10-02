@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
-import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.data.enums.GameSystem;
+import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.Collection;
 import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.ReferenceMonster;
 import com.majinnaibu.monstercards.models.SearchResultItem;
+import com.majinnaibu.monstercards.ui.components.SourceTagView;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.ArrayList;
@@ -27,6 +28,21 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<SearchResultsRecyclerViewAdapter.ViewHolder> {
 
+    public enum ScopeMode {
+        MY_LIBRARY,
+        COMPENDIUMS,
+        ALL,
+        COLLECTIONS
+    }
+
+    public enum SystemFilter {
+        ALL,
+        DND_5E,
+        PF_2E,
+        SF_2E
+    }
+
+    // Retain legacy enum for backwards compatibility with tests
     public enum FilterMode {
         ALL,
         MY_LIBRARY,
@@ -42,7 +58,8 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     private String mSearchText;
     private List<SearchResultItem> mAllValues;
     private List<SearchResultItem> mFilteredValues;
-    private FilterMode mFilterMode = FilterMode.ALL;
+    private ScopeMode mScopeMode = ScopeMode.MY_LIBRARY;
+    private SystemFilter mSystemFilter = SystemFilter.ALL;
     private Disposable mSubscriptionHandler;
 
     public SearchResultsRecyclerViewAdapter(MonsterRepository repository,
@@ -57,8 +74,48 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
         doSearch(mSearchText);
     }
 
+    public void setFilterScope(@NonNull ScopeMode scopeMode) {
+        mScopeMode = scopeMode;
+        applyFilter();
+    }
+
+    public void setSystemFilter(@NonNull SystemFilter systemFilter) {
+        mSystemFilter = systemFilter;
+        applyFilter();
+    }
+
     public void setFilterMode(@NonNull FilterMode filterMode) {
-        mFilterMode = filterMode;
+        switch (filterMode) {
+            case MY_LIBRARY:
+                mScopeMode = ScopeMode.MY_LIBRARY;
+                mSystemFilter = SystemFilter.ALL;
+                break;
+            case COMPENDIUMS:
+                mScopeMode = ScopeMode.COMPENDIUMS;
+                mSystemFilter = SystemFilter.ALL;
+                break;
+            case COLLECTIONS:
+                mScopeMode = ScopeMode.COLLECTIONS;
+                mSystemFilter = SystemFilter.ALL;
+                break;
+            case DND_5E:
+                mScopeMode = ScopeMode.ALL;
+                mSystemFilter = SystemFilter.DND_5E;
+                break;
+            case PF_2E:
+                mScopeMode = ScopeMode.ALL;
+                mSystemFilter = SystemFilter.PF_2E;
+                break;
+            case SF_2E:
+                mScopeMode = ScopeMode.ALL;
+                mSystemFilter = SystemFilter.SF_2E;
+                break;
+            case ALL:
+            default:
+                mScopeMode = ScopeMode.ALL;
+                mSystemFilter = SystemFilter.ALL;
+                break;
+        }
         applyFilter();
     }
 
@@ -73,39 +130,46 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     }
 
     private boolean matchesFilter(SearchResultItem item) {
-        switch (mFilterMode) {
-            case ALL:
-                return true;
+        if (item == null) return false;
+
+        // 1. Check Scope
+        boolean matchesScope = false;
+        switch (mScopeMode) {
             case MY_LIBRARY:
-                return item.type == SearchResultItem.Type.MONSTER;
+                matchesScope = (item.type == SearchResultItem.Type.MONSTER);
+                break;
             case COMPENDIUMS:
-                return item.type == SearchResultItem.Type.REFERENCE_MONSTER;
+                matchesScope = (item.type == SearchResultItem.Type.REFERENCE_MONSTER);
+                break;
             case COLLECTIONS:
-                return item.type == SearchResultItem.Type.COLLECTION;
-            case DND_5E:
-                if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
-                    return item.monster.gameSystem == GameSystem.DND_5E;
-                } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
-                    return item.referenceMonster.gameSystem == GameSystem.DND_5E;
-                }
-                return false;
-            case PF_2E:
-                if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
-                    return item.monster.gameSystem == GameSystem.PF_2E;
-                } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
-                    return item.referenceMonster.gameSystem == GameSystem.PF_2E;
-                }
-                return false;
-            case SF_2E:
-                if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
-                    return item.monster.gameSystem == GameSystem.SF_2E;
-                } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
-                    return item.referenceMonster.gameSystem == GameSystem.SF_2E;
-                }
-                return false;
+                matchesScope = (item.type == SearchResultItem.Type.COLLECTION);
+                break;
+            case ALL:
             default:
-                return true;
+                matchesScope = true;
+                break;
         }
+
+        if (!matchesScope) {
+            return false;
+        }
+
+        // 2. Check System Filter
+        if (mSystemFilter == SystemFilter.ALL) {
+            return true;
+        }
+
+        if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
+            if (mSystemFilter == SystemFilter.DND_5E) return item.monster.gameSystem == GameSystem.DND_5E;
+            if (mSystemFilter == SystemFilter.PF_2E) return item.monster.gameSystem == GameSystem.PF_2E;
+            if (mSystemFilter == SystemFilter.SF_2E) return item.monster.gameSystem == GameSystem.SF_2E;
+        } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
+            if (mSystemFilter == SystemFilter.DND_5E) return item.referenceMonster.gameSystem == GameSystem.DND_5E;
+            if (mSystemFilter == SystemFilter.PF_2E) return item.referenceMonster.gameSystem == GameSystem.PF_2E;
+            if (mSystemFilter == SystemFilter.SF_2E) return item.referenceMonster.gameSystem == GameSystem.SF_2E;
+        }
+
+        return false;
     }
 
     public void doSearch(String searchText) {
@@ -134,7 +198,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
         SearchResultItem item = mFilteredValues.get(position);
         if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
             Monster monster = item.monster;
-            holder.mTitleView.setText(monster.name);
+            holder.mTitleView.setText(monster.name != null ? monster.name : "Unnamed Monster");
             holder.mSourceTagView.setMonster(monster);
             holder.mSourceTagView.setVisibility(View.VISIBLE);
 
@@ -158,8 +222,8 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
             holder.mIconView.setVisibility(View.GONE);
         } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
             ReferenceMonster rm = item.referenceMonster;
-            holder.mTitleView.setText(rm.name);
-            holder.mSourceTagView.setSource(rm.gameSystem, rm.sourceLabel);
+            holder.mTitleView.setText(rm.name != null ? rm.name : "Unnamed Reference Monster");
+            holder.mSourceTagView.setReferenceMonster(rm);
             holder.mSourceTagView.setVisibility(View.VISIBLE);
 
             StringBuilder sb = new StringBuilder();
@@ -182,7 +246,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
             holder.mIconView.setVisibility(View.GONE);
         } else if (item.type == SearchResultItem.Type.COLLECTION && item.collection != null) {
             Collection collection = item.collection;
-            holder.mTitleView.setText(collection.name);
+            holder.mTitleView.setText(collection.name != null ? collection.name : "Unnamed Collection");
             holder.mSourceTagView.setVisibility(View.GONE);
 
             if (!StringHelper.isNullOrEmpty(collection.description)) {
@@ -213,7 +277,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView mTitleView;
-        final com.majinnaibu.monstercards.ui.components.SourceTagView mSourceTagView;
+        final SourceTagView mSourceTagView;
         final TextView mSubtitleView;
         final ImageView mIconView;
 

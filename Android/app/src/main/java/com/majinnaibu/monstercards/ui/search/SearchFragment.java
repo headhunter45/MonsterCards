@@ -14,7 +14,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.chip.ChipGroup;
+import com.google.gson.Gson;
+import com.majinnaibu.monstercards.MobileNavigationDirections;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
 import com.majinnaibu.monstercards.models.Monster;
@@ -46,8 +49,8 @@ public class SearchFragment extends MCFragment {
                     Navigation.findNavController(requireView()).navigate(action);
                 } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
                     Monster monster = item.referenceMonster.toMonster();
-                    String serializedJson = new com.google.gson.Gson().toJson(monster);
-                    NavDirections navAction = com.majinnaibu.monstercards.MobileNavigationDirections.actionGlobalMonsterImportFragment(serializedJson);
+                    String serializedJson = new Gson().toJson(monster);
+                    NavDirections navAction = MobileNavigationDirections.actionGlobalMonsterImportFragment(serializedJson);
                     Navigation.findNavController(requireView()).navigate(navAction);
                 }
             }
@@ -57,25 +60,35 @@ public class SearchFragment extends MCFragment {
         assert recyclerView != null;
         setupRecyclerView(recyclerView, adapter);
 
-        ChipGroup chipGroup = root.findViewById(R.id.chip_group_filters);
-        if (chipGroup != null) {
-            chipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
+        MaterialButtonToggleGroup scopeToggleGroup = root.findViewById(R.id.toggle_group_scope);
+        if (scopeToggleGroup != null) {
+            scopeToggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+                if (!isChecked) return;
+                if (checkedId == R.id.button_scope_library) {
+                    adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.MY_LIBRARY);
+                } else if (checkedId == R.id.button_scope_compendiums) {
+                    adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.COMPENDIUMS);
+                } else if (checkedId == R.id.button_scope_all) {
+                    adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.ALL);
+                } else if (checkedId == R.id.button_scope_collections) {
+                    adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.COLLECTIONS);
+                }
+            });
+        }
+
+        ChipGroup systemChipGroup = root.findViewById(R.id.chip_group_filters);
+        if (systemChipGroup != null) {
+            systemChipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
                 if (checkedIds.isEmpty()) return;
                 int checkedId = checkedIds.get(0);
-                if (checkedId == R.id.chip_all) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.ALL);
-                } else if (checkedId == R.id.chip_my_library) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.MY_LIBRARY);
-                } else if (checkedId == R.id.chip_compendiums) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.COMPENDIUMS);
+                if (checkedId == R.id.chip_system_all) {
+                    adapter.setSystemFilter(SearchResultsRecyclerViewAdapter.SystemFilter.ALL);
                 } else if (checkedId == R.id.chip_dnd5e) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.DND_5E);
+                    adapter.setSystemFilter(SearchResultsRecyclerViewAdapter.SystemFilter.DND_5E);
                 } else if (checkedId == R.id.chip_pf2e) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.PF_2E);
+                    adapter.setSystemFilter(SearchResultsRecyclerViewAdapter.SystemFilter.PF_2E);
                 } else if (checkedId == R.id.chip_sf2e) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.SF_2E);
-                } else if (checkedId == R.id.chip_collections) {
-                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.COLLECTIONS);
+                    adapter.setSystemFilter(SearchResultsRecyclerViewAdapter.SystemFilter.SF_2E);
                 }
             });
         }

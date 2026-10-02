@@ -10,11 +10,18 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.majinnaibu.monstercards.data.MonsterRepository;
 
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.exceptions.UndeliverableException;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import com.majinnaibu.monstercards.models.ReferenceMonster;
 import com.majinnaibu.monstercards.utils.Logger;
 
 import java.io.InterruptedIOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class MonsterCardsApplication extends Application {
 
@@ -252,6 +259,26 @@ public class MonsterCardsApplication extends Application {
 //                .fallbackToDestructiveMigration()
                 .build();
         m_monsterLibraryRepository = new MonsterRepository(m_db);
+
+        // Diagnostic check for Reference Monsters on startup
+        Single.fromCallable(() -> {
+            int totalRefCount = m_db.referenceMonsterDAO().countAll();
+            int bugbearCount = 0;
+            int brassCount = 0;
+            List<ReferenceMonster> allRef = m_db.referenceMonsterDAO().getAll().first(new ArrayList<>()).blockingGet();
+            for (ReferenceMonster rm : allRef) {
+                if (rm != null && rm.name != null) {
+                    String lowerName = rm.name.toLowerCase(Locale.ROOT);
+                    if (lowerName.contains("bugbear")) bugbearCount++;
+                    if (lowerName.contains("brass")) brassCount++;
+                }
+            }
+            Logger.logInfo("STARTUP DIAGNOSTIC: Total Reference Monsters = " + totalRefCount 
+                    + ", Bugbear Matches = " + bugbearCount 
+                    + ", Brass Matches = " + brassCount);
+            return totalRefCount;
+        }).subscribeOn(Schedulers.io())
+          .subscribe(count -> {}, throwable -> Logger.logError("Startup diagnostic check failed", throwable));
     }
 
     // Called by the system when the device configuration changes while your component is running.

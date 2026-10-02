@@ -1,8 +1,10 @@
 package com.majinnaibu.monstercards.data;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.majinnaibu.monstercards.AppDatabase;
+import com.majinnaibu.monstercards.exporters.BinderExporter;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.models.BinderExport;
 import com.majinnaibu.monstercards.models.Collection;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -286,7 +289,7 @@ public class MonsterRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Flowable<List<com.majinnaibu.monstercards.models.DashboardMonsterWithMonster>> getDashboardMonstersWithMonster() {
+    public Flowable<List<DashboardMonsterWithMonster>> getDashboardMonstersWithMonster() {
         return m_db.dashboardDAO()
                 .getDashboardMonstersWithMonster()
                 .subscribeOn(Schedulers.io())
@@ -378,7 +381,7 @@ public class MonsterRepository {
                                 colMonsters
                         ));
                     }
-                    return new com.majinnaibu.monstercards.exporters.BinderExporter().exportFullBackup(colExports, null);
+                    return new BinderExporter().exportFullBackup(colExports, null);
                 })
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
@@ -422,7 +425,7 @@ public class MonsterRepository {
                         ));
                     }
 
-                    return new com.majinnaibu.monstercards.exporters.BinderExporter().exportFullBackup(colExports, dashboardMonsters);
+                    return new BinderExporter().exportFullBackup(colExports, dashboardMonsters);
                 }
         ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
@@ -594,7 +597,12 @@ public class MonsterRepository {
     }
 
     private static class Helpers {
+        private static boolean safeContains(@Nullable String text, @NonNull String search) {
+            return text != null && text.toLowerCase(Locale.ROOT).contains(search.toLowerCase(Locale.ROOT));
+        }
+
         static boolean monsterMatchesSearch(Monster monster, String searchText) {
+            if (monster == null) return false;
             if (StringHelper.isNullOrEmpty(searchText)) {
                 return true;
             }
@@ -606,14 +614,14 @@ public class MonsterRepository {
             String[] terms = cleanQuery.split("\\s+");
             for (String term : terms) {
                 if (term.isEmpty()) continue;
-                boolean termMatched = StringHelper.containsCaseInsensitive(monster.name, term)
-                        || StringHelper.containsCaseInsensitive(monster.size, term)
-                        || StringHelper.containsCaseInsensitive(monster.type, term)
-                        || StringHelper.containsCaseInsensitive(monster.subtype, term)
-                        || StringHelper.containsCaseInsensitive(monster.alignment, term)
-                        || StringHelper.containsCaseInsensitive(monster.sourceLabel, term)
-                        || StringHelper.containsCaseInsensitive(monster.bookSource, term)
-                        || StringHelper.containsCaseInsensitive(monster.getChallengeRatingDescription(), term);
+                boolean termMatched = safeContains(monster.name, term)
+                        || safeContains(monster.size, term)
+                        || safeContains(monster.type, term)
+                        || safeContains(monster.subtype, term)
+                        || safeContains(monster.alignment, term)
+                        || safeContains(monster.sourceLabel, term)
+                        || safeContains(monster.bookSource, term)
+                        || safeContains(monster.getChallengeRatingDescription(), term);
                 if (!termMatched) {
                     return false;
                 }
@@ -622,6 +630,7 @@ public class MonsterRepository {
         }
 
         static boolean referenceMonsterMatchesSearch(ReferenceMonster rm, String searchText) {
+            if (rm == null) return false;
             if (StringHelper.isNullOrEmpty(searchText)) {
                 return true;
             }
@@ -633,14 +642,14 @@ public class MonsterRepository {
             String[] terms = cleanQuery.split("\\s+");
             for (String term : terms) {
                 if (term.isEmpty()) continue;
-                boolean termMatched = StringHelper.containsCaseInsensitive(rm.name, term)
-                        || StringHelper.containsCaseInsensitive(rm.size, term)
-                        || StringHelper.containsCaseInsensitive(rm.type, term)
-                        || StringHelper.containsCaseInsensitive(rm.subtype, term)
-                        || StringHelper.containsCaseInsensitive(rm.alignment, term)
-                        || StringHelper.containsCaseInsensitive(rm.sourceLabel, term)
-                        || StringHelper.containsCaseInsensitive(rm.bookSource, term)
-                        || StringHelper.containsCaseInsensitive(rm.getChallengeRatingDescription(), term);
+                boolean termMatched = safeContains(rm.name, term)
+                        || safeContains(rm.size, term)
+                        || safeContains(rm.type, term)
+                        || safeContains(rm.subtype, term)
+                        || safeContains(rm.alignment, term)
+                        || safeContains(rm.sourceLabel, term)
+                        || safeContains(rm.bookSource, term)
+                        || safeContains(rm.getChallengeRatingDescription(), term);
                 if (!termMatched) {
                     return false;
                 }
