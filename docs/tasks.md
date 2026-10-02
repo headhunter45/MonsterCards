@@ -878,12 +878,10 @@ Implement rich Pathfinder 2e and Starfinder 2e stat block importing for referenc
 1. **Strikes & Attacks**: Format `type: "melee"` strikes into standard Action entries:
    - Include weapon/strike name, attack modifier (+`bonus`), damage rolls (dice + damage types), reach, and weapon traits.
    - Example: *"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."*
-2. **Action Costs in Titles**: For `type: "action"`, append action costs to titles dynamically:
-   - 1 Action: `"Name (1 Action)"`
-   - 2 Actions: `"Name (2 Actions)"`
-   - 3 Actions: `"Name (3 Actions)"`
-   - Reaction: `"Name (Reaction)"` (categorized into reactions)
-   - Free / Passive: `"Name (Free Action)"` or `"Name"` (categorized into abilities/traits)
+2. **Action Costs in Titles & Proper Section Routing**: For `type: "action"`, categorize by type and append action costs to titles:
+   - **Active Actions** (1, 2, or 3 Actions) -> mapped to `actions` (Actions section): e.g. `"Breath Weapon (2 Actions)"`
+   - **Reactions** (`actionType == "reaction"`) -> mapped directly to `reactions` (Reactions section): e.g. `"Shield Block (Reaction)"`
+   - **Passive Abilities & Free Actions** (`actionType == "passive"` or `"free"`) -> mapped directly to `abilities` (Special Abilities / Traits section): e.g. `"Camouflage"`, `"Quick Draw (Free Action)"`
 3. **Dynamic Foundry Syntax Cleanup**: Clean in-text Foundry macro markup into readable text:
    - `@Damage[...]` -> formatted damage string
    - `@Check[reflex|dc:X|basic]` -> *"DC X basic Reflex save"*
@@ -910,12 +908,10 @@ Implement rich Pathfinder 2e and Starfinder 2e stat block importing for referenc
 1. **Strikes & Attacks**: Format `type: "melee"` strikes into standard Action entries:
    - Include weapon/strike name, attack modifier (+`bonus`), damage rolls (dice + damage types), reach, and weapon traits.
    - Example: *"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."*
-2. **Action Costs in Titles**: For `type: "action"`, append action costs to titles dynamically:
-   - 1 Action: `"Name (1 Action)"`
-   - 2 Actions: `"Name (2 Actions)"`
-   - 3 Actions: `"Name (3 Actions)"`
-   - Reaction: `"Name (Reaction)"` (categorized into reactions)
-   - Free / Passive: `"Name (Free Action)"` or `"Name"` (categorized into abilities/traits)
+2. **Action Costs in Titles & Proper Section Routing**: For `type: "action"`, categorize by type and append action costs to titles:
+   - **Active Actions** (1, 2, or 3 Actions) -> mapped to `actions` (Actions section): e.g. `"Breath Weapon (2 Actions)"`
+   - **Reactions** (`actionType == "reaction"`) -> mapped directly to `reactions` (Reactions section): e.g. `"Shield Block (Reaction)"`
+   - **Passive Abilities & Free Actions** (`actionType == "passive"` or `"free"`) -> mapped directly to `abilities` (Special Abilities / Traits section): e.g. `"Camouflage"`, `"Quick Draw (Free Action)"`
 3. **Dynamic Foundry Syntax Cleanup**: Clean in-text Foundry macro markup into readable text:
    - `@Damage[...]` -> formatted damage string
    - `@Check[reflex|dc:X|basic]` -> *"DC X basic Reflex save"*
