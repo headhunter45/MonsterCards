@@ -68,10 +68,10 @@ public class SearchFragment extends MCFragment {
                     adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.MY_LIBRARY);
                 } else if (checkedId == R.id.button_scope_compendiums) {
                     adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.COMPENDIUMS);
-                } else if (checkedId == R.id.button_scope_all) {
-                    adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.ALL);
                 } else if (checkedId == R.id.button_scope_collections) {
                     adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.COLLECTIONS);
+                } else if (checkedId == R.id.button_scope_all) {
+                    adapter.setFilterScope(SearchResultsRecyclerViewAdapter.ScopeMode.ALL);
                 }
             });
         }

@@ -24,8 +24,8 @@ public interface ReferenceMonsterDAO {
     @Query("SELECT * FROM reference_monsters WHERE id = :id LIMIT 1")
     Flowable<ReferenceMonster> getById(String id);
 
-    @Query("SELECT reference_monsters.* FROM reference_monsters JOIN reference_monsters_fts ON reference_monsters.oid = reference_monsters_fts.docid WHERE reference_monsters_fts MATCH :searchText")
-    Flowable<List<ReferenceMonster>> search(String searchText);
+    @Query("SELECT * FROM reference_monsters WHERE (:searchText = '' OR name LIKE '%' || :searchText || '%' OR type LIKE '%' || :searchText || '%' OR subtype LIKE '%' || :searchText || '%' OR source_label LIKE '%' || :searchText || '%' OR book_source LIKE '%' || :searchText || '%') ORDER BY name ASC LIMIT 200")
+    Flowable<List<ReferenceMonster>> searchMonsters(String searchText);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     Completable insertAll(List<ReferenceMonster> monsters);

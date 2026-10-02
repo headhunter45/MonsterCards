@@ -1,6 +1,5 @@
 package com.majinnaibu.monstercards.data;
 
-
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -25,8 +24,8 @@ public interface MonsterDAO {
     @Query("SELECT * FROM monsters WHERE name LIKE :name LIMIT 1")
     Flowable<Monster> findByName(String name);
 
-    @Query("SELECT monsters.* FROM monsters JOIN monsters_fts ON monsters.oid = monsters_fts.docid WHERE monsters_fts MATCH :searchText")
-    Flowable<List<Monster>> search(String searchText);
+    @Query("SELECT * FROM monsters WHERE (:searchText = '' OR name LIKE '%' || :searchText || '%' OR type LIKE '%' || :searchText || '%' OR subtype LIKE '%' || :searchText || '%' OR source_label LIKE '%' || :searchText || '%' OR book_source LIKE '%' || :searchText || '%') ORDER BY name ASC LIMIT 200")
+    Flowable<List<Monster>> searchMonsters(String searchText);
 
     @Insert
     Completable insertAll(Monster... monsters);

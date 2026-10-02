@@ -23,6 +23,9 @@ public interface CollectionDAO {
     @Query("SELECT * FROM collections")
     Flowable<List<Collection>> getAll();
 
+    @Query("SELECT * FROM collections WHERE (:searchText = '' OR name LIKE '%' || :searchText || '%' OR description LIKE '%' || :searchText || '%') ORDER BY name ASC LIMIT 100")
+    Flowable<List<Collection>> searchCollections(String searchText);
+
     @Query("SELECT collections.*, COUNT(collection_monsters.id) as monsterCount FROM collections LEFT JOIN collection_monsters ON collections.id = collection_monsters.collection_id GROUP BY collections.id")
     Flowable<List<CollectionWithCount>> getCollectionsWithCount();
 

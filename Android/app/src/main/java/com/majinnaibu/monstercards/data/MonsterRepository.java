@@ -63,11 +63,9 @@ public class MonsterRepository {
     }
 
     public Flowable<List<ReferenceMonster>> searchReferenceMonsters(String searchText) {
-        if (StringHelper.isNullOrEmpty(searchText)) {
-            return getReferenceMonsters();
-        }
+        String cleanQuery = searchText != null ? searchText.trim() : "";
         return m_db.referenceMonsterDAO()
-                .search("*" + searchText.trim() + "*")
+                .searchMonsters(cleanQuery)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
@@ -122,52 +120,39 @@ public class MonsterRepository {
     }
 
     public Flowable<List<SearchResultItem>> searchAll(String searchText) {
+        String cleanQuery = searchText != null ? searchText.trim() : "";
+
         Flowable<List<Monster>> monstersFlowable = m_db.monsterDAO()
-                .getAll()
-                .map(monsters -> {
-                    ArrayList<Monster> filteredMonsters = new ArrayList<>();
-                    for (Monster monster : monsters) {
-                        if (Helpers.monsterMatchesSearch(monster, searchText)) {
-                            filteredMonsters.add(monster);
-                        }
-                    }
-                    return (List<Monster>) filteredMonsters;
-                });
+                .searchMonsters(cleanQuery);
 
         Flowable<List<Collection>> collectionsFlowable = m_db.collectionDAO()
-                .getAll()
-                .map(collections -> {
-                    ArrayList<Collection> filteredCollections = new ArrayList<>();
-                    for (Collection collection : collections) {
-                        if (StringHelper.isNullOrEmpty(searchText) || StringHelper.containsCaseInsensitive(collection.name, searchText)) {
-                            filteredCollections.add(collection);
-                        }
-                    }
-                    return (List<Collection>) filteredCollections;
-                });
+                .searchCollections(cleanQuery);
 
         Flowable<List<ReferenceMonster>> refMonstersFlowable = m_db.referenceMonsterDAO()
-                .getAll()
-                .map(refMonsters -> {
-                    ArrayList<ReferenceMonster> filtered = new ArrayList<>();
-                    for (ReferenceMonster rm : refMonsters) {
-                        if (Helpers.referenceMonsterMatchesSearch(rm, searchText)) {
-                            filtered.add(rm);
-                        }
-                    }
-                    return (List<ReferenceMonster>) filtered;
-                });
+                .searchMonsters(cleanQuery);
 
         return Flowable.combineLatest(monstersFlowable, collectionsFlowable, refMonstersFlowable, (monsters, collections, refMonsters) -> {
             ArrayList<SearchResultItem> results = new ArrayList<>();
-            for (Monster monster : monsters) {
-                results.add(new SearchResultItem(monster));
+            if (monsters != null) {
+                for (Monster monster : monsters) {
+                    if (monster != null) {
+                        results.add(new SearchResultItem(monster));
+                    }
+                }
             }
-            for (Collection collection : collections) {
-                results.add(new SearchResultItem(collection));
+            if (collections != null) {
+                for (Collection collection : collections) {
+                    if (collection != null) {
+                        results.add(new SearchResultItem(collection));
+                    }
+                }
             }
-            for (ReferenceMonster rm : refMonsters) {
-                results.add(new SearchResultItem(rm));
+            if (refMonsters != null) {
+                for (ReferenceMonster rm : refMonsters) {
+                    if (rm != null) {
+                        results.add(new SearchResultItem(rm));
+                    }
+                }
             }
             return (List<SearchResultItem>) results;
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());

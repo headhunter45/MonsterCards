@@ -38,15 +38,6 @@
         app:layout_constraintTop_toBottomOf="@+id/search_query">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_scope_compendiums"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Compendiums"
-            android:textSize="12sp" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_scope_library"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
@@ -56,12 +47,12 @@
             android:textSize="12sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_scope_all"
+            android:id="@+id/button_scope_compendiums"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="All"
+            android:text="Compendiums"
             android:textSize="12sp" />
 
         <com.google.android.material.button.MaterialButton
@@ -71,6 +62,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Collections"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_scope_all"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="All"
             android:textSize="12sp" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>

@@ -157,6 +157,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-036 | Fix Room Database Migration MIGRATION_10_11 column nullability mismatch                                         | Android | Fixed   | [Bug](#mcr-036)     |
 | MCR-037 | **Open5e import is only importing 500 monsters instead of the 3451 that android does using the /v2 api calls.** | iOS     | Pending | [Feature](#mcr-037) |
 | MCR-038 | **It looks like the source book/origin is confused still.**                                                     | iOS     | Pending | [Feature](#mcr-038) |
+| MCR-039 | *Determine what data we can get from the pathfinder imports to match our 5e monster imports.*                   | Shared  | Triage  | [Feature](#mcr-039) |
 
 ---
 
@@ -781,6 +782,17 @@ Describe task objectives and implementation requirements here.
 
 **Description:**
 Can we ensure the book or whatever it is in the api is carried to our source field? I would like to be able to tell later that this is a 5e monster downloaded from open5e.com and from the Tome of Beasts. Those can be separate fields. game ssytem: (5e, pf2e, sf2e) origin: (manual, open5e.com, foundryvtt/pf2e), and book or publication. The first two should be string enums that we will add to later. the third should be freeform text. Imported .card or .binder files may have monsters with unrecognized systems and origins. we should properly display those even if we don't know what they are. This is already implemented for android.
+
+<a id="mcr-039" class="task" data-project="shared" data-status="triage" data-task-type="feature"></a>
+### Determine what data we can get from the pathfinder imports to match our 5e monster imports.
+**ID:** MCR-039
+**Project:** Shared
+**Status:** Triage
+**Type:** Feature
+
+**Description:**
+Add notes to this task when done. All of the pathfinder and starfinder spells skills, feats, abilities, classes, races, and gear are described in those json files. If we have to then we will make additional Reference* internal tables to hold them or look them up when importing a monster. Even if all we have is an attack or ability name we should still include it with a description saying the description was not in the imported file.
+- [ ]
 
 ---
 
