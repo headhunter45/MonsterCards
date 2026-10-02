@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -86,7 +87,11 @@ public class LibraryFragment extends MCFragment {
             exportEverything();
             return true;
         } else if (item.getItemId() == R.id.menu_action_compendium_sources) {
-            androidx.navigation.fragment.NavHostFragment.findNavController(this).navigate(R.id.compendiumSourcesFragment);
+            try {
+                NavHostFragment.findNavController(this).navigate(R.id.action_global_compendiumSourcesFragment);
+            } catch (Exception e) {
+                Logger.logError("Failed to navigate to compendiumSourcesFragment", e);
+            }
             return true;
         } else if (item.getItemId() == R.id.menu_action_clear_all_data) {
             showClearAllDataConfirmationDialog();

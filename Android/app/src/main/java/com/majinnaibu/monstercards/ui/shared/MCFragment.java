@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.majinnaibu.monstercards.MainActivity;
 import com.majinnaibu.monstercards.MonsterCardsApplication;
@@ -169,8 +170,8 @@ public class MCFragment extends Fragment {
             compendiumButton.setOnClickListener(v -> {
                 dialog.dismiss();
                 try {
-                    NavController navController = androidx.navigation.fragment.NavHostFragment.findNavController(this);
-                    navController.navigate(R.id.compendiumSourcesFragment);
+                    NavController navController = NavHostFragment.findNavController(this);
+                    navController.navigate(R.id.action_global_compendiumSourcesFragment);
                 } catch (Exception e) {
                     Logger.logError("Failed to navigate to compendiumSourcesFragment", e);
                 }

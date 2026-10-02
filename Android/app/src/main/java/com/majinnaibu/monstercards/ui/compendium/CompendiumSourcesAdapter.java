@@ -15,6 +15,7 @@ import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.CompendiumSourceManager;
 import com.majinnaibu.monstercards.models.ImportSource;
 import com.majinnaibu.monstercards.ui.components.SourceTagView;
+import com.majinnaibu.monstercards.utils.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -83,8 +84,13 @@ public class CompendiumSourcesAdapter extends RecyclerView.Adapter<CompendiumSou
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_compendium_source, parent, false);
-        return new ViewHolder(view);
+        try {
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_compendium_source, parent, false);
+            return new ViewHolder(view);
+        } catch (Exception e) {
+            Logger.logError("Error inflating item_compendium_source layout", e);
+            throw e;
+        }
     }
 
     @Override

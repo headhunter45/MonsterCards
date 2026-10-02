@@ -145,15 +145,15 @@ public class MonsterCardsApplication extends Application {
                     "`natural_armor_bonus` INTEGER NOT NULL DEFAULT 0, " +
                     "`other_armor_description` TEXT DEFAULT '', " +
                     "`hit_dice` INTEGER NOT NULL DEFAULT 1, " +
-                    "`has_custom_hit_points` INTEGER NOT NULL DEFAULT 0, " +
+                    "`has_custom_hit_points` INTEGER NOT NULL DEFAULT false, " +
                     "`custom_hit_points_description` TEXT DEFAULT '', " +
                     "`walk_speed` INTEGER NOT NULL DEFAULT 0, " +
                     "`burrow_speed` INTEGER NOT NULL DEFAULT 0, " +
                     "`climb_speed` INTEGER NOT NULL DEFAULT 0, " +
                     "`fly_speed` INTEGER NOT NULL DEFAULT 0, " +
-                    "`can_hover` INTEGER NOT NULL DEFAULT 0, " +
+                    "`can_hover` INTEGER NOT NULL DEFAULT false, " +
                     "`swim_speed` INTEGER NOT NULL DEFAULT 0, " +
-                    "`has_custom_speed` INTEGER NOT NULL DEFAULT 0, " +
+                    "`has_custom_speed` INTEGER NOT NULL DEFAULT false, " +
                     "`custom_speed_description` TEXT, " +
                     "`challenge_rating` TEXT DEFAULT '1', " +
                     "`custom_challenge_rating_description` TEXT DEFAULT '', " +
@@ -189,14 +189,18 @@ public class MonsterCardsApplication extends Application {
                     "content=`reference_monsters`)");
         }
     };
+    private AppDatabase m_db;
     private MonsterRepository m_monsterLibraryRepository;
-
 
     public MonsterCardsApplication() {
     }
 
     public MonsterRepository getMonsterRepository() {
         return m_monsterLibraryRepository;
+    }
+
+    public AppDatabase getDatabase() {
+        return m_db;
     }
 
     // Called when the application is starting, before any other application objects have been created.
@@ -220,7 +224,7 @@ public class MonsterCardsApplication extends Application {
         // Required initialization logic here!
 
         //                .fallbackToDestructiveMigration()
-        AppDatabase m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
+        m_db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "monsters")
                 .addMigrations(MIGRATION_1_2)
                 .addMigrations(MIGRATION_2_3)
                 .addMigrations(MIGRATION_3_4)

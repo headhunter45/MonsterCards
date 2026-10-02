@@ -44,16 +44,28 @@ public class CompendiumSourcesFragment extends MCFragment implements CompendiumS
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setTitle(getString(R.string.title_compendium_sources));
-        View root = inflater.inflate(R.layout.fragment_compendium_sources, container, false);
+        View root;
+        try {
+            root = inflater.inflate(R.layout.fragment_compendium_sources, container, false);
+        } catch (Exception e) {
+            Logger.logError("Failed to inflate fragment_compendium_sources layout", e);
+            return new View(requireContext());
+        }
 
-        RecyclerView recyclerView = root.findViewById(R.id.recycler_compendium_sources);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        try {
+            RecyclerView recyclerView = root.findViewById(R.id.recycler_compendium_sources);
+            if (recyclerView != null) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        List<ImportSource> sources = ImportConfig.SOURCES;
-        mAdapter = new CompendiumSourcesAdapter(requireContext(), sources, this);
-        recyclerView.setAdapter(mAdapter);
+                List<ImportSource> sources = ImportConfig.SOURCES;
+                mAdapter = new CompendiumSourcesAdapter(requireContext(), sources, this);
+                recyclerView.setAdapter(mAdapter);
 
-        checkForUpdates(sources);
+                checkForUpdates(sources);
+            }
+        } catch (Exception e) {
+            Logger.logError("Error initializing compendium sources view", e);
+        }
 
         return root;
     }
@@ -119,6 +131,15 @@ public class CompendiumSourcesFragment extends MCFragment implements CompendiumS
 
         Context context = requireContext().getApplicationContext();
         AppDatabase db = getAppDatabase();
+        if (db == null) {
+            Logger.logError("Cannot start download: AppDatabase is null", null);
+            View view = getView();
+            if (view != null) {
+                SnackbarHelper.showLong(view, getString(R.string.snackbar_compendium_download_failed, source.projectName));
+            }
+            return;
+        }
+
         mAdapter.updateProgress(source.id, true, 0, 0, getString(R.string.status_downloading));
 
         mActiveDownloadDisposable = Single.fromCallable(() -> {
@@ -166,6 +187,10 @@ public class CompendiumSourcesFragment extends MCFragment implements CompendiumS
                 .setPositiveButton(R.string.action_remove, (dialog, which) -> {
                     Context context = requireContext().getApplicationContext();
                     AppDatabase db = getAppDatabase();
+                    if (db == null) {
+                        Logger.logError("Cannot clear source: AppDatabase is null", null);
+                        return;
+                    }
                     mDisposables.add(Single.fromCallable(() -> {
                                 CompendiumSourceManager.clearSource(context, db, source.id);
                                 return true;
@@ -187,12 +212,15 @@ public class CompendiumSourcesFragment extends MCFragment implements CompendiumS
     private AppDatabase getAppDatabase() {
         try {
             MonsterCardsApplication app = getApplication();
+            if (app != null && app.getDatabase() != null) {
+                return app.getDatabase();
+            }
             Field dbField = app.getMonsterRepository().getClass().getDeclaredField("m_db");
             dbField.setAccessible(true);
             return (AppDatabase) dbField.get(app.getMonsterRepository());
         } catch (Exception e) {
             Logger.logError("Failed to access AppDatabase directly", e);
-            throw new RuntimeException(e);
+            return null;
         }
     }
 

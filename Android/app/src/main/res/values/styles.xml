@@ -9,6 +9,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorOnPrimary">#ffffff</item>
         <item name="colorOnSecondary">#000000</item>
+        <item name="colorOutline">#33ffffff</item>
 
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
     </style>
