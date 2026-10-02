@@ -921,6 +921,10 @@ Implement rich Pathfinder 2e and Starfinder 2e stat block importing for referenc
 4. **Dynamic Trait Tags**: Preserve all trait tags from `traits.value` dynamically without hardcoding a closed list.
 5. **Spellcasting**: Map spellcasting entries and spell lists into trait blocks.
 6. **Fallback Description**: When an attack or ability has no text in the file, state *"[Description was not in the imported file]"*.
+7. **Diagnostic Missing-Description Logging & Single Full Run**:
+   - Temporarily log all monsters, attacks, and abilities that receive *"[Description was not in the imported file]"* (including creature name, item name, and item type).
+   - Run a full import test across all SF2e and PF2e compendium content with this logging enabled to record missing items for creating future research/fix tasks.
+   - Remove/disable this diagnostic logging before finalizing the implementation so it does not remain active in production.
 
 - [ ]
 
