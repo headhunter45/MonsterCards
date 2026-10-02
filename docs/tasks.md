@@ -157,7 +157,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-036 | Fix Room Database Migration MIGRATION_10_11 column nullability mismatch                                         | Android | Fixed   | [Bug](#mcr-036)     |
 | MCR-037 | **Open5e import is only importing 500 monsters instead of the 3451 that android does using the /v2 api calls.** | iOS     | Pending | [Feature](#mcr-037) |
 | MCR-038 | **It looks like the source book/origin is confused still.**                                                     | iOS     | Pending | [Feature](#mcr-038) |
-| MCR-039 | *Determine what data we can get from the pathfinder imports to match our 5e monster imports.*                   | Shared  | Triage  | [Feature](#mcr-039) |
+| MCR-039 | Determine what data we can get from the pathfinder imports to match our 5e monster imports.                     | Shared  | Fixed   | [Feature](#mcr-039) |
 
 ---
 
@@ -783,16 +783,84 @@ Describe task objectives and implementation requirements here.
 **Description:**
 Can we ensure the book or whatever it is in the api is carried to our source field? I would like to be able to tell later that this is a 5e monster downloaded from open5e.com and from the Tome of Beasts. Those can be separate fields. game ssytem: (5e, pf2e, sf2e) origin: (manual, open5e.com, foundryvtt/pf2e), and book or publication. The first two should be string enums that we will add to later. the third should be freeform text. Imported .card or .binder files may have monsters with unrecognized systems and origins. we should properly display those even if we don't know what they are. This is already implemented for android.
 
-<a id="mcr-039" class="task" data-project="shared" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-039" class="task" data-project="shared" data-status="done" data-task-type="feature"></a>
 ### Determine what data we can get from the pathfinder imports to match our 5e monster imports.
 **ID:** MCR-039
 **Project:** Shared
-**Status:** Triage
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
 Add notes to this task when done. All of the pathfinder and starfinder spells skills, feats, abilities, classes, races, and gear are described in those json files. If we have to then we will make additional Reference* internal tables to hold them or look them up when importing a monster. Even if all we have is an attack or ability name we should still include it with a description saying the description was not in the imported file.
-- [ ]
+
+### Pathfinder 2e & Starfinder 2e Data Mapping & Import Analysis
+
+#### 1. Core Monster Field Mapping Matrix
+
+| MonsterCards (5e Model) | Foundry PF2e / SF2e Actor JSON Path | Conversion & Formatting Rule |
+| :--- | :--- | :--- |
+| **Name** | `name` | Direct string |
+| **Game System** | System ID (`pf2e` or `sf2e`) | `.pf2e` or `.sf2e` enum |
+| **Origin / Source** | Compendium repo URL (`foundryvtt/pf2e`) | Fixed origin string enum |
+| **Book Source** | `system.details.publication.title` | e.g. "Pathfinder Bestiary", "Starfinder Alien Core", "Book of the Dead" |
+| **Size** | `system.traits.size.value` | `tiny` -> Tiny, `sm` -> Small, `med` -> Medium, `lg` -> Large, `huge` -> Huge, `grg` -> Gargantuan |
+| **Type & Subtype** | `system.traits.value` (traits array) | Capitalized comma list (e.g. "Dragon, Amphibious, Occult") |
+| **Alignment** | `system.traits.value` (or `system.details.alignment`) | e.g. "Lawful Evil", "Neutral", "Chaotic Good" |
+| **Level / Challenge Rating** | `system.details.level.value` | -1 -> 1/8, 0 -> 0, 1..30 -> CR 1..30 (or custom string for >30) |
+| **Armor Class** | `system.attributes.ac.value` | Set `armorType = .other`, `otherArmorDescription = "\(ac)"` |
+| **Shield / Hardness** | `system.attributes.hardness.value` or equipped shield | Bonus added to shield fields |
+| **Hit Points & Formula** | `system.attributes.hp.max`, `system.attributes.hp.details` | `hasCustomHP = true`, `customHP = "\(maxHp)"` (or formatted with details) |
+| **Speed (Walk & Other)** | `system.attributes.speed.value`, `system.attributes.speed.otherSpeeds` | `walkSpeed` = base value; `flySpeed`, `swimSpeed`, `climbSpeed`, `burrowSpeed` extracted from `otherSpeeds` array (`type` and `value`) |
+| **Ability Scores** | `system.abilities.{str,dex,con,int,wis,cha}.mod` | Computed via standard score formula: `Score = 10 + (mod * 2)` |
+| **Saving Throws** | `system.saves.{fortitude,reflex,will}.value` | Fortitude -> Con/Str; Reflex -> Dex; Will -> Wis/Cha (or custom saves table) |
+| **Skills** | `system.skills.{skillName}.base` | Mapped to `SkillViewModel` entries with computed modifier and proficiency |
+| **Perception & Senses** | `system.perception.senses` (`darkvision`, `scent`, etc.) + `system.perception.mod` | Formatted string: e.g. "Darkvision, Scent (imprecise) 60 ft., passive Perception \(10 + mod)" |
+| **Languages** | `system.details.languages.value` + `system.details.languages.details` | Mapped to `LanguageViewModel` list |
+| **Damage Immunities** | `system.attributes.immunities` (`type`) | Filtered damage immunity types mapped to `damageImmunities` |
+| **Condition Immunities** | `system.attributes.immunities` (`type`) | Condition immunity types (paralyzed, sleep, etc.) mapped to `conditionImmunities` |
+| **Damage Resistances** | `system.attributes.resistances` (`type`, `value`, `exceptions`) | Formatted string: e.g. "Fire 10 (except cold iron)" |
+| **Damage Vulnerabilities** | `system.attributes.weaknesses` (`type`, `value`) | Formatted string: e.g. "Cold 15" mapped to `damageVulnerabilities` |
+
+---
+
+#### 2. Embedded Items Mapping (`items: [...]`)
+
+Each PF2e/SF2e Actor contains an embedded `items` array with rich structured data:
+
+1. **Strikes & Attacks (`type: "melee"`):**
+   - **Fields available:** `name`, `system.bonus.value` (attack modifier), `system.damageRolls` (dice formula + damage type), `system.traits.value` (reach, agile, finesse, poison, etc.), `system.description.value`.
+   - **Mapping to 5e Actions:**
+     - Formatted string: `Melee Weapon Attack: +{bonus} to hit, reach {reach} ft., one target. Hit: {damageRolls} damage. Traits: {traits}.`
+     - Description: If `system.description.value` contains rule text, it is appended (HTML stripped). If empty: `[Description was not in the imported file]` is appended as fallback.
+2. **Special Abilities & Reactions (`type: "action"`):**
+   - **Fields available:** `name`, `system.actionType.value` (`action`, `reaction`, `free`, `passive`), `system.actions.value` (1, 2, or 3 actions), `system.description.value`.
+   - **Mapping:**
+     - `actionType == "reaction"` -> `reactions`
+     - `actionType == "action"` -> `actions`
+     - `actionType == "passive"` or `free` -> `abilities` (Traits)
+     - Description text: HTML cleaned; if empty, sets `[Description was not in the imported file]`.
+3. **Spellcasting Entries & Spells (`type: "spellcastingEntry"`, `type: "spell"`):**
+   - **Fields available:** `system.spelldc.dc` (Spell Save DC), `system.spelldc.value` (Spell Attack bonus), `system.prepared.value` / `innate`, spell rank/level, spell description.
+   - **Mapping:**
+     - Formatted into a standard "Spellcasting" / "Innate Spellcasting" trait block in `abilities` listing DC, attack bonus, and known/prepared spells categorized by rank.
+4. **Equipment & Gear (`type: "weapon"`, `type: "armor"`, `type: "equipment"`, `type: "shield"`):**
+   - Stored in special traits or inventory description.
+
+---
+
+#### 3. Compendium Lookup & Glossary Resolution Strategy
+
+- **Standalone Pack Files in `json-assets.zip`:**
+  - `packs/bestiary-ability-glossary-srd.json`: Universal monster abilities (Grab, Knockdown, Constrict, Swallow Whole, Trample, Regeneration, Stench, etc.).
+  - `packs/bestiary-family-ability-glossary.json`: Creature family abilities (Dragon Breath, Golem Antimagic, Hydras Head Regrowth).
+  - `packs/actions.json`: General actions.
+  - `packs/spells.json`: Complete standalone spell catalog.
+- **Resolution Pipeline:**
+  1. *Inline Extraction (Primary):* Extract item name, action type, damage rolls, and descriptions directly from the actor's `items` array.
+  2. *Glossary Resolution (Secondary):* When an imported strike or action has an empty description or an `@UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.XYZ]` reference, look up the text in an in-memory index built from `bestiary-ability-glossary-srd.json`.
+  3. *Clean Fallback:* If not present in glossary or pack files, generate the structured attack/ability formula and state `[Description was not in the imported file]`.
+
+- [x]
 
 ---
 
