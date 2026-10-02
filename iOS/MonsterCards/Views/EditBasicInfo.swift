@@ -47,6 +47,19 @@ struct EditBasicInfo: View {
                 .pickerStyle(.menu)
             }
 
+            Section("Game System & Source") {
+                Picker("Game System", selection: $monsterViewModel.gameSystem) {
+                    ForEach(GameSystem.allCases) { system in
+                        Text(system.displayName).tag(system)
+                    }
+                }
+                .pickerStyle(.menu)
+
+                MCTextField(
+                    label: "Source / Book",
+                    value: $monsterViewModel.sourceLabel)
+            }
+
             Section("Hit Points & Hit Dice") {
                 MCStepperField(
                     label: "Hit Dice Count",

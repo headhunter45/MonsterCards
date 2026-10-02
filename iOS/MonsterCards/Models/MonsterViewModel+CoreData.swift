@@ -20,6 +20,8 @@ extension MonsterViewModel {
     
     func copyFromMonster(monster: Monster) {
         self.name = monster.name ?? ""
+        self.gameSystem = monster.gameSystemEnum
+        self.sourceLabel = monster.sourceLabel ?? ""
         self.size = monster.size ?? ""
         self.type = monster.type ?? ""
         self.subType = monster.subtype ?? ""
@@ -131,6 +133,8 @@ extension MonsterViewModel {
     
     func copyToMonster(monster: Monster) {
         monster.name = name
+        monster.gameSystemEnum = gameSystem
+        monster.sourceLabel = sourceLabel
         monster.size = size
         monster.type = type
         monster.subtype = subType

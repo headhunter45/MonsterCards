@@ -121,6 +121,10 @@
 		E2FE0029261FE0000055B23B /* Pf2eImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0009261FE0000083EAC5 /* Pf2eImporter.swift */; };
 		E2FE002A261FE0000055B23B /* Open5eExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE000A261FE0000083EAC5 /* Open5eExporter.swift */; };
 		E2FE002B261FE0000055B23B /* MonsterCardExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE000B261FE0000083EAC5 /* MonsterCardExporter.swift */; };
+		E2FE0031261FE0000055B23B /* GameSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0030261FE0000083EAC5 /* GameSystem.swift */; };
+		E2FE0032261FE0000055B23B /* GameSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0030261FE0000083EAC5 /* GameSystem.swift */; };
+		E2FE0034261FE0000055B23B /* SourceTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0033261FE0000083EAC5 /* SourceTagView.swift */; };
+		E2FE0035261FE0000055B23B /* SourceTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0033261FE0000083EAC5 /* SourceTagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +263,8 @@
 		E2FE0009261FE0000083EAC5 /* Pf2eImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pf2eImporter.swift; sourceTree = "<group>"; };
 		E2FE000A261FE0000083EAC5 /* Open5eExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open5eExporter.swift; sourceTree = "<group>"; };
 		E2FE000B261FE0000083EAC5 /* MonsterCardExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardExporter.swift; sourceTree = "<group>"; };
+		E2FE0030261FE0000083EAC5 /* GameSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSystem.swift; sourceTree = "<group>"; };
+		E2FE0033261FE0000083EAC5 /* SourceTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +310,7 @@
 				E20209F325D8E04300EFE733 /* AdvantageType.swift */,
 				E2CB0DC926086E8300142591 /* ArmorType.swift */,
 				E2CB0DBF26086E3C00142591 /* ChallengeRating.swift */,
+				E2FE0030261FE0000083EAC5 /* GameSystem.swift */,
 				E20209F225D8E04300EFE733 /* ProficiencyType.swift */,
 				E2CB0DC426086E5F00142591 /* SizeType.swift */,
 			);
@@ -434,6 +441,7 @@
 				E20CEFEB261FEA2100B55D72 /* MonsterDetailWrapper.swift */,
 				E2570FEF25B1ADC10055B23B /* Search.swift */,
 				E257100325B1AF4A0055B23B /* SearchBar.swift */,
+				E2FE0033261FE0000083EAC5 /* SourceTagView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -688,6 +696,8 @@
 				E216E4A8261FE7D100FD9262 /* StringHelper.swift in Sources */,
 				E216E494261FE7B200FD9262 /* SkillDTO.swift in Sources */,
 				E216E49A261FE7B200FD9262 /* ProficiencyType.swift in Sources */,
+				E2FE0032261FE0000055B23B /* GameSystem.swift in Sources */,
+				E2FE0035261FE0000055B23B /* SourceTagView.swift in Sources */,
 				E216E4A9261FE7D100FD9262 /* MonsterImportHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,6 +743,8 @@
 				E2FE0029261FE0000055B23B /* Pf2eImporter.swift in Sources */,
 				E2FE002A261FE0000055B23B /* Open5eExporter.swift in Sources */,
 				E2FE002B261FE0000055B23B /* MonsterCardExporter.swift in Sources */,
+				E2FE0031261FE0000055B23B /* GameSystem.swift in Sources */,
+				E2FE0034261FE0000055B23B /* SourceTagView.swift in Sources */,
 				E2CB0DC026086E3C00142591 /* ChallengeRating.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
 				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,

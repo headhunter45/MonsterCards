@@ -202,9 +202,13 @@ struct Search: View {
                     ForEach(remoteMonsters, id: \.name) { monsterVM in
                         HStack {
                             VStack(alignment: .leading, spacing: 3) {
-                                Text(monsterVM.name)
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
+                                HStack(spacing: 6) {
+                                    Text(monsterVM.name)
+                                        .font(.headline)
+                                        .foregroundColor(.primary)
+
+                                    SourceTagView(gameSystem: monsterVM.gameSystem, sourceLabel: monsterVM.sourceLabel.isEmpty ? "Open5e" : monsterVM.sourceLabel)
+                                }
 
                                 HStack(spacing: 6) {
                                     if !monsterVM.size.isEmpty {

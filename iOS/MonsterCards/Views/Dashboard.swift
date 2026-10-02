@@ -172,10 +172,14 @@ struct CombatMonsterCard: View {
             // Header
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(monster.name ?? "Monster")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .lineLimit(1)
+                    HStack(spacing: 6) {
+                        Text(monster.name ?? "Monster")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .lineLimit(1)
+
+                        SourceTagView(gameSystem: monster.gameSystemEnum, sourceLabel: monster.sourceLabel)
+                    }
 
                     HStack(spacing: 6) {
                         if let size = monster.size, !size.isEmpty {

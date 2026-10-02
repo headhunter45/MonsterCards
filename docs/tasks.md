@@ -137,7 +137,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                      | Android | Fixed   | [Feature](#mcr-016) |
 | MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                            | Android | Fixed   | [Feature](#mcr-017) |
 | MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library             | Android | Fixed   | [Feature](#mcr-018) |
-| MCR-019 | **Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles**      | iOS     | Pending | [Feature](#mcr-019) |
+| MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles          | iOS     | Fixed   | [Feature](#mcr-019) |
 | MCR-020 | **Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline**             | iOS     | Pending | [Feature](#mcr-020) |
 | MCR-021 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | iOS     | Pending | [Feature](#mcr-021) |
 | MCR-022 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | iOS     | Pending | [Feature](#mcr-022) |
@@ -489,11 +489,11 @@ Allow users to tap on any reference compendium monster in search results to prev
 - [x] Clone `ReferenceMonster` attributes into a new editable `Monster` entity and save to Room
 - [x] Support adding directly into an existing Collection upon import
 
-<a id="mcr-019" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-019" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles
 **ID:** MCR-019
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -501,10 +501,10 @@ Add `gameSystem` (enum string) and `sourceLabel` attributes to the CoreData `Mon
 
 **Requirements:**
 
-- [ ] Add `gameSystem` and `sourceLabel` attributes to `MonsterCards.xcdatamodeld`
-- [ ] Add Game System picker (`D&D 5e`, `Pathfinder 2e`, `Starfinder 2e`, `Custom`) and Source/Book field to `EditMonsterView`
-- [ ] Create `SourceTagView` SwiftUI component rendering styled pill badges
-- [ ] Render source tag bubbles in `LibraryView`, `Search` results, and `DashboardView`
+- [x] Add `gameSystem` and `sourceLabel` attributes to `MonsterCards.xcdatamodeld`
+- [x] Add Game System picker (`D&D 5e`, `Pathfinder 2e`, `Starfinder 2e`, `Custom`) and Source/Book field to `EditMonsterView`
+- [x] Create `SourceTagView` SwiftUI component rendering styled pill badges
+- [x] Render source tag bubbles in `LibraryView`, `Search` results, and `DashboardView`
 
 <a id="mcr-020" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline

@@ -51,6 +51,7 @@
         <attribute name="dexteritySavingThrowProficiency" attributeType="String" defaultValueString="none"/>
         <attribute name="dexterityScore" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
         <attribute name="flySpeed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gameSystem" attributeType="String" defaultValueString="DND_5E"/>
         <attribute name="hasCustomHP" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hasCustomSpeed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hasShield" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -71,6 +72,7 @@
         <attribute name="senses" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String]"/>
         <attribute name="shieldBonus" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="size" attributeType="String" defaultValueString=""/>
+        <attribute name="sourceLabel" attributeType="String" defaultValueString=""/>
         <attribute name="sourceURL" attributeType="String" defaultValueString=""/>
         <attribute name="strengthSavingThrowAdvantage" attributeType="String" defaultValueString="none"/>
         <attribute name="strengthSavingThrowProficiency" attributeType="String" defaultValueString="none"/>

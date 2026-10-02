@@ -81,8 +81,12 @@ struct BasicInfoView: View {
         let monsterSpeed = monster.speed
         
         if (!monster.name.isEmpty) {
-            Text(monster.name)
-                .font(.largeTitle)
+            HStack(alignment: .firstTextBaseline) {
+                Text(monster.name)
+                    .font(.largeTitle)
+                Spacer()
+                SourceTagView(gameSystem: monster.gameSystem, sourceLabel: monster.sourceLabel)
+            }
         }
         
         // meta: "(large humanoid (elf) lawful evil"

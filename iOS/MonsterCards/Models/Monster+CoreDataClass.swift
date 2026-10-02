@@ -19,6 +19,17 @@ public class Monster: NSManagedObject {
         self.subtype = subtype;
         self.alignment = alignment;
     }
+   // MARK: Game System & Source
+    
+    var gameSystemEnum: GameSystem {
+        get {
+            return GameSystem.fromRawValue(gameSystem)
+        }
+        set {
+            gameSystem = newValue.rawValue
+        }
+    }
+    
    // MARK: Armor
     
     var armorTypeEnum: ArmorType {

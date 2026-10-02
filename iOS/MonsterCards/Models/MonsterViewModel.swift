@@ -14,6 +14,8 @@ class MonsterViewModel: ObservableObject, Identifiable {
     // TODO: Determine whether to prefer Int or Int64 for these fields and switch as many as possible to the winner.
     
     @Published var name: String
+    @Published var gameSystem: GameSystem
+    @Published var sourceLabel: String
     @Published var size: String
     @Published var type: String
     @Published var subType: String
@@ -92,6 +94,8 @@ class MonsterViewModel: ObservableObject, Identifiable {
     
     init() {
         self.name = ""
+        self.gameSystem = .dnd5e
+        self.sourceLabel = ""
         self.size = ""
         self.type = ""
         self.subType = ""

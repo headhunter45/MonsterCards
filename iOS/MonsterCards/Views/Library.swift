@@ -363,9 +363,13 @@ struct MonsterListRow: View {
     var body: some View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 3) {
-                Text(monster.name ?? "Unnamed Monster")
-                    .font(.headline)
-                    .foregroundColor(.primary)
+                HStack(spacing: 6) {
+                    Text(monster.name ?? "Unnamed Monster")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+
+                    SourceTagView(gameSystem: monster.gameSystemEnum, sourceLabel: monster.sourceLabel)
+                }
 
                 HStack(spacing: 6) {
                     if let size = monster.size, !size.isEmpty {
