@@ -134,4 +134,58 @@ class ReferenceMonsterRepositoryTests: XCTestCase {
         XCTAssertEqual(results.count, 1)
         XCTAssertEqual(results.first?.name, "Replacement Monster")
     }
+
+    func testCloneReferenceMonsterToUserLibraryAndCollection() throws {
+        let vm = MonsterViewModel()
+        vm.name = "Compendium Bugbear"
+        vm.size = "Medium"
+        vm.type = "Humanoid"
+        vm.gameSystem = .pf2e
+        vm.sourceLabel = "Bestiary"
+        vm.strengthScore = 16
+
+        let dict = ReferenceMonsterRepository.dictionaryFromViewModel(
+            vm,
+            id: "ref_bugbear_1",
+            sourceId: "pf2e_bestiary",
+            sourceLabel: "Bestiary",
+            gameSystem: .pf2e
+        )
+        try repository.insertBatch(monsters: [dict], in: context)
+        try context.save()
+
+        let refMonsters = repository.searchReferenceMonsters(query: "Compendium Bugbear", in: context)
+        XCTAssertEqual(refMonsters.count, 1)
+        let refMonster = refMonsters.first!
+
+        // Create target collection
+        let collection = Collection(context: context)
+        collection.name = "Forest Encounters"
+
+        // Clone into user library & collection
+        let clonedVM = refMonster.toViewModel()
+        let newMonster = Monster(context: context)
+        let newUuid = UUID()
+        newMonster.uuid = newUuid
+        clonedVM.copyToMonster(monster: newMonster)
+
+        let link = CollectionMonster(context: context)
+        link.collectionId = collection.name ?? ""
+        link.monsterId = newUuid.uuidString
+
+        try context.save()
+
+        // Verify user Monster table has 1 record
+        let userMonsters = try context.fetch(NSFetchRequest<Monster>(entityName: "Monster"))
+        XCTAssertEqual(userMonsters.count, 1)
+        XCTAssertEqual(userMonsters.first?.name, "Compendium Bugbear")
+        XCTAssertEqual(userMonsters.first?.gameSystemEnum, .pf2e)
+        XCTAssertEqual(userMonsters.first?.strengthScore, 16)
+
+        // Verify collection linking
+        let colLinks = try context.fetch(NSFetchRequest<CollectionMonster>(entityName: "CollectionMonster"))
+        XCTAssertEqual(colLinks.count, 1)
+        XCTAssertEqual(colLinks.first?.collectionId, "Forest Encounters")
+        XCTAssertEqual(colLinks.first?.monsterId, newUuid.uuidString)
+    }
 }

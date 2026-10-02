@@ -30,7 +30,9 @@ struct Search: View {
     
     // Preview & Clone State
     @State private var previewedMonsterVM: MonsterViewModel? = nil
+    @State private var selectedTargetCollection: Collection? = nil
     @State private var clonedMonsterNames: Set<String> = []
+    @State private var cloneConfirmationMessage: String? = nil
 
     @Environment(\.managedObjectContext) var viewContext
     
@@ -47,6 +49,14 @@ struct Search: View {
         ],
         animation: .default)
     private var allReferenceMonsters: FetchedResults<ReferenceMonster>
+
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Collection.sortOrder, ascending: true),
+            NSSortDescriptor(keyPath: \Collection.name, ascending: true)
+        ],
+        animation: .default)
+    private var availableCollections: FetchedResults<Collection>
 
     private let quickTypeFilters = ["All", "Beast", "Undead", "Dragon", "Fiend", "Humanoid", "Monstrosity", "Fey", "Elemental"]
 
@@ -188,7 +198,43 @@ struct Search: View {
             }
             .sheet(item: $previewedMonsterVM) { monsterVM in
                 NavigationStack {
-                    VStack {
+                    VStack(spacing: 0) {
+                        if !availableCollections.isEmpty {
+                            HStack {
+                                Text("Destination:")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                                
+                                Menu {
+                                    Button("None (Root Library)") {
+                                        selectedTargetCollection = nil
+                                    }
+                                    ForEach(availableCollections) { col in
+                                        Button(col.name ?? "Unnamed") {
+                                            selectedTargetCollection = col
+                                        }
+                                    }
+                                } label: {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "folder")
+                                        Text(selectedTargetCollection?.name ?? "None (Root Library)")
+                                        Image(systemName: "chevron.down")
+                                            .font(.caption2)
+                                    }
+                                    .font(.subheadline.weight(.medium))
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .background(Color(uiColor: .secondarySystemFill))
+                                    .cornerRadius(8)
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            .padding(.vertical, 8)
+                            .background(Color(uiColor: .secondarySystemBackground))
+                        }
+
                         MonsterDetailView(viewModel: monsterVM)
                     }
                     .navigationTitle(monsterVM.name)
@@ -197,19 +243,29 @@ struct Search: View {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Close") {
                                 previewedMonsterVM = nil
+                                selectedTargetCollection = nil
                             }
                         }
 
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
-                                cloneMonsterToLibrary(monsterVM)
+                                cloneMonsterToLibrary(monsterVM, into: selectedTargetCollection)
                                 previewedMonsterVM = nil
+                                selectedTargetCollection = nil
                             } label: {
                                 Label("Clone to Library", systemImage: "square.and.arrow.down")
                             }
                         }
                     }
                 }
+            }
+            .alert("Imported to Library", isPresented: Binding(
+                get: { cloneConfirmationMessage != nil },
+                set: { if !$0 { cloneConfirmationMessage = nil } }
+            )) {
+                Button("OK") { cloneConfirmationMessage = nil }
+            } message: {
+                Text(cloneConfirmationMessage ?? "")
             }
         }
     }
@@ -480,19 +536,32 @@ struct Search: View {
         }
     }
 
-    private func cloneReferenceMonster(_ refMonster: ReferenceMonster) {
+    private func cloneReferenceMonster(_ refMonster: ReferenceMonster, into collection: Collection? = nil) {
         let vm = refMonster.toViewModel()
-        cloneMonsterToLibrary(vm)
+        cloneMonsterToLibrary(vm, into: collection)
     }
 
-    private func cloneMonsterToLibrary(_ monsterVM: MonsterViewModel) {
+    private func cloneMonsterToLibrary(_ monsterVM: MonsterViewModel, into collection: Collection? = nil) {
         withAnimation {
             let newMonster = Monster(context: viewContext)
-            newMonster.uuid = UUID()
+            let newUuid = UUID()
+            newMonster.uuid = newUuid
             monsterVM.copyToMonster(monster: newMonster)
+            
+            if let col = collection {
+                let link = CollectionMonster(context: viewContext)
+                link.collectionId = col.name ?? ""
+                link.monsterId = newUuid.uuidString
+            }
+
             do {
                 try viewContext.save()
                 clonedMonsterNames.insert(monsterVM.name)
+                if let colName = collection?.name {
+                    cloneConfirmationMessage = "Cloned '\(monsterVM.name)' into '\(colName)'!"
+                } else {
+                    cloneConfirmationMessage = "Cloned '\(monsterVM.name)' into your library!"
+                }
             } catch {
                 print("Failed to clone monster to library: \(error)")
             }
