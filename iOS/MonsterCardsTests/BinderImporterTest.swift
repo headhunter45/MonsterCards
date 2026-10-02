@@ -9,6 +9,7 @@
 import XCTest
 @testable import MonsterCards
 
+@MainActor
 final class BinderImporterTest: XCTestCase {
     
     // MARK: - canImport tests
@@ -115,8 +116,8 @@ final class BinderImporterTest: XCTestCase {
         
         // Skills: Arcana expertise=1 → expertise, Perception expertise=0 → proficient
         XCTAssertNotNil(m.skills.first(where: { $0.name == "Arcana" }))
-        let arcanaSkill = m.skills.first { $0.abilityScore? == .intelligence }
-        XCTAssertEqual(arcanaSkill?.proficiency, .expertise)
+        let arcanaSkill = m.skills.first { $0.abilityScore == .intelligence }
+        XCTAssertEqual(arcanaSkill?.proficiency, ProficiencyType.expertise)
         
         // Languages
         XCTAssertEqual(m.languages.count, 2)
@@ -125,7 +126,7 @@ final class BinderImporterTest: XCTestCase {
         
         // Senses
         XCTAssertTrue(m.senses.count >= 2)
-        XCTAssertTrue(m.senses.first(where: { $0.name.contains("Blindness") }) != nil)
+        XCTAssertTrue(m.senses.first(where: { $0.name.contains("Blind") }) != nil)
         
         // Challenge rating from text: "Half" → oneHalf
         XCTAssertEqual(m.challengeRating, .oneHalf, "Should parse 'Half' as one_half CR")

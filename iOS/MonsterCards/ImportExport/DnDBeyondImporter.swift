@@ -108,8 +108,15 @@ struct DnDBeyondImporter: EntityImporter {
             rawName = String(rawName.dropFirst().dropLast())
         }
         monster.name = rawName
-        monster.size = "Medium"
-        monster.type = "Humanoid"
+        monster.size = (data["size"] as? String) ?? "Medium"
+        monster.type = (data["type"] as? String) ?? "Humanoid"
+        monster.alignment = (data["alignment"] as? String) ?? ""
+
+        if let cr = data["challengeRating"] as? String {
+            monster.challengeRating = ChallengeRating(rawValue: cr) ?? .one
+        } else if let cr = data["cr"] as? String {
+            monster.challengeRating = ChallengeRating(rawValue: cr) ?? .one
+        }
 
         parseClassesAndLevel(data: data, monster: monster)
         parseStats(data: data, monster: monster)
@@ -147,7 +154,9 @@ struct DnDBeyondImporter: EntityImporter {
                 classSummaryParts.append(item)
             }
         }
-        monster.hitDice = Int64(totalLevel > 0 ? totalLevel : 1)
+        if totalLevel > 0 {
+            monster.hitDice = Int64(totalLevel)
+        }
 
         var raceName = ""
         if let race = data["race"] as? [String: Any] {
@@ -164,7 +173,9 @@ struct DnDBeyondImporter: EntityImporter {
         if !classSummaryParts.isEmpty {
             subtypeParts.append(classSummaryParts.joined(separator: " / "))
         }
-        monster.subType = subtypeParts.joined(separator: " ")
+        if !subtypeParts.isEmpty {
+            monster.subType = subtypeParts.joined(separator: " ")
+        }
     }
 
     @MainActor
@@ -183,6 +194,13 @@ struct DnDBeyondImporter: EntityImporter {
                 default: break
                 }
             }
+        } else if let stats = data["stats"] as? [String: Any] {
+            if let v = stats["STR"] as? Int ?? stats["str"] as? Int { monster.strengthScore = Int64(v) }
+            if let v = stats["DEX"] as? Int ?? stats["dex"] as? Int { monster.dexterityScore = Int64(v) }
+            if let v = stats["CON"] as? Int ?? stats["con"] as? Int { monster.constitutionScore = Int64(v) }
+            if let v = stats["INT"] as? Int ?? stats["int"] as? Int { monster.intelligenceScore = Int64(v) }
+            if let v = stats["WIS"] as? Int ?? stats["wis"] as? Int { monster.wisdomScore = Int64(v) }
+            if let v = stats["CHA"] as? Int ?? stats["cha"] as? Int { monster.charismaScore = Int64(v) }
         }
     }
 
@@ -298,6 +316,20 @@ struct DnDBeyondImporter: EntityImporter {
 
     @MainActor
     private static func parseActions(data: [String: Any], monster: MonsterViewModel) {
+        if let directActions = data["actions"] as? [[String: Any]] {
+            for act in directActions {
+                let name = (act["name"] as? String) ?? ""
+                var desc = stripHtml((act["snippet"] as? String) ?? "")
+                if desc.isEmpty {
+                    desc = stripHtml((act["description"] as? String) ?? (act["desc"] as? String) ?? "")
+                }
+                if !name.isEmpty {
+                    monster.actions.append(AbilityViewModel(name, desc))
+                }
+            }
+            return
+        }
+
         guard let actionsObj = data["actions"] as? [String: Any] else { return }
         let categories = ["class", "race", "background", "item", "feat"]
 

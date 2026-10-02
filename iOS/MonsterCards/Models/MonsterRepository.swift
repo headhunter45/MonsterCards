@@ -86,14 +86,17 @@ public final class MonsterRepository: MonsterRepositoryProtocol, ObservableObjec
     }
 
     public func fetchMonsters(for collection: Collection) throws -> [Monster] {
-        guard let links = collection.monsters as? Set<CollectionMonster> else { return [] }
-        let sortedLinks = links.sorted { $0.ordinal < $1.ordinal }
+        let request: NSFetchRequest<CollectionMonster> = CollectionMonster.fetchRequest()
+        let colName = collection.name ?? ""
+        request.predicate = NSPredicate(format: "collectionId == %@", colName)
+        request.sortDescriptors = [NSSortDescriptor(key: "ordinal", ascending: true)]
+        let links = try context.fetch(request)
         var result: [Monster] = []
-        for link in sortedLinks {
+        for link in links {
             if let mIdStr = link.monsterId, let uuid = UUID(uuidString: mIdStr) {
-                let request: NSFetchRequest<Monster> = Monster.fetchRequest()
-                request.predicate = NSPredicate(format: "uuid == %@", uuid as CVarArg)
-                if let found = try context.fetch(request).first {
+                let mRequest: NSFetchRequest<Monster> = Monster.fetchRequest()
+                mRequest.predicate = NSPredicate(format: "uuid == %@", uuid as CVarArg)
+                if let found = try context.fetch(mRequest).first {
                     result.append(found)
                 }
             }

@@ -19,10 +19,18 @@ public struct PersistenceController: @unchecked Sendable {
         return controller
     }()
 
+    nonisolated(unsafe) private static let model: NSManagedObjectModel = {
+        if let modelURL = Bundle(for: Monster.self).url(forResource: "MonsterCards", withExtension: "momd") ?? Bundle.main.url(forResource: "MonsterCards", withExtension: "momd"),
+           let model = NSManagedObjectModel(contentsOf: modelURL) {
+            return model
+        }
+        return NSPersistentContainer(name: "MonsterCards").managedObjectModel
+    }()
+
     public let container: NSPersistentCloudKitContainer
 
     public init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "MonsterCards")
+        container = NSPersistentCloudKitContainer(name: "MonsterCards", managedObjectModel: PersistenceController.model)
 
         guard let description = container.persistentStoreDescriptions.first else {
             fatalError("Failed to retrieve persistent store description.")

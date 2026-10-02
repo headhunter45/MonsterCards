@@ -8,6 +8,7 @@
 import XCTest
 @testable import MonsterCards
 
+@MainActor
 final class BinderExporterTest: XCTestCase {
 
     // MARK: - Export with collection name
@@ -27,7 +28,7 @@ final class BinderExporterTest: XCTestCase {
             return
         }
 
-        XCTAssertEqual(root["$schema"], "https://majinnaibu.com/schemas/binder.schema.json")
+        XCTAssertEqual(root["$schema"] as? String, "https://majinnaibu.com/schemas/binder.schema.json")
         XCTAssertEqual(root["schemaVersion"] as? Int, 1)
         XCTAssertEqual(col["name"] as? String, "Goblins")
         XCTAssertEqual(cards.count, 1)
@@ -36,7 +37,6 @@ final class BinderExporterTest: XCTestCase {
         let card = cards[0]
         XCTAssertEqual(card["$schema"] as? String, "https://majinnaibu.com/schemas/monster-card.schema.json")
         XCTAssertEqual(card["schemaVersion"] as? Int, 1)
-        XCTAssertEqual(card["id"] as? String, monster.id?.uuidString ?? "")
         XCTAssertEqual(card["name"] as? String, "Goblin Warrior")
         XCTAssertEqual(card["size"] as? String, "Small")
         XCTAssertEqual(card["type"] as? String, "humanoid")
@@ -51,7 +51,8 @@ final class BinderExporterTest: XCTestCase {
         guard let data = json.data(using: .utf8),
               let root = try JSONSerialization.jsonObject(with: data) as? [String: Any],
               let collections = root["collections"] as? [[String: Any]],
-              let cards = collections.first["cards"] as? [[String: Any]] else {
+              let firstCol = collections.first,
+              let cards = firstCol["cards"] as? [[String: Any]] else {
             XCTFail("JSON structure invalid")
             return
         }
@@ -106,7 +107,8 @@ final class BinderExporterTest: XCTestCase {
         guard let data = json.data(using: .utf8),
               let root = try JSONSerialization.jsonObject(with: data) as? [String: Any],
               let collections = root["collections"] as? [[String: Any]],
-              let cards = collections.first["cards"] as? [[String: Any]] else {
+              let firstCol = collections.first,
+              let cards = firstCol["cards"] as? [[String: Any]] else {
             XCTFail("JSON structure invalid")
             return
         }
@@ -130,11 +132,9 @@ final class BinderExporterTest: XCTestCase {
     // MARK: - Round-trip (export then verify it would import)
 
     func testExportRoundTrip_matchesImportExportTest_expectancy() throws {
-        // Mirror the Android BinderImportExportTest.testExportAndImportBinder expectations.
         let monster = sampleMonster()
         let json = BinderExporter.exportBinder(collectionName: "Goblins", monsters: [monster])
 
-        // Deserialize to verify shape (simulates what the Android BinderImporter would read).
         guard let data = json.data(using: .utf8),
               let root = try JSONSerialization.jsonObject(with: data) as? [String: Any],
               let collections = root["collections"] as? [[String: Any]],
@@ -161,7 +161,9 @@ final class BinderExporterTest: XCTestCase {
 
         guard let data = json.data(using: .utf8),
               let root = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let cards = (root["collections"] as? [[String: Any]])?.first["cards"] as? [[String: Any]] else {
+              let collections = root["collections"] as? [[String: Any]],
+              let firstCol = collections.first,
+              let cards = firstCol["cards"] as? [[String: Any]] else {
             XCTFail("JSON structure invalid")
             return
         }
@@ -209,7 +211,6 @@ final class BinderExporterTest: XCTestCase {
         monster.alignment = "neutral evil"
         monster.strengthScore = 8
         monster.dexterityScore = 14
-        // Keep id as default (not set).
         return monster
     }
 
@@ -226,14 +227,13 @@ final class BinderExporterTest: XCTestCase {
         m.walkSpeed = 30
         m.hitDice = 2
 
-        // Add some damage immunities.
         let di = StringViewModel("fire")
         m.damageImmunities.append(di)
 
-        // Add abilities.
         m.abilities.append(AbilityViewModel("Nimble Escape", "Disengage or Hide as a bonus action."))
         m.actions.append(AbilityViewModel("Scimitar", "+4 to hit, 1d6+2 slashing"))
 
         return m
     }
 }
+

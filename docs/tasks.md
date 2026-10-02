@@ -117,20 +117,20 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 <a id="tasks-list"></a>
 
-| ID      | Title                                                                                              | Project | Status  | Type                |
-|:------|:-------------------------------------------------------------------------------------------------|:------|:------|:------------------|
-| FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                             | Shared  | Fixed   | [Chore](#fgj-001)   |
-| FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed   | [Chore](#fgj-002)   |
-| FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed   | [Feature](#fgj-003) |
-| FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed   | [Feature](#fgj-004) |
-| FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed   | [Feature](#fgj-005) |
-| FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed   | [Feature](#fgj-006) |
-| FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed   | [Feature](#fgj-007) |
-| FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed   | [Feature](#fgj-008) |
-| FGJ-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed   | [Feature](#fgj-009) |
-| FGJ-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed   | [Feature](#fgj-010) |
-| FGJ-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing        | iOS     | Fixed   | [Feature](#fgj-011) |
-| FGJ-012 | **Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows**      | iOS     | Pending | [Feature](#fgj-012) |
+| ID      | Title                                                                                              | Project | Status | Type                |
+|:------|:-------------------------------------------------------------------------------------------------|:------|:-----|:------------------|
+| FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                             | Shared  | Fixed  | [Chore](#fgj-001)   |
+| FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed  | [Chore](#fgj-002)   |
+| FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed  | [Feature](#fgj-003) |
+| FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed  | [Feature](#fgj-004) |
+| FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed  | [Feature](#fgj-005) |
+| FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed  | [Feature](#fgj-006) |
+| FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed  | [Feature](#fgj-007) |
+| FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed  | [Feature](#fgj-008) |
+| FGJ-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed  | [Feature](#fgj-009) |
+| FGJ-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed  | [Feature](#fgj-010) |
+| FGJ-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing        | iOS     | Fixed  | [Feature](#fgj-011) |
+| FGJ-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows          | iOS     | Fixed  | [Feature](#fgj-012) |
 
 ---
 
@@ -346,23 +346,22 @@ Configure iOS document handling for `.monster` and `.json` files, implement AirD
 - [x] Add Share Sheet integration to export and send monster cards via Messages, Mail, AirDrop, and cloud storage
 - [x] Support Drag and Drop of monster files on iPadOS
 
-<a id="fgj-012" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-012" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows
 **ID:** FGJ-012
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Establish a complete test suite covering data conversion, all format importers/exporters, CoreData repository operations, and critical SwiftUI user journeys.
 
 **Requirements:**
 
-- [ ] Importer Unit Tests: Test fixtures for Tetra-Cube JSON, D&D Beyond character JSON, Open5e JSON, PF2e JSON, and native Binder formats
-- [ ] Exporter Unit Tests: Verify roundtrip fidelity for Open5e export and Binder archive export
-- [ ] Repository & Persistence Tests: In-memory CoreData stack testing CRUD, search predicates, and cascade deletion rules
-- [ ] UI Tests: Automated user journeys testing Monster creation, Library search & filter, Dashboard HP adjustments, and Collection creation
+- [x] Importer Unit Tests: Test fixtures for Tetra-Cube JSON, D&D Beyond character JSON, Open5e JSON, PF2e JSON, and native Binder formats
+- [x] Exporter Unit Tests: Verify roundtrip fidelity for Open5e export and Binder archive export
+- [x] Repository & Persistence Tests: In-memory CoreData stack testing CRUD, search predicates, and cascade deletion rules
+- [x] UI Tests: Automated user journeys testing Monster creation, Library search & filter, Dashboard HP adjustments, and Collection creation
 
 ---
 

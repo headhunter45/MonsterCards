@@ -128,6 +128,7 @@ struct MonsterExport {
             "regionalActions": monster.regionalActions.map { ["name": $0.name, "desc": $0.description] },
 
             "mythicActions": [] as [[String: Any]],
+            "bonusActions": [] as [[String: Any]],
 
             "playerName": "",
             "background": "",

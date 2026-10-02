@@ -24,7 +24,7 @@ struct Open5eImporter: EntityImporter {
         if let props = root["properties"] as? [String: Any], props["abilities"] != nil {
             return true
         }
-        if root["slug"] != nil && root["hit_points"] != nil {
+        if root["slug"] != nil || root["challenge_rating"] != nil || root["hit_points"] != nil {
             return true
         }
         return false
@@ -159,7 +159,7 @@ struct Open5eImporter: EntityImporter {
 
     @MainActor
     private static func parseAbilities(props: [String: Any], monster: MonsterViewModel) {
-        guard let abs = props["abilities"] as? [String: Any] else { return }
+        let abs = (props["abilities"] as? [String: Any]) ?? props
         monster.strengthScore = Int64(extractScore(abs, "strength"))
         monster.dexterityScore = Int64(extractScore(abs, "dexterity"))
         monster.constitutionScore = Int64(extractScore(abs, "constitution"))
@@ -170,6 +170,8 @@ struct Open5eImporter: EntityImporter {
 
     private static func extractScore(_ dict: [String: Any], _ key: String) -> Int {
         if let val = dict[key] as? Int { return val }
+        let shortKey = String(key.prefix(3))
+        if let val = dict[shortKey] as? Int { return val }
         if let obj = dict[key] as? [String: Any], let val = obj["value"] as? Int { return val }
         return 10
     }
@@ -185,6 +187,13 @@ struct Open5eImporter: EntityImporter {
                 applySaveProficiency(monster: monster, str: s.lowercased())
             }
         }
+
+        if props["strength_save"] != nil { monster.strengthSavingThrowProficiency = .proficient }
+        if props["dexterity_save"] != nil { monster.dexteritySavingThrowProficiency = .proficient }
+        if props["constitution_save"] != nil { monster.constitutionSavingThrowProficiency = .proficient }
+        if props["intelligence_save"] != nil { monster.intelligenceSavingThrowProficiency = .proficient }
+        if props["wisdom_save"] != nil { monster.wisdomSavingThrowProficiency = .proficient }
+        if props["charisma_save"] != nil { monster.charismaSavingThrowProficiency = .proficient }
     }
 
     @MainActor

@@ -209,13 +209,24 @@ private extension BinderImporter {
     
     static func extractSpeedMeters(_ text: String?, forSpeed type: String) -> Int {
         guard let t = text else { return 0 }
-        let pattern = "\\b\(type)\\b"
-        if let regex = try? NSRegularExpression(pattern: "\(pattern) (\\d+)", options: [.caseInsensitive]) {
-            let range = NSRange(t.startIndex..., in: t)
-            if let match = regex.firstMatch(in: t, options: [], range: range),
-               let numRange = Range(match.range(at: 1), in: t) {
-                let extractedText = String(t[numRange])
-                if let val = Int(extractedText) { return val }
+        if type.lowercased() == "walk" {
+            if let regex = try? NSRegularExpression(pattern: "(?:walk\\s*)?(\\d+)\\s*(?:feet|ft|')", options: [.caseInsensitive]) {
+                let range = NSRange(t.startIndex..., in: t)
+                if let match = regex.firstMatch(in: t, options: [], range: range),
+                   let numRange = Range(match.range(at: 1), in: t) {
+                    let extractedText = String(t[numRange])
+                    if let val = Int(extractedText) { return val }
+                }
+            }
+        } else {
+            let pattern = "\(type)\\s*(\\d+)"
+            if let regex = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive]) {
+                let range = NSRange(t.startIndex..., in: t)
+                if let match = regex.firstMatch(in: t, options: [], range: range),
+                   let numRange = Range(match.range(at: 1), in: t) {
+                    let extractedText = String(t[numRange])
+                    if let val = Int(extractedText) { return val }
+                }
             }
         }
         return 0
@@ -238,7 +249,7 @@ private extension BinderImporter {
             
             var hasSpeaks = true
             
-            if trimmed.lowercased().contains("understand") || trimmed.lowercased().contains("(silently)") {
+            if trimmed.lowercased().contains("understand") || trimmed.lowercased().contains("(silently)") || trimmed.contains("ft") {
                 hasSpeaks = false
             }
             

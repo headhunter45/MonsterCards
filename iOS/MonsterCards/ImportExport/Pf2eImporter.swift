@@ -31,16 +31,20 @@ struct Pf2eImporter: EntityImporter {
             throw ImporterError.invalidFormat("Failed to parse JSON for Pathfinder 2e")
         }
 
-        let system = (root["system"] as? [String: Any]) ?? [:]
+        let system = (root["system"] as? [String: Any]) ?? root
         let monster = MonsterViewModel()
 
         // Name
         monster.name = (root["name"] as? String) ?? "Unknown PF2e Monster"
 
         // Traits: size, type
-        if let traits = system["traits"] as? [String: Any] {
+        if let sizeStr = (root["size"] as? String) ?? (system["size"] as? String) {
+            monster.size = mapPf2eSize(sizeStr)
+        } else if let traits = system["traits"] as? [String: Any] {
             if let sizeObj = traits["size"] as? [String: Any],
                let sizeVal = sizeObj["value"] as? String {
+                monster.size = mapPf2eSize(sizeVal)
+            } else if let sizeVal = traits["size"] as? String {
                 monster.size = mapPf2eSize(sizeVal)
             }
             if let tags = traits["value"] as? [String] {
@@ -48,40 +52,58 @@ struct Pf2eImporter: EntityImporter {
             }
         }
 
-        // Ability Scores (PF2e stores modifiers: mod -> score = 10 + mod * 2)
-        if let abilities = system["abilities"] as? [String: Any] {
-            monster.strengthScore = Int64(10 + getMod(abilities, "str") * 2)
-            monster.dexterityScore = Int64(10 + getMod(abilities, "dex") * 2)
-            monster.constitutionScore = Int64(10 + getMod(abilities, "con") * 2)
-            monster.intelligenceScore = Int64(10 + getMod(abilities, "int") * 2)
-            monster.wisdomScore = Int64(10 + getMod(abilities, "wis") * 2)
-            monster.charismaScore = Int64(10 + getMod(abilities, "cha") * 2)
+        if monster.type.isEmpty, let traitsArr = root["traits"] as? [String] {
+            monster.type = traitsArr.first?.capitalized ?? ""
         }
 
+        // Ability Scores (PF2e stores modifiers: mod -> score = 10 + mod * 2)
+        let abilities = (system["abilities"] as? [String: Any]) ?? (root["abilities"] as? [String: Any]) ?? [:]
+        monster.strengthScore = Int64(10 + getMod(abilities, "str") * 2)
+        monster.dexterityScore = Int64(10 + getMod(abilities, "dex") * 2)
+        monster.constitutionScore = Int64(10 + getMod(abilities, "con") * 2)
+        monster.intelligenceScore = Int64(10 + getMod(abilities, "int") * 2)
+        monster.wisdomScore = Int64(10 + getMod(abilities, "wis") * 2)
+        monster.charismaScore = Int64(10 + getMod(abilities, "cha") * 2)
+
         // Attributes (AC, HP, Speed)
-        if let attributes = system["attributes"] as? [String: Any] {
-            if let acObj = attributes["ac"] as? [String: Any], let acVal = acObj["value"] as? Int {
-                monster.armorType = .other
-                monster.otherArmorDescription = "\(acVal)"
-            }
-            if let hpObj = attributes["hp"] as? [String: Any], let maxHp = hpObj["max"] as? Int {
-                monster.hasCustomHP = true
-                monster.customHP = "\(maxHp)"
-            }
-            if let speedObj = attributes["speed"] as? [String: Any], let speedVal = speedObj["value"] as? Int {
-                monster.walkSpeed = Int64(speedVal)
-            }
+        let attributes = (system["attributes"] as? [String: Any]) ?? root
+        if let acVal = (attributes["ac"] as? Int) {
+            monster.armorType = .other
+            monster.otherArmorDescription = "\(acVal)"
+        } else if let acObj = attributes["ac"] as? [String: Any], let acVal = acObj["value"] as? Int {
+            monster.armorType = .other
+            monster.otherArmorDescription = "\(acVal)"
+        }
+
+        if let maxHp = (attributes["hp"] as? Int) {
+            monster.hasCustomHP = true
+            monster.customHP = "\(maxHp)"
+        } else if let hpObj = attributes["hp"] as? [String: Any], let maxHp = hpObj["max"] as? Int {
+            monster.hasCustomHP = true
+            monster.customHP = "\(maxHp)"
+        }
+
+        if let speedVal = (attributes["speed"] as? Int) {
+            monster.walkSpeed = Int64(speedVal)
+        } else if let speedObj = attributes["speed"] as? [String: Any], let speedVal = speedObj["value"] as? Int {
+            monster.walkSpeed = Int64(speedVal)
         }
 
         // Details (Level -> CR, Languages)
-        if let details = system["details"] as? [String: Any] {
-            if let levelObj = details["level"] as? [String: Any], let level = levelObj["value"] as? Int {
-                monster.challengeRating = mapLevelToCr(level)
+        let details = (system["details"] as? [String: Any]) ?? root
+        if let level = (details["level"] as? Int) {
+            monster.challengeRating = mapLevelToCr(level)
+        } else if let levelObj = details["level"] as? [String: Any], let level = levelObj["value"] as? Int {
+            monster.challengeRating = mapLevelToCr(level)
+        }
+
+        if let langArr = (details["languages"] as? [String]) {
+            for l in langArr {
+                monster.languages.append(LanguageViewModel(l.capitalized, true))
             }
-            if let langObj = details["languages"] as? [String: Any], let langArr = langObj["value"] as? [String] {
-                for l in langArr {
-                    monster.languages.append(LanguageViewModel(l.capitalized, true))
-                }
+        } else if let langObj = details["languages"] as? [String: Any], let langArr = langObj["value"] as? [String] {
+            for l in langArr {
+                monster.languages.append(LanguageViewModel(l.capitalized, true))
             }
         }
 
@@ -89,6 +111,9 @@ struct Pf2eImporter: EntityImporter {
     }
 
     private static func getMod(_ dict: [String: Any], _ key: String) -> Int {
+        if let val = dict[key] as? Int {
+            return val
+        }
         if let obj = dict[key] as? [String: Any], let mod = obj["mod"] as? Int {
             return mod
         }
@@ -98,17 +123,18 @@ struct Pf2eImporter: EntityImporter {
     private static func mapPf2eSize(_ size: String) -> String {
         switch size.lowercased() {
         case "tiny": return "Tiny"
-        case "sm": return "Small"
-        case "med": return "Medium"
-        case "lg": return "Large"
+        case "sm", "small": return "Small"
+        case "med", "medium": return "Medium"
+        case "lg", "large": return "Large"
         case "huge": return "Huge"
-        case "grg": return "Gargantuan"
-        default: return "Medium"
+        case "grg", "gargantuan": return "Gargantuan"
+        default: return size.capitalized
         }
     }
 
     private static func mapLevelToCr(_ level: Int) -> ChallengeRating {
-        if level <= 0 { return .zero }
+        if level <= -1 { return .oneEighth }
+        if level == 0 { return .zero }
         if level >= 30 { return .thirty }
         return ChallengeRating(rawValue: "\(level)") ?? .one
     }

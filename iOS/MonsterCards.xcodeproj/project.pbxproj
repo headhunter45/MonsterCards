@@ -37,6 +37,10 @@
 		E216E481261FE76F00FD9262 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216E480261FE76F00FD9262 /* PreviewViewController.swift */; };
 		E216E484261FE76F00FD9262 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E216E482261FE76F00FD9262 /* MainInterface.storyboard */; };
 		E216E488261FE76F00FD9262 /* MonsterPreview.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E216E47B261FE76F00FD9262 /* MonsterPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E2FE0021261FE0000083EAC5 /* BinderExporterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0011261FE0000083EAC5 /* BinderExporterTest.swift */; };
+		E2FE0022261FE0000083EAC5 /* BinderImporterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0012261FE0000083EAC5 /* BinderImporterTest.swift */; };
+		E2FE0023261FE0000083EAC5 /* ImporterExporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0013261FE0000083EAC5 /* ImporterExporterTests.swift */; };
+		E2FE0024261FE0000083EAC5 /* MonsterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0014261FE0000083EAC5 /* MonsterRepositoryTests.swift */; };
 		E216E491261FE7B200FD9262 /* SavingThrowDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219247F261989F700C84E12 /* SavingThrowDTO.swift */; };
 		E216E492261FE7B200FD9262 /* AbilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254F905260D0818009295A5 /* AbilityViewModel.swift */; };
 		E216E493261FE7B200FD9262 /* DamageTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E219248E26198A6A00C84E12 /* DamageTypeDTO.swift */; };
@@ -215,6 +219,10 @@
 		E2570FC625B1AC550055B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2570FCB25B1AC550055B23B /* MonsterCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2570FCF25B1AC550055B23B /* MonsterCardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsTests.swift; sourceTree = "<group>"; };
+		E2FE0011261FE0000083EAC5 /* BinderExporterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderExporterTest.swift; sourceTree = "<group>"; };
+		E2FE0012261FE0000083EAC5 /* BinderImporterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderImporterTest.swift; sourceTree = "<group>"; };
+		E2FE0013261FE0000083EAC5 /* ImporterExporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImporterExporterTests.swift; sourceTree = "<group>"; };
+		E2FE0014261FE0000083EAC5 /* MonsterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRepositoryTests.swift; sourceTree = "<group>"; };
 		E2570FD125B1AC550055B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2570FD625B1AC550055B23B /* MonsterCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2570FDA25B1AC550055B23B /* MonsterCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardsUITests.swift; sourceTree = "<group>"; };
@@ -374,6 +382,10 @@
 			isa = PBXGroup;
 			children = (
 				E2570FCF25B1AC550055B23B /* MonsterCardsTests.swift */,
+				E2FE0011261FE0000083EAC5 /* BinderExporterTest.swift */,
+				E2FE0012261FE0000083EAC5 /* BinderImporterTest.swift */,
+				E2FE0013261FE0000083EAC5 /* ImporterExporterTests.swift */,
+				E2FE0014261FE0000083EAC5 /* MonsterRepositoryTests.swift */,
 				E2570FD125B1AC550055B23B /* Info.plist */,
 			);
 			path = MonsterCardsTests;
@@ -768,6 +780,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2570FD025B1AC550055B23B /* MonsterCardsTests.swift in Sources */,
+				E2FE0021261FE0000083EAC5 /* BinderExporterTest.swift in Sources */,
+				E2FE0022261FE0000083EAC5 /* BinderImporterTest.swift in Sources */,
+				E2FE0023261FE0000083EAC5 /* ImporterExporterTests.swift in Sources */,
+				E2FE0024261FE0000083EAC5 /* MonsterRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
