@@ -86,7 +86,7 @@ public class LibraryFragment extends MCFragment {
             exportEverything();
             return true;
         } else if (item.getItemId() == R.id.menu_action_compendium_sources) {
-            Navigation.findNavController(requireView()).navigate(R.id.compendiumSourcesFragment);
+            androidx.navigation.fragment.NavHostFragment.findNavController(this).navigate(R.id.compendiumSourcesFragment);
             return true;
         } else if (item.getItemId() == R.id.menu_action_clear_all_data) {
             showClearAllDataConfirmationDialog();

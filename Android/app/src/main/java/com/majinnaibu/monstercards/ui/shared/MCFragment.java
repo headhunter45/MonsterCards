@@ -169,7 +169,7 @@ public class MCFragment extends Fragment {
             compendiumButton.setOnClickListener(v -> {
                 dialog.dismiss();
                 try {
-                    NavController navController = Navigation.findNavController(requireView());
+                    NavController navController = androidx.navigation.fragment.NavHostFragment.findNavController(this);
                     navController.navigate(R.id.compendiumSourcesFragment);
                 } catch (Exception e) {
                     Logger.logError("Failed to navigate to compendiumSourcesFragment", e);

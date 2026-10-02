@@ -44,6 +44,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -305,8 +306,58 @@ public class MainActivity extends AppCompatActivity {
         if (uris.size() == 1) {
             Uri singleUri = uris.get(0);
             String fileName = getFileNameFromUri(singleUri);
+            if (fileName != null && fileName.toLowerCase(Locale.ROOT).endsWith(".zip")) {
+                ToastHelper.showShort(this, R.string.toast_importing_url);
+                Single.fromCallable(() -> importFromZipUri(singleUri))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(result -> {
+                            if (result.bindersImported > 0 || result.monstersImported > 0) {
+                                String message = buildImportSummaryMessage(result.monstersImported, result.bindersImported);
+                                ToastHelper.showLong(this, message);
+                                NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
+                                NavController navController = navHostFragment.getNavController();
+                                navController.navigate(R.id.navigation_library);
+                            } else {
+                                ToastHelper.showLong(this, R.string.failed_to_import_url);
+                            }
+                        }, throwable -> {
+                            Logger.logError("Failed to import zip file", throwable);
+                            ToastHelper.showLong(this, R.string.failed_to_import_url);
+                        });
+                return;
+            }
+
             String content = readContentsOfUri(singleUri);
             if (content != null && !content.trim().isEmpty()) {
+                if (content.trim().startsWith("[")) {
+                    ToastHelper.showShort(this, R.string.toast_importing_url);
+                    Single.fromCallable(() -> {
+                        List<Monster> monsters = MonsterImportHelper.listFromJSON(content, fileName);
+                        for (Monster m : monsters) {
+                            ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                    .saveMonster(m)
+                                    .blockingAwait();
+                        }
+                        return monsters.size();
+                    })
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(count -> {
+                        if (count > 0) {
+                            ToastHelper.showLong(this, buildImportSummaryMessage(count, 0));
+                            NavHostFragment navHostFragment = Objects.requireNonNull((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment));
+                            NavController navController = navHostFragment.getNavController();
+                            navController.navigate(R.id.navigation_library);
+                        } else {
+                            ToastHelper.showLong(this, R.string.failed_to_import_url);
+                        }
+                    }, throwable -> {
+                        Logger.logError("Failed to import JSON array", throwable);
+                        ToastHelper.showLong(this, R.string.failed_to_import_url);
+                    });
+                    return;
+                }
                 importMonsterFromInputAndNavigate(content, fileName);
             } else {
                 ToastHelper.showLong(this, R.string.failed_to_import_url);
@@ -322,6 +373,13 @@ public class MainActivity extends AppCompatActivity {
             for (Uri uri : uris) {
                 try {
                     String fileName = getFileNameFromUri(uri);
+                    if (fileName != null && fileName.toLowerCase(Locale.ROOT).endsWith(".zip")) {
+                        BatchImportResult zipRes = importFromZipUri(uri);
+                        monstersImported += zipRes.monstersImported;
+                        bindersImported += zipRes.bindersImported;
+                        continue;
+                    }
+
                     String content = readContentsOfUri(uri);
                     if (content == null || content.trim().isEmpty()) {
                         continue;
@@ -335,11 +393,13 @@ public class MainActivity extends AppCompatActivity {
                                 .blockingAwait();
                         bindersImported++;
                     } else {
-                        Monster monster = MonsterImportHelper.fromJSON(content, fileName);
-                        ((MonsterCardsApplication) getApplication()).getMonsterRepository()
-                                .saveMonster(monster)
-                                .blockingAwait();
-                        monstersImported++;
+                        List<Monster> monsters = MonsterImportHelper.listFromJSON(content, fileName);
+                        for (Monster monster : monsters) {
+                            ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                    .saveMonster(monster)
+                                    .blockingAwait();
+                            monstersImported++;
+                        }
                     }
                 } catch (Exception e) {
                     Logger.logError("Failed to import file URI: " + uri, e);
@@ -364,6 +424,58 @@ public class MainActivity extends AppCompatActivity {
             Logger.logError("Failed to execute batch file import", throwable);
             ToastHelper.showLong(this, R.string.failed_to_import_url);
         });
+    }
+
+    private BatchImportResult importFromZipUri(@NonNull Uri uri) {
+        int monstersImported = 0;
+        int bindersImported = 0;
+        try (InputStream inputStream = getContentResolver().openInputStream(uri);
+             java.util.zip.ZipInputStream zis = new java.util.zip.ZipInputStream(new java.io.BufferedInputStream(Objects.requireNonNull(inputStream)))) {
+            java.util.zip.ZipEntry entry;
+            byte[] buffer = new byte[8192];
+            while ((entry = zis.getNextEntry()) != null) {
+                if (entry.isDirectory()) {
+                    zis.closeEntry();
+                    continue;
+                }
+                String entryName = entry.getName();
+                String lower = entryName.toLowerCase(Locale.ROOT);
+                if (lower.endsWith(".json") || lower.endsWith(".monster") || lower.endsWith(".card") || lower.endsWith(".binder")) {
+                    java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
+                    int count;
+                    while ((count = zis.read(buffer)) != -1) {
+                        baos.write(buffer, 0, count);
+                    }
+                    String content = baos.toString(StandardCharsets.UTF_8.name());
+                    if (!content.trim().isEmpty()) {
+                        BinderImporter binderImporter = new BinderImporter();
+                        if (binderImporter.canImport(content)) {
+                            BinderExport binder = binderImporter.parse(content);
+                            ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                    .importBinder(binder)
+                                    .blockingAwait();
+                            bindersImported++;
+                        } else {
+                            try {
+                                List<Monster> monsters = MonsterImportHelper.listFromJSON(content, entryName);
+                                for (Monster m : monsters) {
+                                    ((MonsterCardsApplication) getApplication()).getMonsterRepository()
+                                            .saveMonster(m)
+                                            .blockingAwait();
+                                    monstersImported++;
+                                }
+                            } catch (Exception e) {
+                                Logger.logError("Failed to parse monster entry in zip: " + entryName, e);
+                            }
+                        }
+                    }
+                }
+                zis.closeEntry();
+            }
+        } catch (Exception e) {
+            Logger.logError("Failed to process zip URI: " + uri, e);
+        }
+        return new BatchImportResult(monstersImported, bindersImported);
     }
 
     private String buildImportSummaryMessage(int monstersCount, int bindersCount) {
@@ -407,7 +519,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (uri == null || !isMonsterFile(uri)) {
             if (uri != null) {
-                Logger.logError("Ignored file because extension is not supported (.monster, .card, .binder): " + uri);
+                Logger.logError("Ignored file because extension is not supported: " + uri);
             }
             return null;
         }
@@ -427,7 +539,8 @@ public class MainActivity extends AppCompatActivity {
         String lowerName = fileName.toLowerCase(Locale.ROOT);
         return lowerName.endsWith(".monster") || lowerName.endsWith(".monster.txt")
                 || lowerName.endsWith(".card") || lowerName.endsWith(".card.txt")
-                || lowerName.endsWith(".binder") || lowerName.endsWith(".binder.txt");
+                || lowerName.endsWith(".binder") || lowerName.endsWith(".binder.txt")
+                || lowerName.endsWith(".json") || lowerName.endsWith(".zip");
     }
 
     @Nullable
@@ -457,10 +570,10 @@ public class MainActivity extends AppCompatActivity {
         try (InputStream inputStream =
                      getContentResolver().openInputStream(uri);
              BufferedReader reader = new BufferedReader(
-                     new InputStreamReader(Objects.requireNonNull(inputStream)))) {
+                     new InputStreamReader(Objects.requireNonNull(inputStream), StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                builder.append(line);
+                builder.append(line).append("\n");
             }
         } catch (IOException e) {
             Logger.logError("error reading file", e);

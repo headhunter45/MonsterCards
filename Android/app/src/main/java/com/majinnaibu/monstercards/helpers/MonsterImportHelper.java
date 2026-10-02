@@ -85,4 +85,34 @@ public class MonsterImportHelper {
         }
         throw new IllegalArgumentException("No importer found capable of parsing the given JSON payload.");
     }
+
+    @NonNull
+    public static List<Monster> listFromJSON(String json, @Nullable String fileName) {
+        if (json == null || json.trim().isEmpty()) {
+            throw new IllegalArgumentException("JSON payload is null or empty");
+        }
+        String trimmed = json.trim();
+        List<Monster> monsters = new ArrayList<>();
+        if (trimmed.startsWith("[")) {
+            try {
+                JsonElement el = JsonParser.parseString(trimmed);
+                if (el.isJsonArray()) {
+                    for (JsonElement item : el.getAsJsonArray()) {
+                        try {
+                            monsters.add(fromJSON(item.toString(), fileName));
+                        } catch (Exception e) {
+                            Logger.logError("Failed to parse array item as monster", e);
+                        }
+                    }
+                    if (!monsters.isEmpty()) {
+                        return monsters;
+                    }
+                }
+            } catch (Exception e) {
+                Logger.logError("Failed to parse JSON array", e);
+            }
+        }
+        monsters.add(fromJSON(json, fileName));
+        return monsters;
+    }
 }
