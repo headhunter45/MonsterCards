@@ -481,4 +481,13 @@ public class ReferenceMonster {
         }
         return systemName;
     }
+
+    public String getChallengeRatingDescription() {
+        ChallengeRating challengeRating = this.challengeRating != null ? this.challengeRating : ChallengeRating.ONE;
+        if (challengeRating == ChallengeRating.CUSTOM) {
+            return customChallengeRatingDescription;
+        } else {
+            return challengeRating.displayName;
+        }
+    }
 }

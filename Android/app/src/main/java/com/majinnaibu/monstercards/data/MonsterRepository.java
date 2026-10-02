@@ -143,13 +143,28 @@ public class MonsterRepository {
                     return (List<Collection>) filteredCollections;
                 });
 
-        return Flowable.combineLatest(monstersFlowable, collectionsFlowable, (monsters, collections) -> {
+        Flowable<List<ReferenceMonster>> refMonstersFlowable = m_db.referenceMonsterDAO()
+                .getAll()
+                .map(refMonsters -> {
+                    ArrayList<ReferenceMonster> filtered = new ArrayList<>();
+                    for (ReferenceMonster rm : refMonsters) {
+                        if (Helpers.referenceMonsterMatchesSearch(rm, searchText)) {
+                            filtered.add(rm);
+                        }
+                    }
+                    return (List<ReferenceMonster>) filtered;
+                });
+
+        return Flowable.combineLatest(monstersFlowable, collectionsFlowable, refMonstersFlowable, (monsters, collections, refMonsters) -> {
             ArrayList<SearchResultItem> results = new ArrayList<>();
             for (Monster monster : monsters) {
                 results.add(new SearchResultItem(monster));
             }
             for (Collection collection : collections) {
                 results.add(new SearchResultItem(collection));
+            }
+            for (ReferenceMonster rm : refMonsters) {
+                results.add(new SearchResultItem(rm));
             }
             return (List<SearchResultItem>) results;
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
@@ -601,6 +616,42 @@ public class MonsterRepository {
             }
 
             if (StringHelper.containsCaseInsensitive(monster.alignment, searchText)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        static boolean referenceMonsterMatchesSearch(ReferenceMonster rm, String searchText) {
+            if (StringHelper.isNullOrEmpty(searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.name, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.size, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.type, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.subtype, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.alignment, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.sourceLabel, searchText)) {
+                return true;
+            }
+
+            if (StringHelper.containsCaseInsensitive(rm.bookSource, searchText)) {
                 return true;
             }
 

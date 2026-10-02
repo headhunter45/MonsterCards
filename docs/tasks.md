@@ -135,7 +135,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                  | Android | Fixed   | [Feature](#mcr-014) |
 | MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal     | Android | Fixed   | [Feature](#mcr-015) |
 | MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                      | Android | Fixed   | [Feature](#mcr-016) |
-| MCR-017 | **Integrate reference compendiums into Search with source tag filters and badges**                        | Android | Pending | [Feature](#mcr-017) |
+| MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                            | Android | Fixed   | [Feature](#mcr-017) |
 | MCR-018 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**         | Android | Pending | [Feature](#mcr-018) |
 | MCR-019 | **Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles**      | iOS     | Pending | [Feature](#mcr-019) |
 | MCR-020 | **Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline**             | iOS     | Pending | [Feature](#mcr-020) |
@@ -455,11 +455,11 @@ Implement an update checking service for downloaded compendiums that checks remo
 - [x] Display "Update Available" badge/button in Sources settings when newer commit/hash is detected
 - [x] Perform atomic database replacement per `sourceId` in a single Room transaction (delete old source records and insert new version)
 
-<a id="mcr-017" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-017" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Integrate reference compendiums into Search with source tag filters and badges
 **ID:** MCR-017
 **Project:** Android
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -467,10 +467,10 @@ Update `SearchFragment` and `SearchResultsRecyclerViewAdapter` to perform unifie
 
 **Requirements:**
 
-- [ ] Update `MonsterRepository.searchAll` to query both `Monster` and `ReferenceMonster` tables concurrently
-- [ ] Render source tag bubbles (`[PF2e]`, `[SF2e]`, `[Local]`, `[5e]`) on all search result items
-- [ ] Add horizontal filter chips / filter bottom sheet to filter search results by game system and source compendium
-- [ ] Ensure debounced, responsive UI performance across large reference catalogs (5,000+ monsters)
+- [x] Update `MonsterRepository.searchAll` to query both `Monster` and `ReferenceMonster` tables concurrently
+- [x] Render source tag bubbles (`[PF2e]`, `[SF2e]`, `[Local]`, `[5e]`) on all search result items
+- [x] Add horizontal filter chips / filter bottom sheet to filter search results by game system and source compendium
+- [x] Ensure debounced, responsive UI performance across large reference catalogs (5,000+ monsters)
 
 <a id="mcr-018" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
 ### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library
