@@ -47,4 +47,21 @@ enum ArmorType: String, CaseIterable, Identifiable {
             case .other: return "Other"
         }
     }
+
+    var baseArmorClass: Int {
+        switch self {
+        case .none: return 10
+        case .naturalArmor: return 10
+        case .mageArmor: return 13
+        case .padded, .leather: return 11
+        case .studdedLeather, .hide: return 12
+        case .chainShirt: return 13
+        case .scaleMail, .breastplate, .ringMail: return 14
+        case .halfPlate: return 15
+        case .chainMail: return 16
+        case .splintMail: return 17
+        case .plateMail: return 18
+        case .other: return 10
+        }
+    }
 }

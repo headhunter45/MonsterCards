@@ -125,7 +125,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed   | [Feature](#fgj-004) |
 | FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed   | [Feature](#fgj-005) |
 | FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed   | [Feature](#fgj-006) |
-| FGJ-007 | **Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards**    | iOS     | Pending | [Feature](#fgj-007) |
+| FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed   | [Feature](#fgj-007) |
 | FGJ-008 | **Implement Collections and Encounters management with CR/XP summary metrics**                     | iOS     | Pending | [Feature](#fgj-008) |
 | FGJ-009 | **Implement unified local Full-Text Search and remote Open5e API live search**                     | iOS     | Pending | [Feature](#fgj-009) |
 | FGJ-010 | **Build comprehensive multi-section 5e Monster Editor suite with validation and live preview**     | iOS     | Pending | [Feature](#fgj-010) |
@@ -251,24 +251,23 @@ Upgrade the Monster Library tab (`Library.swift`) to match Android functionality
 - [x] Add swipe actions on monster rows: Quick Favorite, Pin to Dashboard, Duplicate, Delete
 - [x] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
 
-<a id="fgj-007" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-007" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards
 **ID:** FGJ-007
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Replace the placeholder `Dashboard.swift` with a combat companion dashboard matching Android's encounter running capabilities. Allows Dungeon Masters to pin monster stat blocks, track current/max/temp hit points, manage turn orders, and view compact vital stats during tabletop sessions.
 
 **Requirements:**
 
-- [ ] Create dashboard monster grid/list with vital stats glance (AC, HP bar, Speed, Passive Perception, Key Attacks)
-- [ ] Implement interactive Hit Point tracker: current HP, max HP, temporary HP, quick damage/healing steppers with dice roll helpers
-- [ ] Implement Pin/Unpin monster actions from Library, Search, and StatBlock views
-- [ ] Implement quick expand/collapse sheet to inspect full monster card details without losing dashboard context
-- [ ] Persist dashboard combat state across app restarts
+- [x] Create dashboard monster grid/list with vital stats glance (AC, HP bar, Speed, Passive Perception, Key Attacks)
+- [x] Implement interactive Hit Point tracker: current HP, max HP, temporary HP, quick damage/healing steppers with dice roll helpers
+- [x] Implement Pin/Unpin monster actions from Library, Search, and StatBlock views
+- [x] Implement quick expand/collapse sheet to inspect full monster card details without losing dashboard context
+- [x] Persist dashboard combat state across app restarts
 
 <a id="fgj-008" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement Collections and Encounters management with CR/XP summary metrics
