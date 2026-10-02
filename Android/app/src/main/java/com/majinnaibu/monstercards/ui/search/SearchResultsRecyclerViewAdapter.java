@@ -58,7 +58,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     private String mSearchText;
     private List<SearchResultItem> mAllValues;
     private List<SearchResultItem> mFilteredValues;
-    private ScopeMode mScopeMode = ScopeMode.MY_LIBRARY;
+    private ScopeMode mScopeMode = ScopeMode.COMPENDIUMS;
     private SystemFilter mSystemFilter = SystemFilter.ALL;
     private Disposable mSubscriptionHandler;
 

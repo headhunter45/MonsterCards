@@ -780,8 +780,7 @@ Describe task objectives and implementation requirements here.
 **Type:** Feature
 
 **Description:**
-Describe task objectives and implementation requirements here.
-- [ ]
+Can we ensure the book or whatever it is in the api is carried to our source field? I would like to be able to tell later that this is a 5e monster downloaded from open5e.com and from the Tome of Beasts. Those can be separate fields. game ssytem: (5e, pf2e, sf2e) origin: (manual, open5e.com, foundryvtt/pf2e), and book or publication. The first two should be string enums that we will add to later. the third should be freeform text. Imported .card or .binder files may have monsters with unrecognized systems and origins. we should properly display those even if we don't know what they are. This is already implemented for android.
 
 ---
 
