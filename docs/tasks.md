@@ -147,7 +147,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-026 | Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers. | iOS     | Fixed   | [Feature](#mcr-026) |
 | MCR-027 | Do not call the repositories official.                                                                       | iOS     | Fixed   | [Feature](#mcr-027) |
 | MCR-028 | When adding a monster from open5e.com set the source as open5e.com.                                          | iOS     | Fixed   | [Feature](#mcr-028) |
-| MCR-029 | **After downloading all compendiums there are no search results in the search compendiums tab.**             | iOS     | Pending | [Feature](#mcr-029) |
+| MCR-029 | After downloading all compendiums there are no search results in the search compendiums tab.                 | iOS     | Fixed   | [Feature](#mcr-029) |
 | MCR-030 | Text on compendium sources screen is very tiny.                                                              | Android | Fixed   | [Feature](#mcr-030) |
 | MCR-031 | The download buttons on the compendium page are magenta bubbles.                                             | Android | Fixed   | [Feature](#mcr-031) |
 | MCR-032 | The 3rd party content notice frame is also tiny text.                                                        | Android | Fixed   | [Feature](#mcr-032) |
@@ -664,16 +664,16 @@ Describe task objectives and implementation requirements here.
 
 - [x]
 
-<a id="mcr-029" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-029" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### After downloading all compendiums there are no search results in the search compendiums tab.
 **ID:** MCR-029
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
 Describe task objectives and implementation requirements here.
-- [ ]
+- [x]
 
 <a id="mcr-030" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Text on compendium sources screen is very tiny.

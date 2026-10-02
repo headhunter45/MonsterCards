@@ -75,7 +75,7 @@ struct Search: View {
 
             let matchesSystem = selectedSystemFilter == nil || monster.gameSystemEnum == selectedSystemFilter
             let matchesCr = selectedCrFilter == "All" || (monster.challengeRating ?? "") == selectedCrFilter
-            let matchesType = selectedTypeFilter == "All" || (monster.type ?? "").lowercased() == selectedTypeFilter.lowercased()
+            let matchesType = selectedTypeFilter == "All" || StringHelper.safeContainsCaseInsensitive(monster.type, selectedTypeFilter)
 
             return matchesQuery && matchesSystem && matchesCr && matchesType
         }
@@ -101,9 +101,10 @@ struct Search: View {
             }
 
             let matchesSystem = selectedSystemFilter == nil || refMonster.gameSystemEnum == selectedSystemFilter
-            let matchesType = selectedTypeFilter == "All" || (refMonster.type ?? "").lowercased() == selectedTypeFilter.lowercased()
+            let matchesCr = selectedCrFilter == "All" || (refMonster.challengeRating ?? "") == selectedCrFilter
+            let matchesType = selectedTypeFilter == "All" || StringHelper.safeContainsCaseInsensitive(refMonster.type, selectedTypeFilter)
 
-            return matchesQuery && matchesSystem && matchesType
+            return matchesQuery && matchesSystem && matchesCr && matchesType
         }
     }
 

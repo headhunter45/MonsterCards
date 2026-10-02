@@ -93,8 +93,12 @@ final class ReferenceMonsterRepository: @unchecked Sendable {
     func insertBatch(monsters: [[String: Any]], in context: NSManagedObjectContext) throws {
         guard !monsters.isEmpty else { return }
         let batchInsert = NSBatchInsertRequest(entityName: "ReferenceMonster", objects: monsters)
-        batchInsert.resultType = .statusOnly
-        try context.execute(batchInsert)
+        batchInsert.resultType = .objectIDs
+        let result = try context.execute(batchInsert) as? NSBatchInsertResult
+        if let objectIDs = result?.result as? [NSManagedObjectID] {
+            let changes = [NSInsertedObjectsKey: objectIDs]
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+        }
     }
     
     func replaceSource(
@@ -104,7 +108,9 @@ final class ReferenceMonsterRepository: @unchecked Sendable {
     ) throws {
         try deleteSource(sourceId: sourceId, in: context)
         try insertBatch(monsters: monsters, in: context)
-        try context.save()
+        if context.hasChanges {
+            try context.save()
+        }
     }
     
     // MARK: - Mapping Dictionaries
