@@ -30,7 +30,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="Pathfinder 2e (Foundry VTT)" />
 
@@ -46,8 +48,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textAppearance="?attr/textAppearanceListItemSecondary"
             android:textColor="?android:attr/textColorSecondary"
+            android:textSize="14sp"
             tools:text="Complete Pathfinder 2nd Edition community bestiary data extract." />
 
         <TextView
@@ -55,8 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textAppearance="?attr/textAppearanceListItemSecondary"
             android:textColor="?attr/colorPrimary"
+            android:textSize="14sp"
             tools:text="https://github.com/foundryvtt/pf2e" />
 
         <LinearLayout
@@ -71,7 +75,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textAppearance="?attr/textAppearanceListItemSecondary"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="14sp"
                 android:textStyle="italic"
                 tools:text="Status: Downloaded (1,240 monsters)" />
 
@@ -79,8 +85,9 @@
                 android:id="@+id/text_estimated_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textAppearance="?attr/textAppearanceListItemSecondary"
                 android:textColor="?android:attr/textColorSecondary"
+                android:textSize="14sp"
                 tools:text="Size: ~25 MB" />
         </LinearLayout>
 
@@ -105,7 +112,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textAppearance="?attr/textAppearanceListItemSecondary"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="14sp"
                 tools:text="Downloading archive..." />
         </LinearLayout>
 
@@ -119,7 +128,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_remove"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/action_delete_compendium"
@@ -129,7 +138,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_download"
-                style="@style/Widget.Material3.Button.TonalButton"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

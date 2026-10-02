@@ -148,7 +148,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-027 | *Do not call the repositories official.*                                                                       | iOS     | Triage | [Feature](#mcr-027) |
 | MCR-028 | *When adding a monster from open5e.com set the source as open5e.com.*                                          | iOS     | Triage | [Feature](#mcr-028) |
 | MCR-029 | *After downloading all compendiums there are no search results in the search compendiums tab.*                 | iOS     | Triage | [Feature](#mcr-029) |
-| MCR-030 | *Text on compendium sources screen is very tiny.*                                                              | Android | Triage | [Feature](#mcr-030) |
+| MCR-030 | Text on compendium sources screen is very tiny.                                                                | Android | Fixed  | [Feature](#mcr-030) |
 | MCR-031 | *The download buttons on the compendium page are magenta bubbles.*                                             | Android | Triage | [Feature](#mcr-031) |
 
 ---
@@ -674,16 +674,16 @@ Describe task objectives and implementation requirements here.
 Describe task objectives and implementation requirements here.
 - [ ]
 
-<a id="mcr-030" class="task" data-project="android" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-030" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Text on compendium sources screen is very tiny.
 **ID:** MCR-030
 **Project:** Android
-**Status:** Triage
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
 Make it the same size as text in the rest of the app. Are we not using the same theme and components.
-- [ ]
+- [x]
 
 <a id="mcr-031" class="task" data-project="android" data-status="triage" data-task-type="feature"></a>
 ### The download buttons on the compendium page are magenta bubbles.
