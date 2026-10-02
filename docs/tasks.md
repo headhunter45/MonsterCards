@@ -117,31 +117,32 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 <a id="tasks-list"></a>
 
-| ID      | Title                                                                                                                               | Project | Status  | Type                |
-|:------|:----------------------------------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
-| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                                              | Shared  | Fixed   | [Chore](#mcr-001)   |
-| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                                                | iOS     | Fixed   | [Chore](#mcr-002)   |
-| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                                               | iOS     | Fixed   | [Feature](#mcr-003) |
-| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)                                  | iOS     | Fixed   | [Feature](#mcr-004) |
-| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                                          | iOS     | Fixed   | [Feature](#mcr-005) |
-| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                                           | iOS     | Fixed   | [Feature](#mcr-006) |
-| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards                                         | iOS     | Fixed   | [Feature](#mcr-007) |
-| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                                          | iOS     | Fixed   | [Feature](#mcr-008) |
-| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                                          | iOS     | Fixed   | [Feature](#mcr-009) |
-| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                                          | iOS     | Fixed   | [Feature](#mcr-010) |
-| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing                                         | iOS     | Fixed   | [Feature](#mcr-011) |
-| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                                           | iOS     | Fixed   | [Feature](#mcr-012) |
-| MCR-013 | **Implement remote API search client supporting Open5e REST query with debouncing, error handling, and cancellation**               | Android | Pending | [Feature](#mcr-013) |
-| MCR-014 | **Add a registry in settings for each of the search/import APIs**                                                                   | Android | Pending | [Feature](#mcr-014) |
-| MCR-015 | **Add distinct source badges/icons on search result items to clearly differentiate local library monsters vs. remote API monsters** | Android | Pending | [Feature](#mcr-015) |
-| MCR-016 | **Provide modular architecture for registering additional OGL/ORC API providers**                                                   | Android | Pending | [Feature](#mcr-016) |
-| MCR-017 | **Add source toggle controls/filter sheet in Search UI allowing users to enable or disable specific remote sources**                | Android | Pending | [Feature](#mcr-017) |
-| MCR-018 | **Support tap-to-preview for remote search results with one-tap import into local Room database**                                   | Android | Pending | [Feature](#mcr-018) |
-| MCR-019 | **Add a registry in settings for each of the search/import APIs**                                                                   | iOS     | Pending | [Feature](#mcr-019) |
-| MCR-020 | **Add distinct source badges/icons on search result items to clearly differentiate local library monsters vs. remote API monsters** | iOS     | Pending | [Feature](#mcr-020) |
-| MCR-021 | **Provide modular architecture for registering additional OGL/ORC API providers**                                                   | iOS     | Pending | [Feature](#mcr-021) |
-| MCR-022 | **Add source toggle controls/filter sheet in Search UI allowing users to enable or disable specific remote sources**                | iOS     | Pending | [Feature](#mcr-022) |
-| MCR-023 | **Support tap-to-preview for remote search results with one-tap import into local CoreData database**                               | iOS     | Pending | [Feature](#mcr-023) |
+| ID      | Title                                                                                                     | Project | Status  | Type                |
+|:------|:--------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
+| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                    | Shared  | Fixed   | [Chore](#mcr-001)   |
+| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                      | iOS     | Fixed   | [Chore](#mcr-002)   |
+| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                     | iOS     | Fixed   | [Feature](#mcr-003) |
+| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)        | iOS     | Fixed   | [Feature](#mcr-004) |
+| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                | iOS     | Fixed   | [Feature](#mcr-005) |
+| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                 | iOS     | Fixed   | [Feature](#mcr-006) |
+| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards               | iOS     | Fixed   | [Feature](#mcr-007) |
+| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                | iOS     | Fixed   | [Feature](#mcr-008) |
+| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                | iOS     | Fixed   | [Feature](#mcr-009) |
+| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                | iOS     | Fixed   | [Feature](#mcr-010) |
+| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing               | iOS     | Fixed   | [Feature](#mcr-011) |
+| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                 | iOS     | Fixed   | [Feature](#mcr-012) |
+| MCR-013 | **Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles**                   | Android | Pending | [Feature](#mcr-013) |
+| MCR-014 | **Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline**              | Android | Pending | [Feature](#mcr-014) |
+| MCR-015 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | Android | Pending | [Feature](#mcr-015) |
+| MCR-016 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | Android | Pending | [Feature](#mcr-016) |
+| MCR-017 | **Integrate reference compendiums into Search with source tag filters and badges**                        | Android | Pending | [Feature](#mcr-017) |
+| MCR-018 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**         | Android | Pending | [Feature](#mcr-018) |
+| MCR-019 | **Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles**      | iOS     | Pending | [Feature](#mcr-019) |
+| MCR-020 | **Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline**             | iOS     | Pending | [Feature](#mcr-020) |
+| MCR-021 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | iOS     | Pending | [Feature](#mcr-021) |
+| MCR-022 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | iOS     | Pending | [Feature](#mcr-022) |
+| MCR-023 | **Integrate reference compendiums into Search with source tag filters and badges**                        | iOS     | Pending | [Feature](#mcr-023) |
+| MCR-024 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**         | iOS     | Pending | [Feature](#mcr-024) |
 
 ---
 
@@ -387,183 +388,207 @@ Establish a complete test suite covering data conversion, all format importers/e
 - [x] UI Tests: Automated user journeys testing Monster creation, Library search & filter, Dashboard HP adjustments, and Collection creation
 
 <a id="mcr-013" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
-### Implement remote API search client supporting Open5e REST query with debouncing, error handling, and cancellation
+### Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles
 **ID:** MCR-013
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Build an asynchronous remote API search client in the Android codebase that queries Open5e monsters (`api.open5e.com/monsters/?search=...`) with user input debouncing, network error resilience, and RxJava/Coroutine cancellation.
+Add a structured `gameSystem` enum (e.g. `DND_5E`, `PF_2E`, `SF_2E`, `CUSTOM`) and optional `bookSource` / `sourceLabel` field to the Android `Monster` Room entity. Update the Monster Editor to let users choose the game system and book source, and display styled source tag bubbles (pill badges) across monster listings, search results, and combat dashboards.
 
 **Requirements:**
 
-- [ ] Implement debounced API search query runner in `SearchFragment` / ViewModel
-- [ ] Connect `Open5eApiWrapper` query methods for paginated search results
-- [ ] Implement cancellation of in-flight search requests when user updates search input
-- [ ] Add loading indicators and network error handling states
+- [ ] Add `gameSystem` and `sourceLabel` columns to Room `Monster` entity and run database migration
+- [ ] Add Game System selector and Source / Book text field to `EditMonsterFragment` and viewmodel
+- [ ] Create `SourceTagView` component rendering colored pill tag bubbles (e.g., `[PF2e | Bestiary]`, `[5e | SRD]`, `[SF2e | Alien Archive]`)
+- [ ] Render source tag bubbles on Monster Library cards, Search results, and Dashboard cards
 
 <a id="mcr-014" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
-### Add a registry in settings for each of the search/import APIs
+### Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline
 **ID:** MCR-014
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Implement an API Registry in the Android settings/preferences to configure, manage, enable/disable, and supply custom endpoints or credentials for external monster APIs (e.g. Open5e, community OGL/ORC providers).
+Create an isolated `ReferenceMonster` Room entity and DAO matching all statblock fields of `Monster` plus compendium metadata (`sourceId`, `sourceLabel`, `gameSystem`, `bookSource`). Keep reference monsters completely separate from user library counts, regular user exports (`BinderExporter`, `Open5eExporter`), and user backup archives. Provide fast bulk-insertion of extracted JSON files.
 
 **Requirements:**
 
-- [ ] Create API Source configuration model with name, base URL, enabled toggle, and rate limit settings
-- [ ] Build Settings UI screen/section for managing registered search and import API providers
-- [ ] Persist API provider settings in SharedPreferences / Room configuration store
-- [ ] Allow adding custom REST endpoints conforming to Open5e / ORC schemas
+- [ ] Create `ReferenceMonster` Room entity, DAO, and full-text search indexes
+- [ ] Ensure user library exports and collection operations exclusively query user `Monster` records, ignoring reference monsters
+- [ ] Implement fast background JSON ingestion pipeline mapping external schemas (PF2e, SF2e, Open5e) into `ReferenceMonster` records
+- [ ] Cache extracted reference entities on local disk/database so import workflows reuse existing data without re-downloading
 
 <a id="mcr-015" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
-### Add distinct source badges/icons on search result items to clearly differentiate local library monsters vs. remote API monsters
+### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal
 **ID:** MCR-015
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Update `SearchResultsRecyclerViewAdapter` and `search_result_list_item.xml` to display distinct badges/icons representing the source origin (Local Room Database, Open5e, PF2e, SF2e, etc.).
+Add a Compendium Sources screen in Android settings where users can view available community content repositories (PF2e, SF2e, Open5e, etc.) and tap to download. Tapping download presents a mandatory legal disclaimer/confirmation dialog warning the user that content is third-party, fetched from the Git repository URL, and not created or owned by this app.
 
 **Requirements:**
 
-- [ ] Add source badge UI element to `search_result_list_item.xml`
-- [ ] Display icon and text pill badge for Local Library vs. Open5e / Remote sources
-- [ ] Style badges with distinctive color coding for rapid identification
+- [ ] Build Compendium Sources management UI in Settings listing available repository sources with download status and file sizes
+- [ ] Implement confirmation modal dialog displaying the target Git repo URL, 3rd-party content disclaimer, and user acknowledgment checkbox/button
+- [ ] Initiate background download and extraction service upon user confirmation with progress bar and cancellation support
+- [ ] Design extensible source configuration model allowing new community sources to be added easily
 
 <a id="mcr-016" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
-### Provide modular architecture for registering additional OGL/ORC API providers
+### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement
 **ID:** MCR-016
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Create an extensible API provider interface/abstraction (`RemoteMonsterApiProvider`) allowing pluggable search and import providers for Pathfinder 2e (PF2e), Starfinder 2e (SF2e), and other ORC/OGL content sources.
+Implement an update checking service for downloaded compendiums that checks remote Git commit SHAs (via GitHub API) or HTTP `ETag` / `Last-Modified` headers. When an update is confirmed and downloaded by the user, atomically replace all existing `ReferenceMonster` records for that specific source rather than appending duplicates.
 
 **Requirements:**
 
-- [ ] Define `RemoteMonsterApiProvider` interface with search, fetch-by-id, and pagination contracts
-- [ ] Implement provider registry to discover and execute queries across all registered active providers
-- [ ] Create data mapping adaptors from external API response schemas to internal `Monster` domain models
+- [ ] Store source metadata (`sourceId`, `lastCommitSha`, `lastEtag`, `lastUpdatedTimestamp`, `monsterCount`) in `SharedPreferences` / Room
+- [ ] Implement remote update check querying GitHub commit SHA or HTTP `If-None-Match` header to detect upstream repository changes
+- [ ] Display "Update Available" badge/button in Sources settings when newer commit/hash is detected
+- [ ] Perform atomic database replacement per `sourceId` in a single Room transaction (delete old source records and insert new version)
 
 <a id="mcr-017" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
-### Add source toggle controls/filter sheet in Search UI allowing users to enable or disable specific remote sources
+### Integrate reference compendiums into Search with source tag filters and badges
 **ID:** MCR-017
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Add filter chips and/or a source selection bottom sheet in `SearchFragment` so users can dynamically filter search results by specific remote API sources or restrict search to local content only.
+Update `SearchFragment` and `SearchResultsRecyclerViewAdapter` to perform unified full-text search across both user library monsters and offline `ReferenceMonster` records, displaying source tag bubbles and filter chips.
 
 **Requirements:**
 
-- [ ] Add horizontal source filter chips or filter button in `SearchFragment`
-- [ ] Support toggling Local, Open5e, and future API provider sources individually
-- [ ] Filter live search results according to selected active source filters
+- [ ] Update `MonsterRepository.searchAll` to query both `Monster` and `ReferenceMonster` tables concurrently
+- [ ] Render source tag bubbles (`[PF2e]`, `[SF2e]`, `[Local]`, `[5e]`) on all search result items
+- [ ] Add horizontal filter chips / filter bottom sheet to filter search results by game system and source compendium
+- [ ] Ensure debounced, responsive UI performance across large reference catalogs (5,000+ monsters)
 
 <a id="mcr-018" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
-### Support tap-to-preview for remote search results with one-tap import into local Room database
+### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library
 **ID:** MCR-018
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Allow users to tap on remote search results to preview the full statblock sheet and import the monster into the local Room database with one tap.
+Allow users to tap on any reference compendium monster in search results to preview its full statblock card, and provide a one-tap "Import to Library" action that clones the reference entity into the user's editable `Monster` table.
 
 **Requirements:**
 
-- [ ] Open monster preview dialog or detail screen when tapping a remote search item
-- [ ] Add persistent "Import to Library" action button with confirmation feedback
-- [ ] Save imported monster to Room database and update local library state immediately
+- [ ] Present full statblock detail view/dialog when tapping a `ReferenceMonster` search result
+- [ ] Provide prominent "Import to Library" button with confirmation feedback
+- [ ] Clone `ReferenceMonster` attributes into a new editable `Monster` entity and save to Room
+- [ ] Support adding directly into an existing Collection upon import
 
 <a id="mcr-019" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-### Add a registry in settings for each of the search/import APIs
+### Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles
 **ID:** MCR-019
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Implement a configurable API Source Registry in iOS App Settings to manage endpoint URLs, toggles, rate limits, and custom feeds for external monster providers.
+Add `gameSystem` (enum string) and `sourceLabel` attributes to the CoreData `Monster` entity model. Update the SwiftUI monster editor suite with Game System and Book Source selectors, and render styled source tag bubbles across all monster cards and listing views.
 
 **Requirements:**
 
-- [ ] Create `ApiSourceConfig` model and `ApiRegistry` observable service in Swift
-- [ ] Add API Sources management view to iOS Settings/Preferences
-- [ ] Support enabling, disabling, and adding custom OGL/ORC API endpoint URLs
-- [ ] Persist settings using `AppStorage` / UserDefaults
+- [ ] Add `gameSystem` and `sourceLabel` attributes to `MonsterCards.xcdatamodeld`
+- [ ] Add Game System picker (`D&D 5e`, `Pathfinder 2e`, `Starfinder 2e`, `Custom`) and Source/Book field to `EditMonsterView`
+- [ ] Create `SourceTagView` SwiftUI component rendering styled pill badges
+- [ ] Render source tag bubbles in `LibraryView`, `Search` results, and `DashboardView`
 
 <a id="mcr-020" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-### Add distinct source badges/icons on search result items to clearly differentiate local library monsters vs. remote API monsters
+### Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline
 **ID:** MCR-020
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Update the iOS Search list rows with visual badges/icons indicating whether each monster is stored locally in CoreData or surfaced from Open5e/remote API providers.
+Create an isolated `ReferenceMonster` CoreData entity matching all statblock properties of `Monster` plus compendium metadata (`sourceId`, `sourceLabel`, `gameSystem`, `bookSource`). Keep reference monsters excluded from user library counts, regular exports (`BinderExporter`, `Open5eExporter`), and CloudKit user sync containers.
 
 **Requirements:**
 
-- [ ] Create `SourceBadgeView` component with icon and badge styling
-- [ ] Render source badges in `Search` result rows (Local Library vs. Open5e / Remote)
-- [ ] Provide distinct color-coded chips for game systems and API origins
+- [ ] Add `ReferenceMonster` entity to `MonsterCards.xcdatamodeld` (local non-cloud sync configuration)
+- [ ] Ensure exporters and user library queries filter exclusively for user `Monster` entities
+- [ ] Build background batch ingestion pipeline mapping extracted JSON files into `ReferenceMonster` entities using `NSBatchInsertRequest`
+- [ ] Cache extracted entities locally to reuse during import workflows without re-downloading
 
 <a id="mcr-021" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-### Provide modular architecture for registering additional OGL/ORC API providers
+### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal
 **ID:** MCR-021
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Design a modular Swift protocol (`RemoteMonsterProvider`) and registry to dynamically support multiple external game system endpoints (Open5e, PF2e, SF2e, and community ORC/OGL APIs).
+Add a Compendium Sources view in iOS Settings where users can view available community repositories (PF2e, SF2e, Open5e) and tap to download. Tapping download presents a legal disclaimer/confirmation sheet warning that content is third-party, fetched from the Git repository URL, and not created or owned by this app.
 
 **Requirements:**
 
-- [ ] Define async `RemoteMonsterProvider` protocol with search, detail retrieval, and pagination
-- [ ] Implement `RemoteProviderRegistry` managing active search providers
-- [ ] Provide schema normalizers converting heterogeneous API JSON payloads into `Monster` entities
+- [ ] Create `CompendiumSourcesView` in iOS Settings listing available content repositories
+- [ ] Implement disclaimer confirmation sheet displaying target Git repo URL, 3rd-party legal notice, and confirmation button
+- [ ] Implement background `URLSessionDownloadTask` and zip decompression pipeline with progress bar and cancellation
+- [ ] Design extensible source registry allowing new community repositories to be registered easily
 
 <a id="mcr-022" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-### Add source toggle controls/filter sheet in Search UI allowing users to enable or disable specific remote sources
+### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement
 **ID:** MCR-022
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Implement a source filtering popover/sheet in iOS `Search` view allowing users to selectively include or exclude remote sources (Open5e, future PF2e/SF2e) from live search queries.
+Implement an update checking service for iOS compendiums that checks remote Git commit SHAs or HTTP `ETag` headers. When an update is downloaded, atomically replace all existing `ReferenceMonster` records for that specific source rather than appending duplicates.
 
 **Requirements:**
 
-- [ ] Add source filter menu / sheet to iOS `Search` view toolbar
-- [ ] Provide toggles for Local Library, Open5e, and registered API providers
-- [ ] Dynamically update unified search execution based on selected source toggles
+- [ ] Store compendium source metadata (`sourceId`, `lastCommitSha`, `lastEtag`, `lastUpdatedDate`, `monsterCount`) in `UserDefaults`
+- [ ] Check remote GitHub commit SHA or HTTP `If-None-Match` header to detect upstream repository updates
+- [ ] Display "Update Available" indicator in `CompendiumSourcesView`
+- [ ] Perform atomic replacement per `sourceId` via `NSBatchDeleteRequest` and `NSBatchInsertRequest` in a single CoreData background context save
 
 <a id="mcr-023" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-### Support tap-to-preview for remote search results with one-tap import into local CoreData database
+### Integrate reference compendiums into Search with source tag filters and badges
 **ID:** MCR-023
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
-Enhance remote search result interaction with a dedicated statblock preview sheet and an "Import to Library" / "Add to Collection" one-tap action that saves the entity into CoreData.
+Update the iOS `Search` view to perform unified asynchronous search across both local library monsters and offline `ReferenceMonster` records, displaying source tag bubbles and filter controls.
 
 **Requirements:**
 
-- [ ] Support tapping remote search results to present full `MonsterCardView` preview
-- [ ] Add one-tap "Import to Library" toolbar/floating button on preview sheet
-- [ ] Save monster entity into CoreData persistence container and post notification
+- [ ] Update `MonsterRepository` to query `Monster` and `ReferenceMonster` entities concurrently
+- [ ] Render source tag bubbles (`[PF2e]`, `[SF2e]`, `[5e]`, `[Local]`) on search result rows
+- [ ] Add source filter menu / chips in `Search` view to filter results by game system and compendium source
+- [ ] Ensure fast, debounced UI response across large reference catalogs
+
+<a id="mcr-024" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library
+**ID:** MCR-024
+**Project:** iOS
+**Status:** Pending
+**Type:** Feature
+
+**Description:**
+Allow users to tap on any reference compendium monster in search results to preview its full statblock card, and provide a one-tap "Import to Library" action that clones the reference entity into the user's editable CoreData `Monster` store.
+
+**Requirements:**
+
+- [ ] Present `MonsterCardView` sheet when tapping a `ReferenceMonster` search result
+- [ ] Add prominent "Import to Library" toolbar button with confirmation feedback
+- [ ] Clone `ReferenceMonster` attributes into a new editable `Monster` entity and persist to CoreData
 - [ ] Support adding directly into an existing Collection from the preview sheet
 
 ---
