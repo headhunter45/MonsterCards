@@ -51,8 +51,8 @@ enum CompendiumRegistry {
             name: "Open5e 5e SRD",
             description: "Full SRD 5.1 creature compendium provided through the Open5e REST API.",
             gameSystem: .dnd5e,
-            sourceLabel: "5e SRD",
-            bookSource: "SRD 5.1",
+            sourceLabel: "open5e.com",
+            bookSource: "open5e.com",
             gitRepoUrl: "https://github.com/open5e/open5e-api",
             downloadUrl: "https://api.open5e.com/v2/creatures/?limit=50",
             importType: .open5eApi

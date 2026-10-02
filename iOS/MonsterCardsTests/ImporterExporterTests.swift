@@ -81,6 +81,8 @@ final class ImporterExporterTests: XCTestCase {
         XCTAssertEqual(vm.size, "Huge")
         XCTAssertEqual(vm.type, "dragon")
         XCTAssertEqual(vm.alignment, "chaotic evil")
+        XCTAssertEqual(vm.gameSystem, .dnd5e)
+        XCTAssertEqual(vm.sourceLabel, "open5e.com")
         XCTAssertEqual(vm.strengthScore, 27)
         XCTAssertEqual(vm.dexterityScore, 10)
         XCTAssertEqual(vm.constitutionScore, 25)

@@ -146,7 +146,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-025 | Remove the open5e online tab from search.                                                                    | iOS     | Fixed   | [Feature](#mcr-025) |
 | MCR-026 | Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers. | iOS     | Fixed   | [Feature](#mcr-026) |
 | MCR-027 | Do not call the repositories official.                                                                       | iOS     | Fixed   | [Feature](#mcr-027) |
-| MCR-028 | **When adding a monster from open5e.com set the source as open5e.com.**                                      | iOS     | Pending | [Feature](#mcr-028) |
+| MCR-028 | When adding a monster from open5e.com set the source as open5e.com.                                          | iOS     | Fixed   | [Feature](#mcr-028) |
 | MCR-029 | **After downloading all compendiums there are no search results in the search compendiums tab.**             | iOS     | Pending | [Feature](#mcr-029) |
 | MCR-030 | Text on compendium sources screen is very tiny.                                                              | Android | Fixed   | [Feature](#mcr-030) |
 | MCR-031 | The download buttons on the compendium page are magenta bubbles.                                             | Android | Fixed   | [Feature](#mcr-031) |
@@ -651,18 +651,18 @@ They are unofficial. Also do not specify the OGL/ORC licenses. Say under their o
 
 - [x]
 
-<a id="mcr-028" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-028" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### When adding a monster from open5e.com set the source as open5e.com.
 **ID:** MCR-028
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
 I like the tag bubble in the search results with `5e | Open5e` and hope the monster would keep the same after being imported.
 Describe task objectives and implementation requirements here.
 
-- [ ]
+- [x]
 
 <a id="mcr-029" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### After downloading all compendiums there are no search results in the search compendiums tab.

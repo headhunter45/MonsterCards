@@ -67,6 +67,8 @@ struct Open5eImporter: EntityImporter {
         parseLanguages(props: props, monster: monster)
         parseDamageAndConditions(props: props, monster: monster)
         parseTraitsAndActions(props: props, monster: monster)
+        monster.gameSystem = .dnd5e
+        monster.sourceLabel = "open5e.com"
 
         return monster
     }
