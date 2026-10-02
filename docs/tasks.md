@@ -133,7 +133,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                 | iOS     | Fixed   | [Feature](#mcr-012) |
 | MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                       | Android | Fixed   | [Feature](#mcr-013) |
 | MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                  | Android | Fixed   | [Feature](#mcr-014) |
-| MCR-015 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | Android | Pending | [Feature](#mcr-015) |
+| MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal     | Android | Fixed   | [Feature](#mcr-015) |
 | MCR-016 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | Android | Pending | [Feature](#mcr-016) |
 | MCR-017 | **Integrate reference compendiums into Search with source tag filters and badges**                        | Android | Pending | [Feature](#mcr-017) |
 | MCR-018 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**         | Android | Pending | [Feature](#mcr-018) |
@@ -421,11 +421,11 @@ Create an isolated `ReferenceMonster` Room entity and DAO matching all statblock
 - [x] Implement fast background JSON ingestion pipeline mapping external schemas (PF2e, SF2e, Open5e) into `ReferenceMonster` records
 - [x] Cache extracted reference entities on local disk/database so import workflows reuse existing data without re-downloading
 
-<a id="mcr-015" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-015" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal
 **ID:** MCR-015
 **Project:** Android
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -433,10 +433,10 @@ Add a Compendium Sources screen in Android settings where users can view availab
 
 **Requirements:**
 
-- [ ] Build Compendium Sources management UI in Settings listing available repository sources with download status and file sizes
-- [ ] Implement confirmation modal dialog displaying the target Git repo URL, 3rd-party content disclaimer, and user acknowledgment checkbox/button
-- [ ] Initiate background download and extraction service upon user confirmation with progress bar and cancellation support
-- [ ] Design extensible source configuration model allowing new community sources to be added easily
+- [x] Build Compendium Sources management UI in Settings listing available repository sources with download status and file sizes
+- [x] Implement confirmation modal dialog displaying the target Git repo URL, 3rd-party content disclaimer, and user acknowledgment checkbox/button
+- [x] Initiate background download and extraction service upon user confirmation with progress bar and cancellation support
+- [x] Design extensible source configuration model allowing new community sources to be added easily
 
 <a id="mcr-016" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
 ### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement

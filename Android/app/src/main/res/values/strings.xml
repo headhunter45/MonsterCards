@@ -238,4 +238,21 @@
     <string name="dialog_import_already_running_message">An import from %1$s is currently running. Do you want to cancel it and start a new import?</string>
     <string name="action_cancel_current">Cancel Current</string>
     <string name="action_cancel">Cancel</string>
+    <string name="title_compendium_sources">Compendium Sources</string>
+    <string name="action_compendium_sources">Compendium Sources</string>
+    <string name="dialog_disclaimer_title">3rd-Party Content Notice</string>
+    <string name="dialog_disclaimer_message">You are about to download compendium content from:\n\n%1$s\n\nDISCLAIMER: This data is third-party content provided under its respective license. This content is NOT created, owned, or endorsed by MonsterCards.\n\nDo you understand and agree to proceed with this download?</string>
+    <string name="checkbox_acknowledge_disclaimer">I understand that this is 3rd-party content</string>
+    <string name="action_agree_and_download">Agree &amp; Download</string>
+    <string name="status_not_downloaded">Not Downloaded</string>
+    <string name="status_downloaded">Downloaded (%1$d reference monsters)</string>
+    <string name="status_downloading">Downloading &amp; Ingesting…</string>
+    <string name="action_download">Download</string>
+    <string name="action_redownload">Update / Re-download</string>
+    <string name="action_delete_compendium">Remove Reference Data</string>
+    <string name="snackbar_compendium_downloaded">Downloaded %1$d reference monsters for %2$s</string>
+    <string name="snackbar_compendium_download_failed">Failed to download %1$s</string>
+    <string name="snackbar_compendium_cleared">Removed reference monsters for %1$s</string>
+    <string name="dialog_remove_compendium_title">Remove Reference Data?</string>
+    <string name="dialog_remove_compendium_message">This will remove the downloaded compendium reference monsters for %1$s. Your custom monsters will not be affected.</string>
 </resources>

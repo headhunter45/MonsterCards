@@ -164,6 +164,19 @@ public class MCFragment extends Fragment {
             showSourcePicker();
         });
 
+        View compendiumButton = view.findViewById(R.id.button_compendium_sources);
+        if (compendiumButton != null) {
+            compendiumButton.setOnClickListener(v -> {
+                dialog.dismiss();
+                try {
+                    NavController navController = Navigation.findNavController(requireView());
+                    navController.navigate(R.id.compendiumSourcesFragment);
+                } catch (Exception e) {
+                    Logger.logError("Failed to navigate to compendiumSourcesFragment", e);
+                }
+            });
+        }
+
         dialog.show();
     }
 

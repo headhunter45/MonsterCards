@@ -85,6 +85,9 @@ public class LibraryFragment extends MCFragment {
         } else if (item.getItemId() == R.id.menu_action_export_everything) {
             exportEverything();
             return true;
+        } else if (item.getItemId() == R.id.menu_action_compendium_sources) {
+            Navigation.findNavController(requireView()).navigate(R.id.compendiumSourcesFragment);
+            return true;
         } else if (item.getItemId() == R.id.menu_action_clear_all_data) {
             showClearAllDataConfirmationDialog();
             return true;

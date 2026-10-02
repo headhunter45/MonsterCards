@@ -256,7 +256,15 @@
             app:popUpTo="@id/monsterImportFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/compendiumSourcesFragment"
+        android:name="com.majinnaibu.monstercards.ui.compendium.CompendiumSourcesFragment"
+        android:label="@string/title_compendium_sources"
+        tools:layout="@layout/fragment_compendium_sources" />
     <action
         android:id="@+id/action_global_monsterImportFragment"
         app:destination="@id/monsterImportFragment" />
+    <action
+        android:id="@+id/action_global_compendiumSourcesFragment"
+        app:destination="@id/compendiumSourcesFragment" />
 </navigation>

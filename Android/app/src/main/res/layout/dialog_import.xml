@@ -47,4 +47,12 @@
         android:layout_marginTop="8dp"
         android:text="@string/action_import_from_source" />
 
+    <Button
+        android:id="@+id/button_compendium_sources"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/action_compendium_sources" />
+
 </LinearLayout>
