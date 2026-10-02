@@ -31,7 +31,7 @@ struct CompendiumSourcesView: View {
                                 .font(.title3)
                                 .fontWeight(.bold)
                         }
-                        Text("Download official OGL & ORC licensed game compendiums directly from open community repositories. Reference monsters can be searched and cloned into your local library.")
+                        Text("Download unofficial game compendiums directly from 3rd-party repositories under their own 3rd-party licenses. Reference monsters can be searched and cloned into your local library.")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -331,7 +331,7 @@ struct CompendiumDisclaimerSheet: View {
 
                         VStack(alignment: .leading, spacing: 6) {
                             LegalBullet(text: "This content is NOT created, reviewed, or owned by MonsterCards.")
-                            LegalBullet(text: "Content is licensed under open gaming licenses (OGL 1.0a, ORC, or CC-BY) by its respective authors.")
+                            LegalBullet(text: "Content is licensed by its respective authors under their own 3rd-party licenses.")
                             LegalBullet(text: "The data will be stored in an isolated local database and will NOT be exported with your personal cards unless explicitly cloned.")
                         }
                     }

@@ -286,7 +286,7 @@ struct Search: View {
                 ContentUnavailableView(
                     "No Compendiums Downloaded",
                     systemImage: "books.vertical",
-                    description: Text("Go to Compendium Sources in Settings to download OGL/ORC 3rd-party community reference packs.")
+                    description: Text("Go to Compendium Sources in Settings to download 3rd-party reference packs under their own 3rd-party licenses.")
                 )
             } else if compendiumSearchResults.isEmpty {
                 ContentUnavailableView(
