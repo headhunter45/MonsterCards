@@ -56,7 +56,7 @@ def build_workflow_prompt(
     desc = task["description"].strip() if task.get("description") else "(No description provided yet)"
     subproj_line = f"- Subproject: {task['subproject']}\n" if task.get("subproject") else ""
 
-    prompt = f"""You are {workflow_name} task {task['id']} in the PlanBForGreatJustice repository.
+    prompt = f"""You are {workflow_name} task {task['id']} in the MonsterCards repository.
 
 ### Target Task:
 - ID: {task['id']}

@@ -117,20 +117,21 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 <a id="tasks-list"></a>
 
-| ID      | Title                                                                                              | Project | Status | Type                |
-| :------ | :------------------------------------------------------------------------------------------------- | :------ | :----- | :------------------ |
-| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                             | Shared  | Fixed  | [Chore](#mcr-001)   |
-| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed  | [Chore](#mcr-002)   |
-| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed  | [Feature](#mcr-003) |
-| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed  | [Feature](#mcr-004) |
-| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed  | [Feature](#mcr-005) |
-| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed  | [Feature](#mcr-006) |
-| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed  | [Feature](#mcr-007) |
-| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed  | [Feature](#mcr-008) |
-| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed  | [Feature](#mcr-009) |
-| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed  | [Feature](#mcr-010) |
-| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing        | iOS     | Fixed  | [Feature](#mcr-011) |
-| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows          | iOS     | Fixed  | [Feature](#mcr-012) |
+| ID      | Title                                                                                                           | Project | Status  | Type                |
+|:------|:--------------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
+| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                          | Shared  | Fixed   | [Chore](#mcr-001)   |
+| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                            | iOS     | Fixed   | [Chore](#mcr-002)   |
+| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                           | iOS     | Fixed   | [Feature](#mcr-003) |
+| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)              | iOS     | Fixed   | [Feature](#mcr-004) |
+| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                      | iOS     | Fixed   | [Feature](#mcr-005) |
+| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                       | iOS     | Fixed   | [Feature](#mcr-006) |
+| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards                     | iOS     | Fixed   | [Feature](#mcr-007) |
+| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                      | iOS     | Fixed   | [Feature](#mcr-008) |
+| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                      | iOS     | Fixed   | [Feature](#mcr-009) |
+| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                      | iOS     | Fixed   | [Feature](#mcr-010) |
+| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing                     | iOS     | Fixed   | [Feature](#mcr-011) |
+| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                       | iOS     | Fixed   | [Feature](#mcr-012) |
+| MCR-013 | **Implement remote API live search (Open5e / OGL / ORC) with source toggles and distinct search result badges** | Android | Pending | [Feature](#mcr-013) |
 
 ---
 
@@ -138,14 +139,13 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 ## Detailed Tasks
 
-<a id="fgj-001" class="task" data-project="shared" data-status="done" data-task-type="chore"></a>
-
+<a id="mcr-001" class="task" data-project="shared" data-status="done" data-task-type="chore"></a>
 ### Clean up legacy Bukkit plugin and Maven leftovers from repository root
-
 **ID:** MCR-001
 **Project:** Shared
 **Status:** Fixed
 **Type:** Chore
+
 
 **Description:**
 Remove obsolete files that leaked into the root directory from an unrelated legacy Bukkit/Minecraft plugin (`MobScores`). Ensure the repository root cleanly represents only the MonsterCards cross-platform project.
@@ -158,14 +158,13 @@ Remove obsolete files that leaked into the root directory from an unrelated lega
 - [x] Ensure `Project.json`, `Project.md`, and root `README.md` accurately describe the MonsterCards Android & iOS application
 - [x] Update `.gitignore` to avoid re-introducing obsolete build artifacts
 
-<a id="fgj-002" class="task" data-project="ios" data-status="done" data-task-type="chore"></a>
-
+<a id="mcr-002" class="task" data-project="ios" data-status="done" data-task-type="chore"></a>
 ### Modernize iOS Xcode project configuration, build pipeline, and dependency management
-
 **ID:** MCR-002
 **Project:** iOS
 **Status:** Fixed
 **Type:** Chore
+
 
 **Description:**
 Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0+, enabling modern Swift concurrency settings, updating Swift Package dependencies, and resolving all build warnings.
@@ -178,14 +177,13 @@ Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0
 - [x] Resolve all Xcode project build warnings, deprecations, and code signing configurations for local/simulator testing
 - [x] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
 
-<a id="fgj-003" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-003" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Modernize CoreData / CloudKit persistence layer and implement repository architecture
-
 **ID:** MCR-003
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xcdatamodeld`. Ensure schema parity with Android's Room database (`Monster`, `Collection`, `CollectionMonster`, `DashboardMonster`), robust iCloud synchronization via `NSPersistentCloudKitContainer`, and clean separation of concerns using an async/actor-isolated repository pattern (`MonsterRepository`).
@@ -200,14 +198,13 @@ Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xc
 - [x] Create an actor-isolated `MonsterRepository` protocol and implementation providing async CRUD operations, pagination, search, and batch mutations
 - [x] Implement database seeding for development/previews (`DevContent`)
 
-<a id="fgj-004" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-004" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)
-
 **ID:** MCR-004
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Bring the iOS import and export engine to full parity with Android. Implement robust parsers and serializers for all supported tabletop formats, external APIs, and native archives.
@@ -223,14 +220,13 @@ Bring the iOS import and export engine to full parity with Android. Implement ro
 - [x] `BinderExporter`: Export selected collections or entire libraries into shareable `.monster` / zip archives
 - [x] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
 
-<a id="fgj-005" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-005" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Modernize SwiftUI architecture, NavigationStack, and Observation framework
-
 **ID:** MCR-005
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, `ObservableObject`, `@ObservedObject`, `@EnvironmentObject`) to modern iOS idioms: `NavigationStack`, `NavigationSplitView` (adaptive for iPhone and iPad), and Swift's `@Observable` macro (Observation framework) with structured concurrency (`async/await`, `@MainActor`).
@@ -243,14 +239,13 @@ Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, 
 - [x] Standardize design tokens, color palettes, dark mode support, and 5e statblock parchment card styling
 - [x] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
 
-<a id="fgj-006" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-006" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions
-
 **ID:** MCR-006
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Upgrade the Monster Library tab (`Library.swift`) to match Android functionality, providing a rich, high-performance monster management hub with filtering, sorting, multi-selection, and quick actions.
@@ -263,14 +258,13 @@ Upgrade the Monster Library tab (`Library.swift`) to match Android functionality
 - [x] Add swipe actions on monster rows: Quick Favorite, Pin to Dashboard, Duplicate, Delete
 - [x] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
 
-<a id="fgj-007" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-007" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards
-
 **ID:** MCR-007
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Replace the placeholder `Dashboard.swift` with a combat companion dashboard matching Android's encounter running capabilities. Allows Dungeon Masters to pin monster stat blocks, track current/max/temp hit points, manage turn orders, and view compact vital stats during tabletop sessions.
@@ -283,14 +277,13 @@ Replace the placeholder `Dashboard.swift` with a combat companion dashboard matc
 - [x] Implement quick expand/collapse sheet to inspect full monster card details without losing dashboard context
 - [x] Persist dashboard combat state across app restarts
 
-<a id="fgj-008" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-008" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement Collections and Encounters management with CR/XP summary metrics
-
 **ID:** MCR-008
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Build out the Collections tab (`Collections.swift`) and detail views to organize monsters into thematic collections, campaigns, locations, or combat encounters with automated challenge rating / encounter XP calculations.
@@ -303,14 +296,13 @@ Build out the Collections tab (`Collections.swift`) and detail views to organize
 - [x] Display encounter metrics: Total Monster Count, Average CR, Total XP, and 5e Encounter Difficulty estimate (Easy, Medium, Hard, Deadly)
 - [x] Export collection as a standalone Binder archive or share sheet payload
 
-<a id="fgj-009" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-009" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement unified local Full-Text Search and remote Open5e API live search
-
 **ID:** MCR-009
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Modernize `Search.swift` to provide a unified search experience that queries both local library monsters and the remote Open5e REST API simultaneously with instant preview and import.
@@ -323,14 +315,13 @@ Modernize `Search.swift` to provide a unified search experience that queries bot
 - [x] Tap-to-preview remote stat block with a single-tap "Import to Library" or "Add to Collection" action
 - [x] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
 
-<a id="fgj-010" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-010" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Build comprehensive multi-section 5e Monster Editor suite with validation and live preview
-
 **ID:** MCR-010
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Revamp the monster creation and editing suite (`EditMonster.swift` and subviews) to support every 5e statblock attribute with modern form controls, live modifier calculations, Markdown support for traits/actions, and side-by-side / toggleable card preview.
@@ -348,14 +339,13 @@ Revamp the monster creation and editing suite (`EditMonster.swift` and subviews)
 - [x] Spellcasting Block: Caster level, spellcasting ability, save DC, spell attack bonus, spell slots by level, cantrips and prepared spells
 - [x] Live preview mode to switch seamlessly between editor forms and rendered statblock card
 
-<a id="fgj-011" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-011" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement QuickLook Preview Extension, custom document types (.monster), and system sharing
-
 **ID:** MCR-011
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Configure iOS document handling for `.monster` and `.json` files, implement AirDrop sharing, system Share Sheet integration, and finish the `MonsterPreview` App Extension for system QuickLook previews in Files.app.
@@ -368,14 +358,13 @@ Configure iOS document handling for `.monster` and `.json` files, implement AirD
 - [x] Add Share Sheet integration to export and send monster cards via Messages, Mail, AirDrop, and cloud storage
 - [x] Support Drag and Drop of monster files on iPadOS
 
-<a id="fgj-012" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
-
+<a id="mcr-012" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows
-
 **ID:** MCR-012
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
+
 
 **Description:**
 Establish a complete test suite covering data conversion, all format importers/exporters, CoreData repository operations, and critical SwiftUI user journeys.
@@ -386,6 +375,24 @@ Establish a complete test suite covering data conversion, all format importers/e
 - [x] Exporter Unit Tests: Verify roundtrip fidelity for Open5e export and Binder archive export
 - [x] Repository & Persistence Tests: In-memory CoreData stack testing CRUD, search predicates, and cascade deletion rules
 - [x] UI Tests: Automated user journeys testing Monster creation, Library search & filter, Dashboard HP adjustments, and Collection creation
+
+<a id="mcr-013" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+### Implement remote API live search (Open5e / OGL / ORC) with source toggles and distinct search result badges
+**ID:** MCR-013
+**Project:** Android
+**Status:** Pending
+**Type:** Feature
+
+**Description:**
+Extend Android search suite (`SearchFragment` and `SearchResultsRecyclerViewAdapter`) to query remote monster APIs (Open5e and modular endpoints for future PF2e/SF2e/ORC content) alongside local Room monsters.
+
+**Requirements:**
+
+- [ ] Implement remote API search client supporting Open5e REST query with debouncing, error handling, and cancellation
+- [ ] Add distinct source badges/icons on search result items to clearly differentiate local library monsters vs. remote API monsters
+- [ ] Add source toggle controls/filter sheet in Search UI allowing users to enable or disable specific remote sources (Open5e, custom/future PF2e & SF2e endpoints)
+- [ ] Support tap-to-preview for remote search results with one-tap import into local Room database
+- [ ] Provide modular architecture for registering additional OGL/ORC API providers
 
 ---
 
@@ -415,17 +422,15 @@ Establish a complete test suite covering data conversion, all format importers/e
   7. **Cancelled**: Task discarded.
 
 #### Projects (Rendered from frontmatter projects)
-
 | Value   | Label   | Prefix | Path    |
-| :------ | :------ | :----- | :------ |
+|:------|:------|:-----|:------|
 | ios     | iOS     | IOS    | iOS     |
 | android | Android | AND    | Android |
 | shared  | Shared  | SHR    |         |
 
 #### Task Statuses (Rendered from frontmatter task-statuses)
-
 | Value       | Label       | Description                                                                      |
-| :---------- | :---------- | :------------------------------------------------------------------------------- |
+|:----------|:----------|:-------------------------------------------------------------------------------|
 | planning    | Planning    | The task is being scoped and conceptualized. We still don't know what we want.   |
 | triage      | Triage      | The task is being evaluated and prioritized. We don't know how we want to do it. |
 | pending     | Pending     | The task is ready to be acted on.                                                |
@@ -436,9 +441,8 @@ Establish a complete test suite covering data conversion, all format importers/e
 | research    | Researching | This task needs more research before planning.                                   |
 
 #### Task Types (Rendered from frontmatter task-types)
-
 | Value   | Label   | Prefix | Description                                                |
-| :------ | :------ | :----- | :--------------------------------------------------------- |
+|:------|:------|:-----|:---------------------------------------------------------|
 | lint    | Lint    | LNT    | The task involves fixing a linting error or other warning. |
 | bug     | Bug     | BUG    | The task is a bug to fix.                                  |
 | feature | Feature | ENH    | The task is a new feature to implement.                    |
