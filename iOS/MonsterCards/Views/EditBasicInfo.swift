@@ -8,56 +8,66 @@
 import SwiftUI
 
 struct EditBasicInfo: View {
-    
     @ObservedObject var monsterViewModel: MonsterViewModel
-    
+
+    private let sizePresets = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
+    private let typePresets = ["Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental", "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead"]
+    private let alignmentPresets = ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil", "Unaligned", "Any Alignment"]
+
     var body: some View {
         List {
-            // Editable Text field bound to monster.name
-            MCTextField(
-                label: "Name",
-                value: $monsterViewModel.name)
-                .autocapitalization(.words)
-            
-            // Editable Text field bound to monster.size
-            MCTextField(
-                label: "Size",
-                value: $monsterViewModel.size)
-                .autocapitalization(.words)
-            
-            // Editable Text field bound to monster.type
-            MCTextField(
-                label: "Type",
-                value: $monsterViewModel.type)
-                .autocapitalization(.none)
-            
-            // Editable Text field bound to monster.subType
-            MCTextField(
-                label: "Subtype",
-                value: $monsterViewModel.subType)
-                .autocapitalization(.none)
-            
-            // Editable Text field bound to monster.alignment
-            MCTextField(
-                label: "Alignment",
-                value: $monsterViewModel.alignment)
-                .autocapitalization(.none)
-            
-            // Number with -/+ buttons bound to monster.hitDice
-            MCStepperField(
-                label: "Hit Dice",
-                value: $monsterViewModel.hitDice)
-            
-            // Toggle bound to monster.hasCustomHP?
-            Toggle(
-                "Has Custom HP",
-                isOn:$monsterViewModel.hasCustomHP)
-            
-            // Editable Text field bound to monster.customHpText?
-            MCTextField(
-                label: "Custom HP",
-                value: $monsterViewModel.customHP)
-                .autocapitalization(.none)
+            Section("Identification") {
+                MCTextField(
+                    label: "Name",
+                    value: $monsterViewModel.name)
+
+                Picker("Size", selection: $monsterViewModel.size) {
+                    ForEach(sizePresets, id: \.self) { size in
+                        Text(size).tag(size)
+                    }
+                }
+                .pickerStyle(.menu)
+
+                Picker("Type", selection: $monsterViewModel.type) {
+                    ForEach(typePresets, id: \.self) { type in
+                        Text(type).tag(type)
+                    }
+                }
+                .pickerStyle(.menu)
+
+                MCTextField(
+                    label: "Subtype",
+                    value: $monsterViewModel.subType)
+
+                Picker("Alignment", selection: $monsterViewModel.alignment) {
+                    ForEach(alignmentPresets, id: \.self) { align in
+                        Text(align).tag(align)
+                    }
+                }
+                .pickerStyle(.menu)
+            }
+
+            Section("Hit Points & Hit Dice") {
+                MCStepperField(
+                    label: "Hit Dice Count",
+                    value: $monsterViewModel.hitDice)
+
+                Toggle("Custom HP String", isOn: $monsterViewModel.hasCustomHP)
+
+                if monsterViewModel.hasCustomHP {
+                    MCTextField(
+                        label: "Custom HP",
+                        value: $monsterViewModel.customHP)
+                } else {
+                    HStack {
+                        Text("Calculated HP")
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text(monsterViewModel.hitPoints)
+                            .fontWeight(.semibold)
+                    }
+                }
+            }
         }
         .navigationTitle("Basic Info")
     }
@@ -65,7 +75,8 @@ struct EditBasicInfo: View {
 
 struct EditBasicInfo_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = MonsterViewModel.init(nil)
+        let viewModel = MonsterViewModel()
         EditBasicInfo(monsterViewModel: viewModel)
     }
 }
+

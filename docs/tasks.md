@@ -128,7 +128,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed   | [Feature](#fgj-007) |
 | FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed   | [Feature](#fgj-008) |
 | FGJ-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed   | [Feature](#fgj-009) |
-| FGJ-010 | **Build comprehensive multi-section 5e Monster Editor suite with validation and live preview**     | iOS     | Pending | [Feature](#fgj-010) |
+| FGJ-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed   | [Feature](#fgj-010) |
 | FGJ-011 | **Implement QuickLook Preview Extension, custom document types (.monster), and system sharing**    | iOS     | Pending | [Feature](#fgj-011) |
 | FGJ-012 | **Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows**      | iOS     | Pending | [Feature](#fgj-012) |
 
@@ -305,29 +305,28 @@ Modernize `Search.swift` to provide a unified search experience that queries bot
 - [x] Tap-to-preview remote stat block with a single-tap "Import to Library" or "Add to Collection" action
 - [x] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
 
-<a id="fgj-010" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-010" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Build comprehensive multi-section 5e Monster Editor suite with validation and live preview
 **ID:** FGJ-010
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Revamp the monster creation and editing suite (`EditMonster.swift` and subviews) to support every 5e statblock attribute with modern form controls, live modifier calculations, Markdown support for traits/actions, and side-by-side / toggleable card preview.
 
 **Requirements:**
 
-- [ ] Basic Info: Name, Size, Type, Subtype, Alignment, Challenge Rating, XP, Source text/URL
-- [ ] Defense & Health: Armor Class, Armor Type, Hit Points, Hit Dice count and die size, Hit Dice modifier
-- [ ] Movement: Walk, Burrow, Climb, Fly (hover toggle), Swim speeds
-- [ ] Ability Scores: STR, DEX, CON, INT, WIS, CHA with automatic modifier calculation and manual override option
-- [ ] Proficiencies: Saving Throws and Skills with proficiency/expertise/half-proficiency levels
-- [ ] Vulnerabilities, Resistances, Damage Immunities, and Condition Immunities pickers
-- [ ] Senses & Languages: Darkvision, Blindsight, Tremorsense, Truesight, Passive Perception, Languages with telepathy
-- [ ] Markdown-enabled Action Lists: Special Traits, Actions, Bonus Actions, Reactions, Legendary Actions, Mythic Actions
-- [ ] Spellcasting Block: Caster level, spellcasting ability, save DC, spell attack bonus, spell slots by level, cantrips and prepared spells
-- [ ] Live preview mode to switch seamlessly between editor forms and rendered statblock card
+- [x] Basic Info: Name, Size, Type, Subtype, Alignment, Challenge Rating, XP, Source text/URL
+- [x] Defense & Health: Armor Class, Armor Type, Hit Points, Hit Dice count and die size, Hit Dice modifier
+- [x] Movement: Walk, Burrow, Climb, Fly (hover toggle), Swim speeds
+- [x] Ability Scores: STR, DEX, CON, INT, WIS, CHA with automatic modifier calculation and manual override option
+- [x] Proficiencies: Saving Throws and Skills with proficiency/expertise/half-proficiency levels
+- [x] Vulnerabilities, Resistances, Damage Immunities, and Condition Immunities pickers
+- [x] Senses & Languages: Darkvision, Blindsight, Tremorsense, Truesight, Passive Perception, Languages with telepathy
+- [x] Markdown-enabled Action Lists: Special Traits, Actions, Bonus Actions, Reactions, Legendary Actions, Mythic Actions
+- [x] Spellcasting Block: Caster level, spellcasting ability, save DC, spell attack bonus, spell slots by level, cantrips and prepared spells
+- [x] Live preview mode to switch seamlessly between editor forms and rendered statblock card
 
 <a id="fgj-011" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement QuickLook Preview Extension, custom document types (.monster), and system sharing

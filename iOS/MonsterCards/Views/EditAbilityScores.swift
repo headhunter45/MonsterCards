@@ -9,28 +9,41 @@ import SwiftUI
 
 struct EditAbilityScores: View {
     @ObservedObject var monsterViewModel: MonsterViewModel
-    
+
     var body: some View {
-        List {MCStepperField(
-            label: "STR",
-            value: $monsterViewModel.strengthScore)
-        MCStepperField(
-            label: "DEX",
-            value: $monsterViewModel.dexterityScore)
-        MCStepperField(
-            label: "CON",
-            value: $monsterViewModel.constitutionScore)
-        MCStepperField(
-            label: "INT",
-            value: $monsterViewModel.intelligenceScore)
-        MCStepperField(
-            label: "WIS",
-            value: $monsterViewModel.wisdomScore)
-        MCStepperField(
-            label: "CHA",
-            value: $monsterViewModel.charismaScore)
+        List {
+            Section("Ability Scores") {
+                abilityRow(name: "Strength (STR)", score: $monsterViewModel.strengthScore, modifier: monsterViewModel.strengthModifier)
+                abilityRow(name: "Dexterity (DEX)", score: $monsterViewModel.dexterityScore, modifier: monsterViewModel.dexterityModifier)
+                abilityRow(name: "Constitution (CON)", score: $monsterViewModel.constitutionScore, modifier: monsterViewModel.constitutionModifier)
+                abilityRow(name: "Intelligence (INT)", score: $monsterViewModel.intelligenceScore, modifier: monsterViewModel.intelligenceModifier)
+                abilityRow(name: "Wisdom (WIS)", score: $monsterViewModel.wisdomScore, modifier: monsterViewModel.wisdomModifier)
+                abilityRow(name: "Charisma (CHA)", score: $monsterViewModel.charismaScore, modifier: monsterViewModel.charismaModifier)
+            }
         }
         .navigationTitle("Ability Scores")
+    }
+
+    private func abilityRow(name: String, score: Binding<Int64>, modifier: Int) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(name)
+                    .font(.body)
+                Text(modifier >= 0 ? "Modifier: +\(modifier)" : "Modifier: \(modifier)")
+                    .font(.caption)
+                    .foregroundColor(Theme.dndRed)
+                    .fontWeight(.medium)
+            }
+
+            Spacer()
+
+            MCStepperField(
+                label: "",
+                value: score
+            )
+            .labelsHidden()
+        }
+        .padding(.vertical, 4)
     }
 }
 
@@ -40,3 +53,4 @@ struct EditAbilityScores_Previews: PreviewProvider {
         EditAbilityScores(monsterViewModel: viewModel)
     }
 }
+
