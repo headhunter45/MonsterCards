@@ -109,6 +109,12 @@
 		E2FE0023261FE0000055B23B /* BinderExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0003261FE0000083EAC5 /* BinderExporter.swift */; };
 		E2FE0024261FE0000055B23B /* BinderImportModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0004261FE0000083EAC5 /* BinderImportModels.swift */; };
 		E2FE0025261FE0000055B23B /* TetraCubeMonsterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0005261FE0000083EAC5 /* TetraCubeMonsterImporter.swift */; };
+		E2FE0026261FE0000055B23B /* Open5eImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0006261FE0000083EAC5 /* Open5eImporter.swift */; };
+		E2FE0027261FE0000055B23B /* Open5eApiWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0007261FE0000083EAC5 /* Open5eApiWrapper.swift */; };
+		E2FE0028261FE0000055B23B /* DnDBeyondImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0008261FE0000083EAC5 /* DnDBeyondImporter.swift */; };
+		E2FE0029261FE0000055B23B /* Pf2eImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0009261FE0000083EAC5 /* Pf2eImporter.swift */; };
+		E2FE002A261FE0000055B23B /* Open5eExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE000A261FE0000083EAC5 /* Open5eExporter.swift */; };
+		E2FE002B261FE0000055B23B /* MonsterCardExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE000B261FE0000083EAC5 /* MonsterCardExporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +241,12 @@
 		E2FE0003261FE0000083EAC5 /* BinderExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderExporter.swift; sourceTree = "<group>"; };
 		E2FE0004261FE0000083EAC5 /* BinderImportModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderImportModels.swift; sourceTree = "<group>"; };
 		E2FE0005261FE0000083EAC5 /* TetraCubeMonsterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetraCubeMonsterImporter.swift; sourceTree = "<group>"; };
+		E2FE0006261FE0000083EAC5 /* Open5eImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open5eImporter.swift; sourceTree = "<group>"; };
+		E2FE0007261FE0000083EAC5 /* Open5eApiWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open5eApiWrapper.swift; sourceTree = "<group>"; };
+		E2FE0008261FE0000083EAC5 /* DnDBeyondImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDBeyondImporter.swift; sourceTree = "<group>"; };
+		E2FE0009261FE0000083EAC5 /* Pf2eImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pf2eImporter.swift; sourceTree = "<group>"; };
+		E2FE000A261FE0000083EAC5 /* Open5eExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open5eExporter.swift; sourceTree = "<group>"; };
+		E2FE000B261FE0000083EAC5 /* MonsterCardExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCardExporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +468,12 @@
 				E2FE0003261FE0000083EAC5 /* BinderExporter.swift */,
 				E2FE0004261FE0000083EAC5 /* BinderImportModels.swift */,
 				E2FE0005261FE0000083EAC5 /* TetraCubeMonsterImporter.swift */,
+				E2FE0006261FE0000083EAC5 /* Open5eImporter.swift */,
+				E2FE0007261FE0000083EAC5 /* Open5eApiWrapper.swift */,
+				E2FE0008261FE0000083EAC5 /* DnDBeyondImporter.swift */,
+				E2FE0009261FE0000083EAC5 /* Pf2eImporter.swift */,
+				E2FE000A261FE0000083EAC5 /* Open5eExporter.swift */,
+				E2FE000B261FE0000083EAC5 /* MonsterCardExporter.swift */,
 			);
 			path = ImportExport;
 			sourceTree = "<group>";
@@ -690,6 +708,12 @@
 				E2FE0023261FE0000055B23B /* BinderExporter.swift in Sources */,
 				E2FE0024261FE0000055B23B /* BinderImportModels.swift in Sources */,
 				E2FE0025261FE0000055B23B /* TetraCubeMonsterImporter.swift in Sources */,
+				E2FE0026261FE0000055B23B /* Open5eImporter.swift in Sources */,
+				E2FE0027261FE0000055B23B /* Open5eApiWrapper.swift in Sources */,
+				E2FE0028261FE0000055B23B /* DnDBeyondImporter.swift in Sources */,
+				E2FE0029261FE0000055B23B /* Pf2eImporter.swift in Sources */,
+				E2FE002A261FE0000055B23B /* Open5eExporter.swift in Sources */,
+				E2FE002B261FE0000055B23B /* MonsterCardExporter.swift in Sources */,
 				E2CB0DC026086E3C00142591 /* ChallengeRating.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
 				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,

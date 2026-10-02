@@ -23,9 +23,12 @@ protocol EntityImporter {
 enum ImporterRegistry {
     
     @MainActor
-    private static var importers: [any EntityImporter.Type] {
+    public static var importers: [any EntityImporter.Type] {
         [
+            Open5eImporter.self,
             TetraCubeMonsterImporter.self,
+            DnDBeyondImporter.self,
+            Pf2eImporter.self,
             BinderImporter.self,
         ]
     }

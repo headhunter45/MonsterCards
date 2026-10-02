@@ -117,20 +117,20 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 <a id="tasks-list"></a>
 
-| ID      | Title                                                                                                  | Project | Status  | Type                |
-|:------|:-----------------------------------------------------------------------------------------------------|:------|:------|:------------------|
-| FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                 | Shared  | Fixed   | [Chore](#fgj-001)   |
-| FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                   | iOS     | Fixed   | [Chore](#fgj-002)   |
-| FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                  | iOS     | Fixed   | [Feature](#fgj-003) |
-| FGJ-004 | **Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)** | iOS     | Pending | [Feature](#fgj-004) |
-| FGJ-005 | **Modernize SwiftUI architecture, NavigationStack, and Observation framework**                         | iOS     | Pending | [Feature](#fgj-005) |
-| FGJ-006 | **Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions**          | iOS     | Pending | [Feature](#fgj-006) |
-| FGJ-007 | **Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards**        | iOS     | Pending | [Feature](#fgj-007) |
-| FGJ-008 | **Implement Collections and Encounters management with CR/XP summary metrics**                         | iOS     | Pending | [Feature](#fgj-008) |
-| FGJ-009 | **Implement unified local Full-Text Search and remote Open5e API live search**                         | iOS     | Pending | [Feature](#fgj-009) |
-| FGJ-010 | **Build comprehensive multi-section 5e Monster Editor suite with validation and live preview**         | iOS     | Pending | [Feature](#fgj-010) |
-| FGJ-011 | **Implement QuickLook Preview Extension, custom document types (.monster), and system sharing**        | iOS     | Pending | [Feature](#fgj-011) |
-| FGJ-012 | **Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows**          | iOS     | Pending | [Feature](#fgj-012) |
+| ID      | Title                                                                                              | Project | Status  | Type                |
+|:------|:-------------------------------------------------------------------------------------------------|:------|:------|:------------------|
+| FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                             | Shared  | Fixed   | [Chore](#fgj-001)   |
+| FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed   | [Chore](#fgj-002)   |
+| FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed   | [Feature](#fgj-003) |
+| FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed   | [Feature](#fgj-004) |
+| FGJ-005 | **Modernize SwiftUI architecture, NavigationStack, and Observation framework**                     | iOS     | Pending | [Feature](#fgj-005) |
+| FGJ-006 | **Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions**      | iOS     | Pending | [Feature](#fgj-006) |
+| FGJ-007 | **Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards**    | iOS     | Pending | [Feature](#fgj-007) |
+| FGJ-008 | **Implement Collections and Encounters management with CR/XP summary metrics**                     | iOS     | Pending | [Feature](#fgj-008) |
+| FGJ-009 | **Implement unified local Full-Text Search and remote Open5e API live search**                     | iOS     | Pending | [Feature](#fgj-009) |
+| FGJ-010 | **Build comprehensive multi-section 5e Monster Editor suite with validation and live preview**     | iOS     | Pending | [Feature](#fgj-010) |
+| FGJ-011 | **Implement QuickLook Preview Extension, custom document types (.monster), and system sharing**    | iOS     | Pending | [Feature](#fgj-011) |
+| FGJ-012 | **Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows**      | iOS     | Pending | [Feature](#fgj-012) |
 
 ---
 
@@ -194,27 +194,26 @@ Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xc
 - [x] Create an actor-isolated `MonsterRepository` protocol and implementation providing async CRUD operations, pagination, search, and batch mutations
 - [x] Implement database seeding for development/previews (`DevContent`)
 
-<a id="fgj-004" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-004" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)
 **ID:** FGJ-004
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Bring the iOS import and export engine to full parity with Android. Implement robust parsers and serializers for all supported tabletop formats, external APIs, and native archives.
 
 **Requirements:**
 
-- [ ] `Open5eImporter` & `Open5eApiWrapper`: Fetch and parse monsters from the Open5e REST API (https://api.open5e.com/monsters/)
-- [ ] `TetraCubeMonsterImporter`: Complete full JSON parsing from Tetra-Cube 5e statblock generator including special abilities, traits, and layout options
-- [ ] `DnDBeyondImporter`: Parse character and monster JSON export payloads from D&D Beyond
-- [ ] `Pf2eImporter`: Parse Pathfinder 2e creature statblock JSON formats
-- [ ] `BinderImporter` / Native `.monster`: Native MonsterCards multi-monster archive and single-card format
-- [ ] `Open5eExporter`: Export local monster stat blocks into Open5e-compatible JSON schemas
-- [ ] `BinderExporter`: Export selected collections or entire libraries into shareable `.monster` / zip archives
-- [ ] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
+- [x] `Open5eImporter` & `Open5eApiWrapper`: Fetch and parse monsters from the Open5e REST API (https://api.open5e.com/monsters/)
+- [x] `TetraCubeMonsterImporter`: Complete full JSON parsing from Tetra-Cube 5e statblock generator including special abilities, traits, and layout options
+- [x] `DnDBeyondImporter`: Parse character and monster JSON export payloads from D&D Beyond
+- [x] `Pf2eImporter`: Parse Pathfinder 2e creature statblock JSON formats
+- [x] `BinderImporter` / Native `.monster`: Native MonsterCards multi-monster archive and single-card format
+- [x] `Open5eExporter`: Export local monster stat blocks into Open5e-compatible JSON schemas
+- [x] `BinderExporter`: Export selected collections or entire libraries into shareable `.monster` / zip archives
+- [x] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
 
 <a id="fgj-005" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Modernize SwiftUI architecture, NavigationStack, and Observation framework
