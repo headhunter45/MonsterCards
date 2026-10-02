@@ -82,16 +82,16 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
   - `get-tasks --all`: List all tasks regardless of status.
   - `get-tasks --accept "Status:In Progress"` / `get-tasks --reject "Project:Android"`: Filter tasks.
 - **View a specific task**:
-  - `get-task FGJ-001` (or `./scripts/get-task 1`): Inspect task details, requirements, and metadata.
-  - `get-task FGJ-001 --json`: Output task data in JSON format.
+  - `get-task MCR-001` (or `./scripts/get-task 1`): Inspect task details, requirements, and metadata.
+  - `get-task MCR-001 --json`: Output task data in JSON format.
 - **Add a new task**:
   - `add-task "Task Title" --project=ios --type=feature --status=triage`
   - (Optionally supply `-d "Description and checklist"`)
 - **Update an existing task**:
-  - `update-task FGJ-001 --status in_progress`
-  - `update-task FGJ-001 --title "New Title"`
-  - `update-task FGJ-001 --status done --check-all`
-  - `update-task FGJ-001 --append-description "- [ ] Additional subtask"`
+  - `update-task MCR-001 --status in_progress`
+  - `update-task MCR-001 --title "New Title"`
+  - `update-task MCR-001 --status done --check-all`
+  - `update-task MCR-001 --append-description "- [ ] Additional subtask"`
 - **Synchronize document**:
   - `update-tasks` (or `./scripts/update-tasks`): Re-indexes task IDs, re-renders the summary progress table, and regenerates metadata enum tables.
 
@@ -99,7 +99,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 1. **Do Not Edit the Summary Table Manually**: The summary table below is automatically regenerated from the detailed task entries. Use `./scripts/add-task` and `./scripts/update-task`, or edit the detailed task blocks directly and run `./scripts/update-tasks`.
 2. **Anchor Tags as SSOT**: Each task in `## Detailed Tasks` is defined by an anchor tag:
-   `<a id="fgj-XXX" class="task" data-project="PROJECT" data-status="STATUS" data-task-type="TYPE"></a>`
+   `<a id="MCR-XXX" class="task" data-project="PROJECT" data-status="STATUS" data-task-type="TYPE"></a>`
    The attributes on this anchor tag are the canonical source of truth for the task's state.
 3. **Task Lifecycle**:
    - **Planning**: Conceptualization and scoping phase.
@@ -118,19 +118,19 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 <a id="tasks-list"></a>
 
 | ID      | Title                                                                                              | Project | Status | Type                |
-|:------|:-------------------------------------------------------------------------------------------------|:------|:-----|:------------------|
-| FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                             | Shared  | Fixed  | [Chore](#fgj-001)   |
-| FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed  | [Chore](#fgj-002)   |
-| FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed  | [Feature](#fgj-003) |
-| FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed  | [Feature](#fgj-004) |
-| FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed  | [Feature](#fgj-005) |
-| FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed  | [Feature](#fgj-006) |
-| FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed  | [Feature](#fgj-007) |
-| FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed  | [Feature](#fgj-008) |
-| FGJ-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed  | [Feature](#fgj-009) |
-| FGJ-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed  | [Feature](#fgj-010) |
-| FGJ-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing        | iOS     | Fixed  | [Feature](#fgj-011) |
-| FGJ-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows          | iOS     | Fixed  | [Feature](#fgj-012) |
+| :------ | :------------------------------------------------------------------------------------------------- | :------ | :----- | :------------------ |
+| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                             | Shared  | Fixed  | [Chore](#mcr-001)   |
+| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed  | [Chore](#mcr-002)   |
+| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed  | [Feature](#mcr-003) |
+| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed  | [Feature](#mcr-004) |
+| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed  | [Feature](#mcr-005) |
+| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed  | [Feature](#mcr-006) |
+| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed  | [Feature](#mcr-007) |
+| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed  | [Feature](#mcr-008) |
+| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed  | [Feature](#mcr-009) |
+| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview         | iOS     | Fixed  | [Feature](#mcr-010) |
+| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing        | iOS     | Fixed  | [Feature](#mcr-011) |
+| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows          | iOS     | Fixed  | [Feature](#mcr-012) |
 
 ---
 
@@ -139,8 +139,10 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 ## Detailed Tasks
 
 <a id="fgj-001" class="task" data-project="shared" data-status="done" data-task-type="chore"></a>
+
 ### Clean up legacy Bukkit plugin and Maven leftovers from repository root
-**ID:** FGJ-001
+
+**ID:** MCR-001
 **Project:** Shared
 **Status:** Fixed
 **Type:** Chore
@@ -157,8 +159,10 @@ Remove obsolete files that leaked into the root directory from an unrelated lega
 - [x] Update `.gitignore` to avoid re-introducing obsolete build artifacts
 
 <a id="fgj-002" class="task" data-project="ios" data-status="done" data-task-type="chore"></a>
+
 ### Modernize iOS Xcode project configuration, build pipeline, and dependency management
-**ID:** FGJ-002
+
+**ID:** MCR-002
 **Project:** iOS
 **Status:** Fixed
 **Type:** Chore
@@ -175,8 +179,10 @@ Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0
 - [x] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
 
 <a id="fgj-003" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Modernize CoreData / CloudKit persistence layer and implement repository architecture
-**ID:** FGJ-003
+
+**ID:** MCR-003
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -195,8 +201,10 @@ Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xc
 - [x] Implement database seeding for development/previews (`DevContent`)
 
 <a id="fgj-004" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)
-**ID:** FGJ-004
+
+**ID:** MCR-004
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -216,8 +224,10 @@ Bring the iOS import and export engine to full parity with Android. Implement ro
 - [x] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
 
 <a id="fgj-005" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Modernize SwiftUI architecture, NavigationStack, and Observation framework
-**ID:** FGJ-005
+
+**ID:** MCR-005
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -234,8 +244,10 @@ Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, 
 - [x] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
 
 <a id="fgj-006" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions
-**ID:** FGJ-006
+
+**ID:** MCR-006
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -252,8 +264,10 @@ Upgrade the Monster Library tab (`Library.swift`) to match Android functionality
 - [x] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
 
 <a id="fgj-007" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards
-**ID:** FGJ-007
+
+**ID:** MCR-007
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -270,8 +284,10 @@ Replace the placeholder `Dashboard.swift` with a combat companion dashboard matc
 - [x] Persist dashboard combat state across app restarts
 
 <a id="fgj-008" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement Collections and Encounters management with CR/XP summary metrics
-**ID:** FGJ-008
+
+**ID:** MCR-008
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -288,8 +304,10 @@ Build out the Collections tab (`Collections.swift`) and detail views to organize
 - [x] Export collection as a standalone Binder archive or share sheet payload
 
 <a id="fgj-009" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement unified local Full-Text Search and remote Open5e API live search
-**ID:** FGJ-009
+
+**ID:** MCR-009
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -306,8 +324,10 @@ Modernize `Search.swift` to provide a unified search experience that queries bot
 - [x] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
 
 <a id="fgj-010" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Build comprehensive multi-section 5e Monster Editor suite with validation and live preview
-**ID:** FGJ-010
+
+**ID:** MCR-010
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -329,8 +349,10 @@ Revamp the monster creation and editing suite (`EditMonster.swift` and subviews)
 - [x] Live preview mode to switch seamlessly between editor forms and rendered statblock card
 
 <a id="fgj-011" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement QuickLook Preview Extension, custom document types (.monster), and system sharing
-**ID:** FGJ-011
+
+**ID:** MCR-011
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -347,8 +369,10 @@ Configure iOS document handling for `.monster` and `.json` files, implement AirD
 - [x] Support Drag and Drop of monster files on iPadOS
 
 <a id="fgj-012" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows
-**ID:** FGJ-012
+
+**ID:** MCR-012
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
@@ -367,7 +391,7 @@ Establish a complete test suite covering data conversion, all format importers/e
 
 ## Notes
 
-- This file uses monotonic 3-digit identifiers (e.g. `FGJ-001`, `FGJ-002`).
+- This file uses monotonic 3-digit identifiers (e.g. `MCR-001`, `MCR-002`).
 - Run `./scripts/update-tasks` whenever manually editing tasks to keep all tables synchronized.
 
 #### Task System Documentation (Requirements for Agents)
@@ -380,7 +404,7 @@ Establish a complete test suite covering data conversion, all format importers/e
 - **Rendered Summary Views**:
   - The **Overall Progress Table** is a rendered summary of task data. It must be updated whenever the SSOT attributes are modified.
   - The **Status and Type Descriptions** sections at the end of the doc are rendered versions of the YAML frontmatter (task-statuses and task-types respectively).
-- **ID Formatting**: All IDs follow the `FGJ-XXX` format where `XXX` is a monotonic 3-digit number.
+- **ID Formatting**: All IDs follow the `MCR-XXX` format where `XXX` is a monotonic 3-digit number.
 - **Task Lifecycle**:
   1. **Planning**: The task is being scoped and conceptualized. We still don't know what we want.
   2. **Triage**: Requirements are identified, but we don't know how we want to do it.
@@ -391,15 +415,17 @@ Establish a complete test suite covering data conversion, all format importers/e
   7. **Cancelled**: Task discarded.
 
 #### Projects (Rendered from frontmatter projects)
+
 | Value   | Label   | Prefix | Path    |
-|:------|:------|:-----|:------|
+| :------ | :------ | :----- | :------ |
 | ios     | iOS     | IOS    | iOS     |
 | android | Android | AND    | Android |
 | shared  | Shared  | SHR    |         |
 
 #### Task Statuses (Rendered from frontmatter task-statuses)
+
 | Value       | Label       | Description                                                                      |
-|:----------|:----------|:-------------------------------------------------------------------------------|
+| :---------- | :---------- | :------------------------------------------------------------------------------- |
 | planning    | Planning    | The task is being scoped and conceptualized. We still don't know what we want.   |
 | triage      | Triage      | The task is being evaluated and prioritized. We don't know how we want to do it. |
 | pending     | Pending     | The task is ready to be acted on.                                                |
@@ -410,8 +436,9 @@ Establish a complete test suite covering data conversion, all format importers/e
 | research    | Researching | This task needs more research before planning.                                   |
 
 #### Task Types (Rendered from frontmatter task-types)
+
 | Value   | Label   | Prefix | Description                                                |
-|:------|:------|:-----|:---------------------------------------------------------|
+| :------ | :------ | :----- | :--------------------------------------------------------- |
 | lint    | Lint    | LNT    | The task involves fixing a linting error or other warning. |
 | bug     | Bug     | BUG    | The task is a bug to fix.                                  |
 | feature | Feature | ENH    | The task is a new feature to implement.                    |
