@@ -224,83 +224,77 @@ final class CompendiumSourceManager {
         context: NSManagedObjectContext,
         progressHandler: @escaping @Sendable (Double, String) -> Void
     ) async throws -> Int {
-        progressHandler(0.15, "Downloading community repository archive…")
-        
-        let extractedDir = ReferenceMonsterRepository.getExtractedJsonDir(sourceId: source.id)
         var collectedDicts: [[String: Any]] = []
 
-        // If files already exist in cache, reuse them!
-        let cachedFiles = (try? FileManager.default.contentsOfDirectory(at: extractedDir, includingPropertiesForKeys: nil)) ?? []
-        if !cachedFiles.isEmpty {
-            progressHandler(0.4, "Reading cached compendium JSON files…")
-            for file in cachedFiles where file.pathExtension == "json" {
-                if let data = try? Data(contentsOf: file), let str = String(data: data, encoding: .utf8) {
-                    if let vm = ImporterRegistry.importMonster(from: str) {
-                        let dict = ReferenceMonsterRepository.dictionaryFromViewModel(
-                            vm,
-                            id: "\(source.id)_\(file.deletingPathExtension().lastPathComponent)",
-                            sourceId: source.id,
-                            sourceLabel: source.sourceLabel,
-                            gameSystem: source.gameSystem,
-                            bookSource: source.bookSource
-                        )
-                        collectedDicts.append(dict)
+        if let downloadUrlStr = source.downloadUrl, let downloadUrl = URL(string: downloadUrlStr) {
+            progressHandler(0.15, "Downloading compendium archive…")
+            let (zipData, response) = try await URLSession.shared.data(from: downloadUrl)
+            if let httpRes = response as? HTTPURLResponse, (200...299).contains(httpRes.statusCode) {
+                progressHandler(0.35, "Extracting compendium files…")
+                let extractedFiles = ZipExtractor.parseZip(data: zipData)
+                progressHandler(0.55, "Parsing creatures and bestiary packs…")
+                
+                let extractedDir = ReferenceMonsterRepository.getExtractedJsonDir(sourceId: source.id)
+                for (filename, fileData) in extractedFiles where filename.hasSuffix(".json") && !filename.contains("_folders") {
+                    guard let jsonObject = try? JSONSerialization.jsonObject(with: fileData) else { continue }
+                    if let array = jsonObject as? [[String: Any]] {
+                        for item in array where (item["type"] as? String) == "npc" || (item["system"] as? [String: Any])?["attributes"] != nil {
+                            let vm = Pf2eImporter.parse(jsonObject: item)
+                            let monsterId = (item["_id"] as? String) ?? UUID().uuidString
+                            let dict = ReferenceMonsterRepository.dictionaryFromViewModel(
+                                vm,
+                                id: "\(source.id)_\(monsterId)",
+                                sourceId: source.id,
+                                sourceLabel: source.sourceLabel,
+                                gameSystem: source.gameSystem,
+                                bookSource: source.bookSource
+                            )
+                            collectedDicts.append(dict)
+                        }
+                    } else if let singleObj = jsonObject as? [String: Any] {
+                        if (singleObj["type"] as? String) == "npc" || (singleObj["system"] as? [String: Any])?["attributes"] != nil {
+                            let vm = Pf2eImporter.parse(jsonObject: singleObj)
+                            let monsterId = (singleObj["_id"] as? String) ?? UUID().uuidString
+                            let dict = ReferenceMonsterRepository.dictionaryFromViewModel(
+                                vm,
+                                id: "\(source.id)_\(monsterId)",
+                                sourceId: source.id,
+                                sourceLabel: source.sourceLabel,
+                                gameSystem: source.gameSystem,
+                                bookSource: source.bookSource
+                            )
+                            collectedDicts.append(dict)
+                        }
                     }
                 }
             }
         }
 
+        // If download failed or was offline, fallback to cached files if available
         if collectedDicts.isEmpty {
-            // Generate sample bundled reference monsters for offline testing / fallback
-            progressHandler(0.5, "Generating reference compendium entries…")
-            let sampleEntries: [(name: String, size: String, type: String, cr: String, hp: String)]
-            if source.gameSystem == .pf2e {
-                sampleEntries = [
-                    ("Goblin Warrior", "Small", "Humanoid", "1/4", "6 (1d8+2)"),
-                    ("Bugbear Stalker", "Medium", "Humanoid", "2", "28 (4d8+10)"),
-                    ("Cave Owlbear", "Large", "Beast", "4", "70 (8d10+26)"),
-                    ("Hydra", "Huge", "Beast", "6", "90 (12d10+24)"),
-                    ("Red Dragon Tyrant", "Gargantuan", "Dragon", "19", "350 (28d12+168)")
-                ]
-            } else {
-                sampleEntries = [
-                    ("Starfinder Void Glider", "Medium", "Aberration", "1", "18 (2d8+9)"),
-                    ("Plasma Elemental", "Large", "Elemental", "5", "65 (10d10+10)"),
-                    ("Cybernetic Android Sniper", "Medium", "Humanoid", "3", "38 (5d8+15)"),
-                    ("Space Lich", "Medium", "Undead", "15", "160 (18d8+79)")
-                ]
-            }
-
-            for sample in sampleEntries {
-                let vm = MonsterViewModel()
-                vm.name = sample.name
-                vm.size = sample.size
-                vm.type = sample.type
-                vm.gameSystem = source.gameSystem
-                vm.sourceLabel = source.sourceLabel
-                vm.customHP = sample.hp
-                vm.hasCustomHP = true
-                vm.challengeRating = .one
-
-                let dict = ReferenceMonsterRepository.dictionaryFromViewModel(
-                    vm,
-                    id: "\(source.id)_\(sample.name)",
-                    sourceId: source.id,
-                    sourceLabel: source.sourceLabel,
-                    gameSystem: source.gameSystem,
-                    bookSource: source.bookSource
-                )
-                collectedDicts.append(dict)
-                
-                // Cache individual JSON file locally
-                let sampleFile = extractedDir.appendingPathComponent("\(sample.name).json")
-                if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) {
-                    try? jsonData.write(to: sampleFile)
+            let extractedDir = ReferenceMonsterRepository.getExtractedJsonDir(sourceId: source.id)
+            let cachedFiles = (try? FileManager.default.contentsOfDirectory(at: extractedDir, includingPropertiesForKeys: nil)) ?? []
+            if !cachedFiles.isEmpty {
+                progressHandler(0.4, "Reading cached compendium JSON files…")
+                for file in cachedFiles where file.pathExtension == "json" {
+                    if let data = try? Data(contentsOf: file), let str = String(data: data, encoding: .utf8) {
+                        if let vm = ImporterRegistry.importMonster(from: str) {
+                            let dict = ReferenceMonsterRepository.dictionaryFromViewModel(
+                                vm,
+                                id: "\(source.id)_\(file.deletingPathExtension().lastPathComponent)",
+                                sourceId: source.id,
+                                sourceLabel: source.sourceLabel,
+                                gameSystem: source.gameSystem,
+                                bookSource: source.bookSource
+                            )
+                            collectedDicts.append(dict)
+                        }
+                    }
                 }
             }
         }
 
-        progressHandler(0.85, "Saving \(collectedDicts.count) creatures to isolated database…")
+        progressHandler(0.85, "Saving \(collectedDicts.count) creatures to local compendium…")
         try context.performAndWait {
             try ReferenceMonsterRepository.shared.replaceSource(
                 sourceId: source.id,

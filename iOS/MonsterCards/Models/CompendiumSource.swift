@@ -65,7 +65,7 @@ enum CompendiumRegistry {
             sourceLabel: "PF2e Bestiary",
             bookSource: "Bestiary",
             gitRepoUrl: "https://github.com/foundryvtt/pf2e",
-            downloadUrl: "https://github.com/foundryvtt/pf2e/archive/refs/heads/master.zip",
+            downloadUrl: "https://github.com/foundryvtt/pf2e/releases/download/pf2e-8.5.1/json-assets.zip",
             importType: .gitArchive
         ),
         CompendiumSource(
@@ -76,7 +76,7 @@ enum CompendiumRegistry {
             sourceLabel: "SF2e Playtest",
             bookSource: "Alien Archive",
             gitRepoUrl: "https://github.com/foundryvtt/sf2e",
-            downloadUrl: "https://github.com/foundryvtt/sf2e/archive/refs/heads/master.zip",
+            downloadUrl: "https://github.com/foundryvtt/pf2e/releases/download/sf2e-1.5.1/json-assets.zip",
             importType: .gitArchive
         )
     ]

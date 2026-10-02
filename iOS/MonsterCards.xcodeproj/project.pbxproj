@@ -134,6 +134,7 @@
 		E2FE003F261FE0000055B23B /* CompendiumSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE003E261FE0000083EAC5 /* CompendiumSource.swift */; };
 		E2FE0041261FE0000055B23B /* CompendiumSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0040261FE0000083EAC5 /* CompendiumSourceManager.swift */; };
 		E2FE0043261FE0000055B23B /* CompendiumSourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0042261FE0000083EAC5 /* CompendiumSourcesView.swift */; };
+		E2FE0051261FE0000055B23B /* ZipExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0050261FE0000083EAC5 /* ZipExtractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +282,7 @@
 		E2FE003E261FE0000083EAC5 /* CompendiumSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumSource.swift; sourceTree = "<group>"; };
 		E2FE0040261FE0000083EAC5 /* CompendiumSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumSourceManager.swift; sourceTree = "<group>"; };
 		E2FE0042261FE0000083EAC5 /* CompendiumSourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumSourcesView.swift; sourceTree = "<group>"; };
+		E2FE0050261FE0000083EAC5 /* ZipExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZipExtractor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +505,7 @@
 			children = (
 				E2D473FC25B532C900CB36D7 /* Color+Hex.swift */,
 				E2FE000C261FE0000083EAC5 /* Theme.swift */,
+				E2FE0050261FE0000083EAC5 /* ZipExtractor.swift */,
 				E219249826198E0D00C84E12 /* MonsterImportHelper.swift */,
 				E2CB0DD62608720000142591 /* StringHelper.swift */,
 			);
@@ -773,6 +776,7 @@
 				E2FE003F261FE0000055B23B /* CompendiumSource.swift in Sources */,
 				E2FE0041261FE0000055B23B /* CompendiumSourceManager.swift in Sources */,
 				E2FE0043261FE0000055B23B /* CompendiumSourcesView.swift in Sources */,
+				E2FE0051261FE0000055B23B /* ZipExtractor.swift in Sources */,
 				E2CB0DC026086E3C00142591 /* ChallengeRating.swift in Sources */,
 				E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */,
 				E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */,

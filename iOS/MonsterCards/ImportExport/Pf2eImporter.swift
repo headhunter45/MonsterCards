@@ -10,6 +10,14 @@ import Foundation
 struct Pf2eImporter: EntityImporter {
     static func canImport(_ input: String) -> Bool {
         let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.hasPrefix("[") && trimmed.hasSuffix("]") {
+            guard let data = trimmed.data(using: .utf8),
+                  let arr = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]],
+                  let first = arr.first else {
+                return false
+            }
+            return (first["type"] as? String) == "npc" || (first["system"] as? [String: Any])?["attributes"] != nil
+        }
         guard trimmed.hasPrefix("{") && trimmed.hasSuffix("}") else { return false }
         guard let data = trimmed.data(using: .utf8),
               let root = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
@@ -31,6 +39,27 @@ struct Pf2eImporter: EntityImporter {
             throw ImporterError.invalidFormat("Failed to parse JSON for Pathfinder 2e")
         }
 
+        return parse(jsonObject: root)
+    }
+
+    @MainActor
+    static func parseArray(_ input: String) throws -> [MonsterViewModel] {
+        let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let data = trimmed.data(using: .utf8),
+              let arr = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] else {
+            throw ImporterError.invalidFormat("Failed to parse JSON array for Pathfinder 2e")
+        }
+
+        return arr.compactMap { obj in
+            if (obj["type"] as? String) == "npc" || (obj["system"] as? [String: Any])?["attributes"] != nil {
+                return parse(jsonObject: obj)
+            }
+            return nil
+        }
+    }
+
+    @MainActor
+    static func parse(jsonObject root: [String: Any]) -> MonsterViewModel {
         let system = (root["system"] as? [String: Any]) ?? root
         let monster = MonsterViewModel()
 
@@ -139,3 +168,4 @@ struct Pf2eImporter: EntityImporter {
         return ChallengeRating(rawValue: "\(level)") ?? .one
     }
 }
+
