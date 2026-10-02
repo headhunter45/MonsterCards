@@ -117,43 +117,43 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 <a id="tasks-list"></a>
 
-| ID      | Title                                                                                                          | Project | Status | Type                |
-|:------|:-------------------------------------------------------------------------------------------------------------|:------|:-----|:------------------|
-| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                         | Shared  | Fixed  | [Chore](#mcr-001)   |
-| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                           | iOS     | Fixed  | [Chore](#mcr-002)   |
-| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                          | iOS     | Fixed  | [Feature](#mcr-003) |
-| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)             | iOS     | Fixed  | [Feature](#mcr-004) |
-| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                     | iOS     | Fixed  | [Feature](#mcr-005) |
-| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                      | iOS     | Fixed  | [Feature](#mcr-006) |
-| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards                    | iOS     | Fixed  | [Feature](#mcr-007) |
-| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                     | iOS     | Fixed  | [Feature](#mcr-008) |
-| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                     | iOS     | Fixed  | [Feature](#mcr-009) |
-| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                     | iOS     | Fixed  | [Feature](#mcr-010) |
-| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing                    | iOS     | Fixed  | [Feature](#mcr-011) |
-| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                      | iOS     | Fixed  | [Feature](#mcr-012) |
-| MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                            | Android | Fixed  | [Feature](#mcr-013) |
-| MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                       | Android | Fixed  | [Feature](#mcr-014) |
-| MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal          | Android | Fixed  | [Feature](#mcr-015) |
-| MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                           | Android | Fixed  | [Feature](#mcr-016) |
-| MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                                 | Android | Fixed  | [Feature](#mcr-017) |
-| MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                  | Android | Fixed  | [Feature](#mcr-018) |
-| MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles               | iOS     | Fixed  | [Feature](#mcr-019) |
-| MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline                      | iOS     | Fixed  | [Feature](#mcr-020) |
-| MCR-021 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal          | iOS     | Fixed  | [Feature](#mcr-021) |
-| MCR-022 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                           | iOS     | Fixed  | [Feature](#mcr-022) |
-| MCR-023 | Integrate reference compendiums into Search with source tag filters and badges                                 | iOS     | Fixed  | [Feature](#mcr-023) |
-| MCR-024 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                  | iOS     | Fixed  | [Feature](#mcr-024) |
-| MCR-025 | *Remove the open5e online tab from search.*                                                                    | iOS     | Triage | [Feature](#mcr-025) |
-| MCR-026 | *Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers.* | iOS     | Triage | [Feature](#mcr-026) |
-| MCR-027 | *Do not call the repositories official.*                                                                       | iOS     | Triage | [Feature](#mcr-027) |
-| MCR-028 | *When adding a monster from open5e.com set the source as open5e.com.*                                          | iOS     | Triage | [Feature](#mcr-028) |
-| MCR-029 | *After downloading all compendiums there are no search results in the search compendiums tab.*                 | iOS     | Triage | [Feature](#mcr-029) |
-| MCR-030 | Text on compendium sources screen is very tiny.                                                                | Android | Fixed  | [Feature](#mcr-030) |
-| MCR-031 | The download buttons on the compendium page are magenta bubbles.                                               | Android | Fixed  | [Feature](#mcr-031) |
-| MCR-032 | The 3rd party content notice frame is also tiny text.                                                          | Android | Fixed  | [Feature](#mcr-032) |
-| MCR-033 | Stop calling the repositories community.                                                                       | Android | Fixed  | [Feature](#mcr-033) |
-| MCR-034 | *Stop calling the repositories community.*                                                                     | iOS     | Triage | [Feature](#mcr-034) |
-| MCR-035 | Search does not seem to search the downloaded compendiums at all.                                              | Android | Fixed  | [Feature](#mcr-035) |
+| ID      | Title                                                                                                            | Project | Status  | Type                |
+|:------|:---------------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
+| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                           | Shared  | Fixed   | [Chore](#mcr-001)   |
+| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                             | iOS     | Fixed   | [Chore](#mcr-002)   |
+| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                            | iOS     | Fixed   | [Feature](#mcr-003) |
+| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)               | iOS     | Fixed   | [Feature](#mcr-004) |
+| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                       | iOS     | Fixed   | [Feature](#mcr-005) |
+| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                        | iOS     | Fixed   | [Feature](#mcr-006) |
+| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards                      | iOS     | Fixed   | [Feature](#mcr-007) |
+| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                       | iOS     | Fixed   | [Feature](#mcr-008) |
+| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                       | iOS     | Fixed   | [Feature](#mcr-009) |
+| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                       | iOS     | Fixed   | [Feature](#mcr-010) |
+| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing                      | iOS     | Fixed   | [Feature](#mcr-011) |
+| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                        | iOS     | Fixed   | [Feature](#mcr-012) |
+| MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                              | Android | Fixed   | [Feature](#mcr-013) |
+| MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                         | Android | Fixed   | [Feature](#mcr-014) |
+| MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal            | Android | Fixed   | [Feature](#mcr-015) |
+| MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                             | Android | Fixed   | [Feature](#mcr-016) |
+| MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                                   | Android | Fixed   | [Feature](#mcr-017) |
+| MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                    | Android | Fixed   | [Feature](#mcr-018) |
+| MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles                 | iOS     | Fixed   | [Feature](#mcr-019) |
+| MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline                        | iOS     | Fixed   | [Feature](#mcr-020) |
+| MCR-021 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal            | iOS     | Fixed   | [Feature](#mcr-021) |
+| MCR-022 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                             | iOS     | Fixed   | [Feature](#mcr-022) |
+| MCR-023 | Integrate reference compendiums into Search with source tag filters and badges                                   | iOS     | Fixed   | [Feature](#mcr-023) |
+| MCR-024 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                    | iOS     | Fixed   | [Feature](#mcr-024) |
+| MCR-025 | Remove the open5e online tab from search.                                                                        | iOS     | Fixed   | [Feature](#mcr-025) |
+| MCR-026 | **Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers.** | iOS     | Pending | [Feature](#mcr-026) |
+| MCR-027 | **Do not call the repositories official.**                                                                       | iOS     | Pending | [Feature](#mcr-027) |
+| MCR-028 | **When adding a monster from open5e.com set the source as open5e.com.**                                          | iOS     | Pending | [Feature](#mcr-028) |
+| MCR-029 | **After downloading all compendiums there are no search results in the search compendiums tab.**                 | iOS     | Pending | [Feature](#mcr-029) |
+| MCR-030 | Text on compendium sources screen is very tiny.                                                                  | Android | Fixed   | [Feature](#mcr-030) |
+| MCR-031 | The download buttons on the compendium page are magenta bubbles.                                                 | Android | Fixed   | [Feature](#mcr-031) |
+| MCR-032 | The 3rd party content notice frame is also tiny text.                                                            | Android | Fixed   | [Feature](#mcr-032) |
+| MCR-033 | Stop calling the repositories community.                                                                         | Android | Fixed   | [Feature](#mcr-033) |
+| MCR-034 | **Stop calling the repositories community.**                                                                     | iOS     | Pending | [Feature](#mcr-034) |
+| MCR-035 | Search does not seem to search the downloaded compendiums at all.                                                | Android | Fixed   | [Feature](#mcr-035) |
 
 ---
 
@@ -614,52 +614,48 @@ Allow users to tap on any reference compendium monster in search results to prev
 - [x] Clone `ReferenceMonster` attributes into a new editable `Monster` entity and persist to CoreData
 - [x] Support adding directly into an existing Collection from the preview sheet
 
-<a id="mcr-025" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-025" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Remove the open5e online tab from search.
 **ID:** MCR-025
 **Project:** iOS
-**Status:** Triage
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Describe task objectives and implementation requirements here.
 
-- [ ]
+- [x]
 
-<a id="mcr-026" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-026" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers.
 **ID:** MCR-026
 **Project:** iOS
-**Status:** Triage
+**Status:** Pending
 **Type:** Feature
-
 
 **Description:**
 Describe task objectives and implementation requirements here.
 
 - [ ]
 
-<a id="mcr-027" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-027" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Do not call the repositories official.
 **ID:** MCR-027
 **Project:** iOS
-**Status:** Triage
+**Status:** Pending
 **Type:** Feature
-
 
 **Description:**
 They are unofficial. Also do not specify the OGL/ORC licenses. Say under their own 3rd party licenses.
 
 - [ ]
 
-<a id="mcr-028" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-028" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### When adding a monster from open5e.com set the source as open5e.com.
 **ID:** MCR-028
 **Project:** iOS
-**Status:** Triage
+**Status:** Pending
 **Type:** Feature
-
 
 **Description:**
 I like the tag bubble in the search results with `5e | Open5e` and hope the monster would keep the same after being imported.
@@ -667,11 +663,11 @@ Describe task objectives and implementation requirements here.
 
 - [ ]
 
-<a id="mcr-029" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-029" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### After downloading all compendiums there are no search results in the search compendiums tab.
 **ID:** MCR-029
 **Project:** iOS
-**Status:** Triage
+**Status:** Pending
 **Type:** Feature
 
 **Description:**
@@ -722,11 +718,11 @@ Plese look for other occurences of this issue in the layouts when fixing it.
 They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
 - [x]
 
-<a id="mcr-034" class="task" data-project="ios" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-034" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Stop calling the repositories community.
 **ID:** MCR-034
 **Project:** iOS
-**Status:** Triage
+**Status:** Pending
 **Type:** Feature
 
 **Description:**

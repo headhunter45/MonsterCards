@@ -11,7 +11,6 @@ import CoreData
 enum SearchScope: String, CaseIterable, Identifiable {
     case local = "My Library"
     case compendiums = "Compendiums"
-    case open5e = "Open5e Online"
 
     var id: String { rawValue }
 }
@@ -23,11 +22,6 @@ struct Search: View {
     @State private var selectedTypeFilter = "All"
     @State private var selectedCrFilter = "All"
 
-    // Remote Open5e Search State
-    @State private var isSearchingRemote = false
-    @State private var remoteMonsters: [MonsterViewModel] = []
-    @State private var remoteErrorMessage: String? = nil
-    
     // Preview & Clone State
     @State private var previewedMonsterVM: MonsterViewModel? = nil
     @State private var selectedTargetCollection: Collection? = nil
@@ -162,9 +156,6 @@ struct Search: View {
                             FilterChip(title: type, isActive: selectedTypeFilter == type)
                                 .onTapGesture {
                                     selectedTypeFilter = type
-                                    if searchScope == .open5e && !searchText.isEmpty {
-                                        performRemoteSearch()
-                                    }
                                 }
                         }
                     }
@@ -178,24 +169,10 @@ struct Search: View {
                     localResultsView
                 case .compendiums:
                     compendiumResultsView
-                case .open5e:
-                    remoteResultsView
                 }
             }
             .navigationTitle("Search")
             .searchable(text: $searchText, prompt: Text(searchPromptText))
-            .onChange(of: searchText) {
-                if searchScope == .open5e {
-                    debounceRemoteSearch(query: searchText)
-                }
-            }
-            .onChange(of: searchScope) {
-                if searchScope == .open5e {
-                    if !searchText.isEmpty && remoteMonsters.isEmpty {
-                        performRemoteSearch()
-                    }
-                }
-            }
             .sheet(item: $previewedMonsterVM) { monsterVM in
                 NavigationStack {
                     VStack(spacing: 0) {
@@ -276,8 +253,6 @@ struct Search: View {
             return "Search local library…"
         case .compendiums:
             return "Search offline compendiums (e.g. Owlbear, Goblin)…"
-        case .open5e:
-            return "Search Open5e REST API…"
         }
     }
 
@@ -381,156 +356,6 @@ struct Search: View {
                             previewedMonsterVM = refMonster.toViewModel()
                         }
                     }
-                }
-            }
-        }
-    }
-
-    // MARK: - Remote Results View
-
-    private var remoteResultsView: some View {
-        List {
-            if isSearchingRemote {
-                HStack {
-                    Spacer()
-                    ProgressView("Searching Open5e API...")
-                        .padding()
-                    Spacer()
-                }
-                .listRowBackground(Color.clear)
-            } else if let err = remoteErrorMessage {
-                ContentUnavailableView(
-                    "Search Failed",
-                    systemImage: "wifi.exclamationmark",
-                    description: Text(err)
-                )
-                Section {
-                    Button("Retry Search") {
-                        performRemoteSearch()
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-            } else if remoteMonsters.isEmpty {
-                ContentUnavailableView(
-                    searchText.isEmpty ? "Search Open5e Online" : "No Online Results",
-                    systemImage: "globe",
-                    description: Text(searchText.isEmpty ? "Type a monster name or creature type to query thousands of 5e SRD monsters live." : "No creatures matched '\(searchText)' on Open5e.")
-                )
-            } else {
-                Section("Open5e Results (\(remoteMonsters.count))") {
-                    ForEach(remoteMonsters, id: \.name) { monsterVM in
-                        HStack {
-                            VStack(alignment: .leading, spacing: 3) {
-                                HStack(spacing: 6) {
-                                    Text(monsterVM.name)
-                                        .font(.headline)
-                                        .foregroundColor(.primary)
-
-                                    SourceTagView(gameSystem: monsterVM.gameSystem, sourceLabel: monsterVM.sourceLabel.isEmpty ? "Open5e" : monsterVM.sourceLabel)
-                                }
-
-                                HStack(spacing: 6) {
-                                    if !monsterVM.size.isEmpty {
-                                        Text(monsterVM.size.capitalized)
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
-                                    if !monsterVM.type.isEmpty {
-                                        Text(monsterVM.type.capitalized)
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
-                                    Text("CR \(monsterVM.challengeRatingDescription)")
-                                        .font(.caption2)
-                                        .fontWeight(.semibold)
-                                        .padding(.horizontal, 4)
-                                        .padding(.vertical, 1)
-                                        .background(Theme.dndGold.opacity(0.2))
-                                        .cornerRadius(3)
-                                }
-                            }
-
-                            Spacer()
-
-                            if clonedMonsterNames.contains(monsterVM.name) {
-                                Label("Cloned", systemImage: "checkmark.circle.fill")
-                                    .font(.caption)
-                                    .foregroundColor(.green)
-                            } else {
-                                Button {
-                                    cloneMonsterToLibrary(monsterVM)
-                                } label: {
-                                    Image(systemName: "square.and.arrow.down")
-                                        .font(.title3)
-                                        .foregroundColor(.accentColor)
-                                }
-                                .buttonStyle(.borderless)
-                            }
-                        }
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            previewedMonsterVM = monsterVM
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // MARK: - Search Actions
-
-    @State private var searchTask: Task<Void, Never>? = nil
-
-    private func debounceRemoteSearch(query: String) {
-        searchTask?.cancel()
-        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            remoteMonsters = []
-            remoteErrorMessage = nil
-            return
-        }
-
-        searchTask = Task {
-            try? await Task.sleep(nanoseconds: 400_000_000) // 400ms debounce
-            if !Task.isCancelled {
-                await MainActor.run {
-                    performRemoteSearch()
-                }
-            }
-        }
-    }
-
-    private func performRemoteSearch() {
-        let q = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !q.isEmpty else { return }
-
-        isSearchingRemote = true
-        remoteErrorMessage = nil
-
-        let encodedQ = q.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? q
-        var urlStr = "https://api.open5e.com/v2/creatures/?search=\(encodedQ)"
-        if selectedTypeFilter != "All" {
-            let encodedType = selectedTypeFilter.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-            urlStr += "&type=\(encodedType)"
-        }
-
-        Task {
-            do {
-                let pageResult = try await Open5eApiWrapper.fetchPage(urlStr: urlStr)
-                var parsed: [MonsterViewModel] = []
-                for raw in pageResult.rawResults {
-                    if let vm = try? Open5eImporter.parse(raw) {
-                        parsed.append(vm)
-                    }
-                }
-
-                await MainActor.run {
-                    self.remoteMonsters = parsed
-                    self.isSearchingRemote = false
-                }
-            } catch {
-                await MainActor.run {
-                    self.remoteErrorMessage = error.localizedDescription
-                    self.isSearchingRemote = false
                 }
             }
         }
