@@ -30,6 +30,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     public enum FilterMode {
         ALL,
         MY_LIBRARY,
+        COMPENDIUMS,
         DND_5E,
         PF_2E,
         SF_2E,
@@ -77,6 +78,8 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
                 return true;
             case MY_LIBRARY:
                 return item.type == SearchResultItem.Type.MONSTER;
+            case COMPENDIUMS:
+                return item.type == SearchResultItem.Type.REFERENCE_MONSTER;
             case COLLECTIONS:
                 return item.type == SearchResultItem.Type.COLLECTION;
             case DND_5E:

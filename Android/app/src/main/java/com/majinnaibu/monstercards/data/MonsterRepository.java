@@ -598,64 +598,54 @@ public class MonsterRepository {
             if (StringHelper.isNullOrEmpty(searchText)) {
                 return true;
             }
-
-            if (StringHelper.containsCaseInsensitive(monster.name, searchText)) {
+            String cleanQuery = searchText.trim();
+            if (cleanQuery.isEmpty()) {
                 return true;
             }
 
-            if (StringHelper.containsCaseInsensitive(monster.size, searchText)) {
-                return true;
+            String[] terms = cleanQuery.split("\\s+");
+            for (String term : terms) {
+                if (term.isEmpty()) continue;
+                boolean termMatched = StringHelper.containsCaseInsensitive(monster.name, term)
+                        || StringHelper.containsCaseInsensitive(monster.size, term)
+                        || StringHelper.containsCaseInsensitive(monster.type, term)
+                        || StringHelper.containsCaseInsensitive(monster.subtype, term)
+                        || StringHelper.containsCaseInsensitive(monster.alignment, term)
+                        || StringHelper.containsCaseInsensitive(monster.sourceLabel, term)
+                        || StringHelper.containsCaseInsensitive(monster.bookSource, term)
+                        || StringHelper.containsCaseInsensitive(monster.getChallengeRatingDescription(), term);
+                if (!termMatched) {
+                    return false;
+                }
             }
-
-            if (StringHelper.containsCaseInsensitive(monster.type, searchText)) {
-                return true;
-            }
-
-            if (StringHelper.containsCaseInsensitive(monster.subtype, searchText)) {
-                return true;
-            }
-
-            if (StringHelper.containsCaseInsensitive(monster.alignment, searchText)) {
-                return true;
-            }
-
-            return false;
+            return true;
         }
 
         static boolean referenceMonsterMatchesSearch(ReferenceMonster rm, String searchText) {
             if (StringHelper.isNullOrEmpty(searchText)) {
                 return true;
             }
-
-            if (StringHelper.containsCaseInsensitive(rm.name, searchText)) {
+            String cleanQuery = searchText.trim();
+            if (cleanQuery.isEmpty()) {
                 return true;
             }
 
-            if (StringHelper.containsCaseInsensitive(rm.size, searchText)) {
-                return true;
+            String[] terms = cleanQuery.split("\\s+");
+            for (String term : terms) {
+                if (term.isEmpty()) continue;
+                boolean termMatched = StringHelper.containsCaseInsensitive(rm.name, term)
+                        || StringHelper.containsCaseInsensitive(rm.size, term)
+                        || StringHelper.containsCaseInsensitive(rm.type, term)
+                        || StringHelper.containsCaseInsensitive(rm.subtype, term)
+                        || StringHelper.containsCaseInsensitive(rm.alignment, term)
+                        || StringHelper.containsCaseInsensitive(rm.sourceLabel, term)
+                        || StringHelper.containsCaseInsensitive(rm.bookSource, term)
+                        || StringHelper.containsCaseInsensitive(rm.getChallengeRatingDescription(), term);
+                if (!termMatched) {
+                    return false;
+                }
             }
-
-            if (StringHelper.containsCaseInsensitive(rm.type, searchText)) {
-                return true;
-            }
-
-            if (StringHelper.containsCaseInsensitive(rm.subtype, searchText)) {
-                return true;
-            }
-
-            if (StringHelper.containsCaseInsensitive(rm.alignment, searchText)) {
-                return true;
-            }
-
-            if (StringHelper.containsCaseInsensitive(rm.sourceLabel, searchText)) {
-                return true;
-            }
-
-            if (StringHelper.containsCaseInsensitive(rm.bookSource, searchText)) {
-                return true;
-            }
-
-            return false;
+            return true;
         }
     }
 }

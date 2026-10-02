@@ -153,7 +153,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-032 | The 3rd party content notice frame is also tiny text.                                                          | Android | Fixed  | [Feature](#mcr-032) |
 | MCR-033 | Stop calling the repositories community.                                                                       | Android | Fixed  | [Feature](#mcr-033) |
 | MCR-034 | *Stop calling the repositories community.*                                                                     | iOS     | Triage | [Feature](#mcr-034) |
-| MCR-035 | *Search does not seem to search the downloaded compendiums at all.*                                            | Android | Triage | [Feature](#mcr-035) |
+| MCR-035 | Search does not seem to search the downloaded compendiums at all.                                              | Android | Fixed  | [Feature](#mcr-035) |
 
 ---
 
@@ -733,16 +733,16 @@ They are unrelated 3rd party sources and we are simply helping the user download
 They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
 - [ ]
 
-<a id="mcr-035" class="task" data-project="android" data-status="triage" data-task-type="feature"></a>
+<a id="mcr-035" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Search does not seem to search the downloaded compendiums at all.
 **ID:** MCR-035
 **Project:** Android
-**Status:** Triage
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
 Even with open5e and pf2e downloaded bugbear gives me no results. Give the search ui a similar toggle as iOS where we can search the library or the compendiums specifically.
-- [ ]
+- [x]
 
 ---
 

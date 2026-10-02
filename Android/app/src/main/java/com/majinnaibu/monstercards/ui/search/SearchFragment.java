@@ -66,6 +66,8 @@ public class SearchFragment extends MCFragment {
                     adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.ALL);
                 } else if (checkedId == R.id.chip_my_library) {
                     adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.MY_LIBRARY);
+                } else if (checkedId == R.id.chip_compendiums) {
+                    adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.COMPENDIUMS);
                 } else if (checkedId == R.id.chip_dnd5e) {
                     adapter.setFilterMode(SearchResultsRecyclerViewAdapter.FilterMode.DND_5E);
                 } else if (checkedId == R.id.chip_pf2e) {
