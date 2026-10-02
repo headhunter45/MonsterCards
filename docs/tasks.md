@@ -140,7 +140,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles      | iOS     | Fixed   | [Feature](#mcr-019) |
 | MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline             | iOS     | Fixed   | [Feature](#mcr-020) |
 | MCR-021 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal | iOS     | Fixed   | [Feature](#mcr-021) |
-| MCR-022 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**              | iOS     | Pending | [Feature](#mcr-022) |
+| MCR-022 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                  | iOS     | Fixed   | [Feature](#mcr-022) |
 | MCR-023 | **Integrate reference compendiums into Search with source tag filters and badges**                    | iOS     | Pending | [Feature](#mcr-023) |
 | MCR-024 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**     | iOS     | Pending | [Feature](#mcr-024) |
 
@@ -540,11 +540,11 @@ Add a Compendium Sources view in iOS Settings where users can view available com
 - [x] Implement background `URLSessionDownloadTask` and zip decompression pipeline with progress bar and cancellation
 - [x] Design extensible source registry allowing new community repositories to be registered easily
 
-<a id="mcr-022" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-022" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement
 **ID:** MCR-022
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -552,10 +552,10 @@ Implement an update checking service for iOS compendiums that checks remote Git 
 
 **Requirements:**
 
-- [ ] Store compendium source metadata (`sourceId`, `lastCommitSha`, `lastEtag`, `lastUpdatedDate`, `monsterCount`) in `UserDefaults`
-- [ ] Check remote GitHub commit SHA or HTTP `If-None-Match` header to detect upstream repository updates
-- [ ] Display "Update Available" indicator in `CompendiumSourcesView`
-- [ ] Perform atomic replacement per `sourceId` via `NSBatchDeleteRequest` and `NSBatchInsertRequest` in a single CoreData background context save
+- [x] Store compendium source metadata (`sourceId`, `lastCommitSha`, `lastEtag`, `lastUpdatedDate`, `monsterCount`) in `UserDefaults`
+- [x] Check remote GitHub commit SHA or HTTP `If-None-Match` header to detect upstream repository updates
+- [x] Display "Update Available" indicator in `CompendiumSourcesView`
+- [x] Perform atomic replacement per `sourceId` via `NSBatchDeleteRequest` and `NSBatchInsertRequest` in a single CoreData background context save
 
 <a id="mcr-023" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Integrate reference compendiums into Search with source tag filters and badges

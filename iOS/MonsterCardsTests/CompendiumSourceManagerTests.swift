@@ -73,5 +73,23 @@ class CompendiumSourceManagerTests: XCTestCase {
         let afterClearCount = ReferenceMonsterRepository.shared.countForSource(sourceId: pf2eSource.id, in: context)
         XCTAssertEqual(afterClearCount, 0)
     }
+    
+    @MainActor
+    func testSourceManagerShaAndEtagUpdateCheck() async {
+        guard let pf2eSource = CompendiumRegistry.source(for: "pf2e_bestiary") else {
+            XCTFail("pf2e_bestiary source not found")
+            return
+        }
+        
+        let manager = CompendiumSourceManager.shared
+        manager.setSourceSha(sourceId: pf2eSource.id, sha: "old_sha_123456789")
+        XCTAssertEqual(manager.getSourceSha(sourceId: pf2eSource.id), "old_sha_123456789")
+        
+        manager.setSourceEtag(sourceId: pf2eSource.id, etag: "W/\"etag123\"")
+        XCTAssertEqual(manager.getSourceEtag(sourceId: pf2eSource.id), "W/\"etag123\"")
+        
+        let updateResult = await manager.checkForUpdates(source: pf2eSource)
+        XCTAssertNotNil(updateResult)
+    }
 }
 
