@@ -141,7 +141,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline             | iOS     | Fixed   | [Feature](#mcr-020) |
 | MCR-021 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal | iOS     | Fixed   | [Feature](#mcr-021) |
 | MCR-022 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                  | iOS     | Fixed   | [Feature](#mcr-022) |
-| MCR-023 | **Integrate reference compendiums into Search with source tag filters and badges**                    | iOS     | Pending | [Feature](#mcr-023) |
+| MCR-023 | Integrate reference compendiums into Search with source tag filters and badges                        | iOS     | Fixed   | [Feature](#mcr-023) |
 | MCR-024 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**     | iOS     | Pending | [Feature](#mcr-024) |
 
 ---
@@ -557,11 +557,11 @@ Implement an update checking service for iOS compendiums that checks remote Git 
 - [x] Display "Update Available" indicator in `CompendiumSourcesView`
 - [x] Perform atomic replacement per `sourceId` via `NSBatchDeleteRequest` and `NSBatchInsertRequest` in a single CoreData background context save
 
-<a id="mcr-023" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-023" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Integrate reference compendiums into Search with source tag filters and badges
 **ID:** MCR-023
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -569,10 +569,10 @@ Update the iOS `Search` view to perform unified asynchronous search across both 
 
 **Requirements:**
 
-- [ ] Update `MonsterRepository` to query `Monster` and `ReferenceMonster` entities concurrently
-- [ ] Render source tag bubbles (`[PF2e]`, `[SF2e]`, `[5e]`, `[Local]`) on search result rows
-- [ ] Add source filter menu / chips in `Search` view to filter results by game system and compendium source
-- [ ] Ensure fast, debounced UI response across large reference catalogs
+- [x] Update `MonsterRepository` to query `Monster` and `ReferenceMonster` entities concurrently
+- [x] Render source tag bubbles (`[PF2e]`, `[SF2e]`, `[5e]`, `[Local]`) on search result rows
+- [x] Add source filter menu / chips in `Search` view to filter results by game system and compendium source
+- [x] Ensure fast, debounced UI response across large reference catalogs
 
 <a id="mcr-024" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library

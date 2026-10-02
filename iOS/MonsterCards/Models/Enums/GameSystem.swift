@@ -6,15 +6,15 @@
 import Foundation
 import SwiftUI
 
-enum GameSystem: String, CaseIterable, Identifiable, Codable {
+public enum GameSystem: String, CaseIterable, Identifiable, Codable, Sendable {
     case dnd5e = "DND_5E"
     case pf2e = "PF_2E"
     case sf2e = "SF_2E"
     case custom = "CUSTOM"
     
-    var id: GameSystem { self }
+    public var id: GameSystem { self }
     
-    var displayName: String {
+    public var displayName: String {
         switch self {
         case .dnd5e:
             return "D&D 5e"
@@ -27,7 +27,7 @@ enum GameSystem: String, CaseIterable, Identifiable, Codable {
         }
     }
     
-    var shortName: String {
+    public var shortName: String {
         switch self {
         case .dnd5e:
             return "5e"
@@ -40,7 +40,7 @@ enum GameSystem: String, CaseIterable, Identifiable, Codable {
         }
     }
     
-    var badgeColor: Color {
+    public var badgeColor: Color {
         switch self {
         case .dnd5e:
             return Color(red: 0.5, green: 0.11, blue: 0.11)
@@ -53,7 +53,7 @@ enum GameSystem: String, CaseIterable, Identifiable, Codable {
         }
     }
     
-    static func fromRawValue(_ raw: String?) -> GameSystem {
+    public static func fromRawValue(_ raw: String?) -> GameSystem {
         guard let raw = raw?.uppercased().trimmingCharacters(in: .whitespacesAndNewlines), !raw.isEmpty else {
             return .dnd5e
         }

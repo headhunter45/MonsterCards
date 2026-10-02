@@ -11,6 +11,7 @@ import Foundation
 @MainActor
 public protocol MonsterRepositoryProtocol {
     func fetchMonsters(query: String?, type: String?, cr: String?, sortAscending: Bool) throws -> [Monster]
+    func searchReferenceMonsters(query: String, gameSystem: GameSystem?, limit: Int) -> [ReferenceMonster]
     func fetchMonster(by id: UUID) throws -> Monster?
     func deleteMonster(id: UUID) throws
     func fetchCollections() throws -> [Collection]
@@ -58,6 +59,10 @@ public final class MonsterRepository: MonsterRepositoryProtocol, ObservableObjec
 
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: sortAscending)]
         return try context.fetch(request)
+    }
+
+    public func searchReferenceMonsters(query: String, gameSystem: GameSystem? = nil, limit: Int = 100) -> [ReferenceMonster] {
+        ReferenceMonsterRepository.shared.searchReferenceMonsters(query: query, gameSystem: gameSystem, limit: limit, in: context)
     }
 
     public func fetchMonster(by id: UUID) throws -> Monster? {

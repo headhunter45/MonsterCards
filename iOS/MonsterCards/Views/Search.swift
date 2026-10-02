@@ -9,7 +9,8 @@ import SwiftUI
 import CoreData
 
 enum SearchScope: String, CaseIterable, Identifiable {
-    case local = "Local Library"
+    case local = "My Library"
+    case compendiums = "Compendiums"
     case open5e = "Open5e Online"
 
     var id: String { rawValue }
@@ -18,6 +19,7 @@ enum SearchScope: String, CaseIterable, Identifiable {
 struct Search: View {
     @State private var searchText = ""
     @State private var searchScope: SearchScope = .local
+    @State private var selectedSystemFilter: GameSystem? = nil
     @State private var selectedTypeFilter = "All"
     @State private var selectedCrFilter = "All"
 
@@ -25,10 +27,13 @@ struct Search: View {
     @State private var isSearchingRemote = false
     @State private var remoteMonsters: [MonsterViewModel] = []
     @State private var remoteErrorMessage: String? = nil
-    @State private var previewedRemoteMonster: MonsterViewModel? = nil
-    @State private var importedMonsterNames: Set<String> = []
+    
+    // Preview & Clone State
+    @State private var previewedMonsterVM: MonsterViewModel? = nil
+    @State private var clonedMonsterNames: Set<String> = []
 
     @Environment(\.managedObjectContext) var viewContext
+    
     @FetchRequest(
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Monster.name, ascending: true),
@@ -36,8 +41,14 @@ struct Search: View {
         animation: .default)
     private var allMonsters: FetchedResults<Monster>
 
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \ReferenceMonster.name, ascending: true),
+        ],
+        animation: .default)
+    private var allReferenceMonsters: FetchedResults<ReferenceMonster>
+
     private let quickTypeFilters = ["All", "Beast", "Undead", "Dragon", "Fiend", "Humanoid", "Monstrosity", "Fey", "Elemental"]
-    private let crOptions = ["All", "0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20"]
 
     private var localSearchResults: [Monster] {
         allMonsters.filter { monster in
@@ -58,10 +69,37 @@ struct Search: View {
                 }
             }
 
+            let matchesSystem = selectedSystemFilter == nil || monster.gameSystemEnum == selectedSystemFilter
             let matchesCr = selectedCrFilter == "All" || (monster.challengeRating ?? "") == selectedCrFilter
             let matchesType = selectedTypeFilter == "All" || (monster.type ?? "").lowercased() == selectedTypeFilter.lowercased()
 
-            return matchesQuery && matchesCr && matchesType
+            return matchesQuery && matchesSystem && matchesCr && matchesType
+        }
+    }
+
+    private var compendiumSearchResults: [ReferenceMonster] {
+        allReferenceMonsters.filter { refMonster in
+            let cleanQuery = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+
+            let matchesQuery: Bool
+            if cleanQuery.isEmpty {
+                matchesQuery = true
+            } else {
+                let terms = cleanQuery.components(separatedBy: " ").filter { !$0.isEmpty }
+                matchesQuery = terms.allSatisfy { term in
+                    StringHelper.safeContainsCaseInsensitive(refMonster.name, term)
+                        || StringHelper.safeContainsCaseInsensitive(refMonster.size, term)
+                        || StringHelper.safeContainsCaseInsensitive(refMonster.type, term)
+                        || StringHelper.safeContainsCaseInsensitive(refMonster.subtype, term)
+                        || StringHelper.safeContainsCaseInsensitive(refMonster.sourceLabel, term)
+                        || StringHelper.safeContainsCaseInsensitive(refMonster.challengeRating, term)
+                }
+            }
+
+            let matchesSystem = selectedSystemFilter == nil || refMonster.gameSystemEnum == selectedSystemFilter
+            let matchesType = selectedTypeFilter == "All" || (refMonster.type ?? "").lowercased() == selectedTypeFilter.lowercased()
+
+            return matchesQuery && matchesSystem && matchesType
         }
     }
 
@@ -79,9 +117,37 @@ struct Search: View {
                 .padding(.top, 8)
                 .padding(.bottom, 4)
 
-                // Quick Category Filters
+                // System & Category Filter Bar
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
+                        // System filter chip
+                        Menu {
+                            Button("All Game Systems") {
+                                selectedSystemFilter = nil
+                            }
+                            ForEach(GameSystem.allCases) { sys in
+                                Button(sys.displayName) {
+                                    selectedSystemFilter = sys
+                                }
+                            }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "slider.horizontal.3")
+                                Text(selectedSystemFilter?.displayName ?? "All Systems")
+                                Image(systemName: "chevron.down")
+                                    .font(.caption2)
+                            }
+                            .font(.caption.weight(.medium))
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(selectedSystemFilter != nil ? Color.accentColor : Color(uiColor: .secondarySystemFill))
+                            .foregroundColor(selectedSystemFilter != nil ? .white : .primary)
+                            .cornerRadius(14)
+                        }
+
+                        Divider()
+                            .frame(height: 20)
+
                         ForEach(quickTypeFilters, id: \.self) { type in
                             FilterChip(title: type, isActive: selectedTypeFilter == type)
                                 .onTapGesture {
@@ -97,14 +163,17 @@ struct Search: View {
                 }
 
                 // Results view
-                if searchScope == .local {
+                switch searchScope {
+                case .local:
                     localResultsView
-                } else {
+                case .compendiums:
+                    compendiumResultsView
+                case .open5e:
                     remoteResultsView
                 }
             }
             .navigationTitle("Search")
-            .searchable(text: $searchText, prompt: Text(searchScope == .local ? "Search local library..." : "Search Open5e API (e.g. Dragon, Goblin)..."))
+            .searchable(text: $searchText, prompt: Text(searchPromptText))
             .onChange(of: searchText) {
                 if searchScope == .open5e {
                     debounceRemoteSearch(query: searchText)
@@ -117,7 +186,7 @@ struct Search: View {
                     }
                 }
             }
-            .sheet(item: $previewedRemoteMonster) { monsterVM in
+            .sheet(item: $previewedMonsterVM) { monsterVM in
                 NavigationStack {
                     VStack {
                         MonsterDetailView(viewModel: monsterVM)
@@ -127,21 +196,32 @@ struct Search: View {
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Close") {
-                                previewedRemoteMonster = nil
+                                previewedMonsterVM = nil
                             }
                         }
 
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
-                                importRemoteMonster(monsterVM)
-                                previewedRemoteMonster = nil
+                                cloneMonsterToLibrary(monsterVM)
+                                previewedMonsterVM = nil
                             } label: {
-                                Label("Import to Library", systemImage: "square.and.arrow.down")
+                                Label("Clone to Library", systemImage: "square.and.arrow.down")
                             }
                         }
                     }
                 }
             }
+        }
+    }
+
+    private var searchPromptText: String {
+        switch searchScope {
+        case .local:
+            return "Search local library…"
+        case .compendiums:
+            return "Search offline compendiums (e.g. Owlbear, Goblin)…"
+        case .open5e:
+            return "Search Open5e REST API…"
         }
     }
 
@@ -153,13 +233,96 @@ struct Search: View {
                 ContentUnavailableView(
                     "No Monsters Found",
                     systemImage: "magnifyingglass",
-                    description: Text("No local monsters matched '\(searchText)'. Try searching Open5e Online.")
+                    description: Text(searchText.isEmpty ? "Your library is empty. Try creating or cloning a monster." : "No local monsters matched '\(searchText)'. Try searching Compendiums.")
                 )
             } else {
-                Section("Local Library Results (\(localSearchResults.count))") {
+                Section("My Library (\(localSearchResults.count))") {
                     ForEach(localSearchResults) { monster in
                         NavigationLink(destination: MonsterDetailWrapper(monster: monster)) {
                             MonsterListRow(monster: monster)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Compendium Results View
+
+    private var compendiumResultsView: some View {
+        List {
+            if allReferenceMonsters.isEmpty {
+                ContentUnavailableView(
+                    "No Compendiums Downloaded",
+                    systemImage: "books.vertical",
+                    description: Text("Go to Compendium Sources in Settings to download OGL/ORC 3rd-party community reference packs.")
+                )
+            } else if compendiumSearchResults.isEmpty {
+                ContentUnavailableView(
+                    "No Reference Monsters Found",
+                    systemImage: "magnifyingglass",
+                    description: Text("No compendium creatures matched '\(searchText)'.")
+                )
+            } else {
+                Section("Compendium Monsters (\(compendiumSearchResults.count))") {
+                    ForEach(compendiumSearchResults) { refMonster in
+                        HStack {
+                            VStack(alignment: .leading, spacing: 3) {
+                                HStack(spacing: 6) {
+                                    Text(refMonster.name ?? "")
+                                        .font(.headline)
+                                        .foregroundColor(.primary)
+
+                                    SourceTagView(
+                                        gameSystem: refMonster.gameSystemEnum,
+                                        sourceLabel: refMonster.sourceLabel ?? refMonster.gameSystemEnum.displayName
+                                    )
+                                }
+
+                                HStack(spacing: 6) {
+                                    if let size = refMonster.size, !size.isEmpty {
+                                        Text(size.capitalized)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    if let type = refMonster.type, !type.isEmpty {
+                                        Text(type.capitalized)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    if let cr = refMonster.challengeRating, !cr.isEmpty {
+                                        Text("CR \(cr)")
+                                            .font(.caption2)
+                                            .fontWeight(.semibold)
+                                            .padding(.horizontal, 4)
+                                            .padding(.vertical, 1)
+                                            .background(Theme.dndGold.opacity(0.2))
+                                            .cornerRadius(3)
+                                    }
+                                }
+                            }
+
+                            Spacer()
+
+                            let mName = refMonster.name ?? ""
+                            if clonedMonsterNames.contains(mName) {
+                                Label("Cloned", systemImage: "checkmark.circle.fill")
+                                    .font(.caption)
+                                    .foregroundColor(.green)
+                            } else {
+                                Button {
+                                    cloneReferenceMonster(refMonster)
+                                } label: {
+                                    Image(systemName: "square.and.arrow.down")
+                                        .font(.title3)
+                                        .foregroundColor(.accentColor)
+                                }
+                                .buttonStyle(.borderless)
+                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            previewedMonsterVM = refMonster.toViewModel()
                         }
                     }
                 }
@@ -233,13 +396,13 @@ struct Search: View {
 
                             Spacer()
 
-                            if importedMonsterNames.contains(monsterVM.name) {
-                                Label("Imported", systemImage: "checkmark.circle.fill")
+                            if clonedMonsterNames.contains(monsterVM.name) {
+                                Label("Cloned", systemImage: "checkmark.circle.fill")
                                     .font(.caption)
                                     .foregroundColor(.green)
                             } else {
                                 Button {
-                                    importRemoteMonster(monsterVM)
+                                    cloneMonsterToLibrary(monsterVM)
                                 } label: {
                                     Image(systemName: "square.and.arrow.down")
                                         .font(.title3)
@@ -250,7 +413,7 @@ struct Search: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            previewedRemoteMonster = monsterVM
+                            previewedMonsterVM = monsterVM
                         }
                     }
                 }
@@ -317,16 +480,21 @@ struct Search: View {
         }
     }
 
-    private func importRemoteMonster(_ monsterVM: MonsterViewModel) {
+    private func cloneReferenceMonster(_ refMonster: ReferenceMonster) {
+        let vm = refMonster.toViewModel()
+        cloneMonsterToLibrary(vm)
+    }
+
+    private func cloneMonsterToLibrary(_ monsterVM: MonsterViewModel) {
         withAnimation {
             let newMonster = Monster(context: viewContext)
             newMonster.uuid = UUID()
             monsterVM.copyToMonster(monster: newMonster)
             do {
                 try viewContext.save()
-                importedMonsterNames.insert(monsterVM.name)
+                clonedMonsterNames.insert(monsterVM.name)
             } catch {
-                print("Failed to save imported monster: \(error)")
+                print("Failed to clone monster to library: \(error)")
             }
         }
     }
