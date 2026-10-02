@@ -40,6 +40,11 @@ struct ContentView: View {
                     Image(systemName: "book.fill")
                     Text("Library")
                 }
+            CompendiumSourcesView()
+                .tabItem {
+                    Image(systemName: "books.vertical.fill")
+                    Text("Sources")
+                }
         }
         .onOpenURL(perform: beginImportingMonster)
         .sheet(isPresented: $isShowingImportDialog) {
