@@ -9,6 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/dialog_import_message"
+        android:textAppearance="?attr/textAppearanceListItemSecondary"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="15sp"
         android:paddingBottom="8dp" />
 
     <EditText
