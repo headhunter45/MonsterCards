@@ -5,5 +5,9 @@
         android:id="@+id/menu_action_import_monster"
         android:icon="@drawable/ic_library_add_24"
         android:title="@string/action_import"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_action_import_to_collection"
+        android:title="@string/action_add_to_collection"
+        app:showAsAction="never" />
 </menu>

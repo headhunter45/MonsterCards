@@ -153,36 +153,81 @@ public class MonsterImportFragment extends MCFragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_action_import_monster) {
-            Logger.logDebug("Menu Item Selected");
-            Monster monster = mViewModel.getMonster();
-            if (monster != null) {
-                monster.id = UUID.randomUUID();
-                MonsterCardsApplication application = (MonsterCardsApplication) getApplication();
-                MonsterRepository repository = application.getMonsterRepository();
-                repository.addMonster(monster).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new DisposableCompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        if (getView() != null) {
-                            NavController navController = Navigation.findNavController(requireView());
-                            NavDirections toLibraryAction = MonsterImportFragmentDirections.actionMonsterImportFragmentToNavigationLibrary();
-                            navController.navigate(toLibraryAction);
-                            NavDirections toMonsterDetailAction = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monster.id.toString());
-                            navController.navigate(toMonsterDetailAction);
-                        }
-                    }
-
-                    @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                        Logger.logError("Error creating monster", e);
-                        SnackbarHelper.showLong(mHolder.root, getString(R.string.snackbar_failed_to_create_monster));
-                    }
-                });
-            } else {
-                Logger.logWTF("monsterId cannot be null.");
-            }
+            importMonsterToLibrary(null);
+            return true;
+        } else if (item.getItemId() == R.id.menu_action_import_to_collection) {
+            showSelectCollectionDialog();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showSelectCollectionDialog() {
+        MonsterRepository repository = ((MonsterCardsApplication) getApplication()).getMonsterRepository();
+        repository.getCollections()
+                .firstOrError()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(collections -> {
+                    if (collections.isEmpty()) {
+                        SnackbarHelper.showLong(mHolder.root, R.string.no_collections_available);
+                        return;
+                    }
+                    String[] collectionNames = new String[collections.size()];
+                    for (int i = 0; i < collections.size(); i++) {
+                        collectionNames[i] = collections.get(i).name;
+                    }
+                    new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                            .setTitle(R.string.title_select_collection)
+                            .setItems(collectionNames, (dialog, which) -> {
+                                importMonsterToLibrary(collections.get(which).id);
+                            })
+                            .setNegativeButton(R.string.dialog_cancel, null)
+                            .show();
+                }, throwable -> Logger.logError("Failed to load collections for import", throwable));
+    }
+
+    private void importMonsterToLibrary(@androidx.annotation.Nullable UUID targetCollectionId) {
+        Monster monster = mViewModel.getMonster();
+        if (monster != null) {
+            monster.id = UUID.randomUUID();
+            MonsterCardsApplication application = (MonsterCardsApplication) getApplication();
+            MonsterRepository repository = application.getMonsterRepository();
+            repository.addMonster(monster)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new DisposableCompletableObserver() {
+                        @Override
+                        public void onComplete() {
+                            if (targetCollectionId != null) {
+                                repository.addMonsterToCollection(targetCollectionId, monster.id)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe(() -> navigateAfterImport(monster.id), Logger::logError);
+                            } else {
+                                navigateAfterImport(monster.id);
+                            }
+                        }
+
+                        @Override
+                        public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            Logger.logError("Error creating monster", e);
+                            SnackbarHelper.showLong(mHolder.root, getString(R.string.snackbar_failed_to_create_monster));
+                        }
+                    });
+        } else {
+            Logger.logWTF("monster cannot be null.");
+        }
+    }
+
+    private void navigateAfterImport(@NonNull UUID monsterId) {
+        if (getView() != null) {
+            NavController navController = Navigation.findNavController(requireView());
+            NavDirections toLibraryAction = MonsterImportFragmentDirections.actionMonsterImportFragmentToNavigationLibrary();
+            navController.navigate(toLibraryAction);
+            NavDirections toMonsterDetailAction = LibraryFragmentDirections.actionNavigationLibraryToNavigationMonster(monsterId.toString());
+            navController.navigate(toMonsterDetailAction);
+        }
     }
 
     private static class ViewHolder {

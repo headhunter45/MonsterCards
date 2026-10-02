@@ -136,7 +136,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal     | Android | Fixed   | [Feature](#mcr-015) |
 | MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                      | Android | Fixed   | [Feature](#mcr-016) |
 | MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                            | Android | Fixed   | [Feature](#mcr-017) |
-| MCR-018 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**         | Android | Pending | [Feature](#mcr-018) |
+| MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library             | Android | Fixed   | [Feature](#mcr-018) |
 | MCR-019 | **Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles**      | iOS     | Pending | [Feature](#mcr-019) |
 | MCR-020 | **Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline**             | iOS     | Pending | [Feature](#mcr-020) |
 | MCR-021 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | iOS     | Pending | [Feature](#mcr-021) |
@@ -472,11 +472,11 @@ Update `SearchFragment` and `SearchResultsRecyclerViewAdapter` to perform unifie
 - [x] Add horizontal filter chips / filter bottom sheet to filter search results by game system and source compendium
 - [x] Ensure debounced, responsive UI performance across large reference catalogs (5,000+ monsters)
 
-<a id="mcr-018" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-018" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library
 **ID:** MCR-018
 **Project:** Android
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -484,10 +484,10 @@ Allow users to tap on any reference compendium monster in search results to prev
 
 **Requirements:**
 
-- [ ] Present full statblock detail view/dialog when tapping a `ReferenceMonster` search result
-- [ ] Provide prominent "Import to Library" button with confirmation feedback
-- [ ] Clone `ReferenceMonster` attributes into a new editable `Monster` entity and save to Room
-- [ ] Support adding directly into an existing Collection upon import
+- [x] Present full statblock detail view/dialog when tapping a `ReferenceMonster` search result
+- [x] Provide prominent "Import to Library" button with confirmation feedback
+- [x] Clone `ReferenceMonster` attributes into a new editable `Monster` entity and save to Room
+- [x] Support adding directly into an existing Collection upon import
 
 <a id="mcr-019" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles

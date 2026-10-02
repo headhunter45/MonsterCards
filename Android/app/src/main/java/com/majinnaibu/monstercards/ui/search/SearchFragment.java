@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.chip.ChipGroup;
 import com.majinnaibu.monstercards.R;
 import com.majinnaibu.monstercards.data.MonsterRepository;
+import com.majinnaibu.monstercards.models.Monster;
 import com.majinnaibu.monstercards.models.SearchResultItem;
 import com.majinnaibu.monstercards.ui.shared.MCFragment;
 
@@ -44,7 +45,10 @@ public class SearchFragment extends MCFragment {
                     NavDirections action = SearchFragmentDirections.actionNavigationSearchToCollectionDetailFragment(item.collection.id.toString());
                     Navigation.findNavController(requireView()).navigate(action);
                 } else if (item.type == SearchResultItem.Type.REFERENCE_MONSTER && item.referenceMonster != null) {
-                    showReferenceMonsterDialog(item.referenceMonster);
+                    Monster monster = item.referenceMonster.toMonster();
+                    String serializedJson = new com.google.gson.Gson().toJson(monster);
+                    NavDirections navAction = com.majinnaibu.monstercards.MobileNavigationDirections.actionGlobalMonsterImportFragment(serializedJson);
+                    Navigation.findNavController(requireView()).navigate(navAction);
                 }
             }
         });
@@ -95,28 +99,6 @@ public class SearchFragment extends MCFragment {
                 .subscribe(adapter::doSearch));
 
         return root;
-    }
-
-    private void showReferenceMonsterDialog(@NonNull com.majinnaibu.monstercards.models.ReferenceMonster referenceMonster) {
-        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                .setTitle(referenceMonster.name + " (" + referenceMonster.getSourceTag() + ")")
-                .setMessage(referenceMonster.size + " " + referenceMonster.type + "\n"
-                        + "Alignment: " + referenceMonster.alignment + "\n"
-                        + "Challenge Rating: " + referenceMonster.getChallengeRatingDescription() + "\n\n"
-                        + "Ingested from: " + referenceMonster.bookSource)
-                .setPositiveButton("Import to Library", (dialog, which) -> {
-                    mDisposables.add(getMonsterRepository().cloneReferenceMonsterToLibrary(referenceMonster)
-                            .subscribeOn(io.reactivex.rxjava3.schedulers.Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(() -> {
-                                View view = getView();
-                                if (view != null) {
-                                    com.majinnaibu.monstercards.utils.SnackbarHelper.showLong(view, referenceMonster.name + " imported into your library!");
-                                }
-                            }, throwable -> com.majinnaibu.monstercards.utils.Logger.logError("Failed to clone reference monster", throwable)));
-                })
-                .setNegativeButton(R.string.dialog_cancel, null)
-                .show();
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView, @NonNull SearchResultsRecyclerViewAdapter adapter) {
