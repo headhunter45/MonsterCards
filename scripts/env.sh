@@ -48,6 +48,7 @@ alias research="$SCRIPTS_DIR/research"
 alias research-hermes="$SCRIPTS_DIR/research --hermes"
 alias groom="$SCRIPTS_DIR/get-tasks --planning | sed -E 's/ +\\|$/ |/; s/-{10,}/---/'"
 alias dp="$SCRIPTS_DIR/get-tasks --planning | sed -E 's/ +\\|$/ |/; s/-{10,}/---/'"
+alias work-on-task="$SCRIPTS_DIR/work-on-task"
 
 # Source optional local uncommitted environment settings if present
 if [ -f "$SCRIPTS_DIR/env.sh.local" ]; then

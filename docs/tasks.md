@@ -118,7 +118,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 <a id="tasks-list"></a>
 
 | ID      | Title                                                                                                  | Project | Status  | Type                |
-| :------ | :----------------------------------------------------------------------------------------------------- | :------ | :------ | :------------------ |
+|:------|:-----------------------------------------------------------------------------------------------------|:------|:------|:------------------|
 | FGJ-001 | **Clean up legacy Bukkit plugin and Maven leftovers from repository root**                             | Shared  | Pending | [Chore](#fgj-001)   |
 | FGJ-002 | **Modernize iOS Xcode project configuration, build pipeline, and dependency management**               | iOS     | Pending | [Chore](#fgj-002)   |
 | FGJ-003 | **Modernize CoreData / CloudKit persistence layer and implement repository architecture**              | iOS     | Pending | [Feature](#fgj-003) |
@@ -139,9 +139,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 ## Detailed Tasks
 
 <a id="fgj-001" class="task" data-project="shared" data-status="pending" data-task-type="chore"></a>
-
 ### Clean up legacy Bukkit plugin and Maven leftovers from repository root
-
 **ID:** FGJ-001
 **Project:** Shared
 **Status:** Pending
@@ -159,13 +157,12 @@ Remove obsolete files that leaked into the root directory from an unrelated lega
 - [ ] Update `.gitignore` to avoid re-introducing obsolete build artifacts
 
 <a id="fgj-002" class="task" data-project="ios" data-status="pending" data-task-type="chore"></a>
-
 ### Modernize iOS Xcode project configuration, build pipeline, and dependency management
-
 **ID:** FGJ-002
 **Project:** iOS
 **Status:** Pending
 **Type:** Chore
+
 
 **Description:**
 Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0+, enabling modern Swift concurrency settings, updating Swift Package dependencies, and resolving all build warnings.
@@ -179,13 +176,12 @@ Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0
 - [ ] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
 
 <a id="fgj-003" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Modernize CoreData / CloudKit persistence layer and implement repository architecture
-
 **ID:** FGJ-003
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xcdatamodeld`. Ensure schema parity with Android's Room database (`Monster`, `Collection`, `CollectionMonster`, `DashboardMonster`), robust iCloud synchronization via `NSPersistentCloudKitContainer`, and clean separation of concerns using an async/actor-isolated repository pattern (`MonsterRepository`).
@@ -201,13 +197,12 @@ Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xc
 - [ ] Implement database seeding for development/previews (`DevContent`)
 
 <a id="fgj-004" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)
-
 **ID:** FGJ-004
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Bring the iOS import and export engine to full parity with Android. Implement robust parsers and serializers for all supported tabletop formats, external APIs, and native archives.
@@ -224,13 +219,12 @@ Bring the iOS import and export engine to full parity with Android. Implement ro
 - [ ] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
 
 <a id="fgj-005" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Modernize SwiftUI architecture, NavigationStack, and Observation framework
-
 **ID:** FGJ-005
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, `ObservableObject`, `@ObservedObject`, `@EnvironmentObject`) to modern iOS idioms: `NavigationStack`, `NavigationSplitView` (adaptive for iPhone and iPad), and Swift's `@Observable` macro (Observation framework) with structured concurrency (`async/await`, `@MainActor`).
@@ -244,13 +238,12 @@ Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, 
 - [ ] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
 
 <a id="fgj-006" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions
-
 **ID:** FGJ-006
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Upgrade the Monster Library tab (`Library.swift`) to match Android functionality, providing a rich, high-performance monster management hub with filtering, sorting, multi-selection, and quick actions.
@@ -264,13 +257,12 @@ Upgrade the Monster Library tab (`Library.swift`) to match Android functionality
 - [ ] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
 
 <a id="fgj-007" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards
-
 **ID:** FGJ-007
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Replace the placeholder `Dashboard.swift` with a combat companion dashboard matching Android's encounter running capabilities. Allows Dungeon Masters to pin monster stat blocks, track current/max/temp hit points, manage turn orders, and view compact vital stats during tabletop sessions.
@@ -284,13 +276,12 @@ Replace the placeholder `Dashboard.swift` with a combat companion dashboard matc
 - [ ] Persist dashboard combat state across app restarts
 
 <a id="fgj-008" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Implement Collections and Encounters management with CR/XP summary metrics
-
 **ID:** FGJ-008
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Build out the Collections tab (`Collections.swift`) and detail views to organize monsters into thematic collections, campaigns, locations, or combat encounters with automated challenge rating / encounter XP calculations.
@@ -304,13 +295,12 @@ Build out the Collections tab (`Collections.swift`) and detail views to organize
 - [ ] Export collection as a standalone Binder archive or share sheet payload
 
 <a id="fgj-009" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Implement unified local Full-Text Search and remote Open5e API live search
-
 **ID:** FGJ-009
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Modernize `Search.swift` to provide a unified search experience that queries both local library monsters and the remote Open5e REST API simultaneously with instant preview and import.
@@ -324,13 +314,12 @@ Modernize `Search.swift` to provide a unified search experience that queries bot
 - [ ] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
 
 <a id="fgj-010" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Build comprehensive multi-section 5e Monster Editor suite with validation and live preview
-
 **ID:** FGJ-010
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Revamp the monster creation and editing suite (`EditMonster.swift` and subviews) to support every 5e statblock attribute with modern form controls, live modifier calculations, Markdown support for traits/actions, and side-by-side / toggleable card preview.
@@ -349,13 +338,12 @@ Revamp the monster creation and editing suite (`EditMonster.swift` and subviews)
 - [ ] Live preview mode to switch seamlessly between editor forms and rendered statblock card
 
 <a id="fgj-011" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Implement QuickLook Preview Extension, custom document types (.monster), and system sharing
-
 **ID:** FGJ-011
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Configure iOS document handling for `.monster` and `.json` files, implement AirDrop sharing, system Share Sheet integration, and finish the `MonsterPreview` App Extension for system QuickLook previews in Files.app.
@@ -369,13 +357,12 @@ Configure iOS document handling for `.monster` and `.json` files, implement AirD
 - [ ] Support Drag and Drop of monster files on iPadOS
 
 <a id="fgj-012" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
-
 ### Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows
-
 **ID:** FGJ-012
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
+
 
 **Description:**
 Establish a complete test suite covering data conversion, all format importers/exporters, CoreData repository operations, and critical SwiftUI user journeys.
@@ -415,17 +402,15 @@ Establish a complete test suite covering data conversion, all format importers/e
   7. **Cancelled**: Task discarded.
 
 #### Projects (Rendered from frontmatter projects)
-
 | Value   | Label   | Prefix | Path    |
-| :------ | :------ | :----- | :------ |
+|:------|:------|:-----|:------|
 | ios     | iOS     | IOS    | iOS     |
 | android | Android | AND    | Android |
 | shared  | Shared  | SHR    |         |
 
 #### Task Statuses (Rendered from frontmatter task-statuses)
-
 | Value       | Label       | Description                                                                      |
-| :---------- | :---------- | :------------------------------------------------------------------------------- |
+|:----------|:----------|:-------------------------------------------------------------------------------|
 | planning    | Planning    | The task is being scoped and conceptualized. We still don't know what we want.   |
 | triage      | Triage      | The task is being evaluated and prioritized. We don't know how we want to do it. |
 | pending     | Pending     | The task is ready to be acted on.                                                |
@@ -436,9 +421,8 @@ Establish a complete test suite covering data conversion, all format importers/e
 | research    | Researching | This task needs more research before planning.                                   |
 
 #### Task Types (Rendered from frontmatter task-types)
-
 | Value   | Label   | Prefix | Description                                                |
-| :------ | :------ | :----- | :--------------------------------------------------------- |
+|:------|:------|:-----|:---------------------------------------------------------|
 | lint    | Lint    | LNT    | The task involves fixing a linting error or other warning. |
 | bug     | Bug     | BUG    | The task is a bug to fix.                                  |
 | feature | Feature | ENH    | The task is a new feature to implement.                    |
