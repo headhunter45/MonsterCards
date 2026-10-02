@@ -120,7 +120,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | ID      | Title                                                                                                  | Project | Status  | Type                |
 |:------|:-----------------------------------------------------------------------------------------------------|:------|:------|:------------------|
 | FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                 | Shared  | Fixed   | [Chore](#fgj-001)   |
-| FGJ-002 | **Modernize iOS Xcode project configuration, build pipeline, and dependency management**               | iOS     | Pending | [Chore](#fgj-002)   |
+| FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                   | iOS     | Fixed   | [Chore](#fgj-002)   |
 | FGJ-003 | **Modernize CoreData / CloudKit persistence layer and implement repository architecture**              | iOS     | Pending | [Feature](#fgj-003) |
 | FGJ-004 | **Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)** | iOS     | Pending | [Feature](#fgj-004) |
 | FGJ-005 | **Modernize SwiftUI architecture, NavigationStack, and Observation framework**                         | iOS     | Pending | [Feature](#fgj-005) |
@@ -156,24 +156,23 @@ Remove obsolete files that leaked into the root directory from an unrelated lega
 - [x] Ensure `Project.json`, `Project.md`, and root `README.md` accurately describe the MonsterCards Android & iOS application
 - [x] Update `.gitignore` to avoid re-introducing obsolete build artifacts
 
-<a id="fgj-002" class="task" data-project="ios" data-status="pending" data-task-type="chore"></a>
+<a id="fgj-002" class="task" data-project="ios" data-status="done" data-task-type="chore"></a>
 ### Modernize iOS Xcode project configuration, build pipeline, and dependency management
 **ID:** FGJ-002
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Chore
-
 
 **Description:**
 Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0+, enabling modern Swift concurrency settings, updating Swift Package dependencies, and resolving all build warnings.
 
 **Requirements:**
 
-- [ ] Update Deployment Target to iOS 17.0 minimum (recommend iOS 17.6+)
-- [ ] Audit Swift Package Manager dependencies (`NetworkImage`, `MarkdownUI`, `swift-cmark`) to latest stable compatible releases
-- [ ] Enable Swift 5.10 / Swift 6 concurrency checking (`SWIFT_STRICT_CONCURRENCY=complete`)
-- [ ] Resolve all Xcode project build warnings, deprecations, and code signing configurations for local/simulator testing
-- [ ] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
+- [x] Update Deployment Target to iOS 17.0 minimum (recommend iOS 17.6+)
+- [x] Audit Swift Package Manager dependencies (`NetworkImage`, `MarkdownUI`, `swift-cmark`) to latest stable compatible releases
+- [x] Enable Swift 5.10 / Swift 6 concurrency checking (`SWIFT_STRICT_CONCURRENCY=complete`)
+- [x] Resolve all Xcode project build warnings, deprecations, and code signing configurations for local/simulator testing
+- [x] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
 
 <a id="fgj-003" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Modernize CoreData / CloudKit persistence layer and implement repository architecture
