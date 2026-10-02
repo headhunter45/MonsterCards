@@ -8,3 +8,10 @@ thumbs.db
 .worktrees/
 .build/
 .worktrees
+
+# Cache
+__pycache__
+
+# Local Environment Overrides
+*.sh.local
+.env*
