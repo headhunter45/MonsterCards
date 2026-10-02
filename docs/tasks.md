@@ -117,47 +117,49 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 <a id="tasks-list"></a>
 
-| ID      | Title                                                                                                           | Project | Status  | Type                |
-|:------|:--------------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
-| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                          | Shared  | Fixed   | [Chore](#mcr-001)   |
-| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                            | iOS     | Fixed   | [Chore](#mcr-002)   |
-| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                           | iOS     | Fixed   | [Feature](#mcr-003) |
-| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)              | iOS     | Fixed   | [Feature](#mcr-004) |
-| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                      | iOS     | Fixed   | [Feature](#mcr-005) |
-| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                       | iOS     | Fixed   | [Feature](#mcr-006) |
-| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards                     | iOS     | Fixed   | [Feature](#mcr-007) |
-| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                      | iOS     | Fixed   | [Feature](#mcr-008) |
-| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                      | iOS     | Fixed   | [Feature](#mcr-009) |
-| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                      | iOS     | Fixed   | [Feature](#mcr-010) |
-| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing                     | iOS     | Fixed   | [Feature](#mcr-011) |
-| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                       | iOS     | Fixed   | [Feature](#mcr-012) |
-| MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                             | Android | Fixed   | [Feature](#mcr-013) |
-| MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                        | Android | Fixed   | [Feature](#mcr-014) |
-| MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal           | Android | Fixed   | [Feature](#mcr-015) |
-| MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                            | Android | Fixed   | [Feature](#mcr-016) |
-| MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                                  | Android | Fixed   | [Feature](#mcr-017) |
-| MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                   | Android | Fixed   | [Feature](#mcr-018) |
-| MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles                | iOS     | Fixed   | [Feature](#mcr-019) |
-| MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline                       | iOS     | Fixed   | [Feature](#mcr-020) |
-| MCR-021 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal           | iOS     | Fixed   | [Feature](#mcr-021) |
-| MCR-022 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                            | iOS     | Fixed   | [Feature](#mcr-022) |
-| MCR-023 | Integrate reference compendiums into Search with source tag filters and badges                                  | iOS     | Fixed   | [Feature](#mcr-023) |
-| MCR-024 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                   | iOS     | Fixed   | [Feature](#mcr-024) |
-| MCR-025 | Remove the open5e online tab from search.                                                                       | iOS     | Fixed   | [Feature](#mcr-025) |
-| MCR-026 | Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers.    | iOS     | Fixed   | [Feature](#mcr-026) |
-| MCR-027 | Do not call the repositories official.                                                                          | iOS     | Fixed   | [Feature](#mcr-027) |
-| MCR-028 | When adding a monster from open5e.com set the source as open5e.com.                                             | iOS     | Fixed   | [Feature](#mcr-028) |
-| MCR-029 | After downloading all compendiums there are no search results in the search compendiums tab.                    | iOS     | Fixed   | [Feature](#mcr-029) |
-| MCR-030 | Text on compendium sources screen is very tiny.                                                                 | Android | Fixed   | [Feature](#mcr-030) |
-| MCR-031 | The download buttons on the compendium page are magenta bubbles.                                                | Android | Fixed   | [Feature](#mcr-031) |
-| MCR-032 | The 3rd party content notice frame is also tiny text.                                                           | Android | Fixed   | [Feature](#mcr-032) |
-| MCR-033 | Stop calling the repositories community.                                                                        | Android | Fixed   | [Feature](#mcr-033) |
-| MCR-034 | Stop calling the repositories community.                                                                        | iOS     | Fixed   | [Feature](#mcr-034) |
-| MCR-035 | Search does not seem to search the downloaded compendiums at all.                                               | Android | Fixed   | [Feature](#mcr-035) |
-| MCR-036 | Fix Room Database Migration MIGRATION_10_11 column nullability mismatch                                         | Android | Fixed   | [Bug](#mcr-036)     |
-| MCR-037 | **Open5e import is only importing 500 monsters instead of the 3451 that android does using the /v2 api calls.** | iOS     | Pending | [Feature](#mcr-037) |
-| MCR-038 | **It looks like the source book/origin is confused still.**                                                     | iOS     | Pending | [Feature](#mcr-038) |
-| MCR-039 | Determine what data we can get from the pathfinder imports to match our 5e monster imports.                     | Shared  | Fixed   | [Feature](#mcr-039) |
+| ID      | Title                                                                                                                | Project | Status  | Type                |
+|:------|:-------------------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
+| MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                               | Shared  | Fixed   | [Chore](#mcr-001)   |
+| MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                                 | iOS     | Fixed   | [Chore](#mcr-002)   |
+| MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                                | iOS     | Fixed   | [Feature](#mcr-003) |
+| MCR-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)                   | iOS     | Fixed   | [Feature](#mcr-004) |
+| MCR-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                                           | iOS     | Fixed   | [Feature](#mcr-005) |
+| MCR-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions                            | iOS     | Fixed   | [Feature](#mcr-006) |
+| MCR-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards                          | iOS     | Fixed   | [Feature](#mcr-007) |
+| MCR-008 | Implement Collections and Encounters management with CR/XP summary metrics                                           | iOS     | Fixed   | [Feature](#mcr-008) |
+| MCR-009 | Implement unified local Full-Text Search and remote Open5e API live search                                           | iOS     | Fixed   | [Feature](#mcr-009) |
+| MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                           | iOS     | Fixed   | [Feature](#mcr-010) |
+| MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing                          | iOS     | Fixed   | [Feature](#mcr-011) |
+| MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                            | iOS     | Fixed   | [Feature](#mcr-012) |
+| MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                                  | Android | Fixed   | [Feature](#mcr-013) |
+| MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                             | Android | Fixed   | [Feature](#mcr-014) |
+| MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal                | Android | Fixed   | [Feature](#mcr-015) |
+| MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                                 | Android | Fixed   | [Feature](#mcr-016) |
+| MCR-017 | Integrate reference compendiums into Search with source tag filters and badges                                       | Android | Fixed   | [Feature](#mcr-017) |
+| MCR-018 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                        | Android | Fixed   | [Feature](#mcr-018) |
+| MCR-019 | Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles                     | iOS     | Fixed   | [Feature](#mcr-019) |
+| MCR-020 | Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline                            | iOS     | Fixed   | [Feature](#mcr-020) |
+| MCR-021 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal                | iOS     | Fixed   | [Feature](#mcr-021) |
+| MCR-022 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                                 | iOS     | Fixed   | [Feature](#mcr-022) |
+| MCR-023 | Integrate reference compendiums into Search with source tag filters and badges                                       | iOS     | Fixed   | [Feature](#mcr-023) |
+| MCR-024 | Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library                        | iOS     | Fixed   | [Feature](#mcr-024) |
+| MCR-025 | Remove the open5e online tab from search.                                                                            | iOS     | Fixed   | [Feature](#mcr-025) |
+| MCR-026 | Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers.         | iOS     | Fixed   | [Feature](#mcr-026) |
+| MCR-027 | Do not call the repositories official.                                                                               | iOS     | Fixed   | [Feature](#mcr-027) |
+| MCR-028 | When adding a monster from open5e.com set the source as open5e.com.                                                  | iOS     | Fixed   | [Feature](#mcr-028) |
+| MCR-029 | After downloading all compendiums there are no search results in the search compendiums tab.                         | iOS     | Fixed   | [Feature](#mcr-029) |
+| MCR-030 | Text on compendium sources screen is very tiny.                                                                      | Android | Fixed   | [Feature](#mcr-030) |
+| MCR-031 | The download buttons on the compendium page are magenta bubbles.                                                     | Android | Fixed   | [Feature](#mcr-031) |
+| MCR-032 | The 3rd party content notice frame is also tiny text.                                                                | Android | Fixed   | [Feature](#mcr-032) |
+| MCR-033 | Stop calling the repositories community.                                                                             | Android | Fixed   | [Feature](#mcr-033) |
+| MCR-034 | Stop calling the repositories community.                                                                             | iOS     | Fixed   | [Feature](#mcr-034) |
+| MCR-035 | Search does not seem to search the downloaded compendiums at all.                                                    | Android | Fixed   | [Feature](#mcr-035) |
+| MCR-036 | Fix Room Database Migration MIGRATION_10_11 column nullability mismatch                                              | Android | Fixed   | [Bug](#mcr-036)     |
+| MCR-037 | **Open5e import is only importing 500 monsters instead of the 3451 that android does using the /v2 api calls.**      | iOS     | Pending | [Feature](#mcr-037) |
+| MCR-038 | **It looks like the source book/origin is confused still.**                                                          | iOS     | Pending | [Feature](#mcr-038) |
+| MCR-039 | Determine what data we can get from the pathfinder imports to match our 5e monster imports.                          | Shared  | Fixed   | [Feature](#mcr-039) |
+| MCR-040 | **Import full Pathfinder/Starfinder stat blocks with formatted strikes, action costs, trait tags, and cleaned text** | iOS     | Pending | [Feature](#mcr-040) |
+| MCR-041 | **Import full Pathfinder/Starfinder stat blocks with formatted strikes, action costs, trait tags, and cleaned text** | Android | Pending | [Feature](#mcr-041) |
 
 ---
 
@@ -861,6 +863,70 @@ Each PF2e/SF2e Actor contains an embedded `items` array with rich structured dat
   3. *Clean Fallback:* If not present in glossary or pack files, generate the structured attack/ability formula and state `[Description was not in the imported file]`.
 
 - [x]
+
+<a id="mcr-040" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+### Import full Pathfinder/Starfinder stat blocks with formatted strikes, action costs, trait tags, and cleaned text
+**ID:** MCR-040
+**Project:** iOS
+**Status:** Pending
+**Type:** Feature
+
+**Description:**
+### Objectives
+Implement rich Pathfinder 2e and Starfinder 2e stat block importing for reference viewing:
+
+1. **Strikes & Attacks**: Format `type: "melee"` strikes into standard Action entries:
+   - Include weapon/strike name, attack modifier (+`bonus`), damage rolls (dice + damage types), reach, and weapon traits.
+   - Example: *"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."*
+2. **Action Costs in Titles**: For `type: "action"`, append action costs to titles dynamically:
+   - 1 Action: `"Name (1 Action)"`
+   - 2 Actions: `"Name (2 Actions)"`
+   - 3 Actions: `"Name (3 Actions)"`
+   - Reaction: `"Name (Reaction)"` (categorized into reactions)
+   - Free / Passive: `"Name (Free Action)"` or `"Name"` (categorized into abilities/traits)
+3. **Dynamic Foundry Syntax Cleanup**: Clean in-text Foundry macro markup into readable text:
+   - `@Damage[...]` -> formatted damage string
+   - `@Check[reflex|dc:X|basic]` -> *"DC X basic Reflex save"*
+   - `@UUID[...]{Label}` -> *"Label"*
+   - `@Template[...]` -> formatted area/template text
+   - `[[/act ...]]` -> formatted action text
+4. **Dynamic Trait Tags**: Preserve all trait tags from `traits.value` dynamically without hardcoding a closed list.
+5. **Spellcasting**: Map spellcasting entries and spell lists into trait blocks.
+6. **Fallback Description**: When an attack or ability has no text in the file, state *"[Description was not in the imported file]"*.
+
+- [ ]
+
+<a id="mcr-041" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+### Import full Pathfinder/Starfinder stat blocks with formatted strikes, action costs, trait tags, and cleaned text
+**ID:** MCR-041
+**Project:** Android
+**Status:** Pending
+**Type:** Feature
+
+**Description:**
+### Objectives
+Implement rich Pathfinder 2e and Starfinder 2e stat block importing for reference viewing:
+
+1. **Strikes & Attacks**: Format `type: "melee"` strikes into standard Action entries:
+   - Include weapon/strike name, attack modifier (+`bonus`), damage rolls (dice + damage types), reach, and weapon traits.
+   - Example: *"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."*
+2. **Action Costs in Titles**: For `type: "action"`, append action costs to titles dynamically:
+   - 1 Action: `"Name (1 Action)"`
+   - 2 Actions: `"Name (2 Actions)"`
+   - 3 Actions: `"Name (3 Actions)"`
+   - Reaction: `"Name (Reaction)"` (categorized into reactions)
+   - Free / Passive: `"Name (Free Action)"` or `"Name"` (categorized into abilities/traits)
+3. **Dynamic Foundry Syntax Cleanup**: Clean in-text Foundry macro markup into readable text:
+   - `@Damage[...]` -> formatted damage string
+   - `@Check[reflex|dc:X|basic]` -> *"DC X basic Reflex save"*
+   - `@UUID[...]{Label}` -> *"Label"*
+   - `@Template[...]` -> formatted area/template text
+   - `[[/act ...]]` -> formatted action text
+4. **Dynamic Trait Tags**: Preserve all trait tags from `traits.value` dynamically without hardcoding a closed list.
+5. **Spellcasting**: Map spellcasting entries and spell lists into trait blocks.
+6. **Fallback Description**: When an attack or ability has no text in the file, state *"[Description was not in the imported file]"*.
+
+- [ ]
 
 ---
 
