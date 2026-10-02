@@ -118,7 +118,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 <a id="tasks-list"></a>
 
 | ID      | Title                                                                                                                | Project | Status  | Type                |
-|:------|:-------------------------------------------------------------------------------------------------------------------|:------|:------|:------------------|
+| :------ | :------------------------------------------------------------------------------------------------------------------- | :------ | :------ | :------------------ |
 | MCR-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                               | Shared  | Fixed   | [Chore](#mcr-001)   |
 | MCR-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                                 | iOS     | Fixed   | [Chore](#mcr-002)   |
 | MCR-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                                | iOS     | Fixed   | [Feature](#mcr-003) |
@@ -168,12 +168,13 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 ## Detailed Tasks
 
 <a id="mcr-001" class="task" data-project="shared" data-status="done" data-task-type="chore"></a>
+
 ### Clean up legacy Bukkit plugin and Maven leftovers from repository root
+
 **ID:** MCR-001
 **Project:** Shared
 **Status:** Fixed
 **Type:** Chore
-
 
 **Description:**
 Remove obsolete files that leaked into the root directory from an unrelated legacy Bukkit/Minecraft plugin (`MobScores`). Ensure the repository root cleanly represents only the MonsterCards cross-platform project.
@@ -187,12 +188,13 @@ Remove obsolete files that leaked into the root directory from an unrelated lega
 - [x] Update `.gitignore` to avoid re-introducing obsolete build artifacts
 
 <a id="mcr-002" class="task" data-project="ios" data-status="done" data-task-type="chore"></a>
+
 ### Modernize iOS Xcode project configuration, build pipeline, and dependency management
+
 **ID:** MCR-002
 **Project:** iOS
 **Status:** Fixed
 **Type:** Chore
-
 
 **Description:**
 Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0+, enabling modern Swift concurrency settings, updating Swift Package dependencies, and resolving all build warnings.
@@ -206,12 +208,13 @@ Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0
 - [x] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
 
 <a id="mcr-003" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Modernize CoreData / CloudKit persistence layer and implement repository architecture
+
 **ID:** MCR-003
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xcdatamodeld`. Ensure schema parity with Android's Room database (`Monster`, `Collection`, `CollectionMonster`, `DashboardMonster`), robust iCloud synchronization via `NSPersistentCloudKitContainer`, and clean separation of concerns using an async/actor-isolated repository pattern (`MonsterRepository`).
@@ -227,12 +230,13 @@ Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xc
 - [x] Implement database seeding for development/previews (`DevContent`)
 
 <a id="mcr-004" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)
+
 **ID:** MCR-004
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Bring the iOS import and export engine to full parity with Android. Implement robust parsers and serializers for all supported tabletop formats, external APIs, and native archives.
@@ -249,12 +253,13 @@ Bring the iOS import and export engine to full parity with Android. Implement ro
 - [x] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
 
 <a id="mcr-005" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Modernize SwiftUI architecture, NavigationStack, and Observation framework
+
 **ID:** MCR-005
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, `ObservableObject`, `@ObservedObject`, `@EnvironmentObject`) to modern iOS idioms: `NavigationStack`, `NavigationSplitView` (adaptive for iPhone and iPad), and Swift's `@Observable` macro (Observation framework) with structured concurrency (`async/await`, `@MainActor`).
@@ -268,12 +273,13 @@ Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, 
 - [x] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
 
 <a id="mcr-006" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions
+
 **ID:** MCR-006
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Upgrade the Monster Library tab (`Library.swift`) to match Android functionality, providing a rich, high-performance monster management hub with filtering, sorting, multi-selection, and quick actions.
@@ -287,12 +293,13 @@ Upgrade the Monster Library tab (`Library.swift`) to match Android functionality
 - [x] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
 
 <a id="mcr-007" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards
+
 **ID:** MCR-007
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Replace the placeholder `Dashboard.swift` with a combat companion dashboard matching Android's encounter running capabilities. Allows Dungeon Masters to pin monster stat blocks, track current/max/temp hit points, manage turn orders, and view compact vital stats during tabletop sessions.
@@ -306,12 +313,13 @@ Replace the placeholder `Dashboard.swift` with a combat companion dashboard matc
 - [x] Persist dashboard combat state across app restarts
 
 <a id="mcr-008" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement Collections and Encounters management with CR/XP summary metrics
+
 **ID:** MCR-008
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Build out the Collections tab (`Collections.swift`) and detail views to organize monsters into thematic collections, campaigns, locations, or combat encounters with automated challenge rating / encounter XP calculations.
@@ -325,12 +333,13 @@ Build out the Collections tab (`Collections.swift`) and detail views to organize
 - [x] Export collection as a standalone Binder archive or share sheet payload
 
 <a id="mcr-009" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement unified local Full-Text Search and remote Open5e API live search
+
 **ID:** MCR-009
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Modernize `Search.swift` to provide a unified search experience that queries both local library monsters and the remote Open5e REST API simultaneously with instant preview and import.
@@ -344,12 +353,13 @@ Modernize `Search.swift` to provide a unified search experience that queries bot
 - [x] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
 
 <a id="mcr-010" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Build comprehensive multi-section 5e Monster Editor suite with validation and live preview
+
 **ID:** MCR-010
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Revamp the monster creation and editing suite (`EditMonster.swift` and subviews) to support every 5e statblock attribute with modern form controls, live modifier calculations, Markdown support for traits/actions, and side-by-side / toggleable card preview.
@@ -368,12 +378,13 @@ Revamp the monster creation and editing suite (`EditMonster.swift` and subviews)
 - [x] Live preview mode to switch seamlessly between editor forms and rendered statblock card
 
 <a id="mcr-011" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement QuickLook Preview Extension, custom document types (.monster), and system sharing
+
 **ID:** MCR-011
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Configure iOS document handling for `.monster` and `.json` files, implement AirDrop sharing, system Share Sheet integration, and finish the `MonsterPreview` App Extension for system QuickLook previews in Files.app.
@@ -387,12 +398,13 @@ Configure iOS document handling for `.monster` and `.json` files, implement AirD
 - [x] Support Drag and Drop of monster files on iPadOS
 
 <a id="mcr-012" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows
+
 **ID:** MCR-012
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Establish a complete test suite covering data conversion, all format importers/exporters, CoreData repository operations, and critical SwiftUI user journeys.
@@ -405,12 +417,13 @@ Establish a complete test suite covering data conversion, all format importers/e
 - [x] UI Tests: Automated user journeys testing Monster creation, Library search & filter, Dashboard HP adjustments, and Collection creation
 
 <a id="mcr-013" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles
+
 **ID:** MCR-013
 **Project:** Android
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Add a structured `gameSystem` enum (e.g. `DND_5E`, `PF_2E`, `SF_2E`, `CUSTOM`) and optional `bookSource` / `sourceLabel` field to the Android `Monster` Room entity. Update the Monster Editor to let users choose the game system and book source, and display styled source tag bubbles (pill badges) across monster listings, search results, and combat dashboards.
@@ -423,12 +436,13 @@ Add a structured `gameSystem` enum (e.g. `DND_5E`, `PF_2E`, `SF_2E`, `CUSTOM`) a
 - [x] Render source tag bubbles on Monster Library cards, Search results, and Dashboard cards
 
 <a id="mcr-014" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline
+
 **ID:** MCR-014
 **Project:** Android
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Create an isolated `ReferenceMonster` Room entity and DAO matching all statblock fields of `Monster` plus compendium metadata (`sourceId`, `sourceLabel`, `gameSystem`, `bookSource`). Keep reference monsters completely separate from user library counts, regular user exports (`BinderExporter`, `Open5eExporter`), and user backup archives. Provide fast bulk-insertion of extracted JSON files.
@@ -441,12 +455,13 @@ Create an isolated `ReferenceMonster` Room entity and DAO matching all statblock
 - [x] Cache extracted reference entities on local disk/database so import workflows reuse existing data without re-downloading
 
 <a id="mcr-015" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal
+
 **ID:** MCR-015
 **Project:** Android
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Add a Compendium Sources screen in Android settings where users can view available community content repositories (PF2e, SF2e, Open5e, etc.) and tap to download. Tapping download presents a mandatory legal disclaimer/confirmation dialog warning the user that content is third-party, fetched from the Git repository URL, and not created or owned by this app.
@@ -459,12 +474,13 @@ Add a Compendium Sources screen in Android settings where users can view availab
 - [x] Design extensible source configuration model allowing new community sources to be added easily
 
 <a id="mcr-016" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement
+
 **ID:** MCR-016
 **Project:** Android
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Implement an update checking service for downloaded compendiums that checks remote Git commit SHAs (via GitHub API) or HTTP `ETag` / `Last-Modified` headers. When an update is confirmed and downloaded by the user, atomically replace all existing `ReferenceMonster` records for that specific source rather than appending duplicates.
@@ -477,12 +493,13 @@ Implement an update checking service for downloaded compendiums that checks remo
 - [x] Perform atomic database replacement per `sourceId` in a single Room transaction (delete old source records and insert new version)
 
 <a id="mcr-017" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Integrate reference compendiums into Search with source tag filters and badges
+
 **ID:** MCR-017
 **Project:** Android
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Update `SearchFragment` and `SearchResultsRecyclerViewAdapter` to perform unified full-text search across both user library monsters and offline `ReferenceMonster` records, displaying source tag bubbles and filter chips.
@@ -495,12 +512,13 @@ Update `SearchFragment` and `SearchResultsRecyclerViewAdapter` to perform unifie
 - [x] Ensure debounced, responsive UI performance across large reference catalogs (5,000+ monsters)
 
 <a id="mcr-018" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library
+
 **ID:** MCR-018
 **Project:** Android
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Allow users to tap on any reference compendium monster in search results to preview its full statblock card, and provide a one-tap "Import to Library" action that clones the reference entity into the user's editable `Monster` table.
@@ -513,12 +531,13 @@ Allow users to tap on any reference compendium monster in search results to prev
 - [x] Support adding directly into an existing Collection upon import
 
 <a id="mcr-019" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles
+
 **ID:** MCR-019
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Add `gameSystem` (enum string) and `sourceLabel` attributes to the CoreData `Monster` entity model. Update the SwiftUI monster editor suite with Game System and Book Source selectors, and render styled source tag bubbles across all monster cards and listing views.
@@ -531,12 +550,13 @@ Add `gameSystem` (enum string) and `sourceLabel` attributes to the CoreData `Mon
 - [x] Render source tag bubbles in `LibraryView`, `Search` results, and `DashboardView`
 
 <a id="mcr-020" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Create isolated ReferenceMonster CoreData entity, repository, and JSON ingestion pipeline
+
 **ID:** MCR-020
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Create an isolated `ReferenceMonster` CoreData entity matching all statblock properties of `Monster` plus compendium metadata (`sourceId`, `sourceLabel`, `gameSystem`, `bookSource`). Keep reference monsters excluded from user library counts, regular exports (`BinderExporter`, `Open5eExporter`), and CloudKit user sync containers.
@@ -549,12 +569,13 @@ Create an isolated `ReferenceMonster` CoreData entity matching all statblock pro
 - [x] Cache extracted entities locally to reuse during import workflows without re-downloading
 
 <a id="mcr-021" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal
+
 **ID:** MCR-021
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Add a Compendium Sources view in iOS Settings where users can view available community repositories (PF2e, SF2e, Open5e) and tap to download. Tapping download presents a legal disclaimer/confirmation sheet warning that content is third-party, fetched from the Git repository URL, and not created or owned by this app.
@@ -567,12 +588,13 @@ Add a Compendium Sources view in iOS Settings where users can view available com
 - [x] Design extensible source registry allowing new community repositories to be registered easily
 
 <a id="mcr-022" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement
+
 **ID:** MCR-022
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Implement an update checking service for iOS compendiums that checks remote Git commit SHAs or HTTP `ETag` headers. When an update is downloaded, atomically replace all existing `ReferenceMonster` records for that specific source rather than appending duplicates.
@@ -585,12 +607,13 @@ Implement an update checking service for iOS compendiums that checks remote Git 
 - [x] Perform atomic replacement per `sourceId` via `NSBatchDeleteRequest` and `NSBatchInsertRequest` in a single CoreData background context save
 
 <a id="mcr-023" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Integrate reference compendiums into Search with source tag filters and badges
+
 **ID:** MCR-023
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Update the iOS `Search` view to perform unified asynchronous search across both local library monsters and offline `ReferenceMonster` records, displaying source tag bubbles and filter controls.
@@ -603,12 +626,13 @@ Update the iOS `Search` view to perform unified asynchronous search across both 
 - [x] Ensure fast, debounced UI response across large reference catalogs
 
 <a id="mcr-024" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library
+
 **ID:** MCR-024
 **Project:** iOS
 **Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Allow users to tap on any reference compendium monster in search results to preview its full statblock card, and provide a one-tap "Import to Library" action that clones the reference entity into the user's editable CoreData `Monster` store.
@@ -621,7 +645,9 @@ Allow users to tap on any reference compendium monster in search results to prev
 - [x] Support adding directly into an existing Collection from the preview sheet
 
 <a id="mcr-025" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Remove the open5e online tab from search.
+
 **ID:** MCR-025
 **Project:** iOS
 **Status:** Fixed
@@ -633,7 +659,9 @@ Describe task objectives and implementation requirements here.
 - [x]
 
 <a id="mcr-026" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Imported compendium for pf2e and sf2e only lists 9 total monsters. That is nowhere near the correct numbers.
+
 **ID:** MCR-026
 **Project:** iOS
 **Status:** Fixed
@@ -645,7 +673,9 @@ Describe task objectives and implementation requirements here.
 - [x]
 
 <a id="mcr-027" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Do not call the repositories official.
+
 **ID:** MCR-027
 **Project:** iOS
 **Status:** Fixed
@@ -657,7 +687,9 @@ They are unofficial. Also do not specify the OGL/ORC licenses. Say under their o
 - [x]
 
 <a id="mcr-028" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### When adding a monster from open5e.com set the source as open5e.com.
+
 **ID:** MCR-028
 **Project:** iOS
 **Status:** Fixed
@@ -670,7 +702,9 @@ Describe task objectives and implementation requirements here.
 - [x]
 
 <a id="mcr-029" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### After downloading all compendiums there are no search results in the search compendiums tab.
+
 **ID:** MCR-029
 **Project:** iOS
 **Status:** Fixed
@@ -678,10 +712,13 @@ Describe task objectives and implementation requirements here.
 
 **Description:**
 Describe task objectives and implementation requirements here.
+
 - [x]
 
 <a id="mcr-030" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Text on compendium sources screen is very tiny.
+
 **ID:** MCR-030
 **Project:** Android
 **Status:** Fixed
@@ -689,10 +726,13 @@ Describe task objectives and implementation requirements here.
 
 **Description:**
 Make it the same size as text in the rest of the app. Are we not using the same theme and components.
+
 - [x]
 
 <a id="mcr-031" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### The download buttons on the compendium page are magenta bubbles.
+
 **ID:** MCR-031
 **Project:** Android
 **Status:** Fixed
@@ -700,10 +740,13 @@ Make it the same size as text in the rest of the app. Are we not using the same 
 
 **Description:**
 Are we missing themes/styles. Check elsewhere in the layouts. I remember seeing another magenta button somewhere earlier.
+
 - [x]
 
 <a id="mcr-032" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### The 3rd party content notice frame is also tiny text.
+
 **ID:** MCR-032
 **Project:** Android
 **Status:** Fixed
@@ -711,10 +754,13 @@ Are we missing themes/styles. Check elsewhere in the layouts. I remember seeing 
 
 **Description:**
 Plese look for other occurences of this issue in the layouts when fixing it.
+
 - [x]
 
 <a id="mcr-033" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Stop calling the repositories community.
+
 **ID:** MCR-033
 **Project:** Android
 **Status:** Fixed
@@ -722,10 +768,13 @@ Plese look for other occurences of this issue in the layouts when fixing it.
 
 **Description:**
 They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
+
 - [x]
 
 <a id="mcr-034" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
+
 ### Stop calling the repositories community.
+
 **ID:** MCR-034
 **Project:** iOS
 **Status:** Fixed
@@ -733,10 +782,13 @@ They are unrelated 3rd party sources and we are simply helping the user download
 
 **Description:**
 They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
+
 - [x]
 
 <a id="mcr-035" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
+
 ### Search does not seem to search the downloaded compendiums at all.
+
 **ID:** MCR-035
 **Project:** Android
 **Status:** Fixed
@@ -744,20 +796,26 @@ They are unrelated 3rd party sources and we are simply helping the user download
 
 **Description:**
 Even with open5e and pf2e downloaded bugbear gives me no results. Give the search ui a similar toggle as iOS where we can search the library or the compendiums specifically.
+
 - [x]
 
 <a id="mcr-036" class="task" data-project="android" data-status="done" data-task-type="bug"></a>
+
 ### Fix Room Database Migration MIGRATION_10_11 column nullability mismatch
+
 **ID:** MCR-036
 **Project:** Android
 **Status:** Fixed
 **Type:** Bug
 
 **Description:**
+
 ### Root Cause
+
 In MIGRATION_10_11 (MonsterCardsApplication.java), the ALTER TABLE statements created columns custom_game_system, custom_origin, and book_source with NOT NULL DEFAULT ''. However, in Monster.java and ReferenceMonster.java, those fields lacked @NonNull annotations, causing Room to expect notNull = false in TableInfo. On app launch, Room schema validation (onValidateSchema) fails with IllegalStateException: Migration didn't properly handle: monsters.
 
 ### Fix Instructions
+
 1. Annotate customGameSystem, customOrigin, and bookSource with @NonNull in Monster.java and ReferenceMonster.java so that all String fields are consistently non-null.
 2. In MIGRATION_10_11 (MonsterCardsApplication.java), ensure ALTER TABLE statements use TEXT NOT NULL DEFAULT '':
    - monsters: custom_game_system, origin, custom_origin, book_source
@@ -765,7 +823,9 @@ In MIGRATION_10_11 (MonsterCardsApplication.java), the ALTER TABLE statements cr
 3. Re-generate Room schema file 11.json and verify build with ./gradlew assembleDebug and ./gradlew test.
 
 <a id="mcr-037" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+
 ### Open5e import is only importing 500 monsters instead of the 3451 that android does using the /v2 api calls.
+
 **ID:** MCR-037
 **Project:** iOS
 **Status:** Pending
@@ -773,10 +833,13 @@ In MIGRATION_10_11 (MonsterCardsApplication.java), the ALTER TABLE statements cr
 
 **Description:**
 Describe task objectives and implementation requirements here.
+
 - [ ]
 
 <a id="mcr-038" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+
 ### It looks like the source book/origin is confused still.
+
 **ID:** MCR-038
 **Project:** iOS
 **Status:** Pending
@@ -786,42 +849,44 @@ Describe task objectives and implementation requirements here.
 Can we ensure the book or whatever it is in the api is carried to our source field? I would like to be able to tell later that this is a 5e monster downloaded from open5e.com and from the Tome of Beasts. Those can be separate fields. game ssytem: (5e, pf2e, sf2e) origin: (manual, open5e.com, foundryvtt/pf2e), and book or publication. The first two should be string enums that we will add to later. the third should be freeform text. Imported .card or .binder files may have monsters with unrecognized systems and origins. we should properly display those even if we don't know what they are. This is already implemented for android.
 
 <a id="mcr-039" class="task" data-project="shared" data-status="done" data-task-type="feature"></a>
+
 ### Determine what data we can get from the pathfinder imports to match our 5e monster imports.
+
 **ID:** MCR-039
 **Project:** Shared
 **Status:** Fixed
 **Type:** Feature
 
 **Description:**
-Add notes to this task when done. All of the pathfinder and starfinder spells skills, feats, abilities, classes, races, and gear are described in those json files. If we have to then we will make additional Reference* internal tables to hold them or look them up when importing a monster. Even if all we have is an attack or ability name we should still include it with a description saying the description was not in the imported file.
+Add notes to this task when done. All of the pathfinder and starfinder spells skills, feats, abilities, classes, races, and gear are described in those json files. If we have to then we will make additional Reference\* internal tables to hold them or look them up when importing a monster. Even if all we have is an attack or ability name we should still include it with a description saying the description was not in the imported file.
 
 ### Pathfinder 2e & Starfinder 2e Data Mapping & Import Analysis
 
 #### 1. Core Monster Field Mapping Matrix
 
-| MonsterCards (5e Model) | Foundry PF2e / SF2e Actor JSON Path | Conversion & Formatting Rule |
-| :--- | :--- | :--- |
-| **Name** | `name` | Direct string |
-| **Game System** | System ID (`pf2e` or `sf2e`) | `.pf2e` or `.sf2e` enum |
-| **Origin / Source** | Compendium repo URL (`foundryvtt/pf2e`) | Fixed origin string enum |
-| **Book Source** | `system.details.publication.title` | e.g. "Pathfinder Bestiary", "Starfinder Alien Core", "Book of the Dead" |
-| **Size** | `system.traits.size.value` | `tiny` -> Tiny, `sm` -> Small, `med` -> Medium, `lg` -> Large, `huge` -> Huge, `grg` -> Gargantuan |
-| **Type & Subtype** | `system.traits.value` (traits array) | Capitalized comma list (e.g. "Dragon, Amphibious, Occult") |
-| **Alignment** | `system.traits.value` (or `system.details.alignment`) | e.g. "Lawful Evil", "Neutral", "Chaotic Good" |
-| **Level / Challenge Rating** | `system.details.level.value` | -1 -> 1/8, 0 -> 0, 1..30 -> CR 1..30 (or custom string for >30) |
-| **Armor Class** | `system.attributes.ac.value` | Set `armorType = .other`, `otherArmorDescription = "\(ac)"` |
-| **Shield / Hardness** | `system.attributes.hardness.value` or equipped shield | Bonus added to shield fields |
-| **Hit Points & Formula** | `system.attributes.hp.max`, `system.attributes.hp.details` | `hasCustomHP = true`, `customHP = "\(maxHp)"` (or formatted with details) |
-| **Speed (Walk & Other)** | `system.attributes.speed.value`, `system.attributes.speed.otherSpeeds` | `walkSpeed` = base value; `flySpeed`, `swimSpeed`, `climbSpeed`, `burrowSpeed` extracted from `otherSpeeds` array (`type` and `value`) |
-| **Ability Scores** | `system.abilities.{str,dex,con,int,wis,cha}.mod` | Computed via standard score formula: `Score = 10 + (mod * 2)` |
-| **Saving Throws** | `system.saves.{fortitude,reflex,will}.value` | Fortitude -> Con/Str; Reflex -> Dex; Will -> Wis/Cha (or custom saves table) |
-| **Skills** | `system.skills.{skillName}.base` | Mapped to `SkillViewModel` entries with computed modifier and proficiency |
-| **Perception & Senses** | `system.perception.senses` (`darkvision`, `scent`, etc.) + `system.perception.mod` | Formatted string: e.g. "Darkvision, Scent (imprecise) 60 ft., passive Perception \(10 + mod)" |
-| **Languages** | `system.details.languages.value` + `system.details.languages.details` | Mapped to `LanguageViewModel` list |
-| **Damage Immunities** | `system.attributes.immunities` (`type`) | Filtered damage immunity types mapped to `damageImmunities` |
-| **Condition Immunities** | `system.attributes.immunities` (`type`) | Condition immunity types (paralyzed, sleep, etc.) mapped to `conditionImmunities` |
-| **Damage Resistances** | `system.attributes.resistances` (`type`, `value`, `exceptions`) | Formatted string: e.g. "Fire 10 (except cold iron)" |
-| **Damage Vulnerabilities** | `system.attributes.weaknesses` (`type`, `value`) | Formatted string: e.g. "Cold 15" mapped to `damageVulnerabilities` |
+| MonsterCards (5e Model)      | Foundry PF2e / SF2e Actor JSON Path                                                | Conversion & Formatting Rule                                                                                                           |
+| :--------------------------- | :--------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                     | `name`                                                                             | Direct string                                                                                                                          |
+| **Game System**              | System ID (`pf2e` or `sf2e`)                                                       | `.pf2e` or `.sf2e` enum                                                                                                                |
+| **Origin / Source**          | Compendium repo URL (`foundryvtt/pf2e`)                                            | Fixed origin string enum                                                                                                               |
+| **Book Source**              | `system.details.publication.title`                                                 | e.g. "Pathfinder Bestiary", "Starfinder Alien Core", "Book of the Dead"                                                                |
+| **Size**                     | `system.traits.size.value`                                                         | `tiny` -> Tiny, `sm` -> Small, `med` -> Medium, `lg` -> Large, `huge` -> Huge, `grg` -> Gargantuan                                     |
+| **Type & Subtype**           | `system.traits.value` (traits array)                                               | Capitalized comma list (e.g. "Dragon, Amphibious, Occult")                                                                             |
+| **Alignment**                | `system.traits.value` (or `system.details.alignment`)                              | e.g. "Lawful Evil", "Neutral", "Chaotic Good"                                                                                          |
+| **Level / Challenge Rating** | `system.details.level.value`                                                       | -1 -> 1/8, 0 -> 0, 1..30 -> CR 1..30 (or custom string for >30)                                                                        |
+| **Armor Class**              | `system.attributes.ac.value`                                                       | Set `armorType = .other`, `otherArmorDescription = "\(ac)"`                                                                            |
+| **Shield / Hardness**        | `system.attributes.hardness.value` or equipped shield                              | Bonus added to shield fields                                                                                                           |
+| **Hit Points & Formula**     | `system.attributes.hp.max`, `system.attributes.hp.details`                         | `hasCustomHP = true`, `customHP = "\(maxHp)"` (or formatted with details)                                                              |
+| **Speed (Walk & Other)**     | `system.attributes.speed.value`, `system.attributes.speed.otherSpeeds`             | `walkSpeed` = base value; `flySpeed`, `swimSpeed`, `climbSpeed`, `burrowSpeed` extracted from `otherSpeeds` array (`type` and `value`) |
+| **Ability Scores**           | `system.abilities.{str,dex,con,int,wis,cha}.mod`                                   | Computed via standard score formula: `Score = 10 + (mod * 2)`                                                                          |
+| **Saving Throws**            | `system.saves.{fortitude,reflex,will}.value`                                       | Fortitude -> Con/Str; Reflex -> Dex; Will -> Wis/Cha (or custom saves table)                                                           |
+| **Skills**                   | `system.skills.{skillName}.base`                                                   | Mapped to `SkillViewModel` entries with computed modifier and proficiency                                                              |
+| **Perception & Senses**      | `system.perception.senses` (`darkvision`, `scent`, etc.) + `system.perception.mod` | Formatted string: e.g. "Darkvision, Scent (imprecise) 60 ft., passive Perception \(10 + mod)"                                          |
+| **Languages**                | `system.details.languages.value` + `system.details.languages.details`              | Mapped to `LanguageViewModel` list                                                                                                     |
+| **Damage Immunities**        | `system.attributes.immunities` (`type`)                                            | Filtered damage immunity types mapped to `damageImmunities`                                                                            |
+| **Condition Immunities**     | `system.attributes.immunities` (`type`)                                            | Condition immunity types (paralyzed, sleep, etc.) mapped to `conditionImmunities`                                                      |
+| **Damage Resistances**       | `system.attributes.resistances` (`type`, `value`, `exceptions`)                    | Formatted string: e.g. "Fire 10 (except cold iron)"                                                                                    |
+| **Damage Vulnerabilities**   | `system.attributes.weaknesses` (`type`, `value`)                                   | Formatted string: e.g. "Cold 15" mapped to `damageVulnerabilities`                                                                     |
 
 ---
 
@@ -858,71 +923,79 @@ Each PF2e/SF2e Actor contains an embedded `items` array with rich structured dat
   - `packs/actions.json`: General actions.
   - `packs/spells.json`: Complete standalone spell catalog.
 - **Resolution Pipeline:**
-  1. *Inline Extraction (Primary):* Extract item name, action type, damage rolls, and descriptions directly from the actor's `items` array.
-  2. *Glossary Resolution (Secondary):* When an imported strike or action has an empty description or an `@UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.XYZ]` reference, look up the text in an in-memory index built from `bestiary-ability-glossary-srd.json`.
-  3. *Clean Fallback:* If not present in glossary or pack files, generate the structured attack/ability formula and state `[Description was not in the imported file]`.
+  1. _Inline Extraction (Primary):_ Extract item name, action type, damage rolls, and descriptions directly from the actor's `items` array.
+  2. _Glossary Resolution (Secondary):_ When an imported strike or action has an empty description or an `@UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.XYZ]` reference, look up the text in an in-memory index built from `bestiary-ability-glossary-srd.json`.
+  3. _Clean Fallback:_ If not present in glossary or pack files, generate the structured attack/ability formula and state `[Description was not in the imported file]`.
 
 - [x]
 
 <a id="mcr-040" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+
 ### Import full Pathfinder/Starfinder stat blocks with formatted strikes, action costs, trait tags, and cleaned text
+
 **ID:** MCR-040
 **Project:** iOS
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
+
 ### Objectives
+
 Implement rich Pathfinder 2e and Starfinder 2e stat block importing for reference viewing:
 
 1. **Strikes & Attacks**: Format `type: "melee"` strikes into standard Action entries:
    - Include weapon/strike name, attack modifier (+`bonus`), damage rolls (dice + damage types), reach, and weapon traits.
-   - Example: *"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."*
+   - Example: _"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."_
 2. **Action Costs in Titles & Proper Section Routing**: For `type: "action"`, categorize by type and append action costs to titles:
    - **Active Actions** (1, 2, or 3 Actions) -> mapped to `actions` (Actions section): e.g. `"Breath Weapon (2 Actions)"`
    - **Reactions** (`actionType == "reaction"`) -> mapped directly to `reactions` (Reactions section): e.g. `"Shield Block (Reaction)"`
    - **Passive Abilities & Free Actions** (`actionType == "passive"` or `"free"`) -> mapped directly to `abilities` (Special Abilities / Traits section): e.g. `"Camouflage"`, `"Quick Draw (Free Action)"`
 3. **Dynamic Foundry Syntax Cleanup**: Clean in-text Foundry macro markup into readable text:
    - `@Damage[...]` -> formatted damage string
-   - `@Check[reflex|dc:X|basic]` -> *"DC X basic Reflex save"*
-   - `@UUID[...]{Label}` -> *"Label"*
+   - `@Check[reflex|dc:X|basic]` -> _"DC X basic Reflex save"_
+   - `@UUID[...]{Label}` -> _"Label"_
    - `@Template[...]` -> formatted area/template text
    - `[[/act ...]]` -> formatted action text
 4. **Dynamic Trait Tags**: Preserve all trait tags from `traits.value` dynamically without hardcoding a closed list.
 5. **Spellcasting**: Map spellcasting entries and spell lists into trait blocks.
-6. **Fallback Description**: When an attack or ability has no text in the file, state *"[Description was not in the imported file]"*.
+6. **Fallback Description**: When an attack or ability has no text in the file, state _"[Description was not in the imported file]"_.
 
 - [ ]
 
 <a id="mcr-041" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+
 ### Import full Pathfinder/Starfinder stat blocks with formatted strikes, action costs, trait tags, and cleaned text
+
 **ID:** MCR-041
 **Project:** Android
 **Status:** Pending
 **Type:** Feature
 
 **Description:**
+
 ### Objectives
+
 Implement rich Pathfinder 2e and Starfinder 2e stat block importing for reference viewing:
 
 1. **Strikes & Attacks**: Format `type: "melee"` strikes into standard Action entries:
    - Include weapon/strike name, attack modifier (+`bonus`), damage rolls (dice + damage types), reach, and weapon traits.
-   - Example: *"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."*
+   - Example: _"Melee Weapon Attack: +33 to hit, reach 20 ft., one target. Hit: 3d12+15 piercing plus 4d4 poison damage. Traits: magical, poison, reach-20, unarmed."_
 2. **Action Costs in Titles & Proper Section Routing**: For `type: "action"`, categorize by type and append action costs to titles:
    - **Active Actions** (1, 2, or 3 Actions) -> mapped to `actions` (Actions section): e.g. `"Breath Weapon (2 Actions)"`
    - **Reactions** (`actionType == "reaction"`) -> mapped directly to `reactions` (Reactions section): e.g. `"Shield Block (Reaction)"`
    - **Passive Abilities & Free Actions** (`actionType == "passive"` or `"free"`) -> mapped directly to `abilities` (Special Abilities / Traits section): e.g. `"Camouflage"`, `"Quick Draw (Free Action)"`
 3. **Dynamic Foundry Syntax Cleanup**: Clean in-text Foundry macro markup into readable text:
    - `@Damage[...]` -> formatted damage string
-   - `@Check[reflex|dc:X|basic]` -> *"DC X basic Reflex save"*
-   - `@UUID[...]{Label}` -> *"Label"*
+   - `@Check[reflex|dc:X|basic]` -> _"DC X basic Reflex save"_
+   - `@UUID[...]{Label}` -> _"Label"_
    - `@Template[...]` -> formatted area/template text
    - `[[/act ...]]` -> formatted action text
 4. **Dynamic Trait Tags**: Preserve all trait tags from `traits.value` dynamically without hardcoding a closed list.
 5. **Spellcasting**: Map spellcasting entries and spell lists into trait blocks.
-6. **Fallback Description**: When an attack or ability has no text in the file, state *"[Description was not in the imported file]"*.
+6. **Fallback Description**: When an attack or ability has no text in the file, state _"[Description was not in the imported file]"_.
 7. **Diagnostic Missing-Description Logging & Single Full Run**:
-   - Temporarily log all monsters, attacks, and abilities that receive *"[Description was not in the imported file]"* (including creature name, item name, and item type).
+   - Temporarily log all monsters, attacks, spells, and abilities that receive _"[Description was not in the imported file]"_ (including creature name, item name, and item type).
    - Run a full import test across all SF2e and PF2e compendium content with this logging enabled to record missing items for creating future research/fix tasks.
    - Remove/disable this diagnostic logging before finalizing the implementation so it does not remain active in production.
 
@@ -956,15 +1029,17 @@ Implement rich Pathfinder 2e and Starfinder 2e stat block importing for referenc
   7. **Cancelled**: Task discarded.
 
 #### Projects (Rendered from frontmatter projects)
+
 | Value   | Label   | Prefix | Path    |
-|:------|:------|:-----|:------|
+| :------ | :------ | :----- | :------ |
 | ios     | iOS     | IOS    | iOS     |
 | android | Android | AND    | Android |
 | shared  | Shared  | SHR    |         |
 
 #### Task Statuses (Rendered from frontmatter task-statuses)
+
 | Value       | Label       | Description                                                                      |
-|:----------|:----------|:-------------------------------------------------------------------------------|
+| :---------- | :---------- | :------------------------------------------------------------------------------- |
 | planning    | Planning    | The task is being scoped and conceptualized. We still don't know what we want.   |
 | triage      | Triage      | The task is being evaluated and prioritized. We don't know how we want to do it. |
 | pending     | Pending     | The task is ready to be acted on.                                                |
@@ -975,8 +1050,9 @@ Implement rich Pathfinder 2e and Starfinder 2e stat block importing for referenc
 | research    | Researching | This task needs more research before planning.                                   |
 
 #### Task Types (Rendered from frontmatter task-types)
+
 | Value   | Label   | Prefix | Description                                                |
-|:------|:------|:-----|:---------------------------------------------------------|
+| :------ | :------ | :----- | :--------------------------------------------------------- |
 | lint    | Lint    | LNT    | The task involves fixing a linting error or other warning. |
 | bug     | Bug     | BUG    | The task is a bug to fix.                                  |
 | feature | Feature | ENH    | The task is a new feature to implement.                    |
