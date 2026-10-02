@@ -106,6 +106,9 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<DashboardMonsterWi
         holder.armorClass.setText(String.valueOf(monster.getArmorClassValue()));
         holder.hitPoints.setText(String.valueOf(monster.getHitPointsValue()));
         holder.challengeRating.setText(holder.challengeRating.getResources().getString(R.string.label_challenge_rating_with_value, Helpers.getChallengeRatingAbbreviation(monster.challengeRating)));
+        if (holder.sourceTag != null) {
+            holder.sourceTag.setMonster(monster);
+        }
 
         int numActions = monster.actions.size();
         if (numActions > 0) {
@@ -194,12 +197,14 @@ public class DashboardRecyclerViewAdapter extends ListAdapter<DashboardMonsterWi
         public final TextView armorClass;
         public final TextView hitPoints;
         public final TextView challengeRating;
+        public final com.majinnaibu.monstercards.ui.components.SourceTagView sourceTag;
         public Monster monster;
 
         public ViewHolder(@NonNull CardMonsterBinding binding) {
             super(binding.getRoot());
             name = binding.name;
             meta = binding.meta;
+            sourceTag = binding.sourceTag;
             action1Group = binding.action1.getRoot();
             action1Name = binding.action1.name;
             action1Description = binding.action1.description;

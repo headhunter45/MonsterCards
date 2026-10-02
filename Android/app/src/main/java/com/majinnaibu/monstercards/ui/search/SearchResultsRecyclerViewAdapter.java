@@ -68,6 +68,8 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
         if (item.type == SearchResultItem.Type.MONSTER && item.monster != null) {
             Monster monster = item.monster;
             holder.mTitleView.setText(monster.name);
+            holder.mSourceTagView.setMonster(monster);
+            holder.mSourceTagView.setVisibility(View.VISIBLE);
 
             StringBuilder sb = new StringBuilder();
             if (!StringHelper.isNullOrEmpty(monster.alignment)) {
@@ -90,6 +92,7 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
         } else if (item.type == SearchResultItem.Type.COLLECTION && item.collection != null) {
             Collection collection = item.collection;
             holder.mTitleView.setText(collection.name);
+            holder.mSourceTagView.setVisibility(View.GONE);
 
             if (!StringHelper.isNullOrEmpty(collection.description)) {
                 holder.mSubtitleView.setText(collection.description);
@@ -119,12 +122,14 @@ public class SearchResultsRecyclerViewAdapter extends RecyclerView.Adapter<Searc
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView mTitleView;
+        final com.majinnaibu.monstercards.ui.components.SourceTagView mSourceTagView;
         final TextView mSubtitleView;
         final ImageView mIconView;
 
         ViewHolder(View view) {
             super(view);
             mTitleView = view.findViewById(R.id.title);
+            mSourceTagView = view.findViewById(R.id.sourceTag);
             mSubtitleView = view.findViewById(R.id.subtitle);
             mIconView = view.findViewById(R.id.icon);
         }

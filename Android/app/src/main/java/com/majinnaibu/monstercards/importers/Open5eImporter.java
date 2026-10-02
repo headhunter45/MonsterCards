@@ -45,6 +45,9 @@ public class Open5eImporter implements EntityImporter<Monster> {
             if (root.has("properties") && root.getAsJsonObject("properties").has("abilities")) {
                 return true;
             }
+            if (root.has("hit_dice") && (root.has("armor_class") || root.has("challenge_rating") || root.has("actions") || root.has("slug") || root.has("strength"))) {
+                return true;
+            }
         } catch (Exception ignored) {
         }
         return false;

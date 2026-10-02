@@ -101,6 +101,13 @@ public class MonsterCardsApplication extends Application {
             database.execSQL("ALTER TABLE `new_monsters` RENAME TO `monsters`");
         }
     };
+    private static final Migration MIGRATION_8_9 = new Migration(8, 9) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `game_system` TEXT NOT NULL DEFAULT 'DND_5E'");
+            database.execSQL("ALTER TABLE monsters ADD COLUMN `source_label` TEXT NOT NULL DEFAULT ''");
+        }
+    };
     private MonsterRepository m_monsterLibraryRepository;
 
 
@@ -140,6 +147,7 @@ public class MonsterCardsApplication extends Application {
                 .addMigrations(MIGRATION_5_6)
                 .addMigrations(MIGRATION_6_7)
                 .addMigrations(MIGRATION_7_8)
+                .addMigrations(MIGRATION_8_9)
                 .fallbackToDestructiveMigrationOnDowngrade()
 //                .fallbackToDestructiveMigration()
                 .build();

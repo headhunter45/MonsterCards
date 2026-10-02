@@ -131,7 +131,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-010 | Build comprehensive multi-section 5e Monster Editor suite with validation and live preview                | iOS     | Fixed   | [Feature](#mcr-010) |
 | MCR-011 | Implement QuickLook Preview Extension, custom document types (.monster), and system sharing               | iOS     | Fixed   | [Feature](#mcr-011) |
 | MCR-012 | Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows                 | iOS     | Fixed   | [Feature](#mcr-012) |
-| MCR-013 | **Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles**                   | Android | Pending | [Feature](#mcr-013) |
+| MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                       | Android | Fixed   | [Feature](#mcr-013) |
 | MCR-014 | **Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline**              | Android | Pending | [Feature](#mcr-014) |
 | MCR-015 | **Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal** | Android | Pending | [Feature](#mcr-015) |
 | MCR-016 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | Android | Pending | [Feature](#mcr-016) |
@@ -387,11 +387,11 @@ Establish a complete test suite covering data conversion, all format importers/e
 - [x] Repository & Persistence Tests: In-memory CoreData stack testing CRUD, search predicates, and cascade deletion rules
 - [x] UI Tests: Automated user journeys testing Monster creation, Library search & filter, Dashboard HP adjustments, and Collection creation
 
-<a id="mcr-013" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-013" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles
 **ID:** MCR-013
 **Project:** Android
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -399,10 +399,10 @@ Add a structured `gameSystem` enum (e.g. `DND_5E`, `PF_2E`, `SF_2E`, `CUSTOM`) a
 
 **Requirements:**
 
-- [ ] Add `gameSystem` and `sourceLabel` columns to Room `Monster` entity and run database migration
-- [ ] Add Game System selector and Source / Book text field to `EditMonsterFragment` and viewmodel
-- [ ] Create `SourceTagView` component rendering colored pill tag bubbles (e.g., `[PF2e | Bestiary]`, `[5e | SRD]`, `[SF2e | Alien Archive]`)
-- [ ] Render source tag bubbles on Monster Library cards, Search results, and Dashboard cards
+- [x] Add `gameSystem` and `sourceLabel` columns to Room `Monster` entity and run database migration
+- [x] Add Game System selector and Source / Book text field to `EditMonsterFragment` and viewmodel
+- [x] Create `SourceTagView` component rendering colored pill tag bubbles (e.g., `[PF2e | Bestiary]`, `[5e | SRD]`, `[SF2e | Alien Archive]`)
+- [x] Render source tag bubbles on Monster Library cards, Search results, and Dashboard cards
 
 <a id="mcr-014" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
 ### Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline

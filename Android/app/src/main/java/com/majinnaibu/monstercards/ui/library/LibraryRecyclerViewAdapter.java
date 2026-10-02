@@ -61,6 +61,7 @@ public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecy
     public void onBindViewHolder(final @NonNull ViewHolder holder, int position) {
         Monster monster = mValues.get(position);
         holder.mContentView.setText(monster.name);
+        holder.mSourceTagView.setMonster(monster);
         holder.itemView.setTag(monster);
         holder.itemView.setOnClickListener(mOnClickListener);
     }
@@ -106,10 +107,12 @@ public class LibraryRecyclerViewAdapter extends RecyclerView.Adapter<LibraryRecy
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView mContentView;
+        final com.majinnaibu.monstercards.ui.components.SourceTagView mSourceTagView;
 
         ViewHolder(View view) {
             super(view);
             mContentView = view.findViewById(R.id.content);
+            mSourceTagView = view.findViewById(R.id.sourceTag);
         }
     }
 }

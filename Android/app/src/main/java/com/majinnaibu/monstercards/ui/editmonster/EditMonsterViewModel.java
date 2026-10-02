@@ -8,6 +8,7 @@ import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
+import com.majinnaibu.monstercards.data.enums.GameSystem;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.data.enums.StringType;
 import com.majinnaibu.monstercards.data.enums.TraitType;
@@ -70,6 +71,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
     private final ChangeTrackedLiveData<String> mType;
     private final ChangeTrackedLiveData<String> mSubtype;
     private final ChangeTrackedLiveData<String> mAlignment;
+    private final ChangeTrackedLiveData<GameSystem> mGameSystem;
+    private final ChangeTrackedLiveData<String> mSourceLabel;
     private final ChangeTrackedLiveData<String> mCustomHitPoints;
     private final ChangeTrackedLiveData<String> mCustomArmor;
     private final ChangeTrackedLiveData<String> mCustomSpeed;
@@ -104,6 +107,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mType = new ChangeTrackedLiveData<>("", this::makeDirty);
         mSubtype = new ChangeTrackedLiveData<>("", this::makeDirty);
         mAlignment = new ChangeTrackedLiveData<>("", this::makeDirty);
+        mGameSystem = new ChangeTrackedLiveData<>(GameSystem.DND_5E, this::makeDirty);
+        mSourceLabel = new ChangeTrackedLiveData<>("", this::makeDirty);
         mCustomHitPoints = new ChangeTrackedLiveData<>("", this::makeDirty);
         mHitDice = new ChangeTrackedLiveData<>(0, this::makeDirty);
         mNaturalArmorBonus = new ChangeTrackedLiveData<>(0, this::makeDirty);
@@ -165,6 +170,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         mType.resetValue(monster.type);
         mSubtype.resetValue(monster.subtype);
         mAlignment.resetValue(monster.alignment);
+        mGameSystem.resetValue(monster.gameSystem != null ? monster.gameSystem : GameSystem.DND_5E);
+        mSourceLabel.resetValue(monster.sourceLabel != null ? monster.sourceLabel : "");
         mCustomHitPoints.resetValue(monster.customHPDescription);
         mHitDice.resetValue(monster.hitDice);
         mNaturalArmorBonus.resetValue(monster.naturalArmorBonus);
@@ -305,6 +312,22 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
 
     public void setAlignment(@NonNull String alignment) {
         mAlignment.setValue(alignment);
+    }
+
+    public LiveData<GameSystem> getGameSystem() {
+        return mGameSystem;
+    }
+
+    public void setGameSystem(@NonNull GameSystem gameSystem) {
+        mGameSystem.setValue(gameSystem);
+    }
+
+    public LiveData<String> getSourceLabel() {
+        return mSourceLabel;
+    }
+
+    public void setSourceLabel(@NonNull String sourceLabel) {
+        mSourceLabel.setValue(sourceLabel);
     }
 
     public LiveData<String> getCustomHitPoints() {
@@ -764,6 +787,8 @@ public class EditMonsterViewModel extends ChangeTrackedViewModel {
         monster.type = mType.getValue();
         monster.subtype = mSubtype.getValue();
         monster.alignment = mAlignment.getValue();
+        monster.gameSystem = mGameSystem.getValue() != null ? mGameSystem.getValue() : GameSystem.DND_5E;
+        monster.sourceLabel = mSourceLabel.getValue() != null ? mSourceLabel.getValue() : "";
         monster.customHPDescription = mCustomHitPoints.getValue();
         monster.hitDice = mHitDice.getValue();
         monster.hasCustomHP = mHasCustomHitPoints.getValue();

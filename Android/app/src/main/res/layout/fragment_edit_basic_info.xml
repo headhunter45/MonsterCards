@@ -90,6 +90,36 @@
                 tools:text="Chaotic Stupid" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_game_system"
+            android:textAppearance="?attr/textAppearanceBody2" />
+
+        <Spinner
+            android:id="@+id/gameSystem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:minHeight="48dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sourceLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_source_label"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:text="Bestiary" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <!-- Hit Dice (int) -->
         <com.majinnaibu.monstercards.ui.components.Stepper
             android:id="@+id/hitDice"

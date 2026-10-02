@@ -55,6 +55,8 @@
     <string name="label_description">Description</string>
     <string name="label_dexterity">Dexterity</string>
     <string name="label_fly_speed">Fly Speed</string>
+    <string name="label_game_system">Game System</string>
+    <string name="label_source_label">Source / Book (e.g. Bestiary, SRD)</string>
     <string name="label_has_custom_hp">Has Custom HP</string>
     <string name="label_has_custom_speed">Has Custom Speed</string>
     <string name="label_has_a_shield">Has a Shield</string>

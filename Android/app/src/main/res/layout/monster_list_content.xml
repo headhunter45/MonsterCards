@@ -2,13 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <!-- // TODO: combine all of these similar list layouts into a single one -->
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/text_margin">
 
     <TextView
         android:id="@+id/content"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
+        android:layout_weight="1"
         android:textAppearance="?attr/textAppearanceListItem" />
+
+    <com.majinnaibu.monstercards.ui.components.SourceTagView
+        android:id="@+id/sourceTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp" />
 </LinearLayout>

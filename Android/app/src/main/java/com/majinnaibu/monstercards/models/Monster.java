@@ -14,6 +14,7 @@ import com.majinnaibu.monstercards.data.enums.AbilityScore;
 import com.majinnaibu.monstercards.data.enums.AdvantageType;
 import com.majinnaibu.monstercards.data.enums.ArmorType;
 import com.majinnaibu.monstercards.data.enums.ChallengeRating;
+import com.majinnaibu.monstercards.data.enums.GameSystem;
 import com.majinnaibu.monstercards.data.enums.ProficiencyType;
 import com.majinnaibu.monstercards.helpers.StringHelper;
 import com.majinnaibu.monstercards.utils.Logger;
@@ -303,6 +304,16 @@ public class Monster {
     @ColumnInfo(name = "allies_and_organizations", defaultValue = "")
     public String alliesAndOrganizations;
 
+    @NonNull
+    @ColumnInfo(name = "game_system", defaultValue = "DND_5E")
+    @SerializedName("gameSystem")
+    public GameSystem gameSystem = GameSystem.DND_5E;
+
+    @NonNull
+    @ColumnInfo(name = "source_label", defaultValue = "")
+    @SerializedName("sourceLabel")
+    public String sourceLabel = "";
+
     public Monster() {
         id = UUID.randomUUID();
         name = "";
@@ -310,6 +321,8 @@ public class Monster {
         type = "";
         subtype = "";
         alignment = "";
+        gameSystem = GameSystem.DND_5E;
+        sourceLabel = "";
         strengthScore = 10;
         dexterityScore = 10;
         constitutionScore = 10;
@@ -387,6 +400,14 @@ public class Monster {
         regionalActionsDescription = "";
         regionalActionsEndNote = "";
         mythicActionsDescription = "";
+    }
+
+    public String getSourceTag() {
+        String systemName = (gameSystem != null) ? gameSystem.getShortName() : "5e";
+        if (!StringHelper.isNullOrEmpty(sourceLabel)) {
+            return systemName + " | " + sourceLabel;
+        }
+        return systemName;
     }
 
     public String getMeta() {

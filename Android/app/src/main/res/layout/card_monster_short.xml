@@ -30,6 +30,15 @@
         app:layout_constraintTop_toBottomOf="@id/name"
         tools:text="Gargantuan dragon, chaotic evil" />
 
+    <com.majinnaibu.monstercards.ui.components.SourceTagView
+        android:id="@+id/sourceTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_normal"
+        app:layout_constraintBottom_toBottomOf="@id/challengeRating"
+        app:layout_constraintEnd_toStartOf="@id/challengeRating"
+        app:layout_constraintTop_toTopOf="@id/challengeRating" />
+
     <TextView
         android:id="@+id/challengeRating"
         android:layout_width="wrap_content"
