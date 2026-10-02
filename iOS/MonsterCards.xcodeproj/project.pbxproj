@@ -10,6 +10,8 @@
 		E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */; };
 		E20209D425D8DD9600EFE734 /* Collection+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D425D8DD9600EFE736 /* Collection+CoreDataClass.swift */; };
 		E20209D525D8DD9600EFE735 /* CollectionMonster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D525D8DD9600EFE737 /* CollectionMonster+CoreDataClass.swift */; };
+		E20209D625D8DD9600EFE738 /* DashboardMonster+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D625D8DD9600EFE739 /* DashboardMonster+CoreDataClass.swift */; };
+		E20209D725D8DD9600EFE73A /* MonsterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209D725D8DD9600EFE73B /* MonsterRepository.swift */; };
 		E20209E825D8DEC100EFE733 /* AbilityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209E725D8DEC100EFE733 /* AbilityScore.swift */; };
 		E20209F425D8E04300EFE733 /* ProficiencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F225D8E04300EFE733 /* ProficiencyType.swift */; };
 		E20209F525D8E04300EFE733 /* AdvantageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20209F325D8E04300EFE733 /* AdvantageType.swift */; };
@@ -151,6 +153,8 @@
 		E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E20209D425D8DD9600EFE736 /* Collection+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E20209D525D8DD9600EFE737 /* CollectionMonster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionMonster+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E20209D625D8DD9600EFE739 /* DashboardMonster+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardMonster+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E20209D725D8DD9600EFE73B /* MonsterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonsterRepository.swift"; sourceTree = "<group>"; };
 		E20209E725D8DEC100EFE733 /* AbilityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityScore.swift; sourceTree = "<group>"; };
 		E20209F225D8E04300EFE733 /* ProficiencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProficiencyType.swift; sourceTree = "<group>"; };
 		E20209F325D8E04300EFE733 /* AdvantageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvantageType.swift; sourceTree = "<group>"; };
@@ -423,6 +427,8 @@
 				E20209D225D8DD9600EFE733 /* Skill+CoreDataClass.swift */,
 				E20209D425D8DD9600EFE736 /* Collection+CoreDataClass.swift */,
 				E20209D525D8DD9600EFE737 /* CollectionMonster+CoreDataClass.swift */,
+				E20209D625D8DD9600EFE739 /* DashboardMonster+CoreDataClass.swift */,
+				E20209D725D8DD9600EFE73B /* MonsterRepository.swift */,
 				E219248426198A1200C84E12 /* SkillDTO.swift */,
 				E20209F925D8E19100EFE733 /* SkillViewModel.swift */,
 				E216E471261FDF3200FD9262 /* SkillViewModel+CoreData.swift */,
@@ -711,6 +717,8 @@
 				E20209D325D8DD9600EFE733 /* Skill+CoreDataClass.swift in Sources */,
 				E20209D425D8DD9600EFE734 /* Collection+CoreDataClass.swift in Sources */,
 				E20209D525D8DD9600EFE735 /* CollectionMonster+CoreDataClass.swift in Sources */,
+				E20209D625D8DD9600EFE738 /* DashboardMonster+CoreDataClass.swift in Sources */,
+				E20209D725D8DD9600EFE73A /* MonsterRepository.swift in Sources */,
 				E24ACE652607F55D009BF703 /* EditSavingThrows.swift in Sources */,
 				E2BD702C25B3A8D70058ED69 /* MCTextField.swift in Sources */,
 				E216B7BC260C691400FB205F /* EditChallengeRating.swift in Sources */,

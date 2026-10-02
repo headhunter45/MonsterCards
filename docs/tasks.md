@@ -121,7 +121,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 |:------|:-----------------------------------------------------------------------------------------------------|:------|:------|:------------------|
 | FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                 | Shared  | Fixed   | [Chore](#fgj-001)   |
 | FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management                   | iOS     | Fixed   | [Chore](#fgj-002)   |
-| FGJ-003 | **Modernize CoreData / CloudKit persistence layer and implement repository architecture**              | iOS     | Pending | [Feature](#fgj-003) |
+| FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture                  | iOS     | Fixed   | [Feature](#fgj-003) |
 | FGJ-004 | **Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)** | iOS     | Pending | [Feature](#fgj-004) |
 | FGJ-005 | **Modernize SwiftUI architecture, NavigationStack, and Observation framework**                         | iOS     | Pending | [Feature](#fgj-005) |
 | FGJ-006 | **Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions**          | iOS     | Pending | [Feature](#fgj-006) |
@@ -174,26 +174,25 @@ Update the iOS Xcode project to modern standards, targeting iOS 17.0+ / iOS 18.0
 - [x] Resolve all Xcode project build warnings, deprecations, and code signing configurations for local/simulator testing
 - [x] Verify clean command-line builds via `xcodebuild` for both device and simulator destinations
 
-<a id="fgj-003" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-003" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Modernize CoreData / CloudKit persistence layer and implement repository architecture
 **ID:** FGJ-003
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Modernize the data persistence stack in `Persistence.swift` and `MonsterCards.xcdatamodeld`. Ensure schema parity with Android's Room database (`Monster`, `Collection`, `CollectionMonster`, `DashboardMonster`), robust iCloud synchronization via `NSPersistentCloudKitContainer`, and clean separation of concerns using an async/actor-isolated repository pattern (`MonsterRepository`).
 
 **Requirements:**
 
-- [ ] Update CoreData schema model to match Android data entities:
+- [x] Update CoreData schema model to match Android data entities:
   - `Monster`: all 5e attributes, spellcasting, legendary/mythic actions, reactions, senses, damage types, condition immunities, source URL, image URL, custom tags
   - `Collection` & `CollectionMonster`: sort order, description, monster relationship, membership count
   - `DashboardMonster`: pinned status, display order, current HP, max HP, temporary notes/counter
-- [ ] Implement `NSPersistentCloudKitContainer` background sync with automatic merge policies and error recovery
-- [ ] Create an actor-isolated `MonsterRepository` protocol and implementation providing async CRUD operations, pagination, search, and batch mutations
-- [ ] Implement database seeding for development/previews (`DevContent`)
+- [x] Implement `NSPersistentCloudKitContainer` background sync with automatic merge policies and error recovery
+- [x] Create an actor-isolated `MonsterRepository` protocol and implementation providing async CRUD operations, pagination, search, and batch mutations
+- [x] Implement database seeding for development/previews (`DevContent`)
 
 <a id="fgj-004" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)
