@@ -29,12 +29,14 @@ public class CompendiumSourcesAdapter extends RecyclerView.Adapter<CompendiumSou
 
     public static class SourceDownloadState {
         public boolean isDownloading;
+        public boolean hasUpdate;
         public int progress;
         public int max;
         public String statusText;
 
-        public SourceDownloadState(boolean isDownloading, int progress, int max, String statusText) {
+        public SourceDownloadState(boolean isDownloading, boolean hasUpdate, int progress, int max, String statusText) {
             this.isDownloading = isDownloading;
+            this.hasUpdate = hasUpdate;
             this.progress = progress;
             this.max = max;
             this.statusText = statusText;
@@ -53,7 +55,23 @@ public class CompendiumSourcesAdapter extends RecyclerView.Adapter<CompendiumSou
     }
 
     public void updateProgress(@NonNull String sourceId, boolean isDownloading, int progress, int max, String statusText) {
-        mStates.put(sourceId, new SourceDownloadState(isDownloading, progress, max, statusText));
+        SourceDownloadState existing = mStates.get(sourceId);
+        boolean hasUpdate = existing != null && existing.hasUpdate;
+        mStates.put(sourceId, new SourceDownloadState(isDownloading, hasUpdate, progress, max, statusText));
+        notifySourceChanged(sourceId);
+    }
+
+    public void setSourceHasUpdate(@NonNull String sourceId, boolean hasUpdate) {
+        SourceDownloadState existing = mStates.get(sourceId);
+        if (existing != null) {
+            existing.hasUpdate = hasUpdate;
+        } else {
+            mStates.put(sourceId, new SourceDownloadState(false, hasUpdate, 0, 0, null));
+        }
+        notifySourceChanged(sourceId);
+    }
+
+    private void notifySourceChanged(@NonNull String sourceId) {
         for (int i = 0; i < mSources.size(); i++) {
             if (mSources.get(i).id.equals(sourceId)) {
                 notifyItemChanged(i);
@@ -83,6 +101,7 @@ public class CompendiumSourcesAdapter extends RecyclerView.Adapter<CompendiumSou
         boolean isDownloaded = CompendiumSourceManager.isSourceDownloaded(mContext, source.id);
         int count = CompendiumSourceManager.getSourceMonsterCount(mContext, source.id);
         SourceDownloadState state = mStates.get(source.id);
+        boolean hasUpdate = state != null && state.hasUpdate;
 
         if (state != null && state.isDownloading) {
             holder.layoutProgress.setVisibility(View.VISIBLE);
@@ -102,8 +121,13 @@ public class CompendiumSourcesAdapter extends RecyclerView.Adapter<CompendiumSou
             holder.layoutProgress.setVisibility(View.GONE);
             holder.buttonDownload.setEnabled(true);
             if (isDownloaded) {
-                holder.textStatus.setText(mContext.getString(R.string.status_downloaded, count));
-                holder.buttonDownload.setText(R.string.action_redownload);
+                if (hasUpdate) {
+                    holder.textStatus.setText("Update Available! (" + count + " current)");
+                    holder.buttonDownload.setText("Update Compendium");
+                } else {
+                    holder.textStatus.setText(mContext.getString(R.string.status_downloaded, count));
+                    holder.buttonDownload.setText(R.string.action_redownload);
+                }
                 holder.buttonRemove.setVisibility(View.VISIBLE);
             } else {
                 holder.textStatus.setText(R.string.status_not_downloaded);

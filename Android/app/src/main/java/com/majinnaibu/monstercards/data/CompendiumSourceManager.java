@@ -96,13 +96,146 @@ public class CompendiumSourceManager {
                 .apply();
     }
 
+    public static class UpdateCheckResult {
+        public final boolean hasUpdate;
+        public final String currentShaOrEtag;
+        public final String remoteShaOrEtag;
+        public final String message;
+
+        public UpdateCheckResult(boolean hasUpdate, String currentShaOrEtag, String remoteShaOrEtag, String message) {
+            this.hasUpdate = hasUpdate;
+            this.currentShaOrEtag = currentShaOrEtag;
+            this.remoteShaOrEtag = remoteShaOrEtag;
+            this.message = message;
+        }
+    }
+
+    public static UpdateCheckResult checkForUpdate(@NonNull Context context, @NonNull ImportSource source) {
+        boolean isDownloaded = isSourceDownloaded(context, source.id);
+        if (!isDownloaded) {
+            return new UpdateCheckResult(false, "", "", "Source is not yet downloaded.");
+        }
+
+        String currentSha = getSourceSha(context, source.id);
+        String currentEtag = getSourceEtag(context, source.id);
+
+        if (source.importType == ImportSource.ImportType.OPEN5E_API) {
+            try {
+                URL url = new URL("https://api.open5e.com/v2/creatures/");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("HEAD");
+                conn.setConnectTimeout(8000);
+                conn.setReadTimeout(8000);
+                String remoteEtag = conn.getHeaderField("ETag");
+                String lastModified = conn.getHeaderField("Last-Modified");
+                String remoteTag = remoteEtag != null ? remoteEtag : (lastModified != null ? lastModified : "");
+
+                if (!remoteTag.isEmpty() && !currentEtag.isEmpty() && !remoteTag.equals(currentEtag)) {
+                    return new UpdateCheckResult(true, currentEtag, remoteTag, "New Open5e creatures available.");
+                }
+                return new UpdateCheckResult(false, currentEtag, remoteTag, "Open5e compendium is up to date.");
+            } catch (Exception e) {
+                Logger.logError("Error checking Open5e update", e);
+                return new UpdateCheckResult(false, currentEtag, "", "Could not reach Open5e API.");
+            }
+        } else {
+            // Check Git commit or ETag for Git Archive
+            String remoteSha = fetchRemoteGitCommitSha(source);
+            if (remoteSha != null && !remoteSha.isEmpty()) {
+                if (!currentSha.isEmpty() && !currentSha.equals(remoteSha)) {
+                    return new UpdateCheckResult(true, currentSha, remoteSha, "Upstream repository updated (commit " + remoteSha.substring(0, Math.min(7, remoteSha.length())) + ").");
+                }
+                return new UpdateCheckResult(false, currentSha, remoteSha, "Compendium is up to date with latest commit.");
+            }
+
+            // Fallback to HTTP ETag
+            try {
+                if (source.downloadUrl != null) {
+                    URL url = new URL(source.downloadUrl);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("HEAD");
+                    conn.setConnectTimeout(8000);
+                    conn.setReadTimeout(8000);
+                    String remoteEtag = conn.getHeaderField("ETag");
+                    if (remoteEtag != null && !remoteEtag.isEmpty()) {
+                        if (!currentEtag.isEmpty() && !currentEtag.equals(remoteEtag)) {
+                            return new UpdateCheckResult(true, currentEtag, remoteEtag, "Upstream archive updated.");
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                Logger.logError("Error checking Git archive ETag", e);
+            }
+
+            return new UpdateCheckResult(false, currentSha, "", "Compendium is up to date.");
+        }
+    }
+
+    private static String fetchRemoteGitCommitSha(ImportSource source) {
+        if (source.downloadUrl == null) return null;
+        try {
+            // E.g., https://github.com/foundryvtt/pf2e/archive/refs/heads/v14-dev.zip
+            // repo: foundryvtt/pf2e, branch: v14-dev
+            String url = source.downloadUrl;
+            if (url.contains("github.com/")) {
+                String clean = url.replace("https://github.com/", "");
+                String[] parts = clean.split("/");
+                if (parts.length >= 2) {
+                    String owner = parts[0];
+                    String repo = parts[1];
+                    String branch = "master";
+                    if (url.contains("/heads/")) {
+                        branch = url.substring(url.indexOf("/heads/") + 7).replace(".zip", "");
+                    }
+                    String apiUrl = "https://api.github.com/repos/" + owner + "/" + repo + "/commits/" + branch;
+                    URL api = new URL(apiUrl);
+                    HttpURLConnection conn = (HttpURLConnection) api.openConnection();
+                    conn.setRequestMethod("GET");
+                    conn.setRequestProperty("User-Agent", "MonsterCards-Android");
+                    conn.setRequestProperty("Accept", "application/vnd.github.v3+json");
+                    conn.setConnectTimeout(8000);
+                    conn.setReadTimeout(8000);
+
+                    if (conn.getResponseCode() == 200) {
+                        String body = readStream(conn.getInputStream());
+                        com.google.gson.JsonObject obj = com.google.gson.JsonParser.parseString(body).getAsJsonObject();
+                        if (obj.has("sha")) {
+                            return obj.get("sha").getAsString();
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Logger.logError("Failed to fetch remote Git commit SHA", e);
+        }
+        return null;
+    }
+
+    private static String readStream(InputStream in) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        }
+        return sb.toString();
+    }
+
     public static int downloadAndIngest(@NonNull Context context, @NonNull AppDatabase db, @NonNull ImportSource source,
                                         @NonNull BooleanSupplier isCancelled, ProgressListener progressListener) throws Exception {
+        int result;
+        String latestSha = fetchRemoteGitCommitSha(source);
         if (source.importType == ImportSource.ImportType.OPEN5E_API) {
-            return ingestOpen5eApi(context, db, source, isCancelled, progressListener);
+            result = ingestOpen5eApi(context, db, source, isCancelled, progressListener);
         } else {
-            return ingestGitArchive(context, db, source, isCancelled, progressListener);
+            result = ingestGitArchive(context, db, source, isCancelled, progressListener);
         }
+
+        if (latestSha != null) {
+            setSourceSha(context, source.id, latestSha);
+        }
+        return result;
     }
 
     private static int ingestOpen5eApi(Context context, AppDatabase db, ImportSource source,
@@ -110,10 +243,7 @@ public class CompendiumSourceManager {
         if (progressListener != null) progressListener.onProgress(0, 0, "Querying Open5e API…");
         int totalIngested = 0;
         String nextUrl = null;
-        List<ReferenceMonster> batch = new ArrayList<>();
-
-        // Clear existing before atomic replacement
-        db.referenceMonsterDAO().deleteBySourceIdSync(source.id);
+        List<ReferenceMonster> allMonsters = new ArrayList<>();
 
         do {
             if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium download was cancelled");
@@ -125,24 +255,21 @@ public class CompendiumSourceManager {
                 if (!source.sourceLabel.isEmpty()) {
                     rm.sourceLabel = source.sourceLabel;
                 }
-                batch.add(rm);
+                allMonsters.add(rm);
                 totalIngested++;
 
-                if (batch.size() >= 50) {
-                    db.referenceMonsterDAO().insertAllSync(batch);
-                    batch.clear();
-                    if (progressListener != null) {
-                        progressListener.onProgress(totalIngested, 0, "Ingested " + totalIngested + " monsters…");
-                    }
+                if (progressListener != null && totalIngested % 25 == 0) {
+                    progressListener.onProgress(totalIngested, 0, "Fetched " + totalIngested + " monsters…");
                 }
             }
             nextUrl = page.nextUrl;
         } while (nextUrl != null && !nextUrl.isEmpty());
 
-        if (!batch.isEmpty()) {
-            db.referenceMonsterDAO().insertAllSync(batch);
-            batch.clear();
-        }
+        if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium download was cancelled");
+
+        if (progressListener != null) progressListener.onProgress(totalIngested, totalIngested, "Atomically replacing reference records…");
+        // Atomic transaction replacement
+        db.referenceMonsterDAO().replaceSourceMonstersSync(source.id, allMonsters);
 
         markSourceDownloaded(context, source.id, totalIngested);
         return totalIngested;
@@ -184,11 +311,8 @@ public class CompendiumSourceManager {
             int totalFiles = files != null ? files.length : 0;
             if (progressListener != null) progressListener.onProgress(0, totalFiles, "Parsing " + totalFiles + " reference monsters…");
 
-            // Atomic replacement
-            db.referenceMonsterDAO().deleteBySourceIdSync(source.id);
-
+            List<ReferenceMonster> allMonsters = new ArrayList<>();
             int count = 0;
-            List<ReferenceMonster> batch = new ArrayList<>();
             if (files != null) {
                 for (File file : files) {
                     if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium parsing was cancelled");
@@ -202,15 +326,11 @@ public class CompendiumSourceManager {
                                 if (!source.sourceLabel.isEmpty()) {
                                     rm.sourceLabel = source.sourceLabel;
                                 }
-                                batch.add(rm);
+                                allMonsters.add(rm);
                                 count++;
 
-                                if (batch.size() >= 50) {
-                                    db.referenceMonsterDAO().insertAllSync(batch);
-                                    batch.clear();
-                                    if (progressListener != null) {
-                                        progressListener.onProgress(count, totalFiles, "Ingested " + count + " of " + totalFiles + "…");
-                                    }
+                                if (progressListener != null && count % 50 == 0) {
+                                    progressListener.onProgress(count, totalFiles, "Parsed " + count + " of " + totalFiles + "…");
                                 }
                             } catch (Exception e) {
                                 Logger.logError("Failed to parse reference monster: " + file.getName(), e);
@@ -220,10 +340,11 @@ public class CompendiumSourceManager {
                 }
             }
 
-            if (!batch.isEmpty()) {
-                db.referenceMonsterDAO().insertAllSync(batch);
-                batch.clear();
-            }
+            if (isCancelled.getAsBoolean()) throw new InterruptedException("Compendium parsing was cancelled");
+
+            if (progressListener != null) progressListener.onProgress(count, totalFiles, "Saving reference monsters…");
+            // Atomic transaction replacement
+            db.referenceMonsterDAO().replaceSourceMonstersSync(source.id, allMonsters);
 
             markSourceDownloaded(context, source.id, count);
             return count;

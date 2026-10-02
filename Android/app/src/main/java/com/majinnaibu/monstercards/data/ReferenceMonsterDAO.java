@@ -1,10 +1,10 @@
 package com.majinnaibu.monstercards.data;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import com.majinnaibu.monstercards.models.ReferenceMonster;
 
@@ -38,6 +38,14 @@ public interface ReferenceMonsterDAO {
 
     @Query("DELETE FROM reference_monsters WHERE source_id = :sourceId")
     void deleteBySourceIdSync(String sourceId);
+
+    @Transaction
+    default void replaceSourceMonstersSync(String sourceId, List<ReferenceMonster> monsters) {
+        deleteBySourceIdSync(sourceId);
+        if (monsters != null && !monsters.isEmpty()) {
+            insertAllSync(monsters);
+        }
+    }
 
     @Query("SELECT COUNT(*) FROM reference_monsters WHERE source_id = :sourceId")
     int countBySourceId(String sourceId);

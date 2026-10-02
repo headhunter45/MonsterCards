@@ -1,6 +1,7 @@
 package com.majinnaibu.monstercards.data;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -42,5 +43,19 @@ public class CompendiumSourceManagerTest {
         assertEquals(GameSystem.SF_2E, sf2e.gameSystem);
         assertEquals(ImportSource.ImportType.GIT_ARCHIVE, sf2e.importType);
         assertNotNull(sf2e.downloadUrl);
+    }
+
+    @Test
+    public void testUpdateCheckResultStructure() {
+        CompendiumSourceManager.UpdateCheckResult resultWithUpdate =
+                new CompendiumSourceManager.UpdateCheckResult(true, "sha_old", "sha_new", "Update available");
+        assertTrue(resultWithUpdate.hasUpdate);
+        assertEquals("sha_old", resultWithUpdate.currentShaOrEtag);
+        assertEquals("sha_new", resultWithUpdate.remoteShaOrEtag);
+        assertEquals("Update available", resultWithUpdate.message);
+
+        CompendiumSourceManager.UpdateCheckResult resultNoUpdate =
+                new CompendiumSourceManager.UpdateCheckResult(false, "sha_same", "sha_same", "Up to date");
+        assertFalse(resultNoUpdate.hasUpdate);
     }
 }

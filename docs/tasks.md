@@ -134,7 +134,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-013 | Add gameSystem and sourceLabel fields to Monster entity, editor, and UI tag bubbles                       | Android | Fixed   | [Feature](#mcr-013) |
 | MCR-014 | Create isolated ReferenceMonster database table, repository, and JSON ingestion pipeline                  | Android | Fixed   | [Feature](#mcr-014) |
 | MCR-015 | Implement user-initiated compendium downloader with 3rd-party disclaimer and legal confirmation modal     | Android | Fixed   | [Feature](#mcr-015) |
-| MCR-016 | **Implement Git commit SHA and HTTP ETag update checker with atomic source replacement**                  | Android | Pending | [Feature](#mcr-016) |
+| MCR-016 | Implement Git commit SHA and HTTP ETag update checker with atomic source replacement                      | Android | Fixed   | [Feature](#mcr-016) |
 | MCR-017 | **Integrate reference compendiums into Search with source tag filters and badges**                        | Android | Pending | [Feature](#mcr-017) |
 | MCR-018 | **Support tap-to-preview and one-tap cloning/importing from ReferenceMonsters into user library**         | Android | Pending | [Feature](#mcr-018) |
 | MCR-019 | **Add gameSystem and sourceLabel attributes to CoreData Monster entity, editor, and UI tag bubbles**      | iOS     | Pending | [Feature](#mcr-019) |
@@ -438,11 +438,11 @@ Add a Compendium Sources screen in Android settings where users can view availab
 - [x] Initiate background download and extraction service upon user confirmation with progress bar and cancellation support
 - [x] Design extensible source configuration model allowing new community sources to be added easily
 
-<a id="mcr-016" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-016" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Implement Git commit SHA and HTTP ETag update checker with atomic source replacement
 **ID:** MCR-016
 **Project:** Android
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
@@ -450,10 +450,10 @@ Implement an update checking service for downloaded compendiums that checks remo
 
 **Requirements:**
 
-- [ ] Store source metadata (`sourceId`, `lastCommitSha`, `lastEtag`, `lastUpdatedTimestamp`, `monsterCount`) in `SharedPreferences` / Room
-- [ ] Implement remote update check querying GitHub commit SHA or HTTP `If-None-Match` header to detect upstream repository changes
-- [ ] Display "Update Available" badge/button in Sources settings when newer commit/hash is detected
-- [ ] Perform atomic database replacement per `sourceId` in a single Room transaction (delete old source records and insert new version)
+- [x] Store source metadata (`sourceId`, `lastCommitSha`, `lastEtag`, `lastUpdatedTimestamp`, `monsterCount`) in `SharedPreferences` / Room
+- [x] Implement remote update check querying GitHub commit SHA or HTTP `If-None-Match` header to detect upstream repository changes
+- [x] Display "Update Available" badge/button in Sources settings when newer commit/hash is detected
+- [x] Perform atomic database replacement per `sourceId` in a single Room transaction (delete old source records and insert new version)
 
 <a id="mcr-017" class="task" data-project="android" data-status="pending" data-task-type="feature"></a>
 ### Integrate reference compendiums into Search with source tag filters and badges

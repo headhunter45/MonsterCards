@@ -53,7 +53,25 @@ public class CompendiumSourcesFragment extends MCFragment implements CompendiumS
         mAdapter = new CompendiumSourcesAdapter(requireContext(), sources, this);
         recyclerView.setAdapter(mAdapter);
 
+        checkForUpdates(sources);
+
         return root;
+    }
+
+    private void checkForUpdates(@NonNull List<ImportSource> sources) {
+        Context context = requireContext().getApplicationContext();
+        for (ImportSource source : sources) {
+            if (CompendiumSourceManager.isSourceDownloaded(context, source.id)) {
+                mDisposables.add(Single.fromCallable(() -> CompendiumSourceManager.checkForUpdate(context, source))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(result -> {
+                            if (result.hasUpdate && mAdapter != null) {
+                                mAdapter.setSourceHasUpdate(source.id, true);
+                            }
+                        }, throwable -> Logger.logError("Failed to check for updates on " + source.id, throwable)));
+            }
+        }
     }
 
     @Override
