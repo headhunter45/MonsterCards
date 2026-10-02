@@ -8,7 +8,8 @@
 import Foundation
 import CoreData
 
-class MonsterViewModel: ObservableObject {
+class MonsterViewModel: ObservableObject, Identifiable {
+    public let id = UUID()
     
     // TODO: Determine whether to prefer Int or Int64 for these fields and switch as many as possible to the winner.
     

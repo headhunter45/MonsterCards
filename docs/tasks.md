@@ -127,7 +127,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed   | [Feature](#fgj-006) |
 | FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed   | [Feature](#fgj-007) |
 | FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed   | [Feature](#fgj-008) |
-| FGJ-009 | **Implement unified local Full-Text Search and remote Open5e API live search**                     | iOS     | Pending | [Feature](#fgj-009) |
+| FGJ-009 | Implement unified local Full-Text Search and remote Open5e API live search                         | iOS     | Fixed   | [Feature](#fgj-009) |
 | FGJ-010 | **Build comprehensive multi-section 5e Monster Editor suite with validation and live preview**     | iOS     | Pending | [Feature](#fgj-010) |
 | FGJ-011 | **Implement QuickLook Preview Extension, custom document types (.monster), and system sharing**    | iOS     | Pending | [Feature](#fgj-011) |
 | FGJ-012 | **Implement comprehensive Unit and UI test suite across Importers, Models, and UI workflows**      | iOS     | Pending | [Feature](#fgj-012) |
@@ -287,24 +287,23 @@ Build out the Collections tab (`Collections.swift`) and detail views to organize
 - [x] Display encounter metrics: Total Monster Count, Average CR, Total XP, and 5e Encounter Difficulty estimate (Easy, Medium, Hard, Deadly)
 - [x] Export collection as a standalone Binder archive or share sheet payload
 
-<a id="fgj-009" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-009" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement unified local Full-Text Search and remote Open5e API live search
 **ID:** FGJ-009
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Modernize `Search.swift` to provide a unified search experience that queries both local library monsters and the remote Open5e REST API simultaneously with instant preview and import.
 
 **Requirements:**
 
-- [ ] Local search across multiple fields: name, type, subtype, size, alignment, traits, actions, and tags
-- [ ] Remote search querying Open5e API with debounced user typing, loading indicators, and error resilience
-- [ ] Segmented results view showing Local Library matches vs. Online Open5e results
-- [ ] Tap-to-preview remote stat block with a single-tap "Import to Library" or "Add to Collection" action
-- [ ] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
+- [x] Local search across multiple fields: name, type, subtype, size, alignment, traits, actions, and tags
+- [x] Remote search querying Open5e API with debounced user typing, loading indicators, and error resilience
+- [x] Segmented results view showing Local Library matches vs. Online Open5e results
+- [x] Tap-to-preview remote stat block with a single-tap "Import to Library" or "Add to Collection" action
+- [x] Filter chips for quick category filtering (e.g. Beasts, Undead, Fiends, Dragons, Humanoids)
 
 <a id="fgj-010" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Build comprehensive multi-section 5e Monster Editor suite with validation and live preview

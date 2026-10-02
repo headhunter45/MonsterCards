@@ -51,3 +51,25 @@ public extension View {
         self.modifier(StatblockCardModifier())
     }
 }
+
+public struct FilterChip: View {
+    public let title: String
+    public let isActive: Bool
+
+    public init(title: String, isActive: Bool) {
+        self.title = title
+        self.isActive = isActive
+    }
+
+    public var body: some View {
+        Text(title)
+            .font(.subheadline)
+            .fontWeight(isActive ? .semibold : .regular)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(isActive ? Theme.dndRed : Color(.secondarySystemBackground))
+            .foregroundColor(isActive ? .white : .primary)
+            .cornerRadius(16)
+    }
+}
+
