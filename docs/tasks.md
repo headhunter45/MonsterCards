@@ -126,7 +126,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed   | [Feature](#fgj-005) |
 | FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed   | [Feature](#fgj-006) |
 | FGJ-007 | Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards        | iOS     | Fixed   | [Feature](#fgj-007) |
-| FGJ-008 | **Implement Collections and Encounters management with CR/XP summary metrics**                     | iOS     | Pending | [Feature](#fgj-008) |
+| FGJ-008 | Implement Collections and Encounters management with CR/XP summary metrics                         | iOS     | Fixed   | [Feature](#fgj-008) |
 | FGJ-009 | **Implement unified local Full-Text Search and remote Open5e API live search**                     | iOS     | Pending | [Feature](#fgj-009) |
 | FGJ-010 | **Build comprehensive multi-section 5e Monster Editor suite with validation and live preview**     | iOS     | Pending | [Feature](#fgj-010) |
 | FGJ-011 | **Implement QuickLook Preview Extension, custom document types (.monster), and system sharing**    | iOS     | Pending | [Feature](#fgj-011) |
@@ -269,24 +269,23 @@ Replace the placeholder `Dashboard.swift` with a combat companion dashboard matc
 - [x] Implement quick expand/collapse sheet to inspect full monster card details without losing dashboard context
 - [x] Persist dashboard combat state across app restarts
 
-<a id="fgj-008" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-008" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Implement Collections and Encounters management with CR/XP summary metrics
 **ID:** FGJ-008
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Build out the Collections tab (`Collections.swift`) and detail views to organize monsters into thematic collections, campaigns, locations, or combat encounters with automated challenge rating / encounter XP calculations.
 
 **Requirements:**
 
-- [ ] Create, edit, and delete Collections with custom names, descriptions, and icon/color tags
-- [ ] Implement Collection Detail view displaying assigned monsters with sorting and filtering
-- [ ] Implement Add/Remove monsters picker with search and multi-select
-- [ ] Display encounter metrics: Total Monster Count, Average CR, Total XP, and 5e Encounter Difficulty estimate (Easy, Medium, Hard, Deadly)
-- [ ] Export collection as a standalone Binder archive or share sheet payload
+- [x] Create, edit, and delete Collections with custom names, descriptions, and icon/color tags
+- [x] Implement Collection Detail view displaying assigned monsters with sorting and filtering
+- [x] Implement Add/Remove monsters picker with search and multi-select
+- [x] Display encounter metrics: Total Monster Count, Average CR, Total XP, and 5e Encounter Difficulty estimate (Easy, Medium, Hard, Deadly)
+- [x] Export collection as a standalone Binder archive or share sheet payload
 
 <a id="fgj-009" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement unified local Full-Text Search and remote Open5e API live search

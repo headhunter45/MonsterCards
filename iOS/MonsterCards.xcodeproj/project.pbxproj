@@ -88,6 +88,7 @@
 		E2570FF025B1ADC10055B23B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FEF25B1ADC10055B23B /* Search.swift */; };
 		E2570FF525B1ADEB0055B23B /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FF425B1ADEB0055B23B /* Dashboard.swift */; };
 		E2570FFA25B1AE020055B23B /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FF925B1AE020055B23B /* Collections.swift */; };
+		E2FE002D261FE0000055B23B /* CollectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE000D261FE0000083EAC5 /* CollectionDetailView.swift */; };
 		E2570FFF25B1AE180055B23B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2570FFE25B1AE180055B23B /* Library.swift */; };
 		E257100425B1AF4A0055B23B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100325B1AF4A0055B23B /* SearchBar.swift */; };
 		E257100925B1B2480055B23B /* MonsterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257100825B1B2470055B23B /* MonsterDetailView.swift */; };
@@ -221,6 +222,7 @@
 		E2570FEF25B1ADC10055B23B /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		E2570FF425B1ADEB0055B23B /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		E2570FF925B1AE020055B23B /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		E2FE000D261FE0000083EAC5 /* CollectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailView.swift; sourceTree = "<group>"; };
 		E2570FFE25B1AE180055B23B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		E257100325B1AF4A0055B23B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E257100825B1B2470055B23B /* MonsterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailView.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				E2570FF925B1AE020055B23B /* Collections.swift */,
+				E2FE000D261FE0000083EAC5 /* CollectionDetailView.swift */,
 				E2570FBA25B1AC520055B23B /* ContentView.swift */,
 				E2570FF425B1ADEB0055B23B /* Dashboard.swift */,
 				E24ACE5F2607F45E009BF703 /* EditAbilityScores.swift */,
@@ -737,6 +740,7 @@
 				E216E465261FDA2E00FD9262 /* MonsterDocument.swift in Sources */,
 				E254F906260D0818009295A5 /* AbilityViewModel.swift in Sources */,
 				E2570FFA25B1AE020055B23B /* Collections.swift in Sources */,
+				E2FE002D261FE0000055B23B /* CollectionDetailView.swift in Sources */,
 				E24ACE5B2607F0F2009BF703 /* EditSpeed.swift in Sources */,
 				E2570FB925B1AC520055B23B /* MonsterCardsApp.swift in Sources */,
 				E254F913260D1F6D009295A5 /* EditTrait.swift in Sources */,
