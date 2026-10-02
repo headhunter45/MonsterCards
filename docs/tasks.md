@@ -123,7 +123,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-002 | Modernize iOS Xcode project configuration, build pipeline, and dependency management               | iOS     | Fixed   | [Chore](#fgj-002)   |
 | FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed   | [Feature](#fgj-003) |
 | FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed   | [Feature](#fgj-004) |
-| FGJ-005 | **Modernize SwiftUI architecture, NavigationStack, and Observation framework**                     | iOS     | Pending | [Feature](#fgj-005) |
+| FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed   | [Feature](#fgj-005) |
 | FGJ-006 | **Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions**      | iOS     | Pending | [Feature](#fgj-006) |
 | FGJ-007 | **Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards**    | iOS     | Pending | [Feature](#fgj-007) |
 | FGJ-008 | **Implement Collections and Encounters management with CR/XP summary metrics**                     | iOS     | Pending | [Feature](#fgj-008) |
@@ -215,24 +215,23 @@ Bring the iOS import and export engine to full parity with Android. Implement ro
 - [x] `BinderExporter`: Export selected collections or entire libraries into shareable `.monster` / zip archives
 - [x] `MonsterCardExporter`: Export formatted monster stat blocks as printable PDF, image, or markdown
 
-<a id="fgj-005" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-005" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Modernize SwiftUI architecture, NavigationStack, and Observation framework
 **ID:** FGJ-005
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, `ObservableObject`, `@ObservedObject`, `@EnvironmentObject`) to modern iOS idioms: `NavigationStack`, `NavigationSplitView` (adaptive for iPhone and iPad), and Swift's `@Observable` macro (Observation framework) with structured concurrency (`async/await`, `@MainActor`).
 
 **Requirements:**
 
-- [ ] Replace deprecated `NavigationView` in `ContentView`, `Library`, `Search`, and `Collections` with `NavigationStack` and type-safe navigation destinations
-- [ ] Migrate ViewModels (`MonsterViewModel`, `SkillViewModel`, `AbilityViewModel`, etc.) to Swift's `@Observable` macro
-- [ ] Support adaptive multi-column `NavigationSplitView` for iPadOS and landscape orientation
-- [ ] Standardize design tokens, color palettes, dark mode support, and 5e statblock parchment card styling
-- [ ] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
+- [x] Replace deprecated `NavigationView` in `ContentView`, `Library`, `Search`, and `Collections` with `NavigationStack` and type-safe navigation destinations
+- [x] Migrate ViewModels (`MonsterViewModel`, `SkillViewModel`, `AbilityViewModel`, etc.) to Swift's `@Observable` macro
+- [x] Support adaptive multi-column `NavigationSplitView` for iPadOS and landscape orientation
+- [x] Standardize design tokens, color palettes, dark mode support, and 5e statblock parchment card styling
+- [x] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
 
 <a id="fgj-006" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions

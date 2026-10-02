@@ -104,6 +104,7 @@
 		E2CB0DE1260887ED00142591 /* StringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE0260887ED00142591 /* StringViewModel.swift */; };
 		E2CB0DE626088CE400142591 /* EditStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB0DE526088CE400142591 /* EditStrings.swift */; };
 		E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D473FC25B532C900CB36D7 /* Color+Hex.swift */; };
+		E2FE002C261FE0000055B23B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE000C261FE0000083EAC5 /* Theme.swift */; };
 		E2FE0021261FE0000055B23B /* EntityImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0001261FE0000083EAC5 /* EntityImporter.swift */; };
 		E2FE0022261FE0000055B23B /* BinderImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0002261FE0000083EAC5 /* BinderImporter.swift */; };
 		E2FE0023261FE0000055B23B /* BinderExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE0003261FE0000083EAC5 /* BinderExporter.swift */; };
@@ -236,6 +237,7 @@
 		E2CB0DE0260887ED00142591 /* StringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringViewModel.swift; sourceTree = "<group>"; };
 		E2CB0DE526088CE400142591 /* EditStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStrings.swift; sourceTree = "<group>"; };
 		E2D473FC25B532C900CB36D7 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		E2FE000C261FE0000083EAC5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
 		E2FE0001261FE0000083EAC5 /* EntityImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityImporter.swift; sourceTree = "<group>"; };
 		E2FE0002261FE0000083EAC5 /* BinderImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderImporter.swift; sourceTree = "<group>"; };
 		E2FE0003261FE0000083EAC5 /* BinderExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinderExporter.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D473FC25B532C900CB36D7 /* Color+Hex.swift */,
+				E2FE000C261FE0000083EAC5 /* Theme.swift */,
 				E219249826198E0D00C84E12 /* MonsterImportHelper.swift */,
 				E2CB0DD62608720000142591 /* StringHelper.swift */,
 			);
@@ -697,6 +700,7 @@
 				E2D473FD25B532C900CB36D7 /* Color+Hex.swift in Sources */,
 				E2B5285925B3028700AAA69E /* EditMonster.swift in Sources */,
 				E219247B261989B400C84E12 /* MonsterDTO.swift in Sources */,
+				E2FE002C261FE0000055B23B /* Theme.swift in Sources */,
 				E2CB0DD72608720000142591 /* StringHelper.swift in Sources */,
 				E216E46D261FDE5600FD9262 /* MonsterViewModel+CoreData.swift in Sources */,
 				E216E472261FDF3200FD9262 /* SkillViewModel+CoreData.swift in Sources */,
