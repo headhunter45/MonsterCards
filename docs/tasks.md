@@ -119,7 +119,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 | ID      | Title                                                                                                  | Project | Status  | Type                |
 |:------|:-----------------------------------------------------------------------------------------------------|:------|:------|:------------------|
-| FGJ-001 | **Clean up legacy Bukkit plugin and Maven leftovers from repository root**                             | Shared  | Pending | [Chore](#fgj-001)   |
+| FGJ-001 | Clean up legacy Bukkit plugin and Maven leftovers from repository root                                 | Shared  | Fixed   | [Chore](#fgj-001)   |
 | FGJ-002 | **Modernize iOS Xcode project configuration, build pipeline, and dependency management**               | iOS     | Pending | [Chore](#fgj-002)   |
 | FGJ-003 | **Modernize CoreData / CloudKit persistence layer and implement repository architecture**              | iOS     | Pending | [Feature](#fgj-003) |
 | FGJ-004 | **Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e)** | iOS     | Pending | [Feature](#fgj-004) |
@@ -138,11 +138,11 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 
 ## Detailed Tasks
 
-<a id="fgj-001" class="task" data-project="shared" data-status="pending" data-task-type="chore"></a>
+<a id="fgj-001" class="task" data-project="shared" data-status="done" data-task-type="chore"></a>
 ### Clean up legacy Bukkit plugin and Maven leftovers from repository root
 **ID:** FGJ-001
 **Project:** Shared
-**Status:** Pending
+**Status:** Fixed
 **Type:** Chore
 
 **Description:**
@@ -150,11 +150,11 @@ Remove obsolete files that leaked into the root directory from an unrelated lega
 
 **Requirements:**
 
-- [ ] Remove legacy Maven and Eclipse build metadata: `.classpath`, `.project`, `.settings/`, `pom.xml`, `Manifest.MF`, `MobScores.jardesc`
-- [ ] Remove legacy Bukkit Java source files in `src/main/java/com/majinnaibu/bukkitplugins/` and `src/main/resources/`
-- [ ] Remove outdated Bukkit documentation and project descriptor files: `ProjectDescription.json`, `ProjectDescription.md`, `Readme.txt`
-- [ ] Ensure `Project.json`, `Project.md`, and root `README.md` accurately describe the MonsterCards Android & iOS application
-- [ ] Update `.gitignore` to avoid re-introducing obsolete build artifacts
+- [x] Remove legacy Maven and Eclipse build metadata: `.classpath`, `.project`, `.settings/`, `pom.xml`, `Manifest.MF`, `MobScores.jardesc`
+- [x] Remove legacy Bukkit Java source files in `src/main/java/com/majinnaibu/bukkitplugins/` and `src/main/resources/`
+- [x] Remove outdated Bukkit documentation and project descriptor files: `ProjectDescription.json`, `ProjectDescription.md`, `Readme.txt`
+- [x] Ensure `Project.json`, `Project.md`, and root `README.md` accurately describe the MonsterCards Android & iOS application
+- [x] Update `.gitignore` to avoid re-introducing obsolete build artifacts
 
 <a id="fgj-002" class="task" data-project="ios" data-status="pending" data-task-type="chore"></a>
 ### Modernize iOS Xcode project configuration, build pipeline, and dependency management
