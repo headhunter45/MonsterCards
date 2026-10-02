@@ -124,7 +124,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | FGJ-003 | Modernize CoreData / CloudKit persistence layer and implement repository architecture              | iOS     | Fixed   | [Feature](#fgj-003) |
 | FGJ-004 | Implement full Importers & Exporters suite matching Android (Open5e, Tetra-Cube, D&D Beyond, PF2e) | iOS     | Fixed   | [Feature](#fgj-004) |
 | FGJ-005 | Modernize SwiftUI architecture, NavigationStack, and Observation framework                         | iOS     | Fixed   | [Feature](#fgj-005) |
-| FGJ-006 | **Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions**      | iOS     | Pending | [Feature](#fgj-006) |
+| FGJ-006 | Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions          | iOS     | Fixed   | [Feature](#fgj-006) |
 | FGJ-007 | **Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards**    | iOS     | Pending | [Feature](#fgj-007) |
 | FGJ-008 | **Implement Collections and Encounters management with CR/XP summary metrics**                     | iOS     | Pending | [Feature](#fgj-008) |
 | FGJ-009 | **Implement unified local Full-Text Search and remote Open5e API live search**                     | iOS     | Pending | [Feature](#fgj-009) |
@@ -233,24 +233,23 @@ Migrate the iOS UI architecture from legacy SwiftUI patterns (`NavigationView`, 
 - [x] Standardize design tokens, color palettes, dark mode support, and 5e statblock parchment card styling
 - [x] Implement modern SwiftUI controls: `.searchable`, `ContentUnavailableView`, `.refreshable`, swipe actions, and contextual menus
 
-<a id="fgj-006" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="fgj-006" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Build feature-complete Monster Library with advanced filtering, sorting, and bulk actions
 **ID:** FGJ-006
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
-
 
 **Description:**
 Upgrade the Monster Library tab (`Library.swift`) to match Android functionality, providing a rich, high-performance monster management hub with filtering, sorting, multi-selection, and quick actions.
 
 **Requirements:**
 
-- [ ] Implement filter bar and sheet supporting filters by Challenge Rating (range), Monster Type, Size, Alignment, Source, and Custom Tags
-- [ ] Implement sorting options: Name (A-Z, Z-A), Challenge Rating (Ascending/Descending), Date Added, Date Modified
-- [ ] Implement multi-selection mode for bulk actions: batch delete, add to collection, bulk export
-- [ ] Add swipe actions on monster rows: Quick Favorite, Pin to Dashboard, Duplicate, Delete
-- [ ] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
+- [x] Implement filter bar and sheet supporting filters by Challenge Rating (range), Monster Type, Size, Alignment, Source, and Custom Tags
+- [x] Implement sorting options: Name (A-Z, Z-A), Challenge Rating (Ascending/Descending), Date Added, Date Modified
+- [x] Implement multi-selection mode for bulk actions: batch delete, add to collection, bulk export
+- [x] Add swipe actions on monster rows: Quick Favorite, Pin to Dashboard, Duplicate, Delete
+- [x] Add pull-to-refresh and empty-state placeholders with one-tap import triggers
 
 <a id="fgj-007" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
 ### Implement interactive Combat Dashboard with HP tracking and quick-reference encounter cards
