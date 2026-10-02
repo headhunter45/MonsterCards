@@ -152,7 +152,7 @@ You can manage tasks using the provided automation scripts in `./scripts/` (or v
 | MCR-031 | The download buttons on the compendium page are magenta bubbles.                                             | Android | Fixed   | [Feature](#mcr-031) |
 | MCR-032 | The 3rd party content notice frame is also tiny text.                                                        | Android | Fixed   | [Feature](#mcr-032) |
 | MCR-033 | Stop calling the repositories community.                                                                     | Android | Fixed   | [Feature](#mcr-033) |
-| MCR-034 | **Stop calling the repositories community.**                                                                 | iOS     | Pending | [Feature](#mcr-034) |
+| MCR-034 | Stop calling the repositories community.                                                                     | iOS     | Fixed   | [Feature](#mcr-034) |
 | MCR-035 | Search does not seem to search the downloaded compendiums at all.                                            | Android | Fixed   | [Feature](#mcr-035) |
 | MCR-036 | **Fix Room Database Migration MIGRATION_10_11 column nullability mismatch**                                  | Android | Pending | [Bug](#mcr-036)     |
 
@@ -719,16 +719,16 @@ Plese look for other occurences of this issue in the layouts when fixing it.
 They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
 - [x]
 
-<a id="mcr-034" class="task" data-project="ios" data-status="pending" data-task-type="feature"></a>
+<a id="mcr-034" class="task" data-project="ios" data-status="done" data-task-type="feature"></a>
 ### Stop calling the repositories community.
 **ID:** MCR-034
 **Project:** iOS
-**Status:** Pending
+**Status:** Fixed
 **Type:** Feature
 
 **Description:**
 They are unrelated 3rd party sources and we are simply helping the user download the data and import it. They have no connection to us.
-- [ ]
+- [x]
 
 <a id="mcr-035" class="task" data-project="android" data-status="done" data-task-type="feature"></a>
 ### Search does not seem to search the downloaded compendiums at all.

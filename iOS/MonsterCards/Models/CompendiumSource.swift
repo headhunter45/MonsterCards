@@ -59,8 +59,8 @@ enum CompendiumRegistry {
         ),
         CompendiumSource(
             id: "pf2e_bestiary",
-            name: "Pathfinder 2e Bestiary (Community)",
-            description: "Community-maintained Pathfinder 2e monsters and NPCs from the Foundry VTT PF2e system repository.",
+            name: "Pathfinder 2e Bestiary",
+            description: "Pathfinder 2e monsters and NPCs from the Foundry VTT PF2e system repository.",
             gameSystem: .pf2e,
             sourceLabel: "PF2e Bestiary",
             bookSource: "Bestiary",
@@ -70,8 +70,8 @@ enum CompendiumRegistry {
         ),
         CompendiumSource(
             id: "sf2e_alien_archive",
-            name: "Starfinder 2e Playtest Bestiary (Community)",
-            description: "Starfinder 2e playtest alien archive creatures from the community repository.",
+            name: "Starfinder 2e Playtest Bestiary",
+            description: "Starfinder 2e playtest alien archive creatures from the 3rd-party repository.",
             gameSystem: .sf2e,
             sourceLabel: "SF2e Playtest",
             bookSource: "Alien Archive",

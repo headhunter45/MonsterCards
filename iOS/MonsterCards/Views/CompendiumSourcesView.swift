@@ -27,7 +27,7 @@ struct CompendiumSourcesView: View {
                             Image(systemName: "books.vertical.fill")
                                 .font(.title2)
                                 .foregroundColor(.accentColor)
-                            Text("Community Compendiums")
+                            Text("3rd-Party Compendiums")
                                 .font(.title3)
                                 .fontWeight(.bold)
                         }
@@ -311,7 +311,7 @@ struct CompendiumDisclaimerSheet: View {
                     .padding(.top, 8)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("You are about to download game reference content hosted on a third-party community Git repository:")
+                        Text("You are about to download game reference content hosted on an unrelated 3rd-party Git repository:")
                             .font(.body)
 
                         HStack {
@@ -339,7 +339,7 @@ struct CompendiumDisclaimerSheet: View {
                     Divider()
 
                     Toggle(isOn: $hasAcknowledged) {
-                        Text("I understand this is 3rd-party community content and agree to download it from the source repository.")
+                        Text("I understand this is 3rd-party content and agree to download it from the source repository.")
                             .font(.footnote)
                             .foregroundColor(.primary)
                     }
