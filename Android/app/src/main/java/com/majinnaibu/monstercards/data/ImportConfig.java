@@ -13,7 +13,7 @@ public class ImportConfig {
         SOURCES.add(new ImportSource(
             "open5e",
             "Open5e.com 5e Bestiary",
-            "Open5e Community",
+            "Open5e.com",
             "https://open5e.com",
             ImportSource.ImportType.OPEN5E_API,
             GameSystem.DND_5E,
@@ -36,7 +36,7 @@ public class ImportConfig {
             GameSystem.PF_2E,
             "Bestiary",
             "Foundry VTT PF2e",
-            "Complete Pathfinder 2nd Edition community bestiary data extract.",
+            "Complete Pathfinder 2nd Edition bestiary data extract.",
             "~25 MB",
             "https://github.com/foundryvtt/pf2e/archive/refs/heads/v14-dev.zip",
             "com.majinnaibu.monstercards.importers.Pf2eImporter",
