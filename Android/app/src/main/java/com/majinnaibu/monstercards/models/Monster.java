@@ -310,6 +310,7 @@ public class Monster {
     @SerializedName("gameSystem")
     public GameSystem gameSystem = GameSystem.DND_5E;
 
+    @NonNull
     @ColumnInfo(name = "custom_game_system", defaultValue = "")
     @SerializedName("customGameSystem")
     public String customGameSystem = "";
@@ -319,10 +320,12 @@ public class Monster {
     @SerializedName("origin")
     public MonsterOrigin origin = MonsterOrigin.MANUAL;
 
+    @NonNull
     @ColumnInfo(name = "custom_origin", defaultValue = "")
     @SerializedName("customOrigin")
     public String customOrigin = "";
 
+    @NonNull
     @ColumnInfo(name = "book_source", defaultValue = "")
     @SerializedName("bookSource")
     public String bookSource = "";

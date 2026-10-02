@@ -54,6 +54,7 @@ public class ReferenceMonster {
     @SerializedName("gameSystem")
     public GameSystem gameSystem;
 
+    @NonNull
     @ColumnInfo(name = "custom_game_system", defaultValue = "")
     @SerializedName("customGameSystem")
     public String customGameSystem = "";
@@ -63,6 +64,7 @@ public class ReferenceMonster {
     @SerializedName("origin")
     public MonsterOrigin origin = MonsterOrigin.OPEN5E;
 
+    @NonNull
     @ColumnInfo(name = "custom_origin", defaultValue = "")
     @SerializedName("customOrigin")
     public String customOrigin = "";
