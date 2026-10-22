@@ -90,13 +90,30 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app
 
+      - name: Start CoreSimulator & Find Simulator Device
+        id: sim
+        run: |
+          # Wake up CoreSimulator daemon
+          xcrun simctl list devices > /dev/null 2>&1 || true
+
+          # Find first available iPhone simulator device UDID
+          DEVICE_ID=$(xcrun simctl list devices available | grep -E 'iPhone' | grep -v 'unavailable' | head -n 1 | sed -E 's/.*\(([-0-9A-F]+)\).*/\1/' || true)
+
+          if [ -z "$DEVICE_ID" ]; then
+            # Fallback to any available simulator device
+            DEVICE_ID=$(xcrun simctl list devices available | grep -E '\([0-9A-F-]{36}\)' | head -n 1 | sed -E 's/.*\(([-0-9A-F]+)\).*/\1/' || true)
+          fi
+
+          echo "Resolved Simulator Device UDID: $DEVICE_ID"
+          echo "device_id=$DEVICE_ID" >> $GITHUB_OUTPUT
+
       - name: Build iOS App for Simulator
         run: |
           xcodebuild build \
             -project MonsterCards.xcodeproj \
             -scheme MonsterCards \
             -configuration Debug \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath build \
             MARKETING_VERSION=${{ steps.version.outputs.version_name }} \
             CURRENT_PROJECT_VERSION=${{ github.run_number }} \
@@ -105,10 +122,12 @@ jobs:
 
       - name: Run iOS Unit Tests (MonsterCardsTests)
         run: |
+          DESTINATION="platform=iOS Simulator,id=${{ steps.sim.outputs.device_id }}"
+          if [ -z "${{ steps.sim.outputs.device_id }}" ]; then DESTINATION="platform=iOS Simulator,name=iPhone 16"; fi
           xcodebuild test \
             -project MonsterCards.xcodeproj \
             -scheme MonsterCards \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination "$DESTINATION" \
             -only-testing:MonsterCardsTests \
             -resultBundlePath TestResults-Unit.xcresult \
             CODE_SIGNING_ALLOWED=NO \
@@ -116,10 +135,12 @@ jobs:
 
       - name: Run iOS UI Tests (MonsterCardsUITests)
         run: |
+          DESTINATION="platform=iOS Simulator,id=${{ steps.sim.outputs.device_id }}"
+          if [ -z "${{ steps.sim.outputs.device_id }}" ]; then DESTINATION="platform=iOS Simulator,name=iPhone 16"; fi
           xcodebuild test \
             -project MonsterCards.xcodeproj \
             -scheme MonsterCards \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination "$DESTINATION" \
             -only-testing:MonsterCardsUITests \
             -resultBundlePath TestResults-UI.xcresult \
             CODE_SIGNING_ALLOWED=NO \

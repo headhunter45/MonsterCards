@@ -8,3 +8,5 @@ thumbs.db
 .worktrees/
 .build/
 .worktrees
+__pycache__/
+*.pyc

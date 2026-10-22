@@ -12,6 +12,10 @@ def appCenterLocalSecret = properties.getProperty('appCenter.localSecret')
 def appCenterEnvSecret = System.getenv('APPCENTER_SECRET')
 def appCenterSecret = appCenterLocalSecret != null ? appCenterLocalSecret : appCenterEnvSecret != null ? appCenterEnvSecret : ""
 
+def rawVersionCode = project.findProperty('versionCode') ?: System.getenv('VERSION_CODE') ?: "1"
+def appVersionCode = Integer.parseInt(rawVersionCode.toString())
+def appVersionName = (project.findProperty('versionName') ?: System.getenv('VERSION_NAME') ?: "0.6.0").toString()
+
 android {
     namespace "com.majinnaibu.monstercards"
     compileSdk 37
@@ -21,8 +25,8 @@ android {
         minSdkVersion 24
         //noinspection OldTargetApi
         targetSdk 36
-        versionCode (project.findProperty('versionCode') ?: System.getenv('VERSION_CODE') ?: 1).toInteger()
-        versionName (project.findProperty('versionName') ?: System.getenv('VERSION_NAME') ?: "1.0").toString()
+        versionCode appVersionCode
+        versionName appVersionName
         buildConfigField "String", "APPCENTER_SECRET", "\"${appCenterSecret}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
