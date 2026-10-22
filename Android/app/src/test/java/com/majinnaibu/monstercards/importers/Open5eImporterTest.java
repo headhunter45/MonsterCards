@@ -27,16 +27,11 @@ public class Open5eImporterTest {
 
     @Test
     public void testParseGoblinSampleJson() throws Exception {
-        File sampleFile = new File("/Users/tom/Projects/TTRPG/CharacterDataFiles/rulesets/open5e/examples/character/goblin.json");
-        if (!sampleFile.exists()) {
-            sampleFile = new File("../../../CharacterDataFiles/rulesets/open5e/examples/character/goblin.json");
-        }
-        if (!sampleFile.exists()) {
-            sampleFile = new File("../../CharacterDataFiles/rulesets/open5e/examples/character/goblin.json");
-        }
+        File sampleFile = new File("../../examples/universal/goblin.json");
         assertTrue("Goblin sample JSON file should exist", sampleFile.exists());
 
         String json = new String(Files.readAllBytes(sampleFile.toPath()));
+        // assertEquals("", json);
         assertTrue(importer.canImport(json));
 
         Monster monster = importer.parse(json);
