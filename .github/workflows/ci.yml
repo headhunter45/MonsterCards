@@ -1,0 +1,142 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+    tags:
+      - 'v*'
+
+jobs:
+  android-ci:
+    name: Android Build & Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Android
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Version
+        id: version
+        run: ../scripts/get-version.sh --github-env
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x gradlew
+
+      - name: Build Android Debug APK
+        env:
+          VERSION_NAME: ${{ steps.version.outputs.version_name }}
+          VERSION_CODE: ${{ github.run_number }}
+        run: ./gradlew assembleDebug -PversionName="$VERSION_NAME" -PversionCode="$VERSION_CODE"
+
+      - name: Run Android Unit Tests (Host JVM)
+        run: ./gradlew testDebugUnitTest
+
+      - name: Run Android Instrumented Tests (Emulator)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          working-directory: Android
+          script: ./gradlew connectedDebugAndroidTest
+
+      - name: Keep Android Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-test-results-${{ steps.version.outputs.version_name }}
+          path: |
+            Android/app/build/reports/tests/
+            Android/app/build/reports/androidTests/
+            Android/app/build/test-results/
+
+      - name: Keep Android Build Products
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-debug-apk-${{ steps.version.outputs.version_name }}
+          path: Android/app/build/outputs/apk/debug/*.apk
+
+  ios-ci:
+    name: iOS Build & Test
+    runs-on: macos-15
+    defaults:
+      run:
+        working-directory: iOS
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Version
+        id: version
+        run: ../scripts/get-version.sh --github-env
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app
+
+      - name: Build iOS App for Simulator
+        run: |
+          xcodebuild build \
+            -project MonsterCards.xcodeproj \
+            -scheme MonsterCards \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -derivedDataPath build \
+            MARKETING_VERSION=${{ steps.version.outputs.version_name }} \
+            CURRENT_PROJECT_VERSION=${{ github.run_number }} \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
+
+      - name: Run iOS Unit Tests (MonsterCardsTests)
+        run: |
+          xcodebuild test \
+            -project MonsterCards.xcodeproj \
+            -scheme MonsterCards \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -only-testing:MonsterCardsTests \
+            -resultBundlePath TestResults-Unit.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
+
+      - name: Run iOS UI Tests (MonsterCardsUITests)
+        run: |
+          xcodebuild test \
+            -project MonsterCards.xcodeproj \
+            -scheme MonsterCards \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -only-testing:MonsterCardsUITests \
+            -resultBundlePath TestResults-UI.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
+
+      - name: Keep iOS Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-test-results-${{ steps.version.outputs.version_name }}
+          path: |
+            iOS/TestResults-Unit.xcresult
+            iOS/TestResults-UI.xcresult
+
+      - name: Keep iOS Build Products
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-app-${{ steps.version.outputs.version_name }}
+          path: iOS/build/Build/Products/Debug-iphonesimulator/*.app

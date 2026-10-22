@@ -21,8 +21,8 @@ android {
         minSdkVersion 24
         //noinspection OldTargetApi
         targetSdk 36
-        versionCode 1
-        versionName "1.0"
+        versionCode (project.findProperty('versionCode') ?: System.getenv('VERSION_CODE') ?: 1).toInteger()
+        versionName (project.findProperty('versionName') ?: System.getenv('VERSION_NAME') ?: "1.0").toString()
         buildConfigField "String", "APPCENTER_SECRET", "\"${appCenterSecret}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
