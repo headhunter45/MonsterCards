@@ -38,7 +38,7 @@ struct MonsterExport {
     /// Build a JSON-serialisable dictionary from a `MonsterViewModel`.
     @MainActor
     static func makeDictionary(monster: MonsterViewModel, idOverride: UUID? = nil) -> [String: Any] {
-        var d: [String: Any] = [
+        let d: [String: Any] = [
             "$schema": "https://majinnaibu.com/schemas/monster-card.schema.json",
             "schemaVersion": 1,
 

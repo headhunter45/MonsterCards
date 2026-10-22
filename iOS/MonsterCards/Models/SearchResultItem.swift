@@ -6,6 +6,7 @@
 //  Disambiguation type for search-result items across collections and dashboards.
 
 import Foundation
+import CoreData
 
 /// Discriminant for a SearchResultItem's concrete entity type.
 public enum SearchResultItemType: String, Codable, CaseIterable {

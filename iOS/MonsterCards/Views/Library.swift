@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Library: View {
     // TODO: add an import button that searches https://api.open5e.com/monsters/ and lets you import a monster from there

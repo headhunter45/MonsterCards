@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Dashboard: View {
     var body: some View {

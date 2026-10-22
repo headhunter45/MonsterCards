@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MonsterDetailWrapper: View {
     let kTextColor = Color(hex: 0x982818)

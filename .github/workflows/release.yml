@@ -88,7 +88,7 @@ jobs:
   android-release:
     name: Android Release Build & Test
     needs: prepare-release
-    runs-on: ubuntu-latest
+    runs-on: macos-15-intel
     defaults:
       run:
         working-directory: Android
@@ -151,6 +151,7 @@ jobs:
           api-level: 34
           target: google_apis
           arch: x86_64
+          disable-animations: true
           working-directory: Android
           script: ./gradlew connectedReleaseAndroidTest
 

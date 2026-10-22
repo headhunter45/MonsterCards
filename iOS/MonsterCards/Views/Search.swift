@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Search: View {
     @State private var searchText = ""
